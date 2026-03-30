@@ -43,7 +43,8 @@ body {
 
 /* ── Typography ── */
 h1, h2, h3, h4 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
   line-height: 1.05;
   letter-spacing: 0.01em;
   color: var(--white);
@@ -99,7 +100,8 @@ ul { list-style: none; }
 }
 
 .section-title {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
   font-size: clamp(36px, 7vw, 72px);
   margin-bottom: 16px;
   color: var(--white);
@@ -605,7 +607,8 @@ ul { list-style: none; }
 .benefit-card__icon { font-size: 26px; margin-bottom: 6px; line-height: 1; }
 
 .benefit-card__title {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
   font-size: 20px;
   color: var(--white);
   margin-bottom: 8px;
@@ -657,7 +660,8 @@ ul { list-style: none; }
 .channel-card__icon { font-size: 22px; margin-bottom: 10px; }
 
 .channel-card__title {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
   font-size: 17px;
   color: var(--white);
   margin-bottom: 4px;
@@ -712,7 +716,8 @@ ul { list-style: none; }
 .forwho-header__emoji { font-size: 24px; }
 
 .forwho-header__title {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
   font-size: 20px;
   color: var(--white);
   letter-spacing: 0.03em;
@@ -809,7 +814,8 @@ ul { list-style: none; }
 }
 
 .about-name {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
   font-size: 38px;
   color: var(--white);
   margin-bottom: 6px;
@@ -840,7 +846,8 @@ ul { list-style: none; }
 }
 
 .about-stat__num {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
   font-size: 38px;
   background: linear-gradient(135deg, var(--purple), var(--purple-2));
   -webkit-background-clip: text;
@@ -905,7 +912,8 @@ ul { list-style: none; }
 
 .guarantee-title {
   font-size: clamp(30px, 5vw, 56px);
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
   color: var(--white);
 }
 
@@ -1065,7 +1073,8 @@ ul { list-style: none; }
   justify-content: space-between;
   padding: 20px 22px;
   cursor: pointer;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
   letter-spacing: 0.03em;
   user-select: none;
   font-weight: 600;
