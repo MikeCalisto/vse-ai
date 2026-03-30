@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;900&subset=cyrillic&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=23" />
+  <link rel="stylesheet" href="style.css?v=24" />
   <style>
     /* ── Hero layout v4 (inline to bypass cache) ── */
 
@@ -665,22 +665,22 @@
     <div class="video-reviews-grid fade-in">
       <div class="video-review-item">
         <div class="video-review-circle">
-          <video src="review1.mp4" muted playsinline loop preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+          <video src="review1.mp4" playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
         </div>
       </div>
       <div class="video-review-item">
         <div class="video-review-circle">
-          <video src="review2.mp4" muted playsinline loop preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+          <video src="review2.mp4" playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
         </div>
       </div>
       <div class="video-review-item">
         <div class="video-review-circle">
-          <video src="review3.mp4" muted playsinline loop preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+          <video src="review3.mp4" playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
         </div>
       </div>
       <div class="video-review-item">
         <div class="video-review-circle">
-          <video src="review4.mp4" muted playsinline loop preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+          <video src="review4.mp4" playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
         </div>
       </div>
     </div>
@@ -941,44 +941,30 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 (function () {
   const circles = document.querySelectorAll('.video-review-circle');
 
-  // Click: toggle play/pause, pause others
   circles.forEach(circle => {
     const video = circle.querySelector('video');
     if (!video) return;
 
+    // Click: toggle play/pause, stop all others
     circle.addEventListener('click', () => {
       const isPaused = video.paused;
-      // Pause all
+      // Stop all
       circles.forEach(c => {
         const v = c.querySelector('video');
-        if (v && !v.paused) { v.pause(); c.classList.remove('playing'); }
+        if (v) { v.pause(); v.currentTime = 0; }
+        c.classList.remove('playing');
       });
-      // Play clicked if was paused
+      // Play this one if it was paused
       if (isPaused) {
         video.play().catch(() => {});
         circle.classList.add('playing');
       }
     });
 
-    // Remove playing class when video ends (loop=false case) or pauses
     video.addEventListener('pause', () => circle.classList.remove('playing'));
+    video.addEventListener('ended', () => circle.classList.remove('playing'));
     video.addEventListener('play',  () => circle.classList.add('playing'));
   });
-
-  // Autoplay when circle enters viewport, pause when leaves
-  const vidObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      const video = e.target.querySelector('video');
-      if (!video) return;
-      if (e.isIntersecting) {
-        video.play().catch(() => {});
-      } else {
-        video.pause();
-      }
-    });
-  }, { threshold: 0.5 });
-
-  circles.forEach(c => vidObs.observe(c));
 })();
 </script>
 
