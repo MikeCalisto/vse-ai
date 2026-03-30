@@ -475,37 +475,60 @@ ul { list-style: none; }
 .hero__cta-wrap {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
+  align-items: stretch;
+  gap: 12px;
+  max-width: 480px;
 }
 
 .hero__fine {
   font-size: 13px;
   color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
+/* ── Hero CTA price block ── */
 .hero__price-row {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 12px;
-  margin-bottom: -4px;
+  padding: 14px 0 4px;
 }
 
 .hero__price-current {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  font-size: clamp(28px, 4vw, 40px);
+  font-size: clamp(32px, 5vw, 48px);
   color: var(--purple);
   line-height: 1;
+}
+
+.hero__price-per {
+  font-size: 0.55em;
+  font-weight: 600;
+  opacity: 0.85;
+  vertical-align: baseline;
 }
 
 .hero__price-old {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  font-size: clamp(18px, 2.5vw, 26px);
+  font-size: clamp(16px, 2vw, 22px);
   color: var(--muted);
   text-decoration: line-through;
   line-height: 1;
+}
+
+.hero__price-badge {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  color: #fff;
+  background: var(--purple);
+  border-radius: 6px;
+  padding: 3px 8px;
+  letter-spacing: 0.02em;
 }
 
 /* ===== TIMER ===== */
@@ -1291,7 +1314,7 @@ footer {
   /* CTA button — не виходить за екран */
   .btn--large { font-size: 13px; padding: 15px 22px; letter-spacing: 0.03em; }
 
-  .hero__cta-wrap { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .hero__cta-wrap { flex-direction: column; align-items: stretch; gap: 12px; }
 
   /* Таймер — компактний на мобілі */
   .hero__mini-timer { margin-top: 24px; }
@@ -1359,7 +1382,7 @@ footer {
   .about-grid    { grid-template-columns: 300px 1fr; }
   .about-photo   { margin: 0; max-width: 100%; }
   .tg-screenshot { height: auto; max-width: 600px; margin-left: auto; margin-right: auto; }
-  .hero__cta-wrap { flex-direction: row; align-items: center; }
+  .hero__cta-wrap { flex-direction: column; align-items: stretch; }
   .footer-inner  { flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; }
 
   /* Hero — 2-колонка: контент ліворуч, відео праворуч */
