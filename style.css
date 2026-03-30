@@ -1252,13 +1252,13 @@ footer {
 
   .hero__mini-timer__num {
     font-size: 44px;
-    min-width: 64px;
-    padding: 8px 12px;
+    min-width: 84px;
+    padding: 10px 16px;
   }
 
   .hero__mini-timer__sep {
     font-size: 28px;
-    padding: 0 2px;
+    padding: 0 6px;
     margin-bottom: 14px;
   }
 
