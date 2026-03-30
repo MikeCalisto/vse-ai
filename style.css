@@ -430,12 +430,17 @@ ul { list-style: none; }
 }
 
 .hero__title {
-  font-family: 'ForteSHACyr', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
   font-size: clamp(58px, 13vw, 128px);
   margin-bottom: 8px;
   text-transform: uppercase;
   color: var(--white);
   line-height: 0.95;
+}
+.hero__title .gradient-text {
+  font-family: 'ForteSHACyr', sans-serif;
+  font-weight: normal;
 }
 
 .hero__sub {
