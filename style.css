@@ -1,3 +1,12 @@
+/* ===== CUSTOM FONTS ===== */
+@font-face {
+  font-family: 'ForteSHACyr';
+  src: url('7487-fontps.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -421,6 +430,7 @@ ul { list-style: none; }
 }
 
 .hero__title {
+  font-family: 'ForteSHACyr', sans-serif;
   font-size: clamp(58px, 13vw, 128px);
   margin-bottom: 8px;
   text-transform: uppercase;
