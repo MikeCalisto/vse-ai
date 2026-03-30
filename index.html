@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VSE AI — Закрита спільнота з AI-контенту</title>
+  <meta name="description" content="Закрита Telegram-спільнота VSE AI — 1 347 учасників, промпти, виклики, дзвінки з Сашею. Спробуй 7 днів за 1 грн." />
+  <meta property="og:title" content="VSE AI — Закрита спільнота з AI-контенту" />
+  <meta property="og:description" content="1 347 учасників вже всередині. Промпти, щоденні завдання, підтримка 24/7. Спробуй 7 днів за 1 грн." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&subset=cyrillic&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=10" />
+  <style>
+    /* ── Hero layout v4 (inline to bypass cache) ── */
+
+    /* === MOBILE: flex column === */
+    .hero__layout {
+      position: relative; z-index: 2; width: 100%;
+      display: flex !important; flex-direction: column; gap: 24px;
+    }
+    .hero__inner  { flex: 0 0 auto; }
+    .hero__bottom { flex: 0 0 auto; }
+
+    /* 2-col row: video (portrait) | mini-features */
+    .hero__media-row {
+      display: flex; flex-direction: row;
+      gap: 14px; align-items: stretch;
+    }
+    .hero__video-wrap {
+      position: relative !important;
+      top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
+      flex: 0 0 50% !important; width: auto !important;
+      aspect-ratio: 9/16; height: auto !important;
+      border-radius: 16px !important; overflow: hidden;
+      border: 1px solid rgba(124,58,237,.4) !important;
+      box-shadow: 0 0 28px rgba(124,58,237,.25) !important;
+    }
+    /* Video fills the wrap */
+    .hero__video-wrap video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .hero__video-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to top, rgba(0,0,0,.35) 0%, transparent 50%) !important;
+    }
+
+    /* Mini-features — stretch to full video height */
+    .hero__mini-feats {
+      flex: 1; list-style: none; margin: 0; padding: 0;
+      display: flex; flex-direction: column;
+      justify-content: space-evenly; gap: 4px;
+      align-self: stretch;
+    }
+
+    .hero__mini-feat {
+      display: flex; flex-direction: row; align-items: center; gap: 10px;
+    }
+    .hero__mini-feat__icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      object-fit: contain; display: block;
+    }
+    .hero__mini-feat span {
+      font-size: 12px; line-height: 1.35; color: rgba(255,255,255,.82);
+    }
+
+    /* === DESKTOP (768px+): CSS grid, media-row becomes transparent === */
+    @media (min-width: 768px) {
+      .hero__layout {
+        display: grid !important;
+        grid-template-columns: 1fr 400px;
+        grid-template-rows: auto auto auto;
+        align-items: start; gap: 0;
+      }
+      .hero__inner  { grid-column: 1; grid-row: 1; padding-bottom: 20px; }
+      .hero__bottom { grid-column: 1; grid-row: 3; }
+      /* media-row becomes transparent — children join the grid */
+      .hero__media-row { display: contents; }
+      /* mini-feats: visible in col 1, row 2 on desktop */
+      .hero__mini-feats {
+        grid-column: 1; grid-row: 2;
+        flex: unset !important;
+        display: flex !important; flex-direction: row !important;
+        gap: 24px; padding-bottom: 24px;
+        justify-content: flex-start; align-items: flex-start;
+      }
+      .hero__mini-feat {
+        flex-direction: column; align-items: flex-start; gap: 8px;
+        max-width: 130px;
+      }
+      .hero__mini-feat__icon { width: 44px; height: 44px; }
+      .hero__mini-feat span { font-size: 13px; }
+      .hero__video-wrap {
+        grid-column: 2 !important; grid-row: 1 / 4 !important;
+        flex: unset !important;
+        width: 100% !important; height: auto !important;
+        aspect-ratio: unset !important; min-height: 480px;
+        border-radius: 0 !important;
+        border: none !important;
+        border-left: 1px solid rgba(124,58,237,.25) !important;
+        box-shadow: -40px 0 80px -20px rgba(124,58,237,.25) !important;
+        align-self: stretch;
+        /* Прибираємо зазор справа (container padding + auto margin) */
+        margin-right: calc(-20px - max(0px, (100vw - 1100px) / 2)) !important;
+      }
+      .hero__video-overlay {
+        background: linear-gradient(to right, rgba(0,0,0,.9) 0%, rgba(0,0,0,.15) 50%, transparent 100%) !important;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero__layout { grid-template-columns: 1fr 500px; }
+      .hero__video-wrap { min-height: 560px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== СЕКЦИЯ 1 — HERO ===== -->
+<section class="hero" id="hero">
+
+  <div class="container"><div class="hero__layout">
+
+    <!-- Верхній текст: badge, заголовок, підзаголовок -->
+    <div class="hero__inner fade-in">
+      <div class="hero__badge"><span class="hero__badge-dot"></span>онлайн спільнота · Telegram</div>
+      <h1 class="hero__title">
+        ЗАКРИТА СПІЛЬНОТА<br>
+        <span class="gradient-text">VSE AI</span>
+      </h1>
+      <p class="hero__sub">
+        для кожного, хто працює з АІ контентом<br>
+        або тільки розбирається в нейронках
+      </p>
+    </div>
+
+    <!-- Медіа-ряд: відео (зліва) + 3 фічі (справа) — тільки на мобілі -->
+    <!-- На десктопі display:contents — відео стає колонкою grid -->
+    <div class="hero__media-row">
+      <div class="hero__video-wrap">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="bg_video.mp4" type="video/mp4">
+        </video>
+        <div class="hero__video-overlay"></div>
+      </div>
+      <ul class="hero__mini-feats">
+        <li class="hero__mini-feat">
+          <img class="hero__mini-feat__icon" src="img_ai_logo.png" alt="AI">
+          <span>500+ готових промптів для AI-фотосесій</span>
+        </li>
+        <li class="hero__mini-feat">
+          <img class="hero__mini-feat__icon" src="img_ai_logo.png" alt="AI">
+          <span>Щоденні виклики та домашні завдання</span>
+        </li>
+        <li class="hero__mini-feat">
+          <img class="hero__mini-feat__icon" src="img_ai_logo.png" alt="AI">
+          <span>Прямі ефіри та дзвінки з Сашею</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Нижній блок: лічильник, CTA, таймер -->
+    <div class="hero__bottom fade-in">
+      <div class="hero__counter">
+        <span class="hero__counter-dot"></span>
+        1 347 учасників вже всередині
+      </div>
+      <div class="hero__cta-wrap">
+        <a href="#join" class="btn btn--large" id="hero-cta">
+          <span class="btn-arrow">→</span>
+          СПРОБУВАТИ ЗА 1 ГРН · 7 ДНІВ
+        </a>
+        <span class="hero__fine">потім 490 грн/місяць · скасувати можна будь-коли</span>
+      </div>
+      <div class="hero__mini-timer">
+        <div class="hero__mini-timer__label">До закінчення пропозиції залишилось:</div>
+        <div class="hero__mini-timer__row">
+          <div class="hero__mini-timer__unit">
+            <div class="hero__mini-timer__num" id="hero-timer-hours">00</div>
+            <div class="hero__mini-timer__unit-label">Годин</div>
+          </div>
+          <div class="hero__mini-timer__sep">:</div>
+          <div class="hero__mini-timer__unit">
+            <div class="hero__mini-timer__num" id="hero-timer-mins">10</div>
+            <div class="hero__mini-timer__unit-label">Хвилин</div>
+          </div>
+          <div class="hero__mini-timer__sep">:</div>
+          <div class="hero__mini-timer__unit">
+            <div class="hero__mini-timer__num" id="hero-timer-secs">00</div>
+            <div class="hero__mini-timer__unit-label">Секунд</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div></div>
+
+</section>
+
+<!-- ===== СЕКЦИЯ 3 — ЩО ЧЕКАЄ ПІСЛЯ ОПЛАТИ ===== -->
+<section class="section" id="benefits">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-badge">Що ти отримуєш</div>
+      <h2 class="section-title">
+        ЩО САМЕ ТЕБЕ ЧЕКАЄ <span class="gradient-text">ОДРАЗУ</span><br>ПІСЛЯ ОПЛАТИ?
+      </h2>
+      <p class="section-sub">
+        VSE AI — це жива спільнота, у якій вже 1 347 учасників, які створюють і навіть заробляють на AI-контенті.
+      </p>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="benefit-card fade-in">
+        <img class="benefit-card__num" src="1.png" alt="01">
+        <div>
+          <div class="benefit-card__icon">📋</div>
+          <div class="benefit-card__title">500 ГОТОВИХ ПРОМПТІВ ДЛЯ ФОТОСЕСІЙ</div>
+          <p class="benefit-card__text">Скопіював / вставив → готове фото. Промпти для жінок, чоловіків, парних і святкових фотосесій — вже зібрані.</p>
+          <div class="benefit-card__result">→ Заощадиш 3–5 годин на тиждень</div>
+        </div>
+      </div>
+
+      <div class="benefit-card fade-in" id="benefit-trigger">
+        <img class="benefit-card__num" src="2.png" alt="02">
+        <div>
+          <div class="benefit-card__icon">📅</div>
+          <div class="benefit-card__title">ЩОДЕННІ ДОМАШНІ ЗАВДАННЯ</div>
+          <p class="benefit-card__text">Практичні завдання, які одразу дають результат — для будь-якого рівня.</p>
+          <div class="benefit-card__result">→ З першого дня ти не просто читаєш — ти робиш і ростеш</div>
+        </div>
+      </div>
+
+      <div class="benefit-card fade-in">
+        <img class="benefit-card__num" src="3.png" alt="03">
+        <div>
+          <div class="benefit-card__icon">📞</div>
+          <div class="benefit-card__title">ЩОТИЖНЕВІ ДЗВІНКИ З САШЕЮ</div>
+          <p class="benefit-card__text">Нові інструменти, сесії питання/відповідь, розбір твоїх реальних робіт.</p>
+          <div class="benefit-card__result">→ Живий ефір щотижня, архів записів завжди доступний</div>
+        </div>
+      </div>
+
+      <div class="benefit-card fade-in">
+        <img class="benefit-card__num" src="4.png" alt="04">
+        <div>
+          <div class="benefit-card__icon">🛡️</div>
+          <div class="benefit-card__title">ПІДТРИМКА 24/7 — БЕЗ ОСУДУ, БЕЗ ІГНОРУ</div>
+          <p class="benefit-card__text">6 адмінів-кураторів відповідають на питання в будь-який час. Боїшся "тупих питань"? У VSE AI такого немає.</p>
+          <div class="benefit-card__result">→ За перший місяць учасники виходять з нуля на перше портфоліо</div>
+        </div>
+      </div>
+
+      <div class="benefit-card fade-in">
+        <img class="benefit-card__num" src="5.png" alt="05">
+        <div>
+          <div class="benefit-card__icon">🏆</div>
+          <div class="benefit-card__title">ЩОТИЖНЕВІ ЧЕЛЕНДЖІ — ДЛЯ ТВОГО ПОРТФОЛІО</div>
+          <p class="benefit-card__text">Реальні завдання, реальні роботи, реальний результат.</p>
+          <div class="benefit-card__result">→ Через місяць — портфоліо AI-робіт, яке можна показати клієнтам</div>
+        </div>
+      </div>
+
+      <div class="benefit-card fade-in">
+        <img class="benefit-card__num" src="6.png" alt="06">
+        <div>
+          <div class="benefit-card__icon">🎁</div>
+          <div class="benefit-card__title">ЩОТИЖНЕВІ РОЗІГРАШІ</div>
+          <p class="benefit-card__text">Підписки на платні нейронки та інші призи — за прості дії в спільноті.</p>
+          <div class="benefit-card__result">→ Твоя підписка на VSE AI може окупитися вже в перший місяць</div>
+        </div>
+      </div>
+
+      <div class="benefit-card fade-in" style="grid-column: 1 / -1;">
+        <img class="benefit-card__num" src="7.png" alt="07">
+        <div>
+          <div class="benefit-card__icon">🎤</div>
+          <div class="benefit-card__title">СТРІМИ З ЗАПРОШЕНИМИ ЕКСПЕРТАМИ</div>
+          <p class="benefit-card__text">YouTube, психологія, особистий бренд — теми обираєш ти через голосування в спільноті.</p>
+          <div class="benefit-card__result">→ Знання від практиків у різних нішах — не тільки по AI</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;" class="fade-in">
+      <a href="#join" class="btn btn--large">
+        <span class="btn-arrow">→</span>
+        ПРИЄДНАТИСЯ — 1 ГРН НА 7 ДНІВ
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== СЕКЦИЯ 4 — ЗСЕРЕДИНИ ===== -->
+<section class="section inside-section" id="inside">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-badge">Структура</div>
+      <h2 class="section-title">
+        ЗАЙДИ І ПОБАЧ — <span class="gradient-text">ОСЬ ЯК ВИГЛЯДАЄ</span><br>VSE AI ЗСЕРЕДИНИ
+      </h2>
+      <p class="section-sub">Це не просто чат. Це екосистема з окремими тематичними гілками:</p>
+    </div>
+
+    <div class="channels-grid">
+      <div class="channel-card fade-in">
+        <div class="channel-card__icon">📝</div>
+        <div class="channel-card__title">Домашні завдання і челенджі</div>
+        <div class="channel-card__desc">Щоденна практика → портфоліо за 30 днів</div>
+      </div>
+      <div class="channel-card fade-in">
+        <div class="channel-card__icon">🎬</div>
+        <div class="channel-card__title">Промпти для відео</div>
+        <div class="channel-card__desc">Kling, Sora, Runway — перевірені зв'язки</div>
+      </div>
+      <div class="channel-card fade-in">
+        <div class="channel-card__icon">🎨</div>
+        <div class="channel-card__title">Промпти для зображень</div>
+        <div class="channel-card__desc">500+ готових — скопіюй і отримай результат</div>
+      </div>
+      <div class="channel-card fade-in">
+        <div class="channel-card__icon">🔑</div>
+        <div class="channel-card__title">Промпти з чату</div>
+        <div class="channel-card__desc">Найкращі промпти учасників — відібрані кураторами</div>
+      </div>
+      <div class="channel-card fade-in">
+        <div class="channel-card__icon">💡</div>
+        <div class="channel-card__title">Лайфхаки для GPT</div>
+        <div class="channel-card__desc">Прийоми яких немає у відкритому доступі</div>
+      </div>
+      <div class="channel-card fade-in">
+        <div class="channel-card__icon">🏁</div>
+        <div class="channel-card__title">Тринділка (Новини AI)</div>
+        <div class="channel-card__desc">Найсвіжіші новини нейронок — першим у клубі</div>
+      </div>
+      <div class="channel-card fade-in">
+        <div class="channel-card__icon">📺</div>
+        <div class="channel-card__title">Записи ефірів і стрімів</div>
+        <div class="channel-card__desc">Пропустив дзвінок — дивись запис</div>
+      </div>
+      <div class="channel-card fade-in">
+        <div class="channel-card__icon">📱</div>
+        <div class="channel-card__title">Ваші соцмережі</div>
+        <div class="channel-card__desc">Взаємний піар між учасниками</div>
+      </div>
+      <div class="channel-card fade-in">
+        <div class="channel-card__icon">🔗</div>
+        <div class="channel-card__title">Корисні посилання</div>
+        <div class="channel-card__desc">Безкоштовні нейронки, обхід блокувань</div>
+      </div>
+      <div class="channel-card fade-in">
+        <div class="channel-card__icon">🏅</div>
+        <div class="channel-card__title">Записи з челенджу</div>
+        <div class="channel-card__desc">Роботи учасників — для натхнення</div>
+      </div>
+    </div>
+
+    <div class="tg-screenshot fade-in">
+      <img src="telegram screnshot.png" alt="VSE AI Telegram" style="width:100%;height:auto;display:block;">
+    </div>
+  </div>
+</section>
+
+<!-- ===== СЕКЦИЯ 5 — ДЛЯ КОГО ===== -->
+<section class="section" id="forwho">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-badge">Аудиторія</div>
+      <h2 class="section-title">
+        VSE AI — <span class="gradient-text">ДЛЯ КОГО</span><br>ЦЯ СПІЛЬНОТА?
+      </h2>
+      <p class="section-sub">1 347 учасників вже всередині. Знайди себе.</p>
+    </div>
+
+    <div class="forwho-list fade-in">
+
+      <div class="forwho-item">
+        <div class="forwho-header">
+          <div class="forwho-header__left">
+            <span class="forwho-header__emoji">🌱</span>
+            <div>
+              <div class="forwho-header__title">НОВАЧКИ</div>
+              <div class="forwho-header__sub">«чув про AI, але не знаю з чого почати»</div>
+            </div>
+          </div>
+          <div class="forwho-toggle">+</div>
+        </div>
+        <div class="forwho-body">
+          <div class="forwho-body__inner">
+            <p class="forwho-pain">Ти чув про Sora, ChatGPT і Midjourney — але боїшся натиснути «не туди». Стикаєшся з VPN-помилками, лімітами генерацій і не розумієш як писати промпти. Відчуваєш що всі вже вміють, а ти — ні.</p>
+            <div class="forwho-benefits">
+              <div class="forwho-benefit">Безпечне середовище — тут немає «тупих питань». Куратори 24/7, жодного осуду.</div>
+              <div class="forwho-benefit">Покрокові інструкції: куди натискати, де реєструватись, як обійти блокування.</div>
+              <div class="forwho-benefit">Щоденні завдання — від нуля до першого AI-результату за 30 днів.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="forwho-item">
+        <div class="forwho-header">
+          <div class="forwho-header__left">
+            <span class="forwho-header__emoji">💼</span>
+            <div>
+              <div class="forwho-header__title">SMM, КОНТЕНТ-МЕЙКЕРИ І ФРИЛАНСЕРИ</div>
+              <div class="forwho-header__sub">«хочу заробляти на AI»</div>
+            </div>
+          </div>
+          <div class="forwho-toggle">+</div>
+        </div>
+        <div class="forwho-body">
+          <div class="forwho-body__inner">
+            <p class="forwho-pain">Нейронка спотворює обличчя, ламає текст на логотипах, видає «пластикову» картинку. Ти не знаєш як ціноутворити свої послуги.</p>
+            <div class="forwho-benefits">
+              <div class="forwho-benefit">Професійні JSON-промпти — 100% збереження облич і тексту.</div>
+              <div class="forwho-benefit">Готові прайс-листи: скільки брати за 10 секунд відео або AI-фотосесію.</div>
+              <div class="forwho-benefit">Реальні замовлення, які передаються всередині спільноти.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="forwho-item">
+        <div class="forwho-header">
+          <div class="forwho-header__left">
+            <span class="forwho-header__emoji">🏪</span>
+            <div>
+              <div class="forwho-header__title">ВЛАСНИКИ БІЗНЕСУ І ЕКСПЕРТИ</div>
+              <div class="forwho-header__sub">«контент потрібен, але бюджету немає»</div>
+            </div>
+          </div>
+          <div class="forwho-toggle">+</div>
+        </div>
+        <div class="forwho-body">
+          <div class="forwho-body__inner">
+            <p class="forwho-pain">Є магазин або послуги, але на студійні зйомки і продакшн — немає бюджету.</p>
+            <div class="forwho-benefits">
+              <div class="forwho-benefit">Преміальні фотосесії товару — в один клік. Без фотографа і студії.</div>
+              <div class="forwho-benefit">Цифровий AI-аватар, який говорить твоїм голосом у Reels/TikTok.</div>
+              <div class="forwho-benefit">Контент-плани і сценарії під нішу — готові за 2 хвилини.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="forwho-item">
+        <div class="forwho-header">
+          <div class="forwho-header__left">
+            <span class="forwho-header__emoji">🚀</span>
+            <div>
+              <div class="forwho-header__title">ПРОСУНУТІ КОРИСТУВАЧІ</div>
+              <div class="forwho-header__sub">«вже вмію, хочу бути першим»</div>
+            </div>
+          </div>
+          <div class="forwho-toggle">+</div>
+        </div>
+        <div class="forwho-body">
+          <div class="forwho-body__inner">
+            <p class="forwho-pain">Вже вмієш Kling, Midjourney, Runway — але хочеш більше: морфінг, Lipsync, монетизацію YouTube. Самому шукати — довго і дорого.</p>
+            <div class="forwho-benefits">
+              <div class="forwho-benefit">Інсайди і бета-тести — раніше всього інтернету.</div>
+              <div class="forwho-benefit">Спільні покупки дорогих підписок — економиш на інструментах.</div>
+              <div class="forwho-benefit">Розбори складних зв'язок з 3–4 нейронок для одного відео.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="forwho-item">
+        <div class="forwho-header">
+          <div class="forwho-header__left">
+            <span class="forwho-header__emoji">🎨</span>
+            <div>
+              <div class="forwho-header__title">ЕНТУЗІАСТИ</div>
+              <div class="forwho-header__sub">«для душі, не для заробітку»</div>
+            </div>
+          </div>
+          <div class="forwho-toggle">+</div>
+        </div>
+        <div class="forwho-body">
+          <div class="forwho-body__inner">
+            <p class="forwho-pain">Хочеш генерувати, творити, ділитись — але немає своїх людей.</p>
+            <div class="forwho-benefits">
+              <div class="forwho-benefit">Щотижневі челенджі з реальними призами — за творчість.</div>
+              <div class="forwho-benefit">Спільнота, де твої роботи оцінять і зрозуміють.</div>
+              <div class="forwho-benefit">Живий чат з 1000+ повідомленнями на добу.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="forwho-final fade-in">Знайшов себе хоча б в одному пункті? Значить VSE AI — для тебе.</p>
+    <div style="text-align:center;" class="fade-in">
+      <a href="#join" class="btn btn--large">
+        <span class="btn-arrow">→</span>
+        ПРИЄДНАТИСЯ — 1 ГРН НА 7 ДНІВ
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== СЕКЦИЯ 6 — ПРО САШУ ===== -->
+<section class="section about-section" id="about">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-badge">Засновник</div>
+      <h2 class="section-title">
+        ХТО І ЧОМУ ЗАСНУВАВ <span class="gradient-text">VSE AI</span>?
+      </h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-photo fade-in">
+        <img src="sasha_photo.png" alt="Олександр — засновник VSE AI" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;">
+      </div>
+      <div class="fade-in">
+        <div class="about-name">Олександр</div>
+        <div class="about-role">Експерт з AI-контенту · Засновник VSE AI</div>
+        <p class="about-text">[PLACEHOLDER — перший абзац біографії Саші. Розкажіть про його шлях в AI, перші кроки та відкриття.]</p>
+        <p class="about-text">[PLACEHOLDER — другий абзац. Чому вирішив створити спільноту, яку проблему вона вирішує.]</p>
+        <p class="about-text">[PLACEHOLDER — третій абзац. Результати учасників, чим пишається як засновник.]</p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="about-stat__num">1 347+</div>
+            <div class="about-stat__label">Учасників</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat__num">3+</div>
+            <div class="about-stat__label">Роки досвіду</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat__num">50+</div>
+            <div class="about-stat__label">Інструментів в базі</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== СЕКЦИЯ 7 — ВІДЕО ===== -->
+<section class="section" id="video">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-badge">Огляд зсередини</div>
+      <h2 class="section-title">
+        ОСЬ ЩО ТИ ОТРИМУЄШ ЗА <span class="gradient-text">490 ГРН</span><br>НА МІСЯЦЬ
+      </h2>
+    </div>
+    <div class="video-wrap placeholder fade-in" style="height:auto;min-height:300px;">
+      <div class="placeholder-icon">▶️</div>
+      <strong>PLACEHOLDER — Відео-огляд клубу</strong>
+      <span>Вставте YouTube-embed або файл video_review.mp4<br>
+      &lt;iframe src="https://www.youtube.com/embed/VIDEO_ID"&gt;&lt;/iframe&gt;<br>
+      або &lt;video src="video_review.mp4" controls&gt;&lt;/video&gt;</span>
+    </div>
+    <p class="video-note fade-in">Саша показує все зсередини — займає 3 хвилини</p>
+  </div>
+</section>
+
+<!-- ===== СЕКЦИЯ 8 — ГАРАНТІЯ ===== -->
+<section class="section guarantee-section" id="guarantee">
+  <div class="container">
+    <div class="guarantee-box fade-in">
+      <div class="guarantee-icon"><img src="shield.png" alt="Гарантія" style="width:72px;height:72px;object-fit:contain;"></div>
+      <h2 class="guarantee-title">
+        ГАРАНТІЯ — <span class="gradient-text">БЕЗ РИЗИКУ</span>
+      </h2>
+      <p class="guarantee-text">
+        Спробуй VSE AI 7 днів за 1 грн. Якщо не сподобається — просто не продовжуй підписку. Жодних зайвих питань, жодних штрафів. Скасування — в один клік.
+      </p>
+      <p class="guarantee-note">Підписка як Netflix, Spotify, ChatGPT Plus — ти в контролі.</p>
+      <a href="#join" class="btn">
+        <span class="btn-arrow">→</span>
+        СПРОБУВАТИ БЕЗ РИЗИКУ
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== СЕКЦИЯ 9 — РОБОТИ УЧАСНИКІВ ===== -->
+<section class="section" id="portfolio">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-badge">Портфоліо</div>
+      <h2 class="section-title">
+        ОСЬ ЩО СТВОРЮЮТЬ УЧАСНИКИ <span class="gradient-text">VSE AI</span>
+      </h2>
+      <p class="section-sub">І наповнюють своє портфоліо</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item placeholder fade-in">
+        <div class="placeholder-icon">🖼️</div>
+        <span>work_1.jpg</span>
+      </div>
+      <div class="gallery-item placeholder fade-in">
+        <div class="placeholder-icon">🖼️</div>
+        <span>work_2.jpg</span>
+      </div>
+      <div class="gallery-item placeholder fade-in">
+        <div class="placeholder-icon">🖼️</div>
+        <span>work_3.jpg</span>
+      </div>
+      <div class="gallery-item placeholder fade-in">
+        <div class="placeholder-icon">🖼️</div>
+        <span>work_4.jpg</span>
+      </div>
+      <div class="gallery-item placeholder fade-in">
+        <div class="placeholder-icon">🖼️</div>
+        <span>work_5.jpg</span>
+      </div>
+      <div class="gallery-item placeholder fade-in">
+        <div class="placeholder-icon">🖼️</div>
+        <span>work_6.jpg</span>
+      </div>
+      <div class="gallery-item placeholder fade-in">
+        <div class="placeholder-icon">🖼️</div>
+        <span>work_7.jpg</span>
+      </div>
+      <div class="gallery-item placeholder fade-in">
+        <div class="placeholder-icon">🖼️</div>
+        <span>work_8.jpg</span>
+      </div>
+      <div class="gallery-item placeholder fade-in">
+        <div class="placeholder-icon">🖼️</div>
+        <span>work_9.jpg</span>
+      </div>
+    </div>
+
+    <div style="text-align:center;" class="fade-in">
+      <a href="#join" class="btn btn--large">
+        <span class="btn-arrow">→</span>
+        ХОЧУ ТАК САМО — ПРИЄДНАТИСЯ
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== СЕКЦИЯ 10 — ВІДЕО ВІДГУКИ ===== -->
+<section class="section video-reviews-section" id="video-reviews">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-badge">Відгуки</div>
+      <h2 class="section-title">ОСЬ ЩО КАЖУТЬ УЧАСНИКИ VSE AI</h2>
+    </div>
+    <div class="video-reviews-grid fade-in">
+      <div class="video-review-item">
+        <div class="video-review-circle">
+          <video src="review1.mp4" muted playsinline loop preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+        </div>
+      </div>
+      <div class="video-review-item">
+        <div class="video-review-circle">
+          <video src="review2.mp4" muted playsinline loop preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+        </div>
+      </div>
+      <div class="video-review-item">
+        <div class="video-review-circle">
+          <video src="review3.mp4" muted playsinline loop preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+        </div>
+      </div>
+      <div class="video-review-item">
+        <div class="video-review-circle">
+          <video src="review4.mp4" muted playsinline loop preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== СЕКЦИЯ — ЦІНА / JOIN ===== -->
+<section class="price-section" id="join">
+  <div class="container">
+    <div class="fade-in">
+      <div class="price-label">Ціна входу</div>
+      <div class="price-row">
+        <div class="price-current">1 ГРН</div>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:4px;">
+          <span style="font-size:14px;color:var(--gray);font-weight:600;">перші 7 днів</span>
+          <div class="price-old">490 ГРН</div>
+        </div>
+      </div>
+      <p class="price-period">потім 490 грн/місяць · скасувати можна будь-коли в один клік</p>
+      <a href="#" class="btn btn--large" style="display:inline-flex;gap:12px;">
+        <span class="btn-arrow">→</span>
+        ПРИЄДНАТИСЯ ЗА СПЕЦІАЛЬНОЮ ЦІНОЮ -75%
+      </a>
+      <p style="margin-top:16px;font-size:13px;color:var(--gray);">Після натискання — перенаправить до оплати у Telegram</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== СЕКЦИЯ 12 — FAQ ===== -->
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-badge">FAQ</div>
+      <h2 class="section-title">ЧАСТІ ПИТАННЯ</h2>
+    </div>
+
+    <div class="faq-list fade-in">
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Я новачок і нічого не розумію — мені підійде?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            Так. Все побудовано з нуля. Перші матеріали і промпти ти отримуєш одразу після оплати. Тут немає «тупих питань» — куратори слідкують за атмосферою 24/7.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Як скасувати підписку?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            В один клік. Жодних питань і штрафів. Підписка як Netflix — ти в контролі.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Чи потрібен VPN?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            Ні. Усі інструменти доступні в Україні без VPN та іноземної карти. Якщо щось не працює — куратори допоможуть знайти альтернативу.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Чи потрібен потужний комп'ютер?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            Вистачить смартфону. Для великих проектів — будь-який ноутбук. Усі нейронки працюють у хмарі, потужне залізо не потрібне.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Де відбувається спілкування?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            У Telegram — зручно, звично, доступно з будь-якого пристрою. Після оплати ти отримаєш посилання на закритий канал і чат.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Що буде, якщо я пропущу дзвінок з Сашею?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            Всі записи зберігаються в архіві — дивись коли зручно, в будь-який час. Жодна корисна інформація не загубиться.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">VSE <span>AI</span></div>
+        <p class="footer-desc" style="margin-top:12px;">Закрита Telegram-спільнота для тих, хто працює з AI-контентом або тільки починає.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div class="footer-links">
+          <a href="oferta.html">Договір оферти</a>
+          <a href="politika.html">Політика конфіденційності</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="font-size:13px;color:#888;line-height:1.6;">
+            <div style="font-weight:600;color:#aaa;margin-bottom:4px;">ЗЕМЛЯНИЙ МИХАЙЛО СЕРГІЙОВИЧ ФОП</div>
+            <div>ЄДРПОУ: 3758302175</div>
+            <div>+380985966120</div>
+            <div>m.zemlyanie@gmail.com</div>
+          </div>
+          <div style="font-size:13px;color:#888;line-height:1.6;">
+            <div style="font-weight:600;color:#aaa;margin-bottom:4px;">БРЖЕСТОВСЬКА ГАННА ЮРІЇВНА ФОП</div>
+            <div>ЄДРПОУ: 2877703349</div>
+            <div>894159@gmail.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal" style="margin-top:32px;">
+      © 2025 VSE AI. Усі права захищено.
+    </div>
+  </div>
+</footer>
+
+<!-- ===== STICKY BOTTOM CTA ===== -->
+<div class="sticky-cta" id="sticky-cta">
+  <div class="container sticky-cta__inner">
+    <a href="#join" class="btn btn--large">
+      <span class="btn-arrow">→</span>
+      СПРОБУВАТИ КЛУБ ЗА 1 ГРН НА 7 ДНІВ
+    </a>
+  </div>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// ── HERO MINI-TIMER (10 хвилин, скидається щоразу) ────────
+(function () {
+  const elH = document.getElementById('hero-timer-hours');
+  const elM = document.getElementById('hero-timer-mins');
+  const elS = document.getElementById('hero-timer-secs');
+  let remaining = 10 * 60;
+
+  const pad = (n) => String(n).padStart(2, '0');
+
+  function tick() {
+    const total = remaining > 0 ? remaining : 0;
+    const h = Math.floor(total / 3600);
+    const m = Math.floor((total % 3600) / 60);
+    const s = total % 60;
+    elH.textContent = pad(h);
+    elM.textContent = pad(m);
+    elS.textContent = pad(s);
+    if (remaining > 0) remaining--;
+  }
+
+  tick();
+  setInterval(tick, 1000);
+})();
+
+// ── STICKY BOTTOM CTA ──────────────────────────────────────
+(function () {
+  const stickyCta = document.getElementById('sticky-cta');
+  const trigger   = document.getElementById('benefit-trigger');
+
+  if (!stickyCta || !trigger) return;
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        stickyCta.classList.add('visible');
+        obs.unobserve(trigger);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  obs.observe(trigger);
+})();
+
+// ── FAQ ACCORDION ─────────────────────────────────────────
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-question');
+  const a = item.querySelector('.faq-answer');
+  q.addEventListener('click', () => {
+    const open = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+      i.querySelector('.faq-toggle').textContent = '+';
+    });
+    if (!open) {
+      item.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+      item.querySelector('.faq-toggle').textContent = '−';
+    }
+  });
+});
+
+// ── FOR WHO ACCORDION ─────────────────────────────────────
+document.querySelectorAll('.forwho-item').forEach(item => {
+  const header = item.querySelector('.forwho-header');
+  const body   = item.querySelector('.forwho-body');
+  const toggle = item.querySelector('.forwho-toggle');
+  header.addEventListener('click', () => {
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.forwho-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.forwho-body').style.maxHeight = null;
+      i.querySelector('.forwho-toggle').textContent = '+';
+    });
+    if (!open) {
+      item.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+      toggle.textContent = '−';
+    }
+  });
+});
+
+// ── INTERSECTION OBSERVER (fade-in) ───────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
