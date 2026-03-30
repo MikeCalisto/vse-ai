@@ -1014,6 +1014,17 @@ ul { list-style: none; }
   box-shadow: 0 12px 32px -8px rgba(124,58,237,0.25);
 }
 
+/* Clip YouTube channel header bar from Shorts embeds */
+.gallery-item iframe {
+  position: absolute;
+  top: -72px;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 72px);
+  border: 0;
+  display: block;
+}
+
 /* ===== VIDEO REVIEWS ===== */
 .video-reviews-section {
   background: linear-gradient(to bottom, transparent, rgba(124,58,237,0.04), transparent);
