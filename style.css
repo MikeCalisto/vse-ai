@@ -1002,9 +1002,11 @@ ul { list-style: none; }
 .gallery-item {
   border-radius: var(--radius-sm);
   overflow: hidden;
-  aspect-ratio: 4/5;
+  aspect-ratio: 9/16;
   border: 1px solid var(--border);
+  background: #111;
   transition: transform 0.25s, box-shadow 0.25s;
+  position: relative;
 }
 
 .gallery-item:hover {
@@ -1385,7 +1387,7 @@ footer {
 @media (min-width: 768px) {
   .benefits-grid { grid-template-columns: 1fr 1fr; }
   .channels-grid { grid-template-columns: repeat(3, 1fr); }
-  .gallery-grid  { grid-template-columns: repeat(3, 1fr); }
+  .gallery-grid  { grid-template-columns: repeat(4, 1fr); }
   .reviews-grid  { grid-template-columns: repeat(3, 1fr); }
   .about-grid    { grid-template-columns: 300px 1fr; }
   .about-photo   { margin: 0; max-width: 100%; }
