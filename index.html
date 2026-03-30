@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;900&subset=cyrillic&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=22" />
+  <link rel="stylesheet" href="style.css?v=23" />
   <style>
     /* ── Hero layout v4 (inline to bypass cache) ── */
 
@@ -596,26 +596,6 @@
   </div>
 </section>
 
-<!-- ===== СЕКЦИЯ 8 — ГАРАНТІЯ ===== -->
-<section class="section guarantee-section" id="guarantee">
-  <div class="container">
-    <div class="guarantee-box fade-in">
-      <div class="guarantee-icon"><img src="shield.png" alt="Гарантія" style="width:72px;height:72px;object-fit:contain;"></div>
-      <h2 class="guarantee-title">
-        ГАРАНТІЯ — <span class="gradient-text">БЕЗ РИЗИКУ</span>
-      </h2>
-      <p class="guarantee-text">
-        Спробуй VSE AI 7 днів за 1 грн. Якщо не сподобається — просто не продовжуй підписку. Жодних зайвих питань, жодних штрафів. Скасування — в один клік.
-      </p>
-      <p class="guarantee-note">Підписка як Netflix, Spotify, ChatGPT Plus — ти в контролі.</p>
-      <a href="#join" class="btn">
-        <span class="btn-arrow">→</span>
-        СПРОБУВАТИ БЕЗ РИЗИКУ
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- ===== СЕКЦИЯ 9 — РОБОТИ УЧАСНИКІВ ===== -->
 <section class="section" id="portfolio">
   <div class="container">
@@ -956,6 +936,50 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ── VIDEO REVIEW CIRCLES ──────────────────────────────────
+(function () {
+  const circles = document.querySelectorAll('.video-review-circle');
+
+  // Click: toggle play/pause, pause others
+  circles.forEach(circle => {
+    const video = circle.querySelector('video');
+    if (!video) return;
+
+    circle.addEventListener('click', () => {
+      const isPaused = video.paused;
+      // Pause all
+      circles.forEach(c => {
+        const v = c.querySelector('video');
+        if (v && !v.paused) { v.pause(); c.classList.remove('playing'); }
+      });
+      // Play clicked if was paused
+      if (isPaused) {
+        video.play().catch(() => {});
+        circle.classList.add('playing');
+      }
+    });
+
+    // Remove playing class when video ends (loop=false case) or pauses
+    video.addEventListener('pause', () => circle.classList.remove('playing'));
+    video.addEventListener('play',  () => circle.classList.add('playing'));
+  });
+
+  // Autoplay when circle enters viewport, pause when leaves
+  const vidObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      const video = e.target.querySelector('video');
+      if (!video) return;
+      if (e.isIntersecting) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  circles.forEach(c => vidObs.observe(c));
+})();
 </script>
 
 </body>

@@ -1060,6 +1060,14 @@ ul { list-style: none; }
   font-size: 24px;
   background: rgba(0,0,0,0.45);
   color: #fff;
+  transition: opacity 0.2s;
+  border-radius: 50%;
+}
+
+/* Hide overlay while playing */
+.video-review-circle.playing::after {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .video-review-name {
