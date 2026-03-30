@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&subset=cyrillic&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=10" />
+  <link rel="stylesheet" href="style.css?v=11" />
   <style>
     /* ── Hero layout v4 (inline to bypass cache) ── */
 
@@ -69,14 +69,28 @@
 
     /* === DESKTOP (768px+): CSS grid, media-row becomes transparent === */
     @media (min-width: 768px) {
+      /* Hero stretches full height — no centering */
+      section.hero {
+        align-items: stretch !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+      section.hero > .container {
+        display: flex !important;
+        flex-direction: column !important;
+        min-height: 100vh !important;
+        padding-top: 20px !important;
+        padding-bottom: 40px !important;
+      }
       .hero__layout {
         display: grid !important;
         grid-template-columns: 1fr 400px;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: auto auto 1fr;
         align-items: start; gap: 0;
+        flex: 1 !important;
       }
       .hero__inner  { grid-column: 1; grid-row: 1; padding-bottom: 20px; }
-      .hero__bottom { grid-column: 1; grid-row: 3; }
+      .hero__bottom { grid-column: 1; grid-row: 3; align-self: end; padding-bottom: 0; }
       /* media-row becomes transparent — children join the grid */
       .hero__media-row { display: contents; }
       /* mini-feats: visible in col 1, row 2 on desktop */
@@ -97,14 +111,28 @@
         grid-column: 2 !important; grid-row: 1 / 4 !important;
         flex: unset !important;
         width: 100% !important; height: auto !important;
-        aspect-ratio: unset !important; min-height: 480px;
+        aspect-ratio: unset !important;
         border-radius: 0 !important;
         border: none !important;
         border-left: 1px solid rgba(124,58,237,.25) !important;
         box-shadow: -40px 0 80px -20px rgba(124,58,237,.25) !important;
-        align-self: stretch;
-        /* Прибираємо зазор справа (container padding + auto margin) */
+        align-self: stretch !important;
+        /* Bleed right edge */
         margin-right: calc(-20px - max(0px, (100vw - 1100px) / 2)) !important;
+        /* Bleed top/bottom (compensate container padding) */
+        margin-top: -20px !important;
+        margin-bottom: -40px !important;
+        overflow: hidden !important;
+      }
+      /* iframe cover — scale to fill without black bars */
+      .hero__video-wrap iframe {
+        position: absolute !important;
+        top: 50% !important; left: 50% !important;
+        bottom: auto !important; right: auto !important;
+        width: 200% !important;
+        height: 200% !important;
+        transform: translate(-50%, -50%) !important;
+        border: 0 !important;
       }
       .hero__video-overlay {
         background: linear-gradient(to right, rgba(0,0,0,.9) 0%, rgba(0,0,0,.15) 50%, transparent 100%) !important;
@@ -112,7 +140,6 @@
     }
     @media (min-width: 1024px) {
       .hero__layout { grid-template-columns: 1fr 500px; }
-      .hero__video-wrap { min-height: 560px; }
     }
   </style>
 </head>

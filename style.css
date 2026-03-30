@@ -316,13 +316,14 @@ ul { list-style: none; }
 }
 
 .hero__mini-timer__sep {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(48px, 8vw, 80px);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(36px, 6vw, 64px);
   color: var(--purple);
-  padding: 0 6px;
+  padding: 0 4px;
   line-height: 1;
-  padding-bottom: 28px;
-  align-self: flex-end;
+  align-self: center;
+  margin-bottom: 20px;
 }
 
 /* ===== HERO ===== */
@@ -1256,9 +1257,9 @@ footer {
   }
 
   .hero__mini-timer__sep {
-    font-size: 36px;
-    padding: 0 4px;
-    padding-bottom: 20px;
+    font-size: 28px;
+    padding: 0 2px;
+    margin-bottom: 14px;
   }
 
   .hero__mini-timer__unit-label { font-size: 10px; }
