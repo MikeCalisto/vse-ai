@@ -272,7 +272,7 @@ ul { list-style: none; }
 .hero__mini-timer__row {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 0;
 }
 
@@ -1310,7 +1310,7 @@ footer {
   .reviews-grid  { grid-template-columns: repeat(3, 1fr); }
   .about-grid    { grid-template-columns: 300px 1fr; }
   .about-photo   { margin: 0; max-width: 100%; }
-  .tg-screenshot { height: auto; }
+  .tg-screenshot { height: auto; max-width: 600px; margin-left: auto; margin-right: auto; }
   .hero__cta-wrap { flex-direction: row; align-items: center; }
   .footer-inner  { flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; }
 
