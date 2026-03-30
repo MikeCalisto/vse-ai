@@ -132,7 +132,7 @@ ul { list-style: none; }
   background: linear-gradient(135deg, var(--purple), var(--purple-2));
   color: #fff;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+  font-weight: 900;
   font-size: 15px;
   letter-spacing: 0.04em;
   padding: 16px 32px;
@@ -482,6 +482,30 @@ ul { list-style: none; }
 .hero__fine {
   font-size: 13px;
   color: var(--muted);
+}
+
+.hero__price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: -4px;
+}
+
+.hero__price-current {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(28px, 4vw, 40px);
+  color: var(--purple);
+  line-height: 1;
+}
+
+.hero__price-old {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: clamp(18px, 2.5vw, 26px);
+  color: var(--muted);
+  text-decoration: line-through;
+  line-height: 1;
 }
 
 /* ===== TIMER ===== */
