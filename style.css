@@ -728,6 +728,11 @@ ul { list-style: none; }
   background: linear-gradient(to bottom, rgba(124,58,237,0.05), transparent);
 }
 
+/* Inside layout: cards left, screenshot right on desktop */
+.inside-layout {
+  display: block;
+}
+
 .channels-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1802,7 +1807,23 @@ footer {
   .reviews-grid  { grid-template-columns: repeat(3, 1fr); }
   .about-grid    { grid-template-columns: 300px 1fr; }
   .about-photo   { margin: 0; max-width: 100%; }
-  .tg-screenshot { height: auto; max-width: 600px; margin-left: auto; margin-right: auto; }
+  /* inside layout: 2-col on 768+ */
+  .inside-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 32px;
+    align-items: start;
+  }
+  .channels-grid { margin-bottom: 0; }
+  .tg-screenshot {
+    position: sticky;
+    top: 100px;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 0 0 1px rgba(124,58,237,0.25), 0 24px 60px -12px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+  .tg-screenshot img { border-radius: 16px; }
   .hero__cta-wrap { flex-direction: column; align-items: stretch; }
   .footer-inner  { flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; }
 
@@ -1848,6 +1869,7 @@ footer {
 }
 
 @media (min-width: 1024px) {
+  .inside-layout { grid-template-columns: 1fr 320px; gap: 40px; }
   .channels-grid { grid-template-columns: repeat(4, 1fr); }
 
   .hero__layout { grid-template-columns: 1fr 260px; }
