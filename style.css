@@ -943,6 +943,14 @@ ul { list-style: none; }
   border: 1px solid var(--border);
 }
 
+/* Video variant — 16:9 ratio, wider */
+.about-photo--video {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  box-shadow: 0 0 0 1px rgba(124,58,237,0.25), 0 24px 60px -12px rgba(0,0,0,0.7);
+}
+
 .about-name {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
@@ -1003,6 +1011,15 @@ ul { list-style: none; }
   border: 1px solid var(--border);
   aspect-ratio: 16/9;
   box-shadow: 0 32px 64px -16px rgba(0,0,0,0.7);
+}
+
+/* Shorts (9:16) — centered phone-style */
+.video-wrap--portrait {
+  aspect-ratio: 9/16;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto 16px;
+  box-shadow: 0 0 0 1px rgba(124,58,237,0.3), 0 32px 80px -16px rgba(124,58,237,0.25), 0 32px 64px -16px rgba(0,0,0,0.8);
 }
 
 .video-note {
