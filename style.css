@@ -1130,6 +1130,28 @@ ul { list-style: none; }
   box-shadow: 0 12px 32px -8px rgba(124,58,237,0.25);
 }
 
+/* YouTube lazy thumbnail */
+.yt-lazy { overflow: hidden; }
+.yt-lazy img { transition: transform .3s; }
+.yt-lazy:hover img { transform: scale(1.04); }
+
+.yt-lazy__play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.25);
+  transition: background .2s;
+}
+.yt-lazy:hover .yt-lazy__play { background: rgba(0,0,0,0.1); }
+.yt-lazy__play::after {
+  content: '';
+  width: 52px;
+  height: 52px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 68 48'%3E%3Cpath d='M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C0 13.05 0 24 0 24s0 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C68 34.95 68 24 68 24s0-10.95-1.48-16.26z' fill='%23f00'/%3E%3Cpath d='M45 24 27 14v20' fill='%23fff'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
 
 
 /* ===== CLIENTS TRANSFER SECTION ===== */
