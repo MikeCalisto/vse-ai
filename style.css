@@ -1364,7 +1364,8 @@ footer {
 
   .hero__sub { font-size: 15px; }
 
-  .hero__counter { font-size: 13px; padding: 8px 16px; margin-bottom: 24px; }
+  .hero__counter { font-size: 13px; padding: 8px 16px; margin-bottom: 0; }
+  .hero__counters { gap: 8px; margin-bottom: 24px; }
 
   .hero__badge { font-size: 11px; padding: 5px 12px; margin-bottom: 20px; }
 
