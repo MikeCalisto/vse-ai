@@ -1100,6 +1100,96 @@ ul { list-style: none; }
   line-height: 1.7;
 }
 
+/* Transfer visual */
+.clients-transfer-visual {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.ct-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.ct-node__avatar {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(124,58,237,0.2);
+  border: 2px solid rgba(124,58,237,0.5);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--purple-2);
+}
+
+.ct-node__avatar--you {
+  background: rgba(74,222,128,0.12);
+  border-color: rgba(74,222,128,0.5);
+  color: #4ade80;
+  animation: ctNodePulse 2s ease-in-out infinite;
+}
+
+@keyframes ctNodePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.3); }
+  50%       { box-shadow: 0 0 0 8px rgba(74,222,128,0); }
+}
+
+.ct-node__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Flowing dots between nodes */
+.ct-flow {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  position: relative;
+  padding-bottom: 18px;
+}
+
+.ct-flow__dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--purple);
+  animation: ctDotFlow 1.6s ease-in-out infinite;
+  opacity: 0;
+}
+.ct-flow__dot--2 { animation-delay: 0.4s; }
+.ct-flow__dot--3 { animation-delay: 0.8s; }
+
+@keyframes ctDotFlow {
+  0%   { transform: translateX(-8px); opacity: 0; }
+  30%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { transform: translateX(8px); opacity: 0; }
+}
+
+.ct-flow__arrow {
+  position: absolute;
+  bottom: 0;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  animation: ctArrowPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes ctArrowPulse {
+  0%, 100% { opacity: 0.3; transform: translateX(0); }
+  50%       { opacity: 1;   transform: translateX(3px); }
+}
+
+/* Steps with animated connector line */
 .clients-steps {
   display: flex;
   flex-direction: column;
@@ -1111,23 +1201,48 @@ ul { list-style: none; }
   gap: 20px;
   align-items: flex-start;
   padding: 20px 0;
-  border-bottom: 1px solid var(--border);
-  position: relative;
 }
 
-.clients-step:last-child { border-bottom: none; }
+.clients-step__track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 0;
+}
 
 .clients-step__num {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--purple);
   background: rgba(124,58,237,0.12);
+  border: 1px solid rgba(124,58,237,0.3);
   border-radius: 8px;
-  padding: 4px 10px;
+  padding: 5px 10px;
   flex-shrink: 0;
-  align-self: flex-start;
-  margin-top: 2px;
+  white-space: nowrap;
+}
+
+/* Animated connecting line between steps */
+.clients-step__line {
+  width: 2px;
+  flex: 1;
+  min-height: 28px;
+  background: linear-gradient(to bottom, var(--purple), transparent);
+  margin-top: 6px;
+  transform-origin: top;
+  animation: lineGrow 1s ease-out forwards;
+  animation-play-state: paused;
+}
+
+.visible .clients-step__line {
+  animation-play-state: running;
+}
+
+@keyframes lineGrow {
+  from { transform: scaleY(0); opacity: 0; }
+  to   { transform: scaleY(1); opacity: 1; }
 }
 
 .clients-step__title {
@@ -1144,6 +1259,7 @@ ul { list-style: none; }
   line-height: 1.6;
 }
 
+/* Accent banner with shimmer */
 .clients-accent {
   display: flex;
   align-items: center;
@@ -1156,9 +1272,36 @@ ul { list-style: none; }
   font-weight: 600;
   color: var(--white);
   line-height: 1.5;
+  position: relative;
+  overflow: hidden;
 }
 
-.clients-accent__icon { font-size: 28px; flex-shrink: 0; }
+.clients-accent::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+  animation: accentShimmer 3s ease-in-out infinite;
+}
+
+@keyframes accentShimmer {
+  0%   { left: -60%; }
+  100% { left: 160%; }
+}
+
+.clients-accent__icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  animation: moneyBounce 2s ease-in-out infinite;
+}
+
+@keyframes moneyBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  30%       { transform: translateY(-5px) rotate(-5deg); }
+  60%       { transform: translateY(-2px) rotate(3deg); }
+}
 
 /* ===== AI-RADAR SECTION ===== */
 .radar-section {
