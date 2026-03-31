@@ -1067,6 +1067,99 @@ ul { list-style: none; }
 }
 
 
+/* ===== CLIENTS TRANSFER SECTION ===== */
+.clients-section {
+  background: linear-gradient(to bottom, transparent, rgba(124,58,237,0.06), transparent);
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-top: 48px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .clients-grid { grid-template-columns: 1fr 1.4fr; gap: 56px; align-items: start; }
+}
+
+.clients-why__label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--purple-2);
+  margin-bottom: 14px;
+}
+
+.clients-why__text {
+  font-size: 15px;
+  color: var(--body);
+  line-height: 1.7;
+}
+
+.clients-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.clients-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.clients-step:last-child { border-bottom: none; }
+
+.clients-step__num {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 13px;
+  color: var(--purple);
+  background: rgba(124,58,237,0.12);
+  border-radius: 8px;
+  padding: 4px 10px;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 2px;
+}
+
+.clients-step__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.clients-step__text {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.clients-accent {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.18) 0%, rgba(124,58,237,0.06) 100%);
+  border: 1px solid rgba(124,58,237,0.35);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.5;
+}
+
+.clients-accent__icon { font-size: 28px; flex-shrink: 0; }
+
 /* ===== AI-RADAR SECTION ===== */
 .radar-section {
   background: linear-gradient(to bottom, transparent, rgba(124,58,237,0.05), transparent);
