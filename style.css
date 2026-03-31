@@ -791,6 +791,27 @@ ul { list-style: none; }
   margin-top: 2px;
 }
 
+.forwho-hint {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.forwho-hint::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='12' y1='8' x2='12' y2='16'/%3E%3Cline x1='8' y1='12' x2='16' y2='12'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
 .forwho-toggle {
   width: 34px; height: 34px;
   border-radius: 50%;
@@ -1038,8 +1059,8 @@ ul { list-style: none; }
 }
 
 .video-review-circle {
-  width: 128px;
-  height: 128px;
+  width: clamp(160px, 22vw, 200px);
+  height: clamp(160px, 22vw, 200px);
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid var(--border-hover);
@@ -1399,8 +1420,8 @@ footer {
   /* Hero — 2-колонка: контент ліворуч, відео праворуч */
   .hero__layout {
     display: grid !important;
-    grid-template-columns: 1fr 380px;
-    gap: 40px;
+    grid-template-columns: 1fr 240px;
+    gap: 0;
     align-items: center;
   }
 
@@ -1414,17 +1435,19 @@ footer {
     left: auto;
     right: 0;
     bottom: 0;
-    width: 38%;
-    border-left: 1px solid rgba(124,58,237,0.25);
-    box-shadow: -40px 0 80px -20px rgba(124,58,237,0.25);
+    width: 42%;
+    border-left: none;
+    box-shadow: none;
   }
 
   .hero__video-wrap video { opacity: 1; }
 
+  /* Градієнт сильніший там де текст заходить на відео */
   .hero__video-overlay {
     background: linear-gradient(to right,
-      rgba(0,0,0,0.85) 0%,
-      rgba(0,0,0,0.2) 40%,
+      rgba(0,0,0,0.97) 0%,
+      rgba(0,0,0,0.80) 35%,
+      rgba(0,0,0,0.30) 65%,
       transparent 100%);
   }
 }
@@ -1432,7 +1455,7 @@ footer {
 @media (min-width: 1024px) {
   .channels-grid { grid-template-columns: repeat(4, 1fr); }
 
-  .hero__layout { grid-template-columns: 1fr 420px; }
+  .hero__layout { grid-template-columns: 1fr 260px; }
 
-  .hero__video-wrap { width: 40%; }
+  .hero__video-wrap { width: 44%; }
 }
