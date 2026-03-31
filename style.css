@@ -1568,13 +1568,7 @@ ul { list-style: none; }
 
 /* ===== FAQ ===== */
 .faq-section {
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.42) 30%, rgba(0,0,0,0.42) 70%, rgba(0,0,0,0.65) 100%),
-    linear-gradient(rgba(255,255,255,0.14) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.14) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255,255,255,0.28) 1px, transparent 1px),
-    #000;
-  background-size: auto, 48px 48px, 48px 48px, 48px 48px;
+  background: linear-gradient(to bottom, rgba(124,58,237,0.04), transparent);
 }
 
 .faq-list { display: flex; flex-direction: column; gap: 8px; }
@@ -1755,12 +1749,10 @@ footer {
 /* ===== MOBILE FIXES (max 767px) ===== */
 @media (max-width: 767px) {
   /* Grid background — smaller cells, brighter lines on mobile */
-  .pain-section,
   #benefits,
   .clients-section,
   .radar-section,
-  .video-reviews-section,
-  .faq-section {
+  .video-reviews-section {
     background-size: auto, 32px 32px, 32px 32px, 32px 32px;
   }
 
@@ -1927,13 +1919,7 @@ footer {
 
 /* ===== PAIN SECTION ===== */
 .pain-section {
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.40) 20%, rgba(0,0,0,0.40) 80%, rgba(0,0,0,0.65) 100%),
-    linear-gradient(rgba(255,255,255,0.14) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.14) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255,255,255,0.28) 1px, transparent 1px),
-    #000;
-  background-size: auto, 48px 48px, 48px 48px, 48px 48px;
+  background: var(--bg);
 }
 
 .pain-section .section-sub {
