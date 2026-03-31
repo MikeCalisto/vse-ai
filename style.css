@@ -1115,6 +1115,12 @@ ul { list-style: none; }
   margin-bottom: 40px;
 }
 
+.gallery-item-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .gallery-item {
   border-radius: var(--radius-sm);
   overflow: hidden;
@@ -1128,6 +1134,14 @@ ul { list-style: none; }
 .gallery-item:hover {
   transform: scale(1.02);
   box-shadow: 0 12px 32px -8px rgba(124,58,237,0.25);
+}
+
+.gallery-caption {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.4;
+  padding: 0 4px 4px;
 }
 
 
