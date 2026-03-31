@@ -1435,13 +1435,13 @@ footer {
 
   .hero__video-spacer { display: block; }
 
-  /* Відео — права панель, повна висота hero */
+  /* Відео — права панель, повна висота hero, до краю екрана */
   .hero__video-wrap {
     top: 0;
     left: auto;
-    right: 0;
+    right: calc(-20px - max(0px, (100vw - 1140px) / 2));
     bottom: 0;
-    width: 42%;
+    width: 44%;
     border-left: none;
     box-shadow: none;
   }
@@ -1463,5 +1463,8 @@ footer {
 
   .hero__layout { grid-template-columns: 1fr 260px; }
 
-  .hero__video-wrap { width: 44%; }
+  .hero__video-wrap {
+    width: 46%;
+    right: calc(-20px - max(0px, (100vw - 1140px) / 2));
+  }
 }
