@@ -279,12 +279,14 @@ ul { list-style: none; }
 
 .hero__mini-timer {
   width: 100%;
+  max-width: 480px;
 }
 .hero__mini-timer__row {
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 0;
+  width: 100%;
 }
 
 .hero__mini-timer__unit {
@@ -478,6 +480,29 @@ ul { list-style: none; }
   align-items: stretch;
   gap: 12px;
   max-width: 480px;
+}
+
+/* Два лічильники поряд */
+.hero__counters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+/* Trust row під кнопкою */
+.hero__trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.hero__trust-sep {
+  opacity: 0.4;
 }
 
 .hero__fine {
