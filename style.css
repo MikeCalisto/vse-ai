@@ -1425,7 +1425,13 @@ footer {
     align-items: center;
   }
 
-  .hero__inner { max-width: 100%; }
+  /* Текст заходить на відео зправа */
+  .hero__inner {
+    max-width: 100%;
+    position: relative;
+    z-index: 3;
+    margin-right: -140px;
+  }
 
   .hero__video-spacer { display: block; }
 
@@ -1442,12 +1448,12 @@ footer {
 
   .hero__video-wrap video { opacity: 1; }
 
-  /* Градієнт сильніший там де текст заходить на відео */
+  /* Градієнт — сильний зліва де текст заходить на відео */
   .hero__video-overlay {
     background: linear-gradient(to right,
-      rgba(0,0,0,0.97) 0%,
-      rgba(0,0,0,0.80) 35%,
-      rgba(0,0,0,0.30) 65%,
+      rgba(0,0,0,0.95) 0%,
+      rgba(0,0,0,0.75) 40%,
+      rgba(0,0,0,0.20) 70%,
       transparent 100%);
   }
 }
