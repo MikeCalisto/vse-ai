@@ -1007,6 +1007,32 @@ ul { list-style: none; }
   letter-spacing: 0.1em;
 }
 
+/* ===== VIDEO SECTION LAYOUT ===== */
+.video-section-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.video-section-text {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .video-section-layout {
+    flex-direction: row;
+    align-items: center;
+    gap: 60px;
+  }
+  .video-section-text {
+    flex: 1;
+  }
+  .video-section-layout > div:last-child {
+    flex-shrink: 0;
+  }
+}
+
 /* ===== VIDEO ===== */
 .video-wrap {
   width: 100%;
