@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;900&subset=cyrillic&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=60" />
+  <link rel="stylesheet" href="style.css?v=61" />
   <style>
     /* ── Hero layout v4 (inline to bypass cache) ── */
 
@@ -1331,15 +1331,39 @@ document.querySelectorAll(".yt-lazy").forEach(el => {
 // ===== YOUTUBE REVIEW CIRCLES =====
 document.querySelectorAll(".yt-review").forEach(el => {
   el.addEventListener("click", function() {
+    if (this.classList.contains("playing")) return;
     const id = this.dataset.id;
     const iframe = document.createElement("iframe");
-    iframe.src = `https://www.youtube.com/embed/${id}?controls=1&rel=0&modestbranding=1&playsinline=1&autoplay=1`;
+    iframe.src = `https://www.youtube.com/embed/${id}?controls=0&rel=0&modestbranding=1&playsinline=1&autoplay=1&enablejsapi=1`;
     iframe.setAttribute("frameborder", "0");
     iframe.setAttribute("allow", "encrypted-media; autoplay");
     iframe.setAttribute("allowfullscreen", "");
-    iframe.style.cssText = "width:100%;height:100%;border:0;display:block;";
+    iframe.style.cssText = "position:absolute;inset:0;width:100%;height:100%;border:0;";
+
+    const overlay = document.createElement("div");
+    overlay.className = "yt-review-overlay";
+    const icon = document.createElement("span");
+    icon.className = "yt-review-icon";
+    overlay.appendChild(icon);
+
+    let paused = false;
+    overlay.addEventListener("click", function(e) {
+      e.stopPropagation();
+      if (paused) {
+        iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', "*");
+        icon.classList.remove("is-paused");
+        paused = false;
+      } else {
+        iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', "*");
+        icon.classList.add("is-paused");
+        paused = true;
+      }
+    });
+
     this.innerHTML = "";
+    this.style.position = "relative";
     this.appendChild(iframe);
+    this.appendChild(overlay);
     this.classList.add("playing");
   });
 });
