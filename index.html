@@ -1018,9 +1018,9 @@
     </div>
     <div class="video-reviews-grid fade-in">
       <div class="video-review-item">
-        <a href="https://youtube.com/shorts/EtZJ6nlRaBw" target="_blank" rel="noopener" class="video-review-circle">
+        <div class="video-review-circle yt-review" data-id="EtZJ6nlRaBw">
           <img src="https://i.ytimg.com/vi/EtZJ6nlRaBw/hqdefault.jpg" style="width:100%;height:100%;object-fit:cover;" loading="lazy" alt="Відгук">
-        </a>
+        </div>
       </div>
       <div class="video-review-item">
         <div class="video-review-circle">
@@ -1325,6 +1325,22 @@ document.querySelectorAll(".yt-lazy").forEach(el => {
     iframe.setAttribute("allowfullscreen", "");
     iframe.style.cssText = "width:100%;height:100%;border:0;display:block;";
     this.replaceWith(iframe);
+  });
+});
+
+// ===== YOUTUBE REVIEW CIRCLES =====
+document.querySelectorAll(".yt-review").forEach(el => {
+  el.addEventListener("click", function() {
+    const id = this.dataset.id;
+    const iframe = document.createElement("iframe");
+    iframe.src = `https://www.youtube.com/embed/${id}?controls=1&rel=0&modestbranding=1&playsinline=1&autoplay=1`;
+    iframe.setAttribute("frameborder", "0");
+    iframe.setAttribute("allow", "encrypted-media; autoplay");
+    iframe.setAttribute("allowfullscreen", "");
+    iframe.style.cssText = "width:100%;height:100%;border:0;display:block;";
+    this.innerHTML = "";
+    this.appendChild(iframe);
+    this.classList.add("playing");
   });
 });
 
