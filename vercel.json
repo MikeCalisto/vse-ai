@@ -1,0 +1,13 @@
+{
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "installCommand": null,
+  "headers": [
+    {
+      "source": "/product-ai-content/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    }
+  ]
+}
