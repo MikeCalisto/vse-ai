@@ -64,11 +64,9 @@ html, body { background: #000; color: #fff; font-family: 'Manrope', sans-serif; 
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 0 16px rgba(247, 215, 128, 0.4));
 }
 .gold-glow-text {
   color: #f7d780;
-  text-shadow: 0 0 20px rgba(247, 215, 128, 0.55), 0 0 40px rgba(247, 215, 128, 0.25);
 }
 .muted { color: rgba(255,255,255,0.65); }
 
@@ -89,12 +87,10 @@ html, body { background: #000; color: #fff; font-family: 'Manrope', sans-serif; 
   background: linear-gradient(180deg, #f7d780 0%, #d4a53c 100%);
   color: #0a0a0a;
   border: none;
-  box-shadow: 0 0 24px rgba(247, 215, 128, 0.45);
 }
 .pill-red {
   background: linear-gradient(180deg, #e63946 0%, #a3232f 100%);
   color: #fff; border: none;
-  box-shadow: 0 0 22px rgba(230, 57, 70, 0.45);
 }
 
 /* CTA Button */
@@ -108,7 +104,7 @@ html, body { background: #000; color: #fff; font-family: 'Manrope', sans-serif; 
   font-weight: 800; font-size: 14px;
   letter-spacing: 0.04em; text-transform: uppercase;
   text-decoration: none; text-align: center;
-  box-shadow: 0 0 32px rgba(247, 215, 128, 0.42), inset 0 1px 0 rgba(255,255,255,0.5);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
   cursor: pointer;
   transition: transform 0.2s ease;
 }
@@ -203,7 +199,6 @@ html, body { background: #000; color: #fff; font-family: 'Manrope', sans-serif; 
   display: inline;
   background: linear-gradient(180deg, #fff5d4 0%, #f7d780 35%, #b88825 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
-  filter: drop-shadow(0 0 14px rgba(247, 215, 128, 0.4));
 }
 
 .hero-sub {
@@ -239,7 +234,6 @@ html, body { background: #000; color: #fff; font-family: 'Manrope', sans-serif; 
   background: linear-gradient(180deg, #f7d780, #a87a1f);
   display: grid; place-items: center;
   color: #0a0a0a; font-size: 12px; font-weight: 900;
-  box-shadow: 0 0 10px rgba(247, 215, 128, 0.45);
 }
 
 /* Phone-shaped vertical frame for video */
@@ -251,9 +245,7 @@ html, body { background: #000; color: #fff; font-family: 'Manrope', sans-serif; 
   background: #000;
   border: 2px solid #1a1a1a;
   box-shadow:
-    0 0 0 1px rgba(247, 215, 128, 0.35),
-    0 0 24px rgba(247, 215, 128, 0.20),
-    0 22px 40px -18px rgba(247, 215, 128, 0.30),
+    0 0 0 1px rgba(247, 215, 128, 0.18),
     inset 0 0 0 1px rgba(255,255,255,0.04);
 }
 .hero-product .notch {
@@ -313,7 +305,6 @@ html, body { background: #000; color: #fff; font-family: 'Manrope', sans-serif; 
   font-size: 36px; line-height: 1;
   background: linear-gradient(180deg, #fff5d4 0%, #f7d780 35%, #b88825 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
-  filter: drop-shadow(0 0 16px rgba(247, 215, 128, 0.5));
 }
 .price-currency {
   font-family: 'Unbounded', sans-serif; font-weight: 800;
@@ -475,7 +466,6 @@ html, body { background: #000; color: #fff; font-family: 'Manrope', sans-serif; 
 .h2 .accent {
   background: linear-gradient(180deg, #fff5d4 0%, #f7d780 35%, #b88825 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
-  filter: drop-shadow(0 0 18px rgba(247, 215, 128, 0.35));
 }
 .lead { color: rgba(255,255,255,0.72); font-size: 13.5px; line-height: 1.55; }
 
@@ -491,7 +481,6 @@ html, body { background: #000; color: #fff; font-family: 'Manrope', sans-serif; 
   background: linear-gradient(180deg, #161313, #0a0a0a);
   border: 1px solid rgba(247, 215, 128, 0.22);
   border-radius: 20px;
-  box-shadow: 0 0 30px rgba(247, 215, 128, 0.10) inset;
 }
 .timer-cell { position: relative; padding: 4px 6px; }
 .timer-cell + .timer-cell::before {
@@ -504,7 +493,6 @@ html, body { background: #000; color: #fff; font-family: 'Manrope', sans-serif; 
   font-size: 32px; line-height: 1;
   background: linear-gradient(180deg, #fff5d4 0%, #f7d780 35%, #b88825 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
-  filter: drop-shadow(0 0 12px rgba(247, 215, 128, 0.45));
 }
 .timer-cell .lbl {
   font-size: 10px; color: rgba(255,255,255,0.55);
@@ -540,26 +528,15 @@ html, body { background: #000; color: #fff; font-family: 'Manrope', sans-serif; 
   position: relative;
   border-radius: 18px;
 }
-.bonus-gift::before {
-  content: ""; position: absolute; inset: -6px;
-  background: radial-gradient(circle, rgba(247, 215, 128, 0.45), transparent 65%);
-  filter: blur(10px);
-  z-index: 0;
-  border-radius: 50%;
-}
 .bonus-gift img {
   width: 56px; height: auto; position: relative; z-index: 1;
-  filter: drop-shadow(0 6px 18px rgba(247, 215, 128, 0.55))
-          brightness(1.05);
 }
 .bonus-gift svg {
   width: 44px; height: 44px; position: relative; z-index: 1;
-  filter: drop-shadow(0 4px 14px rgba(247, 215, 128, 0.40));
 }
 .bonus-gift .emoji {
   position: relative; z-index: 1;
   font-size: 44px; line-height: 1;
-  filter: drop-shadow(0 4px 14px rgba(247, 215, 128, 0.45));
 }
 .bonus-gift--chatgpt {
   background: linear-gradient(180deg, #1a1a1a, #0a0a0a);
@@ -922,7 +899,6 @@ html, body { background: #000; color: #fff; font-family: 'Manrope', sans-serif; 
   display: grid; place-items: center;
   color: #0a0a0a; font-family: 'Unbounded', sans-serif; font-weight: 900;
   font-size: 22px;
-  box-shadow: 0 0 30px rgba(247, 215, 128, 0.45);
 }
 .guar-card h3 {
   font-family: 'Unbounded', sans-serif; font-weight: 800;
@@ -952,7 +928,6 @@ html, body { background: #000; color: #fff; font-family: 'Manrope', sans-serif; 
   background: linear-gradient(180deg, #f7d780, #a87a1f);
   display: grid; place-items: center;
   color: #0a0a0a; font-weight: 900; font-size: 14px;
-  box-shadow: 0 0 14px rgba(247, 215, 128, 0.45);
   margin-top: 2px;
 }
 .author-points li b { color: #f7d780; font-weight: 700; }
