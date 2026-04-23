@@ -1095,7 +1095,7 @@ img, video { max-width: 100%; }
         <div class="ic">⏰</div>
         <div class="body">
           <span class="lbl">дата старту:</span>
-          <span class="val">20 січня</span>
+          <span class="val" id="start-date">завтра</span>
         </div>
       </div>
     </div>
@@ -1638,6 +1638,18 @@ img, video { max-width: 100%; }
 <div class="sticky-cta" id="stickyCta">
   <a href="https://app.zenedu.io/l/kFAAe3ZakEWg3OcF" class="cta" target="_blank" rel="noopener">Приєднатися за 390 грн →</a>
 </div>
+
+<script>
+// Dynamic course start date — always tomorrow
+(function(){
+  var el = document.getElementById('start-date');
+  if (!el) return;
+  var months = ['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
+  var d = new Date();
+  d.setDate(d.getDate() + 1);
+  el.textContent = d.getDate() + ' ' + months[d.getMonth()];
+})();
+</script>
 
 <script>
 // Sticky CTA — appears after user scrolls past the third block (showcase gallery)
