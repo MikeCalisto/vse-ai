@@ -2,6 +2,10 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "installCommand": null,
+  "rewrites": [
+    { "source": "/", "destination": "/zakrytyi-klub/index.html" },
+    { "source": "/((?!product-ai-content|zakrytyi-klub).*)", "destination": "/zakrytyi-klub/$1" }
+  ],
   "redirects": [
     { "source": "/product-ai-content", "destination": "/product-ai-content/index.html", "permanent": false },
     { "source": "/product-ai-content/", "destination": "/product-ai-content/index.html", "permanent": false }
