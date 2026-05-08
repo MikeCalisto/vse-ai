@@ -791,7 +791,7 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
   <div class="hero-row">
     <div class="hero-video-wrap">
       <span class="play-tag"><span class="lvd"></span> Превʼю</span>
-      <video data-src="media/ai-hero.mp4" autoplay loop muted playsinline preload="none"></video>
+      <video data-src="media/ai-hero.mp4" poster="media/ai-hero.jpg" autoplay loop muted playsinline preload="none"></video>
     </div>
     <ul class="hero-feats">
       <li><span class="ck">✓</span><span>без будь-якого досвіду в AI</span></li>
@@ -921,14 +921,14 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
   </div>
 
   <div class="gallery-track" id="gallery">
-    <div class="gallery-item"><video data-src="media/ai-1.mp4" autoplay autoplay loop muted playsinline preload="none"></video></div>
-    <div class="gallery-item"><video data-src="media/ai-2.mp4" autoplay loop muted playsinline preload="none"></video></div>
-    <div class="gallery-item"><video data-src="media/ai-3.mp4" autoplay loop muted playsinline preload="none"></video></div>
-    <div class="gallery-item"><video data-src="media/ai-4.mp4" autoplay loop muted playsinline preload="none"></video></div>
-    <div class="gallery-item"><video data-src="media/ai-5.mp4" autoplay loop muted playsinline preload="none"></video></div>
-    <div class="gallery-item"><video data-src="media/ai-6.mp4" autoplay loop muted playsinline preload="none"></video></div>
-    <div class="gallery-item"><video data-src="media/ai-7.mp4" autoplay loop muted playsinline preload="none"></video></div>
-    <div class="gallery-item"><video data-src="media/ai-8.mp4" autoplay loop muted playsinline preload="none"></video></div>
+    <div class="gallery-item"><video data-src="media/ai-1.mp4" poster="media/ai-1.jpg" autoplay loop muted playsinline preload="none"></video></div>
+    <div class="gallery-item"><video data-src="media/ai-2.mp4" poster="media/ai-2.jpg" autoplay loop muted playsinline preload="none"></video></div>
+    <div class="gallery-item"><video data-src="media/ai-3.mp4" poster="media/ai-3.jpg" autoplay loop muted playsinline preload="none"></video></div>
+    <div class="gallery-item"><video data-src="media/ai-4.mp4" poster="media/ai-4.jpg" autoplay loop muted playsinline preload="none"></video></div>
+    <div class="gallery-item"><video data-src="media/ai-5.mp4" poster="media/ai-5.jpg" autoplay loop muted playsinline preload="none"></video></div>
+    <div class="gallery-item"><video data-src="media/ai-6.mp4" poster="media/ai-6.jpg" autoplay loop muted playsinline preload="none"></video></div>
+    <div class="gallery-item"><video data-src="media/ai-7.mp4" poster="media/ai-7.jpg" autoplay loop muted playsinline preload="none"></video></div>
+    <div class="gallery-item"><video data-src="media/ai-8.mp4" poster="media/ai-8.jpg" autoplay loop muted playsinline preload="none"></video></div>
   </div>
   <div class="scroll-hint">← гортай →</div>
 
@@ -1175,7 +1175,7 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
       <summary>
         <div class="lesson-thumb">
           <span class="lesson-num">5</span>
-          <video data-src="media/ai-5.mp4" autoplay loop muted playsinline preload="none"></video>
+          <video data-src="media/ai-5.mp4" poster="media/ai-5.jpg" autoplay loop muted playsinline preload="none"></video>
         </div>
         <div class="lesson-title">
           <div class="ttl">Урок №5</div>
@@ -1199,7 +1199,7 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
       <summary>
         <div class="lesson-thumb">
           <span class="lesson-num">6</span>
-          <video data-src="media/lesson-6.mp4" autoplay loop muted playsinline preload="none"></video>
+          <video data-src="media/lesson-6.mp4" poster="media/lesson-6.jpg" autoplay loop muted playsinline preload="none"></video>
         </div>
         <div class="lesson-title">
           <div class="ttl">Урок №6</div>
@@ -1597,8 +1597,24 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
       if(e.isIntersecting) activate(v);
       else { try{v.pause()}catch(_){} }
     });
-  },{rootMargin:'300px 0px',threshold:0});
+  },{rootMargin:'600px 800px',threshold:0});
   vids.forEach(v=>vio.observe(v));
+
+  // Horizontal gallery: when section is in/near viewport, eagerly buffer all its videos
+  const gallery=document.getElementById('gallery');
+  if(gallery){
+    const galleryIO=new IntersectionObserver(es=>{
+      es.forEach(e=>{
+        if(e.isIntersecting){
+          gallery.querySelectorAll('video[data-src]').forEach(v=>{
+            if(!v.src){ v.src=v.dataset.src; v.preload='auto'; v.load(); }
+          });
+          galleryIO.disconnect();
+        }
+      });
+    },{rootMargin:'600px 0px'});
+    galleryIO.observe(gallery);
+  }
 })();
 
 // Bonus card expand/collapse
