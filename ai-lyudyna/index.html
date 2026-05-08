@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Створи АІ-людину для Reels, Stories і реклами — Ai_Sashka</title>
+<meta name="description" content="Мінікурс — створи реалістичну АІ-людину з нуля за 6 коротких уроків. 4 авторські AI-асистенти, які пишуть промти замість тебе.">
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1454724509580252');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1454724509580252&ev=PageView&noscript=1" /></noscript>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+:root{
+  --violet:#6B4FBB;
+  --violet-2:#5a3fa8;
+  --violet-light:#8a6fd6;
+  --violet-soft:#e9e1f7;
+  --violet-glow:rgba(107,79,187,.35);
+  --cream:#f3ede0;
+  --cream-2:#ebe3d2;
+  --paper:#fbf7ec;
+  --dark:#1d1730;
+  --dark-2:#2a2245;
+  --gray:#6b6478;
+  --line:rgba(29,23,48,.10);
+  --font:'Jost',-apple-system,'SF Pro Display','Helvetica Neue',Arial,sans-serif;
+  --hand:'Caveat',cursive;
+}
+
+html,body{background:var(--cream);color:var(--dark);font-family:var(--font);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,video{display:block;max-width:100%;height:auto}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+a{color:inherit;text-decoration:none}
+
+/* ===== DESKTOP WRAPPER (phone-wrap) ===== */
+.desktop-bg{
+  min-height:100vh;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 15%, rgba(107,79,187,.10), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 60%, rgba(107,79,187,.07), transparent 60%),
+    var(--cream);
+  display:flex;justify-content:center;
+}
+.phone{
+  width:100%;max-width:480px;background:var(--cream);
+  position:relative;overflow:hidden;
+}
+@media (min-width:520px){
+  .desktop-bg{padding:24px 0}
+  .phone{
+    border-radius:32px;
+    box-shadow:0 0 60px rgba(29,23,48,.10),0 30px 80px rgba(29,23,48,.18);
+    border:1px solid rgba(29,23,48,.05);
+  }
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1,h2,h3{font-weight:900;letter-spacing:-.025em;line-height:1.1;color:var(--dark)}
+h2{font-size:clamp(1.5rem,5.6vw,2rem)}
+h3{font-size:1.1rem}
+p{font-size:.92rem;line-height:1.6;color:#3a3450}
+.muted{color:var(--gray)}
+.hand{font-family:var(--hand);font-weight:700}
+
+.highlight{
+  display:inline;
+  background:linear-gradient(180deg,transparent 60%,rgba(107,79,187,.30) 60%);
+  padding:0 4px;margin:0 -4px;
+}
+.violet-text{color:var(--violet)}
+
+/* ===== SECTIONS ===== */
+.section{padding:54px 22px;position:relative;overflow:hidden}
+.section-tight{padding:36px 22px}
+.section-cream{background:var(--cream)}
+.section-paper{background:var(--paper)}
+.section-dark{background:var(--dark);color:#fff}
+.section-dark h1,.section-dark h2,.section-dark h3{color:#fff}
+.section-dark p{color:rgba(255,255,255,.78)}
+.section-dark .muted{color:rgba(255,255,255,.55)}
+.section-violet{
+  background:linear-gradient(180deg,var(--violet) 0%,var(--violet-2) 100%);
+  color:#fff;
+}
+.section-violet h1,.section-violet h2,.section-violet h3{color:#fff}
+.section-violet p{color:rgba(255,255,255,.88)}
+
+.section-label{
+  display:inline-flex;align-items:center;gap:10px;
+  background:none;color:var(--violet);
+  font-size:.7rem;font-weight:800;
+  letter-spacing:.20em;text-transform:uppercase;
+  padding:0;margin-bottom:10px;
+  border-radius:0;box-shadow:none;
+}
+.section-label::before{
+  content:'';width:28px;height:2px;
+  background:var(--violet);border-radius:2px;
+}
+.section-dark .section-label,.section-violet .section-label{color:rgba(255,255,255,.95)}
+.section-dark .section-label::before,.section-violet .section-label::before{background:rgba(255,255,255,.7)}
+
+.section-title{margin-bottom:18px}
+
+/* ===== FLOATING DECOR ===== */
+.deco{position:absolute;pointer-events:none;z-index:0}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+@keyframes floatR{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(8deg)}}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+.spark{animation:floatY 7s ease-in-out infinite}
+.spark.delay-2{animation-delay:1.5s}
+.spark.delay-3{animation-delay:3s}
+.dashed-c{animation:floatR 14s ease-in-out infinite}
+.drift{animation:driftX 18s ease-in-out infinite}
+.spin-slow{animation:spin 28s linear infinite}
+.wob{animation:wob 6s ease-in-out infinite}
+@keyframes driftX{0%,100%{transform:translateX(0)}50%{transform:translateX(14px)}}
+@keyframes wob{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(3deg) translateY(-6px)}}
+
+/* Subtle dotted-grid backdrop for some sections */
+.dot-grid{
+  position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(rgba(107,79,187,.18) 1px,transparent 1px);
+  background-size:22px 22px;
+  mask-image:linear-gradient(180deg,transparent 0%,#000 25%,#000 75%,transparent 100%);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 25%,#000 75%,transparent 100%);
+  opacity:.55;
+}
+
+/* ===== HERO ===== */
+.hero{padding:24px 22px 36px;position:relative}
+.brand-row{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:18px;position:relative;z-index:2;
+}
+.brand{
+  display:inline-flex;align-items:center;gap:8px;
+  font-weight:800;font-size:.95rem;color:var(--dark);
+  letter-spacing:-.01em;
+}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--violet);box-shadow:0 0 0 3px rgba(107,79,187,.18)}
+.menu-pill{
+  font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  padding:7px 14px;background:#fff;border:1px solid var(--line);border-radius:999px;color:var(--dark);
+  display:inline-flex;align-items:center;gap:6px;
+}
+.menu-pill .lvd{width:7px;height:7px;border-radius:50%;background:var(--violet);animation:pulseDot 2s ease-in-out infinite}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;color:var(--dark);
+  padding:9px 18px;border-radius:999px;
+  font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  box-shadow:0 6px 16px rgba(29,23,48,.08);
+  margin-bottom:18px;
+}
+.hero-badge .em{color:var(--violet)}
+
+.hero h1{
+  font-size:clamp(2rem,7.2vw,2.6rem);
+  line-height:1.05;
+  font-weight:900;
+  letter-spacing:-.03em;
+  margin-bottom:14px;
+  position:relative;z-index:2;
+}
+.hero h1 .v{color:var(--violet)}
+.hero-sub{
+  font-size:1.02rem;line-height:1.5;color:#3a3450;
+  margin-bottom:18px;position:relative;z-index:2;
+  font-weight:500;
+}
+.hero-sub strong{color:var(--violet);font-weight:700}
+
+.hero-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  align-items:stretch;
+  margin-bottom:22px;position:relative;z-index:2;
+}
+.hero-feats{
+  list-style:none;display:flex;flex-direction:column;
+  justify-content:space-between;
+  gap:14px;padding:6px 0;
+}
+.hero-feats li{
+  display:flex;gap:10px;align-items:flex-start;
+  font-size:.86rem;line-height:1.4;color:var(--dark);font-weight:500;
+}
+.hero-feats .ck{
+  flex-shrink:0;width:22px;height:22px;border-radius:50%;
+  background:var(--violet);color:#fff;
+  display:grid;place-items:center;font-size:.68rem;font-weight:900;
+  margin-top:1px;
+}
+
+/* HERO video block — phone-shaped, compact column variant */
+.hero-video-wrap{
+  position:relative;
+  border-radius:22px;overflow:hidden;
+  background:#000;
+  aspect-ratio:9/16;
+  box-shadow:0 16px 36px -14px rgba(107,79,187,.45),0 0 0 5px #fff,0 0 0 6px var(--line);
+}
+.hero-video-wrap .play-tag{font-size:.55rem !important;padding:4px 9px !important;top:9px !important;left:9px !important;letter-spacing:.10em !important}
+.hero-video-wrap video{
+  width:100%;height:100%;object-fit:cover;
+}
+.hero-video-wrap .play-tag{
+  position:absolute;top:14px;left:14px;
+  background:rgba(255,255,255,.92);
+  color:var(--dark);
+  padding:6px 12px;border-radius:999px;
+  font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:6px;backdrop-filter:blur(8px);
+}
+.hero-video-wrap .play-tag .lvd{width:6px;height:6px;border-radius:50%;background:#e63946;animation:pulseDot 1.6s ease-in-out infinite}
+
+.price-row{
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  margin-bottom:16px;position:relative;z-index:2;
+}
+.price-row .now{
+  font-size:2.4rem;font-weight:900;color:var(--dark);letter-spacing:-.03em;line-height:1;
+}
+.price-row .now .gr{font-size:1rem;font-weight:700;color:var(--gray);margin-left:4px}
+.price-row .old{font-size:1rem;color:var(--gray);text-decoration:line-through;font-weight:600}
+.price-row .save{
+  font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--violet);color:#fff;padding:5px 10px;border-radius:6px;
+}
+
+/* ===== CTA BUTTONS ===== */
+.cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:18px 30px;background:var(--violet);color:#fff;
+  border-radius:14px;font-weight:700;font-size:.92rem;
+  letter-spacing:.04em;text-transform:uppercase;
+  width:100%;
+  box-shadow:0 14px 32px -8px rgba(107,79,187,.55),inset 0 1px 0 rgba(255,255,255,.18);
+  position:relative;overflow:hidden;
+  transition:transform .25s,box-shadow .25s;
+}
+.cta::before{
+  content:'';position:absolute;top:0;left:-100%;
+  width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.30),transparent);
+  transform:skewX(-20deg);transition:left .8s ease;
+}
+.cta:hover{transform:translateY(-2px);box-shadow:0 20px 42px -8px rgba(107,79,187,.65)}
+.cta:hover::before{left:130%}
+.cta:active{transform:scale(.98)}
+.cta .arr{font-size:1.05rem;transition:transform .25s}
+.cta:hover .arr{transform:translateX(4px)}
+.cta-light{background:#fff;color:var(--violet);box-shadow:0 14px 32px -8px rgba(0,0,0,.25)}
+.cta-light:hover{box-shadow:0 20px 42px -8px rgba(0,0,0,.35)}
+
+.cta-row .gift{font-size:1.1rem}
+
+/* ===== TIMER BAR ===== */
+.timer-bar{
+  background:#fff;border:1px dashed var(--violet);
+  border-radius:14px;padding:14px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  margin-top:14px;
+}
+.timer-bar .lbl{
+  font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);
+}
+.timer-bar .val{
+  font-size:1.05rem;font-weight:900;color:var(--violet);letter-spacing:.05em;font-variant-numeric:tabular-nums;
+}
+
+/* ===== BONUS CARDS ===== */
+.bonus-grid{display:grid;gap:14px;margin-top:18px}
+.bonus-card{
+  background:#fff;border-radius:20px;padding:22px 20px;
+  border:1px solid var(--line);
+  position:relative;overflow:hidden;
+  box-shadow:0 10px 30px -16px rgba(29,23,48,.18);
+}
+.bonus-card .tag{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--violet-soft);color:var(--violet);
+  padding:5px 12px;border-radius:999px;
+  font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:10px;
+}
+.bonus-card h3{font-size:1.15rem;margin-bottom:8px}
+.bonus-card p{
+  font-size:.86rem;line-height:1.55;color:#4a4360;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.bonus-card.expanded p{display:block;-webkit-line-clamp:unset;overflow:visible}
+.bonus-card .toggle{
+  margin-top:10px;background:none;border:none;padding:0;cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--violet);font-family:inherit;font-weight:800;
+  font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+}
+.bonus-card .toggle .arr{
+  display:inline-block;transition:transform .25s;font-size:.85rem;line-height:1;
+}
+.bonus-card.expanded .toggle .arr{transform:rotate(180deg)}
+.bonus-card .ic{
+  position:absolute;top:18px;right:18px;
+  width:42px;height:42px;border-radius:12px;
+  background:var(--violet);color:#fff;
+  display:grid;place-items:center;font-size:1.3rem;
+  box-shadow:0 8px 20px -6px var(--violet-glow);
+}
+
+/* ===== GALLERY (videos) ===== */
+.gallery-track{
+  display:flex;gap:12px;overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;padding:8px 22px 18px;
+  margin:0 -22px;
+}
+.gallery-track::-webkit-scrollbar{display:none}
+.gallery-item{
+  min-width:240px;max-width:260px;
+  flex-shrink:0;scroll-snap-align:start;
+  aspect-ratio:9/16;border-radius:18px;overflow:hidden;
+  background:#000;position:relative;
+  box-shadow:0 14px 30px -14px rgba(29,23,48,.35);
+  content-visibility:auto;
+  contain-intrinsic-size:240px 427px;
+}
+.gallery-item video{width:100%;height:100%;object-fit:cover}
+.gallery-item .lab{
+  position:absolute;bottom:10px;left:10px;
+  background:rgba(0,0,0,.55);color:#fff;backdrop-filter:blur(8px);
+  font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+  padding:5px 10px;border-radius:999px;
+}
+.scroll-hint{
+  text-align:center;font-size:.75rem;color:var(--gray);
+  letter-spacing:.1em;text-transform:uppercase;margin-top:6px;font-weight:600;
+}
+
+/* ===== AUDIENCE LIST (cream cards) ===== */
+.aud-list{display:grid;gap:12px;margin-top:18px}
+.aud-card{
+  background:#fff;border-radius:18px;padding:18px;
+  border:1px solid var(--line);
+  display:flex;gap:14px;align-items:flex-start;
+}
+.aud-card .em{
+  flex-shrink:0;width:42px;height:42px;border-radius:12px;
+  background:var(--violet-soft);color:var(--violet);
+  display:grid;place-items:center;font-size:1.25rem;
+}
+.aud-card h4{font-size:.98rem;font-weight:800;margin-bottom:4px;color:var(--dark)}
+.aud-card p{font-size:.85rem;line-height:1.5;color:#4a4360}
+
+/* ===== PROBLEM / RESULT BLOCKS ===== */
+.bullets{list-style:none;display:grid;gap:14px;margin:18px 0}
+.bullets li{
+  display:flex;gap:12px;align-items:flex-start;
+  font-size:.92rem;line-height:1.55;color:rgba(255,255,255,.86);
+}
+.bullets li .b{
+  flex-shrink:0;width:24px;height:24px;border-radius:50%;
+  background:rgba(255,255,255,.12);color:#fff;
+  display:grid;place-items:center;font-size:.85rem;font-weight:900;margin-top:1px;
+}
+.section-cream .bullets li,.section-paper .bullets li{color:#3a3450}
+.section-cream .bullets li .b,.section-paper .bullets li .b{
+  background:var(--violet);color:#fff;
+}
+
+.solve-card{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);
+  border-radius:18px;padding:20px;margin-top:18px;
+}
+.solve-card h3{font-size:1.05rem;margin-bottom:12px}
+.solve-card .row{
+  display:flex;gap:12px;align-items:flex-start;padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.solve-card .row:last-child{border-bottom:0}
+.solve-card .row .em{
+  flex-shrink:0;width:34px;height:34px;border-radius:10px;
+  background:var(--violet);color:#fff;
+  display:grid;place-items:center;font-size:1.05rem;
+}
+.solve-card .row p{color:rgba(255,255,255,.92);font-size:.88rem;line-height:1.45;font-weight:500}
+.solve-card .row p strong{color:#fff;font-weight:700}
+
+.callout-box{
+  background:#fff;color:var(--dark);
+  border-radius:18px;padding:18px 20px;margin-top:20px;
+  border-left:5px solid var(--violet);
+  font-size:.92rem;line-height:1.55;
+}
+.callout-box p{color:inherit;font-size:inherit;line-height:inherit;margin:0}
+.callout-box strong{color:var(--violet)}
+.section-cream .callout-box,.section-paper .callout-box{
+  background:var(--violet);color:#fff;border-left-color:#fff;
+}
+.section-cream .callout-box strong,.section-paper .callout-box strong{color:#fff;text-decoration:underline}
+
+/* ===== MONETIZATION TABLE ===== */
+.money-table{
+  margin-top:18px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:18px;overflow:hidden;
+}
+.money-table .row{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.07);
+  font-size:.88rem;
+}
+.money-table .row:last-child{border-bottom:0}
+.money-table .row .svc{color:rgba(255,255,255,.85);font-weight:500;flex:1}
+.money-table .row .pr{color:#fff;font-weight:800;letter-spacing:-.01em;white-space:nowrap}
+
+.money-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.money-grid .item{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);
+  border-radius:14px;padding:14px;
+}
+.money-grid .item .em{font-size:1.4rem;color:var(--violet-light);margin-bottom:6px;display:block;line-height:1}
+.money-grid .item .t{font-size:.78rem;font-weight:700;color:#fff;margin-bottom:3px;letter-spacing:-.01em}
+.money-grid .item .d{font-size:.75rem;color:rgba(255,255,255,.65);line-height:1.4}
+
+/* ===== PROGRAM (lessons) ===== */
+.lessons{display:grid;gap:14px;margin-top:18px}
+.lesson{
+  background:#fff;border-radius:20px;padding:0;
+  border:1px solid var(--line);
+  position:relative;overflow:hidden;
+  box-shadow:0 8px 24px -14px rgba(29,23,48,.18);
+}
+.lesson summary{
+  list-style:none;cursor:pointer;
+  display:flex;gap:14px;padding:14px;align-items:stretch;
+}
+.lesson summary::-webkit-details-marker{display:none}
+.lesson-thumb{
+  flex-shrink:0;width:104px;aspect-ratio:9/16;
+  border-radius:14px;overflow:hidden;background:#000;
+  position:relative;
+}
+.lesson-thumb video,.lesson-thumb img,.lesson-thumb picture{width:100%;height:100%;object-fit:cover;display:block}
+.lesson-num{
+  position:absolute;top:8px;left:8px;z-index:2;
+  width:32px;height:32px;border-radius:10px;
+  background:var(--violet);color:#fff;
+  display:grid;place-items:center;font-weight:900;font-size:1rem;
+  box-shadow:0 6px 14px -4px var(--violet-glow);
+}
+.lesson-title{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.lesson-title .ttl{font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--violet);margin-bottom:6px}
+.lesson-title h3{font-size:1rem;line-height:1.25;color:var(--dark);margin-bottom:10px;font-weight:800}
+.lesson-toggle{
+  display:inline-flex;align-items:center;gap:6px;align-self:flex-start;
+  font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--violet);
+}
+.lesson-toggle .arr{
+  display:inline-grid;place-items:center;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--violet-soft);color:var(--violet);
+  font-size:.7rem;line-height:1;
+  transition:transform .25s,background .25s,color .25s;
+}
+.lesson[open] .lesson-toggle .arr{transform:rotate(180deg);background:var(--violet);color:#fff}
+.lesson-body{padding:0 18px 18px}
+.lesson-body ul{list-style:none;display:grid;gap:8px;margin-bottom:12px}
+.lesson-body ul li{
+  display:flex;gap:10px;align-items:flex-start;
+  font-size:.85rem;line-height:1.45;color:#4a4360;
+}
+.lesson-body ul li::before{
+  content:'';flex-shrink:0;width:6px;height:6px;border-radius:50%;
+  background:var(--violet);margin-top:7px;
+}
+.lesson .res{
+  padding:12px 14px;border-radius:12px;
+  background:var(--violet-soft);
+  font-size:.85rem;line-height:1.5;color:var(--dark-2);
+}
+.lesson .res strong{color:var(--violet);font-weight:800}
+
+/* Wide-image variant: full-width image on top, title below */
+.lesson.lesson-wide summary{
+  flex-direction:column;align-items:stretch;
+  gap:14px;padding:0;
+}
+.lesson.lesson-wide .lesson-thumb{
+  width:100%;aspect-ratio:auto;height:auto;
+  border-radius:18px 18px 0 0;
+  background:#f3ede0;
+}
+.lesson.lesson-wide .lesson-thumb img{
+  width:100%;height:auto;object-fit:contain;display:block;
+}
+.lesson.lesson-wide .lesson-num{top:10px;left:10px}
+.lesson.lesson-wide .lesson-title{padding:0 18px 14px}
+.lesson.lesson-wide .lesson-title h3{margin-bottom:12px}
+.lesson.lesson-wide[open] .lesson-thumb{border-radius:18px 18px 0 0}
+.lesson.lesson-wide .lesson-body{padding:0 18px 18px}
+
+/* ===== ASSISTANTS UTP BLOCK ===== */
+.utp-grid{display:grid;gap:12px;margin-top:18px}
+.utp-card{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);
+  border-radius:14px;padding:14px 16px;
+  display:flex;gap:12px;align-items:center;
+}
+.utp-card .em{
+  flex-shrink:0;width:38px;height:38px;border-radius:11px;
+  background:var(--violet);color:#fff;
+  display:grid;place-items:center;font-size:1rem;
+}
+.utp-card .t{flex:1}
+.utp-card .t b{display:block;font-size:.92rem;font-weight:800;color:#fff;margin-bottom:2px}
+.utp-card .t span{font-size:.78rem;color:rgba(255,255,255,.7);line-height:1.4}
+
+/* ===== HOW IT WORKS (4 cards) ===== */
+.how-grid{display:grid;gap:12px;margin-top:18px}
+.how-card{
+  background:#fff;border-radius:16px;padding:18px;
+  border:1px solid var(--line);
+  display:flex;gap:14px;align-items:flex-start;
+}
+.how-card .em{
+  flex-shrink:0;width:44px;height:44px;border-radius:12px;
+  background:var(--violet);color:#fff;
+  display:grid;place-items:center;font-size:1.2rem;
+  box-shadow:0 8px 16px -6px var(--violet-glow);
+}
+.how-card h4{font-size:.96rem;font-weight:800;margin-bottom:4px}
+.how-card p{font-size:.85rem;line-height:1.5;color:#4a4360}
+
+/* ===== AUTHOR ===== */
+.author-card{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);
+  border-radius:22px;padding:24px 22px;margin-top:18px;
+}
+.author-photo{
+  width:130px;height:130px;border-radius:50%;
+  margin:0 auto 16px;overflow:hidden;
+  border:4px solid var(--violet);
+  box-shadow:0 12px 32px -10px var(--violet-glow);
+  position:relative;
+}
+.author-photo img,.author-photo picture{width:100%;height:100%;object-fit:cover;display:block}
+.author-card h3{text-align:center;font-size:1.3rem;margin-bottom:14px}
+.author-list{list-style:none;display:grid;gap:10px}
+.author-list li{
+  display:flex;gap:10px;align-items:flex-start;
+  font-size:.88rem;line-height:1.5;color:rgba(255,255,255,.88);
+}
+.author-list li::before{
+  content:'✓';color:var(--violet-light);font-weight:900;flex-shrink:0;
+  width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.10);
+  display:grid;place-items:center;font-size:.7rem;margin-top:1px;
+}
+
+/* ===== GUARANTEE ===== */
+.guarantee{
+  background:#fff;border-radius:22px;padding:28px 22px;
+  border:1px solid var(--line);
+  text-align:center;margin-top:18px;
+  box-shadow:0 12px 30px -16px rgba(29,23,48,.18);
+}
+.guarantee .shield{
+  width:64px;height:64px;border-radius:50%;
+  background:var(--violet-soft);color:var(--violet);
+  display:grid;place-items:center;font-size:1.8rem;margin:0 auto 14px;
+}
+.guarantee h3{font-size:1.4rem;margin-bottom:10px}
+.guarantee p{font-size:.92rem;line-height:1.55;color:#4a4360}
+.guarantee p + p{margin-top:8px}
+.guarantee .quote{
+  margin-top:16px;font-style:italic;color:var(--violet);font-weight:600;
+  border-top:1px solid var(--line);padding-top:14px;
+}
+
+/* ===== INCLUDED LIST ===== */
+.included{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  border-radius:20px;padding:22px;margin-top:18px;
+}
+.included li{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:11px 0;border-bottom:1px solid rgba(255,255,255,.07);
+  font-size:.9rem;line-height:1.45;color:rgba(255,255,255,.92);
+  list-style:none;
+}
+.included li:last-child{border-bottom:0}
+.included li .em{
+  flex-shrink:0;font-size:1.05rem;width:24px;text-align:center;
+}
+.included li.bonus{color:#fff;font-weight:600}
+.included li.bonus .em{color:var(--violet-light)}
+
+/* ===== PRICE FINAL ===== */
+.price-final{
+  background:#fff;color:var(--dark);
+  border-radius:20px;padding:22px;margin-top:18px;text-align:center;
+  border:2px solid var(--violet);
+}
+.price-final .lbl{font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--violet);margin-bottom:6px}
+.price-final .row{display:flex;align-items:baseline;justify-content:center;gap:12px;margin-bottom:4px}
+.price-final .row .n{font-size:2.6rem;font-weight:900;letter-spacing:-.03em;color:var(--dark)}
+.price-final .row .gr{font-size:1rem;font-weight:700;color:var(--gray)}
+.price-final .row .o{font-size:1rem;color:var(--gray);text-decoration:line-through;font-weight:600}
+.price-final .hint{font-size:.8rem;color:var(--gray);font-style:italic}
+.price-final-timer{
+  margin-top:14px;padding-top:14px;
+  border-top:1px dashed rgba(107,79,187,.35);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.price-final-timer .tlbl{
+  font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);
+}
+.price-final-timer .tval{
+  font-size:1.15rem;font-weight:900;color:var(--violet);letter-spacing:.05em;font-variant-numeric:tabular-nums;
+}
+
+/* ===== REVIEWS ===== */
+.reviews-track{
+  display:flex;gap:12px;overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;padding:8px 22px 18px;
+  margin:0 -22px;
+}
+.reviews-track::-webkit-scrollbar{display:none}
+.review-item{
+  min-width:260px;max-width:280px;
+  flex-shrink:0;scroll-snap-align:start;
+  aspect-ratio:9/16;border-radius:14px;overflow:hidden;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+  content-visibility:auto;
+  contain-intrinsic-size:260px 462px;
+  display:flex;align-items:center;justify-content:center;
+}
+.review-item img{width:100%;height:100%;object-fit:contain}
+
+/* ===== FAQ ===== */
+.faq{display:grid;gap:10px;margin-top:18px}
+.faq details{
+  background:#fff;border-radius:14px;border:1px solid var(--line);
+  padding:0;overflow:hidden;
+}
+.faq details[open]{border-color:var(--violet)}
+.faq summary{
+  list-style:none;cursor:pointer;
+  padding:16px 18px;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  font-weight:700;font-size:.92rem;color:var(--dark);
+  position:relative;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .plus{
+  flex-shrink:0;width:26px;height:26px;border-radius:50%;
+  background:var(--violet-soft);color:var(--violet);
+  display:grid;place-items:center;font-size:1.05rem;font-weight:900;
+  transition:transform .25s,background .25s;
+}
+.faq details[open] summary .plus{transform:rotate(45deg);background:var(--violet);color:#fff}
+.faq .body{
+  padding:0 18px 18px;font-size:.88rem;line-height:1.55;color:#4a4360;
+}
+
+/* ===== STICKY BOTTOM ===== */
+.sticky-bar{
+  position:fixed;bottom:12px;left:50%;transform:translateX(-50%) translateY(120%);
+  width:calc(100% - 24px);max-width:456px;
+  background:var(--dark);color:#fff;
+  border-radius:14px;padding:10px 12px 10px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  z-index:50;box-shadow:0 18px 40px -10px rgba(29,23,48,.55);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1);
+}
+.sticky-bar.show{transform:translateX(-50%) translateY(0)}
+.sticky-bar .pricew{display:flex;align-items:baseline;gap:8px;flex-shrink:0}
+.sticky-bar .pricew .n{font-size:1.05rem;font-weight:900;letter-spacing:-.02em}
+.sticky-bar .pricew .o{font-size:.78rem;color:rgba(255,255,255,.55);text-decoration:line-through}
+.sticky-bar .cta-mini{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:10px 16px;background:var(--violet);color:#fff;
+  border-radius:10px;font-weight:700;font-size:.78rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  box-shadow:0 6px 16px -4px var(--violet-glow);
+}
+
+/* ===== FOOTER ===== */
+.footer{padding:36px 22px 80px;background:var(--dark);color:rgba(255,255,255,.7)}
+.footer h4{color:#fff;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+.footer .support{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.07);color:#fff;
+  padding:10px 16px;border-radius:999px;font-size:.82rem;font-weight:600;
+  margin-bottom:24px;border:1px solid rgba(255,255,255,.10);
+}
+.footer .ent{font-size:.78rem;line-height:1.6;margin-bottom:14px}
+.footer .ent strong{color:#fff;font-weight:700}
+.footer .links{margin:18px 0;display:flex;gap:16px;flex-wrap:wrap}
+.footer .links a{color:var(--violet-light);font-size:.82rem;font-weight:600;border-bottom:1px solid rgba(138,111,214,.3)}
+.footer .disclaimer{font-size:.72rem;line-height:1.55;color:rgba(255,255,255,.4);margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)}
+.footer .disclaimer strong{color:rgba(255,255,255,.7)}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.vis{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}.reveal-d4{transition-delay:.32s}
+
+</style>
+</head>
+<body>
+
+<div class="desktop-bg">
+<div class="phone">
+
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <span class="dot-grid"></span>
+  <!-- decorative sparks & shapes -->
+  <svg class="deco spark" style="top:7%;right:14px" width="22" height="22" viewBox="0 0 22 22" fill="none">
+    <path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#6B4FBB" opacity=".6"/>
+  </svg>
+  <svg class="deco spark delay-2" style="top:38%;left:8px" width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#6B4FBB" opacity=".45"/>
+  </svg>
+  <!-- wavy underline accent -->
+  <svg class="deco drift" style="top:52%;right:-10px;opacity:.35" width="90" height="22" viewBox="0 0 90 22" fill="none">
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </svg>
+  <!-- dotted cluster bottom-left -->
+  <svg class="deco wob" style="bottom:8%;left:-4px;opacity:.45" width="70" height="40" viewBox="0 0 70 40" fill="none">
+    <circle cx="6" cy="6" r="2.5" fill="#6B4FBB"/>
+    <circle cx="20" cy="4" r="2" fill="#6B4FBB" opacity=".7"/>
+    <circle cx="34" cy="10" r="2.5" fill="#6B4FBB" opacity=".5"/>
+    <circle cx="48" cy="6" r="2" fill="#6B4FBB" opacity=".75"/>
+    <circle cx="14" cy="22" r="2" fill="#6B4FBB" opacity=".6"/>
+    <circle cx="28" cy="28" r="2.5" fill="#6B4FBB" opacity=".5"/>
+    <circle cx="44" cy="22" r="2" fill="#6B4FBB" opacity=".7"/>
+    <circle cx="60" cy="30" r="2.5" fill="#6B4FBB" opacity=".55"/>
+  </svg>
+  <!-- plus sign top-right -->
+  <svg class="deco spark delay-3" style="top:30%;right:-2px;opacity:.4" width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <path d="M10 2 v16 M2 10 h16" stroke="#6B4FBB" stroke-width="2.4" stroke-linecap="round"/>
+  </svg>
+  <!-- small dashed ring -->
+  <svg class="deco dashed-c" style="bottom:18%;right:8px;opacity:.22" width="48" height="48">
+    <circle cx="24" cy="24" r="20" stroke="#6B4FBB" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
+  </svg>
+
+  <div class="brand-row">
+    <div class="brand"><span class="dot"></span> Ai_Sashka</div>
+    <span class="menu-pill"><span class="lvd"></span> Старт <span id="start-date">завтра</span></span>
+  </div>
+
+  <div class="hero-badge"><span class="em">Мінікурс</span> · 6 уроків з домашкою</div>
+
+  <h1>Створи <span class="v">АІ-людину</span> для Reels, Stories і реклами</h1>
+
+  <p class="hero-sub">та генеруй з нею <strong>продаючий і реалістичний контент</strong> для будь-якого товару чи бізнесу</p>
+
+  <div class="hero-row">
+    <div class="hero-video-wrap">
+      <span class="play-tag"><span class="lvd"></span> Превʼю</span>
+      <video data-src="media/ai-hero.mp4" autoplay loop muted playsinline preload="none"></video>
+    </div>
+    <ul class="hero-feats">
+      <li><span class="ck">✓</span><span>без будь-якого досвіду в AI</span></li>
+      <li><span class="ck">✓</span><span>усього за 6 коротких уроків</span></li>
+      <li><span class="ck">✓</span><span>з 4 авторськими AI-асистентами, які пишуть промти <em style="font-style:normal;color:var(--violet);font-weight:700">замість тебе</em></span></li>
+    </ul>
+  </div>
+
+  <div class="price-row">
+    <span class="now">390<span class="gr">грн</span></span>
+    <span class="old">2 400 грн</span>
+    <span class="save">−75%</span>
+  </div>
+
+  <a href="#" class="cta cta-row" data-cta="hero"><span class="gift">🎁</span> Приєднатися · −75% <span class="arr">→</span></a>
+
+  <div class="timer-bar">
+    <span class="lbl">До кінця спеціальної ціни</span>
+    <span class="val js-timer" id="timer">00:10:00</span>
+  </div>
+</section>
+
+<!-- ============== BONUSES ============== -->
+<section class="section section-paper">
+  <span class="dot-grid"></span>
+  <svg class="deco dashed-c" style="top:30px;right:18px;opacity:.22" width="60" height="60">
+    <circle cx="30" cy="30" r="22" stroke="#6B4FBB" stroke-width="1.5" fill="none"/>
+    <circle cx="30" cy="30" r="13" stroke="#6B4FBB" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
+  </svg>
+  <!-- big spark left -->
+  <svg class="deco spark" style="top:8%;left:-8px;opacity:.5" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8Z" fill="#6B4FBB"/>
+  </svg>
+  <!-- curly bracket top-center -->
+  <svg class="deco wob" style="top:80px;left:50%;margin-left:-30px;opacity:.25" width="60" height="20" viewBox="0 0 60 20" fill="none">
+    <path d="M2 18 Q 12 2, 22 18 Q 32 2, 42 18 Q 52 2, 58 18" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </svg>
+  <!-- small spark mid-right -->
+  <svg class="deco spark delay-2" style="top:48%;right:14px;opacity:.45" width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#6B4FBB"/>
+  </svg>
+  <!-- arrow doodle bottom-left -->
+  <svg class="deco drift" style="bottom:14%;left:-6px;opacity:.3" width="60" height="40" viewBox="0 0 60 40" fill="none">
+    <path d="M4 30 Q 18 8, 36 22 Q 48 30, 56 16" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M48 10 L 56 16 L 50 24" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </svg>
+  <!-- plus bottom-right -->
+  <svg class="deco spark delay-3" style="bottom:6%;right:6px;opacity:.4" width="18" height="18" viewBox="0 0 18 18" fill="none">
+    <path d="M9 2 v14 M2 9 h14" stroke="#6B4FBB" stroke-width="2.2" stroke-linecap="round"/>
+  </svg>
+
+  <div class="reveal">
+    <div class="section-label">Бонуси</div>
+    <h2 class="section-title">Купи курс <span class="highlight">до кінця таймеру</span> — і отримай 4 бонуси 🎁</h2>
+    <p class="muted" style="font-size:.85rem">4 авторські AI-асистенти, які роблять рутину замість тебе.</p>
+  </div>
+
+  <div class="bonus-grid">
+    <div class="bonus-card reveal reveal-d1">
+      <span class="ic">🧬</span>
+      <span class="tag">Бонус №1</span>
+      <h3>AI-Асистент «Influencer Face Builder»</h3>
+      <p>Збирає зовнішність твоєї АІ-людини з нуля: обличчя, риси, стиль, ніша. Аналізує референси та готує промт для «карточки персонажа» — повний ріст, профіль, спина, руки, шия. З максимальною увагою до деталей, щоб на кожному відео та фото твоя АІ-людина виглядала однаково.</p>
+      <button class="toggle" type="button"><span class="lab">Розгорнути</span><span class="arr">▾</span></button>
+    </div>
+    <div class="bonus-card reveal reveal-d2">
+      <span class="ic">🖼️</span>
+      <span class="tag">Бонус №2</span>
+      <h3>AI-Асистент «Image-to-Prompt Transformator»</h3>
+      <p>Завантажуєш будь-яке фото з Pinterest, Instagram або референс — отримуєш готовий професійний промт. Окремо під ChatGPT Image, окремо під Nano Banana Pro. З описом композиції, світла, камери, стилю.</p>
+      <button class="toggle" type="button"><span class="lab">Розгорнути</span><span class="arr">▾</span></button>
+    </div>
+    <div class="bonus-card reveal reveal-d3">
+      <span class="ic">🎬</span>
+      <span class="tag">Бонус №3</span>
+      <h3>AI-Асистент «Video Prompt Director»</h3>
+      <p>Перетворює статичне фото моделі на короткий ролик для Stories, Reels або B-roll. Підбирає AI-модель під сцену — Veo 3.1, Kling 3.0 або Seedance 2.0. Пише англомовні промти з рухом камери, світлом, емоцією.</p>
+      <button class="toggle" type="button"><span class="lab">Розгорнути</span><span class="arr">▾</span></button>
+    </div>
+    <div class="bonus-card reveal reveal-d4">
+      <span class="ic">🎙️</span>
+      <span class="tag">Бонус №4</span>
+      <h3>AI-Асистент «UGC Script Master»</h3>
+      <p>Пише розмовні UGC-сценарії, які звучать, ніби їх написала справжня людина. Розпаковки, огляди, рекомендації, «зашло/не зашло» — будь-який формат під твій товар або нішу.</p>
+      <button class="toggle" type="button"><span class="lab">Розгорнути</span><span class="arr">▾</span></button>
+    </div>
+  </div>
+
+  <div class="callout-box reveal" style="margin-top:22px">
+    <p>👉 Усі 4 асистенти разом економлять до <strong>5 годин роботи</strong> з AI-контентом.</p>
+    <p style="margin-top:10px">Я створив для тебе авторських асистентів, які будуть <strong>твоєю повноцінною командою</strong> у генерації контенту.</p>
+  </div>
+</section>
+
+<!-- ============== GALLERY ============== -->
+<section class="section section-cream">
+  <span class="dot-grid"></span>
+  <!-- corner spark TL -->
+  <svg class="deco spark" style="top:24px;left:6px;opacity:.5" width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#6B4FBB"/>
+  </svg>
+  <!-- spark TR -->
+  <svg class="deco spark delay-2" style="top:14%;right:14px;opacity:.45" width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#6B4FBB"/>
+  </svg>
+  <!-- big dashed ring R -->
+  <svg class="deco dashed-c" style="top:26%;right:-30px;opacity:.18" width="120" height="120">
+    <circle cx="60" cy="60" r="50" stroke="#6B4FBB" stroke-width="1.5" fill="none"/>
+    <circle cx="60" cy="60" r="34" stroke="#6B4FBB" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+  </svg>
+  <!-- wavy line under title -->
+  <svg class="deco drift" style="top:18%;left:-10px;opacity:.32" width="130" height="22" viewBox="0 0 130 22" fill="none">
+    <path d="M2 12 Q 16 2, 30 12 T 60 12 T 90 12 T 120 12" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </svg>
+  <!-- plus BL -->
+  <svg class="deco spark delay-3" style="bottom:18%;left:8px;opacity:.4" width="18" height="18" viewBox="0 0 18 18" fill="none">
+    <path d="M9 2 v14 M2 9 h14" stroke="#6B4FBB" stroke-width="2.2" stroke-linecap="round"/>
+  </svg>
+  <!-- spark BR -->
+  <svg class="deco wob" style="bottom:8%;right:6px;opacity:.4" width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#6B4FBB"/>
+  </svg>
+
+  <div class="reveal">
+    <div class="section-label">Приклади контенту</div>
+    <h2 class="section-title">Ось такий контент <span class="highlight">ти зможеш створювати</span> після курсу</h2>
+  </div>
+
+  <div class="gallery-track" id="gallery">
+    <div class="gallery-item"><video data-src="media/ai-1.mp4" autoplay autoplay loop muted playsinline preload="none"></video></div>
+    <div class="gallery-item"><video data-src="media/ai-2.mp4" autoplay loop muted playsinline preload="none"></video></div>
+    <div class="gallery-item"><video data-src="media/ai-3.mp4" autoplay loop muted playsinline preload="none"></video></div>
+    <div class="gallery-item"><video data-src="media/ai-4.mp4" autoplay loop muted playsinline preload="none"></video></div>
+    <div class="gallery-item"><video data-src="media/ai-5.mp4" autoplay loop muted playsinline preload="none"></video></div>
+    <div class="gallery-item"><video data-src="media/ai-6.mp4" autoplay loop muted playsinline preload="none"></video></div>
+    <div class="gallery-item"><video data-src="media/ai-7.mp4" autoplay loop muted playsinline preload="none"></video></div>
+    <div class="gallery-item"><video data-src="media/ai-8.mp4" autoplay loop muted playsinline preload="none"></video></div>
+  </div>
+  <div class="scroll-hint">← гортай →</div>
+
+  <div class="callout-box reveal" style="margin-top:8px">
+    На відео — <strong>АІ-люди</strong>, яких неможливо відрізнити від справжніх.
+  </div>
+</section>
+
+<!-- ============== AUDIENCE ============== -->
+<section class="section section-paper">
+  <span class="dot-grid"></span>
+  <svg class="deco spark" style="top:30px;right:14px;opacity:.5" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#6B4FBB"/></svg>
+  <svg class="deco wob" style="top:18%;left:-8px;opacity:.32" width="80" height="22" viewBox="0 0 80 22" fill="none">
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 76 12" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </svg>
+  <svg class="deco dashed-c" style="top:48%;right:-26px;opacity:.16" width="100" height="100">
+    <circle cx="50" cy="50" r="42" stroke="#6B4FBB" stroke-width="1.5" fill="none"/>
+    <circle cx="50" cy="50" r="28" stroke="#6B4FBB" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+  </svg>
+  <svg class="deco spark delay-3" style="bottom:24%;left:6px;opacity:.4" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#6B4FBB"/></svg>
+  <svg class="deco drift" style="bottom:6%;right:10px;opacity:.4" width="22" height="22" viewBox="0 0 22 22"><path d="M11 2 v18 M2 11 h18" stroke="#6B4FBB" stroke-width="2.4" stroke-linecap="round"/></svg>
+
+  <div class="reveal">
+    <div class="section-label">для кого</div>
+    <h2 class="section-title">Цей курс для тебе, <span class="highlight">якщо ти:</span></h2>
+  </div>
+  <div class="aud-list">
+    <div class="aud-card reveal"><span class="em">🚀</span><div><h4>Хочеш нову AI-навичку</h4><p>опанувати створення реалістичних АІ-людей і почати монетизувати цей навик — попит зростає щомісяця</p></div></div>
+    <div class="aud-card reveal reveal-d1"><span class="em">📱</span><div><h4>Хочеш вести блог за кадром</h4><p>не показувати своє обличчя, але робити Stories, Reels та контент, який не відрізнити від справжнього</p></div></div>
+    <div class="aud-card reveal reveal-d2"><span class="em">👕</span><div><h4>Маєш товарний бізнес або бренд одягу</h4><p>і хочеш стабільний UGC-контент без зйомок, моделей, студій та оренди</p></div></div>
+    <div class="aud-card reveal reveal-d3"><span class="em">🛍️</span><div><h4>Запускаєш інста-шоп</h4><p>і потрібен продаючий візуал з «живою» моделлю — без бюджету на фотосесію</p></div></div>
+    <div class="aud-card reveal reveal-d4"><span class="em">📊</span><div><h4>SMM-ник, маркетолог, таргетолог або дизайнер</h4><p>і хочеш додати в портфоліо нову послугу, за яку платять у $</p></div></div>
+    <div class="aud-card reveal reveal-d4"><span class="em">🤖</span><div><h4>Уже працюєш з AI-контентом</h4><p>і хочеш прокачати рівень до реалістичних людей, відео та UGC, щоб брати дорожчі замовлення</p></div></div>
+  </div>
+</section>
+
+<!-- ============== PROBLEM ============== -->
+<section class="section section-dark">
+  <svg class="deco spark" style="top:34px;right:22px;opacity:.55" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#8a6fd6"/></svg>
+  <svg class="deco spark delay-2" style="top:22%;left:10px;opacity:.4" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#8a6fd6"/></svg>
+  <svg class="deco wob" style="top:38%;right:-10px;opacity:.3" width="90" height="22" viewBox="0 0 90 22" fill="none">
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#8a6fd6" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </svg>
+  <svg class="deco dashed-c" style="bottom:14%;left:-30px;opacity:.16" width="100" height="100">
+    <circle cx="50" cy="50" r="42" stroke="#8a6fd6" stroke-width="1.5" fill="none"/>
+    <circle cx="50" cy="50" r="28" stroke="#8a6fd6" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+  </svg>
+  <svg class="deco drift" style="bottom:8%;right:14px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#8a6fd6" stroke-width="2.4" stroke-linecap="round"/></svg>
+
+  <div class="reveal">
+    <div class="section-label">проблема</div>
+    <h2 class="section-title">Чому 9 з 10 кидають <br>створення <span class="highlight">АІ-моделей?</span></h2>
+    <p style="margin-bottom:6px">Якщо ти вже пробував робити АІ-блогера — швидше за все, стикався з цим:</p>
+  </div>
+
+  <ul class="bullets reveal">
+    <li><span class="b">●</span><span>обличчя <strong style="color:#fff">змінюється</strong> від кадру до кадру, і весь контент виглядає, як зібраний з різних людей</span></li>
+    <li><span class="b">●</span><span>на відео — дивні рухи, <strong style="color:#fff">неприродна міміка</strong>, руки з трьома пальцями</span></li>
+    <li><span class="b">●</span><span>в YouTube купа уроків «як зробити», але <strong style="color:#fff">майже ніхто не показує, як на цьому заробляти</strong></span></li>
+  </ul>
+
+  <p style="font-style:italic;margin-bottom:0">В результаті більшість кидає це з думкою <span style="color:#fff">«АІ-моделі — це гра, не інструмент»</span>.</p>
+
+  <div class="solve-card reveal">
+    <h3>Цей курс вирішує всі три проблеми:</h3>
+    <div class="row"><span class="em">🎯</span><p><strong>Алгоритм консистентного обличчя</strong> — твоя АІ-людина залишається тією самою на всіх кадрах</p></div>
+    <div class="row"><span class="em">🎯</span><p><strong>Готові промти під відео</strong> — рухи, міміка, емоції на рівні реальної зйомки</p></div>
+    <div class="row"><span class="em">🎯</span><p><strong>4 авторські AI-асистенти</strong> — пишуть промти та задачі замість тебе</p></div>
+  </div>
+
+  <div class="callout-box reveal" style="margin-top:18px">
+    👉 Ти платиш не за інформацію — її повно на YouTube.<br>
+    Ти отримуєш <strong>4 персональних AI-співробітники</strong>, які роблять рутину <strong>за тебе</strong>. Таких в відкритому доступі немає.
+  </div>
+</section>
+
+<!-- ============== MONEY ============== -->
+<section class="section section-violet">
+  <svg class="deco dashed-c" style="top:24px;right:18px;opacity:.3" width="60" height="60">
+    <circle cx="30" cy="30" r="22" stroke="#fff" stroke-width="1.5" fill="none"/>
+    <circle cx="30" cy="30" r="13" stroke="#fff" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
+  </svg>
+  <svg class="deco spark" style="top:14%;left:12px;opacity:.6" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#fff"/></svg>
+  <svg class="deco wob" style="top:50%;left:-12px;opacity:.35" width="80" height="22" viewBox="0 0 80 22" fill="none">
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 76 12" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </svg>
+  <svg class="deco spark delay-2" style="top:42%;right:14px;opacity:.5" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#fff"/></svg>
+  <svg class="deco drift" style="bottom:10%;left:8px;opacity:.45" width="22" height="22" viewBox="0 0 22 22"><path d="M11 2 v18 M2 11 h18" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+  <svg class="deco spark delay-3" style="bottom:18%;right:-2px;opacity:.5" width="18" height="18" viewBox="0 0 18 18"><path d="M9 0L10.7 7.3L18 9L10.7 10.7L9 18L7.3 10.7L0 9L7.3 7.3Z" fill="#fff"/></svg>
+
+  <div class="reveal">
+    <div class="section-label">монетизація</div>
+    <h2 class="section-title">Що дає вміння <br>створювати <span style="border-bottom:3px solid #fff">АІ-людей?</span></h2>
+    <p>Людина, яка вміє швидко робити реалістичних АІ-моделей та контент через них:</p>
+  </div>
+
+  <div class="money-grid reveal">
+    <div class="item"><span class="em">💵</span><div class="t">Економить тисячі $</div><div class="d">бізнесу — на зйомках</div></div>
+    <div class="item"><span class="em">⚡</span><div class="t">Дає швидкість</div><div class="d">нова сцена за 10 хв, не за тиждень</div></div>
+    <div class="item"><span class="em">∞</span><div class="t">Десятки креативів</div><div class="d">без переплат</div></div>
+    <div class="item"><span class="em">✓</span><div class="t">Знімає головний біль</div><div class="d">з організації зйомок та моделей</div></div>
+  </div>
+
+  <p class="reveal" style="margin-top:22px;color:#fff;font-weight:600">І за це платять:</p>
+
+  <div class="money-table reveal">
+    <div class="row"><span class="svc">Створення АІ-людини під бренд</span><span class="pr">від 100$</span></div>
+    <div class="row"><span class="svc">Пакет з 10 фото з АІ-людиною</span><span class="pr">1 500 грн</span></div>
+    <div class="row"><span class="svc">UGC-відео до 30 сек</span><span class="pr">50$</span></div>
+    <div class="row"><span class="svc">Reels з рухом + озвучкою</span><span class="pr">від 80$</span></div>
+    <div class="row"><span class="svc">Місячний контент-план</span><span class="pr">від 500$</span></div>
+  </div>
+
+  <p class="reveal" style="margin-top:18px;color:#fff;font-weight:500">👉 Платять, бо ти продаєш бізнесу <strong style="color:#fff;text-decoration:underline">економію, швидкість і безліміт сцен</strong>.</p>
+</section>
+
+<!-- ============== PROGRAM ============== -->
+<section class="section section-cream">
+  <span class="dot-grid"></span>
+  <svg class="deco spark" style="top:50px;left:14px;opacity:.5" width="18" height="18" viewBox="0 0 18 18"><path d="M9 0L10.7 7.3L18 9L10.7 10.7L9 18L7.3 10.7L0 9L7.3 7.3Z" fill="#6B4FBB"/></svg>
+  <svg class="deco spark delay-2" style="top:30px;right:18px;opacity:.45" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#6B4FBB"/></svg>
+  <svg class="deco wob" style="top:14%;right:-10px;opacity:.3" width="80" height="22" viewBox="0 0 80 22" fill="none">
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 76 12" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </svg>
+  <svg class="deco dashed-c" style="top:30%;left:-30px;opacity:.16" width="100" height="100">
+    <circle cx="50" cy="50" r="42" stroke="#6B4FBB" stroke-width="1.5" fill="none"/>
+    <circle cx="50" cy="50" r="28" stroke="#6B4FBB" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+  </svg>
+  <svg class="deco drift" style="bottom:24%;right:6px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#6B4FBB" stroke-width="2.4" stroke-linecap="round"/></svg>
+  <svg class="deco spark delay-3" style="bottom:12%;left:8px;opacity:.4" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#6B4FBB"/></svg>
+
+  <div class="reveal">
+    <div class="section-label">Програма курсу</div>
+    <h2 class="section-title">Уроки курсу — це <span class="highlight">покроковий зрозумілий план дій</span></h2>
+    <p class="muted">6 уроків · домашні завдання · доступ назавжди</p>
+  </div>
+
+  <div class="lessons">
+    <details class="lesson reveal">
+      <summary>
+        <div class="lesson-thumb">
+          <span class="lesson-num">1</span>
+          <picture>
+            <source srcset="media/lesson-1-face.avif" type="image/avif">
+            <img src="media/lesson-1-face.jpg" alt="Урок 1 — створення обличчя АІ-людини" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="lesson-title">
+          <div class="ttl">Урок №1</div>
+          <h3>Створення обличчя та зовнішності АІ-людини</h3>
+          <span class="lesson-toggle"><span class="lab">Що в уроці</span><span class="arr">▾</span></span>
+        </div>
+      </summary>
+      <div class="lesson-body">
+        <ul>
+          <li>як працювати з AI-асистентом «Influencer Face Builder»</li>
+          <li>зібрати зовнішність персонажа з нуля: обличчя, риси, стиль, ніша</li>
+          <li>2 способи створення обличчя: через ChatGPT та Nano Banana Pro</li>
+          <li>як зробити персонажа реалістичним з природною шкірою та anti-AI ефектом</li>
+        </ul>
+        <div class="res"><strong>Результат:</strong> у тебе є власна АІ-людина з унікальною зовнішністю — готова до будь-яких сцен.</div>
+      </div>
+    </details>
+
+    <details class="lesson lesson-wide reveal">
+      <summary>
+        <div class="lesson-thumb">
+          <span class="lesson-num">2</span>
+          <picture>
+            <source srcset="media/lesson-2-card.avif" type="image/avif">
+            <img src="media/lesson-2-card.jpg" alt="Урок 2 — карточка персонажа" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="lesson-title">
+          <div class="ttl">Урок №2</div>
+          <h3>Карточка персонажа: тримаємо консистентність</h3>
+          <span class="lesson-toggle"><span class="lab">Що в уроці</span><span class="arr">▾</span></span>
+        </div>
+      </summary>
+      <div class="lesson-body">
+        <ul>
+          <li>що таке «карточка персонажа» і чому без неї нічого не вийде</li>
+          <li>як зробити, щоб обличчя і фігура не змінювались від кадру до кадру</li>
+          <li>2 авторські способи створення карточки</li>
+          <li>повний ріст, профіль, спина, руки, шия — всі ракурси з одним обличчям</li>
+        </ul>
+        <div class="res"><strong>Результат:</strong> твоя АІ-людина залишається тією самою на всіх фото та відео. База, яка відрізняє новачка від профі.</div>
+      </div>
+    </details>
+
+    <details class="lesson reveal">
+      <summary>
+        <div class="lesson-thumb">
+          <span class="lesson-num">3</span>
+          <picture>
+            <source srcset="media/lesson-3-card.avif" type="image/avif">
+            <img src="media/lesson-3-card.jpg" alt="Урок 3 — реалістичні фото" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="lesson-title">
+          <div class="ttl">Урок №3</div>
+          <h3>Реалістичні фото з АІ-людиною</h3>
+          <span class="lesson-toggle"><span class="lab">Що в уроці</span><span class="arr">▾</span></span>
+        </div>
+      </summary>
+      <div class="lesson-body">
+        <ul>
+          <li>як генерувати фото, які неможливо відрізнити від реальних</li>
+          <li>як «садити» персонажа в будь-яку локацію — кафе, вулиця, студія, природа</li>
+          <li>робота зі світлом, камерою, асиметрією — деталі, які роблять кадр живим</li>
+          <li>лайфстайл, fashion, beauty — під будь-яку нішу</li>
+        </ul>
+        <div class="res"><strong>Результат:</strong> ти створюєш фотосесії рівня дорогих зйомок — без камери, моделі та студії.</div>
+      </div>
+    </details>
+
+    <details class="lesson reveal">
+      <summary>
+        <div class="lesson-thumb">
+          <span class="lesson-num">4</span>
+          <picture>
+            <source srcset="media/lesson-4-card.avif" type="image/avif">
+            <img src="media/lesson-4-card.jpg" alt="Урок 4 — де брати ідеї" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="lesson-title">
+          <div class="ttl">Урок №4</div>
+          <h3>Де брати ідеї + Image-to-Prompt асистент</h3>
+          <span class="lesson-toggle"><span class="lab">Що в уроці</span><span class="arr">▾</span></span>
+        </div>
+      </summary>
+      <div class="lesson-body">
+        <ul>
+          <li>авторська система пошуку референсів, які реально працюють</li>
+          <li>як знайти ідею за 2 хвилини, коли в голові порожньо</li>
+          <li>асистент «Image-to-Prompt»: фотка → готовий промт</li>
+          <li>окремі промти для ChatGPT Image та Nano Banana Pro</li>
+        </ul>
+        <div class="res"><strong>Результат:</strong> у тебе більше ніколи не буде проблеми «що знімати». Ідеї та промти — за пару кліків.</div>
+      </div>
+    </details>
+
+    <details class="lesson reveal">
+      <summary>
+        <div class="lesson-thumb">
+          <span class="lesson-num">5</span>
+          <video data-src="media/ai-5.mp4" autoplay loop muted playsinline preload="none"></video>
+        </div>
+        <div class="lesson-title">
+          <div class="ttl">Урок №5</div>
+          <h3>Відео з АІ-людиною + товаром (Reels, Stories, UGC)</h3>
+          <span class="lesson-toggle"><span class="lab">Що в уроці</span><span class="arr">▾</span></span>
+        </div>
+      </summary>
+      <div class="lesson-body">
+        <ul>
+          <li>як «оживити» статичне фото у відео</li>
+          <li>вірусні рухові схеми — рухи, які набирають мільйони переглядів</li>
+          <li>UGC-формати: розпаковка товару, розпаковка одягу, огляд</li>
+          <li>як підібрати AI-модель: Veo 3.1, Kling 3.0 або Seedance 2.0</li>
+          <li>робота з асистентом «Video Prompt Director»</li>
+        </ul>
+        <div class="res"><strong>Результат:</strong> ти створюєш ролики, які виглядають як знято на iPhone живою людиною — і конвертують у продаж.</div>
+      </div>
+    </details>
+
+    <details class="lesson reveal">
+      <summary>
+        <div class="lesson-thumb">
+          <span class="lesson-num">6</span>
+          <video data-src="media/lesson-6.mp4" autoplay loop muted playsinline preload="none"></video>
+        </div>
+        <div class="lesson-title">
+          <div class="ttl">Урок №6</div>
+          <h3>Розмовний UGC: коли АІ-людина говорить</h3>
+          <span class="lesson-toggle"><span class="lab">Що в уроці</span><span class="arr">▾</span></span>
+        </div>
+      </summary>
+      <div class="lesson-body">
+        <ul>
+          <li>як створювати відео, де АІ-людина говорить про товар реалістичним голосом</li>
+          <li>розмовні UGC-сценарії, які не «пахнуть» рекламою</li>
+          <li>робота з асистентом «UGC Script Master»</li>
+          <li>як адаптувати UGC під будь-яку нішу: fashion, beauty, food, tech, services</li>
+        </ul>
+        <div class="res"><strong>Результат:</strong> ти робиш UGC-контент рівня TikTok-блогерів — і можеш продавати цю послугу брендам у $.</div>
+      </div>
+    </details>
+  </div>
+
+  <div style="margin-top:22px"><a href="#" class="cta" data-cta="program">Приєднатися за 390 грн <span class="arr">→</span></a></div>
+</section>
+
+<!-- ============== HOW IT WORKS ============== -->
+<section class="section section-cream">
+  <span class="dot-grid"></span>
+  <svg class="deco spark" style="top:30px;left:12px;opacity:.5" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#6B4FBB"/></svg>
+  <svg class="deco spark delay-2" style="top:8%;right:18px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#6B4FBB"/></svg>
+  <svg class="deco dashed-c" style="top:34%;right:-26px;opacity:.16" width="100" height="100">
+    <circle cx="50" cy="50" r="42" stroke="#6B4FBB" stroke-width="1.5" fill="none"/>
+    <circle cx="50" cy="50" r="28" stroke="#6B4FBB" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+  </svg>
+  <svg class="deco wob" style="top:60%;left:-10px;opacity:.32" width="90" height="22" viewBox="0 0 90 22" fill="none">
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </svg>
+  <svg class="deco drift" style="bottom:14%;right:8px;opacity:.4" width="22" height="22" viewBox="0 0 22 22"><path d="M11 2 v18 M2 11 h18" stroke="#6B4FBB" stroke-width="2.4" stroke-linecap="round"/></svg>
+
+  <div class="reveal">
+    <div class="section-label">Формат</div>
+    <h2 class="section-title">Як проходить <span class="highlight">навчання</span></h2>
+  </div>
+
+  <div class="how-grid">
+    <div class="how-card reveal"><span class="em">📱</span><div><h4>Доступ до уроків у Telegram-боті</h4><p>Дивишся уроки коли зручно, одразу застосовуєш на практиці.</p></div></div>
+    <div class="how-card reveal reveal-d1"><span class="em">📋</span><div><h4>Покрокові інструкції без води</h4><p>Що натиснути, куди завантажити, який промт скопіювати — навіть якщо вперше відкриваєш ChatGPT.</p></div></div>
+    <div class="how-card reveal reveal-d2"><span class="em">🤖</span><div><h4>4 авторські AI-асистенти</h4><p>Замість того, щоб вчити промт-інженерію — просто користуєшся готовими асистентами.</p></div></div>
+    <div class="how-card reveal reveal-d3"><span class="em">💬</span><div><h4>Чат-підтримка з автором курсу</h4><p>Ставиш будь-яке питання — отримуєш розбір. Без пошуку відповідей у YouTube.</p></div></div>
+  </div>
+
+  <h3 class="reveal" style="margin-top:24px;font-size:1.15rem">За 6 коротких уроків ти:</h3>
+  <ul class="bullets reveal" style="margin-top:12px">
+    <li><span class="b">✓</span><span>створиш свою реалістичну АІ-людину з нуля</span></li>
+    <li><span class="b">✓</span><span>навчишся генерувати фото, які не відрізнити від справжніх</span></li>
+    <li><span class="b">✓</span><span>зможеш робити Reels, Stories та UGC-відео з АІ-людиною</span></li>
+    <li><span class="b">✓</span><span>освоїш розмовний UGC, де персонаж говорить про товар</span></li>
+    <li><span class="b">✓</span><span>зможеш заробляти на створенні AI-контенту для брендів</span></li>
+  </ul>
+
+  <div class="callout-box reveal" style="margin-top:18px">
+    Після кожного уроку — <strong>домашнє завдання</strong>. Якщо виконаєш ВСІ — отримаєш <strong>особливий бонус</strong> від автора курсу.
+  </div>
+
+  <div style="margin-top:22px"><a href="#" class="cta" data-cta="how">Приєднатися за 390 грн <span class="arr">→</span></a></div>
+</section>
+
+<!-- ============== UTP / ASSISTANTS ============== -->
+<section class="section section-dark">
+  <svg class="deco spark" style="top:24px;right:14px;opacity:.55" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#8a6fd6"/></svg>
+  <svg class="deco spark delay-2" style="top:24%;left:8px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#8a6fd6"/></svg>
+  <svg class="deco wob" style="top:42%;right:-10px;opacity:.3" width="90" height="22" viewBox="0 0 90 22" fill="none">
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#8a6fd6" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </svg>
+  <svg class="deco dashed-c" style="bottom:18%;left:-30px;opacity:.16" width="100" height="100">
+    <circle cx="50" cy="50" r="42" stroke="#8a6fd6" stroke-width="1.5" fill="none"/>
+    <circle cx="50" cy="50" r="28" stroke="#8a6fd6" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+  </svg>
+  <svg class="deco drift" style="bottom:8%;right:10px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#8a6fd6" stroke-width="2.4" stroke-linecap="round"/></svg>
+
+  <div class="reveal">
+    <h2 class="section-title">Авторські <span class="highlight" style="color:#fff">AI-асистенти</span> всередині курсу</h2>
+    <p>Я створив 4 спеціальні AI-асистенти, які перетворюють курс із «навчання» на готовий робочий процес. Усі учасники отримують безкоштовний доступ.</p>
+  </div>
+
+  <h3 class="reveal" style="margin-top:22px;font-size:1.1rem;color:#fff">Чому це важливо?</h3>
+  <p class="reveal" style="margin-top:8px">Найчастіше питання, яке пишуть в особисті: <strong style="color:#fff">«Як правильно писати промти?»</strong></p>
+  <p class="reveal" style="margin-top:6px">Відповідь — ніяк не писати самому. Замість цього у тебе будуть 4 авторські асистенти:</p>
+
+  <div class="utp-grid">
+    <div class="utp-card reveal"><span class="em">🧬</span><div class="t"><b>Influencer Face Builder</b><span>пише промти для зовнішності АІ-людини</span></div></div>
+    <div class="utp-card reveal reveal-d1"><span class="em">🖼️</span><div class="t"><b>Image-to-Prompt Transformator</b><span>перетворює будь-яке фото на готовий промт</span></div></div>
+    <div class="utp-card reveal reveal-d2"><span class="em">🎬</span><div class="t"><b>Video Prompt Director</b><span>пише промти + підбирає модель (Veo / Kling / Seedance)</span></div></div>
+    <div class="utp-card reveal reveal-d3"><span class="em">🎙️</span><div class="t"><b>UGC Script Master</b><span>пише розмовні UGC-сценарії</span></div></div>
+  </div>
+
+  <div class="callout-box reveal" style="margin-top:22px;color:var(--dark)">
+    👉 Разом ці асистенти економлять до <strong>80% роботи</strong> над створенням однієї одиниці контенту.<br>
+    Тобі не потрібно більше «розбиратися з промтами» — за тебе це робить асистент.
+  </div>
+</section>
+
+<!-- ============== GUARANTEE ============== -->
+<section class="section section-paper">
+  <span class="dot-grid"></span>
+  <svg class="deco spark" style="top:24px;right:18px;opacity:.5" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#6B4FBB"/></svg>
+  <svg class="deco wob" style="top:18%;left:-10px;opacity:.32" width="90" height="22" viewBox="0 0 90 22" fill="none">
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </svg>
+  <svg class="deco dashed-c" style="bottom:16%;right:-20px;opacity:.16" width="80" height="80">
+    <circle cx="40" cy="40" r="32" stroke="#6B4FBB" stroke-width="1.5" fill="none"/>
+    <circle cx="40" cy="40" r="20" stroke="#6B4FBB" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+  </svg>
+  <svg class="deco drift" style="bottom:10%;left:6px;opacity:.4" width="18" height="18" viewBox="0 0 18 18"><path d="M9 2 v14 M2 9 h14" stroke="#6B4FBB" stroke-width="2.2" stroke-linecap="round"/></svg>
+  <svg class="deco spark delay-3" style="top:40%;left:6px;opacity:.4" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#6B4FBB"/></svg>
+
+  <div class="reveal">
+    <div class="section-label">Гарантія</div>
+    <h2 class="section-title">14 днів на <span class="highlight">повернення коштів</span></h2>
+  </div>
+
+  <div class="guarantee reveal">
+    <div class="shield">🛡️</div>
+    <h3>14 днів повернення коштів</h3>
+    <p>Я впевнений у якості цього курсу, тому даю <strong style="color:var(--violet)">14 днів повної гарантії</strong>.</p>
+    <p>Якщо протягом двох тижнів ти пройдеш уроки, створиш свою АІ-людину, спробуєш генерацію фото та відео — але не побачиш цінності або очікуваного результату — я <strong>без жодних питань поверну кошти</strong>.</p>
+    <div class="quote">Жодних ризиків. Або ти створюєш свою АІ-людину — або я повертаю гроші.</div>
+  </div>
+</section>
+
+<!-- ============== AUTHOR ============== -->
+<section class="section section-dark">
+  <svg class="deco spark" style="top:24px;left:14px;opacity:.55" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#8a6fd6"/></svg>
+  <svg class="deco spark delay-2" style="top:16%;right:14px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#8a6fd6"/></svg>
+  <svg class="deco dashed-c" style="top:38%;right:-30px;opacity:.16" width="100" height="100">
+    <circle cx="50" cy="50" r="42" stroke="#8a6fd6" stroke-width="1.5" fill="none"/>
+    <circle cx="50" cy="50" r="28" stroke="#8a6fd6" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+  </svg>
+  <svg class="deco wob" style="bottom:18%;left:-10px;opacity:.3" width="90" height="22" viewBox="0 0 90 22" fill="none">
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#8a6fd6" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </svg>
+  <svg class="deco drift" style="bottom:8%;right:8px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#8a6fd6" stroke-width="2.4" stroke-linecap="round"/></svg>
+
+  <div class="reveal">
+    <div class="section-label">автор</div>
+    <h2 class="section-title">Олександр <span class="highlight" style="color:#fff">Цюцьмаць</span></h2>
+  </div>
+
+  <div class="author-card reveal">
+    <div class="author-photo"><picture><source srcset="author.avif" type="image/avif"><img src="author.jpg" alt="Олександр Цюцьмаць" loading="lazy" decoding="async"></picture></div>
+    <h3>Олександр Цюцьмаць</h3>
+    <ul class="author-list">
+      <li><span>Вивчаю АІ-інструменти <strong>кожен день з 2024 року</strong></span></li>
+      <li><span><strong>Власник агенції</strong> зі створення АІ-контенту під ключ</span></li>
+      <li><span><strong>3 918+ учнів</strong> уже пройшли мої навчальні програми</span></li>
+      <li><span>Створив десятки авторських AI-асистентів, якими користуються мої клієнти та учні</span></li>
+      <li><span>Я вірю, що AI — це <strong>не про «магію кнопки»</strong>, а про системний підхід і авторські інструменти</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============== FULL LIST + PRICE ============== -->
+<section class="section section-violet">
+  <svg class="deco spark" style="top:24px;right:14px;opacity:.6" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#fff"/></svg>
+  <svg class="deco spark delay-2" style="top:14%;left:10px;opacity:.5" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#fff"/></svg>
+  <svg class="deco dashed-c" style="top:38%;left:-26px;opacity:.22" width="90" height="90">
+    <circle cx="45" cy="45" r="38" stroke="#fff" stroke-width="1.5" fill="none"/>
+    <circle cx="45" cy="45" r="24" stroke="#fff" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+  </svg>
+  <svg class="deco wob" style="top:60%;right:-10px;opacity:.35" width="80" height="22" viewBox="0 0 80 22" fill="none">
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 76 12" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </svg>
+  <svg class="deco drift" style="bottom:12%;left:8px;opacity:.45" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+  <svg class="deco spark delay-3" style="bottom:16%;right:8px;opacity:.5" width="18" height="18" viewBox="0 0 18 18"><path d="M9 0L10.7 7.3L18 9L10.7 10.7L9 18L7.3 10.7L0 9L7.3 7.3Z" fill="#fff"/></svg>
+
+  <div class="reveal">
+    <div class="section-label">Що входить у курс</div>
+    <h2 class="section-title">Повний список <br>усього, що ти <span style="border-bottom:3px solid #fff">отримаєш</span></h2>
+  </div>
+
+  <ul class="included reveal">
+    <li><span class="em">📘</span><span>6 практичних уроків без води</span></li>
+    <li><span class="em">🧩</span><span>Готові промти, які я використовую щодня в роботі з клієнтами</span></li>
+    <li><span class="em">📸</span><span>Покрокова методологія створення реалістичних АІ-людей</span></li>
+    <li class="bonus"><span class="em">🎁</span><span>БОНУС №1: AI-Асистент «Influencer Face Builder»</span></li>
+    <li class="bonus"><span class="em">🎁</span><span>БОНУС №2: AI-Асистент «Image-to-Prompt Transformator»</span></li>
+    <li class="bonus"><span class="em">🎁</span><span>БОНУС №3: AI-Асистент «Video Prompt Director»</span></li>
+    <li class="bonus"><span class="em">🎁</span><span>БОНУС №4: AI-Асистент «UGC Script Master»</span></li>
+    <li><span class="em">♾️</span><span>Доступ до курсу — назавжди</span></li>
+    <li><span class="em">🤝</span><span>Підтримка від автора курсу</span></li>
+    <li><span class="em">🛡️</span><span>Гарантія повернення коштів на 14 днів</span></li>
+  </ul>
+
+  <div class="price-final reveal">
+    <div class="lbl">Спеціальна ціна −75%</div>
+    <div class="row"><span class="o">2 400 грн</span><span class="n">390<span class="gr">грн</span></span></div>
+    <div class="hint">тільки до кінця таймера</div>
+    <div class="price-final-timer">
+      <span class="tlbl">До кінця акції</span>
+      <span class="tval js-timer">00:10:00</span>
+    </div>
+  </div>
+
+  <div style="margin-top:18px"><a href="#" class="cta cta-light" data-cta="list">Приєднатися за 390 грн <span class="arr">→</span></a></div>
+</section>
+
+<!-- ============== REVIEWS ============== -->
+<section class="section section-dark">
+  <svg class="deco spark" style="top:30px;right:16px;opacity:.55" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#8a6fd6"/></svg>
+  <svg class="deco spark delay-2" style="top:14%;left:12px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#8a6fd6"/></svg>
+  <svg class="deco dashed-c" style="top:42%;left:-30px;opacity:.16" width="100" height="100">
+    <circle cx="50" cy="50" r="42" stroke="#8a6fd6" stroke-width="1.5" fill="none"/>
+    <circle cx="50" cy="50" r="28" stroke="#8a6fd6" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+  </svg>
+  <svg class="deco wob" style="bottom:22%;right:-10px;opacity:.3" width="90" height="22" viewBox="0 0 90 22" fill="none">
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#8a6fd6" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </svg>
+  <svg class="deco drift" style="bottom:10%;left:8px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#8a6fd6" stroke-width="2.4" stroke-linecap="round"/></svg>
+
+  <div class="reveal">
+    <div class="section-label">відгуки</div>
+    <h2 class="section-title">Уже <span class="highlight" style="color:#fff">3 918+ учнів</span> пройшли мої навчальні програми</h2>
+  </div>
+
+  <div class="reviews-track">
+    <div class="review-item"><img src="reviews/review1.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review2.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review3.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review4.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review5.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review6.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review7.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review8.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review9.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review10.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review11.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="review-item"><img src="reviews/review12.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="review-item"><img src="reviews/review13.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="review-item"><img src="reviews/review14.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="review-item"><img src="reviews/review15.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="review-item"><img src="reviews/review16.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="review-item"><img src="reviews/review17.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="review-item"><img src="reviews/review18.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="review-item"><img src="reviews/review19.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="review-item"><img src="reviews/review20.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="review-item"><img src="reviews/review21.jpg" alt="" loading="lazy" decoding="async"></div>
+  </div>
+  <div class="scroll-hint">← гортай →</div>
+
+  <div style="margin-top:18px"><a href="#" class="cta" data-cta="reviews">Приєднатися за спеціальною ціною −75% <span class="arr">→</span></a></div>
+</section>
+
+<!-- ============== FAQ ============== -->
+<section class="section section-cream">
+  <span class="dot-grid"></span>
+  <svg class="deco spark" style="top:30px;left:14px;opacity:.5" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#6B4FBB"/></svg>
+  <svg class="deco spark delay-2" style="top:18%;right:14px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#6B4FBB"/></svg>
+  <svg class="deco wob" style="top:44%;left:-10px;opacity:.32" width="80" height="22" viewBox="0 0 80 22" fill="none">
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 76 12" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </svg>
+  <svg class="deco dashed-c" style="bottom:18%;right:-22px;opacity:.16" width="80" height="80">
+    <circle cx="40" cy="40" r="32" stroke="#6B4FBB" stroke-width="1.5" fill="none"/>
+    <circle cx="40" cy="40" r="20" stroke="#6B4FBB" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+  </svg>
+  <svg class="deco drift" style="bottom:10%;left:8px;opacity:.4" width="18" height="18" viewBox="0 0 18 18"><path d="M9 2 v14 M2 9 h14" stroke="#6B4FBB" stroke-width="2.2" stroke-linecap="round"/></svg>
+
+  <div class="reveal">
+    <div class="section-label">faq</div>
+    <h2 class="section-title">Питання — <span class="highlight">відповіді</span></h2>
+  </div>
+
+  <div class="faq">
+    <details>
+      <summary>Я повний новачок в AI. У мене вийде?<span class="plus">+</span></summary>
+      <div class="body">Так. Уроки побудовані за принципом «натисни → повтори → отримай результат». Курс уже пройшли люди у віці 18–60 років без досвіду в AI та без англійської.</div>
+    </details>
+    <details>
+      <summary>Скільки часу займе курс?<span class="plus">+</span></summary>
+      <div class="body">6 уроків = 6 днів у форматі «1 урок на день». Але можеш проходити у своєму темпі — доступ назавжди.</div>
+    </details>
+    <details>
+      <summary>Чи треба платні підписки?<span class="plus">+</span></summary>
+      <div class="body">Базово — ні. Більшість роботи робиться через ChatGPT (можна на безкоштовному плані) та Nano Banana. Для відео деякі моделі (Veo, Kling) працюють краще на платних, але це не критично — у курсі покажу безкоштовні альтернативи.</div>
+    </details>
+    <details>
+      <summary>А що з англійською?<span class="plus">+</span></summary>
+      <div class="body">Не потрібна. Усі 4 асистенти спілкуються українською/російською та самі готують англомовні промти там, де це треба.</div>
+    </details>
+    <details>
+      <summary>Чим цей курс відрізняється від попередніх?<span class="plus">+</span></summary>
+      <div class="body">Це повністю оновлена методологія з акцентом на реалістичність, консистентність АІ-людини та авторські AI-асистенти. У старому курсі цього не було.</div>
+    </details>
+    <details>
+      <summary>Чи актуальна інформація?<span class="plus">+</span></summary>
+      <div class="body">Так, актуальна на травень 2026. Як тільки виходить оновлення нейронок — записую новий урок або викладаю апдейт.</div>
+    </details>
+  </div>
+
+  <div style="margin-top:24px"><a href="#" class="cta" data-cta="faq">Приєднатися за 390 грн <span class="arr">→</span></a></div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="footer">
+  <h4>З будь-яких питань пишіть в підтримку ↓</h4>
+  <a href="https://t.me/Mihail_Zemlianoy" class="support" target="_blank" rel="noopener">💬 Технічна підтримка</a>
+
+  <p class="ent"><strong>ЗЕМЛЯНИЙ МИХАЙЛО СЕРГІЙОВИЧ ФОП</strong><br>ЄДРПОУ 3758302175<br>+380 98 596 6120</p>
+  <p class="ent"><strong>БРЖЕСТОВСЬКА ГАННА ЮРІЇВНА ФОП</strong><br>ЄДРПОУ 2877703349</p>
+
+  <div class="links">
+    <a href="politika.html">Політика конфіденційності</a>
+    <a href="oferta.html">Договір оферти</a>
+  </div>
+
+  <p class="disclaimer"><strong>ВАЖЛИВО:</strong> не вводьте свою контактну інформацію, доки не прочитаєте legal disclaimer. Ми не даємо жодних гарантій, що ви досягнете якихось результатів за допомогою наших інструментів, стратегій або інформації. Всі продукти і сервіси компанії призначені для освітніх цілей. Ви несете відповідальність за свої дії і результати.</p>
+</footer>
+
+</div><!-- /.phone -->
+</div><!-- /.desktop-bg -->
+
+<!-- ============== STICKY CTA ============== -->
+<div class="sticky-bar" id="sticky">
+  <div class="pricew"><span class="n">390 грн</span><span class="o">2 400 грн</span></div>
+  <a href="#" class="cta-mini" data-cta="sticky">Купити −75% →</a>
+</div>
+
+<script>
+// Dynamic course start date — always tomorrow
+(function(){
+  var el = document.getElementById('start-date');
+  if (!el) return;
+  var months = ['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
+  var d = new Date();
+  d.setDate(d.getDate() + 1);
+  el.textContent = d.getDate() + ' ' + months[d.getMonth()];
+})();
+
+// reveal on scroll
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// 10-min countdown timer (cookie-persisted, updates all .js-timer elements)
+(function(){
+  const els = document.querySelectorAll('.js-timer');
+  if(!els.length) return;
+  const KEY='ai_lyudyna_deadline_v1';
+  let dl = +localStorage.getItem(KEY);
+  const now = Date.now();
+  if(!dl || dl<now) dl = now + 10*60*1000;
+  localStorage.setItem(KEY,dl);
+  function tick(){
+    const left = Math.max(0, dl - Date.now());
+    const h = Math.floor(left/3600000);
+    const m = Math.floor((left%3600000)/60000);
+    const s = Math.floor((left%60000)/1000);
+    const txt = (h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+    els.forEach(el=>{el.textContent = txt});
+  }
+  tick(); setInterval(tick,1000);
+})();
+
+// sticky bar after hero
+(function(){
+  const bar=document.getElementById('sticky');
+  const hero=document.querySelector('.hero');
+  if(!bar||!hero) return;
+  function check(){
+    const r=hero.getBoundingClientRect();
+    if(r.bottom<60) bar.classList.add('show'); else bar.classList.remove('show');
+  }
+  window.addEventListener('scroll',check,{passive:true});
+  check();
+})();
+
+// Lazy-load videos: set src + play when visible, pause when not
+(function(){
+  const vids=document.querySelectorAll('video[data-src]');
+  if(!vids.length) return;
+  function activate(v){
+    if(!v.src){ v.src=v.dataset.src; v.load(); }
+    v.play().catch(()=>{});
+  }
+  // Eagerly activate videos already in viewport on page load
+  const vh=window.innerHeight;
+  vids.forEach(v=>{
+    const r=v.getBoundingClientRect();
+    if(r.top<vh+200 && r.bottom>-200) activate(v);
+  });
+  if(!('IntersectionObserver' in window)){
+    vids.forEach(activate);
+    return;
+  }
+  const vio=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      const v=e.target;
+      if(e.isIntersecting) activate(v);
+      else { try{v.pause()}catch(_){} }
+    });
+  },{rootMargin:'300px 0px',threshold:0});
+  vids.forEach(v=>vio.observe(v));
+})();
+
+// Bonus card expand/collapse
+document.querySelectorAll('.bonus-card .toggle').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var card = btn.closest('.bonus-card');
+    var open = card.classList.toggle('expanded');
+    btn.querySelector('.lab').textContent = open ? 'Згорнути' : 'Розгорнути';
+  });
+});
+
+// CTA pixel tracking
+document.querySelectorAll('[data-cta]').forEach(el=>{
+  el.addEventListener('click',function(){
+    if(window.fbq) fbq('track','Lead',{content_name:'ai-lyudyna',source:this.dataset.cta});
+  });
+});
+</script>
+</body>
+</html>
