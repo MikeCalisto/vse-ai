@@ -134,7 +134,8 @@
   .card {
     position:relative;
     display:grid;
-    grid-template-columns:40% 1fr;
+    grid-template-columns:38% 1fr;
+    align-items:stretch;
     gap:0;
     background:var(--bg-card-2);
     border:1px solid var(--border);
@@ -148,18 +149,22 @@
     box-shadow:0 30px 60px -20px var(--purple-glow);
   }
 
-  /* ── ЛІВО: фото ── */
+  /* ── ЛІВО: фото (тягнеться під висоту body, ширина = ширина колонки) ── */
   .card__media {
     position:relative;
     overflow:hidden;
     background:#111;
-    aspect-ratio:1/1;
+    min-width:0;
+    align-self:stretch;
   }
-  .card__media img {
+  .card__media img,
+  .card__media video {
     width:100%; height:100%; object-fit:cover;
     transition:transform .5s ease;
+    display:block;
   }
-  .card:hover .card__media img { transform:scale(1.06); }
+  .card:hover .card__media img,
+  .card:hover .card__media video { transform:scale(1.06); }
   .card__media::after {
     content:''; position:absolute; inset:0;
     background:linear-gradient(90deg, rgba(0,0,0,0) 55%, rgba(24,24,28,.9) 100%);
@@ -186,32 +191,31 @@
 
   /* ── ПРАВО: контент ── */
   .card__body {
-    padding:14px 16px 16px;
+    padding:12px 14px 14px;
     display:flex; flex-direction:column;
-    gap:8px;
+    gap:6px;
     min-width:0;
     position:relative;
   }
 
-  /* Pill-бейдж "ХІТ"/"НОВЕ" зверху-справа */
+  /* Pill-бейдж "ХІТ"/"НОВЕ" — у потоці, перший рядок */
   .card__pill {
-    position:absolute;
-    top:12px; right:12px;
+    align-self:flex-start;
     display:inline-flex; align-items:center; gap:5px;
-    font-size:10px; font-weight:900; letter-spacing:.12em; text-transform:uppercase;
+    font-size:9px; font-weight:900; letter-spacing:.12em; text-transform:uppercase;
     color:#fff;
     background:linear-gradient(135deg,var(--purple),var(--purple-2));
-    padding:5px 10px;
+    padding:4px 10px;
     border-radius:99px;
-    box-shadow:0 8px 18px -6px var(--purple-glow);
-    z-index:2;
+    box-shadow:0 6px 14px -4px var(--purple-glow);
+    margin-bottom:2px;
   }
 
   .card__kicker {
     display:inline-flex; align-items:center; gap:6px;
     font-size:10px; letter-spacing:.18em; text-transform:uppercase; font-weight:700;
     color:var(--purple-3);
-    padding-right:60px; /* щоб не лізло під pill */
+    flex-wrap:wrap;
   }
   .card__kicker .dot {
     width:5px; height:5px; border-radius:50%;
@@ -221,55 +225,63 @@
 
   .card__title {
     font-weight:900;
-    font-size:clamp(20px,5.2vw,28px);
+    font-size:clamp(18px,4.8vw,26px);
     line-height:1.1;
     color:var(--white);
     text-transform:uppercase;
     letter-spacing:.005em;
     margin-top:2px;
+    /* Слова, що не вміщуються — переносити, не вилазити */
+    overflow-wrap:break-word;
+    word-break:break-word;
+    hyphens:auto;
   }
   .card__desc {
-    font-size:13px; line-height:1.5;
+    font-size:12.5px; line-height:1.45;
     color:var(--body);
   }
 
-  /* Блок ціни */
+  /* Блок ціни — компактний рядок з обома цінами + бейдж */
   .card__price {
-    display:flex; align-items:baseline; flex-wrap:wrap;
-    gap:8px 10px; margin-top:4px;
+    display:flex; align-items:center; flex-wrap:wrap;
+    column-gap:8px; row-gap:4px;
+    margin-top:4px;
   }
   .card__price-new {
-    font-weight:900; font-size:clamp(22px,5.4vw,28px);
+    font-weight:900; font-size:clamp(20px,5vw,26px);
     color:#fff; line-height:1;
     background:linear-gradient(135deg,var(--purple-2),var(--purple-3));
     -webkit-background-clip:text; background-clip:text;
     -webkit-text-fill-color:transparent;
   }
-  .card__price-new span { font-size:.55em; font-weight:700; opacity:.85; margin-left:2px; -webkit-text-fill-color:initial; color:var(--purple-3); }
+  .card__price-new span { font-size:.5em; font-weight:700; opacity:.85; margin-left:2px; -webkit-text-fill-color:initial; color:var(--purple-3); }
   .card__price-old {
-    font-size:13px; color:var(--muted);
+    font-size:12px; color:var(--muted);
     text-decoration:line-through; text-decoration-thickness:1.5px;
   }
   .card__price-save {
-    font-size:10px; font-weight:900; letter-spacing:.1em; text-transform:uppercase;
+    font-size:9px; font-weight:900; letter-spacing:.08em; text-transform:uppercase;
     color:#fff;
     background:rgba(124,58,237,.22);
     border:1px solid rgba(124,58,237,.45);
-    padding:3px 8px; border-radius:99px;
+    padding:3px 7px; border-radius:99px;
+    white-space:nowrap;
   }
 
   /* Велика CTA-кнопка всередині картки */
   .card__cta {
-    margin-top:auto;
-    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    margin-top:8px;
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
     background:linear-gradient(135deg,var(--purple),var(--purple-2));
     color:#fff;
-    font-weight:900; font-size:12px; letter-spacing:.08em; text-transform:uppercase;
-    padding:13px 14px;
-    border-radius:14px;
-    box-shadow:0 14px 30px -10px var(--purple-glow);
+    font-weight:900; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    padding:11px 12px;
+    border-radius:12px;
+    box-shadow:0 12px 26px -10px var(--purple-glow);
     transition:transform .2s, box-shadow .2s;
     width:100%;
+    text-align:center;
+    white-space:normal;
   }
   .card__cta-arrow {
     width:22px; height:22px;
@@ -427,7 +439,7 @@
     <a class="card fade-in" href="https://ai.iwannapods.com.ua/" target="_blank" rel="noopener">
       <div class="card__media">
         <div class="card__save">AI<small>повний курс</small></div>
-        <img src="thumb-1.jpg" alt="Нейромережі з нуля" loading="lazy" />
+        <video src="1.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Нейромережі з нуля"></video>
       </div>
       <div class="card__body">
         <span class="card__pill">★ хіт</span>
@@ -447,7 +459,7 @@
     <a class="card fade-in" href="/">
       <div class="card__media">
         <div class="card__save">VSE<small>спільнота</small></div>
-        <img src="thumb-5.jpg" alt="VSE AI — закрита спільнота" loading="lazy" />
+        <img src="2.jpg" alt="VSE AI — закрита спільнота" loading="lazy" />
       </div>
       <div class="card__body">
         <span class="card__pill">● онлайн</span>
@@ -467,7 +479,7 @@
     <a class="card fade-in" href="/product-ai-content/">
       <div class="card__media">
         <div class="card__save">AI<small>предмет</small></div>
-        <img src="thumb-2.jpg" alt="АІ предметна зйомка" loading="lazy" />
+        <video src="3.mp4" autoplay muted loop playsinline preload="metadata" aria-label="АІ предметна зйомка"></video>
       </div>
       <div class="card__body">
         <div class="card__kicker"><span class="dot"></span>№ 03 · міні-курс · 6 уроків</div>
@@ -486,7 +498,7 @@
     <a class="card fade-in" href="/ai-lyudyna/">
       <div class="card__media">
         <div class="card__save">AI<small>людина</small></div>
-        <img src="thumb-3.jpg" alt="АІ людина" loading="lazy" />
+        <img src="4.jpg" alt="АІ людина" loading="lazy" />
       </div>
       <div class="card__body">
         <span class="card__pill">✦ нове</span>
@@ -506,7 +518,7 @@
     <a class="card fade-in" href="https://aisashka.weblium.site/aiphoto-ubt" target="_blank" rel="noopener">
       <div class="card__media">
         <div class="card__save">AI<small>фото</small></div>
-        <img src="thumb-4.jpg" alt="АІ фотосесія" loading="lazy" />
+        <img src="5.jpg" alt="АІ фотосесія" loading="lazy" />
       </div>
       <div class="card__body">
         <div class="card__kicker"><span class="dot"></span>№ 05 · міні-курс</div>
