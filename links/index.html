@@ -212,15 +212,17 @@
   }
 
   .card__kicker {
-    display:inline-flex; align-items:center; gap:6px;
     font-size:10px; letter-spacing:.18em; text-transform:uppercase; font-weight:700;
     color:var(--purple-3);
-    flex-wrap:wrap;
+    line-height:1.4;
   }
   .card__kicker .dot {
+    display:inline-block; vertical-align:middle;
     width:5px; height:5px; border-radius:50%;
     background:var(--purple-2);
     box-shadow:0 0 8px var(--purple-glow2);
+    margin-right:8px;
+    margin-top:-2px;
   }
 
   .card__title {
