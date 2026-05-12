@@ -233,6 +233,31 @@
     color:var(--body);
   }
 
+  /* Блок ціни */
+  .card__price {
+    display:flex; align-items:baseline; flex-wrap:wrap;
+    gap:8px 10px; margin-top:4px;
+  }
+  .card__price-new {
+    font-weight:900; font-size:clamp(22px,5.4vw,28px);
+    color:#fff; line-height:1;
+    background:linear-gradient(135deg,var(--purple-2),var(--purple-3));
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .card__price-new span { font-size:.55em; font-weight:700; opacity:.85; margin-left:2px; -webkit-text-fill-color:initial; color:var(--purple-3); }
+  .card__price-old {
+    font-size:13px; color:var(--muted);
+    text-decoration:line-through; text-decoration-thickness:1.5px;
+  }
+  .card__price-save {
+    font-size:10px; font-weight:900; letter-spacing:.1em; text-transform:uppercase;
+    color:#fff;
+    background:rgba(124,58,237,.22);
+    border:1px solid rgba(124,58,237,.45);
+    padding:3px 8px; border-radius:99px;
+  }
+
   /* Велика CTA-кнопка всередині картки */
   .card__cta {
     margin-top:auto;
@@ -409,54 +434,16 @@
         <div class="card__kicker"><span class="dot"></span>№ 01 · онлайн-курс</div>
         <div class="card__title">Нейромережі з нуля</div>
         <div class="card__desc">Від базових промптів до генерації картинок, відео та текстів. Старт у світ AI з нуля.</div>
+        <div class="card__price">
+          <span class="card__price-new">1999<span>грн</span></span>
+          <span class="card__price-old">4400 грн</span>
+          <span class="card__price-save">−55%</span>
+        </div>
         <div class="card__cta">Деталі про курс <span class="card__cta-arrow">→</span></div>
       </div>
     </a>
 
-    <!-- 2. АІ предметна зйомка -->
-    <a class="card fade-in" href="/product-ai-content/">
-      <div class="card__media">
-        <div class="card__save">AI<small>предмет</small></div>
-        <img src="thumb-2.jpg" alt="АІ предметна зйомка" loading="lazy" />
-      </div>
-      <div class="card__body">
-        <div class="card__kicker"><span class="dot"></span>№ 02 · міні-курс · 6 уроків</div>
-        <div class="card__title">АІ предметна зйомка</div>
-        <div class="card__desc">Як знімати товари через AI: фон, світло, композиція без студії та реквізиту.</div>
-        <div class="card__cta">Деталі про курс <span class="card__cta-arrow">→</span></div>
-      </div>
-    </a>
-
-    <!-- 3. АІ людина -->
-    <a class="card fade-in" href="/ai-lyudyna/">
-      <div class="card__media">
-        <div class="card__save">AI<small>людина</small></div>
-        <img src="thumb-3.jpg" alt="АІ людина" loading="lazy" />
-      </div>
-      <div class="card__body">
-        <span class="card__pill">✦ нове</span>
-        <div class="card__kicker"><span class="dot"></span>№ 03 · міні-курс</div>
-        <div class="card__title">АІ людина</div>
-        <div class="card__desc">Генеруємо реалістичних людей для UGC, рілсів, рекламних креативів та власних каналів.</div>
-        <div class="card__cta">Деталі про курс <span class="card__cta-arrow">→</span></div>
-      </div>
-    </a>
-
-    <!-- 4. АІ фотосесія -->
-    <a class="card fade-in" href="https://aisashka.weblium.site/aiphoto-ubt" target="_blank" rel="noopener">
-      <div class="card__media">
-        <div class="card__save">AI<small>фото</small></div>
-        <img src="thumb-4.jpg" alt="АІ фотосесія" loading="lazy" />
-      </div>
-      <div class="card__body">
-        <div class="card__kicker"><span class="dot"></span>№ 04 · міні-курс</div>
-        <div class="card__title">АІ фотосесія</div>
-        <div class="card__desc">Власна fashion-зйомка без камери, моделі та локацій — повністю через нейромережі.</div>
-        <div class="card__cta">Деталі про курс <span class="card__cta-arrow">→</span></div>
-      </div>
-    </a>
-
-    <!-- 5. Закрита спільнота VSE AI -->
+    <!-- 2. Закрита спільнота VSE AI -->
     <a class="card fade-in" href="/">
       <div class="card__media">
         <div class="card__save">VSE<small>спільнота</small></div>
@@ -464,10 +451,73 @@
       </div>
       <div class="card__body">
         <span class="card__pill">● онлайн</span>
-        <div class="card__kicker"><span class="dot"></span>№ 05 · закритий клуб</div>
+        <div class="card__kicker"><span class="dot"></span>№ 02 · закритий клуб</div>
         <div class="card__title">VSE AI · клуб</div>
         <div class="card__desc">500+ промптів, щотижневі дзвінки з Сашею, щоденні ДЗ і підтримка кураторів 24/7.</div>
+        <div class="card__price">
+          <span class="card__price-new">490<span>грн/міс</span></span>
+          <span class="card__price-old">1200 грн</span>
+          <span class="card__price-save">−59%</span>
+        </div>
         <div class="card__cta">Деталі про клуб <span class="card__cta-arrow">→</span></div>
+      </div>
+    </a>
+
+    <!-- 3. АІ предметна зйомка -->
+    <a class="card fade-in" href="/product-ai-content/">
+      <div class="card__media">
+        <div class="card__save">AI<small>предмет</small></div>
+        <img src="thumb-2.jpg" alt="АІ предметна зйомка" loading="lazy" />
+      </div>
+      <div class="card__body">
+        <div class="card__kicker"><span class="dot"></span>№ 03 · міні-курс · 6 уроків</div>
+        <div class="card__title">АІ предметна зйомка</div>
+        <div class="card__desc">Як знімати товари через AI: фон, світло, композиція без студії та реквізиту.</div>
+        <div class="card__price">
+          <span class="card__price-new">390<span>грн</span></span>
+          <span class="card__price-old">2400 грн</span>
+          <span class="card__price-save">−84%</span>
+        </div>
+        <div class="card__cta">Деталі про курс <span class="card__cta-arrow">→</span></div>
+      </div>
+    </a>
+
+    <!-- 4. АІ людина -->
+    <a class="card fade-in" href="/ai-lyudyna/">
+      <div class="card__media">
+        <div class="card__save">AI<small>людина</small></div>
+        <img src="thumb-3.jpg" alt="АІ людина" loading="lazy" />
+      </div>
+      <div class="card__body">
+        <span class="card__pill">✦ нове</span>
+        <div class="card__kicker"><span class="dot"></span>№ 04 · міні-курс</div>
+        <div class="card__title">АІ людина</div>
+        <div class="card__desc">Генеруємо реалістичних людей для UGC, рілсів, рекламних креативів та власних каналів.</div>
+        <div class="card__price">
+          <span class="card__price-new">390<span>грн</span></span>
+          <span class="card__price-old">2400 грн</span>
+          <span class="card__price-save">−84%</span>
+        </div>
+        <div class="card__cta">Деталі про курс <span class="card__cta-arrow">→</span></div>
+      </div>
+    </a>
+
+    <!-- 5. АІ фотосесія -->
+    <a class="card fade-in" href="https://aisashka.weblium.site/aiphoto-ubt" target="_blank" rel="noopener">
+      <div class="card__media">
+        <div class="card__save">AI<small>фото</small></div>
+        <img src="thumb-4.jpg" alt="АІ фотосесія" loading="lazy" />
+      </div>
+      <div class="card__body">
+        <div class="card__kicker"><span class="dot"></span>№ 05 · міні-курс</div>
+        <div class="card__title">АІ фотосесія</div>
+        <div class="card__desc">Власна fashion-зйомка без камери, моделі та локацій — повністю через нейромережі.</div>
+        <div class="card__price">
+          <span class="card__price-new">390<span>грн</span></span>
+          <span class="card__price-old">2400 грн</span>
+          <span class="card__price-save">−84%</span>
+        </div>
+        <div class="card__cta">Деталі про курс <span class="card__cta-arrow">→</span></div>
       </div>
     </a>
 
