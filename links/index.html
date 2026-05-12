@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ai Sashka | Нейромережі — усі курси</title>
+<meta name="description" content="Усі курси та проєкти Ai Sashka про нейромережі — в одному місці." />
+<meta property="og:title" content="Ai Sashka | Нейромережі — усі курси" />
+<meta property="og:description" content="Усі курси та проєкти Ai Sashka про нейромережі — в одному місці." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="avatar.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&subset=cyrillic&display=swap" rel="stylesheet" />
+<style>
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+
+  :root {
+    --purple:#7c3aed;
+    --purple-2:#a855f7;
+    --purple-3:#c084fc;
+    --purple-glow:rgba(124,58,237,.35);
+    --purple-glow2:rgba(124,58,237,.55);
+    --bg:#000;
+    --bg-card:rgba(18,18,18,.6);
+    --bg-card-2:rgba(24,24,28,.85);
+    --border:rgba(38,38,38,1);
+    --border-hover:rgba(124,58,237,.35);
+    --border-accent:rgba(124,58,237,.5);
+    --white:#fff;
+    --body:rgba(212,212,212,1);
+    --muted:rgba(140,140,140,1);
+  }
+
+  html { scroll-behavior:smooth; }
+  body {
+    background:var(--bg);
+    color:var(--body);
+    font-family:'Montserrat',sans-serif;
+    font-size:16px; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    min-height:100vh;
+  }
+
+  /* Глобальний фон з підсвіткою */
+  body::before {
+    content:''; position:fixed; inset:0; z-index:-1;
+    background:
+      radial-gradient(60% 50% at 50% 0%, rgba(124,58,237,.22) 0%, transparent 60%),
+      radial-gradient(40% 40% at 100% 100%, rgba(168,85,247,.12) 0%, transparent 60%),
+      #000;
+    pointer-events:none;
+  }
+
+  img { max-width:100%; display:block; }
+  a { color:inherit; text-decoration:none; }
+  ul { list-style:none; }
+
+  .container { width:100%; max-width:640px; margin:0 auto; padding:0 20px; }
+
+  /* ========== HEADER ========== */
+  header.hero {
+    padding:48px 0 24px;
+    text-align:center;
+  }
+  .avatar-wrap {
+    width:108px; height:108px; margin:0 auto 18px;
+    border-radius:50%;
+    padding:3px;
+    background:linear-gradient(135deg,var(--purple),var(--purple-2),var(--purple-3));
+    box-shadow:0 20px 50px -10px var(--purple-glow);
+  }
+  .avatar-wrap img {
+    width:100%; height:100%;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #0b0b0b;
+  }
+  .author-name {
+    font-weight:900;
+    font-size:clamp(26px,5.5vw,34px);
+    letter-spacing:.01em;
+    line-height:1.1;
+    color:var(--white);
+    margin-bottom:6px;
+  }
+  .author-name span {
+    background:linear-gradient(135deg,var(--purple-2),var(--purple-3));
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .author-tagline {
+    color:var(--muted); font-size:14px; line-height:1.5;
+    max-width:360px; margin:0 auto 18px;
+  }
+  .socials {
+    display:flex; justify-content:center; gap:10px;
+  }
+  .social-btn {
+    width:42px; height:42px;
+    display:inline-flex; align-items:center; justify-content:center;
+    border-radius:50%;
+    background:rgba(18,18,18,.7);
+    border:1px solid var(--border);
+    color:var(--white);
+    transition:border-color .2s, background .2s, transform .2s;
+  }
+  .social-btn:hover {
+    border-color:var(--border-accent);
+    background:rgba(124,58,237,.10);
+    transform:translateY(-2px);
+  }
+  .social-btn svg { width:18px; height:18px; }
+
+  /* ========== SECTION DIVIDER ========== */
+  .divider {
+    display:flex; align-items:center; gap:14px;
+    margin:32px 0 20px;
+    color:var(--purple-2);
+    font-size:11px; letter-spacing:.22em; text-transform:uppercase; font-weight:700;
+    justify-content:center;
+  }
+  .divider::before, .divider::after {
+    content:''; flex:1; height:1px;
+    background:linear-gradient(90deg,transparent,rgba(124,58,237,.35),transparent);
+  }
+  .divider::before { background:linear-gradient(90deg,transparent,rgba(124,58,237,.35)); }
+  .divider::after  { background:linear-gradient(90deg,rgba(124,58,237,.35),transparent); }
+
+  /* ========== COURSE CARDS (Kukharchuk-style, фіолетові) ========== */
+  .cards { display:flex; flex-direction:column; gap:20px; }
+
+  .card {
+    position:relative;
+    display:grid;
+    grid-template-columns:40% 1fr;
+    gap:0;
+    background:var(--bg-card-2);
+    border:1px solid var(--border);
+    border-radius:22px;
+    overflow:hidden;
+    transition:border-color .25s, transform .25s, box-shadow .25s;
+  }
+  .card:hover {
+    border-color:var(--border-accent);
+    transform:translateY(-3px);
+    box-shadow:0 30px 60px -20px var(--purple-glow);
+  }
+
+  /* ── ЛІВО: фото ── */
+  .card__media {
+    position:relative;
+    overflow:hidden;
+    background:#111;
+    aspect-ratio:1/1;
+  }
+  .card__media img {
+    width:100%; height:100%; object-fit:cover;
+    transition:transform .5s ease;
+  }
+  .card:hover .card__media img { transform:scale(1.06); }
+  .card__media::after {
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(90deg, rgba(0,0,0,0) 55%, rgba(24,24,28,.9) 100%);
+    pointer-events:none;
+  }
+
+  /* Кругла «save»-плашка в куті — фіолетова */
+  .card__save {
+    position:absolute; top:10px; left:10px; z-index:3;
+    width:64px; height:64px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--purple),var(--purple-2));
+    color:#fff;
+    font-weight:900; font-size:13px; line-height:1;
+    letter-spacing:.02em;
+    box-shadow:0 10px 24px -6px var(--purple-glow2);
+    transform:rotate(-8deg);
+    border:2px dashed rgba(255,255,255,.55);
+    outline:1px solid rgba(124,58,237,.35);
+    outline-offset:-9px;
+  }
+  .card__save small { font-size:8px; font-weight:700; opacity:.85; letter-spacing:.18em; margin-top:2px; }
+
+  /* ── ПРАВО: контент ── */
+  .card__body {
+    padding:14px 16px 16px;
+    display:flex; flex-direction:column;
+    gap:8px;
+    min-width:0;
+    position:relative;
+  }
+
+  /* Pill-бейдж "ХІТ"/"НОВЕ" зверху-справа */
+  .card__pill {
+    position:absolute;
+    top:12px; right:12px;
+    display:inline-flex; align-items:center; gap:5px;
+    font-size:10px; font-weight:900; letter-spacing:.12em; text-transform:uppercase;
+    color:#fff;
+    background:linear-gradient(135deg,var(--purple),var(--purple-2));
+    padding:5px 10px;
+    border-radius:99px;
+    box-shadow:0 8px 18px -6px var(--purple-glow);
+    z-index:2;
+  }
+
+  .card__kicker {
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:10px; letter-spacing:.18em; text-transform:uppercase; font-weight:700;
+    color:var(--purple-3);
+    padding-right:60px; /* щоб не лізло під pill */
+  }
+  .card__kicker .dot {
+    width:5px; height:5px; border-radius:50%;
+    background:var(--purple-2);
+    box-shadow:0 0 8px var(--purple-glow2);
+  }
+
+  .card__title {
+    font-weight:900;
+    font-size:clamp(20px,5.2vw,28px);
+    line-height:1.1;
+    color:var(--white);
+    text-transform:uppercase;
+    letter-spacing:.005em;
+    margin-top:2px;
+  }
+  .card__desc {
+    font-size:13px; line-height:1.5;
+    color:var(--body);
+  }
+
+  /* Велика CTA-кнопка всередині картки */
+  .card__cta {
+    margin-top:auto;
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    background:linear-gradient(135deg,var(--purple),var(--purple-2));
+    color:#fff;
+    font-weight:900; font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+    padding:13px 14px;
+    border-radius:14px;
+    box-shadow:0 14px 30px -10px var(--purple-glow);
+    transition:transform .2s, box-shadow .2s;
+    width:100%;
+  }
+  .card__cta-arrow {
+    width:22px; height:22px;
+    display:inline-flex; align-items:center; justify-content:center;
+    border-radius:50%;
+    background:rgba(255,255,255,.22);
+    font-size:13px;
+  }
+  .card:hover .card__cta { transform:translateY(-1px); box-shadow:0 18px 38px -10px var(--purple-glow2); }
+
+  /* ========== TG CHANNEL CARD ========== */
+  .tg-card {
+    margin-top:8px;
+    display:grid;
+    grid-template-columns:54px 1fr 34px;
+    align-items:center;
+    gap:14px;
+    background:linear-gradient(135deg,#229ED9 0%,#1c87b8 100%);
+    color:#fff;
+    padding:14px 16px;
+    border-radius:20px;
+    box-shadow:0 18px 38px -12px rgba(34,158,217,.45);
+    transition:transform .25s, box-shadow .25s;
+  }
+  .tg-card:hover { transform:translateY(-2px); box-shadow:0 24px 48px -14px rgba(34,158,217,.6); }
+  .tg-card__icon {
+    width:54px; height:54px;
+    background:rgba(255,255,255,.16);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .tg-card__icon svg { width:28px; height:28px; }
+  .tg-card__title { font-weight:900; font-size:15px; letter-spacing:.04em; text-transform:uppercase; }
+  .tg-card__sub { font-size:12px; opacity:.85; margin-top:2px; }
+  .tg-card__arrow {
+    width:34px; height:34px;
+    border-radius:50%;
+    background:rgba(255,255,255,.18);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:900;
+  }
+
+  /* ========== CLOSING NOTE ========== */
+  .closing {
+    text-align:center;
+    margin:36px 0 8px;
+  }
+  .closing__main { color:var(--white); font-weight:700; font-size:16px; }
+  .closing__sub { color:var(--muted); font-size:13px; margin-top:6px; }
+
+  /* ========== FOOTER ========== */
+  footer {
+    margin-top:48px;
+    padding:36px 0 28px;
+    background:rgba(10,10,12,.85);
+    border-top:1px solid var(--border);
+  }
+  .support-block {
+    text-align:center; margin-bottom:28px;
+  }
+  .support-title {
+    color:var(--white); font-weight:800; font-size:14px;
+    letter-spacing:.04em; text-transform:uppercase; line-height:1.5;
+    margin-bottom:14px;
+  }
+  .support-btn {
+    display:inline-flex; align-items:center; gap:10px;
+    background:transparent;
+    border:1px solid var(--border-hover);
+    color:var(--white);
+    font-weight:700; font-size:13px; letter-spacing:.06em; text-transform:uppercase;
+    padding:14px 28px; border-radius:99px;
+    transition:border-color .2s, background .2s, transform .2s;
+  }
+  .support-btn:hover {
+    border-color:var(--border-accent);
+    background:rgba(124,58,237,.10);
+    transform:translateY(-2px);
+  }
+
+  .fop-block {
+    display:flex; flex-direction:column; gap:14px;
+    color:#888; font-size:12px; line-height:1.6;
+    margin-bottom:22px;
+  }
+  .fop-block strong { color:#bdbdbd; font-weight:700; display:block; margin-bottom:2px; letter-spacing:.04em; }
+
+  .legal {
+    font-size:11px; line-height:1.55; color:#666;
+    margin-bottom:18px;
+  }
+  .legal p + p { margin-top:10px; }
+
+  .footer-links {
+    display:flex; flex-direction:column; gap:8px;
+    margin-bottom:14px;
+  }
+  .footer-links a {
+    color:#aaa; font-size:13px;
+    text-decoration:underline; text-underline-offset:3px;
+  }
+  .footer-links a:hover { color:var(--white); }
+
+  .copyright {
+    font-size:11px; color:#555; text-align:center;
+    padding-top:12px; border-top:1px solid rgba(255,255,255,.05);
+  }
+
+  /* ========== ANIMATIONS ========== */
+  .fade-in { opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease; }
+  .fade-in.visible { opacity:1; transform:translateY(0); }
+
+  /* ========== TABLET ========== */
+  @media (min-width:560px) {
+    .card { grid-template-columns:160px 1fr; }
+    .card__title { font-size:21px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ===== HEADER ===== -->
+  <header class="hero fade-in">
+    <div class="avatar-wrap">
+      <img src="avatar.jpg" alt="Ai Sashka" loading="eager" />
+    </div>
+    <h1 class="author-name">Ai Sashka <span>| Нейромережі</span></h1>
+    <p class="author-tagline">
+      Усі курси та проєкти про нейромережі — в одному місці 🚀
+    </p>
+    <div class="socials">
+      <a class="social-btn" href="https://www.instagram.com/ai_sashka.ua/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a class="social-btn" href="https://t.me/ai_sashka_tg" target="_blank" rel="noopener" aria-label="Telegram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.36L18.84 19.6c-.23 1.04-.85 1.3-1.72.81l-4.76-3.5-2.3 2.2c-.25.26-.47.47-.95.47l.34-4.83 8.81-7.96c.38-.34-.08-.53-.6-.19L6.78 13l-4.7-1.47c-1.02-.32-1.04-1.02.21-1.51l18.4-7.1c.85-.31 1.6.2 1.25 1.44z"/></svg>
+      </a>
+      <a class="social-btn" href="https://www.tiktok.com/@ai_sashka" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.59A8.16 8.16 0 0 0 22 10.21V6.81a4.85 4.85 0 0 1-2.41-.12z"/></svg>
+      </a>
+      <a class="social-btn" href="https://www.youtube.com/@ai.sashka_ua" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.12C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.4.58A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.12C4.46 20.5 12 20.5 12 20.5s7.54 0 9.4-.58a3 3 0 0 0 2.1-2.12A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== COURSES ===== -->
+  <div class="divider"><span>усі курси</span></div>
+
+  <div class="cards">
+
+    <!-- 1. Нейромережі з нуля -->
+    <a class="card fade-in" href="https://ai.iwannapods.com.ua/" target="_blank" rel="noopener">
+      <div class="card__media">
+        <div class="card__save">AI<small>повний курс</small></div>
+        <img src="thumb-1.jpg" alt="Нейромережі з нуля" loading="lazy" />
+      </div>
+      <div class="card__body">
+        <span class="card__pill">★ хіт</span>
+        <div class="card__kicker"><span class="dot"></span>№ 01 · онлайн-курс</div>
+        <div class="card__title">Нейромережі з нуля</div>
+        <div class="card__desc">Від базових промптів до генерації картинок, відео та текстів. Старт у світ AI з нуля.</div>
+        <div class="card__cta">Деталі про курс <span class="card__cta-arrow">→</span></div>
+      </div>
+    </a>
+
+    <!-- 2. АІ предметна зйомка -->
+    <a class="card fade-in" href="/product-ai-content/">
+      <div class="card__media">
+        <div class="card__save">AI<small>предмет</small></div>
+        <img src="thumb-2.jpg" alt="АІ предметна зйомка" loading="lazy" />
+      </div>
+      <div class="card__body">
+        <div class="card__kicker"><span class="dot"></span>№ 02 · міні-курс · 6 уроків</div>
+        <div class="card__title">АІ предметна зйомка</div>
+        <div class="card__desc">Як знімати товари через AI: фон, світло, композиція без студії та реквізиту.</div>
+        <div class="card__cta">Деталі про курс <span class="card__cta-arrow">→</span></div>
+      </div>
+    </a>
+
+    <!-- 3. АІ людина -->
+    <a class="card fade-in" href="/ai-lyudyna/">
+      <div class="card__media">
+        <div class="card__save">AI<small>людина</small></div>
+        <img src="thumb-3.jpg" alt="АІ людина" loading="lazy" />
+      </div>
+      <div class="card__body">
+        <span class="card__pill">✦ нове</span>
+        <div class="card__kicker"><span class="dot"></span>№ 03 · міні-курс</div>
+        <div class="card__title">АІ людина</div>
+        <div class="card__desc">Генеруємо реалістичних людей для UGC, рілсів, рекламних креативів та власних каналів.</div>
+        <div class="card__cta">Деталі про курс <span class="card__cta-arrow">→</span></div>
+      </div>
+    </a>
+
+    <!-- 4. АІ фотосесія -->
+    <a class="card fade-in" href="https://aisashka.weblium.site/aiphoto-ubt" target="_blank" rel="noopener">
+      <div class="card__media">
+        <div class="card__save">AI<small>фото</small></div>
+        <img src="thumb-4.jpg" alt="АІ фотосесія" loading="lazy" />
+      </div>
+      <div class="card__body">
+        <div class="card__kicker"><span class="dot"></span>№ 04 · міні-курс</div>
+        <div class="card__title">АІ фотосесія</div>
+        <div class="card__desc">Власна fashion-зйомка без камери, моделі та локацій — повністю через нейромережі.</div>
+        <div class="card__cta">Деталі про курс <span class="card__cta-arrow">→</span></div>
+      </div>
+    </a>
+
+    <!-- 5. Закрита спільнота VSE AI -->
+    <a class="card fade-in" href="/">
+      <div class="card__media">
+        <div class="card__save">VSE<small>спільнота</small></div>
+        <img src="thumb-5.jpg" alt="VSE AI — закрита спільнота" loading="lazy" />
+      </div>
+      <div class="card__body">
+        <span class="card__pill">● онлайн</span>
+        <div class="card__kicker"><span class="dot"></span>№ 05 · закритий клуб</div>
+        <div class="card__title">VSE AI · клуб</div>
+        <div class="card__desc">500+ промптів, щотижневі дзвінки з Сашею, щоденні ДЗ і підтримка кураторів 24/7.</div>
+        <div class="card__cta">Деталі про клуб <span class="card__cta-arrow">→</span></div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ===== TG CHANNEL ===== -->
+  <div class="divider"><span>безкоштовно</span></div>
+
+  <a class="tg-card fade-in" href="https://t.me/ai_sashka_tg" target="_blank" rel="noopener">
+    <div class="tg-card__icon">
+      <svg viewBox="0 0 24 24" fill="#fff"><path d="M21.94 4.36L18.84 19.6c-.23 1.04-.85 1.3-1.72.81l-4.76-3.5-2.3 2.2c-.25.26-.47.47-.95.47l.34-4.83 8.81-7.96c.38-.34-.08-.53-.6-.19L6.78 13l-4.7-1.47c-1.02-.32-1.04-1.02.21-1.51l18.4-7.1c.85-.31 1.6.2 1.25 1.44z"/></svg>
+    </div>
+    <div>
+      <div class="tg-card__title">Telegram-канал</div>
+      <div class="tg-card__sub">Безкоштовні фішки, кадри та секрети</div>
+    </div>
+    <div class="tg-card__arrow">→</div>
+  </a>
+
+  <!-- ===== CLOSING ===== -->
+  <div class="closing fade-in">
+    <div class="closing__main">До зустрічі всередині 👋</div>
+    <div class="closing__sub">Обирай курс і починай — твій AI-шлях стартує зараз.</div>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+
+    <div class="support-block">
+      <div class="support-title">З будь-яких питань пишіть<br>у технічну підтримку</div>
+      <a class="support-btn" href="https://t.me/aisashka_support" target="_blank" rel="noopener">
+        Технічна підтримка →
+      </a>
+    </div>
+
+    <div class="fop-block">
+      <div>
+        <strong>ЗЕМЛЯНИЙ МИХАЙЛО СЕРГІЙОВИЧ ФОП</strong>
+        ЄДРПОУ: 3758302175<br>
+        m.zemlyanie@gmail.com
+      </div>
+      <div>
+        <strong>БРЖЕСТОВСЬКА ГАННА ЮРІЇВНА ФОП</strong>
+        ЄДРПОУ: 2877703349<br>
+        894159@gmail.com
+      </div>
+    </div>
+
+    <div class="legal">
+      <p><strong style="color:#888;">IMPORTANT:</strong> Do not enter your name and email until you have read the legal Disclaimer. The use of our site is subject to our Terms and Conditions. In addition, this page and our site make no guarantees and will not make any guarantees about your ability to generate results with our ideas, information, tools and resources, or strategies. You should know that all products and services by our company are for educational and informational purposes only. Hashing on this website, or any of our content or curriculum, is a promise, implication, or guarantee of results.</p>
+      <p><strong style="color:#888;">ВАЖЛИВО:</strong> ми нікому свої ім'я та контактну інформацію, доки не прочитаєте Правила Користування. Використання нашого сайту регулюється нашими Умовами та положеннями. На цій сторінці та нашому сайті ми надаємо жодних гарантій щодо вашої здатності досягти результатів з нашими ідеями, інформацією, інструментами, ресурсами чи стратегіями.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="politika.html">Політика конфіденційності</a>
+      <a href="oferta.html">Публічна оферта</a>
+    </div>
+
+    <div class="copyright">© 2026 Ai Sashka. Усі права захищено.</div>
+  </div>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
