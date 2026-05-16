@@ -9,8 +9,12 @@
   "redirects": [
     { "source": "/product-ai-content", "destination": "/product-ai-content/index.html", "permanent": false },
     { "source": "/product-ai-content/", "destination": "/product-ai-content/index.html", "permanent": false },
+    { "source": "/product-ai-content-ubt", "destination": "/product-ai-content-ubt/index.html", "permanent": false },
+    { "source": "/product-ai-content-ubt/", "destination": "/product-ai-content-ubt/index.html", "permanent": false },
     { "source": "/ai-lyudyna", "destination": "/ai-lyudyna/index.html", "permanent": false },
     { "source": "/ai-lyudyna/", "destination": "/ai-lyudyna/index.html", "permanent": false },
+    { "source": "/ai-lyudyna-ubt", "destination": "/ai-lyudyna-ubt/index.html", "permanent": false },
+    { "source": "/ai-lyudyna-ubt/", "destination": "/ai-lyudyna-ubt/index.html", "permanent": false },
     { "source": "/links", "destination": "/links/index.html", "permanent": false },
     { "source": "/links/", "destination": "/links/index.html", "permanent": false }
   ],
@@ -22,7 +26,19 @@
       ]
     },
     {
+      "source": "/product-ai-content-ubt/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
       "source": "/ai-lyudyna/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/ai-lyudyna-ubt/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
