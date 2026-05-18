@@ -136,13 +136,13 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
 .hero-bg__grid{
   inset:0;
   background-image:
-    linear-gradient(rgba(168,85,247,.22) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(168,85,247,.22) 1px, transparent 1px);
-  background-size:40px 40px;
-  -webkit-mask:radial-gradient(ellipse 90% 80% at 50% 40%, #000 30%, transparent 95%);
-          mask:radial-gradient(ellipse 90% 80% at 50% 40%, #000 30%, transparent 95%);
-  animation:gridPan 18s linear infinite;
-  opacity:1;
+    linear-gradient(rgba(168,85,247,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168,85,247,.08) 1px, transparent 1px);
+  background-size:48px 48px;
+  -webkit-mask:radial-gradient(ellipse 80% 70% at 50% 45%, #000 20%, transparent 90%);
+          mask:radial-gradient(ellipse 80% 70% at 50% 45%, #000 20%, transparent 90%);
+  animation:gridPan 30s linear infinite;
+  opacity:.6;
 }
 @keyframes gridPan{
   0%{background-position:0 0, 0 0}
