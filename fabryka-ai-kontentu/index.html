@@ -764,22 +764,25 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
 
 /* small "price will rise" hint chip — sits below each CTA */
 .cta-hint{
-  display:flex;align-items:center;gap:8px;
-  margin:12px auto 0;padding:9px 14px;
+  display:block;text-align:center;
+  margin:12px auto 0;padding:9px 16px;
   width:fit-content;max-width:100%;
   border-radius:14px;
   background:rgba(252,165,250,.08);
   border:1px solid rgba(252,165,250,.32);
   font-family:var(--font-mono);font-size:.58rem;
   letter-spacing:.08em;text-transform:uppercase;
-  color:#fca5fa;line-height:1.5;
+  color:#fca5fa;line-height:1.55;
   text-wrap:balance;
 }
 .cta-hint .pulse-dot{
-  flex-shrink:0;width:6px;height:6px;border-radius:50%;
+  display:inline-block;vertical-align:middle;
+  width:6px;height:6px;border-radius:50%;
   background:#fca5fa;box-shadow:0 0 8px #fca5fa;
+  margin-right:8px;margin-bottom:1px;
   animation:pulse 1.4s ease-in-out infinite;
 }
+.cta-hint > span:not(.pulse-dot){display:inline}
 .cta-hint b{color:var(--white);font-weight:700;white-space:nowrap}
 
 .btn-ghost{
@@ -1073,26 +1076,28 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
 /* collapsible details */
 .prog__details{margin-bottom:10px;border-radius:10px;overflow:hidden}
 .prog__details > summary{
-  list-style:none;cursor:pointer;
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
-  padding:12px 14px;
+  list-style:none;cursor:pointer;position:relative;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 50px;
   background:rgba(124,58,237,.1);
   border:1px solid rgba(168,85,247,.25);
   border-radius:10px;
   font-family:var(--font-mono);font-size:.7rem;
   letter-spacing:.14em;text-transform:uppercase;
-  color:var(--accent3);
+  color:var(--accent3);text-align:center;line-height:1.35;
   transition:background .25s;
 }
+.prog__details > summary > span:first-child{flex:0 1 auto;text-align:center}
 .prog__details > summary::-webkit-details-marker{display:none}
 .prog__details > summary:hover{background:rgba(124,58,237,.16)}
 .prog__details > summary .chev{
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
   width:22px;height:22px;border-radius:50%;
   display:inline-flex;align-items:center;justify-content:center;
   background:var(--accent);color:#fff;font-size:.9rem;font-weight:700;
   transition:transform .3s;
 }
-.prog__details[open] > summary .chev{transform:rotate(45deg)}
+.prog__details[open] > summary .chev{transform:translateY(-50%) rotate(45deg)}
 .prog__details[open] > summary{
   border-radius:10px 10px 0 0;border-bottom:0;
   background:rgba(124,58,237,.14);
@@ -1754,11 +1759,6 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
     </svg>
     <h2 class="h-section">Програма практичного курсу: <span class="hl-strong">«Фабрика АІ контенту»</span></h2>
 
-    <p style="color:rgba(236,230,245,.7);font-size:.85rem;font-family:var(--font-mono);
-              letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">
-      Навчальні модулі · Що всередині? · Результат, який ви отримаєте
-    </p>
-
     <div class="aud-hint" style="margin-bottom:6px">Свайп</div>
     <div class="prog-wrap reveal">
     <div class="prog" id="progTrack">
@@ -1768,7 +1768,6 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
         <div class="prog__head">
           <div class="prog__num">01</div>
           <div>
-            <div class="prog__sub">Що всередині</div>
             <div class="prog__title">Блок 1: ChatGPT по-простому</div>
           </div>
         </div>
@@ -1796,7 +1795,6 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
         <div class="prog__head">
           <div class="prog__num">02</div>
           <div>
-            <div class="prog__sub">Що всередині</div>
             <div class="prog__title">Блок 2: Генерація АІ зображень, будь якої складності</div>
           </div>
         </div>
@@ -1823,7 +1821,6 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
         <div class="prog__head">
           <div class="prog__num">03</div>
           <div>
-            <div class="prog__sub">Що всередині</div>
             <div class="prog__title">Блок 3: Генерація Ai-відео</div>
           </div>
         </div>
@@ -1855,7 +1852,6 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
         <div class="prog__head">
           <div class="prog__num">04</div>
           <div>
-            <div class="prog__sub">Що всередині</div>
             <div class="prog__title">Блок 4: Генерація звуків та озвучки в ElevenLabs</div>
           </div>
         </div>
@@ -1888,7 +1884,6 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
         <div class="prog__head">
           <div class="prog__num">05</div>
           <div>
-            <div class="prog__sub">Що всередині</div>
             <div class="prog__title">Блок 5: Генерація музики в Suno</div>
           </div>
         </div>
@@ -1920,7 +1915,6 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
         <div class="prog__head">
           <div class="prog__num">06</div>
           <div>
-            <div class="prog__sub">Що всередині</div>
             <div class="prog__title">Блок 6: Методи створювання АІ мультиків</div>
           </div>
         </div>
@@ -1947,7 +1941,6 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
         <div class="prog__head">
           <div class="prog__num">07</div>
           <div>
-            <div class="prog__sub">Що всередині</div>
             <div class="prog__title">Блок 7: Як створювати AI фотосессії людей?</div>
           </div>
         </div>
@@ -1975,7 +1968,6 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
         <div class="prog__head">
           <div class="prog__num">08</div>
           <div>
-            <div class="prog__sub">Що всередині</div>
             <div class="prog__title">Блок 8: Як створити живу АІ модель?</div>
           </div>
         </div>
@@ -2003,7 +1995,6 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
         <div class="prog__head">
           <div class="prog__num">09</div>
           <div>
-            <div class="prog__sub">Що всередині</div>
             <div class="prog__title">Блок 9: Предметна зйомка товару</div>
           </div>
         </div>
@@ -2030,7 +2021,6 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
         <div class="prog__head">
           <div class="prog__num">10</div>
           <div>
-            <div class="prog__sub">Що всередині</div>
             <div class="prog__title">Блок 10: Аі-аватар</div>
           </div>
         </div>
