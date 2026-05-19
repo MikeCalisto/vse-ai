@@ -1001,8 +1001,16 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
   aspect-ratio:4/5;background:#0a0710;position:relative;
   border:1px solid var(--line);
 }
-.prog__media img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
-.prog__card:hover .prog__media img{transform:scale(1.04)}
+.prog__media img,
+.prog__media video{width:100%;height:100%;object-fit:cover;transition:transform .8s ease;display:block}
+.prog__card:hover .prog__media img,
+.prog__card:hover .prog__media video{transform:scale(1.04)}
+.prog__media--video::after{
+  content:'';position:absolute;left:10px;top:10px;
+  width:8px;height:8px;border-radius:50%;background:#fca5fa;
+  box-shadow:0 0 10px #fca5fa;animation:pulse 1.6s ease-in-out infinite;
+  z-index:2;
+}
 .prog__media__tag{
   position:absolute;left:10px;bottom:10px;
   font-family:var(--font-mono);font-size:.55rem;letter-spacing:.18em;
@@ -1675,7 +1683,7 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
           </div>
         </div>
         <div class="prog__media">
-          <img src="images/w1.jpg" alt="Блок 01" loading="lazy" decoding="async">
+          <img src="images/lesson1-gpt.jpg" alt="Блок 01" loading="lazy" decoding="async">
           <span class="prog__media__tag">01 · GPT</span>
         </div>
         <details class="prog__details">
@@ -1729,8 +1737,8 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
             <div class="prog__title">Блок 3: Генерація Ai-відео</div>
           </div>
         </div>
-        <div class="prog__media">
-          <img src="images/samples/sample4.jpg" alt="Блок 03" loading="lazy" decoding="async">
+        <div class="prog__media prog__media--video">
+          <video src="images/portfolio3.mp4" muted loop playsinline preload="metadata" poster="images/samples/sample4.jpg"></video>
           <span class="prog__media__tag">03 · VIDEO</span>
         </div>
         <details class="prog__details">
@@ -1756,8 +1764,8 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
             <div class="prog__title">Блок 4: Генерація звуків та озвучки в ElevenLabs</div>
           </div>
         </div>
-        <div class="prog__media">
-          <img src="images/samples/sample5.jpg" alt="Блок 04" loading="lazy" decoding="async">
+        <div class="prog__media prog__media--video">
+          <video src="images/lesson4-voice.mp4" muted loop playsinline preload="metadata" poster="images/samples/sample5.jpg"></video>
           <span class="prog__media__tag">04 · VOICE</span>
         </div>
         <details class="prog__details">
@@ -1784,8 +1792,8 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
             <div class="prog__title">Блок 5: Генерація музики в Suno</div>
           </div>
         </div>
-        <div class="prog__media">
-          <img src="images/w11.jpg" alt="Блок 05" loading="lazy" decoding="async">
+        <div class="prog__media prog__media--video">
+          <video src="images/lesson5-music.mp4" muted loop playsinline preload="metadata" poster="images/w11.jpg"></video>
           <span class="prog__media__tag">05 · MUSIC</span>
         </div>
         <details class="prog__details">
@@ -1867,7 +1875,7 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
           </div>
         </div>
         <div class="prog__media">
-          <img src="images/w15.jpg" alt="Блок 08" loading="lazy" decoding="async">
+          <img src="images/lesson8-face.jpg" alt="Блок 08" loading="lazy" decoding="async">
           <span class="prog__media__tag">08 · AI-MODEL</span>
         </div>
         <details class="prog__details">
@@ -2344,14 +2352,14 @@ bindCarouselDots('progTrack', 'progDots', '.prog__card');
 
 // video-cards now use Google Drive iframes — autoplay is handled by GDrive's player
 
-// portfolio videos in samples grid — autoplay when in viewport
-const portfolioVids = document.querySelectorAll('.samples .item--video video');
-if(portfolioVids.length){
+// portfolio videos in samples grid + lesson videos in program cards — autoplay when in viewport
+const autoVids = document.querySelectorAll('.samples .item--video video, .prog__media--video video');
+if(autoVids.length){
   const pio = new IntersectionObserver(es => es.forEach(e => {
     if(e.isIntersecting) e.target.play().catch(()=>{});
     else e.target.pause();
   }), {threshold:.35});
-  portfolioVids.forEach(v => pio.observe(v));
+  autoVids.forEach(v => pio.observe(v));
 }
 </script>
 </body>
