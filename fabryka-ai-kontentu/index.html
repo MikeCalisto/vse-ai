@@ -730,14 +730,17 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
 
 /* clean single-line CTA: LABEL · 1999 ГРН → */
 .btn-primary{
-  justify-content:center;gap:8px;padding:17px 14px;
+  justify-content:center;gap:6px;padding:16px 10px;
   flex-wrap:nowrap;
+  min-width:0;
 }
 .btn-primary .btn-label{
   font-family:var(--font-stamp);font-weight:800;
-  font-size:.82rem;letter-spacing:.03em;line-height:1;
+  font-size:.72rem;letter-spacing:.02em;line-height:1.05;
   text-transform:uppercase;color:#fff;
-  white-space:nowrap;
+  min-width:0;
+  overflow-wrap:break-word;
+  text-align:center;
 }
 .btn-primary .btn-sep{
   display:inline-block;width:4px;height:4px;border-radius:50%;
@@ -745,15 +748,15 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
 }
 .btn-primary .btn-price{
   font-family:var(--font-stamp);font-weight:800;
-  font-size:.82rem;letter-spacing:.02em;line-height:1;
-  color:#fff;white-space:nowrap;text-transform:none;
+  font-size:.78rem;letter-spacing:.02em;line-height:1;
+  color:#fff;white-space:nowrap;text-transform:none;flex-shrink:0;
 }
 .btn-primary .btn-arrow{
   flex-shrink:0;
   display:inline-flex;align-items:center;justify-content:center;
   width:22px;height:22px;border-radius:50%;
   background:rgba(255,255,255,.18);
-  font-size:.88rem;font-weight:700;line-height:1;
+  font-size:.85rem;font-weight:700;line-height:1;
   transition:transform .25s, background .25s;
   margin-left:2px;
 }
@@ -2170,8 +2173,8 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
       <a href="https://app.zenedu.io/l/rZH9t1mXisTdgf06" target="_blank" rel="noopener" class="btn-primary"><span class="btn-label">Потрапити на курс</span><span class="btn-sep"></span><span class="btn-price">1999&nbsp;грн</span><span class="btn-arrow">→</span></a>
     </div>
 
-    <p style="margin-top:18px;font-size:.88rem;line-height:1.6;color:rgba(236,230,245,.82)">
-      *для того, щоб купити курс, натискайте на кнопку — вас переадресує на сторінку оплати, а одразу після оплати — у вас буде відкритий доступ за посиланням до <b style="color:var(--paper)">«ФАБРИКА АІ контенту з 0»</b>
+    <p style="margin-top:14px;font-size:.72rem;line-height:1.55;color:rgba(236,230,245,.45);text-align:center;max-width:380px;margin-left:auto;margin-right:auto;letter-spacing:.01em">
+      * після оплати ви одразу отримаєте доступ до курсу «ФАБРИКА АІ контенту з 0»
     </p>
 
     <div class="path">
