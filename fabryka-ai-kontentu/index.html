@@ -1090,6 +1090,7 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
 .samples .item--video{
   border:1px solid rgba(168,85,247,.35);
   box-shadow:0 8px 24px rgba(124,58,237,.18);
+  cursor:pointer;
 }
 .samples .item--video::before{
   content:'';position:absolute;left:10px;top:10px;
@@ -1097,6 +1098,21 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
   box-shadow:0 0 10px #fca5fa;animation:pulse 1.6s ease-in-out infinite;
   z-index:2;
 }
+/* tap-to-play overlay */
+.samples .item--video::after{
+  content:'▶';
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:54px;height:54px;border-radius:50%;
+  background:rgba(0,0,0,.55);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;padding-left:4px;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  box-shadow:0 4px 20px rgba(168,85,247,.5), 0 0 0 1px rgba(255,255,255,.18);
+  pointer-events:none;z-index:2;
+  transition:opacity .25s, transform .25s;
+}
+.samples .item--video:hover::after{background:rgba(168,85,247,.85);transform:translate(-50%,-50%) scale(1.05)}
+.samples .item--video.is-playing::after{opacity:0;transform:translate(-50%,-50%) scale(.7)}
 .samples .item:hover img{transform:scale(1.06)}
 .samples .item::after{
   content:attr(data-tag);position:absolute;left:10px;bottom:8px;
@@ -2404,8 +2420,8 @@ bindCarouselDots('progTrack', 'progDots', '.prog__card');
 
 // video-cards now use Google Drive iframes — autoplay is handled by GDrive's player
 
-// portfolio videos in samples grid + lesson videos in program cards — autoplay when in viewport
-const autoVids = document.querySelectorAll('.samples .item--video video, .prog__media--video video');
+// lesson videos in program cards — autoplay when in viewport
+const autoVids = document.querySelectorAll('.prog__media--video video');
 if(autoVids.length){
   const pio = new IntersectionObserver(es => es.forEach(e => {
     if(e.isIntersecting) e.target.play().catch(()=>{});
@@ -2413,6 +2429,31 @@ if(autoVids.length){
   }), {threshold:.35});
   autoVids.forEach(v => pio.observe(v));
 }
+
+// portfolio videos in samples grid — wait for user tap to play
+document.querySelectorAll('.samples .item--video').forEach(item => {
+  const vid = item.querySelector('video');
+  if(!vid) return;
+  item.addEventListener('click', e => {
+    // don't trigger when user is tapping the mute button
+    if(e.target.closest('.mute-btn')) return;
+    if(vid.paused){
+      vid.play().catch(()=>{});
+      item.classList.add('is-playing');
+    } else {
+      vid.pause();
+      item.classList.remove('is-playing');
+    }
+  });
+  // pause + reset state when scrolled offscreen
+  const pio = new IntersectionObserver(es => es.forEach(e => {
+    if(!e.isIntersecting && !vid.paused){
+      vid.pause();
+      item.classList.remove('is-playing');
+    }
+  }), {threshold:0});
+  pio.observe(vid);
+});
 
 // mute/unmute toggle for in-card videos — only one plays audio at a time
 document.querySelectorAll('.mute-btn').forEach(btn => {
