@@ -49,11 +49,12 @@
   --font-mono:'Space Mono',ui-monospace,Menlo,monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{font-size:112.5%}
 html,body{background:#000}
 body{
   font-family:var(--font-display);
   color:var(--cream);
-  font-size:16px;line-height:1.55;
+  font-size:1rem;line-height:1.6;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
@@ -360,18 +361,18 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
 
 /* --- 6. SOFT GRID (light sections) — subtle dotted grid + drift --- */
 .bg-fx.softgrid{
-  background-image:radial-gradient(rgba(124,58,237,.45) 1.5px, transparent 2px);
-  background-size:26px 26px;
-  -webkit-mask:radial-gradient(ellipse 90% 75% at 50% 50%, #000 30%, transparent 95%);
-          mask:radial-gradient(ellipse 90% 75% at 50% 50%, #000 30%, transparent 95%);
-  animation:softgridPan 18s linear infinite;
-  opacity:1;
+  background-image:radial-gradient(rgba(124,58,237,.16) 1px, transparent 1.5px);
+  background-size:32px 32px;
+  -webkit-mask:radial-gradient(ellipse 75% 60% at 50% 50%, #000 10%, transparent 90%);
+          mask:radial-gradient(ellipse 75% 60% at 50% 50%, #000 10%, transparent 90%);
+  animation:softgridPan 30s linear infinite;
+  opacity:.55;
 }
 .bg-fx.softgrid::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 40% 30% at 50% 50%, rgba(168,85,247,.18), transparent 70%);
+  background:radial-gradient(ellipse 40% 30% at 50% 50%, rgba(168,85,247,.08), transparent 70%);
   filter:blur(40px);
-  animation:scanGlow 10s ease-in-out infinite;
+  animation:scanGlow 14s ease-in-out infinite;
 }
 @keyframes softgridPan{
   0%{background-position:0 0}
@@ -537,6 +538,29 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
   color:rgba(236,230,245,.86);font-size:.95rem;line-height:1.65;margin-bottom:22px;
 }
 .hero__intro b{color:var(--paper)}
+.hero__intro--lead{
+  font-size:1.05rem;color:var(--paper);
+  margin-bottom:14px;line-height:1.55;
+}
+.hero__intro--coda{
+  font-size:.92rem;color:rgba(236,230,245,.78);
+  margin-bottom:24px;
+}
+.hero__skills{
+  list-style:none;
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin-bottom:18px;padding:0;
+}
+.hero__skills li{
+  font-family:var(--font-mono);
+  font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:7px 12px;border-radius:999px;
+  background:rgba(168,85,247,.1);
+  border:1px solid rgba(168,85,247,.28);
+  color:var(--accent3);line-height:1;
+  transition:background .25s, transform .25s;
+}
+.hero__skills li:hover{background:rgba(168,85,247,.2);transform:translateY(-2px)}
 .hero__intro .more-rest{display:none}
 .hero__intro.is-open .more-rest{display:inline}
 .hero__intro.is-open .more-dots{display:none}
@@ -1481,9 +1505,8 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
       </div>
     </div>
 
-    <p class="hero__intro" id="heroIntro">
-      Навчись: <b>генерувати фото, відео, музику, озвучку</b>, створювати АІ-персонажів, робити предметну зйомку товару<span class="more-dots">…</span><span class="more-rest"> за допогою АІ, створювати рекламні ролики для товарів, а також аватарів з повного 0 — під будь-яку задачу та бюджет та <b>монетизуй цю навичку</b> прямо під час проходження курсу практикуму.</span>
-      <button type="button" class="more-btn" data-target="heroIntro" aria-expanded="false"><span class="more-label">Читати далі</span> <span class="more-arrow">▾</span></button>
+    <p class="hero__intro">
+      Навчись <b>генерувати</b>: фото, відео, музику, озвучку, АІ-персонажів, предметну зйомку товару, рекламні ролики для товарів а також аватарів з повного 0 — та <b>монетизуй цю навичку</b> прямо під час проходження курсу практикуму.
     </p>
 
     <ul class="hero__bullets reveal">
@@ -1654,16 +1677,16 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
     <h2 class="h-section">Формат мого <span class="hl-strong">практичного курсу</span></h2>
 
     <div class="fmt">
-      <div class="fmt__step reveal"><div class="fmt__num">01</div><div class="fmt__body"><div class="fmt__title">1️⃣ Закладаємо фундамент</div><p class="fmt__text">Освоюєте ChatGPT, ролі та принцип роботи з промтами — щоб керувати AI, а не просто «щось у нього питати».</p></div></div>
-      <div class="fmt__step reveal"><div class="fmt__num">02</div><div class="fmt__body"><div class="fmt__title">2️⃣ Створюєте перші AI-зображення</div><p class="fmt__text">Вчитеся генерувати фото будь-якої складності та стилю — під соцмережі, рекламу або бізнес.</p></div></div>
-      <div class="fmt__step reveal"><div class="fmt__num">03</div><div class="fmt__body"><div class="fmt__title">3️⃣ Переходите до AI-відео</div><p class="fmt__text">Створюєте перші живі відео з налаштуванням камери та динаміки.</p></div></div>
-      <div class="fmt__step reveal"><div class="fmt__num">04</div><div class="fmt__body"><div class="fmt__title">4️⃣ Додаєте голос і звук</div><p class="fmt__text">Генеруєте професійну озвучку та звукові ефекти без студії та обладнання.</p></div></div>
-      <div class="fmt__step reveal"><div class="fmt__num">05</div><div class="fmt__body"><div class="fmt__title">5️⃣ Створюєте власну музику</div><p class="fmt__text">Підбираєте жанр, ритм і настрій — та створюєте перший музичний трек.</p></div></div>
-      <div class="fmt__step reveal"><div class="fmt__num">06</div><div class="fmt__body"><div class="fmt__title">6️⃣ Збираєте перший повноцінний продукт</div><p class="fmt__text">Створюєте свій перший AI-мультфільм — об’єднуючи фото, відео, звук і музику в одну систему.</p></div></div>
-      <div class="fmt__step reveal"><div class="fmt__num">07</div><div class="fmt__body"><div class="fmt__title">7️⃣ Освоюєте AI-фотосесії</div><p class="fmt__text">Створюєте професійні фотосесії людей без фотографа та студії.</p></div></div>
-      <div class="fmt__step reveal"><div class="fmt__num">08</div><div class="fmt__body"><div class="fmt__title">8️⃣ Створюєте живу AI-модель / AI-персонажа</div><p class="fmt__text">Генеруєте блогера, який може зніматися в Reels, Shorts та рекламі.</p></div></div>
-      <div class="fmt__step reveal"><div class="fmt__num">09</div><div class="fmt__body"><div class="fmt__title">9️⃣ Робите предметну зйомку товарів</div><p class="fmt__text">Перетворюєте одне фото на повноцінну рекламну серію та відео.</p></div></div>
-      <div class="fmt__step reveal"><div class="fmt__num">10</div><div class="fmt__body"><div class="fmt__title">🔟 Створюєте власного AI-аватара</div><p class="fmt__text">Клон себе, який знімається замість вас, говорить різними мовами та створює UGC-контент.</p></div></div>
+      <div class="fmt__step reveal"><div class="fmt__num">01</div><div class="fmt__body"><div class="fmt__title">Закладаємо фундамент</div><p class="fmt__text">Освоюєте ChatGPT, ролі та принцип роботи з промтами — щоб керувати AI, а не просто «щось у нього питати».</p></div></div>
+      <div class="fmt__step reveal"><div class="fmt__num">02</div><div class="fmt__body"><div class="fmt__title">Створюєте перші AI-зображення</div><p class="fmt__text">Вчитеся генерувати фото будь-якої складності та стилю — під соцмережі, рекламу або бізнес.</p></div></div>
+      <div class="fmt__step reveal"><div class="fmt__num">03</div><div class="fmt__body"><div class="fmt__title">Переходите до AI-відео</div><p class="fmt__text">Створюєте перші живі відео з налаштуванням камери та динаміки.</p></div></div>
+      <div class="fmt__step reveal"><div class="fmt__num">04</div><div class="fmt__body"><div class="fmt__title">Додаєте голос і звук</div><p class="fmt__text">Генеруєте професійну озвучку та звукові ефекти без студії та обладнання.</p></div></div>
+      <div class="fmt__step reveal"><div class="fmt__num">05</div><div class="fmt__body"><div class="fmt__title">Створюєте власну музику</div><p class="fmt__text">Підбираєте жанр, ритм і настрій — та створюєте перший музичний трек.</p></div></div>
+      <div class="fmt__step reveal"><div class="fmt__num">06</div><div class="fmt__body"><div class="fmt__title">Збираєте перший повноцінний продукт</div><p class="fmt__text">Створюєте свій перший AI-мультфільм — об’єднуючи фото, відео, звук і музику в одну систему.</p></div></div>
+      <div class="fmt__step reveal"><div class="fmt__num">07</div><div class="fmt__body"><div class="fmt__title">Освоюєте AI-фотосесії</div><p class="fmt__text">Створюєте професійні фотосесії людей без фотографа та студії.</p></div></div>
+      <div class="fmt__step reveal"><div class="fmt__num">08</div><div class="fmt__body"><div class="fmt__title">Створюєте живу AI-модель / AI-персонажа</div><p class="fmt__text">Генеруєте блогера, який може зніматися в Reels, Shorts та рекламі.</p></div></div>
+      <div class="fmt__step reveal"><div class="fmt__num">09</div><div class="fmt__body"><div class="fmt__title">Робите предметну зйомку товарів</div><p class="fmt__text">Перетворюєте одне фото на повноцінну рекламну серію та відео.</p></div></div>
+      <div class="fmt__step reveal"><div class="fmt__num">10</div><div class="fmt__body"><div class="fmt__title">Створюєте власного AI-аватара</div><p class="fmt__text">Клон себе, який знімається замість вас, говорить різними мовами та створює UGC-контент.</p></div></div>
     </div>
 
     <div class="fmt__result reveal">
@@ -1684,12 +1707,11 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
       <li><span class="ic">4</span><span><b>6 додаткових матеріалів</b> та баз промтів, сайти де черпати натхнення</span></li>
       <li><span class="ic">5</span><span>Авторські фішки Олександра</span></li>
       <li><span class="ic">6</span><span>Авторські додатки Олександра, в яких ви зможете <b>генерувати безкоштовно</b> прямо під час проходження курсу</span></li>
-      <li><span class="ic">7</span><span>Ексклюзивний тариф на нейронку <b>Clipsy.io</b> (він доступний тільки учням)</span></li>
-      <li><span class="ic">8</span><span>Знайомство з <b>14+ AI-інструментами</b> під різні задачі</span></li>
-      <li><span class="ic">9</span><span><b>2 роки практичного досвіду</b> роботи з AI від Олександра, зібрані в одне місце</span></li>
-      <li><span class="ic">10</span><span>Доступ до оновлень курсу — <b>НАЗАВЖДИ</b> (тому що нейронки з якими ми працюємо на курсі постійно змініються)</span></li>
-      <li><span class="ic">11</span><span>Загальний чат учасників, зворотній зв’язок від Олександра в чаті</span></li>
-      <li><span class="ic">12</span><span>Можливість отримати перших клієнтів та замовлення прямо під час курсу</span></li>
+      <li><span class="ic">7</span><span>Знайомство з <b>14+ AI-інструментами</b> під різні задачі</span></li>
+      <li><span class="ic">8</span><span><b>2 роки практичного досвіду</b> роботи з AI від Олександра, зібрані в одне місце</span></li>
+      <li><span class="ic">9</span><span>Доступ до оновлень курсу — <b>НАЗАВЖДИ</b> (тому що нейронки з якими ми працюємо на курсі постійно змініються)</span></li>
+      <li><span class="ic">10</span><span>Загальний чат учасників, зворотній зв’язок від Олександра в чаті</span></li>
+      <li><span class="ic">11</span><span>Можливість отримати перших клієнтів та замовлення прямо під час курсу</span></li>
     </ul>
   </section>
 
@@ -2007,10 +2029,25 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
           <div class="prog__num">🎁</div>
           <div>
             <div class="prog__sub">Бонусний блок</div>
-            <div class="prog__title">🎁 Блок БОНУС 11: Авторська експрес методика входу в АІ.</div>
+            <div class="prog__title">Блок БОНУС 11: Авторська експрес методика входу в АІ</div>
           </div>
         </div>
-        <p style="font-size:1.4rem;text-align:center;margin:8px 0">🎁 🎁 🎁</p>
+        <div class="prog__media">
+          <img src="images/w7.jpg" alt="Блок 11 · Бонус" loading="lazy" decoding="async">
+          <span class="prog__media__tag">11 · BONUS</span>
+        </div>
+        <details class="prog__details">
+          <summary><span>Що всередині блоку?</span><span class="chev">+</span></summary>
+          <div class="prog__details__body">
+            <ul class="prog__list">
+              <li>авторська експрес-методика швидкого входу в AI</li>
+              <li>повний цикл створення AI-контенту з нуля</li>
+              <li>від генерації зображень і відео до озвучки та музики</li>
+              <li>як створювати контент для соцмереж, блогу або клієнтів</li>
+            </ul>
+            <div class="prog__result">Ви опануєте всі ключові інструменти AI-контенту швидко, безкоштовно та без складних програм — навіть якщо ніколи раніше не працювали з AI.</div>
+          </div>
+        </details>
         <div class="prog__note">Навіть якщо ви ніколи не працювали з AI — ви опануєте повний цикл створення AI-контенту: від генерації зображень і відео до озвучки та музики. Ви зможете створювати контент для соцмереж, блогу або клієнтів — і робити це швидко, безкоштовно та без складних програм.</div>
       </div>
 
@@ -2094,7 +2131,7 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
       </p>
     </div>
 
-    <a href="https://app.zenedu.io/l/rZH9t1mXisTdgf06" target="_blank" rel="noopener" class="btn-primary"><span class="btn-label">Потрапити на курс</span><span class="btn-sep"></span><span class="btn-price">1999&nbsp;грн</span><span class="btn-arrow">→</span></a><div class="cta-hint"><span class="pulse-dot"></span>Ціна підвищиться з <b>1&nbsp;червня</b> — до <b>3499&nbsp;грн</b></div>
+    <a href="https://app.zenedu.io/l/rZH9t1mXisTdgf06" target="_blank" rel="noopener" class="btn-primary"><span class="btn-label">Потрапити на курс</span><span class="btn-sep"></span><span class="btn-price">1999&nbsp;грн</span><span class="btn-arrow">→</span></a>
 
     <p style="margin-top:18px;font-size:.88rem;line-height:1.6;color:rgba(236,230,245,.82)">
       *для того, щоб купити курс, натискайте на кнопку — вас переадресує на сторінку оплати, а одразу після оплати — у вас буде відкритий доступ за посиланням до <b style="color:var(--paper)">«ФАБРИКА АІ контенту з 0»</b>
