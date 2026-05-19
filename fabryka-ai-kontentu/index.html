@@ -1147,13 +1147,6 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
 .samples .item--video:hover::after{background:rgba(168,85,247,.85);transform:translate(-50%,-50%) scale(1.05)}
 .samples .item--video.is-playing::after{opacity:0;transform:translate(-50%,-50%) scale(.7)}
 .samples .item:hover img{transform:scale(1.06)}
-.samples .item::after{
-  content:attr(data-tag);position:absolute;left:10px;bottom:8px;
-  font-family:var(--font-mono);font-size:.55rem;letter-spacing:.18em;
-  color:var(--paper);text-transform:uppercase;
-  background:rgba(0,0,0,.55);padding:3px 7px;border-radius:4px;
-  backdrop-filter:blur(4px);
-}
 
 /* ---------- MATERIALS ---------- */
 .mat{display:grid;grid-template-columns:1fr;gap:10px}
@@ -2264,11 +2257,14 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
 
     <div class="course-prev reveal">
       <div class="course-prev__head">Превʼю платформи · 11 блоків</div>
-      <div class="course-video gdrive-facade" data-gdrive="13FNKKQE4551i1gaPWYTvMaBJ7beJ4yxX" data-title="Превʼю курсу «Фабрика АІ контенту з 0»" role="button" tabindex="0" aria-label="Відтворити превʼю курсу">
-        <div class="gdrive-facade__overlay">
-          <span class="gdrive-facade__play">▶</span>
-          <span class="gdrive-facade__label">Превʼю платформи</span>
-        </div>
+      <div class="course-video">
+        <iframe
+          src="https://drive.google.com/file/d/13FNKKQE4551i1gaPWYTvMaBJ7beJ4yxX/preview"
+          allow="autoplay; encrypted-media; fullscreen"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer"
+          title="Превʼю курсу «Фабрика АІ контенту з 0»"></iframe>
       </div>
       <p class="course-prev__note">↑ так виглядає платформа курсу зсередини · 11 блоків з покроковими відео-уроками 5–10 хв</p>
     </div>
@@ -2287,23 +2283,23 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
     </p>
 
     <div class="videos reveal">
-      <div class="video-card gdrive-facade" data-gdrive="1grqIvg8AiisBeoTZtVzipKmprPp6AuC-" data-title="Відео-відгук студента (65 років)" role="button" tabindex="0" aria-label="Відтворити відгук">
-        <div class="gdrive-facade__overlay">
-          <span class="gdrive-facade__play">▶</span>
-          <span class="gdrive-facade__label">65 років</span>
-        </div>
+      <div class="video-card">
+        <iframe src="https://drive.google.com/file/d/1grqIvg8AiisBeoTZtVzipKmprPp6AuC-/preview"
+                allow="autoplay; encrypted-media; fullscreen"
+                allowfullscreen loading="lazy" referrerpolicy="no-referrer"
+                title="Відео-відгук студента (65 років)"></iframe>
       </div>
-      <div class="video-card gdrive-facade" data-gdrive="1BhT98LKBd9IwgCie9knPpExrSaIPfXmZ" data-title="Відео-відгук студента (47 років)" role="button" tabindex="0" aria-label="Відтворити відгук">
-        <div class="gdrive-facade__overlay">
-          <span class="gdrive-facade__play">▶</span>
-          <span class="gdrive-facade__label">47 років</span>
-        </div>
+      <div class="video-card">
+        <iframe src="https://drive.google.com/file/d/1BhT98LKBd9IwgCie9knPpExrSaIPfXmZ/preview"
+                allow="autoplay; encrypted-media; fullscreen"
+                allowfullscreen loading="lazy" referrerpolicy="no-referrer"
+                title="Відео-відгук студента (47 років)"></iframe>
       </div>
-      <div class="video-card gdrive-facade" data-gdrive="1__ysd3JppCsGPwonJoAh7HJj5Fw2ChEy" data-title="Відео-відгук студента" role="button" tabindex="0" aria-label="Відтворити відгук">
-        <div class="gdrive-facade__overlay">
-          <span class="gdrive-facade__play">▶</span>
-          <span class="gdrive-facade__label">Студент курсу</span>
-        </div>
+      <div class="video-card">
+        <iframe src="https://drive.google.com/file/d/1__ysd3JppCsGPwonJoAh7HJj5Fw2ChEy/preview"
+                allow="autoplay; encrypted-media; fullscreen"
+                allowfullscreen loading="lazy" referrerpolicy="no-referrer"
+                title="Відео-відгук студента"></iframe>
       </div>
     </div>
 
