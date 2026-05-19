@@ -1251,9 +1251,38 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
   position:relative;border-radius:16px;overflow:hidden;
   border:1px solid var(--line);background:#000;aspect-ratio:9/16;
 }
-.video-card video, .video-card iframe{
-  position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;
+.video-card video, .video-card iframe,
+.course-video iframe{
+  position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;display:block;
 }
+
+/* Google Drive lite-facade: poster + tap-to-load iframe */
+.gdrive-facade{cursor:pointer;background:#0a0710 linear-gradient(160deg,#1a0b2c 0%,#0a0710 100%)}
+.gdrive-facade__overlay{
+  position:absolute;inset:0;z-index:3;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  background:linear-gradient(180deg, rgba(168,85,247,.18), rgba(10,7,16,.7));
+  transition:opacity .25s;
+}
+.gdrive-facade__play{
+  width:64px;height:64px;border-radius:50%;
+  background:rgba(168,85,247,.92);
+  color:#fff;font-size:1.6rem;padding-left:6px;
+  display:inline-flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 32px rgba(168,85,247,.55), 0 0 0 1px rgba(255,255,255,.22) inset;
+  transition:transform .25s, background .25s;
+}
+.gdrive-facade:hover .gdrive-facade__play{transform:scale(1.08);background:rgba(192,132,252,1)}
+.gdrive-facade__label{
+  font-family:var(--font-mono);font-size:.62rem;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.85);
+  background:rgba(0,0,0,.5);
+  padding:6px 12px;border-radius:999px;
+  backdrop-filter:blur(6px);
+}
+.gdrive-facade.is-loaded{cursor:default}
+.gdrive-facade.is-loaded .gdrive-facade__overlay{opacity:0;pointer-events:none}
 .video-card .play-badge{
   position:absolute;left:10px;bottom:10px;
   width:42px;height:42px;border-radius:50%;
@@ -2229,14 +2258,11 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
 
     <div class="course-prev reveal">
       <div class="course-prev__head">Превʼю платформи · 11 блоків</div>
-      <div class="course-video">
-        <iframe
-          src="https://drive.google.com/file/d/13FNKKQE4551i1gaPWYTvMaBJ7beJ4yxX/preview"
-          allow="autoplay; encrypted-media; fullscreen"
-          allowfullscreen
-          loading="lazy"
-          referrerpolicy="no-referrer"
-          title="Превʼю курсу «Фабрика АІ контенту з 0»"></iframe>
+      <div class="course-video gdrive-facade" data-gdrive="13FNKKQE4551i1gaPWYTvMaBJ7beJ4yxX" data-title="Превʼю курсу «Фабрика АІ контенту з 0»" role="button" tabindex="0" aria-label="Відтворити превʼю курсу">
+        <div class="gdrive-facade__overlay">
+          <span class="gdrive-facade__play">▶</span>
+          <span class="gdrive-facade__label">Превʼю платформи</span>
+        </div>
       </div>
       <p class="course-prev__note">↑ так виглядає платформа курсу зсередини · 11 блоків з покроковими відео-уроками 5–10 хв</p>
     </div>
@@ -2255,23 +2281,23 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
     </p>
 
     <div class="videos reveal">
-      <div class="video-card" data-age="65 років">
-        <iframe src="https://drive.google.com/file/d/1grqIvg8AiisBeoTZtVzipKmprPp6AuC-/preview"
-                allow="autoplay; encrypted-media; fullscreen"
-                allowfullscreen loading="lazy" referrerpolicy="no-referrer"
-                title="Відео-відгук студента"></iframe>
+      <div class="video-card gdrive-facade" data-gdrive="1grqIvg8AiisBeoTZtVzipKmprPp6AuC-" data-title="Відео-відгук студента (65 років)" role="button" tabindex="0" aria-label="Відтворити відгук">
+        <div class="gdrive-facade__overlay">
+          <span class="gdrive-facade__play">▶</span>
+          <span class="gdrive-facade__label">65 років</span>
+        </div>
       </div>
-      <div class="video-card" data-age="47 років">
-        <iframe src="https://drive.google.com/file/d/1BhT98LKBd9IwgCie9knPpExrSaIPfXmZ/preview"
-                allow="autoplay; encrypted-media; fullscreen"
-                allowfullscreen loading="lazy" referrerpolicy="no-referrer"
-                title="Відео-відгук студента"></iframe>
+      <div class="video-card gdrive-facade" data-gdrive="1BhT98LKBd9IwgCie9knPpExrSaIPfXmZ" data-title="Відео-відгук студента (47 років)" role="button" tabindex="0" aria-label="Відтворити відгук">
+        <div class="gdrive-facade__overlay">
+          <span class="gdrive-facade__play">▶</span>
+          <span class="gdrive-facade__label">47 років</span>
+        </div>
       </div>
-      <div class="video-card" data-age="студент">
-        <iframe src="https://drive.google.com/file/d/1__ysd3JppCsGPwonJoAh7HJj5Fw2ChEy/preview"
-                allow="autoplay; encrypted-media; fullscreen"
-                allowfullscreen loading="lazy" referrerpolicy="no-referrer"
-                title="Відео-відгук студента"></iframe>
+      <div class="video-card gdrive-facade" data-gdrive="1__ysd3JppCsGPwonJoAh7HJj5Fw2ChEy" data-title="Відео-відгук студента" role="button" tabindex="0" aria-label="Відтворити відгук">
+        <div class="gdrive-facade__overlay">
+          <span class="gdrive-facade__play">▶</span>
+          <span class="gdrive-facade__label">Студент курсу</span>
+        </div>
       </div>
     </div>
 
@@ -2496,6 +2522,27 @@ document.querySelectorAll('.samples .item--video').forEach(item => {
     }
   }), {threshold:0});
   pio.observe(vid);
+});
+
+// Google Drive lite-facade: load iframe only when user taps the poster
+document.querySelectorAll('.gdrive-facade').forEach(card => {
+  function load(){
+    if(card.classList.contains('is-loaded')) return;
+    const id = card.dataset.gdrive;
+    const title = card.dataset.title || 'Video';
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://drive.google.com/file/d/'+id+'/preview';
+    iframe.title = title;
+    iframe.setAttribute('allow','autoplay; encrypted-media; fullscreen');
+    iframe.setAttribute('allowfullscreen','');
+    iframe.setAttribute('referrerpolicy','no-referrer');
+    card.appendChild(iframe);
+    card.classList.add('is-loaded');
+  }
+  card.addEventListener('click', load);
+  card.addEventListener('keydown', e => {
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); load(); }
+  });
 });
 
 // mute/unmute toggle for in-card videos — only one plays audio at a time
