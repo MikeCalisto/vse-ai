@@ -96,9 +96,11 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 }
 .eyebrow--long .dot{margin-top:7px}
 .eyebrow .dot{
-  width:7px;height:7px;border-radius:50%;background:var(--accent2);
+  flex:0 0 8px;width:8px;height:8px;
+  border-radius:50%;background:var(--accent2);
   box-shadow:0 0 10px var(--accent-glow);
   animation:pulse 2s ease-in-out infinite;
+  align-self:center;
 }
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
 
@@ -126,6 +128,97 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
   padding:28px 22px 48px;
   isolation:isolate;
   overflow:hidden;
+}
+
+/* === HERO POSTER (video bg + title overlay + thumbnail chips) === */
+.hero-poster{
+  position:relative;
+  width:100%;margin:0 0 22px;
+  aspect-ratio:4/5;
+  border-radius:22px;overflow:hidden;
+  border:1px solid rgba(168,85,247,.4);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.6),
+    0 0 0 1px rgba(255,255,255,.03) inset,
+    0 0 80px rgba(168,85,247,.25);
+  background:#0a0418;
+  isolation:isolate;
+}
+.hero-poster__bg{position:absolute;inset:0;z-index:1}
+.hero-poster__bg video{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:saturate(1.05) contrast(1.05);
+}
+/* Layered vignette: dark at bottom for title legibility, accent glow */
+.hero-poster__vignette{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(10,4,24,.55) 0%, transparent 22%, transparent 45%, rgba(10,4,24,.65) 78%, rgba(10,4,24,.95) 100%),
+    radial-gradient(ellipse 80% 50% at 50% 110%, rgba(168,85,247,.32), transparent 70%);
+}
+
+/* badge top-left */
+.hero-poster__badge{
+  position:absolute;top:14px;left:14px;z-index:4;
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 12px;border-radius:999px;
+  background:rgba(0,0,0,.5);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.18);
+  font-family:var(--font-mono);font-size:.58rem;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:#fff;line-height:1;
+}
+.hero-poster__badge::before{
+  content:'';display:inline-block;
+  width:7px;height:7px;border-radius:50%;background:#22c55e;
+  box-shadow:0 0 8px rgba(34,197,94,.85);
+  animation:pulse 1.6s ease-in-out infinite;
+}
+
+/* sample thumbnails top-right (proof of capability) */
+.hero-poster__chips{
+  position:absolute;top:14px;right:14px;z-index:4;
+  display:flex;flex-direction:column;gap:8px;
+}
+.hero-poster__chips img{
+  display:block;width:54px;height:68px;
+  border-radius:10px;object-fit:cover;
+  border:2px solid rgba(255,255,255,.45);
+  box-shadow:0 6px 18px rgba(0,0,0,.55), 0 0 0 1px rgba(168,85,247,.3);
+  transition:transform .5s cubic-bezier(.2,.8,.2,1);
+}
+.hero-poster__chips picture:nth-child(1) img{transform:rotate(3deg)}
+.hero-poster__chips picture:nth-child(2) img{transform:rotate(-3deg)}
+.hero-poster:hover .hero-poster__chips picture:nth-child(1) img{transform:rotate(0) scale(1.04)}
+.hero-poster:hover .hero-poster__chips picture:nth-child(2) img{transform:rotate(0) scale(1.04)}
+
+/* main title baked into the poster bottom */
+.hero-poster__title{
+  position:absolute;z-index:4;
+  left:18px;right:18px;bottom:24px;
+  margin:0;color:#fff;
+  font-family:var(--font-stamp);font-weight:800;
+  font-size:clamp(2.2rem,11vw,3.6rem);
+  line-height:.95;letter-spacing:-.035em;
+  text-shadow:0 2px 8px rgba(0,0,0,.75), 0 8px 32px rgba(0,0,0,.55);
+}
+.hero-poster__title .ttl-word{display:block}
+.hero-poster__title em{
+  font-style:normal;
+  background:linear-gradient(100deg,
+    var(--accent2) 0%, var(--accent3) 32%,
+    #ffffff 50%, var(--accent3) 68%, var(--accent2) 100%);
+  background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  text-shadow:0 0 28px rgba(192,132,252,.45);
+  animation:shimmerSweep 4.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .hero-poster__bg video{display:none}
+  .hero-poster__badge::before{animation:none}
 }
 
 /* === HERO BACKGROUND ANIMATION SYSTEM === */
@@ -1522,27 +1615,30 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
       <div class="topbar__chip"><span class="live"></span><span>Курс оновлений та&nbsp;актуальний на <b id="liveDate">сьогодні</b></span></div>
     </div>
 
-    <div class="eyebrow eyebrow--long"><span class="dot"></span>Авторська програма Олександра Цюцьмаця по практичному використанню нейромереж</div>
+    <div class="eyebrow eyebrow--long">Авторська програма Олександра Цюцьмаця по практичному використанню нейромереж</div>
 
-    <h1 class="hero__title h-mega">
-      <span class="ttl-word">ФАБРИКА</span> <em class="ttl-word">АІ&nbsp;КОНТЕНТУ</em>
-    </h1>
+    <figure class="hero-poster reveal">
+      <div class="hero-poster__bg">
+        <video src="images/ai-4.mp4" muted loop playsinline autoplay preload="auto" poster="images/samples/sample1.jpg" aria-hidden="true"></video>
+      </div>
+      <div class="hero-poster__vignette" aria-hidden="true"></div>
+
+      <div class="hero-poster__chips" aria-hidden="true">
+        <picture><source srcset="images/w13.avif" type="image/avif"><img src="images/w13.jpg" alt=""></picture>
+        <picture><source srcset="images/w9.avif"  type="image/avif"><img src="images/w9.jpg"  alt=""></picture>
+      </div>
+
+      <div class="hero-poster__badge"><span>11 блоків · з повного 0</span></div>
+
+      <h1 class="hero-poster__title h-mega">
+        <span class="ttl-word">ФАБРИКА</span>
+        <em class="ttl-word">АІ&nbsp;КОНТЕНТУ</em>
+      </h1>
+    </figure>
 
     <p class="hero__sub">
       Створи власну Фабрику AI-контенту за <span class="hl">11 практичних блоків</span>, з повного 0.
     </p>
-
-    <div class="hero__media reveal">
-      <div class="big">
-        <img src="images/samples/sample1.jpg" alt="AI генерація 1" fetchpriority="high" decoding="async">
-      </div>
-      <div class="small">
-        <img src="images/samples/sample2.jpg" alt="AI генерація 2" loading="lazy" decoding="async">
-      </div>
-      <div class="small">
-        <img src="images/samples/sample6.jpg" alt="AI генерація 3" loading="lazy" decoding="async">
-      </div>
-    </div>
 
     <p class="hero__intro">
       Навчись <b>генерувати</b>: фото, відео, музику, озвучку, АІ-персонажів, предметну зйомку товару, рекламні ролики для товарів а також аватарів з повного 0 — та <b>монетизуй цю навичку</b> прямо під час проходження курсу практикуму.
@@ -1640,7 +1736,7 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
       <circle cx="50" cy="50" r="28" stroke="#a855f7" stroke-width="1" fill="none"/>
     </svg>
 
-    <div class="eyebrow"><span class="dot"></span>Інший підхід</div>
+    <div class="eyebrow">Інший підхід</div>
     <h2 class="h-section">Чому я навчаю на <span class="hl-strong">Фабриці АІ контенту?</span></h2>
 
     <ul class="list-v reveal">
@@ -2092,7 +2188,7 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
       <path d="M35 2L15 32h18L10 78l40-40H30L50 2H35z" fill="#a855f7"/>
     </svg>
 
-    <div class="eyebrow"><span class="dot"></span>Бонус-пак</div>
+    <div class="eyebrow">Бонус-пак</div>
     <h2 class="h-section">Матеріали, які ви <span class="hl-strong">отримаєте на курсі</span></h2>
 
     <div class="mat reveal">
@@ -2114,7 +2210,7 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
   <!-- ============== Нейронки ============== -->
   <section class="section s-cream">
     
-    <div class="bg-fx scanlines" aria-hidden="true"></div><div class="eyebrow"><span class="dot"></span>14+ нейромереж</div>
+    <div class="bg-fx scanlines" aria-hidden="true"></div><div class="eyebrow">14+ нейромереж</div>
     <h2 class="h-section">Нейронки з якими ви <span class="hl">навчитесь працювати</span>, під час курсу</h2>
 
     <div class="tools reveal">
@@ -2385,7 +2481,7 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
 <!-- sticky bar -->
 <div class="sticky-bar" id="stick">
   <div class="sticky-bar__price">
-    <span class="sticky-bar__warn"><span class="dot"></span>з 1 червня — 3499 грн</span>
+    <span class="sticky-bar__warn">з 1 червня — 3499 грн</span>
     <span class="sticky-bar__new">1999 грн</span>
   </div>
   <a href="https://app.zenedu.io/l/rZH9t1mXisTdgf06" target="_blank" rel="noopener" class="sticky-bar__cta">Купити →</a>
