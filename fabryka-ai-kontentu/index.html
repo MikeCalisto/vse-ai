@@ -2677,7 +2677,7 @@ window.addEventListener('scroll', () => {
   setInterval(tick, 1000);
 })();
 
-// exit-intent popup — show once per session when user tries to leave
+// exit-intent popup — multiple triggers to catch as many exit signals as possible
 (function(){
   const popup = document.getElementById('exitPopup');
   if(!popup) return;
@@ -2686,13 +2686,13 @@ window.addEventListener('scroll', () => {
 
   let shown = false;
   const isTouch = matchMedia('(hover: none)').matches;
+  const T0 = Date.now();
 
   function show(){
     if(shown) return;
     shown = true;
     sessionStorage.setItem(KEY, '1');
     popup.hidden = false;
-    // force reflow so the CSS transition runs
     void popup.offsetWidth;
     popup.classList.add('show');
     document.documentElement.style.overflow = 'hidden';
@@ -2705,39 +2705,77 @@ window.addEventListener('scroll', () => {
     document.body.style.overflow = '';
   }
 
-  // close handlers (× button, backdrop, "Ні, дякую")
-  popup.querySelectorAll('[data-close]').forEach(el => {
-    el.addEventListener('click', hide);
-  });
+  // close handlers
+  popup.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', hide));
   document.addEventListener('keydown', e => {
     if(e.key === 'Escape' && !popup.hidden) hide();
   });
-
-  // primary CTA click — also dismiss popup (after opening zenedu in new tab)
   popup.querySelector('.exit-popup__primary')?.addEventListener('click', () => {
     setTimeout(hide, 200);
   });
 
+  // ----- TRIGGERS -----
+
+  // 1) Desktop: cursor exits viewport from the top
   if(!isTouch){
-    // Desktop: cursor leaves the top edge → user heading to close tab / address bar
     document.addEventListener('mouseleave', e => {
-      if(e.clientY <= 0) show();
+      if(e.clientY <= 0 && Date.now() - T0 > 4000) show();
     });
-    // Fallback: hide-by-tab-switch (Cmd+W, Ctrl+T, etc)
-    document.addEventListener('visibilitychange', () => {
-      if(document.hidden) show();
-    });
-  } else {
-    // Mobile: show on scroll-up after user has scrolled deep, or fallback after 50s
-    let lastY = window.scrollY;
-    let scrolledDeep = false;
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      if(y > 1200) scrolledDeep = true;
-      if(scrolledDeep && y < lastY - 60) show();
-      lastY = y;
+  }
+
+  // 2) Any device: tab/window becomes hidden (app switch, close attempt)
+  document.addEventListener('visibilitychange', () => {
+    if(document.hidden && Date.now() - T0 > 4000) show();
+  });
+
+  // 3) Native beforeunload fallback (desktop browsers only — mobile/Telegram often skip it)
+  window.addEventListener('pagehide', () => {
+    // last-resort: tries to fire before destruction. Often silently dropped on mobile.
+    if(!shown && Date.now() - T0 > 4000) show();
+  });
+
+  // 4) Scroll-up after engagement (user looked at content, now scrolling back to leave)
+  let lastY = window.scrollY;
+  let scrolledDeep = false;
+  let upDistance = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    if(docH > 0 && y / docH > 0.35) scrolledDeep = true;
+    if(scrolledDeep){
+      if(y < lastY) upDistance += (lastY - y); else upDistance = 0;
+      if(upDistance > 300) show();
+    }
+    lastY = y;
+  }, {passive:true});
+
+  // 5) Idle trigger: no interaction for 25s after user has been on the page > 10s
+  let idleTimer;
+  function resetIdle(){
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(() => {
+      if(Date.now() - T0 > 10000) show();
+    }, 25000);
+  }
+  ['scroll','touchstart','touchmove','mousemove','keydown','click'].forEach(ev => {
+    document.addEventListener(ev, resetIdle, {passive:true});
+  });
+  resetIdle();
+
+  // 6) Hard fallback after 60s — catches users who just sit there
+  setTimeout(show, 60000);
+
+  // 7) Touch device: finger swipe-up near the top edge (could indicate "go to address bar / close")
+  if(isTouch){
+    let touchStartY = 0;
+    document.addEventListener('touchstart', e => {
+      touchStartY = e.touches[0].clientY;
     }, {passive:true});
-    setTimeout(show, 50000);
+    document.addEventListener('touchend', e => {
+      const endY = (e.changedTouches[0] || {}).clientY || 0;
+      // finger started near top and lifted higher → likely reaching for browser chrome / close button
+      if(touchStartY < 60 && endY < touchStartY - 20 && Date.now() - T0 > 6000) show();
+    }, {passive:true});
   }
 })();
 
