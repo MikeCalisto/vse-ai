@@ -1405,24 +1405,24 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
   scroll-padding:22px;
   -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
-  align-items:flex-start;
-  margin:14px -22px 0;padding:6px 22px 16px;
+  align-items:center;
+  margin:18px -22px 10px;padding:6px 22px;
 }
 .reviews-track::-webkit-scrollbar{display:none}
 .review-card{
   flex:0 0 auto;
-  height:auto;max-height:280px;
+  height:auto;max-height:400px;
   scroll-snap-align:start;
-  border-radius:14px;overflow:hidden;
+  border-radius:18px;overflow:hidden;
   border:1px solid rgba(168,85,247,.22);
   background:linear-gradient(180deg, #14101c, #0a0a0a);
   box-shadow:0 22px 40px -22px rgba(124,58,237,.35);
   display:flex;align-items:center;justify-content:center;
-  position:relative;padding:6px;
+  position:relative;padding:8px;
 }
 .review-card img{
-  max-height:268px;max-width:380px;
-  width:auto;height:auto;display:block;border-radius:8px;
+  max-height:384px;max-width:320px;
+  width:auto;height:auto;display:block;border-radius:10px;
 }
 
 /* ---------- COURSE PREVIEW (lessons) ---------- */
@@ -1567,6 +1567,102 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
   font-family:var(--font-stamp);font-weight:800;font-size:.78rem;letter-spacing:.06em;
   text-transform:uppercase;box-shadow:0 6px 18px var(--accent-glow)
 }
+
+/* ---------- EXIT-INTENT POPUP ---------- */
+.exit-popup[hidden]{display:none}
+.exit-popup{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  padding:16px;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s ease;
+}
+.exit-popup.show{opacity:1;pointer-events:auto}
+.exit-popup__backdrop{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,.78);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+.exit-popup__card{
+  position:relative;
+  width:100%;max-width:440px;max-height:92vh;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
+  padding:36px 24px 24px;
+  background:linear-gradient(160deg,#1a0b2c 0%,#0a0418 100%);
+  border:1px solid rgba(168,85,247,.5);
+  border-radius:22px;
+  box-shadow:0 30px 80px rgba(168,85,247,.45), 0 0 0 1px rgba(255,255,255,.04) inset;
+  text-align:center;
+  transform:scale(.88) translateY(20px);opacity:0;
+  transition:transform .4s cubic-bezier(.2,1.4,.4,1), opacity .35s ease;
+}
+.exit-popup.show .exit-popup__card{transform:scale(1) translateY(0);opacity:1}
+.exit-popup__close{
+  position:absolute;top:10px;right:12px;
+  width:34px;height:34px;border-radius:50%;
+  background:rgba(255,255,255,.08);color:#fff;
+  font-size:1.3rem;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,transform .2s;
+}
+.exit-popup__close:hover{background:rgba(255,255,255,.16);transform:scale(1.05)}
+.exit-popup__emoji{font-size:2.4rem;line-height:1;margin-bottom:6px}
+.exit-popup__title{
+  font-family:var(--font-stamp);font-weight:800;
+  font-size:1.55rem;line-height:1.15;
+  color:#fff;letter-spacing:-.02em;margin-bottom:6px;
+}
+.exit-popup__lead{
+  color:var(--accent3);font-weight:600;font-size:1rem;
+  line-height:1.4;margin-bottom:18px;
+}
+.exit-popup__body{
+  text-align:left;color:rgba(236,230,245,.85);
+  font-size:.9rem;line-height:1.6;margin-bottom:22px;
+}
+.exit-popup__body p+p{margin-top:12px}
+.exit-popup__body b{color:#fff;font-weight:700}
+.exit-popup__warn{
+  margin-top:14px!important;padding:11px 14px;
+  background:rgba(252,165,250,.1);
+  border:1px solid rgba(252,165,250,.35);border-radius:10px;
+  font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;
+  color:#fca5fa;text-transform:uppercase;text-align:center;
+}
+.exit-popup__warn b{color:#fff}
+.exit-popup__actions{display:flex;flex-direction:column;gap:10px;align-items:stretch}
+.exit-popup__primary{
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  padding:15px 18px;border-radius:14px;
+  background:linear-gradient(135deg,var(--accent) 0%, var(--accent2) 100%);
+  color:#fff;text-decoration:none;
+  font-family:var(--font-stamp);font-weight:800;
+  font-size:.85rem;letter-spacing:.03em;line-height:1.15;
+  box-shadow:0 12px 28px var(--accent-glow),inset 0 1px 0 rgba(255,255,255,.18);
+  transition:transform .25s,box-shadow .25s;
+}
+.exit-popup__primary:hover{transform:translateY(-2px);box-shadow:0 16px 36px var(--accent-glow2)}
+.exit-popup__primary-price{
+  font-family:var(--font-mono);font-weight:700;font-size:.7rem;
+  letter-spacing:.08em;opacity:.9;text-transform:uppercase;
+}
+.exit-popup__secondary{
+  background:none;border:0;cursor:pointer;
+  color:rgba(236,230,245,.5);font-size:.82rem;font-family:var(--font-display);
+  padding:8px;text-decoration:underline;text-underline-offset:3px;
+  transition:color .2s;
+}
+.exit-popup__secondary:hover{color:rgba(236,230,245,.85)}
+
+/* highlighted Telegram support handle */
+.tg-link{
+  color:var(--accent3)!important;font-weight:700;
+  text-decoration:none;
+  border-bottom:1px solid rgba(192,132,252,.45);
+  padding-bottom:1px;
+  transition:color .2s, border-color .2s;
+}
+.tg-link:hover{color:#fff!important;border-bottom-color:#fff}
 
 /* reveal */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1)}
@@ -2199,7 +2295,7 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
 
     <div class="cta-block">
       <a href="https://app.zenedu.io/l/rZH9t1mXisTdgf06" target="_blank" rel="noopener" class="btn-primary"><span class="btn-label">Купити курс</span><span class="btn-sep"></span><span class="btn-price">1999&nbsp;грн</span><span class="btn-arrow">→</span></a><div class="cta-hint"><span class="pulse-dot"></span><span>Ціна підвищиться з <b>1&nbsp;червня</b> — до <b>3499&nbsp;грн</b></span></div>
-      <p class="small">*ТГ підтримка, якщо щось не виходить:<br><a href="https://t.me/ai_sashka_support">@ai_sashka_support</a></p>
+      <p class="small">*ТГ підтримка, якщо щось не виходить:<br><a href="https://t.me/ai_sashka_support" class="tg-link">@ai_sashka_support</a></p>
     </div>
   </section>
 
@@ -2291,7 +2387,7 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
     </div>
 
     <p class="cta-block small" style="margin-top:14px;text-align:center">
-      *ТГ підтримка, якщо щось не виходить: <a href="https://t.me/ai_sashka_support">@ai_sashka_support</a>
+      *ТГ підтримка, якщо щось не виходить: <a href="https://t.me/ai_sashka_support" class="tg-link">@ai_sashka_support</a>
     </p>
   </section>
 
@@ -2324,7 +2420,7 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
 
     <div class="cta-block" style="margin-top:24px">
       <a href="https://app.zenedu.io/l/rZH9t1mXisTdgf06" target="_blank" rel="noopener" class="btn-primary"><span class="btn-label">Купити курс</span><span class="btn-sep"></span><span class="btn-price">1999&nbsp;грн</span><span class="btn-arrow">→</span></a><div class="cta-hint"><span class="pulse-dot"></span><span>Ціна підвищиться з <b>1&nbsp;червня</b> — до <b>3499&nbsp;грн</b></span></div>
-      <p class="small">*ТГ підтримка, якщо щось не виходить: <a href="https://t.me/ai_sashka_support">@ai_sashka_support</a></p>
+      <p class="small">*ТГ підтримка, якщо щось не виходить: <a href="https://t.me/ai_sashka_support" class="tg-link">@ai_sashka_support</a></p>
     </div>
   </section>
 
@@ -2446,7 +2542,6 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
         <img src="images/author/sasha_new.jpg" alt="Олександр Цюцьмаць" loading="lazy" decoding="async">
       </div>
       <div class="author-card__name">Олександр Цюцьмаць</div>
-      <div class="author-card__role">AI-практик · автор VSE AI</div>
 
       <ul class="author-card__list">
         <li>Вивчаю АІ інструменти кожен день з 2024 року</li>
@@ -2473,7 +2568,7 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
     </div>
 
     <p class="cta-block small" style="margin-top:14px;text-align:center">
-      *ТГ підтримка, якщо щось не виходить: <a href="https://t.me/ai_sashka_support">@ai_sashka_support</a>
+      *ТГ підтримка, якщо щось не виходить: <a href="https://t.me/ai_sashka_support" class="tg-link">@ai_sashka_support</a>
     </p>
   </section>
 
@@ -2481,7 +2576,7 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
   <footer class="footer">
     <div class="ft-block">
       <b>З БУДЬ-ЯКИХ ПИТАНЬ ПИШІТЬ В ПІДТРИМКУ ↓</b><br>
-      <a href="https://t.me/ai_sashka_support">Технічна підтримка</a>
+      <a href="https://t.me/ai_sashka_support" class="tg-link">Технічна підтримка</a>
     </div>
     <div class="ft-block">
       <b>ЗЕМЛЯНИЙ МИХАЙЛО СЕРГІЙОВИЧ ФОП</b><br>
@@ -2507,6 +2602,29 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
     <span class="sticky-bar__new">1999 грн</span>
   </div>
   <a href="https://app.zenedu.io/l/rZH9t1mXisTdgf06" target="_blank" rel="noopener" class="sticky-bar__cta">Купити →</a>
+</div>
+
+<!-- exit-intent popup -->
+<div class="exit-popup" id="exitPopup" role="dialog" aria-modal="true" aria-labelledby="exitPopupTitle" hidden>
+  <div class="exit-popup__backdrop" data-close></div>
+  <div class="exit-popup__card" role="document">
+    <button class="exit-popup__close" type="button" aria-label="Закрити" data-close>×</button>
+    <div class="exit-popup__emoji" aria-hidden="true">🛑</div>
+    <h3 id="exitPopupTitle" class="exit-popup__title">Зачекай хвилинку!</h3>
+    <p class="exit-popup__lead">Ти впевнений, що хочеш піти?</p>
+    <div class="exit-popup__body">
+      <p>Я розумію — ти, скоріше за все, хочеш «подумати» чи повернутися пізніше.</p>
+      <p>Але давай по-чесному: <b>9 з 10 людей</b> в цей момент закривають вкладку — і просто забувають. Не з поганого наміру, просто життя несе далі. А разом із вкладкою закривається й твоя можливість зайти у курс <b>«Фабрика АІ контенту»</b> за спеціальною ціною <b>1999&nbsp;грн</b>.</p>
+      <p class="exit-popup__warn">З <b>1&nbsp;червня</b> ціна підвищується. Без винятків.</p>
+    </div>
+    <div class="exit-popup__actions">
+      <a class="exit-popup__primary" href="https://app.zenedu.io/l/rZH9t1mXisTdgf06" target="_blank" rel="noopener">
+        <span>✅ Залишитись та доєднатися</span>
+        <span class="exit-popup__primary-price">за 1999&nbsp;грн</span>
+      </a>
+      <button class="exit-popup__secondary" type="button" data-close>Ні, дякую, я піду</button>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -2557,6 +2675,70 @@ window.addEventListener('scroll', () => {
   }
   tick();
   setInterval(tick, 1000);
+})();
+
+// exit-intent popup — show once per session when user tries to leave
+(function(){
+  const popup = document.getElementById('exitPopup');
+  if(!popup) return;
+  const KEY = 'fabrykaExitPopupShown_v1';
+  if(sessionStorage.getItem(KEY)) return;
+
+  let shown = false;
+  const isTouch = matchMedia('(hover: none)').matches;
+
+  function show(){
+    if(shown) return;
+    shown = true;
+    sessionStorage.setItem(KEY, '1');
+    popup.hidden = false;
+    // force reflow so the CSS transition runs
+    void popup.offsetWidth;
+    popup.classList.add('show');
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+  }
+  function hide(){
+    popup.classList.remove('show');
+    setTimeout(() => { popup.hidden = true; }, 320);
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+  }
+
+  // close handlers (× button, backdrop, "Ні, дякую")
+  popup.querySelectorAll('[data-close]').forEach(el => {
+    el.addEventListener('click', hide);
+  });
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape' && !popup.hidden) hide();
+  });
+
+  // primary CTA click — also dismiss popup (after opening zenedu in new tab)
+  popup.querySelector('.exit-popup__primary')?.addEventListener('click', () => {
+    setTimeout(hide, 200);
+  });
+
+  if(!isTouch){
+    // Desktop: cursor leaves the top edge → user heading to close tab / address bar
+    document.addEventListener('mouseleave', e => {
+      if(e.clientY <= 0) show();
+    });
+    // Fallback: hide-by-tab-switch (Cmd+W, Ctrl+T, etc)
+    document.addEventListener('visibilitychange', () => {
+      if(document.hidden) show();
+    });
+  } else {
+    // Mobile: show on scroll-up after user has scrolled deep, or fallback after 50s
+    let lastY = window.scrollY;
+    let scrolledDeep = false;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if(y > 1200) scrolledDeep = true;
+      if(scrolledDeep && y < lastY - 60) show();
+      lastY = y;
+    }, {passive:true});
+    setTimeout(show, 50000);
+  }
 })();
 
 // hero poster gallery — auto-advance crossfade slideshow
