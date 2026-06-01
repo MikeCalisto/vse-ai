@@ -593,22 +593,33 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
   margin-bottom:28px;
 }
 .topbar__chip{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px 14px;
   width:100%;text-align:center;
-  font-family:var(--font-mono);font-size:.68rem;
-  line-height:1.4;letter-spacing:.12em;text-transform:uppercase;
+  font-family:var(--font-mono);font-size:.62rem;
+  line-height:1.35;letter-spacing:.1em;text-transform:uppercase;
   color:rgba(236,230,245,.78);
-  padding:11px 16px;border:1px solid var(--accent);
+  padding:11px 14px;border:1px solid var(--accent);
   border-radius:12px;
   background:linear-gradient(90deg, rgba(124,58,237,.14), rgba(168,85,247,.06));
   box-shadow:inset 0 0 20px rgba(124,58,237,.1), 0 6px 18px rgba(124,58,237,.18);
 }
-.topbar__chip b{color:var(--accent3);font-weight:700;letter-spacing:.08em}
+.topbar__chip b{color:var(--accent3);font-weight:700;letter-spacing:.06em}
+.topbar__chip-row{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.topbar__chip-sep{
+  width:1px;align-self:stretch;
+  background:linear-gradient(180deg, transparent, rgba(168,85,247,.45), transparent);
+}
 .topbar__chip .live{
   flex-shrink:0;width:7px;height:7px;border-radius:50%;
   background:#22c55e;
   box-shadow:0 0 10px rgba(34,197,94,.85), 0 0 20px rgba(34,197,94,.35);
   animation:pulse 2s ease-in-out infinite;
+}
+.topbar__chip .check{
+  flex-shrink:0;width:14px;height:14px;border-radius:50%;
+  background:rgba(192,132,252,.25);color:var(--accent3);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:.55rem;font-weight:700;line-height:1;
 }
 
 .hero__title{margin-bottom:14px;color:var(--paper)}
@@ -1792,7 +1803,11 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
     </div>
 
     <div class="topbar">
-      <div class="topbar__chip"><span class="live"></span><span>Курс оновлений та&nbsp;актуальний на <b id="liveDate">сьогодні</b></span></div>
+      <div class="topbar__chip">
+        <span class="topbar__chip-row"><span class="live"></span><span>Оновлений <b id="liveDate">сьогодні</b></span></span>
+        <span class="topbar__chip-sep" aria-hidden="true"></span>
+        <span class="topbar__chip-row"><span class="check" aria-hidden="true">✓</span><span>Доступ одразу та&nbsp;<b>назавжди</b></span></span>
+      </div>
     </div>
 
     <div class="eyebrow eyebrow--long">Авторська програма Олександра Цюцьмаця по практичному використанню нейромереж</div>
