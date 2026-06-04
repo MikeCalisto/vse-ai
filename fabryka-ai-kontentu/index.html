@@ -821,6 +821,37 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
   letter-spacing:.12em;text-transform:uppercase;
   color:rgba(236,230,245,.5);margin-top:4px;
 }
+
+/* price-warn installments option (below countdown) */
+.price-warn__instal{
+  margin-top:14px;padding:11px 14px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;
+  background:rgba(94,234,212,.08);
+  border:1px solid rgba(94,234,212,.32);
+  border-radius:12px;
+  font-family:var(--font-mono);font-size:.6rem;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(236,230,245,.78);line-height:1.45;text-align:center;
+}
+.price-warn__instal-or{
+  flex-shrink:0;
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:3px 9px;border-radius:999px;
+  background:rgba(94,234,212,.18);color:#5eead4;
+  font-weight:700;letter-spacing:.18em;font-size:.55rem;
+}
+.price-warn__instal-text{flex:1;min-width:0}
+.price-warn__instal-text b{color:#fff;font-weight:700}
+.price-warn__instal-num{
+  color:#5eead4!important;
+  font-family:var(--font-stamp);font-size:.85rem;
+  font-weight:800;letter-spacing:-.01em;
+  margin-left:3px;
+}
+.price-warn__instal-sep{
+  display:inline-block;margin:0 3px;color:rgba(94,234,212,.55);
+}
+
 .btn-primary{
   position:relative;overflow:hidden;
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
@@ -1878,6 +1909,15 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
           <div class="cd-unit"><b id="cdMin">—</b><span>хв</span></div>
           <div class="cd-unit"><b id="cdSec">—</b><span>сек</span></div>
         </div>
+      </div>
+
+      <div class="price-warn__instal">
+        <span class="price-warn__instal-or">або</span>
+        <span class="price-warn__instal-text">
+          оплата частинами на <b>6&nbsp;платежів</b>
+          <span class="price-warn__instal-sep">·</span>
+          <b class="price-warn__instal-num">583&nbsp;грн</b><span>/міс</span>
+        </span>
       </div>
     </div>
 
