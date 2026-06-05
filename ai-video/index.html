@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Відео — нова професія за 12 тижнів</title>
+<meta name="description" content="За 12 тижнів навчишся створювати відео, які купують: реклама, UGC, мультики, ролики для брендів. Без досвіду, обладнання й команди — лише ти і нейромережі.">
+<meta property="og:title" content="AI Відео — нова професія за 12 тижнів">
+<meta property="og:description" content="12 модулів · 35+ уроків · 5+ робіт у портфоліо. Від нуля до перших клієнтів у ніші, де попит лише зростає.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0a0710">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&family=Unbounded:wght@500;600;700;800;900&display=swap&subset=cyrillic,latin" rel="stylesheet">
+
+<script defer src="/_vercel/insights/script.js"></script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  /* cinematic dark + sunset gradient */
+  --bg:#070509;
+  --bg2:rgba(255,255,255,0.022);
+  --bg3:rgba(255,255,255,0.04);
+  --bg4:rgba(255,255,255,0.06);
+  --glass:rgba(255,255,255,0.03);
+  --border:rgba(255,255,255,0.08);
+  --border2:rgba(255,255,255,0.14);
+  --border3:rgba(255,255,255,0.22);
+  --text:#f4f1ee;
+  --text2:#9c9aa6;
+  --text3:#5a5762;
+  --orange:#ff7a1f;
+  --orange2:#ff9a3c;
+  --pink:#ff4d8d;
+  --purple:#a855f7;
+  --violet:#7c5cff;
+  --grad:linear-gradient(100deg,#ff8a1f 0%,#ff5d7a 48%,#a855f7 100%);
+  --grad-soft:linear-gradient(100deg,rgba(255,138,31,.16),rgba(255,93,122,.14) 50%,rgba(168,85,247,.16));
+  --accent-dim:rgba(255,122,31,0.08);
+  --accent-dim2:rgba(255,122,31,0.18);
+  --red:#ff6b6b;
+  --blue:#64b4ff;
+  --gold:#ffc850;
+  --r:16px;--rs:11px;--rl:24px;
+  --maxw:1140px;
+  --font-display:'Unbounded',-apple-system,sans-serif;
+  --font:'Onest',-apple-system,'Segoe UI',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);font-family:var(--font);
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;overflow-x:hidden;position:relative;
+}
+/* fixed cinematic backdrop */
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(80% 50% at 80% -5%, rgba(168,85,247,.22), transparent 60%),
+    radial-gradient(70% 45% at 12% 4%, rgba(255,122,31,.20), transparent 58%),
+    radial-gradient(90% 60% at 50% 105%, rgba(124,92,255,.14), transparent 60%),
+    var(--bg);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(120% 80% at 50% 0%,#000 30%,transparent 78%);
+  -webkit-mask-image:radial-gradient(120% 80% at 50% 0%,#000 30%,transparent 78%);
+}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ───── BUTTONS ───── */
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.82)}}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--grad);color:#1a0e04;border:none;border-radius:var(--rs);padding:11px 22px;font-size:13.5px;font-weight:700;font-family:var(--font);cursor:pointer;transition:.2s;white-space:nowrap;box-shadow:0 8px 26px rgba(255,93,122,.32),inset 0 1px 0 rgba(255,255,255,.3);position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .7s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(255,93,122,.48),inset 0 1px 0 rgba(255,255,255,.3)}
+.btn:hover::before{left:160%}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border2);box-shadow:none}
+.btn-ghost::before{display:none}
+.btn-ghost:hover{background:var(--bg3);border-color:var(--border3);box-shadow:none}
+
+/* ───── SECTION BASE ───── */
+.sec{padding:96px 0;position:relative}
+.sec-divider{border-top:1px solid var(--border)}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--orange2);padding:7px 15px;border:1px solid var(--accent-dim2);border-radius:100px;background:var(--accent-dim);margin-bottom:22px}
+.eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--grad);box-shadow:0 0 10px rgba(255,122,31,.7)}
+.sec h2,.h-section{font-family:var(--font-display);font-size:clamp(28px,4vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-bottom:18px}
+.sec h2 em{font-style:normal;color:transparent;background:var(--grad);-webkit-background-clip:text;background-clip:text}
+.sec-desc{font-size:16px;color:var(--text2);max-width:620px;line-height:1.65;margin-bottom:48px}
+.sec-head{margin-bottom:52px;max-width:760px}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head.center .sec-desc{margin-left:auto;margin-right:auto}
+.card{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.vis{opacity:1;transform:none}
+.rd1{transition-delay:.06s}.rd2{transition-delay:.12s}.rd3{transition-delay:.18s}.rd4{transition-delay:.24s}.rd5{transition-delay:.3s}
+
+/* ───── HERO ───── */
+.hero{padding:88px 0 96px;text-align:center;position:relative}
+.hero-kicker{display:inline-flex;align-items:center;gap:9px;background:var(--glass);border:1px solid var(--border2);border-radius:100px;padding:8px 18px;font-size:12.5px;font-weight:600;color:var(--text);letter-spacing:.02em;margin-bottom:32px;backdrop-filter:blur(8px)}
+.hero-kicker::before{content:'';width:7px;height:7px;background:var(--orange);border-radius:50%;animation:blink 2s ease-in-out infinite;box-shadow:0 0 12px rgba(255,122,31,.8)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.hero h1{font-family:var(--font-display);font-size:clamp(38px,6.6vw,80px);font-weight:800;line-height:1.02;letter-spacing:-.04em;margin-bottom:26px}
+.hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 40px rgba(255,93,122,.35))}
+.hero-sub{font-size:clamp(17px,1.6vw,20px);color:var(--text2);max-width:660px;margin:0 auto 44px;line-height:1.6}
+.hero-sub strong{color:var(--text);font-weight:600}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:760px;margin:0 auto 44px}
+.hstat{background:var(--glass);backdrop-filter:blur(8px);padding:24px 14px;text-align:center;border:1px solid var(--border);border-radius:var(--r);transition:.25s}
+.hstat:hover{border-color:var(--border2);transform:translateY(-3px)}
+.hstat .n{font-family:var(--font-display);font-size:clamp(26px,3vw,38px);font-weight:800;line-height:1;margin-bottom:8px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hstat .l{font-size:12.5px;color:var(--text2);line-height:1.35}
+.hero-btns{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.hero-btns .btn{padding:15px 30px;font-size:15px}
+.hero-note{font-size:13px;color:var(--text3);margin-top:24px}
+
+/* ───── WHY ───── */
+.why-intro{font-size:17px;color:var(--text2);line-height:1.75;margin-bottom:42px;max-width:720px}
+.why-intro strong{color:var(--text);font-weight:600}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:16px}
+.why-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);padding:30px 30px;backdrop-filter:blur(8px);transition:.25s;position:relative;overflow:hidden}
+.why-card::after{content:'';position:absolute;inset:0;border-radius:var(--r);padding:1px;background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:.25s}
+.why-card:hover{transform:translateY(-4px);background:var(--bg3)}
+.why-card:hover::after{opacity:.55}
+.why-card .ic{font-size:30px;margin-bottom:16px;display:block}
+.why-card h3{font-size:18px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
+.why-card p{font-size:14.5px;color:var(--text2);line-height:1.65}
+.why-card p strong{color:var(--text);font-weight:600}
+.why-banner{background:var(--grad-soft);border:1px solid var(--accent-dim2);border-radius:var(--r);padding:28px 34px;margin-top:16px}
+.why-banner p{font-size:16px;color:var(--text);line-height:1.7}
+.why-banner p strong{font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ───── PAINS ───── */
+.pains-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.pain{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:border-color .2s,background .2s;backdrop-filter:blur(8px)}
+.pain:hover{border-color:var(--border2)}
+.pain.open{border-color:var(--accent-dim2);background:var(--bg3)}
+.pain-q{display:flex;align-items:flex-start;gap:14px;padding:22px 24px}
+.pain-num{font-size:12px;font-weight:700;color:var(--orange2);flex-shrink:0;padding-top:2px;letter-spacing:.04em;min-width:22px}
+.pain-q p{font-size:14.5px;color:var(--text);line-height:1.5;flex:1;font-weight:500}
+.pain-toggle{width:24px;height:24px;border-radius:50%;border:1px solid var(--border2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--text3);transition:.25s}
+.pain.open .pain-toggle{transform:rotate(45deg);background:var(--grad);border-color:transparent;color:#1a0e04}
+.pain-ans{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.pain.open .pain-ans{max-height:300px}
+.pain-ans-inner{margin:0 24px 22px;padding-top:16px;border-top:1px solid var(--border)}
+.pain-ans-inner ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.pain-ans-inner li{font-size:13.5px;color:var(--text2);line-height:1.55;padding-left:18px;position:relative}
+.pain-ans-inner li::before{content:'→';position:absolute;left:0;color:var(--orange2);font-weight:700}
+
+/* ───── PROBLEM ───── */
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
+.problem-block{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);padding:30px 30px;backdrop-filter:blur(8px)}
+.problem-block p{font-size:15.5px;color:var(--text2);line-height:1.7}
+.problem-block p strong{color:var(--text);font-weight:600}
+.problem-result{background:linear-gradient(160deg,rgba(255,107,107,.07),var(--glass) 60%);border:1px solid rgba(255,107,107,.22);border-radius:var(--r);padding:28px 34px}
+.problem-result p{font-size:16px;color:var(--text2);line-height:1.7}
+.problem-result p strong{color:var(--red);font-weight:600}
+
+/* ───── VS ───── */
+.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.vs-col{border-radius:var(--r);padding:34px 32px;backdrop-filter:blur(8px)}
+.vs-col.bad{background:var(--glass);border:1px solid var(--border)}
+.vs-col.good{background:var(--grad-soft);border:1px solid var(--accent-dim2)}
+.vs-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:22px}
+.vs-col.bad .vs-label{color:var(--text3)}
+.vs-col.good .vs-label{color:var(--orange2)}
+.vs-list{list-style:none;display:flex;flex-direction:column;gap:15px}
+.vs-list li{font-size:14.5px;line-height:1.5;padding-left:30px;position:relative}
+.vs-col.bad .vs-list li{color:var(--text2)}
+.vs-col.bad .vs-list li::before{content:'✕';position:absolute;left:0;color:var(--text3);font-weight:700;font-size:15px}
+.vs-col.good .vs-list li{color:var(--text)}
+.vs-col.good .vs-list li::before{content:'✓';position:absolute;left:0;font-weight:700;font-size:15px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ───── FOR WHO ───── */
+.forwhom-why{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fwy-item{display:grid;grid-template-columns:48px 1fr;gap:18px;align-items:start;background:var(--glass);border:1px solid var(--border);border-radius:var(--r);padding:26px 28px;transition:.22s;backdrop-filter:blur(8px)}
+.fwy-item:hover{border-color:var(--border2);transform:translateY(-3px)}
+.fwy-item.wide{grid-column:1/-1}
+.fwy-num{font-family:var(--font-display);font-size:22px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.fwy-text{font-size:15px;color:var(--text2);line-height:1.65}
+.fwy-text strong{color:var(--text);font-weight:600}
+
+/* ───── GET ───── */
+.get-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.get-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);padding:30px;backdrop-filter:blur(8px);transition:.25s}
+.get-card:hover{transform:translateY(-4px);border-color:var(--border2)}
+.get-n{font-family:var(--font-display);font-size:46px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;margin-bottom:10px}
+.get-label{font-size:16px;color:var(--text);font-weight:600;margin-bottom:6px}
+.get-desc{font-size:13.5px;color:var(--text2);line-height:1.5}
+
+/* ───── ROADMAP ───── */
+.rm-phases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px}
+.rm-phase{padding:26px 26px;border-radius:var(--r);border:1px solid var(--border);background:var(--glass);backdrop-filter:blur(8px);position:relative;overflow:hidden}
+.rm-phase::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
+.rm-phase.p1::before{background:var(--orange)}
+.rm-phase.p2::before{background:var(--blue)}
+.rm-phase.p3::before{background:var(--gold)}
+.rm-phase-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.p1 .rm-phase-tag{color:var(--orange2)}
+.p2 .rm-phase-tag{color:var(--blue)}
+.p3 .rm-phase-tag{color:var(--gold)}
+.rm-phase-title{font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--text);margin-bottom:8px}
+.rm-phase-desc{font-size:14px;color:var(--text2);line-height:1.55}
+.rm-wrap{max-width:880px}
+.rm-track{position:relative;padding-left:34px}
+.rm-track::before{content:'';position:absolute;left:11px;top:14px;bottom:14px;width:1px;background:linear-gradient(var(--orange),var(--blue),var(--gold))}
+.rm-item{position:relative;background:var(--glass);border:1px solid var(--border);border-radius:var(--r);padding:20px 24px 20px 26px;margin-bottom:10px;display:grid;grid-template-columns:40px 1fr;gap:14px;transition:.2s;backdrop-filter:blur(8px)}
+.rm-item:hover{border-color:var(--border2);transform:translateX(3px)}
+.rm-item::before{content:'';position:absolute;left:-28px;top:24px;width:10px;height:10px;border-radius:50%;border:2px solid;background:var(--bg)}
+.rm-item.s1::before{border-color:var(--orange);box-shadow:0 0 12px rgba(255,122,31,.5)}
+.rm-item.s2::before{border-color:var(--blue);box-shadow:0 0 12px rgba(100,180,255,.5)}
+.rm-item.s3::before{border-color:var(--gold);box-shadow:0 0 12px rgba(255,200,80,.5)}
+.rm-step{font-family:var(--font-display);font-size:15px;font-weight:800;padding-top:1px}
+.s1 .rm-step{color:var(--orange2)}.s2 .rm-step{color:var(--blue)}.s3 .rm-step{color:var(--gold)}
+.rm-action{font-size:15px;font-weight:500;color:var(--text);margin-bottom:5px;line-height:1.45}
+.rm-result{font-size:13.5px;color:var(--text2)}
+.rm-result b{font-weight:600;color:var(--text)}
+.rm-milestone{display:flex;align-items:center;gap:13px;margin:22px 0 26px;padding:16px 22px;border-radius:var(--rs);border:1px dashed}
+.rm-milestone.m1{border-color:rgba(255,122,31,.35);background:rgba(255,122,31,.05)}
+.rm-milestone.m2{border-color:rgba(100,180,255,.3);background:rgba(100,180,255,.05)}
+.rm-milestone.m3{border-color:rgba(255,200,80,.3);background:rgba(255,200,80,.05)}
+.rm-milestone-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.m1 .rm-milestone-dot{background:var(--orange)}.m2 .rm-milestone-dot{background:var(--blue)}.m3 .rm-milestone-dot{background:var(--gold)}
+.rm-milestone p{font-size:14px;line-height:1.5;font-weight:500}
+.m1 p{color:var(--orange2)}.m2 p{color:var(--blue)}.m3 p{color:var(--gold)}
+
+/* ───── MODULES ───── */
+.modules-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.module{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;backdrop-filter:blur(8px);transition:border-color .2s}
+.module:hover{border-color:var(--border2)}
+.module.open{border-color:var(--accent-dim2)}
+.module-head{display:flex;align-items:center;gap:16px;padding:22px 24px;cursor:pointer;transition:background .15s}
+.module-head:hover{background:var(--bg3)}
+.module-num{font-family:var(--font-display);font-size:14px;font-weight:800;color:var(--orange2);flex-shrink:0;min-width:30px}
+.module-icon{font-size:22px;flex-shrink:0}
+.module-title{font-size:15px;font-weight:600;color:var(--text);flex:1;line-height:1.35}
+.module-chevron{font-size:13px;color:var(--text3);flex-shrink:0;transition:transform .25s}
+.module.open .module-chevron{transform:rotate(180deg);color:var(--orange2)}
+.module-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.module.open .module-body{max-height:720px}
+.module-inner{padding:0 24px 24px;padding-left:70px}
+.module-steps{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.module-steps li{font-size:14px;color:var(--text2);line-height:1.55;padding-left:18px;position:relative}
+.module-steps li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--grad)}
+.module-outcome{background:var(--bg3);border:1px solid var(--accent-dim2);border-radius:var(--rs);padding:16px 18px}
+.module-outcome p{font-size:13.5px;color:var(--text2);line-height:1.6}
+.module-outcome p strong{font-weight:600;color:var(--orange2)}
+.module-outcome::before{content:'✦ Результат модуля';display:block;font-size:11px;font-weight:700;color:var(--orange2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+
+/* ───── AUTHOR ───── */
+.author-block{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;background:var(--grad-soft);border:1px solid var(--accent-dim2);border-radius:var(--rl);padding:48px 50px;backdrop-filter:blur(8px)}
+.author-photo{width:180px;height:180px;border-radius:var(--r);background:linear-gradient(150deg,var(--bg4),var(--bg2));border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:54px;color:var(--text3);flex-shrink:0}
+.author-role{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--orange2);margin-bottom:12px}
+.author-name{font-family:var(--font-display);font-size:34px;font-weight:800;letter-spacing:-.02em;margin-bottom:20px}
+.author-list{list-style:none;display:flex;flex-direction:column;gap:11px}
+.author-list li{font-size:15px;color:var(--text2);line-height:1.5;padding-left:24px;position:relative}
+.author-list li::before{content:'✓';position:absolute;left:0;font-weight:700;font-size:14px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.author-quote{margin-top:26px;font-size:16px;color:var(--text);line-height:1.7;font-style:italic;border-left:2px solid var(--orange);padding-left:22px}
+
+/* ───── QUOTE ───── */
+.quote-block{position:relative;text-align:center;max-width:900px;margin:0 auto;padding:64px 40px;background:var(--grad-soft);border:1px solid var(--accent-dim2);border-radius:var(--rl);backdrop-filter:blur(8px);overflow:hidden}
+.quote-mark{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-family:var(--font-display);font-size:120px;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:.55;pointer-events:none}
+.quote-text{position:relative;font-family:var(--font-display);font-weight:500;font-size:clamp(20px,2.4vw,30px);line-height:1.4;letter-spacing:-.02em;color:var(--text)}
+.quote-text em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media(max-width:780px){.quote-block{padding:48px 24px}.quote-mark{font-size:90px;top:-8px}}
+
+/* ───── LIVE ───── */
+.live-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.live-grid .why-card .ic{font-size:30px}
+
+/* ───── TIERS ───── */
+.price-intro{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);padding:32px 36px;margin-bottom:36px;backdrop-filter:blur(8px)}
+.price-intro p{font-size:16px;color:var(--text2);line-height:1.75}
+.price-intro p strong{color:var(--text);font-weight:600}
+.price-intro .pi-old{color:var(--text3);text-decoration:line-through}
+.price-intro .pi-now{font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+.tier{background:var(--glass);border:1px solid var(--border);border-radius:var(--rl);padding:34px 30px;display:flex;flex-direction:column;backdrop-filter:blur(8px);transition:.25s}
+.tier:hover{transform:translateY(-5px);border-color:var(--border2)}
+.tier.featured{border-color:var(--accent-dim2);background:linear-gradient(165deg,rgba(255,122,31,.07) 0%,var(--glass) 55%);position:relative;box-shadow:0 20px 60px rgba(168,85,247,.14)}
+.tier.featured::after{content:'';position:absolute;inset:0;border-radius:var(--rl);padding:1px;background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.6}
+.tier-badge{display:inline-block;background:var(--grad);color:#1a0e04;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 13px;border-radius:100px;margin-bottom:18px;align-self:flex-start}
+.tier-name{font-family:var(--font-display);font-size:23px;font-weight:800;margin-bottom:2px}
+.tier-prices{margin:16px 0 4px}
+.tier-old{font-size:17px;font-weight:500;color:var(--text3);text-decoration:line-through;line-height:1}
+.tier-price{font-family:var(--font-display);font-size:clamp(30px,2.5vw,40px);font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.05;margin:6px 0;display:inline-flex;align-items:baseline;gap:5px;white-space:nowrap}
+.tier-mo{font-family:var(--font);font-size:16px;font-weight:600;background:none;-webkit-background-clip:initial;background-clip:initial;color:var(--text2);-webkit-text-fill-color:var(--text2);white-space:nowrap}
+.tier-install{font-size:13.5px;color:var(--text2);margin-bottom:10px}
+.tier-install b{font-weight:700;color:var(--text)}
+.tier-for{font-size:14px;color:var(--text2);line-height:1.6;margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid var(--border)}
+.tier-list{list-style:none;display:flex;flex-direction:column;gap:11px;flex:1}
+.tier-list li{display:flex;align-items:flex-start;gap:9px;font-size:14px;color:var(--text2);line-height:1.45}
+.tier-list li::before{content:'✓';font-weight:700;flex-shrink:0;font-size:13px;margin-top:1px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tier-btn{display:block;text-align:center;margin-top:26px;padding:14px;border-radius:var(--rs);font-size:14.5px;font-weight:700;font-family:var(--font);cursor:pointer;transition:.2s;border:1px solid var(--border2);background:transparent;color:var(--text)}
+.tier-btn:hover{border-color:var(--border3);background:var(--bg3);transform:translateY(-2px)}
+.tier.featured .tier-btn{background:var(--grad);color:#1a0e04;border-color:transparent;box-shadow:0 10px 30px rgba(255,93,122,.32)}
+.tier.featured .tier-btn:hover{box-shadow:0 14px 38px rgba(255,93,122,.48)}
+
+/* ───── SCARCITY ───── */
+.scarcity{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.scar-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);padding:28px 30px;backdrop-filter:blur(8px)}
+.scar-card .ic{font-size:28px;margin-bottom:14px;display:block}
+.scar-card h4{font-size:17px;font-weight:700;margin-bottom:8px}
+.scar-card p{font-size:14px;color:var(--text2);line-height:1.65}
+
+/* ───── GUARANTEE ───── */
+.guarantee{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;background:var(--grad-soft);border:1px solid var(--accent-dim2);border-radius:var(--rl);padding:44px 48px;backdrop-filter:blur(8px)}
+.guarantee .shield{font-size:60px;flex-shrink:0}
+.guarantee h3{font-family:var(--font-display);font-size:24px;font-weight:800;margin-bottom:14px}
+.guarantee p{font-size:15.5px;color:var(--text2);line-height:1.7}
+.guarantee p strong{color:var(--text);font-weight:600}
+
+/* ───── OBJECTIONS ───── */
+.obj-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.obj-item{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:border-color .2s;backdrop-filter:blur(8px)}
+.obj-item:hover{border-color:var(--border2)}
+.obj-item.open{border-color:var(--accent-dim2)}
+.obj-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:24px 26px}
+.obj-q{display:flex;align-items:center;gap:14px;flex:1}
+.obj-icon{font-size:24px;flex-shrink:0}
+.obj-text{font-size:15px;font-weight:600;color:var(--text);line-height:1.4}
+.obj-arr{width:26px;height:26px;border-radius:50%;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--text3);flex-shrink:0;transition:.25s}
+.obj-item.open .obj-arr{transform:rotate(45deg);background:var(--grad);border-color:transparent;color:#1a0e04}
+.obj-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.obj-item.open .obj-body{max-height:460px}
+.obj-inner{margin:0 26px 26px;padding-top:18px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:13px}
+.obj-inner p{font-size:14.5px;color:var(--text2);line-height:1.7}
+
+/* ───── CTA ───── */
+.cta-sec{padding:110px 0;text-align:center;position:relative;border-top:1px solid var(--border)}
+.cta-sec::before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 100% at 50% 100%,rgba(168,85,247,.18),transparent 70%),radial-gradient(50% 90% at 50% 0%,rgba(255,122,31,.14),transparent 70%)}
+.cta-sec h2{font-family:var(--font-display);font-size:clamp(32px,5vw,58px);font-weight:800;letter-spacing:-.035em;line-height:1.05;margin-bottom:20px}
+.cta-sec p{font-size:17px;color:var(--text2);margin:0 auto 36px;max-width:560px;line-height:1.65}
+.cta-sec .btn{padding:18px 40px;font-size:16px}
+
+footer{border-top:1px solid var(--border);padding:36px 24px;text-align:center;font-size:13px;color:var(--text3)}
+
+/* ───── STICKY BUY BAR (mobile) ───── */
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:90;background:rgba(7,5,9,.86);backdrop-filter:blur(18px);border-top:1px solid var(--border);padding:12px 18px;display:none;align-items:center;justify-content:space-between;gap:12px;transform:translateY(120%);transition:transform .35s ease}
+.buybar.show{transform:none}
+.buybar .bb-price{display:flex;flex-direction:column;line-height:1.1}
+.buybar .bb-old{font-size:12px;color:var(--text3);text-decoration:line-through}
+.buybar .bb-now{font-family:var(--font-display);font-size:19px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.buybar .btn{flex:1;justify-content:center;max-width:230px}
+
+/* ───── RESPONSIVE ───── */
+@media(max-width:1000px){
+  .problem-grid{grid-template-columns:1fr}
+  .live-grid{grid-template-columns:1fr}
+  .tiers{grid-template-columns:1fr;max-width:480px;margin:0 auto}
+  .modules-grid{grid-template-columns:1fr}
+}
+@media(max-width:780px){
+  .sec{padding:68px 0}
+  .wrap{padding:0 20px}
+  .hero{padding:56px 0 64px}
+  .hero-stats{grid-template-columns:repeat(2,1fr);gap:10px}
+  .why-grid,.vs-grid,.forwhom-why,.get-grid,.rm-phases,.scarcity,.obj-grid,.pains-grid{grid-template-columns:1fr}
+  .fwy-item.wide{grid-column:auto}
+  .author-block{grid-template-columns:1fr;text-align:center;padding:36px 26px;gap:26px}
+  .author-photo{margin:0 auto;width:140px;height:140px}
+  .author-quote{text-align:left}
+  .guarantee{grid-template-columns:1fr;text-align:center;padding:34px 26px;gap:20px}
+  .guarantee .shield{margin:0 auto}
+  .hero-btns{flex-direction:column;align-items:stretch}
+  .hero-btns .btn{justify-content:center}
+  .buybar{display:flex}
+  body{padding-bottom:74px}
+}
+@media(max-width:440px){
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .get-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<div class="wrap">
+<div class="hero">
+  <div class="hero-kicker">12-тижнева програма · 1 потік · старт 30 червня</div>
+  <h1>Нова професія —<br><em>AI-відео</em> з нуля</h1>
+  <p class="hero-sub">За 12 тижнів ти навчишся створювати відео, які купують: реклама, UGC, мультики, ролики для брендів. <strong>Без досвіду, без знімального обладнання, без команди — лише ти і нейромережі.</strong></p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="n">12</div><div class="l">модулів з нуля</div></div>
+    <div class="hstat"><div class="n">35+</div><div class="l">практичних уроків</div></div>
+    <div class="hstat"><div class="n">5+</div><div class="l">робіт у портфоліо</div></div>
+    <div class="hstat"><div class="n">2–3</div><div class="l">год на тиждень</div></div>
+  </div>
+  <div class="hero-btns">
+    <a href="#tiers" class="btn">Зайняти місце →</a>
+    <a href="#program" class="btn btn-ghost">Переглянути програму</a>
+  </div>
+  <p class="hero-note">Старт одразу після оплати · доступ до уроків залишається · оплата частинами</p>
+</div>
+</div>
+
+<!-- ═══ WHY ═══ -->
+<section class="sec sec-divider" id="why">
+<div class="wrap">
+  <div class="sec-head reveal">
+    <h2>Чому зараз варто йти<br>саме в <em>AI-відео</em></h2>
+    <p class="why-intro">Можна вчити «трохи всього»: фото, монтаж, дизайн, таргет — і не стати сильним ні в чому. А можна зайти в одну нішу, де <strong>попит зростає щомісяця, а спеціалістів ще мало.</strong> Відео сьогодні потрібне всім: блогерам, експертам, магазинам, брендам, локальному бізнесу. Контенту треба багато і постійно — а тих, хто вміє робити його через AI швидко й дешево, поки одиниці.</p>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card reveal rd1">
+      <span class="ic">📈</span>
+      <h3>Попит більший за пропозицію</h3>
+      <p>Кожному бізнесу й блогеру потрібне відео — і потрібне регулярно. Класична зйомка довга й дорога. <strong>AI-креатор закриває ту саму задачу за години, а не за тижні.</strong></p>
+    </div>
+    <div class="why-card reveal rd2">
+      <span class="ic">⚡</span>
+      <h3>Швидше і дешевше за зйомку</h3>
+      <p>Не треба камери, студії, акторів і команди. Один спеціаліст робить рекламу, UGC і мультик з ноутбука — <strong>там, де раніше була ціла продакшн-група.</strong></p>
+    </div>
+    <div class="why-card reveal rd3">
+      <span class="ic">🆕</span>
+      <h3>Ніша нова — місць ще багато</h3>
+      <p>Тут немає людей із 10-річним досвідом, які зайняли всі місця. <strong>Хто заходить зараз — отримує перевагу просто тому, що почав раніше за інших.</strong></p>
+    </div>
+    <div class="why-card reveal rd4">
+      <span class="ic">🎯</span>
+      <h3>Один навик — багато ринків</h3>
+      <p>Реклама товарів, UGC для e-commerce, мультики, кліпи, контент для блогу. <strong>Опановуєш систему один раз — застосовуєш у будь-якій ніші, де є гроші.</strong></p>
+    </div>
+  </div>
+
+  <div class="why-banner reveal">
+    <p><strong>Суть проста:</strong> ти не «вчиш нейронки заради цікавості». Ти заходиш у молоду професію з реальним попитом — і вчишся віддавати ринку те, за що вже платять.</p>
+  </div>
+</div>
+</section>
+
+<!-- ═══ OTHERS vs ME ═══ -->
+<section class="sec sec-divider">
+<div class="wrap">
+  <div class="sec-head reveal">
+    <h2>Чому після інших курсів<br>лишається <em>порожнеча</em></h2>
+  </div>
+
+  <div class="problem-grid">
+    <div class="problem-block reveal rd1">
+      <p>Тобі дають <strong>багато відео й «води»</strong>, але не дають системи. Уроки записані рік тому — інструменти вже інші, інтерфейс не збігається, а ти сам шукай, де що тепер.</p>
+    </div>
+    <div class="problem-block reveal rd2">
+      <p>Домашки прив'язані до <strong>платних підписок</strong>, про які ніхто не попередив на старті. Закінчуєш курс — а заплатив ще й за купу нейронок, які більше не використовуєш.</p>
+    </div>
+    <div class="problem-block reveal rd3">
+      <p>Тебе вчать <strong>тиснути кнопки за шаблоном</strong>, а не розуміти логіку. Змінилась задача — і ти знову в тупику. Зворотного зв'язку немає, питання лишаються без відповіді.</p>
+    </div>
+  </div>
+  <div class="problem-result reveal">
+    <p>Підсумок, який пишуть самі учні: сертифікат є, а <strong>портфоліо, клієнтів і впевненості немає</strong>. Гроші витрачені, час витрачений — а до першого замовлення так і не дійшов.</p>
+  </div>
+</div>
+</section>
+
+<!-- ═══ HOW I DO IT ═══ -->
+<section class="sec sec-divider">
+<div class="wrap">
+  <div class="sec-head reveal">
+    <h2>Як побудований <em>цей</em><br>курс — навпаки</h2>
+  </div>
+  <div class="vs-grid">
+    <div class="vs-col bad reveal rd1">
+      <div class="vs-label">Як зазвичай</div>
+      <ul class="vs-list">
+        <li>Гори відео й теорії «про запас»</li>
+        <li>Уроки записані рік тому, на старих версіях</li>
+        <li>Домашки тільки на платних підписках</li>
+        <li>Готові промти «скопіюй-встав», без логіки</li>
+        <li>Кинули після курсу — далі сам</li>
+        <li>На виході: сертифікат і питання</li>
+      </ul>
+    </div>
+    <div class="vs-col good reveal rd2">
+      <div class="vs-label">Як у цьому курсі</div>
+      <ul class="vs-list">
+        <li>Коротко й по суті — крок за кроком, без води</li>
+        <li>Актуальні інструменти + оновлення наступного потоку безкоштовно</li>
+        <li>Покажу, де вчитися на безкоштовних нейронках</li>
+        <li>Пояснюю логіку: розумієш — і робиш під будь-яку задачу</li>
+        <li>Підтримка до повної окупності навчання</li>
+        <li>На виході: портфоліо з 5 робіт і перші клієнти</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ FOR WHO ═══ -->
+<section class="sec sec-divider">
+<div class="wrap">
+  <div class="sec-head reveal">
+    <h2>Чому в тебе вийде<br>навіть якщо ти зараз <em>повний нуль</em></h2>
+    <p class="sec-desc">Цей курс спеціально побудований для тих, хто заходить у AI вперше. Нічого з цього не потрібно мати на старті:</p>
+  </div>
+
+  <div class="forwhom-why">
+    <div class="fwy-item reveal rd1">
+      <div class="fwy-num">01</div>
+      <div class="fwy-text"><strong>Не потрібен досвід у відео чи дизайні.</strong> Починаєш із самих основ — що таке нейронка, як вона «думає», як скласти перший промт. Якщо вмієш користуватися телефоном і браузером — цього достатньо, щоб стартувати.</div>
+    </div>
+    <div class="fwy-item reveal rd2">
+      <div class="fwy-num">02</div>
+      <div class="fwy-text"><strong>Не потрібне обладнання й великі вкладення.</strong> Жодних камер і студій. Покажу, де вчитися на безкоштовних інструментах, а коли дійде до роботи — які 1–2 підписки реально потрібні. Без зливу грошей «на спроби».</div>
+    </div>
+    <div class="fwy-item reveal rd1">
+      <div class="fwy-num">03</div>
+      <div class="fwy-text"><strong>Не потрібно багато часу.</strong> 2–3 години на тиждень — і програму реально поєднати з роботою, дитиною чи навчанням. Уроки короткі, з телефону теж. Кожен — це крок, після якого ти вже щось вмієш.</div>
+    </div>
+    <div class="fwy-item reveal rd2">
+      <div class="fwy-num">04</div>
+      <div class="fwy-text"><strong>Неважливо, скільки тобі років.</strong> Серед тих, хто вже опанував AI-відео — і ті, кому 25, і ті, кому 55+. Тут виграє не вік, а той, хто почав і не кинув на півдорозі. Цього разу не кинеш — бо буде підтримка.</div>
+    </div>
+    <div class="fwy-item wide reveal">
+      <div class="fwy-num">05</div>
+      <div class="fwy-text"><strong>Неважливо, що ти вже «десь учився».</strong> Якщо після іншого курсу лишилася каша в голові — тут зберемо все в систему з нуля. Базу повторимо швидко, а далі підемо туди, куди інші не доходять: монетизація і клієнти.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ WHAT YOU GET ═══ -->
+<section class="sec sec-divider">
+<div class="wrap">
+  <div class="sec-head reveal">
+    <h2>Що конкретно<br>ти <em>отримаєш</em></h2>
+  </div>
+  <div class="get-grid">
+    <div class="get-card reveal rd1"><div class="get-n">12</div><div class="get-label">навчальних модулів</div><div class="get-desc">Покроково від нуля до першого доходу</div></div>
+    <div class="get-card reveal rd2"><div class="get-n">35+</div><div class="get-label">практичних уроків</div><div class="get-desc">Коротко, по суті, без зайвої теорії</div></div>
+    <div class="get-card reveal rd3"><div class="get-n">5+</div><div class="get-label">робіт у портфоліо</div><div class="get-desc">Фільм, UGC, мультик, реклама</div></div>
+    <div class="get-card reveal rd1"><div class="get-n">5</div><div class="get-label">бонусних модулів</div><div class="get-desc">Клинг, Грок, Флоу, Сиденс, Хейджен</div></div>
+    <div class="get-card reveal rd2"><div class="get-n">∞</div><div class="get-label">паки промтів і карток</div><div class="get-desc">Готові заготовки для кожної нейронки</div></div>
+    <div class="get-card reveal rd3"><div class="get-n">AI</div><div class="get-label">команда асистентів</div><div class="get-desc">Помічники для кожної задачі (Преміум/VIP)</div></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ ROADMAP ═══ -->
+<section class="sec sec-divider" id="program">
+<div class="wrap">
+  <div class="sec-head reveal">
+    <h2>Твій шлях<br>за <em>12 тижнів</em></h2>
+    <p class="sec-desc">Три фази — від нуля до першого доходу. Кожен тиждень додає конкретний результат, який залишається з тобою</p>
+  </div>
+
+  <div class="rm-phases">
+    <div class="rm-phase p1 reveal rd1"><div class="rm-phase-tag">Фаза 1 · 1–4 тижні</div><div class="rm-phase-title">Фундамент</div><div class="rm-phase-desc">Ніша, промти, перший персонаж і перші кадри</div></div>
+    <div class="rm-phase p2 reveal rd2"><div class="rm-phase-tag">Фаза 2 · 5–10 тижні</div><div class="rm-phase-title">Виробництво</div><div class="rm-phase-desc">Від кадру до готових робіт у форматах, що продаються</div></div>
+    <div class="rm-phase p3 reveal rd3"><div class="rm-phase-tag">Фаза 3 · 11–12 тижні</div><div class="rm-phase-title">Вихід на дохід</div><div class="rm-phase-desc">Портфоліо, клієнти, потік замовлень</div></div>
+  </div>
+
+  <div class="rm-wrap">
+  <div class="rm-track">
+    <div class="rm-item s1 reveal"><div class="rm-step">01</div><div><div class="rm-action">Розбираєшся в ніші AI-відео — де гроші і як туди потрапити</div><div class="rm-result">= <b>розумієш свій шлях і точки, де реально платять</b></div></div></div>
+    <div class="rm-item s1 reveal"><div class="rm-step">02</div><div><div class="rm-action">Опановуєш промти й налаштовуєш власного AI-асистента</div><div class="rm-result">= <b>генерації стають передбачуваними, а не «як пощастить»</b></div></div></div>
+    <div class="rm-item s1 reveal"><div class="rm-step">03</div><div><div class="rm-action">Створюєш персонажа зі стабільною зовнішністю, локаціями та стилем</div><div class="rm-result">= <b>готовий герой для будь-якого проекту</b></div></div></div>
+    <div class="rm-item s1 reveal"><div class="rm-step">04</div><div><div class="rm-action">Будуєш розкадровку і генеруєш кінематографічні кадри</div><div class="rm-result">= <b>готовий візуал для першого відео</b></div></div></div>
+    <div class="rm-milestone m1 reveal"><div class="rm-milestone-dot"></div><p>Кінець фази 1 — є персонаж, розуміння інструментів і перші кадри</p></div>
+    <div class="rm-item s2 reveal"><div class="rm-step">05</div><div><div class="rm-action">Оживляєш кадри: рух, динаміка камери, звук прямо в генерації</div><div class="rm-result">= <b>перші живі відеофрагменти — вже є що показати</b></div></div></div>
+    <div class="rm-item s2 reveal"><div class="rm-step">06</div><div><div class="rm-action">Монтуєш цілісний ролик з переходами, озвучкою і музикою</div><div class="rm-result">= <b>перше повноцінне відео, готове до публікації</b></div></div></div>
+    <div class="rm-item s2 reveal"><div class="rm-step">07</div><div><div class="rm-action">Знімаєш короткий AI-фільм від ідеї до фінального монтажу</div><div class="rm-result">= <b>перша серйозна робота для портфоліо</b></div></div></div>
+    <div class="rm-item s2 reveal"><div class="rm-step">08</div><div><div class="rm-action">Робиш UGC з AI-блогером і відео для товарів</div><div class="rm-result">= <b>формат, який замовники купують найчастіше</b></div></div></div>
+    <div class="rm-item s2 reveal"><div class="rm-step">09</div><div><div class="rm-action">Створюєш мультик у власному стилі з послідовним сюжетом</div><div class="rm-result">= <b>друга робота в портфоліо й окремий ринок</b></div></div></div>
+    <div class="rm-item s2 reveal"><div class="rm-step">10</div><div><div class="rm-action">Робиш комерційну рекламу для товару чи бізнесу</div><div class="rm-result">= <b>рекламний ролик, який можна одразу показати клієнту</b></div></div></div>
+    <div class="rm-milestone m2 reveal"><div class="rm-milestone-dot"></div><p>Кінець фази 2 — фільм, UGC, мультик і реклама. Чотири формати — чотири ринки</p></div>
+    <div class="rm-item s3 reveal"><div class="rm-step">11</div><div><div class="rm-action">Збираєш і упаковуєш 5 робіт у єдине портфоліо</div><div class="rm-result">= <b>портфоліо, яке продає за тебе ще до розмови</b></div></div></div>
+    <div class="rm-item s3 reveal"><div class="rm-step">12</div><div><div class="rm-action">Дізнаєшся, де брати клієнтів і як вести соцмережі в AI-ніші</div><div class="rm-result">= <b>конкретний план — перші замовлення ще під час навчання</b></div></div></div>
+    <div class="rm-milestone m3 reveal"><div class="rm-milestone-dot"></div><p>Кінець фази 3 — портфоліо з 5 робіт, розуміння ринку і перші клієнти</p></div>
+  </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ MODULES ═══ -->
+<section class="sec sec-divider">
+<div class="wrap">
+  <div class="sec-head reveal">
+    <h2>Що конкретно<br>в <em>кожному модулі</em></h2>
+    <p class="sec-desc">Кожен модуль спирається на результат попереднього. Натисни, щоб розгорнути</p>
+  </div>
+
+  <div class="modules-grid">
+
+  <div class="module reveal" id="m1">
+    <div class="module-head" onclick="toggleModule('m1')">
+      <span class="module-num">01</span><span class="module-icon">🗺</span>
+      <span class="module-title">Вступ. AI-відео індустрія та можливості заробітку</span>
+      <span class="module-chevron">▼</span>
+    </div>
+    <div class="module-body"><div class="module-inner">
+      <ul class="module-steps">
+        <li>Який AI-контент зараз купують і скільки за це платять</li>
+        <li>Що таке мовні моделі й генератори, чим вони відрізняються</li>
+        <li>Огляд ключових інструментів — як зібрати свій робочий стек</li>
+        <li>Список нейронок + безкоштовні сервіси для старту</li>
+      </ul>
+      <div class="module-outcome"><p>Розумієш, як влаштована ніша й <strong>де в ній гроші.</strong> Бачиш свій шлях, а не блукаєш у сотні інструментів.</p></div>
+    </div></div>
+  </div>
+
+  <div class="module reveal" id="m2">
+    <div class="module-head" onclick="toggleModule('m2')">
+      <span class="module-num">02</span><span class="module-icon">🧠</span>
+      <span class="module-title">Як працювати з промтами: система роботи з AI</span>
+      <span class="module-chevron">▼</span>
+    </div>
+    <div class="module-body"><div class="module-inner">
+      <ul class="module-steps">
+        <li>Налаштування AI-асистента під задачі креатора</li>
+        <li>Що таке референс і як з ним працювати</li>
+        <li>Як перетворити будь-який референс у готовий промт</li>
+      </ul>
+      <div class="module-outcome"><p>Пишеш ефективні промти під будь-яке відео. <strong>Бачиш → описуєш → отримуєш</strong> — без сотні правок.</p></div>
+    </div></div>
+  </div>
+
+  <div class="module reveal" id="m3">
+    <div class="module-head" onclick="toggleModule('m3')">
+      <span class="module-num">03</span><span class="module-icon">🎭</span>
+      <span class="module-title">Створення персонажів, карток персонажів і локацій</span>
+      <span class="module-chevron">▼</span>
+    </div>
+    <div class="module-body"><div class="module-inner">
+      <ul class="module-steps">
+        <li>Покроковий алгоритм створення ідеального AI-персонажа</li>
+        <li>Картка персонажа — система збереження образу</li>
+        <li>Як зберігати зовнішність у кожному кадрі</li>
+        <li>Картки локацій і розробка візуалу одягу</li>
+      </ul>
+      <div class="module-outcome"><p><strong>Унікальний персонаж зі стабільною зовнішністю</strong> від першого до останнього кадру.</p></div>
+    </div></div>
+  </div>
+
+  <div class="module reveal" id="m4">
+    <div class="module-head" onclick="toggleModule('m4')">
+      <span class="module-num">04</span><span class="module-icon">📸</span>
+      <span class="module-title">Розкадровка та генерація сцен</span>
+      <span class="module-chevron">▼</span>
+    </div>
+    <div class="module-body"><div class="module-inner">
+      <ul class="module-steps">
+        <li>Сторіборд і сторітелінг в AI-відео</li>
+        <li>Розкадровка сцен з персонажем</li>
+        <li>Генерація кінематографічних кадрів, плани й ракурси</li>
+        <li>Мудборд, атмосфера, зміна освітлення й AI-кольорокорекція</li>
+      </ul>
+      <div class="module-outcome"><p><strong>Готовий набір кінокадрів для першого відео.</strong> Не «щось вийшло», а заплановано й зроблено.</p></div>
+    </div></div>
+  </div>
+
+  <div class="module reveal" id="m5">
+    <div class="module-head" onclick="toggleModule('m5')">
+      <span class="module-num">05</span><span class="module-icon">🎥</span>
+      <span class="module-title">Генерація відеофрагментів та оживлення сцен</span>
+      <span class="module-chevron">▼</span>
+    </div>
+    <div class="module-body"><div class="module-inner">
+      <ul class="module-steps">
+        <li>Технічні основи відео й відеогенерації</li>
+        <li>Генерація відео із зображення (image-to-video)</li>
+        <li>Керування рухом і динамікою кадру</li>
+        <li>Звуки та музика всередині генерації</li>
+      </ul>
+      <div class="module-outcome"><p><strong>Перші живі відеофрагменти зі звуком,</strong> які вже не соромно показати.</p></div>
+    </div></div>
+  </div>
+
+  <div class="module reveal" id="m6">
+    <div class="module-head" onclick="toggleModule('m6')">
+      <span class="module-num">06</span><span class="module-icon">✂️</span>
+      <span class="module-title">Монтаж AI-відео</span>
+      <span class="module-chevron">▼</span>
+    </div>
+    <div class="module-body"><div class="module-inner">
+      <ul class="module-steps">
+        <li>Легка версія монтажу — від генерації до готового відео</li>
+        <li>Субтитри, текст, переходи</li>
+        <li>Професійний монтаж: ритм, темп, склейки (від експерта)</li>
+      </ul>
+      <div class="module-outcome"><p><strong>Збираєш фрагменти в цілісний ролик,</strong> готовий до публікації.</p></div>
+    </div></div>
+  </div>
+
+  <div class="module reveal" id="m7">
+    <div class="module-head" onclick="toggleModule('m7')">
+      <span class="module-num">07</span><span class="module-icon">🎬</span>
+      <span class="module-title">Фільммейкінг: повноцінний AI короткометражний фільм</span>
+      <span class="module-chevron">▼</span>
+    </div>
+    <div class="module-body"><div class="module-inner">
+      <ul class="module-steps">
+        <li>Від ідеї до сценарію: як ставити задачу AI, щоб отримати готовий сценарій</li>
+        <li>Виробництво: персонажі, локації, сцени за системою карток</li>
+        <li>Фінальний монтаж, озвучення й публікація</li>
+      </ul>
+      <div class="module-outcome"><p>Застосовуєш усе з модулів 1–6 і <strong>створюєш повноцінний фільм — першу серйозну роботу.</strong></p></div>
+    </div></div>
+  </div>
+
+  <div class="module reveal" id="m8">
+    <div class="module-head" onclick="toggleModule('m8')">
+      <span class="module-num">08</span><span class="module-icon">🛍</span>
+      <span class="module-title">UGC-контент: AI-блогер та відео для товарів</span>
+      <span class="module-chevron">▼</span>
+    </div>
+    <div class="module-body"><div class="module-inner">
+      <ul class="module-steps">
+        <li>Як створити реалістичного AI-блогера: голос, міміка, поведінка</li>
+        <li>Відео для товарів: проблема → продукт → результат</li>
+        <li>Ноди — більше контролю в генерації, як у професіоналів</li>
+      </ul>
+      <div class="module-outcome"><p><strong>Готове UGC-відео для товару,</strong> яке вже можна продати клієнту.</p></div>
+    </div></div>
+  </div>
+
+  <div class="module reveal" id="m9">
+    <div class="module-head" onclick="toggleModule('m9')">
+      <span class="module-num">09</span><span class="module-icon">✨</span>
+      <span class="module-title">Генерація мультика</span>
+      <span class="module-chevron">▼</span>
+    </div>
+    <div class="module-body"><div class="module-inner">
+      <ul class="module-steps">
+        <li>Стилі AI-анімації: 2D, 3D, аніме, cartoon</li>
+        <li>Покроковий процес: сценарій → персонажі → сцени → монтаж</li>
+        <li>Збереження стилю між кадрами, озвучення й музика</li>
+      </ul>
+      <div class="module-outcome"><p><strong>Готовий мультик у власному стилі</strong> — окремий формат і окремий ринок.</p></div>
+    </div></div>
+  </div>
+
+  <div class="module reveal" id="m10">
+    <div class="module-head" onclick="toggleModule('m10')">
+      <span class="module-num">10</span><span class="module-icon">📢</span>
+      <span class="module-title">Комерційна реклама для товарів та бізнесів</span>
+      <span class="module-chevron">▼</span>
+    </div>
+    <div class="module-body"><div class="module-inner">
+      <ul class="module-steps">
+        <li>Структура комерційного AI-відео — чим реклама відрізняється від «гарного відео»</li>
+        <li>Формула ефективного рекламного ролика</li>
+        <li>Практика: повний цикл від брифу до готового ролика</li>
+      </ul>
+      <div class="module-outcome"><p><strong>Рекламний ролик для реального клієнта</strong> — найдорожчий формат на ринку.</p></div>
+    </div></div>
+  </div>
+
+  <div class="module reveal" id="m11">
+    <div class="module-head" onclick="toggleModule('m11')">
+      <span class="module-num">11</span><span class="module-icon">💼</span>
+      <span class="module-title">Формування портфоліо AI-відео креатора</span>
+      <span class="module-chevron">▼</span>
+    </div>
+    <div class="module-body"><div class="module-inner">
+      <ul class="module-steps">
+        <li>Що має бути в портфоліо й скільки робіт достатньо для старту</li>
+        <li>Упаковка робіт: завдання → рішення → результат</li>
+        <li>Створення свого сайту-портфоліо через Клод Код</li>
+      </ul>
+      <div class="module-outcome"><p><strong>Портфоліо з 5+ робіт,</strong> упаковане так, щоб клієнт одразу бачив цінність.</p></div>
+    </div></div>
+  </div>
+
+  <div class="module reveal" id="m12">
+    <div class="module-head" onclick="toggleModule('m12')">
+      <span class="module-num">12</span><span class="module-icon">🚀</span>
+      <span class="module-title">Заробіток на AI-відео: як отримувати клієнтів</span>
+      <span class="module-chevron">▼</span>
+    </div>
+    <div class="module-body"><div class="module-inner">
+      <ul class="module-steps">
+        <li>Як отримувати клієнтів через Instagram, TikTok, Threads</li>
+        <li>Контент-стратегія для AI-ніші: освіта + кейси + закулісся</li>
+        <li>Реальні шляхи учнів до першого замовлення — що спрацювало</li>
+        <li>Робота з сарафанним радіо й повторними клієнтами</li>
+      </ul>
+      <div class="module-outcome"><p><strong>Конкретний план, де брати замовлення</strong> — і перші клієнти ще під час навчання.</p></div>
+    </div></div>
+  </div>
+
+  <div class="module reveal" id="mb">
+    <div class="module-head" onclick="toggleModule('mb')">
+      <span class="module-num">+</span><span class="module-icon">🎁</span>
+      <span class="module-title">Бонусні модулі по нейронках</span>
+      <span class="module-chevron">▼</span>
+    </div>
+    <div class="module-body"><div class="module-inner">
+      <ul class="module-steps">
+        <li>Клинг — рух і керування персонажем</li>
+        <li>Грок — швидка генерація</li>
+        <li>Флоу — робота з відео</li>
+        <li>Сиденс — референси й контроль сцени</li>
+        <li>Хейджен — аватари й говорящі персонажі</li>
+      </ul>
+      <div class="module-outcome"><p><strong>Окремі розбори кожної нейронки</strong> — щоб не губитися в інтерфейсі (Преміум і VIP).</p></div>
+    </div></div>
+  </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ═══ QUOTE ═══ -->
+<section class="sec sec-divider">
+<div class="wrap">
+  <div class="quote-block reveal">
+    <span class="quote-mark">“</span>
+    <p class="quote-text">Я не обіцяю золотих гір і "3000$ за тиждень". <em>Я даю систему й доводжу до першого реального замовлення.</em> Решта — твоя робота, і я поруч, поки курс не окупиться.</p>
+  </div>
+</div>
+</section>
+
+<!-- ═══ LIVE ═══ -->
+<section class="sec sec-divider">
+<div class="wrap">
+  <div class="sec-head reveal">
+    <h2>Це більше,<br>ніж <em>записані уроки</em></h2>
+    <p class="sec-desc">Ти не лишаєшся наодинці з відеоуроками. Навколо курсу — живе середовище, яке росте разом з тобою й нішею</p>
+  </div>
+  <div class="live-grid">
+    <div class="why-card reveal rd1">
+      <span class="ic">💬</span>
+      <h3>Живий чат щодня</h3>
+      <p>Щодня в спільному чаті — корисна інфа від Саші, якої немає в самій програмі: свіжі теми, відповіді на питання по навчанню й по нейронках. Плюс <strong>ефіри із запрошеними експертами та розіграші.</strong> Тут завжди актуальне, а не «записане рік тому».</p>
+    </div>
+    <div class="why-card reveal rd2">
+      <span class="ic">🔄</span>
+      <h3>Оновлення наступного потоку — безкоштовно</h3>
+      <p>Зайшов на перший потік — <strong>автоматично отримуєш доступ до оновлених уроків другого.</strong> Нейромережі змінюються щомісяця — і твої уроки оновлюються разом з ними. Без доплат і без «купуй курс заново».</p>
+    </div>
+    <div class="why-card reveal rd3">
+      <span class="ic">🗓</span>
+      <h3>Зворотний зв'язок — у твоєму темпі</h3>
+      <p>Здаєш домашку в систему — Саша й куратор перевіряють і розбирають. Але це <strong>не обов'язок:</strong> не налаштований на 100% зараз — просто вчишся у власному темпі, без тиску. А старт перевірок можеш увімкнути коли зручно — будь-коли протягом 3 місяців <span style="color:var(--text3)">(на тарифах із супроводом)</span>.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ TIERS ═══ -->
+<section class="sec sec-divider" id="tiers">
+<div class="wrap">
+  <div class="sec-head reveal">
+    <h2>Обери <em>свій формат</em></h2>
+  </div>
+
+  <div class="price-intro reveal">
+    <p>Я буду скоро проводити вебінар на всю свою аудиторію. Там повна вартість курсу буде — <span class="pi-old">7 990 / 13 990 / 19 990 ₴</span>. Для тих, хто вийшов на дзвінок зараз і приймає рішення зараз, діє <strong>спеціальна ціна</strong>. Це не «знижка назавжди», це бонус для тебе, за те, що приділив свій час та увагу одним із перших.</p>
+  </div>
+
+  <div class="tiers">
+
+    <div class="tier reveal rd1">
+      <div class="tier-name">Стандарт</div>
+      <div class="tier-prices">
+        <div class="tier-old">7 990 ₴</div>
+        <div class="tier-price">~999 ₴<span class="tier-mo">/міс</span></div>
+      </div>
+      <div class="tier-install">6 платежів · або <b>5 993 ₴</b> одразу</div>
+      <div class="tier-for">Для тих, хто навчається у власному темпі й хоче спершу побачити якість матеріалу</div>
+      <ul class="tier-list">
+        <li>Усі 12 модулів + бонусні по нейронках</li>
+        <li>Паки промтів і карток</li>
+        <li>Чат учасників</li>
+        <li>Доступ до уроків 6 місяців</li>
+        <li>Оновлення наступного потоку</li>
+        <li>Сертифікат про проходження</li>
+      </ul>
+      <a href="#" class="tier-btn">Обрати Стандарт</a>
+    </div>
+
+    <div class="tier featured reveal rd2">
+      <div class="tier-badge">Оптимальний вибір</div>
+      <div class="tier-name">Преміум</div>
+      <div class="tier-prices">
+        <div class="tier-old">13 990 ₴</div>
+        <div class="tier-price">~1 749 ₴<span class="tier-mo">/міс</span></div>
+      </div>
+      <div class="tier-install">6 платежів · або <b>10 493 ₴</b> одразу</div>
+      <div class="tier-for">Для тих, хто хоче груповий супровід і зворотний зв'язок особисто від Олександра</div>
+      <ul class="tier-list">
+        <li>Усе зі Стандарту</li>
+        <li>12 тижнів прямого спілкування з Олександром</li>
+        <li>12 групових Zoom-ефірів</li>
+        <li>Перевірка домашніх завдань</li>
+        <li>Команда AI-асистентів для кожної нейронки</li>
+        <li>Персональний AI-асистент для навчання</li>
+        <li>Доступ 1 рік + підтримка до окупності</li>
+        <li>Іменний сертифікат AI-креатора</li>
+      </ul>
+      <a href="#" class="tier-btn">Обрати Преміум</a>
+    </div>
+
+    <div class="tier reveal rd3">
+      <div class="tier-name">VIP</div>
+      <div class="tier-prices">
+        <div class="tier-old">19 990 ₴</div>
+        <div class="tier-price">~2 499 ₴<span class="tier-mo">/міс</span></div>
+      </div>
+      <div class="tier-install">6 платежів · або <b>14 993 ₴</b> одразу</div>
+      <div class="tier-for">Для тих, хто хоче особистого ментора й програму під свій запит</div>
+      <ul class="tier-list">
+        <li>Усе з Преміуму</li>
+        <li>6 особистих Zoom 1:1 з Олександром</li>
+        <li>VIP-чат з Олександром та учасниками</li>
+        <li>Програма підлаштована під твій запит</li>
+        <li>Підтримка після курсу до повної окупності</li>
+        <li>Іменний сертифікат AI-креатора</li>
+      </ul>
+      <a href="#" class="tier-btn">Обрати VIP</a>
+    </div>
+
+  </div>
+
+  <div class="scarcity">
+    <div class="scar-card reveal rd1">
+      <span class="ic">👥</span>
+      <h4>Перший потік — фокус-група</h4>
+      <p>Максимум уваги кожному: прямий зв'язок, перевірка ДЗ, корекція програми під запит групи. На наступних потоках такої залученості вже не буде.</p>
+    </div>
+    <div class="scar-card reveal rd2">
+      <span class="ic">⏳</span>
+      <h4>Місць обмежено</h4>
+      <p>Щоб тримати якість супроводу, набір у Преміум і VIP закритий за кількістю. Ціна потоку діє, поки відкритий набір — далі вартість вища.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ GUARANTEE ═══ -->
+<section class="sec sec-divider">
+<div class="wrap">
+  <div class="guarantee reveal">
+    <div class="shield">🛡️</div>
+    <div>
+      <h3>Підтримка до окупності</h3>
+      <p>Я впевнений у курсі, тому йду далі за звичайну гарантію. <strong>На тарифах Преміум і VIP я супроводжую тебе після навчання — до повної окупності курсу,</strong> за умови, що ти виконуєш кроки програми. Жодних «купив і розбирайся сам». Мета — щоб навчання повернуло свої гроші.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ OBJECTIONS ═══ -->
+<section class="sec sec-divider">
+<div class="wrap">
+  <div class="sec-head reveal">
+    <h2>«Так, але…»<br><em>Розберемо відверто</em></h2>
+  </div>
+
+  <div class="obj-grid">
+
+    <div class="obj-item reveal rd1" id="obj1" onclick="toggleObj('obj1')">
+      <div class="obj-head"><div class="obj-q"><span class="obj-icon">💸</span><span class="obj-text">«Дорого. Я ще нічого не заробив на AI»</span></div><div class="obj-arr">+</div></div>
+      <div class="obj-body"><div class="obj-inner">
+        <p>Один комерційний ролик — UGC, реклама, анімація — на ринку коштує від кількох тисяч гривень. Портфоліо після курсу містить 5 таких робіт. Закриєш одне-два замовлення — курс окупиться.</p>
+        <p>Тому на Преміум і VIP є підтримка до окупності: моя задача не «продати курс», а довести тебе до перших грошей. І так — є оплата частинами, до 6 платежів.</p>
+      </div></div>
+    </div>
+
+    <div class="obj-item reveal rd2" id="obj2" onclick="toggleObj('obj2')">
+      <div class="obj-head"><div class="obj-q"><span class="obj-icon">🧩</span><span class="obj-text">«Я повний нуль. У мене точно не вийде»</span></div><div class="obj-arr">+</div></div>
+      <div class="obj-body"><div class="obj-inner">
+        <p>Курс і побудований під нуль. Перший модуль — для тих, хто взагалі нічого не знає про AI. Жодного досвіду у відео чи дизайні не потрібно.</p>
+        <p>Серед тих, хто вже опанував AI-відео з нуля — люди різного віку й професій: від студентів до тих, кому 55+. Виграє не «талант», а той, хто йде крок за кроком і не кидає. Цього разу поруч буде підтримка.</p>
+      </div></div>
+    </div>
+
+    <div class="obj-item reveal rd1" id="obj3" onclick="toggleObj('obj3')">
+      <div class="obj-head"><div class="obj-q"><span class="obj-icon">⏰</span><span class="obj-text">«Немає часу — робота, діти, і так усе зайнято»</span></div><div class="obj-arr">+</div></div>
+      <div class="obj-body"><div class="obj-inner">
+        <p>Програма розрахована на 2–3 години на тиждень. Уроки короткі, дивитися можна з телефону, у своєму темпі — доступ лишається.</p>
+        <p>Якщо маєш час гортати TikTok про нейронки — маєш час пройти цей курс. Різниця в тому, що після курсу лишається результат, а не просто «подивився».</p>
+      </div></div>
+    </div>
+
+    <div class="obj-item reveal rd2" id="obj4" onclick="toggleObj('obj4')">
+      <div class="obj-head"><div class="obj-q"><span class="obj-icon">😮‍💨</span><span class="obj-text">«Я вже вчився — і нічого. Чергова "вода"?»</span></div><div class="obj-arr">+</div></div>
+      <div class="obj-body"><div class="obj-inner">
+        <p>Розумію — багато курсів дають гори відео, домашки на платних підписках і кидають після сертифіката. Тут інакше: коротко, по суті, з логікою, а не шаблонами «натисни сюди».</p>
+        <p>Головне, чого зазвичай не дають, — монетизація і клієнти. У нас це окрема фаза. І підтримка не закінчується разом з останнім уроком — вона триває до окупності.</p>
+      </div></div>
+    </div>
+
+    <div class="obj-item reveal" id="obj5" onclick="toggleObj('obj5')">
+      <div class="obj-head"><div class="obj-q"><span class="obj-icon">🔄</span><span class="obj-text">«Прийду на наступний потік. Поки не час»</span></div><div class="obj-arr">+</div></div>
+      <div class="obj-body"><div class="obj-inner">
+        <p>Наступний потік буде — але дорожче й без такої особистої залученості. Перший потік — фокус-група: максимум уваги, прямий зв'язок, корекція програми під групу.</p>
+        <p>Ніша росте щомісяця. Поки чекаєш «слушного моменту», інші вже набирають портфоліо й перших клієнтів. Через рік конкуренція буде значно вищою. «Не час» — це майже завжди «ще не вирішив».</p>
+      </div></div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<div class="cta-sec">
+<div class="wrap">
+  <h2 class="reveal">Два шляхи.<br>Один вибір.</h2>
+  <p class="reveal rd1">Ще рік дивитися чужі відео про нейронки й гадати, з чого почати — або за 12 тижнів отримати професію, портфоліо і перші замовлення в ніші, де попит лише зростає.</p>
+  <a href="#tiers" class="btn reveal rd2">Зайняти місце →</a>
+</div>
+</div>
+
+<footer>
+  <div class="wrap">© 2026 · Курс AI-відео з Олександром</div>
+</footer>
+
+<!-- sticky mobile buy bar -->
+<div class="buybar" id="buybar">
+  <div class="bb-price">
+    <span class="bb-old">5 993 ₴</span>
+    <span class="bb-now">від ~999 ₴/міс</span>
+  </div>
+  <a href="#tiers" class="btn">Зайняти місце →</a>
+</div>
+
+<script>
+function togglePain(el){
+  var open=el.classList.contains('open');
+  document.querySelectorAll('.pain.open').forEach(function(i){i.classList.remove('open')});
+  if(!open)el.classList.add('open');
+}
+function toggleObj(id){
+  var el=document.getElementById(id);
+  var open=el.classList.contains('open');
+  document.querySelectorAll('.obj-item.open').forEach(function(i){i.classList.remove('open')});
+  if(!open)el.classList.add('open');
+}
+function toggleModule(id){
+  document.getElementById(id).classList.toggle('open');
+}
+
+/* reveal on scroll */
+var io=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+/* sticky buy bar after hero */
+var bar=document.getElementById('buybar');
+var hero=document.querySelector('.hero');
+window.addEventListener('scroll',function(){
+  if(window.scrollY>(hero?hero.offsetHeight:600)){bar.classList.add('show')}
+  else{bar.classList.remove('show')}
+},{passive:true});
+</script>
+</body>
+</html>

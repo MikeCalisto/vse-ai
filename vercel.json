@@ -4,7 +4,7 @@
   "installCommand": null,
   "rewrites": [
     { "source": "/", "destination": "/zakrytyi-klub/index.html" },
-    { "source": "/((?!product-ai-content|zakrytyi-klub|ai-lyudyna|links|fabryka-ai-kontentu|favicon|apple-touch-icon|robots\\.txt|sitemap).*)", "destination": "/zakrytyi-klub/$1" }
+    { "source": "/((?!product-ai-content|zakrytyi-klub|ai-lyudyna|links|fabryka-ai-kontentu|ai-video|favicon|apple-touch-icon|robots\\.txt|sitemap).*)", "destination": "/zakrytyi-klub/$1" }
   ],
   "redirects": [
     { "source": "/product-ai-content", "destination": "/product-ai-content/index.html", "permanent": false },
@@ -18,7 +18,9 @@
     { "source": "/links", "destination": "/links/index.html", "permanent": false },
     { "source": "/links/", "destination": "/links/index.html", "permanent": false },
     { "source": "/fabryka-ai-kontentu", "destination": "/fabryka-ai-kontentu/index.html", "permanent": false },
-    { "source": "/fabryka-ai-kontentu/", "destination": "/fabryka-ai-kontentu/index.html", "permanent": false }
+    { "source": "/fabryka-ai-kontentu/", "destination": "/fabryka-ai-kontentu/index.html", "permanent": false },
+    { "source": "/ai-video", "destination": "/ai-video/index.html", "permanent": false },
+    { "source": "/ai-video/", "destination": "/ai-video/index.html", "permanent": false }
   ],
   "headers": [
     {
@@ -53,6 +55,12 @@
     },
     {
       "source": "/fabryka-ai-kontentu/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/ai-video/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
