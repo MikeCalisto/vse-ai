@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Відео — нова професія за 12 тижнів</title>
-<meta name="description" content="За 12 тижнів навчишся створювати відео, які купують: реклама, UGC, мультики, ролики для брендів. Без досвіду, обладнання й команди — лише ти і нейромережі.">
-<meta property="og:title" content="AI Відео — нова професія за 12 тижнів">
+<title>AI-Відеокреатор — нова професія за 12 тижнів</title>
+<meta name="description" content="Курс «AI-Відеокреатор»: за 12 тижнів навчишся створювати відео, які купують — реклама, UGC, мультики, ролики для брендів. Без досвіду, обладнання й команди — лише ти і нейромережі.">
+<meta property="og:title" content="AI-Відеокреатор — нова професія за 12 тижнів">
 <meta property="og:description" content="12 модулів · 35+ уроків · 5+ робіт у портфоліо. Від нуля до перших клієнтів у ніші, де попит лише зростає.">
 <meta property="og:type" content="website">
 
@@ -391,9 +391,9 @@ footer{border-top:1px solid var(--border);padding:36px 24px;text-align:center;fo
 <!-- ═══ HERO ═══ -->
 <div class="wrap">
 <div class="hero">
-  <div class="hero-kicker">12-тижнева програма · 1 потік · старт 30 червня</div>
-  <h1>Нова професія —<br><em>AI-відео</em> з нуля</h1>
-  <p class="hero-sub">За 12 тижнів ти навчишся створювати відео, які купують: реклама, UGC, мультики, ролики для брендів. <strong>Без досвіду, без знімального обладнання, без команди — лише ти і нейромережі.</strong></p>
+  <div class="hero-kicker">12 тижнів навчання · перший потік · старт 30 червня</div>
+  <h1>AI-<em>Відеокреатор</em></h1>
+  <p class="hero-sub">За 12 тижнів ти навчишся створювати професійні АІ відео вартістю від 50 до 300$: реклама, фільми, UGC, мультики, ролики для брендів та багато іншого. <strong>Без досвіду в АІ, без технічних знань та навиків, без знань англійської, завдяки авторській методиці створення АІ відео від Олександра Цюцьмаця.</strong></p>
   <div class="hero-stats">
     <div class="hstat"><div class="n">12</div><div class="l">модулів з нуля</div></div>
     <div class="hstat"><div class="n">35+</div><div class="l">практичних уроків</div></div>
@@ -1020,7 +1020,7 @@ footer{border-top:1px solid var(--border);padding:36px 24px;text-align:center;fo
 </div>
 
 <footer>
-  <div class="wrap">© 2026 · Курс AI-відео з Олександром</div>
+  <div class="wrap">© 2026 · Курс «AI-Відеокреатор» з Олександром</div>
 </footer>
 
 <!-- sticky mobile buy bar -->
@@ -1048,11 +1048,35 @@ function toggleModule(id){
   document.getElementById(id).classList.toggle('open');
 }
 
-/* reveal on scroll */
-var io=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}});
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+/* reveal on scroll — with bulletproof failsafes so content is NEVER stuck hidden */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  function show(el){el.classList.add('vis')}
+  function revealAll(){els.forEach(show)}
+  // No IntersectionObserver (old/in-app browsers) → just show everything
+  if(!('IntersectionObserver' in window)){revealAll();return}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target)}});
+  },{threshold:0.08,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el)});
+  // reveal anything already within (or above) the first viewport on load
+  function revealInView(){
+    var h=window.innerHeight||0;
+    els.forEach(function(el){
+      if(el.classList.contains('vis'))return;
+      var r=el.getBoundingClientRect();
+      if(r.top < h*0.95){show(el)}
+    });
+  }
+  revealInView();
+  window.addEventListener('load',revealInView);
+  // first user interaction (scroll/touch) → make sure things below are not stuck
+  var once=function(){revealInView();window.removeEventListener('scroll',once);window.removeEventListener('touchstart',once)};
+  window.addEventListener('scroll',once,{passive:true});
+  window.addEventListener('touchstart',once,{passive:true});
+  // hard failsafe: nothing should ever remain invisible
+  setTimeout(revealAll,3500);
+})();
 
 /* sticky buy bar after hero */
 var bar=document.getElementById('buybar');
