@@ -354,6 +354,29 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.01em;line-height:1.
 .ic-amt span{font-family:var(--font);font-size:15px;font-weight:600;color:var(--text2)}
 .ic-sub{font-size:12.5px;color:var(--text3);margin-top:9px}
 
+/* ── BONUS ── */
+.bonus-block{margin-top:44px;border:1px solid var(--accent-soft2);border-radius:var(--rl);padding:clamp(28px,4vw,46px);background:linear-gradient(180deg,var(--accent-soft),transparent 70%);position:relative;overflow:hidden}
+.bonus-block::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(60% 60% at 50% 0%,var(--accent-soft2),transparent 60%)}
+.bonus-head{position:relative;text-align:center;max-width:700px;margin:0 auto 30px}
+.bonus-eyebrow{display:inline-block;font-family:var(--font-display);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-soft2);padding:7px 14px;border-radius:100px;margin-bottom:16px}
+.bonus-title{font-family:var(--font-display);font-weight:700;font-size:clamp(22px,3.4vw,34px);text-transform:uppercase;letter-spacing:-.02em;line-height:1.1}
+.bonus-title em{font-style:normal;color:var(--accent)}
+.bonus-sub{font-size:15px;color:var(--text2);line-height:1.6;margin-top:14px}
+.bonus-sub strong{color:var(--text);font-weight:700}
+.bonus-grid{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px}
+.bonus-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:24px 18px;text-align:center;transition:.22s}
+.bonus-card:hover{transform:translateY(-3px);border-color:var(--border2)}
+.bonus-logo{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:19px;color:#fff;margin:0 auto 14px}
+.bl-k{background:linear-gradient(135deg,#7b5cff,#4b34d6)}
+.bl-g{background:linear-gradient(135deg,#2b2b33,#0c0c12)}
+.bl-f{background:linear-gradient(135deg,#3b9af5,#1666d6)}
+.bl-s{background:linear-gradient(135deg,#13b6a6,#0a8f86)}
+.bl-h{background:linear-gradient(135deg,#19b56a,#0c8f4f)}
+.bonus-name{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--text);margin-bottom:6px}
+.bonus-desc{font-size:12.5px;color:var(--text2);line-height:1.45}
+.bonus-timer{position:relative;display:flex;align-items:center;justify-content:center;gap:9px;margin-top:26px;font-size:14px;font-weight:700;color:var(--accent)}
+.bt-ic{font-size:15px}
+
 /* ── GUARANTEE ── */
 .guarantee{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;background:var(--accent-soft);border:1px solid var(--accent-soft2);border-radius:var(--rl);padding:44px 48px}
 .guarantee .shield{font-size:60px;flex-shrink:0}
@@ -866,24 +889,6 @@ footer{background:#0a120f;color:#6f7d74;padding:34px 24px;text-align:center;font
     </div></div>
   </div>
 
-  <div class="module reveal" id="mb">
-    <div class="module-head" onclick="toggleModule('mb')">
-      <span class="module-num">+</span><span class="module-icon">🎁</span>
-      <span class="module-title">Бонусні модулі по нейронках</span>
-      <span class="module-chevron">▼</span>
-    </div>
-    <div class="module-body"><div class="module-inner">
-      <ul class="module-steps">
-        <li>Клинг — рух і керування персонажем</li>
-        <li>Грок — швидка генерація</li>
-        <li>Флоу — робота з відео</li>
-        <li>Сиденс — референси й контроль сцени</li>
-        <li>Хейджен — аватари й говорящі персонажі</li>
-      </ul>
-      <div class="module-outcome"><p><strong>Окремі розбори кожної нейронки</strong> — щоб не губитися в інтерфейсі (Преміум і VIP).</p></div>
-    </div></div>
-  </div>
-
   </div>
 </div>
 </section>
@@ -1026,6 +1031,22 @@ footer{background:#0a120f;color:#6f7d74;padding:34px 24px;text-align:center;font
         <div class="ic-sub">6 рівних платежів</div>
       </div>
     </div>
+  </div>
+
+  <div class="bonus-block reveal">
+    <div class="bonus-head">
+      <span class="bonus-eyebrow">🎁 Бонус за швидке рішення</span>
+      <h3 class="bonus-title">5 нейромереж <em>у подарунок</em></h3>
+      <p class="bonus-sub">Окремі покрокові розбори кожної нейромережі — щоб не губитися в інтерфейсі. <strong>Дістаються лише тим, хто обере Преміум або VIP протягом 48 годин після дзвінка.</strong></p>
+    </div>
+    <div class="bonus-grid">
+      <div class="bonus-card"><span class="bonus-logo bl-k">K</span><div class="bonus-name">Клинг</div><div class="bonus-desc">Рух і керування персонажем</div></div>
+      <div class="bonus-card"><span class="bonus-logo bl-g">G</span><div class="bonus-name">Грок</div><div class="bonus-desc">Швидка генерація</div></div>
+      <div class="bonus-card"><span class="bonus-logo bl-f">F</span><div class="bonus-name">Флоу</div><div class="bonus-desc">Робота з відео</div></div>
+      <div class="bonus-card"><span class="bonus-logo bl-s">S</span><div class="bonus-name">Сиденс</div><div class="bonus-desc">Референси й контроль сцени</div></div>
+      <div class="bonus-card"><span class="bonus-logo bl-h">H</span><div class="bonus-name">Хейджен</div><div class="bonus-desc">Аватари й говорящі персонажі</div></div>
+    </div>
+    <div class="bonus-timer"><span class="bt-ic">⏳</span>Бонус згорає через 48 годин після дзвінка</div>
   </div>
 
   <div class="scarcity">
