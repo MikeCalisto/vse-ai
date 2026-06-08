@@ -332,6 +332,28 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.01em;line-height:1.
 .scar-card h4{font-family:var(--font-display);font-size:17px;font-weight:700;margin-bottom:8px;text-transform:uppercase}
 .scar-card p{font-size:14px;color:var(--text2);line-height:1.65}
 
+/* ── INSTALLMENTS ── */
+.install-block{margin-top:44px}
+.install-title{font-family:var(--font-display);font-weight:700;font-size:clamp(20px,3vw,30px);text-transform:uppercase;text-align:center;letter-spacing:-.02em;margin-bottom:24px}
+.install-title em{font-style:normal;color:var(--accent)}
+.install-bar{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;background:#fff;color:#15201a;border-radius:var(--r);padding:18px 24px;box-shadow:0 16px 40px rgba(0,0,0,.28)}
+.ib-left{display:flex;align-items:center;gap:16px}
+.ib-zero{width:50px;height:50px;border-radius:12px;background:var(--btn-grad);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:18px;flex-shrink:0}
+.ib-t{font-family:var(--font-display);font-weight:700;font-size:15px;text-transform:uppercase;color:#15201a}
+.ib-s{font-size:13px;color:#5c6a61;font-weight:600;margin-top:2px}
+.ib-banks{display:flex;gap:8px;flex-wrap:wrap}
+.bank{font-size:12.5px;font-weight:700;padding:8px 13px;border-radius:9px;color:#fff;letter-spacing:.01em}
+.b-mono{background:#111}
+.b-privat{background:#0f9b4f}
+.b-abank{background:#f2c20a;color:#1a1a1a}
+.install-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.install-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:24px 22px;text-align:center}
+.install-card.featured{border-color:var(--accent-soft2);background:var(--accent-soft)}
+.ic-name{font-family:var(--font-display);font-size:13px;font-weight:700;text-transform:uppercase;color:var(--text2);letter-spacing:.06em;margin-bottom:12px}
+.ic-amt{font-family:var(--font-display);font-weight:800;font-size:clamp(26px,3vw,36px);color:var(--accent);line-height:1;display:flex;align-items:baseline;justify-content:center;gap:5px;white-space:nowrap}
+.ic-amt span{font-family:var(--font);font-size:15px;font-weight:600;color:var(--text2)}
+.ic-sub{font-size:12.5px;color:var(--text3);margin-top:9px}
+
 /* ── GUARANTEE ── */
 .guarantee{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;background:var(--accent-soft);border:1px solid var(--accent-soft2);border-radius:var(--rl);padding:44px 48px}
 .guarantee .shield{font-size:60px;flex-shrink:0}
@@ -390,7 +412,8 @@ footer{background:#0a120f;color:#6f7d74;padding:34px 24px;text-align:center;font
   .hero-stats{grid-template-columns:repeat(2,1fr);gap:10px}
   .hero-card{padding:24px}
   .hero-btns .btn{flex:1;justify-content:center}
-  .why-grid,.vs-grid,.forwhom-why,.get-grid,.rm-phases,.scarcity,.obj-grid{grid-template-columns:1fr}
+  .why-grid,.vs-grid,.forwhom-why,.get-grid,.rm-phases,.scarcity,.obj-grid,.install-grid{grid-template-columns:1fr}
+  .install-bar{flex-direction:column;align-items:flex-start;gap:14px}
   .fwy-item.wide{grid-column:auto}
   .guarantee{grid-template-columns:1fr;text-align:center;padding:34px 26px;gap:20px}
   .guarantee .shield{margin:0 auto}
@@ -919,9 +942,8 @@ footer{background:#0a120f;color:#6f7d74;padding:34px 24px;text-align:center;font
       <div class="tier-name">Стандарт</div>
       <div class="tier-prices">
         <div class="tier-old">7 990 ₴</div>
-        <div class="tier-price">~999 ₴<span class="tier-mo">/міс</span></div>
+        <div class="tier-price">5 993 ₴</div>
       </div>
-      <div class="tier-install">6 платежів · або <b>5 993 ₴</b> одразу</div>
       <div class="tier-for">Для тих, хто навчається у власному темпі й хоче спершу побачити якість матеріалу</div>
       <ul class="tier-list">
         <li>Усі 12 модулів + бонусні по нейронках</li>
@@ -939,9 +961,8 @@ footer{background:#0a120f;color:#6f7d74;padding:34px 24px;text-align:center;font
       <div class="tier-name">Преміум</div>
       <div class="tier-prices">
         <div class="tier-old">13 990 ₴</div>
-        <div class="tier-price">~1 749 ₴<span class="tier-mo">/міс</span></div>
+        <div class="tier-price">10 493 ₴</div>
       </div>
-      <div class="tier-install">6 платежів · або <b>10 493 ₴</b> одразу</div>
       <div class="tier-for">Для тих, хто хоче груповий супровід і зворотний зв'язок особисто від Олександра</div>
       <ul class="tier-list">
         <li>Усе зі Стандарту</li>
@@ -960,9 +981,8 @@ footer{background:#0a120f;color:#6f7d74;padding:34px 24px;text-align:center;font
       <div class="tier-name">VIP</div>
       <div class="tier-prices">
         <div class="tier-old">19 990 ₴</div>
-        <div class="tier-price">~2 499 ₴<span class="tier-mo">/міс</span></div>
+        <div class="tier-price">14 993 ₴</div>
       </div>
-      <div class="tier-install">6 платежів · або <b>14 993 ₴</b> одразу</div>
       <div class="tier-for">Для тих, хто хоче особистого ментора й програму під свій запит</div>
       <ul class="tier-list">
         <li>Усе з Преміуму</li>
@@ -975,6 +995,38 @@ footer{background:#0a120f;color:#6f7d74;padding:34px 24px;text-align:center;font
       <a href="#" class="tier-btn">Обрати VIP</a>
     </div>
 
+  </div>
+
+  <div class="install-block reveal">
+    <h3 class="install-title">Оплата <em>частинами</em></h3>
+    <div class="install-bar">
+      <div class="ib-left">
+        <span class="ib-zero">0%</span>
+        <div><div class="ib-t">0% оплата частинами</div><div class="ib-s">до 6 платежів · без переплат і відсотків</div></div>
+      </div>
+      <div class="ib-banks">
+        <span class="bank b-mono">mono</span>
+        <span class="bank b-privat">Privat24</span>
+        <span class="bank b-abank">А-Банк</span>
+      </div>
+    </div>
+    <div class="install-grid">
+      <div class="install-card">
+        <div class="ic-name">Стандарт</div>
+        <div class="ic-amt">~999 ₴<span>/міс</span></div>
+        <div class="ic-sub">6 рівних платежів</div>
+      </div>
+      <div class="install-card featured">
+        <div class="ic-name">Преміум</div>
+        <div class="ic-amt">~1 749 ₴<span>/міс</span></div>
+        <div class="ic-sub">6 рівних платежів</div>
+      </div>
+      <div class="install-card">
+        <div class="ic-name">VIP</div>
+        <div class="ic-amt">~2 499 ₴<span>/міс</span></div>
+        <div class="ic-sub">6 рівних платежів</div>
+      </div>
+    </div>
   </div>
 
   <div class="scarcity">
@@ -1074,8 +1126,8 @@ footer{background:#0a120f;color:#6f7d74;padding:34px 24px;text-align:center;font
 <!-- sticky mobile buy bar -->
 <div class="buybar" id="buybar">
   <div class="bb-price">
-    <span class="bb-old">5 993 ₴</span>
-    <span class="bb-now">від ~999 ₴/міс</span>
+    <span class="bb-old">7 990 ₴</span>
+    <span class="bb-now">від 5 993 ₴</span>
   </div>
   <a href="#tiers" class="btn">Зайняти місце →</a>
 </div>
