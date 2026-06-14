@@ -444,7 +444,20 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.01em;line-height:1.
 .cta-sec .btn{position:relative;background:#fff;color:#0b5c3d;padding:18px 40px;font-size:16px;box-shadow:0 16px 40px rgba(0,0,0,.4)}
 .cta-sec .btn:hover{box-shadow:0 22px 50px rgba(0,0,0,.5)}
 
-footer{background:#0a120f;color:#6f7d74;padding:34px 24px;text-align:center;font-size:13px}
+footer{background:#0a120f;color:#8a978f;padding:clamp(48px,6vw,72px) 24px;text-align:center;font-size:13px;line-height:1.6}
+footer .wrap{max-width:760px}
+.ft-support-h{font-family:var(--font-display);font-size:15px;font-weight:700;color:#eef3ef;text-transform:uppercase;letter-spacing:.02em;margin-bottom:14px}
+.ft-support{display:inline-flex;align-items:center;gap:8px;background:rgba(67,209,153,.12);border:1px solid rgba(67,209,153,.32);color:#43d199;font-weight:700;padding:11px 22px;border-radius:100px;font-size:14px;transition:.2s}
+.ft-support:hover{background:rgba(67,209,153,.2)}
+.ft-ents{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;margin:30px 0 18px}
+.ft-ent{font-size:13px;color:#8a978f}
+.ft-ent strong{display:block;color:#c5cfc9;font-weight:700;margin-bottom:4px;font-size:12.5px;letter-spacing:.02em}
+.ft-links{display:flex;justify-content:center;gap:8px 24px;flex-wrap:wrap;margin-bottom:22px}
+.ft-links a{color:#8a978f;text-decoration:underline;text-underline-offset:3px;font-size:13px}
+.ft-links a:hover{color:#43d199}
+.ft-disclaimer{font-size:12px;color:#6f7d74;line-height:1.65;max-width:680px;margin:0 auto 20px}
+.ft-disclaimer strong{color:#a7b2ab}
+.ft-copy{font-size:12.5px;color:#6f7d74}
 
 /* ── STICKY BUY BAR (mobile) ── */
 .buybar{position:fixed;left:0;right:0;bottom:0;z-index:90;background:rgba(255,255,255,.97);border-top:1px solid var(--border);box-shadow:0 -8px 30px rgba(20,45,32,.12);padding:11px 18px;display:none;align-items:center;justify-content:space-between;gap:12px;transform:translateY(120%);transition:transform .35s ease}
@@ -1248,7 +1261,20 @@ footer{background:#0a120f;color:#6f7d74;padding:34px 24px;text-align:center;font
 </section>
 
 <footer>
-  <div class="wrap">© 2026 · Курс «AI-Відеокреатор» з Олександром</div>
+  <div class="wrap">
+    <h4 class="ft-support-h">З будь-яких питань пишіть в підтримку ↓</h4>
+    <a href="https://t.me/ai_sashka_support" class="ft-support" target="_blank" rel="noopener">💬 Технічна підтримка</a>
+    <div class="ft-ents">
+      <p class="ft-ent"><strong>ЗЕМЛЯНИЙ МИХАЙЛО СЕРГІЙОВИЧ ФОП</strong>ЄДРПОУ 3758302175<br>+380 98 596 6120</p>
+      <p class="ft-ent"><strong>БРЖЕСТОВСЬКА ГАННА ЮРІЇВНА ФОП</strong>ЄДРПОУ 2877703349</p>
+    </div>
+    <div class="ft-links">
+      <a href="politika.html">Політика конфіденційності</a>
+      <a href="oferta.html">Договір оферти</a>
+    </div>
+    <p class="ft-disclaimer"><strong>ВАЖЛИВО:</strong> не вводьте свою контактну інформацію, доки не прочитаєте legal disclaimer. Ми не даємо жодних гарантій, що ви досягнете якихось результатів за допомогою наших інструментів, стратегій або інформації. Всі продукти і сервіси компанії призначені для освітніх цілей. Ви несете відповідальність за свої дії і результати.</p>
+    <p class="ft-copy">© 2026 · Курс «AI-Відеокреатор» з Олександром</p>
+  </div>
 </footer>
 
 <!-- sticky mobile buy bar -->
