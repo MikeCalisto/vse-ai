@@ -453,7 +453,10 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.01em;line-height:1.
 .author-list li strong{color:var(--text)}
 .author-list li::before{content:"✓";position:absolute;left:0;top:0;color:var(--accent);font-weight:800}
 .ft-ent{overflow-wrap:anywhere}
-@media(max-width:760px){.author-block{grid-template-columns:1fr;gap:24px;padding:32px 24px;text-align:center}.author-photo{margin:0 auto}.author-list li{text-align:left}}
+.author-ig{display:inline-flex;align-items:center;gap:9px;margin-top:22px;padding:11px 20px;border-radius:100px;background:linear-gradient(135deg,#13935f 0%,#0b5c3d 100%);color:#fff;font-weight:700;font-size:14px;transition:.2s;box-shadow:var(--shadow)}
+.author-ig:hover{transform:translateY(-2px)}
+.author-ig svg{width:18px;height:18px;flex-shrink:0}
+@media(max-width:760px){.author-block{grid-template-columns:1fr;gap:24px;padding:32px 24px;text-align:center}.author-photo{margin:0 auto}.author-list li{text-align:left}.author-ig{margin-left:auto;margin-right:auto}}
 footer{background:#0a120f;color:#8a978f;padding:clamp(48px,6vw,72px) 24px;text-align:center;font-size:13px;line-height:1.6}
 footer .wrap{max-width:760px}
 .ft-support-h{font-family:var(--font-display);font-size:15px;font-weight:700;color:#eef3ef;text-transform:uppercase;letter-spacing:.02em;margin-bottom:14px}
@@ -1286,6 +1289,7 @@ footer .wrap{max-width:760px}
         <li>Створив десятки авторських AI-асистентів, якими користуються мої клієнти та учні</li>
         <li>AI — це <strong>не про «магію кнопки»</strong>, а про системний підхід і авторські інструменти</li>
       </ul>
+      <a href="https://www.instagram.com/ai_sashka.ua/" class="author-ig" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Instagram автора</a>
     </div>
   </div>
 </div>
