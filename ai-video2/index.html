@@ -271,6 +271,18 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.01em;line-height:1.
 
 /* ── MODULES ── */
 .modules-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.modules-secret{grid-column:1/-1;margin-top:6px;background:linear-gradient(160deg,rgba(127,216,232,.07),rgba(155,140,255,.05));border:1.5px dashed var(--border2);border-radius:var(--rl);padding:clamp(26px,4vw,40px);text-align:center}
+.mss-head{max-width:620px;margin:0 auto 24px}
+.mss-badge{display:inline-block;font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#1aa7bd;background:rgba(127,216,232,.12);border:1px solid rgba(127,216,232,.32);padding:6px 14px;border-radius:100px;margin-bottom:14px}
+.mss-title{font-family:var(--font-display);font-weight:800;font-size:clamp(20px,3vw,28px);text-transform:uppercase;letter-spacing:-.01em;margin-bottom:10px}
+.mss-sub{font-size:14.5px;color:var(--text2);line-height:1.6}
+.mss-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mss-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:26px 18px;display:flex;flex-direction:column;align-items:center;gap:7px;overflow:hidden}
+.mss-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#7fd8e8,#d4ecff,#b9a7ff,#7fd8e8)}
+.mss-lock{font-size:26px;line-height:1}
+.mss-n{font-family:var(--font-display);font-weight:800;font-size:14px;color:#1aa7bd;letter-spacing:.02em}
+.mss-q{font-family:var(--font-display);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.16em;color:var(--text3)}
+@media(max-width:560px){.mss-grid{grid-template-columns:1fr}}
 .module{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .2s}
 .module:hover{border-color:var(--border2)}
 .module.open{border-color:var(--accent-soft2)}
@@ -1003,6 +1015,19 @@ footer .wrap{max-width:760px}
       </ul>
       <div class="module-outcome"><p><strong>Конкретний план, де брати замовлення</strong> — і перші клієнти ще під час навчання.</p></div>
     </div></div>
+  </div>
+
+  <div class="modules-secret reveal">
+    <div class="mss-head">
+      <span class="mss-badge">Тільки Преміум &amp; VIP</span>
+      <h3 class="mss-title">+ 3 секретні модулі 🔒</h3>
+      <p class="mss-sub">Що саме в них — поки таємниця. Ці модулі відкриються вже всередині курсу для учнів Преміум і VIP. Повір, воно того варте 👀</p>
+    </div>
+    <div class="mss-grid">
+      <div class="mss-card"><span class="mss-lock">🔒</span><span class="mss-n">Модуль 13</span><span class="mss-q">Засекречено</span></div>
+      <div class="mss-card"><span class="mss-lock">🔒</span><span class="mss-n">Модуль 14</span><span class="mss-q">Засекречено</span></div>
+      <div class="mss-card"><span class="mss-lock">🔒</span><span class="mss-n">Модуль 15</span><span class="mss-q">Засекречено</span></div>
+    </div>
   </div>
 
   </div>
