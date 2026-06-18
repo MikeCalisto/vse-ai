@@ -177,6 +177,37 @@ ul.clean li svg{flex:none;width:26px;height:26px;color:var(--accent);margin-top:
 .big-stat{font-family:'Unbounded';font-weight:800;font-size:clamp(40px,7vw,80px);color:var(--accent)}
 .dark .big-stat{color:var(--mint)}
 
+/* ---------- HERO (S1) ---------- */
+.hero{background:#0c1512;overflow:hidden}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.55}
+.hero-overlay{position:absolute;inset:0;z-index:1;
+  background:
+    radial-gradient(120% 90% at 50% 30%, rgba(12,21,18,.35) 0%, rgba(12,21,18,.78) 60%, rgba(12,21,18,.95) 100%),
+    linear-gradient(180deg, rgba(12,21,18,.6) 0%, rgba(12,21,18,.2) 45%, rgba(12,21,18,.85) 100%);
+}
+.hero-grid{position:absolute;inset:-2px;z-index:2;pointer-events:none;opacity:.5;
+  background-image:
+    linear-gradient(rgba(67,209,153,.10) 1px,transparent 1px),
+    linear-gradient(90deg, rgba(67,209,153,.10) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(120% 80% at 50% 45%, #000 30%, transparent 78%);
+  mask-image:radial-gradient(120% 80% at 50% 45%, #000 30%, transparent 78%);
+  animation:gridmove 18s linear infinite;
+}
+@keyframes gridmove{from{background-position:0 0,0 0}to{background-position:54px 54px,54px 54px}}
+.hero-glow{position:absolute;z-index:2;pointer-events:none;width:60vmax;height:60vmax;left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle, rgba(67,209,153,.16) 0%, transparent 60%);
+  animation:glowpulse 7s ease-in-out infinite;
+}
+@keyframes glowpulse{0%,100%{opacity:.45;transform:translate(-50%,-50%) scale(.9)}50%{opacity:.9;transform:translate(-50%,-50%) scale(1.12)}}
+.hero .slide-inner{position:relative;z-index:5}
+.hero-title{font-family:'Unbounded';font-weight:800;font-size:clamp(28px,5vw,62px);line-height:1.08;text-transform:none;max-width:980px;
+  color:#f3f8f4 !important;animation:heroin 1s ease both;text-shadow:0 4px 40px rgba(0,0,0,.55)}
+.hero .t2{animation:heroin 1s ease .25s both}
+@keyframes heroin{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.hero-grid,.hero-glow,.hero-title,.hero .t2{animation:none}}
+
 /* nav */
 .nav{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:center;gap:16px;padding:16px;background:linear-gradient(to top,var(--bg) 40%,transparent)}
 .dark-nav .nav{background:linear-gradient(to top,#0c1512 40%,transparent)}
@@ -206,12 +237,16 @@ ul.clean li svg{flex:none;width:26px;height:26px;color:var(--accent);margin-top:
 
 <!-- ========== БЛОК 0 — ТИТУЛ ========== -->
 <!-- S1 -->
-<section class="slide dark center active">
+<section class="slide dark center active hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="clip.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
   <div class="slide-inner">
-    <div class="kicker">Вебінар · AI-відео</div>
-    <h1 class="big">AI-ВІДЕОКРЕАТОР</h1>
-    <p class="lead sub" style="color:#a9b7ae">Як створювати якісні AI-відео, які купують за <span class="hl">50–300$</span> — за 5 простих кроків</p>
-    <p class="t2 mt40" style="font-weight:600">Спікер: Олександр Цюцьмаць · <span class="placeholder">[дата]</span> · <span class="placeholder">[час]</span> за Києвом</p>
+    <h1 class="hero-title">Як створювати якісні AI-відео, які купують за <span class="hl">50–300$</span> — за 5 простих кроків</h1>
+    <p class="t2 mt40" style="font-weight:600">Спікер: Олександр Цюцьмаць · <span class="hl">18:00</span> за Києвом</p>
   </div>
 </section>
 
