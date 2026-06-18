@@ -80,8 +80,8 @@ ul.clean li svg{flex:none;width:26px;height:26px;color:var(--accent);margin-top:
 
 /* numbered steps */
 .numlist{list-style:none;display:flex;flex-direction:column;gap:18px;margin-top:18px}
-.numlist li{display:flex;gap:18px;align-items:center;font-size:clamp(16px,2vw,23px);font-weight:500}
-.num{flex:none;width:46px;height:46px;border-radius:13px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:'Unbounded';font-weight:700;font-size:18px}
+.numlist li{position:relative;padding-left:64px;font-size:clamp(16px,2vw,23px);font-weight:500;line-height:1.42}
+.num{position:absolute;left:0;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:13px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:'Unbounded';font-weight:700;font-size:18px}
 .dark .num{background:rgba(95,223,172,.14);color:var(--mint)}
 
 /* video / image frame */
