@@ -189,6 +189,10 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .split-video{width:100%;height:100%;object-fit:cover;display:block}
 .split-media.ph-frame{display:grid;place-items:center;background:var(--surface2);border:1.5px dashed var(--line);box-shadow:none}
 .split-media.ph-frame img{width:100%;height:100%;object-fit:cover}
+.vids3{align-items:start;width:100%;max-width:660px;margin-left:auto;margin-right:auto;gap:20px}
+.vids3 figure{display:flex;flex-direction:column;align-items:center;min-width:0}
+.vids3 .frame{width:100%}
+.vids3 figcaption{text-align:center;margin-top:12px;font-weight:600;color:#a9b7ae}
 .split-badge{position:absolute;left:14px;bottom:14px;z-index:2;font-family:'Manrope';font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
   color:#fff;background:rgba(12,21,18,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(95,223,172,.4);border-radius:100px;padding:7px 14px}
 @media(max-width:760px){
@@ -423,12 +427,30 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <!-- S10 -->
 <section class="slide dark center">
   <div class="slide-inner">
-    <h1 class="title">ЦЕ НЕ ЗЙОМКА</h1>
-    <div class="frame" style="max-width:760px">
-      <!-- <video src="../ai-video/hero-clip.mp4" poster="../ai-video/hero-poster.jpg" controls playsinline></video> -->
-      <div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></svg><span class="ph-label">[hero-відео]</span></div>
+    <h2>Тож, до суті — які відео ми сьогодні будемо розбирати:</h2>
+    <div class="grid g3 mt24 vids3">
+      <figure>
+        <div class="frame" style="aspect-ratio:9/16;margin-top:0">
+          <!-- <video src="video-multik.mp4" poster="video-multik.jpg" controls playsinline></video> -->
+          <div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></svg><span class="ph-label">[відео 1]</span></div>
+        </div>
+        <figcaption class="cap">Мультик</figcaption>
+      </figure>
+      <figure>
+        <div class="frame" style="aspect-ratio:9/16;margin-top:0">
+          <!-- <video src="video-ugc.mp4" poster="video-ugc.jpg" controls playsinline></video> -->
+          <div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></svg><span class="ph-label">[відео 2]</span></div>
+        </div>
+        <figcaption class="cap">UGC</figcaption>
+      </figure>
+      <figure>
+        <div class="frame" style="aspect-ratio:9/16;margin-top:0">
+          <!-- <video src="video-reklama.mp4" poster="video-reklama.jpg" controls playsinline></video> -->
+          <div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></svg><span class="ph-label">[відео 3]</span></div>
+        </div>
+        <figcaption class="cap">Реклама</figcaption>
+      </figure>
     </div>
-    <p class="cap">Повністю згенеровано через нейромережі, зі звуком. <span class="hl">Саме такі відео ти навчишся створювати</span></p>
   </div>
 </section>
 
