@@ -213,6 +213,20 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
   .split-media{aspect-ratio:16/10;order:-1}
 }
 
+/* ---------- фонове відео на контент-слайді ---------- */
+.has-bgvid{overflow:hidden}
+.bgvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.5}
+.bgvid-ov{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(12,21,18,.86) 0%,rgba(12,21,18,.72) 45%,rgba(12,21,18,.9) 100%)}
+.has-bgvid .slide-inner{position:relative;z-index:5}
+.has-bgvid .col{background:rgba(10,18,15,.5);border:1px solid rgba(255,255,255,.12);color:#eef3ef;backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+.has-bgvid .col.good{background:rgba(19,147,95,.2);border-color:rgba(95,223,172,.32)}
+.has-bgvid .col.bad h3{color:#c2cdc6}
+.has-bgvid .col.good h3{color:var(--mint)}
+.has-bgvid .col li{color:#eef3ef}
+.has-bgvid .col.bad li svg{color:#9fb0a6}
+.has-bgvid .col.good li svg{color:var(--mint)}
+
 /* ---------- HERO (S1) ---------- */
 .hero{background:#0c1512;overflow:hidden}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.55}
@@ -524,7 +538,11 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 </section>
 
 <!-- S14c — поріг входу впав -->
-<section class="slide">
+<section class="slide dark has-bgvid">
+  <video class="bgvid" autoplay muted loop playsinline preload="auto">
+    <source src="porig-bg.mp4" type="video/mp4">
+  </video>
+  <div class="bgvid-ov"></div>
   <div class="slide-inner">
     <h2>Поріг входу впав</h2>
     <div class="compare">
