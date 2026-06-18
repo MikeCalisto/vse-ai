@@ -330,6 +330,33 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.01em;line-height:1.
 .tier-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
 .tier.featured .tier-btn{background:var(--btn-grad);color:#fff;border-color:transparent;box-shadow:0 12px 28px rgba(11,92,61,.35)}
 .tier.featured .tier-btn:hover{transform:translateY(-2px);box-shadow:0 18px 38px rgba(11,92,61,.5)}
+/* metal tiers: silver / gold / diamond */
+.tier--silver,.tier--gold,.tier--diamond{position:relative;overflow:hidden}
+.tier--silver::before,.tier--gold::before,.tier--diamond::before{content:'';position:absolute;top:0;left:0;right:0;height:5px}
+.tier--silver::before{background:linear-gradient(90deg,#9aa4ad,#eef2f5,#aeb7c0)}
+.tier--gold::before{background:linear-gradient(90deg,#c8962f,#f6e27a,#caa24a)}
+.tier--diamond::before{background:linear-gradient(90deg,#7fd8e8,#d4ecff,#b9a7ff,#7fd8e8)}
+.tier-metal{display:inline-block;font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 13px;border-radius:100px;margin-bottom:14px;align-self:flex-start}
+.tm-silver{background:linear-gradient(135deg,#b3bcc4,#7e8893);color:#fff}
+.tm-gold{background:linear-gradient(135deg,#e6c25c,#b8860b);color:#3d2c06}
+.tm-diamond{background:linear-gradient(135deg,#9fe6f2,#a99bff);color:#15303a}
+.tier--silver{border-color:#c9d1d8}
+.tier--silver .tier-name{color:#5f6a73}
+.tier--silver .tier-list li::before{color:#8c96a0}
+.tier--silver .tier-btn:hover{border-color:#8c96a0;color:#5d6770}
+.tier--gold.featured{border-color:#d4af37;box-shadow:0 26px 64px rgba(184,134,11,.22)}
+.tier--gold .tier-name{color:#9a7416}
+.tier--gold .tier-price{color:#b8860b}
+.tier--gold .tier-list li::before{color:#c19a2e}
+.tier--gold.featured .tier-badge{background:linear-gradient(135deg,#e6c25c,#b8860b);color:#3d2c06}
+.tier--gold.featured .tier-btn{background:linear-gradient(135deg,#e6c25c,#b8860b);color:#3d2c06;box-shadow:0 12px 28px rgba(184,134,11,.35)}
+.tier--gold.featured .tier-btn:hover{box-shadow:0 18px 38px rgba(184,134,11,.5)}
+.tier--diamond{border-color:#86d6e6;box-shadow:0 22px 60px rgba(120,170,220,.2)}
+.tier--diamond .tier-name{color:#1f93ab}
+.tier--diamond .tier-price{color:#1aa7bd}
+.tier--diamond .tier-list li::before{color:#2fb0ca}
+.tier--diamond .tier-btn{background:linear-gradient(135deg,#7fd8e8,#a99bff);border-color:transparent;color:#143038;box-shadow:0 12px 28px rgba(120,150,220,.3)}
+.tier--diamond .tier-btn:hover{color:#143038;box-shadow:0 18px 38px rgba(120,150,220,.45)}
 .scarcity{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
 .scar-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:28px 30px;box-shadow:var(--shadow)}
 .scar-card .ic{font-size:28px;margin-bottom:14px;display:block}
@@ -1017,7 +1044,8 @@ footer .wrap{max-width:760px}
 
   <div class="tiers tiers--features">
 
-    <div class="tier reveal rd1">
+    <div class="tier tier--silver reveal rd1">
+      <div class="tier-metal tm-silver">Срібний</div>
       <div class="tier-name">Стандарт</div>
       <div class="tier-prices">
         <div class="tier-old">7 990 ₴</div>
@@ -1045,7 +1073,8 @@ footer .wrap{max-width:760px}
       <a href="#" class="tier-btn">Обрати Стандарт</a>
     </div>
 
-    <div class="tier featured reveal rd2">
+    <div class="tier featured tier--gold reveal rd2">
+      <div class="tier-metal tm-gold">Золотий</div>
       <div class="tier-badge">Оптимальний вибір</div>
       <div class="tier-name">Преміум</div>
       <div class="tier-prices">
@@ -1074,7 +1103,8 @@ footer .wrap{max-width:760px}
       <a href="#" class="tier-btn">Обрати Преміум</a>
     </div>
 
-    <div class="tier reveal rd3">
+    <div class="tier tier--diamond reveal rd3">
+      <div class="tier-metal tm-diamond">Діамантовий</div>
       <div class="tier-name">VIP</div>
       <div class="tier-prices">
         <div class="tier-old">24 990 ₴</div>
