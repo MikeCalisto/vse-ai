@@ -229,6 +229,23 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .has-bgvid .col.bad li svg{color:#9fb0a6}
 .has-bgvid .col.good li svg{color:var(--mint)}
 
+/* ---------- відео-слайд: відео + характеристики ---------- */
+.vsplit{display:grid;grid-template-columns:248px 1fr;gap:clamp(28px,4vw,56px);align-items:center;margin-top:22px}
+.vsplit .frame{margin-top:0;aspect-ratio:9/16}
+.specs{list-style:none;display:flex;flex-direction:column}
+.specs li{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.specs li svg{width:22px;height:22px;flex:none;color:var(--accent)}
+.specs .sl{flex:1;font-weight:500;color:var(--text2);font-size:clamp(13.5px,1.55vw,17px);line-height:1.3}
+.specs .sv{font-family:'Unbounded';font-weight:700;font-size:clamp(15px,1.7vw,20px);white-space:nowrap}
+.specs li.muted .sv{color:var(--text3)}
+.specs li.muted svg{color:var(--text3)}
+.specs li.profit{border-bottom:none;margin-top:8px;background:var(--accent-soft);border-radius:12px;padding:14px 16px}
+.specs li.profit svg,.specs li.profit .sv{color:var(--accent-deep)}
+.specs li.profit .sl{color:var(--accent-deep);font-weight:700}
+.specs li.profit .sv{font-size:clamp(18px,2.1vw,26px)}
+.specs-note{margin-top:12px;font-size:12.5px;color:var(--text3);font-style:italic}
+@media(max-width:760px){.vsplit{grid-template-columns:1fr}.vsplit .frame{max-width:220px;margin:0 auto}}
+
 /* ---------- HERO (S1) ---------- */
 .hero{background:#0c1512;overflow:hidden}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.55}
@@ -633,10 +650,23 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <section class="slide">
   <div class="slide-inner">
     <h2>UGC / реклама товару</h2>
-    <div class="frame">
-      <div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></svg><span class="ph-label">[відео]</span></div>
+    <div class="vsplit">
+      <div class="frame">
+        <!-- <video src="ugc.mp4" poster="ugc.jpg" autoplay muted loop playsinline></video> -->
+        <div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></svg><span class="ph-label">[відео]</span></div>
+      </div>
+      <div>
+        <ul class="specs">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="sl">Тривалість ролика</span><span class="sv">~15 сек</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h12M6 22h12M7 2c0 5 4 5 4 10S7 17 7 22M17 2c0 5-4 5-4 10s4 5 4 10"/></svg><span class="sl">Час на створення</span><span class="sv">~2 год</span></li>
+          <li class="muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg><span class="sl">Токенів у звичайного креатора</span><span class="sv">~2 500</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg><span class="sl">Токенів за моєю системою</span><span class="sv">~500</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span class="sl">Скільки заплатять за відео</span><span class="sv">$100–150</span></li>
+          <li class="profit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8M21 7v6h-6"/></svg><span class="sl">Чистий прибуток</span><span class="sv">~$130</span></li>
+        </ul>
+        <p class="specs-note">*цифри приблизні — уточнимо</p>
+      </div>
     </div>
-    <p class="cap">Формат, який замовники <span class="hl">купують найчастіше</span></p>
   </div>
 </section>
 
@@ -652,10 +682,23 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <section class="slide">
   <div class="slide-inner">
     <h2>Кінокадр / кліп</h2>
-    <div class="frame">
-      <div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></svg><span class="ph-label">[відео]</span></div>
+    <div class="vsplit">
+      <div class="frame">
+        <!-- <video src="klip.mp4" poster="klip.jpg" autoplay muted loop playsinline></video> -->
+        <div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></svg><span class="ph-label">[відео]</span></div>
+      </div>
+      <div>
+        <ul class="specs">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="sl">Тривалість ролика</span><span class="sv">~20 сек</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h12M6 22h12M7 2c0 5 4 5 4 10S7 17 7 22M17 2c0 5-4 5-4 10s4 5 4 10"/></svg><span class="sl">Час на створення</span><span class="sv">~3 год</span></li>
+          <li class="muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg><span class="sl">Токенів у звичайного креатора</span><span class="sv">~4 000</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg><span class="sl">Токенів за моєю системою</span><span class="sv">~800</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span class="sl">Скільки заплатять за відео</span><span class="sv">$200–300</span></li>
+          <li class="profit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8M21 7v6h-6"/></svg><span class="sl">Чистий прибуток</span><span class="sv">~$260</span></li>
+        </ul>
+        <p class="specs-note">*цифри приблизні — уточнимо</p>
+      </div>
     </div>
-    <p class="cap"><span class="hl">Вау-ефект</span> і діапазон</p>
   </div>
 </section>
 
@@ -671,10 +714,23 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <section class="slide">
   <div class="slide-inner">
     <h2>Мультик / анімація</h2>
-    <div class="frame">
-      <div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></svg><span class="ph-label">[відео]</span></div>
+    <div class="vsplit">
+      <div class="frame">
+        <!-- <video src="multik.mp4" poster="multik.jpg" autoplay muted loop playsinline></video> -->
+        <div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></svg><span class="ph-label">[відео]</span></div>
+      </div>
+      <div>
+        <ul class="specs">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="sl">Тривалість ролика</span><span class="sv">~30 сек</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h12M6 22h12M7 2c0 5 4 5 4 10S7 17 7 22M17 2c0 5-4 5-4 10s4 5 4 10"/></svg><span class="sl">Час на створення</span><span class="sv">~4 год</span></li>
+          <li class="muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg><span class="sl">Токенів у звичайного креатора</span><span class="sv">~5 000</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg><span class="sl">Токенів за моєю системою</span><span class="sv">~1 000</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span class="sl">Скільки заплатять за відео</span><span class="sv">$250–300</span></li>
+          <li class="profit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8M21 7v6h-6"/></svg><span class="sl">Чистий прибуток</span><span class="sv">~$270</span></li>
+        </ul>
+        <p class="specs-note">*цифри приблизні — уточнимо</p>
+      </div>
     </div>
-    <p class="cap">Власний стиль, <span class="hl">окремий ринок</span></p>
   </div>
 </section>
 
