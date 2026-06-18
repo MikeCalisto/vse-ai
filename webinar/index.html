@@ -96,6 +96,19 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .grid{display:grid;gap:16px;margin-top:24px}
 .g2{grid-template-columns:1fr 1fr}
 .g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.icard{align-items:center;text-align:center;gap:8px}
+.icard .ic{width:32px;height:32px;margin-bottom:2px}
+.icard .ct{font-size:clamp(14px,1.6vw,17px)}
+
+/* callout */
+.callout{display:flex;gap:15px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px;margin-top:28px;max-width:840px}
+.dark .callout{background:#10201a;border-color:rgba(95,223,172,.22);border-left-color:var(--mint)}
+.callout svg{flex:none;width:28px;height:28px;color:var(--accent);margin-top:2px}
+.dark .callout svg{color:var(--mint)}
+.callout p{font-size:clamp(15px,1.85vw,21px);font-weight:600;line-height:1.4;margin:0}
+.callout b{color:var(--accent-deep)}
+.dark .callout b{color:var(--mint)}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:8px}
 .card .ic{width:30px;height:30px;color:var(--accent);margin-bottom:4px}
 .card .cn{font-family:'Unbounded';font-weight:700;font-size:14px;color:var(--accent)}
@@ -468,8 +481,12 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <section class="slide">
   <div class="slide-inner">
     <h2>Багато неякісних генерацій</h2>
-    <p class="lead sub">Більшість людей генерує картинки й відео «заради приколу». Заради охоплень і трендів. І дуже часто там простежуються моменти, які видають, що це нейромережі.</p>
-    <p class="lead mt16">І тому багато новачків вважають, що AI не вміє робити справді якісний контент. Але <span class="hl">проблема взагалі не в нейронках</span> — проблема в тому, <span class="hl">як ви з нею працюєте.</span></p>
+    <p class="lead sub">Більшість людей генерує картинки й відео «заради приколу» — заради охоплень і трендів. І дуже часто там простежуються моменти, які видають, що це нейромережі.</p>
+    <p class="lead mt16">Тому багато новачків вважають, що AI не вміє робити справді якісний контент.</p>
+    <div class="callout">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.6 1 1.4 1 2.3h6c0-.9.4-1.7 1-2.3A7 7 0 0 0 12 2Z"/></svg>
+      <p>Але проблема <b>взагалі не в нейронках</b> — а в тому, <b>як ви з нею працюєте</b></p>
+    </div>
   </div>
 </section>
 
@@ -477,8 +494,22 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <section class="slide">
   <div class="slide-inner">
     <h2>За що взагалі братися?</h2>
-    <p class="lead sub">Велика кількість AI-контенту призводить ще й до того, що люди не розуміють, <span class="hl">а за що взагалі братися?</span> Що генерувати, коли вже награвся вдосталь з нейронками?</p>
-    <p class="lead mt16">І тут я маю для вас <span class="hl">конкретне рішення.</span> Так, я і сам генерую трендовий контент — для охоплень, зростання блогу та медійності. Але окрім цього, я чітко розумію, <span class="hl">за який контент готові платити гроші.</span> І в цьому — головний момент.</p>
+    <p class="lead sub">Велика кількість AI-контенту призводить ще й до того, що люди не розуміють, <span class="hl">за що взагалі братися</span> і що генерувати, коли вже награвся вдосталь з нейронками.</p>
+    <p class="lead mt16">У мене є <span class="hl">конкретне рішення</span> — я чітко розділяю два типи контенту:</p>
+    <div class="grid g2" style="max-width:840px">
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8M21 7v6h-6"/></svg>
+        <span class="cn">Заради охоплень</span>
+        <span class="ct">Трендовий контент</span>
+        <span class="cd">Для зростання блогу та медійності. Цим займається більшість.</span>
+      </div>
+      <div class="card" style="border-color:rgba(15,122,82,.4);background:var(--accent-soft)">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span class="cn">Заради грошей</span>
+        <span class="ct">Контент, за який платять</span>
+        <span class="cd">Те, на чому реально заробляють. У цьому — головний момент.</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -486,8 +517,13 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <section class="slide">
   <div class="slide-inner">
     <h2>Відео потрібне всім</h2>
-    <p class="lead sub">Найзатребуваніший тип контенту за весь час існування інтернету — це <span class="hl">відео</span>. Воно потрібне всім: від малих бізнесів, блогерів та інфлюенсерів — до великих компаній і корпорацій.</p>
-    <p class="lead mt16">За відеоконтент <span class="hl">завжди були готові платити</span> — і навколо цього зріс величезний ринок із сотнями тисяч клієнтів.</p>
+    <p class="lead sub">Найзатребуваніший тип контенту за весь час існування інтернету — це <span class="hl">відео</span>. За нього <span class="hl">завжди були готові платити</span> — і навколо цього зріс величезний ринок із сотнями тисяч клієнтів.</p>
+    <div class="grid g4" style="margin-top:28px;max-width:920px">
+      <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l1-4h16l1 4M4 9v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9M3 9h18M9 20v-6h6v6"/></svg><span class="ct">Малий бізнес</span></div>
+      <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M5 21v-1a7 7 0 0 1 14 0v1"/></svg><span class="ct">Блогери</span></div>
+      <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11v2a1 1 0 0 0 1 1h2l4 4V6L6 10H4a1 1 0 0 0-1 1ZM15 8a4 4 0 0 1 0 8M18 5a8 8 0 0 1 0 14"/></svg><span class="ct">Інфлюенсери</span></div>
+      <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 7h.01M15 7h.01M9 11h.01M15 11h.01M9 15h.01M15 15h.01"/></svg><span class="ct">Компанії</span></div>
+    </div>
   </div>
 </section>
 
@@ -495,9 +531,28 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <section class="slide">
   <div class="slide-inner">
     <h2>Поріг входу впав</h2>
-    <p class="lead sub">Ще рік тому поріг входу був величезний: для створення відео потрібні були команди з десятків спеціалістів і купа дорогого обладнання.</p>
-    <p class="lead mt16">Тепер, завдяки AI, <span class="hl">доступ до цього ринку має кожен</span> — незалежно від технічних знань, навичок роботи з камерою, досвіду у світлі чи 3D.</p>
-    <p class="lead mt16">Головне — мати <span class="hl">покрокову систему</span> під кожен тип контенту. І я покажу вам ці кроки.</p>
+    <div class="compare">
+      <div class="col bad">
+        <h3>Ще рік тому</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>Команди з десятків спеціалістів</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>Купа дорогого обладнання</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>Камера, світло, складні 3D-програми</li>
+        </ul>
+      </div>
+      <div class="col good">
+        <h3>Тепер з AI</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Доступ має кожен</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Без обладнання й технічних знань</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Усе — з ноутбука чи телефона</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h4v-4h4v-4h4V8h4"/></svg>
+      <p>Головне — мати <b>покрокову систему</b> під кожен тип контенту. І я покажу вам ці кроки.</p>
+    </div>
   </div>
 </section>
 
