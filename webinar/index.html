@@ -97,6 +97,7 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .g2{grid-template-columns:1fr 1fr}
 .g3{grid-template-columns:repeat(3,1fr)}
 .g4{grid-template-columns:repeat(4,1fr)}
+.g5{grid-template-columns:repeat(5,1fr)}
 .icard{align-items:center;text-align:center;gap:8px}
 .icard .ic{width:32px;height:32px;margin-bottom:2px}
 .icard .ct{font-size:clamp(14px,1.6vw,17px)}
@@ -582,21 +583,39 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <!-- S15 -->
 <section class="slide">
   <div class="slide-inner">
-    <h2>Клієнтів<br>вистачає всім</h2>
+    <h2>Клієнтів вистачає всім</h2>
     <p class="lead sub">Сарафан ще не зайнятий. <span class="hl">Хто заходить зараз — устигає зайняти своїх клієнтів і напрацювати ім'я, поки ніша вільна.</span></p>
+    <div class="grid g3" style="margin-top:30px;max-width:920px">
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 22V4M4 4l11 2-2 4 4 2-13 2"/></svg>
+        <span class="ct">Ніша щойно зародилась</span>
+        <span class="cd">Конкуренції майже нема — ринок тільки формується.</span>
+      </div>
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11v2a1 1 0 0 0 1 1h2l4 4V6L6 10H4a1 1 0 0 0-1 1ZM15 8a4 4 0 0 1 0 8"/></svg>
+        <span class="ct">Сарафан ще вільний</span>
+        <span class="cd">Клієнти шукають виконавців — а їх одиниці.</span>
+      </div>
+      <div class="card" style="border-color:rgba(15,122,82,.4);background:var(--accent-soft)">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 6 6 .8-4.5 4.3 1.1 6.4L12 16.8 6.4 19.5l1.1-6.4L3 8.8 9 8Z"/></svg>
+        <span class="cn">Твоя перевага</span>
+        <span class="ct">Перші займають ім'я</span>
+        <span class="cd">Хто заходить зараз — стає «тим самим» AI-креатором.</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- S16 -->
 <section class="slide">
   <div class="slide-inner">
-    <h2>Один навик —<br>багато напрямів</h2>
-    <div class="chips">
-      <span class="chip">Реклама</span>
-      <span class="chip">UGC для e-commerce</span>
-      <span class="chip">Мультики</span>
-      <span class="chip">Кліпи</span>
-      <span class="chip">Контент для блогу</span>
+    <h2>Один навик — багато напрямів</h2>
+    <div class="grid g5" style="margin-top:28px;max-width:980px">
+      <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11v2a1 1 0 0 0 1 1h2l4 4V6L6 10H4a1 1 0 0 0-1 1ZM15 8a4 4 0 0 1 0 8M18 5a8 8 0 0 1 0 14"/></svg><span class="ct">Реклама</span></div>
+      <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4ZM3 6h18M16 10a4 4 0 0 1-8 0"/></svg><span class="ct">UGC для e-commerce</span></div>
+      <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.2 5.3 5.8.5-4.4 3.8 1.3 5.6L12 20.3 7.1 18l1.3-5.6L4 8.8l5.8-.5Z"/></svg><span class="ct">Мультики</span></div>
+      <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM21 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg><span class="ct">Кліпи</span></div>
+      <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m22 8-6 4 6 4Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg><span class="ct">Контент для блогу</span></div>
     </div>
     <p class="ph mt24">Опановуєш систему — застосовуєш у будь-якій ніші: товарка, послуги, блогери, готелі, будівництво…</p>
   </div>
