@@ -1070,12 +1070,6 @@ ul.clean li svg{flex:none;width:26px;height:26px;color:var(--accent);margin-top:
     else { (document.exitFullscreen||function(){})(); }
   });
 
-  // click on deck = next (ignore controls, links, video)
-  document.getElementById('deck').addEventListener('click',function(e){
-    if(e.target.closest('button, a, .dot, video, .nbtn, input, textarea')) return;
-    nextS();
-  });
-
   // keyboard
   document.addEventListener('keydown',function(e){
     switch(e.key){
