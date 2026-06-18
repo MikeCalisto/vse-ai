@@ -206,7 +206,23 @@ ul.clean li svg{flex:none;width:26px;height:26px;color:var(--accent);margin-top:
   color:#f3f8f4 !important;animation:heroin 1s ease both;text-shadow:0 4px 40px rgba(0,0,0,.55)}
 .hero .t2{animation:heroin 1s ease .25s both}
 @keyframes heroin{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){.hero-grid,.hero-glow,.hero-title,.hero .t2{animation:none}}
+.hero-meta{display:inline-flex;align-items:center;gap:clamp(16px,2.4vw,30px);flex-wrap:wrap;justify-content:center;margin-top:clamp(28px,4vw,44px);
+  padding:clamp(12px,1.6vw,16px) clamp(18px,2.4vw,26px);border-radius:100px;
+  background:rgba(12,21,18,.45);border:1px solid rgba(95,223,172,.22);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  animation:heroin 1s ease .35s both}
+.meta-item{display:flex;align-items:center;gap:13px;text-align:left}
+.meta-avatar{width:clamp(48px,5vw,62px);height:clamp(48px,5vw,62px);border-radius:50%;object-fit:cover;flex:none;
+  border:2px solid var(--mint);box-shadow:0 0 0 4px rgba(67,209,153,.15)}
+.meta-ic{width:clamp(44px,4.6vw,56px);height:clamp(44px,4.6vw,56px);border-radius:50%;flex:none;display:grid;place-items:center;
+  background:rgba(67,209,153,.12);border:1px solid rgba(95,223,172,.35);color:var(--mint)}
+.meta-ic svg{width:55%;height:55%}
+.meta-text{display:flex;flex-direction:column;line-height:1.15}
+.meta-label{font-size:clamp(11px,1.2vw,13px);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7fbfa3}
+.meta-val{font-family:'Unbounded';font-weight:700;font-size:clamp(16px,1.9vw,23px);color:#f3f8f4}
+.meta-val small{font-family:'Manrope';font-weight:500;font-size:.62em;color:#a9b7ae;letter-spacing:0}
+.meta-sep{width:1px;height:38px;background:rgba(95,223,172,.25)}
+@media(max-width:560px){.meta-sep{display:none}.hero-meta{gap:14px}}
+@media(prefers-reduced-motion:reduce){.hero-grid,.hero-glow,.hero-title,.hero .t2,.hero-meta{animation:none}}
 
 /* nav */
 .nav{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:center;gap:16px;padding:16px;background:linear-gradient(to top,var(--bg) 40%,transparent)}
@@ -246,7 +262,17 @@ ul.clean li svg{flex:none;width:26px;height:26px;color:var(--accent);margin-top:
   <div class="hero-glow"></div>
   <div class="slide-inner">
     <h1 class="hero-title">Як створювати якісні AI-відео, які купують за <span class="hl">50–300$</span> — за 5 простих кроків</h1>
-    <p class="t2 mt40" style="font-weight:600">Спікер: Олександр Цюцьмаць · <span class="hl">18:00</span> за Києвом</p>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <img class="meta-avatar" src="author.jpg" alt="Олександр Цюцьмаць">
+        <div class="meta-text"><span class="meta-label">Спікер</span><span class="meta-val">Олександр&nbsp;Цюцьмаць</span></div>
+      </div>
+      <span class="meta-sep"></span>
+      <div class="meta-item">
+        <span class="meta-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+        <div class="meta-text"><span class="meta-label">Старт о</span><span class="meta-val">18:00 <small>за Києвом</small></span></div>
+      </div>
+    </div>
   </div>
 </section>
 
