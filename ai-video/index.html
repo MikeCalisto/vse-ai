@@ -378,6 +378,23 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.01em;line-height:1.
 .pc-old{font-size:17px;color:var(--text3);text-decoration:line-through;margin-bottom:4px}
 .pc-amt{font-family:var(--font-display);font-weight:800;font-size:clamp(30px,3.4vw,44px);color:var(--accent);line-height:1}
 .price-card .tier-btn{margin-top:22px;width:100%}
+/* metal price cards: silver / gold / diamond by column */
+.price-row .price-card,.install-grid .install-card{position:relative;overflow:hidden}
+.price-row .price-card::before,.install-grid .install-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.price-row .price-card:nth-child(1)::before,.install-grid .install-card:nth-child(1)::before{background:linear-gradient(90deg,#9aa4ad,#eef2f5,#aeb7c0)}
+.price-row .price-card:nth-child(2)::before,.install-grid .install-card:nth-child(2)::before{background:linear-gradient(90deg,#c8962f,#f6e27a,#caa24a)}
+.price-row .price-card:nth-child(3)::before,.install-grid .install-card:nth-child(3)::before{background:linear-gradient(90deg,#7fd8e8,#d4ecff,#b9a7ff,#7fd8e8)}
+.price-row .price-card:nth-child(1) .pc-name,.price-row .price-card:nth-child(1) .pc-amt,.install-grid .install-card:nth-child(1) .ic-name,.install-grid .install-card:nth-child(1) .ic-amt{color:#c2cad1}
+.price-row .price-card:nth-child(2) .pc-name,.price-row .price-card:nth-child(2) .pc-amt,.install-grid .install-card:nth-child(2) .ic-name,.install-grid .install-card:nth-child(2) .ic-amt{color:#e6c25c}
+.price-row .price-card:nth-child(3) .pc-name,.price-row .price-card:nth-child(3) .pc-amt,.install-grid .install-card:nth-child(3) .ic-name,.install-grid .install-card:nth-child(3) .ic-amt{color:#7fd8e8}
+.price-row .price-card:nth-child(2).featured{border-color:#d4af37;box-shadow:0 22px 56px rgba(184,134,11,.2)}
+.install-grid .install-card:nth-child(2).featured{border-color:#d4af37;background:rgba(212,175,55,.08)}
+.price-row .price-card:nth-child(3){border-color:#3a6b78}
+.price-row .price-card:nth-child(1) .tier-btn:hover{border-color:#9aa4ad;color:#c2cad1}
+.price-row .price-card:nth-child(2) .tier-btn{background:linear-gradient(135deg,#e6c25c,#b8860b);color:#3d2c06;border-color:transparent}
+.price-row .price-card:nth-child(2) .tier-btn:hover{color:#3d2c06;box-shadow:0 14px 30px rgba(184,134,11,.4)}
+.price-row .price-card:nth-child(3) .tier-btn{background:linear-gradient(135deg,#7fd8e8,#a99bff);color:#143038;border-color:transparent}
+.price-row .price-card:nth-child(3) .tier-btn:hover{color:#143038;box-shadow:0 14px 30px rgba(120,150,220,.4)}
 .price-stage--special{background:var(--accent-soft);border:1px solid var(--accent-soft2);border-radius:var(--rl);padding:clamp(28px,4vw,44px)}
 
 /* ── INSTALLMENTS ── */
