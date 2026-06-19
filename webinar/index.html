@@ -317,6 +317,30 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .rmphase .rp-title{font-family:'Unbounded';font-weight:700;font-size:clamp(18px,2.1vw,24px);margin-bottom:8px}
 .rmphase .rp-desc{color:var(--text2);font-size:14px;line-height:1.45}
 
+/* ---------- ROADMAP (карта шляху) ---------- */
+.roadmap{position:relative;padding-left:50px;margin-top:14px;width:100%;max-width:1080px;margin-left:auto;margin-right:auto;text-align:left}
+.roadmap::before{content:'';position:absolute;left:16px;top:-60px;bottom:-60px;width:3px}
+.roadmap.p1::before{background:#9b4dab}
+.roadmap.p2::before{background:var(--accent)}
+.roadmap.p3::before{background:var(--gold)}
+.rm-phase-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-family:'Unbounded';font-weight:700}
+.rm-phase-head .rph-n{font-size:13px;letter-spacing:.04em;color:var(--text3)}
+.rm-phase-head .rph-t{font-size:clamp(18px,2.2vw,26px)}
+.roadmap.p1 .rph-t{color:#9b4dab}.roadmap.p2 .rph-t{color:var(--accent)}.roadmap.p3 .rph-t{color:var(--gold)}
+.rmrow{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:11px 16px;margin-bottom:10px;display:flex;gap:13px;align-items:flex-start}
+.rmrow::before{content:'';position:absolute;left:-41px;top:15px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:3px solid currentColor}
+.roadmap.p1 .rmrow::before{color:#9b4dab}.roadmap.p2 .rmrow::before{color:var(--accent)}.roadmap.p3 .rmrow::before{color:var(--gold)}
+.rmrow .rn{font-family:'Unbounded';font-weight:800;font-size:17px;flex:none;width:30px;line-height:1.4}
+.roadmap.p1 .rn{color:#9b4dab}.roadmap.p2 .rn{color:var(--accent)}.roadmap.p3 .rn{color:var(--gold)}
+.rmrow .rc{flex:1}
+.rmrow .rt{font-weight:600;font-size:clamp(12.5px,1.5vw,15.5px);line-height:1.35}
+.rmrow .rr{color:var(--text2);font-size:12px;line-height:1.35;margin-top:2px}
+.rmend{position:relative;margin-top:6px;background:rgba(21,32,26,.05);border-radius:12px;padding:11px 16px;font-weight:600;font-size:13px;display:flex;align-items:center;gap:10px}
+.rmend::before{content:'';position:absolute;left:-41px;top:50%;transform:translateY(-50%);width:15px;height:15px;border-radius:50%}
+.roadmap.p1 .rmend{color:#9b4dab}.roadmap.p1 .rmend::before{background:#9b4dab}
+.roadmap.p2 .rmend{color:var(--accent-deep)}.roadmap.p2 .rmend::before{background:var(--accent)}
+.roadmap.p3 .rmend{color:var(--gold)}.roadmap.p3 .rmend::before{background:var(--gold)}
+
 /* ---------- MORE cards (це більше) ---------- */
 .morecard{text-align:left;gap:8px}
 .morecard .me{font-size:26px;line-height:1}
@@ -1232,6 +1256,48 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
         <div class="rp-title">Вихід на дохід</div>
         <div class="rp-desc">Портфоліо, перший дохід і система залучення клієнтів</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- S35-roadmap1 -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="roadmap p1">
+      <div class="rm-phase-head"><span class="rph-n">ФАЗА 1 · 1–4 ТИЖНІ</span><span class="rph-t">Фундамент</span></div>
+      <div class="rmrow"><span class="rn">01</span><div class="rc"><div class="rt">Розбираєшся в ніші AI-відео: де гроші і як зайти саме туди</div><div class="rr">= обираєш нішу, з якою працюватимеш, і бачиш свій шлях</div></div></div>
+      <div class="rmrow"><span class="rn">02</span><div class="rc"><div class="rt">Опановуєш промт-інженерію й налаштовуєш власного AI-асистента, який пише промти за тебе</div><div class="rr">= генерації передбачувані, без зливу токенів на «як пощастить»</div></div></div>
+      <div class="rmrow"><span class="rn">03</span><div class="rc"><div class="rt">Створюєш AI-персонажів зі стабільною зовнішністю, локаціями та стилем</div><div class="rr">= герої не змінюються між кадрами — фундамент будь-якого AI-контенту</div></div></div>
+      <div class="rmrow"><span class="rn">04</span><div class="rc"><div class="rt">Будуєш розкадровку і генеруєш кінематографічні кадри</div><div class="rr">= готовий візуал для першого відео</div></div></div>
+      <div class="rmend">Кінець фази 1 — є персонаж, розуміння інструментів і перші кадри</div>
+    </div>
+  </div>
+</section>
+
+<!-- S35-roadmap2 -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="roadmap p2">
+      <div class="rm-phase-head"><span class="rph-n">ФАЗА 2 · 5–10 ТИЖНІ</span><span class="rph-t">Виробництво</span></div>
+      <div class="rmrow"><span class="rn">05</span><div class="rc"><div class="rt">Оживляєш кадри: рух, динаміка камери, звук прямо в генерації</div><div class="rr">= перші живі відеофрагменти — вже є що показати клієнту</div></div></div>
+      <div class="rmrow"><span class="rn">06</span><div class="rc"><div class="rt">Монтуєш цілісний ролик з переходами, озвучкою і музикою</div><div class="rr">= перше повноцінне відео, готове до публікації</div></div></div>
+      <div class="rmrow"><span class="rn">07</span><div class="rc"><div class="rt">Знімаєш короткий AI-фільм від ідеї до фінального монтажу</div><div class="rr">= перша серйозна робота для портфоліо</div></div></div>
+      <div class="rmrow"><span class="rn">08</span><div class="rc"><div class="rt">Робиш UGC з AI-блогером і відео для товарів</div><div class="rr">= формат, який купують найчастіше — і добре платять, бо зробити складно</div></div></div>
+      <div class="rmrow"><span class="rn">09</span><div class="rc"><div class="rt">Створюєш мультик у власному стилі з послідовним сюжетом</div><div class="rr">= друга робота в портфоліо й окремий ринок</div></div></div>
+      <div class="rmrow"><span class="rn">10</span><div class="rc"><div class="rt">Робиш комерційну рекламу для товару чи бізнесу</div><div class="rr">= рекламний ролик, який можна одразу показати клієнту</div></div></div>
+      <div class="rmend">Кінець фази 2 — фільм, UGC, мультик і реклама. Чотири формати — чотири ринки</div>
+    </div>
+  </div>
+</section>
+
+<!-- S35-roadmap3 -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="roadmap p3">
+      <div class="rm-phase-head"><span class="rph-n">ФАЗА 3 · 11–12 ТИЖНІ</span><span class="rph-t">Вихід на дохід</span></div>
+      <div class="rmrow"><span class="rn">11</span><div class="rc"><div class="rt">Збираєш 5 робіт, зроблених під час курсу, в єдине портфоліо</div><div class="rr">= портфоліо продає тебе як AI-відеокреатора ще до першої розмови з клієнтом</div></div></div>
+      <div class="rmrow"><span class="rn">12</span><div class="rc"><div class="rt">Дізнаєшся, де брати клієнтів і як вести свої соцмережі як AI-відеокреатор</div><div class="rr">= конкретний план залучення перших клієнтів — ще під час навчання</div></div></div>
+      <div class="rmend">Кінець фази 3 — портфоліо з 5 робіт, розуміння ринку і перші клієнти 🏁</div>
     </div>
   </div>
 </section>
