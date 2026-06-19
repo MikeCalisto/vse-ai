@@ -375,6 +375,14 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .neurocard .nc-name{font-family:'Unbounded';font-weight:700;font-size:17px}
 .neurocard .nc-desc{font-size:12.5px;color:var(--text2);line-height:1.35}
 
+/* картка гарантії */
+.guarcard{display:flex;gap:32px;align-items:center;background:var(--surface2);border:1px solid var(--line);border-radius:24px;padding:40px 44px;width:100%;max-width:1000px;margin-left:auto;margin-right:auto;text-align:left}
+.guar-icon{flex:none;width:80px;height:80px;border-radius:20px;background:var(--accent-soft);display:grid;place-items:center}
+.guar-icon svg{width:42px;height:42px;color:var(--accent)}
+.guarcard h2{margin-bottom:14px}
+.guarcard .lead{margin:0}
+@media(max-width:760px){.guarcard{flex-direction:column;text-align:center;padding:28px 22px}}
+
 /* ---------- ФАЗИ (roadmap як на лендінгу) ---------- */
 .rmphases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;width:100%;max-width:1040px;margin-left:auto;margin-right:auto}
 .rmphase{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px 24px 24px 30px;overflow:hidden;text-align:left}
@@ -1839,14 +1847,15 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 </section>
 
 <!-- S52 -->
-<section class="slide">
+<section class="slide center">
   <div class="slide-inner">
-    <h2>Гарантія, яка більша<br>за звичайну</h2>
-    <ul class="clean mt24">
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg><b>Підтримка до окупності</b> (Преміум / VIP) — супроводжую після навчання, поки курс не поверне свої гроші*</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg><b>Підлаштування програми під нішу</b> (VIP) — адаптую матеріал саме під твій бізнес</li>
-    </ul>
-    <p class="ph mt24">*за умови, що виконуєш кроки програми</p>
+    <div class="guarcard">
+      <div class="guar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+      <div>
+        <h2>Підтримка до окупності</h2>
+        <p class="lead sub">Я впевнений у курсі, тому йду далі за звичайну гарантію. <b>На тарифах Преміум і VIP я супроводжую тебе після навчання — до повної окупності курсу,</b> за умови, що ти виконуєш кроки програми. Жодних «купив і розбирайся сам». Мета — щоб навчання повернуло свої гроші.</p>
+      </div>
+    </div>
   </div>
 </section>
 
