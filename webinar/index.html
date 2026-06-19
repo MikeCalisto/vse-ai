@@ -326,6 +326,19 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .tier.diamond .tier-name{color:#2f8fb0}
 .tier.diamond .tier-feat li.on svg{color:#3f9fc0}
 
+/* картки цін (метал, світла тема) */
+.pricecards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px;width:100%;max-width:1000px;margin-left:auto;margin-right:auto}
+.pricecard{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:28px 20px;text-align:center;box-shadow:0 12px 32px rgba(21,32,26,.07)}
+.pricecard .pc-name{font-family:'Unbounded';font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+.pricecard .pc-old{text-decoration:line-through;color:var(--text3);font-weight:600;font-size:16px;margin-bottom:4px}
+.pricecard .pc-amt{font-family:'Unbounded';font-weight:800;font-size:clamp(26px,3.4vw,42px);line-height:1}
+.pricecard.silver{border-color:#b3bdc2;box-shadow:0 0 0 1px rgba(160,175,182,.25),0 12px 32px rgba(21,32,26,.07)}
+.pricecard.silver .pc-name,.pricecard.silver .pc-amt{color:#7f8c92}
+.pricecard.gold{border-color:#cba636;box-shadow:0 0 0 1px rgba(184,144,47,.3),0 14px 34px rgba(184,144,47,.14)}
+.pricecard.gold .pc-name,.pricecard.gold .pc-amt{color:#b8902f}
+.pricecard.diamond{border-color:#4fa9cc;box-shadow:0 0 0 1px rgba(79,169,204,.28),0 14px 34px rgba(79,169,204,.13)}
+.pricecard.diamond .pc-name,.pricecard.diamond .pc-amt{color:#2f8fb0}
+
 /* ---------- ФАЗИ (roadmap як на лендінгу) ---------- */
 .rmphases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;width:100%;max-width:1040px;margin-left:auto;margin-right:auto}
 .rmphase{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px 24px 24px 30px;overflow:hidden;text-align:left}
@@ -1708,13 +1721,13 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <!-- S47 — повна вартість -->
 <section class="slide">
   <div class="slide-inner">
-    <h2>Повна вартість навчання</h2>
-    <div class="pricerow">
-      <div class="pr"><span class="pn">Стандарт</span><span class="pv"><span class="price-new">12 790 ₴</span></span></div>
-      <div class="pr"><span class="pn">Преміум</span><span class="pv"><span class="price-new">21 970 ₴</span></span></div>
-      <div class="pr"><span class="pn">VIP</span><span class="pv"><span class="price-new">29 970 ₴</span></span></div>
+    <h2 style="text-align:center">Повна вартість навчання</h2>
+    <div class="pricecards">
+      <div class="pricecard silver"><div class="pc-name">Стандарт</div><div class="pc-amt">12 790 ₴</div></div>
+      <div class="pricecard gold"><div class="pc-name">Преміум</div><div class="pc-amt">21 970 ₴</div></div>
+      <div class="pricecard diamond"><div class="pc-name">VIP</div><div class="pc-amt">29 970 ₴</div></div>
     </div>
-    <p class="ph mt24">Саме стільки курс коштуватиме після вебінару</p>
+    <p class="ph mt24" style="text-align:center">Саме стільки курс коштуватиме після вебінару</p>
   </div>
 </section>
 
@@ -1736,15 +1749,15 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 </section>
 
 <!-- S49 — ціна для учасників ефіру -->
-<section class="slide dark">
+<section class="slide">
   <div class="slide-inner">
-    <h2 style="color:var(--mint)">Ціна тільки для<br>учасників ефіру</h2>
-    <div class="pricerow mt24">
-      <div class="pr" style="border-color:rgba(95,223,172,.2)"><span class="pn" style="color:#eef3ef">Стандарт</span><span class="pv"><span class="price-old">12 790</span><span class="price-new" style="color:var(--mint)">7 990 ₴</span></span></div>
-      <div class="pr" style="border-color:rgba(95,223,172,.2)"><span class="pn" style="color:#eef3ef">Преміум</span><span class="pv"><span class="price-old">21 970</span><span class="price-new" style="color:var(--mint)">13 990 ₴</span></span></div>
-      <div class="pr" style="border-color:rgba(95,223,172,.2)"><span class="pn" style="color:#eef3ef">VIP</span><span class="pv"><span class="price-old">29 970</span><span class="price-new" style="color:var(--mint)">19 990 ₴</span></span></div>
+    <h2 style="text-align:center">Ціна тільки для учасників ефіру</h2>
+    <div class="pricecards">
+      <div class="pricecard silver"><div class="pc-name">Стандарт</div><div class="pc-old">12 790 ₴</div><div class="pc-amt">7 990 ₴</div></div>
+      <div class="pricecard gold"><div class="pc-name">Преміум</div><div class="pc-old">21 970 ₴</div><div class="pc-amt">13 990 ₴</div></div>
+      <div class="pricecard diamond"><div class="pc-name">VIP</div><div class="pc-old">29 970 ₴</div><div class="pc-amt">19 990 ₴</div></div>
     </div>
-    <p class="t2 mt24" style="font-style:italic">Це не «знижка назавжди» — після ефіру ціна буде повною</p>
+    <p class="ph mt24" style="text-align:center">Це не «знижка назавжди» — після ефіру ціна буде повною</p>
   </div>
 </section>
 
