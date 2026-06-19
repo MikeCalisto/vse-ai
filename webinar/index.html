@@ -339,6 +339,30 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .pricecard.diamond{border-color:#4fa9cc;box-shadow:0 0 0 1px rgba(79,169,204,.28),0 14px 34px rgba(79,169,204,.13)}
 .pricecard.diamond .pc-name,.pricecard.diamond .pc-amt{color:#2f8fb0}
 
+/* оплата частинами (як на референсі) */
+.paybanner{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#fff;border-radius:18px;padding:16px 22px;margin-top:26px;width:100%;max-width:1080px;margin-left:auto;margin-right:auto;flex-wrap:wrap}
+.paybanner .pb-left{display:flex;align-items:center;gap:14px}
+.paybanner .pb-icon{width:46px;height:46px;flex:none;border-radius:12px;background:var(--btn);color:#fff;display:grid;place-items:center;font-family:'Unbounded';font-weight:800;font-size:15px}
+.paybanner .pb-t{font-family:'Unbounded';font-weight:700;font-size:15px;color:var(--text);text-transform:uppercase;letter-spacing:.02em}
+.paybanner .pb-s{font-size:12.5px;color:var(--text2);font-weight:500;margin-top:3px}
+.paybanner .pb-banks{display:flex;gap:8px;flex-wrap:wrap}
+.bank{font-family:'Manrope';font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:9px}
+.bank.mono{background:#111;color:#fff}
+.bank.privat{background:#2aaf4e;color:#fff}
+.bank.abank{background:#e0b020;color:#1a1a1a}
+.installcards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px;width:100%;max-width:1080px;margin-left:auto;margin-right:auto}
+.installcard{background:#13201b;border:1.5px solid rgba(255,255,255,.1);border-radius:16px;padding:24px;text-align:center}
+.installcard .ic-name{font-family:'Unbounded';font-weight:700;font-size:13px;letter-spacing:.06em;color:#9fb0a6;margin-bottom:12px;text-transform:uppercase}
+.installcard .ic-amt{font-family:'Unbounded';font-weight:800;font-size:clamp(26px,3.4vw,40px);line-height:1}
+.installcard .ic-amt small{font-family:'Manrope';font-weight:600;font-size:.4em;color:#a9b7ae}
+.installcard .ic-sub{font-size:12px;color:#83918a;margin-top:10px}
+.installcard.silver{border-color:rgba(200,210,216,.45)}
+.installcard.silver .ic-amt{color:#cbd4d8}
+.installcard.gold{border-color:rgba(212,175,55,.6);box-shadow:0 14px 34px rgba(212,175,55,.1)}
+.installcard.gold .ic-amt{color:#e2c25a}
+.installcard.diamond{border-color:rgba(120,205,235,.55)}
+.installcard.diamond .ic-amt{color:#8fd4ee}
+
 /* ---------- ФАЗИ (roadmap як на лендінгу) ---------- */
 .rmphases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;width:100%;max-width:1040px;margin-left:auto;margin-right:auto}
 .rmphase{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px 24px 24px 30px;overflow:hidden;text-align:left}
@@ -1760,14 +1784,27 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 </section>
 
 <!-- S50 -->
-<section class="slide">
+<section class="slide dark center">
   <div class="slide-inner">
-    <h2>Оплата частинами 0%</h2>
-    <p class="lead sub">До 6 платежів, без переплат <span class="hl">(mono · Privat24 · А-Банк):</span></p>
-    <div class="grid g3 mt16">
-      <div class="card"><span class="cn">Стандарт</span><span class="ct">≈ 1 332 ₴/міс</span></div>
-      <div class="card"><span class="cn">Преміум</span><span class="ct">≈ 2 332 ₴/міс</span></div>
-      <div class="card"><span class="cn">VIP</span><span class="ct">≈ 3 332 ₴/міс</span></div>
+    <h2 style="color:#eef3ef">Оплата частинами</h2>
+    <div class="paybanner">
+      <div class="pb-left">
+        <div class="pb-icon">0%</div>
+        <div>
+          <div class="pb-t">0% оплата частинами</div>
+          <div class="pb-s">до 6 платежів · без переплат і відсотків</div>
+        </div>
+      </div>
+      <div class="pb-banks">
+        <span class="bank mono">mono</span>
+        <span class="bank privat">Privat24</span>
+        <span class="bank abank">А-Банк</span>
+      </div>
+    </div>
+    <div class="installcards">
+      <div class="installcard silver"><div class="ic-name">Стандарт</div><div class="ic-amt">~1 332 ₴<small>/міс</small></div><div class="ic-sub">6 рівних платежів</div></div>
+      <div class="installcard gold"><div class="ic-name">Преміум</div><div class="ic-amt">~2 332 ₴<small>/міс</small></div><div class="ic-sub">6 рівних платежів</div></div>
+      <div class="installcard diamond"><div class="ic-name">VIP</div><div class="ic-amt">~3 332 ₴<small>/міс</small></div><div class="ic-sub">6 рівних платежів</div></div>
     </div>
   </div>
 </section>
