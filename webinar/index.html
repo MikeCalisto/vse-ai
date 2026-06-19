@@ -98,6 +98,8 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .g3{grid-template-columns:repeat(3,1fr)}
 .g4{grid-template-columns:repeat(4,1fr)}
 .g5{grid-template-columns:repeat(5,1fr)}
+.snum{width:40px;height:40px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:'Unbounded';font-weight:700;font-size:17px;margin-bottom:4px}
+.dark .snum{background:rgba(95,223,172,.14);color:var(--mint)}
 .icard{align-items:center;text-align:center;gap:8px}
 .icard .ic{width:32px;height:32px;margin-bottom:2px}
 .icard .ct{font-size:clamp(14px,1.6vw,17px)}
@@ -746,12 +748,12 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <section class="slide center">
   <div class="slide-inner">
     <h2>5 кроків, однакові для<br>будь-якого відео</h2>
-    <div class="chips" style="justify-content:center">
-      <span class="chip"><span class="d">1</span>Промт</span>
-      <span class="chip"><span class="d">2</span>Персонаж</span>
-      <span class="chip"><span class="d">3</span>Розкадровка</span>
-      <span class="chip"><span class="d">4</span>Оживлення</span>
-      <span class="chip"><span class="d">5</span>Монтаж</span>
+    <div class="grid g5" style="max-width:1000px;margin:30px auto 0">
+      <div class="card icard"><span class="snum">1</span><span class="ct">Навчись роботі з промтами</span></div>
+      <div class="card icard"><span class="snum">2</span><span class="ct">Створи картку персонажа</span></div>
+      <div class="card icard"><span class="snum">3</span><span class="ct">Зроби розкадровку з різних сцен</span></div>
+      <div class="card icard"><span class="snum">4</span><span class="ct">Оживлення сцен</span></div>
+      <div class="card icard"><span class="snum">5</span><span class="ct">Поєднай сцени в єдине відео на монтажі</span></div>
     </div>
   </div>
 </section>
