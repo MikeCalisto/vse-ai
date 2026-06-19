@@ -256,6 +256,24 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .specs-note{margin-top:12px;font-size:12.5px;color:var(--text3);font-style:italic}
 @media(max-width:760px){.vsplit{grid-template-columns:1fr}.vsplit .frame{max-width:220px;margin:0 auto}}
 
+/* ---------- ТАРИФИ-картки (як на лендінгу) ---------- */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px;width:100%;max-width:1060px;margin-left:auto;margin-right:auto;align-items:start}
+.tier{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px 20px;text-align:left}
+.tier.featured{border-color:var(--accent);box-shadow:0 16px 40px rgba(15,122,82,.16)}
+.tier-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--btn);color:#fff;font-family:'Manrope';font-weight:700;font-size:10.5px;letter-spacing:.05em;padding:4px 13px;border-radius:100px;white-space:nowrap}
+.tier-name{font-family:'Unbounded';font-weight:700;font-size:19px;margin-bottom:6px}
+.tier-old{text-decoration:line-through;color:var(--text3);font-weight:600;font-size:14px;margin-right:8px}
+.tier-price{font-family:'Unbounded';font-weight:800;font-size:24px;color:var(--accent)}
+.tier-for{color:var(--text2);font-size:12px;line-height:1.4;margin:10px 0 14px;border-top:1px solid var(--line);padding-top:12px}
+.tier-feat{list-style:none;display:flex;flex-direction:column;gap:8px}
+.tier-feat li{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;line-height:1.35;font-weight:500}
+.tier-feat li svg{flex:none;width:15px;height:15px;margin-top:2px}
+.tier-feat li.on svg{color:var(--accent)}
+.tier-feat li.off{color:var(--text3)}
+.tier-feat li.off svg{color:var(--text3);opacity:.55}
+.tier-feat li .val{margin-left:auto;font-weight:700;color:var(--text);white-space:nowrap}
+@media(max-width:760px){.tiers{grid-template-columns:1fr}}
+
 /* ---------- ФАЗИ (roadmap як на лендінгу) ---------- */
 .rmphases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;width:100%;max-width:1040px;margin-left:auto;margin-right:auto}
 .rmphase{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px 24px 24px 30px;overflow:hidden;text-align:left}
@@ -1186,31 +1204,50 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <!-- S45 -->
 <section class="slide">
   <div class="slide-inner">
-    <table class="ptable">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Стандарт</th>
-          <th class="col-prem"><span class="badge-best">ОПТИМАЛЬНИЙ ВИБІР</span>Преміум</th>
-          <th>VIP</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Доступ до уроків</td><td>6 міс</td><td class="col-prem">1 рік</td><td>1 рік</td></tr>
-        <tr><td>12 тижнів спілкування з Олександром</td><td class="no">✗</td><td class="col-prem yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>12 групових Zoom-ефірів</td><td class="no">✗</td><td class="col-prem yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Перевірка ДЗ</td><td class="no">✗</td><td class="col-prem yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Команда AI-асистентів + персональний</td><td class="no">✗</td><td class="col-prem yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Підтримка до окупності</td><td class="no">✗</td><td class="col-prem yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Передача клієнтів з агенції</td><td class="no">✗</td><td class="col-prem yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Іменний сертифікат AI-відеокреатора</td><td class="no">✗</td><td class="col-prem yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>+ 3 секретні модулі</td><td class="no">✗</td><td class="col-prem yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>3 особисті Zoom 1:1 (з 7-го модуля)</td><td class="no">✗</td><td class="col-prem no">✗</td><td class="yes">✓</td></tr>
-        <tr><td>VIP-чат з Олександром</td><td class="no">✗</td><td class="col-prem no">✗</td><td class="yes">✓</td></tr>
-        <tr><td>Підлаштування програми під нішу</td><td class="no">✗</td><td class="col-prem no">✗</td><td class="yes">✓</td></tr>
-      </tbody>
-    </table>
-    <p class="ph mt16">Спільне для всіх: 12 модулів · паки промтів і картки · чат учасників · сертифікат курсу</p>
+    <h2 style="text-align:center">Обери свій формат</h2>
+    <div class="tiers">
+      <div class="tier">
+        <div class="tier-name">Стандарт</div>
+        <div><span class="tier-old">7 990 ₴</span><span class="tier-price">5 993 ₴</span></div>
+        <div class="tier-for">Для тих, хто хоче просто переглянути уроки й легко засвоює без зворотного зв'язку</div>
+        <ul class="tier-feat">
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Усі 12 модулів + паки промтів і картки</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Чат учасників · сертифікат курсу</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Доступ до уроків <span class="val">6 міс</span></li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>12 тижнів спілкування + Zoom-ефіри</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>Перевірка ДЗ · команда AI-асистентів</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>Підтримка до окупності · передача клієнтів</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>+ 3 секретні модулі 🔒</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>Zoom 1:1 · VIP-чат · під твій запит</li>
+        </ul>
+      </div>
+      <div class="tier featured">
+        <div class="tier-badge">ОПТИМАЛЬНИЙ ВИБІР</div>
+        <div class="tier-name">Преміум</div>
+        <div><span class="tier-old">13 990 ₴</span><span class="tier-price">10 493 ₴</span></div>
+        <div class="tier-for">Для тих, кому важливий зворотний зв'язок і супровід від Олександра у груповому форматі</div>
+        <ul class="tier-feat">
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Усі 12 модулів + паки промтів і картки</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Доступ до уроків <span class="val">1 рік</span></li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>12 тижнів спілкування + 12 Zoom-ефірів</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Перевірка ДЗ · команда AI-асистентів</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Підтримка до окупності · передача клієнтів</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Іменний сертифікат + 3 секретні модулі 🔒</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>Zoom 1:1 · VIP-чат · під твій запит</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <div class="tier-name">VIP</div>
+        <div><span class="tier-old">19 990 ₴</span><span class="tier-price">14 993 ₴</span></div>
+        <div class="tier-for">Для тих, кому потрібен особистий ментор і програма, підлаштована під твій запит</div>
+        <ul class="tier-feat">
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Усе з Преміуму</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>3 особисті Zoom 1:1 з Олександром <span class="val">з 7-го мод.</span></li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>VIP-чат з Олександром та учасниками</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Підлаштування програми під твій запит</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
