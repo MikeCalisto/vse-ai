@@ -263,6 +263,13 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .dangerbox{margin-top:18px;width:100%;max-width:1060px;margin-left:auto;margin-right:auto;background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.32);border-radius:16px;padding:18px 24px;color:#b9c4bd;font-size:14px;line-height:1.55;text-align:center}
 .dangerbox b{color:#e8847a;font-weight:700}
 
+/* ---------- AUDIENCE (для кого — розгорнуто) ---------- */
+.audlist{list-style:none;display:flex;flex-direction:column;gap:22px;margin-top:26px;max-width:960px}
+.audlist li{display:flex;gap:16px;align-items:flex-start;font-size:clamp(15px,1.85vw,20px);line-height:1.5;font-weight:500;color:var(--text2)}
+.audlist .ae{font-size:26px;line-height:1.25;flex:none}
+.audlist b{font-weight:700;color:var(--text)}
+.audlist .hl{color:var(--accent)}
+
 /* ---------- REASON (чому вийде — по слайду) ---------- */
 .reason-n{font-family:'Unbounded';font-weight:800;font-size:clamp(46px,7vw,80px);color:var(--accent);line-height:1;margin-bottom:10px}
 
@@ -1197,10 +1204,10 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <section class="slide">
   <div class="slide-inner">
     <h2>Для кого це навчання</h2>
-    <ul class="clean mt24">
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg><b>Новачок</b> — заходиш у AI вперше</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg><b>Вже пробував</b> — але без системи й результату</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg><b>Вже працюєш із контентом</b> — хочеш сильний новий навик</li>
+    <ul class="audlist">
+      <li><span class="ae">🌱</span><div><b>Для новачків,</b> які заходять у AI вперше — без досвіду у відео, дизайні чи зйомці. Хочеш з нуля опанувати навик, за який <span class="hl">реально платять</span>, і дійти до перших замовлень.</div></li>
+      <li><span class="ae">🎯</span><div><b>Для тих, хто вже пробував</b> генерувати через нейронки, але без системи: відео виходять «для себе», результат непередбачуваний — і незрозуміло, <span class="hl">як це монетизувати</span>.</div></li>
+      <li><span class="ae">🚀</span><div><b>Для тих, хто вже працює з контентом</b> (SMM, таргет, монтаж, блог) і хоче додати сильний новий навик — AI-відео, щоб <span class="hl">брати дорожчі проєкти</span> й виділятися серед конкурентів.</div></li>
     </ul>
   </div>
 </section>
