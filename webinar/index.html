@@ -256,6 +256,13 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .specs-note{margin-top:12px;font-size:12.5px;color:var(--text3);font-style:italic}
 @media(max-width:760px){.vsplit{grid-template-columns:1fr}.vsplit .frame{max-width:220px;margin:0 auto}}
 
+/* ---------- ПОРОЖНЕЧА (темні картки + danger) ---------- */
+.darkcards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px;width:100%;max-width:1060px;margin-left:auto;margin-right:auto}
+.darkcard{background:#13201b;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px;text-align:left;color:#b9c4bd;font-size:13.5px;line-height:1.55}
+.darkcard b{color:#fff;font-weight:700}
+.dangerbox{margin-top:18px;width:100%;max-width:1060px;margin-left:auto;margin-right:auto;background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.32);border-radius:16px;padding:18px 24px;color:#b9c4bd;font-size:14px;line-height:1.55;text-align:center}
+.dangerbox b{color:#e8847a;font-weight:700}
+
 /* ---------- REASON (чому вийде — по слайду) ---------- */
 .reason-n{font-family:'Unbounded';font-weight:800;font-size:clamp(46px,7vw,80px);color:var(--accent);line-height:1;margin-bottom:10px}
 
@@ -1063,6 +1070,50 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
           <div class="progtile"><div class="pt-n">2–3</div><div class="pt-l">години на тиждень для навчання</div></div>
         </div>
         <div class="proglive">💬 Живе спілкування з Олександром — <b>у групі або особисто 1:1</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S33a1 — чому після інших курсів порожнеча (темна) -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h2 style="color:#eef3ef">Чому після інших курсів лишається <span style="color:var(--mint)">порожнеча</span></h2>
+    <div class="darkcards">
+      <div class="darkcard">Тобі дають <b>багато «води» у відеоуроках</b>, але не дають системи — покрокової роботи з AI. Уроки записані рік тому: інструменти вже інші, інтерфейс змінився, а ти сам шукай, де тепер та звична кнопка.</div>
+      <div class="darkcard">Домашки після уроків прив'язані до <b>платних підписок на нейронки</b>, про які ніхто не попередив на старті. Замкнуте коло: заплатив за курс — і мусиш платити ще й за нейронки, щоб виконати ДЗ. Закінчуєш курс — а результату не відчуваєш.</div>
+      <div class="darkcard">Тебе вчать <b>тиснути кнопки за шаблоном і копіювати чужі промти</b>, а не розуміти логіку роботи з AI. Змінилась задача — і ти знову губишся. Куратори часто навіть не з цієї сфери. Зворотного зв'язку по суті немає.</div>
+    </div>
+    <div class="dangerbox">Підсумок, який пишуть самі учні: сертифікат є, а <b>портфоліо, клієнтів і впевненості, що зможеш на цьому заробляти, немає</b>. Гроші витрачені, час витрачений — а до першого замовлення так і не дійшов.</div>
+  </div>
+</section>
+
+<!-- S33a2 — курс побудований навпаки -->
+<section class="slide">
+  <div class="slide-inner">
+    <h2 style="text-align:center">Курс AI-відеокреатор побудований <span class="hl">навпаки</span></h2>
+    <div class="compare" style="max-width:1040px;margin-left:auto;margin-right:auto">
+      <div class="col bad">
+        <h3>Як зазвичай</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>Гори відео й теорії «про запас»</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>Уроки записані рік тому — на старих версіях нейронок</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>Домашки тільки на платних підписках нейронок</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>Готові промти «скопіюй-встав», без логіки роботи з AI</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>Після курсу кинули — жодної підтримки, далі сам</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>На виході: сертифікат і купа питань без відповідей</li>
+        </ul>
+      </div>
+      <div class="col good">
+        <h3>Як у цьому курсі</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Коротко й по суті — крок за кроком, без води</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>За реальним експертом, який щодня створює контент — собі в блог і на замовлення</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Актуальні інструменти + доступ до оновлень наступного потоку безкоштовно</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Доступ не лише до курсу, а й до моїх застосунків — створюй і тренуйся безкоштовно</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Пояснюю логіку: розумієш — і робиш під будь-яку задачу ринку</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg><b>Усе заточено під реальний дохід — доводжу до перших грошей, а не до сертифіката</b></li>
+        </ul>
       </div>
     </div>
   </div>
