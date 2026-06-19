@@ -317,6 +317,23 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .rmphase .rp-title{font-family:'Unbounded';font-weight:700;font-size:clamp(18px,2.1vw,24px);margin-bottom:8px}
 .rmphase .rp-desc{color:var(--text2);font-size:14px;line-height:1.45}
 
+/* ---------- МОДУЛЬ (детальний слайд) ---------- */
+.mod-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.mod-n{font-family:'Unbounded';font-weight:800;font-size:clamp(22px,2.6vw,32px);color:var(--mint);flex:none}
+.mod-emoji{font-size:26px;flex:none}
+.mod-head h2{font-size:clamp(19px,2.3vw,28px);color:#eef3ef;margin:0;line-height:1.1}
+.mod-split{display:grid;grid-template-columns:1.45fr .55fr;gap:26px;align-items:start}
+.mod-list{list-style:none;display:flex;flex-direction:column;gap:11px}
+.mod-list li{display:flex;gap:11px;font-size:clamp(13px,1.55vw,16px);line-height:1.42;color:#b9c4bd}
+.mod-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--mint);margin-top:7px;flex:none}
+.mod-result{margin-top:16px;background:rgba(67,209,153,.1);border:1px solid rgba(95,223,172,.28);border-radius:14px;padding:15px 18px}
+.mr-head{font-family:'Unbounded';font-weight:700;font-size:11px;letter-spacing:.06em;color:var(--mint);margin-bottom:6px}
+.mod-result p{font-size:clamp(13px,1.5vw,15.5px);line-height:1.45;color:#cdd6cf;margin:0}
+.mod-result b{color:var(--mint)}
+.mod-media{aspect-ratio:4/5;border:1.5px dashed rgba(95,223,172,.3);border-radius:14px;background:#10201a;display:grid;place-items:center;color:#7fbfa3;font-size:13px;font-weight:600;overflow:hidden}
+.mod-media img,.mod-media video{width:100%;height:100%;object-fit:cover}
+@media(max-width:760px){.mod-split{grid-template-columns:1fr}.mod-media{max-width:240px;aspect-ratio:16/10}}
+
 /* ---------- ROADMAP (карта шляху) ---------- */
 .roadmap{position:relative;padding-left:50px;margin-top:14px;width:100%;max-width:1080px;margin-left:auto;margin-right:auto;text-align:left}
 .roadmap::before{content:'';position:absolute;left:16px;top:-60px;bottom:-60px;width:3px}
@@ -1309,30 +1326,226 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
   </div>
 </section>
 
-<!-- S36 -->
-<section class="slide">
+<!-- Модуль 1 -->
+<section class="slide dark">
   <div class="slide-inner">
-    <div class="grid g3">
-      <div class="card"><span class="cn">Модуль 1</span><span class="ct">Вступ у нішу</span></div>
-      <div class="card"><span class="cn">Модуль 2</span><span class="ct">Промти</span></div>
-      <div class="card"><span class="cn">Модуль 3</span><span class="ct">Персонажі й картки</span></div>
-      <div class="card"><span class="cn">Модуль 4</span><span class="ct">Розкадровка</span></div>
-      <div class="card"><span class="cn">Модуль 5</span><span class="ct">Відеогенерація</span></div>
-      <div class="card"><span class="cn">Модуль 6</span><span class="ct">Монтаж</span></div>
+    <div class="mod-head"><span class="mod-n">01</span><span class="mod-emoji">🖼️</span><h2>Вступ. AI-відео індустрія та можливості заробітку</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Який AI-контент зараз купують і скільки за це платять. Як правильно виставляти свою ціну за роботу</li>
+          <li>Що таке мовні моделі й генератори, чим вони відрізняються</li>
+          <li>Огляд ключових інструментів/нейронок — як зібрати свій робочий стек (воркфлоу)</li>
+          <li>Список нейронок + безкоштовні сервіси для старту на курсі «AI-відеокреатор»</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p>Розумієш, як влаштована ніша й <b>де в ній гроші</b>. Бачиш свій шлях, а не блукаєш у сотні інструментів, і не витрачаєш зайві кошти на помилкові генерації.</p></div>
+      </div>
+      <div class="mod-media"><!-- <img src="mod-1.jpg"> -->[фото / відео]</div>
     </div>
   </div>
 </section>
 
-<!-- S37 -->
-<section class="slide">
+<!-- Модуль 2 -->
+<section class="slide dark">
   <div class="slide-inner">
-    <div class="grid g3">
-      <div class="card"><span class="cn">Модуль 7</span><span class="ct">AI-фільм</span></div>
-      <div class="card"><span class="cn">Модуль 8</span><span class="ct">UGC та товарка</span></div>
-      <div class="card"><span class="cn">Модуль 9</span><span class="ct">Мультик</span></div>
-      <div class="card"><span class="cn">Модуль 10</span><span class="ct">Комерційна реклама</span></div>
-      <div class="card"><span class="cn">Модуль 11</span><span class="ct">Портфоліо</span></div>
-      <div class="card"><span class="cn">Модуль 12</span><span class="ct">Клієнти</span></div>
+    <div class="mod-head"><span class="mod-n">02</span><span class="mod-emoji">🧠</span><h2>Як працювати з промтами: система роботи з AI</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Покрокова інструкція по налаштуванню AI-асистентів під задачі AI-відеокреатора</li>
+          <li>Що це за асистенти і як вони працюють — детальний розбір</li>
+          <li>Як правильно працювати з референсами — створювати подібний, але унікальний контент</li>
+          <li>Спосіб: як перетворити будь-який референс у готовий промт</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p>Пишеш ефективні промти під будь-яке відео: UGC, рекламу, фільми, мультики. <b>Бачиш → описуєш → отримуєш</b> — без сотні правок.</p></div>
+      </div>
+      <div class="mod-media"><!-- <img src="mod-2.jpg"> -->[фото / відео]</div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 3 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">03</span><span class="mod-emoji">🎭</span><h2>Створення персонажів, карток персонажів і локацій</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Покроковий алгоритм створення ідеального AI-персонажа</li>
+          <li>Картка персонажа — система збереження образу</li>
+          <li>Як зберігати зовнішність у кожному кадрі</li>
+          <li>Картки локацій і розробка візуалу одягу</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p><b>Унікальний персонаж зі стабільною зовнішністю</b>, готовими локаціями та одягом — від першого до останнього кадру.</p></div>
+      </div>
+      <div class="mod-media"><!-- <img src="mod-3.jpg"> -->[фото / відео]</div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 4 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">04</span><span class="mod-emoji">📸</span><h2>Розкадровка та генерація сцен</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Як скласти історію відео й розкласти її по кадрах (сторіборд)</li>
+          <li>Розкадровка сцен з персонажем</li>
+          <li>Генерація кінематографічних кадрів, плани й ракурси</li>
+          <li>Збираєш візуальний стиль відео (мудборд) — атмосфера, освітлення та AI-кольорокорекція, щоб усі кадри виглядали як єдиний фільм</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p><b>Готовий набір кінокадрів для першого відео.</b> Не «щось вийшло», а заплановано й зроблено.</p></div>
+      </div>
+      <div class="mod-media"><!-- <img src="mod-4.jpg"> -->[фото / відео]</div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 5 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">05</span><span class="mod-emoji">🎥</span><h2>Генерація відеофрагментів та оживлення сцен</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Як працює відеогенерація — простими словами, без складних термінів</li>
+          <li>Усі способи генерувати відео: image-to-video, text-to-video, за першим і останнім кадром</li>
+          <li>Керування рухом і динамікою кадру</li>
+          <li>Звук і музика: нейромережі, які генерують озвучку й музику, зокрема українською мовою</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p><b>Перші живі відеофрагменти зі звуком</b>, які вже не соромно показати клієнту або викласти в соцмережі.</p></div>
+      </div>
+      <div class="mod-media"><!-- <img src="mod-5.jpg"> -->[фото / відео]</div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 6 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">06</span><span class="mod-emoji">✂️</span><h2>Монтаж AI-відео</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Легка версія монтажу — від генерації до готового відео</li>
+          <li>Субтитри, текст, переходи</li>
+          <li>Професійний монтаж: ритм, темп, склейки (від експерта)</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p><b>Збираєш фрагменти в цілісний ролик</b>, готовий до публікації.</p></div>
+      </div>
+      <div class="mod-media"><!-- <img src="mod-6.jpg"> -->[фото / відео]</div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 7 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">07</span><span class="mod-emoji">🎬</span><h2>Фільммейкінг: повноцінний AI короткометражний фільм</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Від ідеї до сценарію: як поставити задачу AI, щоб отримати готовий сценарій під ролик потрібної довжини</li>
+          <li>Виробництво: збираєш персонажів, локації та сцени за єдиною системою карток з модуля 3</li>
+          <li>Фінальний монтаж, озвучка й публікація</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p>Застосовуєш усе з модулів 1–6 і <b>створюєш свій перший AI-фільм до 1 хвилини</b>. На ринку такі відео коштують від $20 (10 сек) до $120 (1 хв).</p></div>
+      </div>
+      <div class="mod-media"><!-- <img src="mod-7.jpg"> -->[фото / відео]</div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 8 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">08</span><span class="mod-emoji">🛍️</span><h2>UGC-контент: AI-блогер та відео для товарів</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Як створити реалістичного AI-блогера: голос, міміка, поведінка</li>
+          <li>Відео для товарів: проблема → продукт → результат</li>
+          <li>Відео-відгук: AI-блогер тримає товар у руках і дає на нього свій чесний відгук</li>
+          <li>Ноди — більше контролю в генерації, як у професіоналів</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p><b>Готове UGC-відео для товару</b>, яке вже можна продати клієнту.</p></div>
+      </div>
+      <div class="mod-media"><!-- <img src="mod-8.jpg"> -->[фото / відео]</div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 9 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">09</span><span class="mod-emoji">✨</span><h2>Генерація мультиків у стилях топових студій — Pixar, Disney та інших</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Стилі AI-анімації: 2D, 3D, аніме, cartoon — від простого до рівня великих студій</li>
+          <li>Покроковий процес: сценарій → персонажі → сцени → монтаж</li>
+          <li>Збереження стилю між кадрами, озвучення й музика</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p><b>Готовий мультик у власному стилі</b> — окремий формат і окремий ринок.</p></div>
+      </div>
+      <div class="mod-media"><!-- <img src="mod-9.jpg"> -->[фото / відео]</div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 10 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">10</span><span class="mod-emoji">📢</span><h2>Комерційна реклама для товарів та бізнесів</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Структура комерційного AI-відео — чим реклама відрізняється від «гарного відео»</li>
+          <li>Формула ефективного рекламного ролика</li>
+          <li>Формула ефективного рекламного креативу — ідея, яка продає</li>
+          <li>Практика: повний цикл від брифу до готового ролика</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p><b>Рекламний ролик для реального клієнта</b> — найдорожчий формат на ринку.</p></div>
+      </div>
+      <div class="mod-media"><!-- <img src="mod-10.jpg"> -->[фото / відео]</div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 11 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">11</span><span class="mod-emoji">💼</span><h2>Формування портфоліо AI-відеокреатора</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Що має бути в портфоліо й скільки робіт достатньо для старту</li>
+          <li>Упаковка робіт: завдання → рішення → результат</li>
+          <li>Створення свого сайту-портфоліо через Клод Код</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p><b>Портфоліо з 5+ робіт</b>, упаковане так, щоб клієнт одразу бачив цінність.</p></div>
+      </div>
+      <div class="mod-media"><!-- <img src="mod-11.jpg"> -->[фото / відео]</div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 12 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">12</span><span class="mod-emoji">🚀</span><h2>Заробіток на AI-відео: як отримувати клієнтів</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Як отримувати клієнтів через Instagram, TikTok, Threads</li>
+          <li>Контент-стратегія для AI-ніші: освіта + кейси + закулісся</li>
+          <li>Реальні шляхи учнів до першого замовлення — що спрацювало</li>
+          <li>Робота з сарафанним радіо й повторними клієнтами</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p><b>Конкретний план, де брати замовлення</b> — і перші клієнти ще під час навчання.</p></div>
+      </div>
+      <div class="mod-media"><!-- <img src="mod-12.jpg"> -->[фото / відео]</div>
     </div>
   </div>
 </section>
