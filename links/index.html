@@ -301,6 +301,32 @@
   }
   .card:hover .card__cta { transform:translateY(-1px); box-shadow:0 18px 38px -10px var(--purple-glow2); }
 
+  /* ── LIVE-картка: червоний акцент + пульсуюча точка ── */
+  .card--live { border-color:rgba(239,68,68,.45); }
+  .card--live:hover { border-color:rgba(239,68,68,.7); box-shadow:0 30px 60px -20px rgba(239,68,68,.35); }
+  .card--live .card__pill {
+    background:linear-gradient(135deg,#dc2626,#f43f5e);
+    box-shadow:0 6px 14px -4px rgba(239,68,68,.5);
+  }
+  .card--live .card__pill .live-dot {
+    width:7px; height:7px; border-radius:50%;
+    background:#fff;
+    box-shadow:0 0 0 0 rgba(255,255,255,.7);
+    animation:livePulse 1.4s ease-out infinite;
+  }
+  @keyframes livePulse {
+    0%   { box-shadow:0 0 0 0 rgba(255,255,255,.7); }
+    70%  { box-shadow:0 0 0 8px rgba(255,255,255,0); }
+    100% { box-shadow:0 0 0 0 rgba(255,255,255,0); }
+  }
+  .card--live .card__kicker { color:#fda4af; }
+  .card--live .card__kicker .dot { background:#ef4444; box-shadow:0 0 8px rgba(239,68,68,.6); }
+  .card--live .card__cta {
+    background:linear-gradient(135deg,#dc2626,#f43f5e);
+    box-shadow:0 12px 26px -10px rgba(239,68,68,.45);
+  }
+  .card--live:hover .card__cta { box-shadow:0 18px 38px -10px rgba(239,68,68,.65); }
+
   /* ========== TG CHANNEL CARD ========== */
   .tg-card {
     margin-top:8px;
@@ -440,14 +466,28 @@
 
   <div class="cards">
 
-    <!-- 1. Нейромережі з нуля -->
+    <!-- 1. ПРЯМИЙ ЕФІР: АІ-ВІДЕОКРЕАТОР -->
+    <a class="card card--live fade-in" href="https://t.me/+6dXQk4tRGxUyMDJi" target="_blank" rel="noopener">
+      <div class="card__media">
+        <img src="avatar.jpg" alt="Прямий ефір: АІ-ВІДЕОКРЕАТОР" loading="eager" />
+      </div>
+      <div class="card__body">
+        <span class="card__pill"><span class="live-dot"></span>прямий ефір</span>
+        <div class="card__kicker"><span class="dot"></span>28.06 · 18:00</div>
+        <div class="card__title">АІ-Відеокреатор</div>
+        <div class="card__desc">Як створювати якісні AI-відео, які купують за 50–300$ — за 5 простих кроків.</div>
+        <div class="card__cta">Зареєструватися <span class="card__cta-arrow">→</span></div>
+      </div>
+    </a>
+
+    <!-- 2. Нейромережі з нуля -->
     <a class="card fade-in" href="https://ai.iwannapods.com.ua/" target="_blank" rel="noopener">
       <div class="card__media">
         <video data-src="1.mp4" poster="1-poster.jpg" muted loop playsinline preload="none" aria-label="Нейромережі з нуля"></video>
       </div>
       <div class="card__body">
         <span class="card__pill">★ хіт продажів</span>
-        <div class="card__kicker"><span class="dot"></span>№ 01 · онлайн-курс</div>
+        <div class="card__kicker"><span class="dot"></span>№ 02 · онлайн-курс</div>
         <div class="card__title">Нейромережі з нуля</div>
         <div class="card__desc">Від базових промптів до генерації картинок, відео та текстів. Старт у світ AI з нуля.</div>
         <div class="card__price">
@@ -465,7 +505,7 @@
         <img src="2.jpg" alt="VSE AI — закрита спільнота" loading="lazy" />
       </div>
       <div class="card__body">
-        <div class="card__kicker"><span class="dot"></span>№ 02 · закритий клуб</div>
+        <div class="card__kicker"><span class="dot"></span>№ 03 · закритий клуб</div>
         <div class="card__title">VSE AI · клуб</div>
         <div class="card__desc">500+ промптів, щотижневі дзвінки з Сашею, щоденні ДЗ і підтримка кураторів 24/7.</div>
         <div class="card__price">
@@ -483,7 +523,7 @@
         <video data-src="3.mp4" poster="3-poster.jpg" muted loop playsinline preload="none" aria-label="АІ предметна зйомка"></video>
       </div>
       <div class="card__body">
-        <div class="card__kicker"><span class="dot"></span>№ 03 · міні-курс</div>
+        <div class="card__kicker"><span class="dot"></span>№ 04 · міні-курс</div>
         <div class="card__title">АІ предметна зйомка</div>
         <div class="card__desc">Як знімати товари через AI: фон, світло, композиція без студії та реквізиту.</div>
         <div class="card__price">
@@ -502,7 +542,7 @@
       </div>
       <div class="card__body">
         <span class="card__pill">✦ новинка</span>
-        <div class="card__kicker"><span class="dot"></span>№ 04 · міні-курс</div>
+        <div class="card__kicker"><span class="dot"></span>№ 05 · міні-курс</div>
         <div class="card__title">АІ людина</div>
         <div class="card__desc">Генеруємо реалістичних людей для UGC, рілсів, рекламних креативів та власних каналів.</div>
         <div class="card__price">
@@ -514,13 +554,13 @@
       </div>
     </a>
 
-    <!-- 5. АІ контент з нуля -->
+    <!-- 6. АІ контент з нуля -->
     <a class="card fade-in" href="https://aisashka.weblium.site/ai-content-ubt" target="_blank" rel="noopener">
       <div class="card__media">
         <img src="6.png" alt="АІ контент з нуля" loading="lazy" />
       </div>
       <div class="card__body">
-        <div class="card__kicker"><span class="dot"></span>№ 05 · міні-курс</div>
+        <div class="card__kicker"><span class="dot"></span>№ 06 · міні-курс</div>
         <div class="card__title">АІ контент з нуля</div>
         <div class="card__desc">Навчіться створювати зображення, відео, озвучку та музику через АІ, навіть якщо ви ніколи не працювали з нейронками.</div>
         <div class="card__price">
@@ -532,13 +572,13 @@
       </div>
     </a>
 
-    <!-- 6. АІ фотосесія -->
+    <!-- 7. АІ фотосесія -->
     <a class="card fade-in" href="https://aisashka.weblium.site/aiphoto-ubt" target="_blank" rel="noopener">
       <div class="card__media">
         <img src="5.jpg" alt="АІ фотосесія" loading="lazy" />
       </div>
       <div class="card__body">
-        <div class="card__kicker"><span class="dot"></span>№ 06 · міні-курс</div>
+        <div class="card__kicker"><span class="dot"></span>№ 07 · міні-курс</div>
         <div class="card__title">АІ фотосесія</div>
         <div class="card__desc">Власна fashion-зйомка без камери, моделі та локацій — повністю через нейромережі.</div>
         <div class="card__price">
