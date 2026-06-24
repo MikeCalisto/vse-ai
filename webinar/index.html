@@ -418,8 +418,8 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .mod-head h2{font-size:clamp(19px,2.3vw,28px);color:#eef3ef;margin:0;line-height:1.1}
 .mod-split{display:grid;grid-template-columns:1.45fr .55fr;gap:26px;align-items:start}
 .mod-list{list-style:none;display:flex;flex-direction:column;gap:11px}
-.mod-list li{display:flex;gap:11px;font-size:clamp(13px,1.55vw,16px);line-height:1.42;color:#b9c4bd}
-.mod-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--mint);margin-top:7px;flex:none}
+.mod-list li{position:relative;padding-left:18px;font-size:clamp(13px,1.55vw,16px);line-height:1.42;color:#b9c4bd}
+.mod-list li::before{content:'';position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--mint)}
 .mod-result{margin-top:16px;background:rgba(67,209,153,.1);border:1px solid rgba(95,223,172,.28);border-radius:14px;padding:15px 18px}
 .mr-head{font-family:'Unbounded';font-weight:700;font-size:11px;letter-spacing:.06em;color:var(--mint);margin-bottom:6px}
 .mod-result p{font-size:clamp(13px,1.5vw,15.5px);line-height:1.45;color:#cdd6cf;margin:0}
@@ -427,6 +427,12 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .mod-media{aspect-ratio:4/5;border:1.5px dashed rgba(95,223,172,.3);border-radius:14px;background:#10201a;display:grid;place-items:center;color:#7fbfa3;font-size:13px;font-weight:600;overflow:hidden}
 .mod-media img,.mod-media video{width:100%;height:100%;object-fit:cover}
 @media(max-width:760px){.mod-split{grid-template-columns:1fr}.mod-media{max-width:240px;aspect-ratio:16/10}}
+/* бібліотека монтажу */
+.libgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:24px;width:100%;max-width:1080px;margin-left:auto;margin-right:auto}
+.libcard{display:flex;align-items:center;gap:9px;background:#13201b;border:1px solid rgba(255,255,255,.1);border-left:3px solid var(--mint);border-radius:11px;padding:11px 13px;text-align:left}
+.libcard svg{width:18px;height:18px;color:var(--mint);flex:none}
+.libcard span{font-size:12.5px;font-weight:600;color:#dfe7e1;line-height:1.2}
+@media(max-width:760px){.libgrid{grid-template-columns:1fr 1fr 1fr}}
 
 /* ---------- ROADMAP (карта шляху) ---------- */
 .roadmap{position:relative;padding-left:50px;margin-top:14px;width:100%;max-width:1080px;margin-left:auto;margin-right:auto;text-align:left}
@@ -1813,6 +1819,56 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
       </div>
       <div class="mod-media"><!-- <img src="mod-6.jpg"> -->[фото / відео]</div>
     </div>
+  </div>
+</section>
+
+<!-- Модуль 6 — акцент: ми вчимо монтувати -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <h2 style="color:#eef3ef">Модуль 06: ми вчимо монтувати — а не «розберись сам»</h2>
+    <p class="lead sub" style="color:#b9c4bd;max-width:1000px">Усередині навчання — окремий модуль з уроками саме по <b style="color:var(--mint)">якісному монтажу</b>, як на телефоні, так і на ПК. Покрокові уроки, як монтувати так, щоб результат виглядав професійно, динамічно, яскраво — і приносив <b style="color:var(--mint)">мільйони переглядів</b>.</p>
+    <p class="lead mt16" style="color:#b9c4bd;max-width:1000px">Ми не залишаємо тебе наодинці з матеріалами — <b style="color:var(--mint)">ми вчимо ними користуватись</b>.</p>
+    <div class="mod-result" style="max-width:1000px"><div class="mr-head">🔓 Хто веде блок</div><p>Блок записує <b>професійний монтажер</b>, який співпрацює з великими агенціями по монтажу, TikTok- та Reels-просуванню.</p></div>
+  </div>
+</section>
+
+<!-- Модуль 6 — бібліотека 20+ ГБ -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h2 style="color:#eef3ef"><span style="color:var(--mint)">20+ ГБ</span> готових матеріалів для монтажу</h2>
+    <p class="lead sub" style="text-align:center;color:#9fb0a6">Футажі · Ефекти · Переходи · SFX · Оверлеї</p>
+    <div class="libgrid">
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Film FX</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Glow FX</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>TV / Glitch</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>LUTs Pack</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>SFX Pack</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Title Card FX</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Money FX</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Vintage Scan</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Glass FX</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>16mm Film</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Paper Rip</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Paint FX</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>2D FX</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Animations</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Super 8mm</span></div>
+    </div>
+    <p class="ph mt16" style="text-align:center;color:#7fbfa3">…та ще десятки паків усередині · працює на телефоні і ПК · CapCut · VN · Premiere · DaVinci</p>
+  </div>
+</section>
+
+<!-- Модуль 6 — як користуватись бібліотекою -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <h2 style="color:#eef3ef">Готова бібліотека — і ти вмієш нею користуватись</h2>
+    <ul class="clean" style="margin-top:18px;max-width:1000px">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Футажі, ефекти, переходи та <b style="color:#eef3ef">оверлеї</b></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Звукові ефекти <b style="color:#eef3ef">(SFX)</b> для утримання уваги</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Якісні відеовставки під <b style="color:#eef3ef">Reels, TikTok та Shorts</b></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Матеріали під динамічний і мінімалістичний монтаж</li>
+    </ul>
+    <p class="lead mt16" style="color:#b9c4bd;max-width:1000px">Працює і на телефоні (<b style="color:var(--mint)">CapCut, VN, Alight Motion</b>), і на ПК (<b style="color:var(--mint)">Premiere, DaVinci, After Effects</b>). А ще ці матеріали можна використовувати як <b style="color:var(--mint)">референси для AI-генерації</b> в Kling, Veo, Runway.</p>
   </div>
 </section>
 
