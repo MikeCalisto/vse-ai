@@ -123,6 +123,18 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .card .ct{font-weight:700;font-size:clamp(16px,1.8vw,20px)}
 .card .cd{color:var(--text2);font-size:14.5px;line-height:1.45}
 .card.gold{border-color:rgba(184,144,47,.4);background:var(--gold-soft)}
+/* барчарт — результати по місяцях */
+.barchart{display:flex;align-items:flex-end;justify-content:center;gap:clamp(16px,3vw,40px);width:100%;max-width:760px;margin:18px auto 0;height:clamp(160px,24vh,220px)}
+.barchart .bcol{flex:1;max-width:90px;display:flex;flex-direction:column;height:100%}
+.barchart .bwrap{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px}
+.barchart .bv{font-family:'Unbounded';font-weight:800;font-size:clamp(15px,1.9vw,20px);color:var(--accent)}
+.barchart .bar{width:100%;border-radius:10px 10px 0 0;background:linear-gradient(180deg,var(--mint),var(--accent));min-height:8px}
+.barchart .bar.hot{background:linear-gradient(180deg,#1fce8a,var(--accent-deep));box-shadow:0 10px 26px rgba(15,122,82,.28)}
+.barchart .bm{text-align:center;margin-top:10px;font-size:clamp(12px,1.5vw,15px);font-weight:600;color:var(--text2)}
+.resstats{display:flex;justify-content:center;gap:clamp(24px,5vw,56px);flex-wrap:wrap;margin-top:20px}
+.resstats>div{display:flex;flex-direction:column;align-items:center;gap:4px;max-width:200px}
+.resstats .rs-n{font-family:'Unbounded';font-weight:800;font-size:clamp(24px,3vw,38px);color:var(--accent);white-space:nowrap}
+.resstats .rs-l{font-size:clamp(12px,1.4vw,14.5px);color:var(--text2);text-align:center;line-height:1.35}
 .card.gold .cn,.card.gold .ic{color:var(--gold)}
 
 /* two-column compare */
@@ -669,11 +681,20 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
       </ul>
       <p class="ph mt24">*для тих, хто буде відмічати ефір у сторіс — придумаю якийсь цікавий бонус</p>
     </div>
-    <div class="split-media ph-frame">
-      <!-- <img src="ig-profile.jpg" alt="Instagram-профіль"> -->
-      <div class="ph-inner">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
-        <span class="ph-label">[скрін Instagram-профілю]</span>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;align-self:center">
+      <div class="frame" style="aspect-ratio:9/16;margin-top:0">
+        <!-- <img src="ig-profile.jpg" alt="Instagram-профіль"> -->
+        <div class="ph-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+          <span class="ph-label">[скрін Instagram]</span>
+        </div>
+      </div>
+      <div class="frame" style="aspect-ratio:9/16;margin-top:0">
+        <!-- <img src="tiktok-profile.jpg" alt="TikTok-профіль"> -->
+        <div class="ph-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          <span class="ph-label">[скрін TikTok]</span>
+        </div>
       </div>
     </div>
   </div>
@@ -704,8 +725,8 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <section class="slide">
   <div class="slide-inner">
     <h2>Мої авторські міні-курси</h2>
-    <p class="lead sub">Ось мої авторські міні-курси та кількість студентів, які їх пройшли.</p>
-    <div class="grid g3" style="margin-top:22px;max-width:840px">
+    <p style="margin-top:8px;font-size:clamp(14px,1.7vw,18px);color:var(--text2);font-weight:600">Кількість студентів та середня оцінка <span style="color:var(--gold);letter-spacing:1px">★★★★★</span> <b style="color:var(--accent)">4,8 із 5</b></p>
+    <div class="grid g3" style="margin-top:16px;max-width:660px">
       <div class="card course">
         <div class="frame" style="aspect-ratio:4/5;border:1px solid var(--line)">
           <img src="course-lyudyna.jpg" alt="AI Людина">
@@ -728,7 +749,7 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
         <span class="cnum">1 056 <small>учнів</small></span>
       </div>
     </div>
-    <div class="callout">
+    <div class="callout" style="margin-top:14px">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
       <p><b>Ставте +</b> у чат, хто купував мої міні-курси</p>
     </div>
@@ -785,7 +806,8 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
   <div class="slide-inner">
     <h2 style="color:var(--mint)">А тепер уявіть…</h2>
     <p class="lead sub" style="color:#cdd8d0;max-width:880px;text-align:center;margin-top:18px">…що всі ці міні-курси, закритий клуб і навіть середній курс — це <b style="color:#fff">взагалі не той рівень</b>.</p>
-    <p class="lead mt16" style="color:#cdd8d0;max-width:880px;text-align:center">Сьогодні я розповім про своє <b style="color:var(--mint)">нове навчання «AI-відеокреатор»</b> — це абсолютно новий рівень підходу до уроків, комунікації й роботи з нейромережами.</p>
+    <p class="lead mt16" style="color:#cdd8d0;max-width:900px;text-align:center">«Фабрика AI-контенту» колосально відрізняється від нового навчання: той курс — це просто <b style="color:#fff">вхід в AI</b>. А нове навчання — це <b style="color:var(--mint)">формування навику</b>, за який люди готові платити дорого.</p>
+    <p class="lead mt16" style="color:#cdd8d0;max-width:900px;text-align:center">Сьогодні я розповім про <b style="color:var(--mint)">нове навчання «AI-відеокреатор»</b> — абсолютно новий рівень підходу до уроків, комунікації й роботи з нейромережами.</p>
   </div>
 </section>
 
@@ -793,7 +815,8 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <section class="slide center">
   <div class="slide-inner">
     <h2>Мій контент залітає в Inst та TikTok</h2>
-    <div class="grid g5 vids3" style="margin-top:26px;max-width:880px">
+    <p class="lead sub" style="text-align:center;max-width:900px">Контент, який я створюю за допомогою AI і публікую в Instagram та TikTok, дає мені ось такі результати.</p>
+    <div class="grid g5 vids3" style="margin-top:22px;max-width:880px">
       <figure>
         <div class="frame" style="aspect-ratio:9/16;margin-top:0"><div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></svg><span class="ph-label">[рилс]</span></div></div>
         <figcaption class="reel-cap"><span class="rc-v"><span class="placeholder">[N]</span> переглядів</span><span class="rc-s">+<span class="placeholder">[N]</span> підписників</span></figcaption>
@@ -818,24 +841,68 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
   </div>
 </section>
 
+<!-- S9b2 — формула контенту -->
+<section class="slide center">
+  <div class="slide-inner">
+    <h2>Правда в тому…</h2>
+    <p class="lead sub" style="text-align:center;max-width:900px">Це — одне з <b>головних джерел залучення клієнтів</b> і мого впливу на ринок AI в Україні. Щоб отримувати клієнтів, вам потрібно робити те саме — але розуміти, <b>за якою формулою</b> створювати контент, щоб він приносив результат.</p>
+    <div class="grid g3" style="margin-top:28px;max-width:760px">
+      <div class="card" style="align-items:center;text-align:center;gap:8px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" style="width:34px;height:34px"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span class="ct" style="font-weight:700">Охоплення</span>
+      </div>
+      <div class="card" style="align-items:center;text-align:center;gap:8px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" style="width:34px;height:34px"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span class="ct" style="font-weight:700">Підписники</span>
+      </div>
+      <div class="card" style="align-items:center;text-align:center;gap:8px;border-color:rgba(15,122,82,.4);background:var(--accent-soft)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" style="width:34px;height:34px"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span class="ct" style="font-weight:700">Клієнти</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S9b3 — виступи офлайн -->
+<section class="slide">
+  <div class="slide-inner split">
+    <div class="split-text">
+      <h2>Мене запрошують виступати</h2>
+      <ul class="clean mt24">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 2 3 6 3s6-2 6-3v-5"/></svg>Виступаю у <b>школах</b> — розповідаю учням про AI</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>Спікер на <b>масштабних заходах</b> та конференціях про AI</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3ZM19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg>Ділюсь досвідом наживо — і онлайн, і офлайн</li>
+      </ul>
+    </div>
+    <div class="split-media ph-frame">
+      <!-- <video src="vystup.mp4" ...> -->
+      <div class="ph-inner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></svg>
+        <span class="ph-label">[відео виступу]</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- S9c — результати для клієнтів -->
 <section class="slide center">
   <div class="slide-inner">
-    <h2>Результати для клієнтів</h2>
-    <div class="grid g3" style="margin-top:30px;max-width:900px">
-      <div class="card" style="align-items:center;text-align:center;gap:6px">
-        <span class="big-stat">67</span>
-        <span class="cd" style="font-size:16px">клієнтів за час роботи агенції</span>
-      </div>
-      <div class="card" style="align-items:center;text-align:center;gap:6px">
-        <span class="big-stat">200+</span>
-        <span class="cd" style="font-size:16px">AI-роликів зроблено</span>
-      </div>
-      <div class="card" style="align-items:center;text-align:center;gap:6px;border-color:rgba(15,122,82,.4);background:var(--accent-soft)">
-        <span class="big-stat" style="font-size:clamp(30px,4.6vw,52px);white-space:nowrap">691 тис ₴</span>
-        <span class="cd" style="font-size:16px">заробили за останні 3 місяці</span>
-      </div>
+    <h2>Результати в ніші AI-відеоконтенту</h2>
+    <p class="lead sub" style="text-align:center;max-width:880px">Клієнти звертаються все частіше — AI-контент потрібен усім. Ось динаміка з початку 2026 року:</p>
+    <div class="barchart">
+      <div class="bcol"><div class="bwrap"><span class="bv">4</span><div class="bar" style="height:20%"></div></div><span class="bm">Січ</span></div>
+      <div class="bcol"><div class="bwrap"><span class="bv">6</span><div class="bar" style="height:30%"></div></div><span class="bm">Лют</span></div>
+      <div class="bcol"><div class="bwrap"><span class="bv">9</span><div class="bar" style="height:45%"></div></div><span class="bm">Бер</span></div>
+      <div class="bcol"><div class="bwrap"><span class="bv">12</span><div class="bar" style="height:60%"></div></div><span class="bm">Кві</span></div>
+      <div class="bcol"><div class="bwrap"><span class="bv">16</span><div class="bar" style="height:80%"></div></div><span class="bm">Тра</span></div>
+      <div class="bcol"><div class="bwrap"><span class="bv">20</span><div class="bar hot" style="height:100%"></div></div><span class="bm">Чер</span></div>
     </div>
+    <div class="resstats">
+      <div><span class="rs-n">67</span><span class="rs-l">клієнтів з початку року</span></div>
+      <div><span class="rs-n">200+</span><span class="rs-l">роликів — від мультиків до реклами</span></div>
+      <div><span class="rs-n">691 тис ₴</span><span class="rs-l">зароблено за цей час</span></div>
+    </div>
+    <p class="ph" style="max-width:860px;margin-left:auto;margin-right:auto;text-align:center">Я завжди чесний з вами: маю багато підписаних NDA — доходи з цих проєктів я не додаю до цієї суми, тож реальна цифра ще більша.</p>
   </div>
 </section>
 
