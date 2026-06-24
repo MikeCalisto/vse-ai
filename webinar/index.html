@@ -210,6 +210,7 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .split-video{width:100%;height:100%;object-fit:cover;display:block}
 .split-media.ph-frame{display:grid;place-items:center;background:var(--surface2);border:1.5px dashed var(--line);box-shadow:none}
 .split-media.ph-frame img{width:100%;height:100%;object-fit:cover}
+.split-media>img{width:100%;height:100%;object-fit:cover;display:block}
 .vids3{align-items:start;width:100%;max-width:660px;margin-left:auto;margin-right:auto;gap:20px}
 .vids3 figure{display:flex;flex-direction:column;align-items:center;min-width:0}
 .vids3 .frame{width:100%}
@@ -595,12 +596,8 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7 9 18l-5-5"/></svg>Пак промтів для Claude — для тих, хто веде свої соцмережі</li>
       </ul>
     </div>
-    <div class="split-media ph-frame">
-      <!-- <img src="bonus.jpg" alt="Прев'ю подарунка"> -->
-      <div class="ph-inner">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7ZM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7Z"/></svg>
-        <span class="ph-label">[прев'ю подарунка]</span>
-      </div>
+    <div class="split-media" style="aspect-ratio:821/1100">
+      <img src="bonus-promt.jpg" alt="Бонус: нейромережі безкоштовно + промт-пак">
     </div>
   </div>
 </section>
