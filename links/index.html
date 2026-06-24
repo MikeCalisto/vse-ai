@@ -326,6 +326,12 @@
     box-shadow:0 12px 26px -10px rgba(239,68,68,.45);
   }
   .card--live:hover .card__cta { box-shadow:0 18px 38px -10px rgba(239,68,68,.65); }
+  .card--live .card__title {
+    font-size:clamp(15px,3.8vw,19px);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
 
   /* ========== TG CHANNEL CARD ========== */
   .tg-card {
