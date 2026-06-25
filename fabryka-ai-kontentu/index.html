@@ -130,6 +130,157 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
   overflow:hidden;
 }
 
+/* === TOP BONUS BAR (above hero) === */
+.top-bonus-bar{
+  position:relative;display:flex;align-items:center;gap:10px;
+  padding:11px 14px;
+  background:linear-gradient(90deg, rgba(168,85,247,.22), rgba(94,234,212,.18) 90%);
+  border-bottom:1px solid rgba(192,132,252,.35);
+  color:#fff;text-decoration:none;overflow:hidden;
+  font-family:var(--font-mono);font-size:.62rem;
+  line-height:1.35;letter-spacing:.04em;text-transform:uppercase;
+  isolation:isolate;
+}
+.top-bonus-bar::before{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+  transform:translateX(-100%);
+  animation:bonusBarShine 4.5s ease-in-out infinite;
+}
+@keyframes bonusBarShine{
+  0%,55%,100%{transform:translateX(-100%)}
+  70%{transform:translateX(120%)}
+}
+.top-bonus-bar__gift{
+  flex-shrink:0;font-size:1.2rem;line-height:1;
+  filter:drop-shadow(0 0 8px rgba(192,132,252,.6));
+}
+.top-bonus-bar__text{flex:1;min-width:0}
+.top-bonus-bar__text b{color:#fff;font-weight:700;letter-spacing:.05em}
+.top-bonus-bar__sub{
+  display:block;font-size:.55rem;opacity:.65;
+  letter-spacing:.12em;margin-top:2px;font-weight:400;
+}
+.top-bonus-bar__arrow{
+  flex-shrink:0;
+  width:22px;height:22px;border-radius:50%;
+  background:rgba(255,255,255,.16);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:.85rem;
+  animation:bonusArrowBob 1.8s ease-in-out infinite;
+}
+@keyframes bonusArrowBob{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(2px)}
+}
+
+/* === Gift-styled list-v items === */
+.list-v li.li-gift{
+  background:linear-gradient(135deg, rgba(168,85,247,.12), rgba(94,234,212,.06));
+  border-color:rgba(168,85,247,.32);
+  position:relative;
+}
+.list-v li.li-gift .ic{
+  background:linear-gradient(135deg, var(--accent2), #5eead4) !important;
+  font-size:.95rem;
+}
+
+/* === PRICE-WARN bonus mention (inside hero price card) === */
+.price-warn__bonus{
+  display:flex;align-items:center;gap:10px;
+  margin-top:12px;padding:9px 12px;border-radius:12px;
+  background:linear-gradient(90deg, rgba(168,85,247,.16), rgba(94,234,212,.1));
+  border:1px solid rgba(168,85,247,.32);
+  color:rgba(236,230,245,.92);text-decoration:none;
+  font-family:var(--font-mono);font-size:.58rem;
+  line-height:1.45;letter-spacing:.08em;text-transform:uppercase;
+}
+.price-warn__bonus-ic{
+  flex-shrink:0;font-size:1.05rem;line-height:1;
+  filter:drop-shadow(0 0 8px rgba(192,132,252,.55));
+}
+.price-warn__bonus b{color:#fff;font-weight:700;letter-spacing:.04em}
+.price-warn__bonus-sub{opacity:.55;letter-spacing:.1em;font-weight:400}
+
+/* === CLUB BONUS section === */
+.club-bonus__eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 14px;border-radius:999px;
+  background:linear-gradient(90deg, rgba(168,85,247,.22), rgba(94,234,212,.12));
+  border:1px solid rgba(192,132,252,.45);
+  font-family:var(--font-mono);font-size:.62rem;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent3);font-weight:700;
+  margin-bottom:18px;
+}
+.club-bonus__gift{
+  font-size:1rem;line-height:1;
+  filter:drop-shadow(0 0 8px rgba(192,132,252,.7));
+}
+.club-bonus__lead{
+  color:rgba(236,230,245,.85);font-size:.95rem;line-height:1.55;
+  margin-bottom:22px;
+}
+.club-bonus__lead b{color:#fff;font-weight:700}
+
+.club-bonus__card{
+  position:relative;padding:24px 22px;
+  background:linear-gradient(160deg, rgba(168,85,247,.12) 0%, rgba(94,234,212,.05) 50%, rgba(20,16,28,.95) 95%);
+  border:1px solid rgba(192,132,252,.4);
+  border-radius:22px;
+  box-shadow:0 22px 50px -22px rgba(168,85,247,.5), inset 0 0 0 1px rgba(255,255,255,.04);
+}
+.club-bonus__list{
+  list-style:none;display:flex;flex-direction:column;gap:13px;
+  margin-bottom:22px;
+}
+.club-bonus__list li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:.92rem;line-height:1.5;color:rgba(236,230,245,.88);
+}
+.club-bonus__list li b{color:#fff;font-weight:700}
+.club-bonus__ic{
+  flex-shrink:0;width:30px;height:30px;border-radius:9px;
+  background:rgba(168,85,247,.15);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:1rem;line-height:1;
+}
+
+.club-bonus__value{
+  margin:8px 0 14px;padding:14px 16px;
+  background:rgba(0,0,0,.35);
+  border:1px dashed rgba(168,85,247,.35);
+  border-radius:12px;
+  display:flex;flex-direction:column;gap:8px;
+}
+.club-bonus__value-row{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  font-family:var(--font-mono);font-size:.65rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(236,230,245,.6);
+}
+.club-bonus__value-row--yours{
+  padding-top:8px;border-top:1px dashed rgba(168,85,247,.25);
+  color:#fff;
+}
+.club-bonus__value-num{
+  font-family:var(--font-stamp);font-weight:800;
+  font-size:1rem;color:#fff;letter-spacing:-.01em;
+}
+.club-bonus__value-num--free{
+  color:#5eead4;
+  text-shadow:0 0 14px rgba(94,234,212,.5);
+}
+
+.club-bonus__note{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:12px 14px;border-radius:10px;
+  background:linear-gradient(90deg, rgba(94,234,212,.12), transparent);
+  border-left:3px solid #5eead4;
+  font-size:.88rem;line-height:1.5;color:#fff;
+}
+.club-bonus__note b{color:#5eead4;font-weight:700}
+
 /* === HERO POSTER (video bg + title overlay + thumbnail chips) === */
 .hero-poster{
   position:relative;
@@ -1795,6 +1946,16 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
 <body>
 <div class="phone-wrap">
 
+  <!-- ============== ТОП-БАНЕР: бонус-клуб ============== -->
+  <a href="#club-bonus" class="top-bonus-bar" aria-label="Пожиттєвий доступ до клубу VSE AI у подарунок">
+    <span class="top-bonus-bar__gift" aria-hidden="true">🎁</span>
+    <span class="top-bonus-bar__text">
+      У&nbsp;подарунок до курсу — <b>ПОЖИТТЄВИЙ доступ до клубу VSE&nbsp;AI</b>
+      <span class="top-bonus-bar__sub">зазвичай 490&nbsp;грн/міс</span>
+    </span>
+    <span class="top-bonus-bar__arrow" aria-hidden="true">↓</span>
+  </a>
+
   <!-- ============== HERO ============== -->
   <section class="section hero">
     <!-- animated background system -->
@@ -1920,6 +2081,11 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
           <b class="price-warn__instal-num">583&nbsp;грн</b><span>/міс</span>
         </span>
       </div>
+
+      <a href="#club-bonus" class="price-warn__bonus">
+        <span class="price-warn__bonus-ic">🎁</span>
+        <span>+ <b>клуб VSE&nbsp;AI</b> назавжди у&nbsp;подарунок <span class="price-warn__bonus-sub">(зазвичай 490&nbsp;грн/міс)</span></span>
+      </a>
     </div>
 
     <div class="cta-row">
@@ -2081,6 +2247,8 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
 
     <ul class="list-v reveal">
       <li><span class="ic">1</span><span><b>15 структурованих навчальних блоків</b>, та домашні завдання після кожного блоку</span></li>
+      <li class="li-gift"><span class="ic">🎁</span><span><b>ПОЖИТТЄВИЙ доступ до закритого клубу VSE&nbsp;AI</b> (зазвичай 490&nbsp;грн/міс) — окрема Telegram-спільнота з 1&nbsp;400+ учасниками, кураторами 24/7 та клієнтськими замовленнями</span></li>
+      <li class="li-gift"><span class="ic">🎁</span><span><b>Доступ до бази промптів клубу</b> — окрема група, у якій щодня зʼявляються 500+ перевірених промптів для фото/відео/GPT</span></li>
       <li><span class="ic">2</span><span>Короткі, концентровані <b>уроки по 5–10 хвилин</b>, без води</span></li>
       <li><span class="ic">3</span><span>Можливість навчатися в будь-яких умовах — уроки доступні для перегляду <b>навіть без світла та стабільного інтернету</b></span></li>
       <li><span class="ic">4</span><span><b>6 додаткових матеріалів</b> та баз промтів, сайти де черпати натхнення</span></li>
@@ -2092,6 +2260,50 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
       <li><span class="ic">10</span><span>Загальний чат учасників, зворотній зв’язок від Олександра в чаті</span></li>
       <li><span class="ic">11</span><span>Можливість отримати перших клієнтів та замовлення прямо під час курсу</span></li>
     </ul>
+  </section>
+
+  <!-- ============== БОНУС: КЛУБ VSE AI ============== -->
+  <section class="section s-darker" id="club-bonus">
+    <div class="bg-fx spotlight" aria-hidden="true"></div>
+
+    <div class="club-bonus__eyebrow">
+      <span class="club-bonus__gift">🎁</span>
+      <span>Бонус на 5&nbsp;880&nbsp;грн</span>
+    </div>
+
+    <h2 class="h-section">А&nbsp;ще ти отримуєш <span class="hl-strong">ПОЖИТТЄВИЙ&nbsp;доступ до&nbsp;закритого клубу VSE&nbsp;AI</span></h2>
+
+    <p class="club-bonus__lead">
+      Поки інші платять <b>490 грн/міс</b> за&nbsp;підписку — у&nbsp;тебе доступ
+      <b>назавжди</b>, з&nbsp;першого дня після оплати курсу.
+    </p>
+
+    <div class="club-bonus__card reveal">
+      <ul class="club-bonus__list">
+        <li><span class="club-bonus__ic">👥</span><span><b>1&nbsp;400+ учасників</b> у&nbsp;живому чаті, 450+&nbsp;повідомлень щодня</span></li>
+        <li><span class="club-bonus__ic">📡</span><span><b>Щотижневий AI-Радар</b> — живий ефір зі&nbsp;мною: розбираю твої роботи, відповідаю на&nbsp;питання</span></li>
+        <li><span class="club-bonus__ic">🛟</span><span><b>Підтримка 24/7</b> від&nbsp;6&nbsp;адмінів-кураторів — будь-яке питання не залишається без відповіді</span></li>
+        <li><span class="club-bonus__ic">📝</span><span><b>500+ промптів</b> для&nbsp;фото / відео / GPT в&nbsp;окремій групі — нова порція щодня</span></li>
+        <li><span class="club-bonus__ic">🏆</span><span><b>Щотижневі челенджі</b> для портфоліо + розіграші підписок на платні нейронки</span></li>
+        <li><span class="club-bonus__ic">🎙</span><span><b>Стріми з&nbsp;запрошеними експертами</b> — теми обираєш сам через голосування</span></li>
+        <li><span class="club-bonus__ic">💼</span><span><b>Реальні клієнтські замовлення</b> від&nbsp;моєї агенції — передаються найактивнішим учасникам клубу</span></li>
+      </ul>
+
+      <div class="club-bonus__value">
+        <div class="club-bonus__value-row">
+          <span class="club-bonus__value-old">Окремо клуб коштує</span>
+          <b class="club-bonus__value-num">490&nbsp;грн/міс</b>
+        </div>
+        <div class="club-bonus__value-row club-bonus__value-row--yours">
+          <span class="club-bonus__value-old">Для тебе — назавжди</span>
+          <b class="club-bonus__value-num club-bonus__value-num--free">0&nbsp;грн</b>
+        </div>
+      </div>
+
+      <p class="club-bonus__note">
+        🛡 У&nbsp;річному перерахунку це <b>+5&nbsp;880&nbsp;грн цінності</b> у&nbsp;комплекті з&nbsp;курсом.
+      </p>
+    </div>
   </section>
 
   <!-- ============== ПРОГРАМА (11 детальних блоків) ============== -->
