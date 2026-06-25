@@ -451,6 +451,12 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .obj-q2{font-size:clamp(20px,2.8vw,30px)}
 .obj-ans{font-size:clamp(14px,1.6vw,17.5px);line-height:1.5;color:var(--text2);max-width:1000px}
 .obj-ans b{color:var(--text);font-weight:700}
+/* картки бонусів з обкладинками */
+.bonuscard{text-align:center}
+.bonuscard .bc-img{aspect-ratio:4/5;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--surface);box-shadow:0 12px 30px rgba(21,32,26,.08)}
+.bonuscard .bc-img img{width:100%;height:100%;object-fit:cover;display:block}
+.bonuscard .bc-t{font-family:'Unbounded';font-weight:700;font-size:clamp(14px,1.55vw,17px);margin-top:14px;line-height:1.25}
+.bonuscard .bc-d{font-size:clamp(12.5px,1.4vw,14.5px);color:var(--text2);margin-top:6px;line-height:1.4}
 /* візуалізація двох шляхів */
 @keyframes dashflow{to{stroke-dashoffset:-32}}
 .pathviz{width:100%;max-width:920px;margin:6px auto 0;display:block}
@@ -640,19 +646,26 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
   </div>
 </section>
 
-<!-- S7 — бонус (перенесено після S4) -->
-<section class="slide">
-  <div class="slide-inner split">
-    <div class="split-text">
-      <h2>🎁 Бонуси для тих, хто буде до кінця ефіру</h2>
-      <ul class="clean" style="margin-top:24px">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7 9 18l-5-5"/></svg>Секретний AI-асистент на базі <b>ChatGPT</b> для створення карток персонажів — щоб зберігати зовнішність героя протягом усього відео</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7 9 18l-5-5"/></svg>Список нейромереж, у яких уже зараз можна генерувати AI-відео безкоштовно</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7 9 18l-5-5"/></svg>Пак промтів для Claude — для тих, хто веде свої соцмережі</li>
-      </ul>
-    </div>
-    <div class="split-media" style="aspect-ratio:821/1100">
-      <img src="bonus-promt.jpg" alt="Бонус: нейромережі безкоштовно + промт-пак">
+<!-- S7 — бонуси (3 обкладинки) -->
+<section class="slide center">
+  <div class="slide-inner">
+    <h2>🎁 Бонуси для тих, хто буде до кінця ефіру</h2>
+    <div class="grid g3" style="max-width:880px;margin-top:24px">
+      <div class="bonuscard">
+        <div class="bc-img"><img src="bonus1.jpg" alt="AI-асистент на базі ChatGPT"></div>
+        <div class="bc-t">AI-асистент на базі ChatGPT</div>
+        <div class="bc-d">Створює картки персонажів — зберігає зовнішність героя протягом усього відео</div>
+      </div>
+      <div class="bonuscard">
+        <div class="bc-img"><img src="bonus2.jpg" alt="Безкоштовні нейромережі"></div>
+        <div class="bc-t">Список безкоштовних нейромереж</div>
+        <div class="bc-d">Де вже зараз можна генерувати AI-відео безкоштовно</div>
+      </div>
+      <div class="bonuscard">
+        <div class="bc-img"><img src="bonus3.jpg" alt="Пак промтів для Claude"></div>
+        <div class="bc-t">Пак промтів для Claude</div>
+        <div class="bc-d">Для тих, хто веде свої соцмережі</div>
+      </div>
     </div>
   </div>
 </section>
