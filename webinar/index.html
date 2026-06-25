@@ -433,6 +433,17 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .libcard svg{width:18px;height:18px;color:var(--mint);flex:none}
 .libcard span{font-size:12.5px;font-weight:600;color:#dfe7e1;line-height:1.2}
 @media(max-width:760px){.libgrid{grid-template-columns:1fr 1fr 1fr}}
+/* ChatGPT-style мок асистента */
+.gptmock{width:100%;height:100%;background:#fff;display:flex;flex-direction:column;text-align:left;overflow:hidden}
+.gptmock .gm-top{display:flex;align-items:center;gap:8px;padding:9px 13px;border-bottom:1px solid #ededed;font-family:'Manrope';font-weight:700;font-size:12.5px;color:#2d2d2d}
+.gptmock .gm-logo{width:19px;height:19px;border-radius:50%;background:#10a37f;display:grid;place-items:center;color:#fff;font-size:11px;font-weight:800}
+.gptmock .gm-body{flex:1;padding:11px 13px;display:flex;flex-direction:column;gap:9px;overflow:hidden;font-family:'Manrope'}
+.gptmock .gm-user{align-self:flex-end;max-width:82%;background:#f4f4f4;color:#2d2d2d;border-radius:14px;padding:7px 11px;font-size:11px;line-height:1.35}
+.gptmock .gm-ai{align-self:flex-start;display:flex;gap:7px;max-width:96%}
+.gptmock .gm-ava{width:18px;height:18px;border-radius:50%;background:#10a37f;flex:none;margin-top:1px}
+.gptmock .gm-card{background:#f7f9f8;border:1px solid #e6ebe8;border-radius:11px;padding:9px 11px;font-size:10px;line-height:1.5;color:#3a3a3a}
+.gptmock .gm-card .gm-h{font-weight:800;color:#10a37f;font-size:10.5px;margin-bottom:3px}
+.gptmock .gm-card b{color:#222}
 
 /* ---------- ROADMAP (карта шляху) ---------- */
 .roadmap{position:relative;padding-left:50px;margin-top:14px;width:100%;max-width:1080px;margin-left:auto;margin-right:auto;text-align:left}
@@ -613,7 +624,7 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
     <div class="split-text">
       <h2>🎁 Бонуси для тих, хто буде до кінця ефіру</h2>
       <ul class="clean" style="margin-top:24px">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7 9 18l-5-5"/></svg>Секретний AI-асистент для створення карток персонажів — щоб зберігати зовнішність героя протягом усього відео</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7 9 18l-5-5"/></svg>Секретний AI-асистент на базі <b>ChatGPT</b> для створення карток персонажів — щоб зберігати зовнішність героя протягом усього відео</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7 9 18l-5-5"/></svg>Список нейромереж, у яких уже зараз можна генерувати AI-відео безкоштовно</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7 9 18l-5-5"/></svg>Пак промтів для Claude — для тих, хто веде свої соцмережі</li>
       </ul>
@@ -815,7 +826,7 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <section class="slide dark center">
   <div class="slide-inner">
     <h2 style="color:var(--mint)">А тепер уявіть…</h2>
-    <p class="lead sub" style="color:#cdd8d0;max-width:900px;text-align:center;margin-top:16px">…що всі ці міні-курси, закритий клуб і навіть середній курс — це <b style="color:#fff">взагалі не той рівень</b>.</p>
+    <p class="lead sub" style="color:#cdd8d0;max-width:900px;text-align:center;margin-top:16px">…що всі ці міні-курси, закритий клуб і середній курс — це <b style="color:#fff">потужний фундамент</b>. А нове навчання — <b style="color:var(--mint)">наступний рівень</b>.</p>
 
     <div style="display:flex;align-items:stretch;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:30px;width:100%;max-width:960px">
       <div style="flex:1;min-width:240px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.13);border-radius:18px;padding:22px 24px;text-align:left">
@@ -843,7 +854,8 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <section class="slide center">
   <div class="slide-inner">
     <h2 style="font-size:clamp(24px,3.2vw,40px);max-width:1000px">Контент, який я створюю за допомогою AI і публікую в Instagram та TikTok, дає мені ось такі результати</h2>
-    <div class="grid g5 vids3" style="margin-top:22px;max-width:880px">
+    <p class="lead sub" style="text-align:center;margin-top:10px">Результат — це <b>перегляди · підписники · звернення · коментарі</b></p>
+    <div class="grid g5 vids3" style="margin-top:18px;max-width:880px">
       <figure>
         <div class="frame" style="aspect-ratio:9/16;margin-top:0"><div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></svg><span class="ph-label">[рилс]</span></div></div>
         <figcaption class="reel-cap"><span class="rc-v"><span class="placeholder">[N]</span> переглядів</span><span class="rc-s">+<span class="placeholder">[N]</span> підписників</span></figcaption>
@@ -872,7 +884,7 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <section class="slide center">
   <div class="slide-inner">
     <h2 style="font-size:clamp(24px,3.2vw,42px);max-width:1040px">Правда в тому, що ці відео — одне з <span class="hl">моїх головних джерел залучення клієнтів</span> і мого впливу на ринок AI в Україні</h2>
-    <p class="lead sub" style="text-align:center;max-width:960px;margin-top:14px">Щоб отримувати клієнтів, вам по факту потрібно робити те саме — але розуміти, <b>за якою формулою</b> створювати контент, щоб він приносив результат. І звичайно — мати на озброєнні <b>2–3 ефективних методи пошуку клієнтів</b>, про це теж поговоримо пізніше.</p>
+    <p class="lead sub" style="text-align:center;max-width:960px;margin-top:14px">Щоб отримувати клієнтів, вам по факту потрібно робити те саме — але розуміти, <b>за якою формулою</b> створювати контент, щоб він приносив результат.</p>
     <div class="grid g3" style="margin-top:28px;max-width:760px">
       <div class="card" style="align-items:center;text-align:center;gap:8px">
         <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" style="width:34px;height:34px"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -887,6 +899,14 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
         <span class="ct" style="font-weight:700">Клієнти</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- S9b2b — методи пошуку клієнтів -->
+<section class="slide center">
+  <div class="slide-inner">
+    <h2>І ще — <span class="hl">2–3 ефективних методи</span> пошуку клієнтів</h2>
+    <p class="lead sub" style="text-align:center;max-width:920px">Окрім контенту, варто мати на озброєнні кілька робочих способів залучати клієнтів напряму — щоб не чекати, поки вони прийдуть самі. <b>Про це теж поговоримо сьогодні.</b></p>
   </div>
 </section>
 
@@ -963,10 +983,10 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
   <div class="slide-inner">
     <h2>Чому ринок AI-контенту росте в Україні</h2>
     <ul class="clean mt24" style="max-width:940px">
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Бізнесу <b>щодня потрібен новий контент</b> — більше, ніж будь-коли</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>AI <b>здешевив виробництво</b> відео в десятки разів</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg><b>Відео</b> — найзатребуваніший формат контенту в інтернеті</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Поріг входу впав — у ринок заходить <b>усе більше людей</b></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Алгоритми Reels, TikTok і Shorts тягнуть <b>саме відео</b> — і кожному бізнесу його треба багато й постійно</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>AI <b>обвалив вартість</b>: те, що коштувало тисячі $ на продакшн, тепер роблять за токени — попит на виконавців вибухнув</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Генерувати «щось» уміють тисячі, а робити <b>продаюче відео</b> — майже ніхто, тому за якісних креаторів тримаються</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Професія <b>тільки формується</b> — перші імена ще не зайняті: хто заходить зараз, збирає клієнтів і репутацію</li>
     </ul>
   </div>
 </section>
@@ -975,12 +995,17 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <section class="slide center">
   <div class="slide-inner">
     <h2>Які формати AI-контенту є на ринку</h2>
-    <div class="grid g5" style="margin-top:24px;max-width:980px">
+    <div class="grid g5" style="margin-top:24px;max-width:1040px">
       <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m3 16 5-5 4 4 5-5 4 4"/><circle cx="9" cy="8" r="1.5"/></svg><span class="ct">AI-картинки</span></div>
       <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 12 0v1"/></svg><span class="ct">AI-аватари</span></div>
       <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="14" height="14" rx="2"/><path d="m22 8-6 4 6 4Z"/></svg><span class="ct">AI-відео</span></div>
-      <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l12-2v13M9 13l12-2"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span class="ct">AI-озвучка й музика</span></div>
+      <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 5 6 9H2v6h4l5 4Z"/><path d="M19 12a7 7 0 0 0-3-5.7M15.5 8.5a3 3 0 0 1 0 7"/></svg><span class="ct">AI-озвучка</span></div>
+      <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l12-2v13M9 13l12-2"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span class="ct">AI-музика</span></div>
       <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span class="ct">AI-тексти</span></div>
+      <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/></svg><span class="ct">AI-дубляж / переклад</span></div>
+      <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M12 17v4M8 21h8M7 8l3 3 5-5"/></svg><span class="ct">AI-презентації</span></div>
+      <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18M8 16v-5M13 16V8M18 16v-9"/></svg><span class="ct">AI-інфографіка</span></div>
+      <div class="card icard"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11v2a1 1 0 0 0 1 1h2l4 4V6L6 10H4a1 1 0 0 0-1 1ZM15 8a4 4 0 0 1 0 8M18 5a8 8 0 0 1 0 14"/></svg><span class="ct">AI-реклама</span></div>
     </div>
   </div>
 </section>
@@ -1188,7 +1213,8 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 <section class="slide center">
   <div class="slide-inner">
     <h2>І так — можна генерувати фільми до 5 хвилин</h2>
-    <div class="frame" style="aspect-ratio:16/9;max-width:600px;margin:22px auto 0">
+    <p class="lead sub" style="text-align:center;max-width:900px">Це вже повноцінний <b>філммейкінг</b> — окремий напрям, де AI-відеокреатор робить короткометражки від ідеї та сценарію до фінального монтажу.</p>
+    <div class="frame" style="aspect-ratio:16/9;max-width:600px;margin:18px auto 0">
       <div class="ph-inner">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></svg>
         <span class="ph-label">[приклад AI-фільму]</span>
@@ -1355,12 +1381,12 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
       <div class="card icard">
         <span class="snum">1</span>
         <div class="frame" style="aspect-ratio:4/3;margin-top:0;width:100%"><div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m3 16 5-5 4 4 5-5 4 4"/><circle cx="9" cy="8" r="1.5"/></svg></div></div>
-        <span class="ct">Навчись роботі з промтами</span>
+        <span class="ct">Придумай ідею відео + сценарій</span>
       </div>
       <div class="card icard">
         <span class="snum">2</span>
         <div class="frame" style="aspect-ratio:4/3;margin-top:0;width:100%"><div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m3 16 5-5 4 4 5-5 4 4"/><circle cx="9" cy="8" r="1.5"/></svg></div></div>
-        <span class="ct">Створи картку персонажа</span>
+        <span class="ct">Склади промти і створи картку персонажа</span>
       </div>
       <div class="card icard">
         <span class="snum">3</span>
@@ -1381,31 +1407,45 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
   </div>
 </section>
 
-<!-- S25 -->
+<!-- S25 — крок 1: ідея + сценарій -->
 <section class="slide">
   <div class="slide-inner split">
     <div class="split-media ph-frame" style="aspect-ratio:4/3">
-      <!-- <img src="step-1.jpg" alt="Промт"> -->
-      <div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m3 16 5-5 4 4 5-5 4 4"/><circle cx="9" cy="8" r="1.5"/></svg><span class="ph-label">[демо кроку]</span></div>
+      <div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.6 1 1.4 1 2.3h6c0-.9.4-1.7 1-2.3A7 7 0 0 0 12 2Z"/></svg><span class="ph-label">[демо кроку]</span></div>
     </div>
     <div class="split-text">
-      <h2>Навчись роботі з промтами</h2>
-      <p class="lead sub" style="font-size:clamp(13.5px,1.5vw,16.5px);line-height:1.5">Промт — це твоє технічне завдання для нейромережі. Новачку здається, що це складно, а генерація щоразу «не та». Насправді принцип простий: <b>бачиш результат → описуєш його словами → отримуєш кадр.</b> Щоб не писати щоразу з нуля, ти налаштовуєш власного AI-асистента (агента) — він пише й доопрацьовує промти під кожну сцену за тебе. Результат: генерації йдуть строго по сценарію, без «каші в голові».</p>
+      <h2>Придумай ідею відео + сценарій</h2>
+      <p class="lead sub" style="font-size:clamp(13.5px,1.5vw,16.5px);line-height:1.5">Усе починається не з нейромережі, а з <b>ідеї та сценарію</b>. Більшість новачків генерують хаотично — і виходить «каша». Покажу, де системно брати ідеї під твою нішу й формат, і як за допомогою AI швидко перетворити ідею на <b>чіткий сценарій</b>: хто в кадрі, що відбувається, яка послідовність сцен. Із готовим сценарієм усі наступні кроки йдуть строго по плану, а не «як пощастить».</p>
     </div>
   </div>
 </section>
 
-<!-- S26 -->
+<!-- S26 — крок 2: промти + картка персонажа -->
 <section class="slide">
   <div class="slide-inner split">
-    <div class="split-media ph-frame" style="aspect-ratio:4/3">
-      <!-- <img src="step-2.jpg" alt="Персонаж"> -->
-      <div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m3 16 5-5 4 4 5-5 4 4"/><circle cx="9" cy="8" r="1.5"/></svg><span class="ph-label">[демо кроку]</span></div>
+    <div class="split-media" style="aspect-ratio:4/3;background:#fff">
+      <div class="gptmock">
+        <div class="gm-top"><span class="gm-logo">✦</span>AI-асистент карток персонажів · ChatGPT</div>
+        <div class="gm-body">
+          <div class="gm-user">Створи картку персонажа для UGC-відео: дівчина, 25 років, темне волосся, біла сорочка</div>
+          <div class="gm-ai">
+            <span class="gm-ava"></span>
+            <div class="gm-card">
+              <div class="gm-h">Картка персонажа · Анна</div>
+              <b>Зовнішність:</b> 25 р., овальне обличчя, темно-каштанове волосся до плечей, карі очі<br>
+              <b>Одяг:</b> біла сорочка-оверсайз, мінімалізм<br>
+              <b>Світло:</b> м'яке денне, з вікна зліва<br>
+              <b>Стиль:</b> реалістичний UGC, iPhone-знімок<br>
+              <b>Seed / ракурс:</b> фронтальний, фіксований для всіх кадрів
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="split-text">
-      <h2>Створи картку персонажа</h2>
-      <p class="lead sub" style="font-size:clamp(13.5px,1.5vw,16.5px);line-height:1.5">Найчастіша проблема новачка: з кожною генерацією персонаж усе менше схожий на себе — обличчя «пливе», а коли оживляєш із фото, воно стає іншою людиною. Рішення — <b>картка персонажа</b>: один раз фіксуєш зовнішність, риси, ракурси, світло й стиль — і вона тримає ту саму людину від першого до останнього кадру. Так само працюють картки локацій і одягу. Це фундамент усього.</p>
-      <p class="ph mt16" style="font-style:italic">Інструмент: Nano Banana — реалістичне й стабільне обличчя.</p>
+      <h2>Склади промти і створи картку персонажа</h2>
+      <p class="lead sub" style="font-size:clamp(13px,1.45vw,16px);line-height:1.48">Промт — це технічне завдання для нейромережі: <b>бачиш результат → описуєш словами → отримуєш кадр</b>. Щоб не писати щоразу з нуля, налаштовуєш власного AI-асистента — він пише й доопрацьовує промти за тебе. А щоб персонаж не «пливло» між кадрами — створюєш <b>картку персонажа</b>: один раз фіксуєш зовнішність, риси, світло й стиль, і вона тримає ту саму людину від першого до останнього кадру. Так само працюють картки локацій та одягу — це фундамент усього.</p>
+      <p class="ph mt8" style="font-style:italic">Інструменти: ChatGPT (асистент промтів) · Nano Banana (стабільне обличчя).</p>
     </div>
   </div>
 </section>
@@ -1662,7 +1702,7 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
     <div class="roadmap p1">
       <div class="rm-phase-head"><span class="rph-n">ФАЗА 1</span><span class="rph-t">Фундамент</span></div>
       <div class="rmrow"><span class="rn">01</span><div class="rc"><div class="rt">Розбираєшся в ніші AI-відео: де гроші і як зайти саме туди</div><div class="rr">= обираєш нішу, з якою працюватимеш, і бачиш свій шлях</div></div></div>
-      <div class="rmrow"><span class="rn">02</span><div class="rc"><div class="rt">Опановуєш промт-інженерію й налаштовуєш власного AI-асистента, який пише промти за тебе</div><div class="rr">= генерації передбачувані, без зливу токенів на «як пощастить»</div></div></div>
+      <div class="rmrow"><span class="rn">02</span><div class="rc"><div class="rt">Опановуєш промт-інженерію й налаштовуєш власного AI-асистента на базі ChatGPT, який пише промти за тебе</div><div class="rr">= генерації передбачувані, без зливу токенів на «як пощастить»</div></div></div>
       <div class="rmrow"><span class="rn">03</span><div class="rc"><div class="rt">Створюєш AI-персонажів зі стабільною зовнішністю, локаціями та стилем</div><div class="rr">= герої не змінюються між кадрами — фундамент будь-якого AI-контенту</div></div></div>
       <div class="rmrow"><span class="rn">04</span><div class="rc"><div class="rt">Будуєш розкадровку і генеруєш кінематографічні кадри</div><div class="rr">= готовий візуал для першого відео</div></div></div>
       <div class="rmend">Кінець фази 1 — є персонаж, розуміння інструментів і перші кадри</div>
