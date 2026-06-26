@@ -35,7 +35,7 @@ h1,h2,h3,.uns{font-family:'Unbounded',sans-serif;line-height:1.04;letter-spacing
 /* ---------- DECK ---------- */
 .deck{position:fixed;inset:0;background:var(--bg)}
 .progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:60;transition:width .45s ease}
-.counter{position:fixed;top:16px;right:22px;z-index:60;font-family:'Unbounded';font-weight:700;font-size:14px;color:var(--text3);letter-spacing:.05em}
+.counter{display:none}
 .counter .tot{color:var(--text3);opacity:.5;font-weight:500}
 
 .slide{
@@ -565,7 +565,7 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .nbtn{width:40px;height:40px;flex:none;border-radius:11px;border:1px solid var(--line);background:transparent;color:var(--text);display:grid;place-items:center;cursor:pointer;transition:.2s}
 .nbtn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
 .nbtn svg{width:20px;height:20px}
-.dots{display:flex;gap:7px;align-items:center;max-width:62vw;overflow:hidden;flex-wrap:wrap;justify-content:center;max-height:24px}
+.dots{display:none}
 .dot{width:7px;height:7px;border-radius:100px;background:var(--line);border:none;padding:0;cursor:pointer;transition:.3s}
 .dot.on{width:22px;background:var(--accent)}
 @media(max-width:760px){
@@ -1329,7 +1329,7 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 
 <!-- розбір відео 1 — повноекранне відео -->
 <section class="slide dark" style="padding:0">
-  <iframe src="https://www.youtube.com/embed/lnRkN1_dOPA" title="Технічний розбір — реклама товару" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/lnRkN1_dOPA" title="Технічний розбір — реклама товару" style="position:absolute;top:0;left:0;right:0;bottom:96px;width:100%;height:auto;border:0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 
 <!-- S22 -->
