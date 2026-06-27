@@ -429,6 +429,19 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .mod-media{aspect-ratio:4/5;border:1.5px dashed rgba(95,223,172,.3);border-radius:14px;background:#10201a;display:grid;place-items:center;color:#7fbfa3;font-size:13px;font-weight:600;overflow:hidden}
 .mod-media img,.mod-media video{width:100%;height:100%;object-fit:cover}
 @media(max-width:760px){.mod-split{grid-template-columns:1fr}.mod-media{max-width:240px;aspect-ratio:16/10}}
+.mod-list li b{color:#dfe7e1;font-weight:700}
+/* слайди-експерти (Модуль 12) */
+.expert{display:grid;grid-template-columns:clamp(220px,24vw,290px) 1fr;gap:clamp(24px,3.5vw,46px);margin-top:12px;align-items:start}
+.exp-photo{width:100%;border-radius:16px;overflow:hidden;border:1px solid rgba(95,223,172,.22);box-shadow:0 14px 36px rgba(0,0,0,.32);background:#10201a;display:block}
+.exp-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.exp-role{display:inline-block;margin-top:12px;font-family:'Manrope';font-weight:700;font-size:12.5px;color:var(--mint);background:rgba(67,209,153,.1);border:1px solid rgba(95,223,172,.3);border-radius:100px;padding:6px 14px;line-height:1.3}
+.exp-proofs{display:flex;gap:8px;margin-top:10px}
+.exp-proofs img{flex:1;min-width:0;height:78px;object-fit:cover;object-position:top;border-radius:8px;border:1px solid rgba(95,223,172,.2)}
+.exp-bio{color:#9fb0a6;font-size:12.5px;line-height:1.5;margin-top:12px}
+.exp-bio b{color:#dfe7e1;font-weight:700}
+.exp-lessons-h{font-family:'Unbounded';font-weight:700;font-size:11px;letter-spacing:.06em;color:var(--mint);margin-bottom:12px;text-transform:uppercase}
+.exp-avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,#1fce8a,#0b5c3d);display:grid;place-items:center;font-family:'Unbounded';font-weight:800;font-size:34px;color:#fff}
+@media(max-width:760px){.expert{grid-template-columns:1fr}}
 /* бібліотека монтажу */
 .libgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:24px;width:100%;max-width:1080px;margin-left:auto;margin-right:auto}
 .libcard{display:flex;align-items:center;gap:9px;background:#13201b;border:1px solid rgba(255,255,255,.1);border-left:3px solid var(--mint);border-radius:11px;padding:11px 13px;text-align:left}
@@ -2385,53 +2398,149 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
   </div>
 </section>
 
-<!-- Модуль 12 -->
-<section class="slide dark">
+<!-- Модуль 12 · інтро (4 експерти) -->
+<section class="slide dark center">
   <div class="slide-inner">
-    <div class="mod-head"><span class="mod-n">12</span><span class="mod-emoji">🧲</span><h2>Пошук клієнтів: система лідогенерації</h2></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px 40px;margin-top:14px">
-      <ul class="mod-list">
-        <li>Фундамент: філософія фрілансера + продажі + способи лідогенерації</li>
-        <li>Залучення клієнтів через ведення свого блогу</li>
-        <li>Threads: формула 1 млн охоплень + прямі запити</li>
-        <li>Залучення через прямі ефіри</li>
-        <li>Як зачепитися за бренд блогера з активною відміткою</li>
-        <li>Пробний рілс — унікальний спосіб (якщо є 1к підписників)</li>
-        <li>Пошук клієнтів через Reels, TikTok, Shorts</li>
-        <li>LinkedIn: довгострокові клієнти + щоб писали вам самі</li>
-      </ul>
-      <ul class="mod-list">
-        <li>Telegram-чати з вакансіями та бізнес-спільноти + як писати, щоб вас помічали</li>
-        <li>Холодні розсилки, які відкривають · правильна розсилка</li>
-        <li>Таргет на свої послуги</li>
-        <li>Партнерства з експертами (таргетологи, SMM-ники)</li>
-        <li>Пошук клієнтів через івенти</li>
-        <li>Потенційні клієнти через Google Карти</li>
-        <li>B2B оптом: AI-агенції, арбітражні команди, агенції монтажу та продакшну</li>
-      </ul>
+    <div class="mod-head" style="justify-content:center"><span class="mod-n">12</span><span class="mod-emoji">🧲</span></div>
+    <h2 style="color:#eef3ef;max-width:1020px">Модуль 12 я зробив <span style="color:var(--mint)">максимально насиченим</span></h2>
+    <p class="lead sub" style="color:#cdd8d0;max-width:920px;text-align:center;margin-top:14px">Уроки для вас записують <b style="color:#fff">аж 4 експерти</b> — кожен у своїй сильній темі.</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:30px;width:100%;max-width:1060px">
+      <div style="flex:1;min-width:210px;background:rgba(255,255,255,.04);border:1px solid rgba(95,223,172,.18);border-radius:16px;padding:22px 18px;text-align:center">
+        <div style="font-size:28px">🔗</div>
+        <div style="font-family:'Unbounded';font-weight:700;font-size:clamp(14px,1.5vw,17px);color:#fff;margin-top:8px">Богдан Титоренко</div>
+        <div style="color:#9fb0a6;font-size:13px;margin-top:4px">Клієнти через LinkedIn</div>
+      </div>
+      <div style="flex:1;min-width:210px;background:rgba(255,255,255,.04);border:1px solid rgba(95,223,172,.18);border-radius:16px;padding:22px 18px;text-align:center">
+        <div style="font-size:28px">📈</div>
+        <div style="font-family:'Unbounded';font-weight:700;font-size:clamp(14px,1.5vw,17px);color:#fff;margin-top:8px">Ілля Косенко</div>
+        <div style="color:#9fb0a6;font-size:13px;margin-top:4px">Просування в соцмережах</div>
+      </div>
+      <div style="flex:1;min-width:210px;background:rgba(255,255,255,.04);border:1px solid rgba(95,223,172,.18);border-radius:16px;padding:22px 18px;text-align:center">
+        <div style="font-size:28px">🤝</div>
+        <div style="font-family:'Unbounded';font-weight:700;font-size:clamp(14px,1.5vw,17px);color:#fff;margin-top:8px">Богдан Степаненко</div>
+        <div style="color:#9fb0a6;font-size:13px;margin-top:4px">Лідогенерація та продажі</div>
+      </div>
+      <div style="flex:1;min-width:210px;background:rgba(67,209,153,.1);border:1px solid rgba(95,223,172,.4);border-radius:16px;padding:22px 18px;text-align:center">
+        <div style="font-size:28px">🎬</div>
+        <div style="font-family:'Unbounded';font-weight:700;font-size:clamp(14px,1.5vw,17px);color:#fff;margin-top:8px">Олександр Цюцьмаць</div>
+        <div style="color:var(--mint);font-size:13px;margin-top:4px">Блог, Threads, ефіри</div>
+      </div>
     </div>
-    <div class="mod-result" style="margin-top:14px"><div class="mr-head">✦ Результат модуля</div><p><b>Конкретний план, де брати замовлення</b> — і перші клієнти ще під час навчання.</p></div>
   </div>
 </section>
 
-<!-- Модуль 12 · продажі -->
+<!-- Модуль 12 · експерт 1 — Богдан Титоренко -->
 <section class="slide dark">
   <div class="slide-inner">
-    <div class="mod-head"><span class="mod-n">12</span><span class="mod-emoji">🤝</span><h2>Продажі: як перетворювати звернення на оплати</h2></div>
-    <div class="mod-split">
+    <div class="mod-head"><span class="mod-n">12</span><span class="mod-emoji">🔗</span><h2>Богдан Титоренко — клієнти через LinkedIn</h2></div>
+    <div class="expert">
       <div>
-        <ul class="mod-list">
-          <li>База продажів: що треба знати про продажі на старті</li>
-          <li>Що таке продукт AI-відеокреатора й як чітко описати свої послуги</li>
-          <li>Правила спілкування з клієнтами у переписці — щоб не зливалися</li>
-          <li>Правила спілкування на зідзвонах</li>
-          <li>Шлях клієнта від першого повідомлення до покупки</li>
-          <li>Як і на якому етапі озвучувати ціну, щоб клієнти не зникали</li>
-          <li>Як продавати дорого</li>
-        </ul>
-        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p><b>Ведеш клієнта від першого повідомлення до оплати</b> — і продаєш дорого.</p></div>
+        <div class="exp-photo" style="aspect-ratio:4/5"><img src="bogdan.jpg" alt="Богдан Титоренко"></div>
+        <span class="exp-role">Пошук клієнтів через LinkedIn</span>
+        <div class="exp-proofs">
+          <img src="bogdan-upwork.jpg" alt="Upwork Богдана">
+          <img src="bogdan-linkedin.jpg" alt="LinkedIn Богдана">
+        </div>
       </div>
-      <div class="mod-media"><!-- <img src="mod-sales.jpg"> -->[фото / відео]</div>
+      <div>
+        <div class="exp-lessons-h">Уроки</div>
+        <ul class="mod-list" style="gap:18px">
+          <li>Як шукати клієнтів на <b>довгострокову роботу</b> через LinkedIn</li>
+          <li>Як зробити так, щоб клієнти <b>самі вам писали</b> через LinkedIn (буквально)</li>
+          <li>Список <b>Telegram-чатів з вакансіями</b>, комʼюніті та бізнес-чатів + як правильно писати, щоб вас помічали і зверталися за послугами</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 12 · експерт 2 — Ілля Косенко -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">12</span><span class="mod-emoji">📈</span><h2>Ілля Косенко — просування в соцмережах</h2></div>
+    <div class="expert">
+      <div>
+        <div class="exp-photo" style="aspect-ratio:3/4"><img src="kosenko.jpg" alt="Ілля Косенко · Instagram"></div>
+        <span class="exp-role">Просування в соцмережах</span>
+        <div class="exp-bio">CEO &amp; Founder <b>@kosenko.agency</b> · <b>42 активні проєкти</b> (MacCoffee, Curaprox). Навчив <b>205 людей</b> заробляти в TikTok <b>1000$+</b>.</div>
+      </div>
+      <div>
+        <div class="exp-lessons-h">Уроки</div>
+        <ul class="mod-list" style="gap:14px">
+          <li>Як шукати клієнтів, створюючи <b>Reels, TikTok, Shorts</b></li>
+          <li>Як писати <b>холодні розсилки</b>, які відкривають</li>
+          <li>Як AI-креатору налаштувати <b>таргет</b> на свої послуги</li>
+          <li>Як будувати <b>партнерства</b> з іншими експертами (таргетологи, SMM-ники тощо)</li>
+          <li>Як шукати клієнтів через <b>івенти</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 12 · експерт 3 — Богдан Степаненко -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">12</span><span class="mod-emoji">🤝</span><h2>Богдан Степаненко — лідогенерація та продажі</h2></div>
+    <div class="expert" style="grid-template-columns:clamp(180px,18vw,220px) 1fr">
+      <div>
+        <div class="exp-avatar">БС</div>
+        <div style="margin-top:10px"><span class="exp-role">Лідогенерація та продажі</span></div>
+        <div class="exp-bio">Експерт із <b>продюсування освітніх продуктів</b> і побудови автоворонок продажів. Допомагає мені складати, упаковувати й просувати <b>всі мої продукти</b>.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 34px">
+        <div>
+          <div class="exp-lessons-h">Пошук клієнтів</div>
+          <ul class="mod-list">
+            <li>Фундамент: філософія фрилансера + продажі + способи лідогенерації</li>
+            <li>Потенційні клієнти через <b>Google Карти</b> та Google-точки</li>
+            <li><b>B2B оптом</b>: AI-агенції, арбітражні команди, агенції монтажу й продакшну</li>
+            <li>Бот <b>Inflow</b></li>
+            <li>Купівля онлайн-курсів, де є чат</li>
+            <li>Правильна розсилка</li>
+          </ul>
+        </div>
+        <div>
+          <div class="exp-lessons-h">Продажі</div>
+          <ul class="mod-list">
+            <li>База продажів: що треба знати на старті</li>
+            <li>Що таке продукт AI-відеокреатора й як чітко описати послуги</li>
+            <li>Спілкування у переписці — щоб клієнти не зливалися</li>
+            <li>Спілкування на зідзвонах</li>
+            <li>Шлях клієнта від першого повідомлення до покупки</li>
+            <li>Як і коли озвучувати ціну, щоб не зникали</li>
+            <li>Як продавати дорого</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 12 · експерт 4 — Олександр Цюцьмаць -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">12</span><span class="mod-emoji">🎬</span><h2>Олександр Цюцьмаць — блог, Threads та ефіри</h2></div>
+    <div class="expert">
+      <div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div class="exp-photo" style="aspect-ratio:9/16"><img src="inst.jpg" alt="Instagram Олександра"></div>
+          <div class="exp-photo" style="aspect-ratio:9/16"><img src="tt.jpg" alt="TikTok Олександра"></div>
+        </div>
+        <div style="margin-top:12px"><span class="exp-role">Особистий бренд · автор навчання</span></div>
+      </div>
+      <div>
+        <div class="exp-lessons-h">Уроки</div>
+        <ul class="mod-list" style="gap:12px">
+          <li>Залучення клієнтів через <b>ведення свого блогу</b></li>
+          <li>Ситуація з життя — <b>дитяча кімната</b></li>
+          <li>Пошук клієнтів через <b>Threads</b></li>
+          <li>Формула <b>1 млн охоплень</b> + прямі запити в Threads</li>
+          <li>Як через <b>прямі ефіри</b> залучати потенційних клієнтів</li>
+          <li>Як зачепитися за <b>бренд блогера</b> з активною відміткою</li>
+          <li>Унікальний спосіб — <b>пробний рілс</b> (якщо є 1к підписників)</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
