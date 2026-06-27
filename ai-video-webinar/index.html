@@ -164,6 +164,16 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.01em;line-height:1.
 .hv-media{width:100%;height:100%;display:block;background:#000}
 .hero-show-cap{font-size:14px;color:var(--text2);max-width:580px;margin:18px auto 0;line-height:1.55}
 .hero-show-cap strong{color:var(--text);font-weight:700}
+.hero-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:980px;margin:0 auto}
+.hg-card{position:relative;aspect-ratio:9/16;border-radius:var(--rl);overflow:hidden;cursor:pointer;border:1px solid var(--border);background:linear-gradient(160deg,#15211c,#0b1310);box-shadow:var(--shadow-lg);transition:transform .25s}
+.hg-card:hover{transform:translateY(-4px)}
+.hg-card::after{content:'';position:absolute;inset:0;background:radial-gradient(75% 70% at 50% 42%,transparent 45%,rgba(0,0,0,.5));pointer-events:none;z-index:1;transition:.3s}
+.hg-card .hv-play{width:60px;height:60px;box-shadow:0 10px 30px rgba(11,92,61,.5)}
+.hg-card:hover .hv-play{transform:translate(-50%,-50%) scale(1.08)}
+.hg-tag{position:absolute;top:12px;left:12px;z-index:3;font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.03em;text-transform:uppercase;color:#eaf3ee;background:rgba(8,16,13,.72);border:1px solid rgba(255,255,255,.15);padding:6px 12px;border-radius:100px}
+.hg-card video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#08100d;display:block;z-index:2}
+.hg-card.on::after,.hg-card.on .hv-play,.hg-card.on .hg-tag{opacity:0;pointer-events:none}
+@media(max-width:640px){.hero-gallery{grid-template-columns:1fr;max-width:330px}}
 .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:760px;margin:0 auto 40px}
 .hstat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px 12px;text-align:center;box-shadow:var(--shadow);transition:.25s}
 .hstat:hover{transform:translateY(-3px)}
@@ -629,15 +639,21 @@ footer .wrap{max-width:760px}
   </div>
 
   <div class="hero-show reveal">
-    <div class="hero-video" id="heroVideo" onclick="playHeroClip()">
-      <picture>
-        <source srcset="hero-poster.avif" type="image/avif">
-        <img src="hero-poster.jpg" alt="Кадр з музичного кліпу, повністю згенерованого через AI" loading="lazy" decoding="async" width="1280" height="720">
-      </picture>
-      <span class="hv-play" aria-label="Відтворити"><svg width="28" height="32" viewBox="0 0 28 32" fill="none"><path d="M2 2.5v27l24-13.5L2 2.5z" fill="currentColor"/></svg></span>
-      <span class="hv-badge"><span class="d"></span>Повністю згенеровано через AI · зі звуком</span>
+    <div class="hero-gallery">
+      <div class="hg-card" onclick="playGal(this,'../webinar/reklama.mp4')">
+        <span class="hg-tag">Реклама товару</span>
+        <span class="hv-play" aria-label="Відтворити"><svg width="24" height="28" viewBox="0 0 28 32" fill="none"><path d="M2 2.5v27l24-13.5L2 2.5z" fill="currentColor"/></svg></span>
+      </div>
+      <div class="hg-card" onclick="playGal(this,'../webinar/clip.mp4')">
+        <span class="hg-tag">Музичний кліп</span>
+        <span class="hv-play" aria-label="Відтворити"><svg width="24" height="28" viewBox="0 0 28 32" fill="none"><path d="M2 2.5v27l24-13.5L2 2.5z" fill="currentColor"/></svg></span>
+      </div>
+      <div class="hg-card" onclick="playGal(this,'../webinar/multik.mp4')">
+        <span class="hg-tag">Мультик / анімація</span>
+        <span class="hv-play" aria-label="Відтворити"><svg width="24" height="28" viewBox="0 0 28 32" fill="none"><path d="M2 2.5v27l24-13.5L2 2.5z" fill="currentColor"/></svg></span>
+      </div>
     </div>
-    <p class="hero-show-cap">Це не зйомка — це уривок музичного кліпу <strong>повністю згенерований Олександром через нейромережі</strong>. Саме такі відео ти навчишся створювати на курсі.</p>
+    <p class="hero-show-cap">Три відео, які я розбирав на вебінарі — <strong>реклама, музичний кліп і мультик, повністю згенеровані через нейромережі</strong>. Саме такі відео ти навчишся створювати на курсі. Натисни, щоб переглянути.</p>
   </div>
 </div>
 </div>
@@ -1666,18 +1682,17 @@ function toggleObj(id){
 function toggleModule(id){
   document.getElementById(id).classList.toggle('open');
 }
-function playHeroClip(){
-  var box=document.getElementById('heroVideo');
-  if(!box||box.dataset.played)return;
-  box.dataset.played='1';
+function playGal(card,src){
+  if(!card||card.dataset.played)return;
+  card.dataset.played='1';
   var v=document.createElement('video');
-  v.src='hero-clip.mp4';
+  v.src=src;
   v.className='hv-media';
   v.controls=true;v.autoplay=true;v.loop=true;v.playsInline=true;
   v.setAttribute('playsinline','');
-  box.onclick=null;box.style.cursor='default';
-  box.innerHTML='';
-  box.appendChild(v);
+  card.style.cursor='default';
+  card.classList.add('on');
+  card.appendChild(v);
   var p=v.play();if(p&&p.catch)p.catch(function(){});
 }
 
