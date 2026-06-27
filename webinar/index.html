@@ -775,7 +775,7 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
       <li><span class="num">2</span> Як зараз виглядає <b>ринок AI-контенту</b> і які є можливості для заробітку</li>
       <li><span class="num">3</span> Чому у більшості новачків <b>швидко опускаються руки</b> — і яку систему роботи з нейронками я побудував, щоб <b>швидко й легко</b> створювати AI відео контент</li>
       <li><span class="num">4</span> Розбір <b>трьох відео</b>: мультик, реклама, кліп</li>
-      <li><span class="num">5</span> Презентація мого <b>нового навчання «AI-відеокреатор»</b> та <b>найкращих умов участі</b> для тих, хто прийшов на вебінар</li>
+      <li><span class="num">5</span> Презентація мого <b>нового навчання «AI-відеокреатор»</b> та <b>вигідні умови участі</b> для тих, хто прийшов на вебінар</li>
       <li><span class="num">6</span> Відповіді на ваші запитання</li>
       <li><span class="num">7</span> <b>Бонуси</b> для тих, хто буде до кінця ефіру</li>
     </ul>
@@ -956,11 +956,18 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
       </div>
     </div>
 
-    <div style="display:flex;align-items:center;gap:14px;margin-top:24px;background:rgba(67,209,153,.08);border-left:3px solid var(--mint);border-radius:12px;padding:16px 22px;max-width:960px;text-align:left">
-      <svg viewBox="0 0 24 24" fill="none" stroke="var(--mint)" stroke-width="1.8" style="width:26px;height:26px;flex:none"><path d="M5 13l4 4L19 7"/></svg>
-      <p style="color:#e7efe9;font-size:clamp(15px,1.7vw,18px);line-height:1.4;margin:0">І <b style="color:#fff">неважливо, на якому ти рівні</b> зараз — пройдуть підготовлений мною шлях і почнуть кар'єру AI-відеокреатора <b style="color:var(--mint)">всі, хто візьме відповідальність на себе й робитиме все, що я кажу</b></p>
+  </div>
+</section>
+
+<!-- S9a4b — твій рівень не має значення -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h2 style="color:#eef3ef;max-width:1040px">Твій поточний рівень <span style="color:var(--mint)">не має жодного значення</span></h2>
+    <p class="lead sub" style="color:#cdd8d0;max-width:980px;text-align:center;margin-top:18px">Запевняю: <b style="color:#fff">кожен</b>, хто візьме відповідальність на себе й робитиме все, що я кажу, <b style="color:var(--mint)">почне кар'єру AI-відеокреатора вже до кінця літа</b>.</p>
+    <div style="display:inline-flex;align-items:center;gap:10px;margin-top:28px;background:rgba(67,209,153,.1);border:1px solid rgba(95,223,172,.4);border-radius:100px;padding:12px 24px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--mint)" stroke-width="1.9" style="width:22px;height:22px"><path d="M5 13l4 4L19 7"/></svg>
+      <span style="font-family:'Unbounded';font-weight:700;color:var(--mint);font-size:clamp(14px,1.7vw,19px)">Старт кар'єри — до кінця літа</span>
     </div>
-    <p style="color:#8c9b92;font-size:14px;margin-top:16px">Але зараз не про це — ідемо далі.</p>
   </div>
 </section>
 
@@ -1401,13 +1408,71 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
   </div>
 </section>
 
-<!-- S15 -->
-<section class="slide">
+<style>
+@keyframes nbGrow{from{width:0}to{width:var(--w)}}
+@keyframes nbFadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes nbPulse{0%,100%{box-shadow:0 0 0 0 rgba(67,209,153,.45)}50%{box-shadow:0 0 0 14px rgba(67,209,153,0)}}
+.slide.active .nb-bar{animation:nbGrow 1.15s cubic-bezier(.2,.85,.2,1) .25s both}
+.slide.active .nb-up{animation:nbFadeUp .7s ease both}
+.slide.active .nb-up2{animation:nbFadeUp .7s ease .18s both}
+.slide.active .nb-up3{animation:nbFadeUp .7s ease .34s both}
+.nb-track{width:100%;height:clamp(46px,6vh,60px);border-radius:14px;background:rgba(255,255,255,.06);overflow:hidden;position:relative;border:1px solid rgba(255,255,255,.08)}
+.nb-bar{height:100%;border-radius:14px;display:flex;align-items:center;padding:0 20px;font-weight:700;font-size:clamp(13px,1.6vw,17px);color:#fff;white-space:nowrap}
+.nb-pulse{animation:nbPulse 2.2s ease-in-out infinite}
+</style>
+
+<!-- S15a — поріг входу низький, але якість -->
+<section class="slide dark center">
   <div class="slide-inner">
-    <h2>Ніша якісних AI-відеокреаторів вільна</h2>
-    <p class="lead sub">Генерувати «щось» уміють тисячі — а <span class="hl">створювати справді якісні відео, за які замовники платять гроші — одиниці</span>.</p>
-    <p class="lead mt16">Хто починає розвиватися у сфері AI-відеоконтенту зараз, має велику перевагу: формує базу <b>лояльних клієнтів</b> і напрацьовує ім'я, створюючи <b>сарафанне радіо</b>, поки ніша тільки формується. Все постійно змінюється — тому багато людей вилітає, бо не хочуть розбиратися в оновленнях нейромереж.</p>
-    <p class="ph mt24"><span class="placeholder">[ДОРАБОТАТЬ СЛАЙД]</span></p>
+    <h2 class="nb-up" style="color:#eef3ef;max-width:1040px">Поріг входу у професію <span style="color:var(--mint)">рекордно низький</span></h2>
+    <p class="lead sub nb-up2" style="color:#cdd8d0;max-width:960px;text-align:center;margin-top:14px">Але просто навчитися генерувати відео — <b style="color:#fff">мало</b>. Це вміє майже кожен. Заробляють <b style="color:var(--mint)">ті, хто створює справді якісний контент</b>.</p>
+    <div class="nb-up3" style="width:100%;max-width:780px;margin:32px auto 0;display:flex;flex-direction:column;gap:16px">
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:13.5px;color:#9fb0a6;font-weight:600"><span>Просто «генерують щось»</span><span>90%</span></div>
+        <div class="nb-track"><div class="nb-bar" style="--w:90%;width:90%;background:linear-gradient(90deg,#3a4a43,#54665d)">майже всі</div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:13.5px;color:var(--mint);font-weight:700"><span>Створюють якісно — і заробляють $</span><span>одиниці</span></div>
+        <div class="nb-track"><div class="nb-bar" style="--w:18%;width:18%;background:linear-gradient(90deg,#1fce8a,#0b5c3d)">★</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S15b — перевага тих, хто заходить зараз -->
+<section class="slide center">
+  <div class="slide-inner">
+    <h2 class="nb-up">Хто зайде зараз — отримає <span class="hl">велику перевагу</span></h2>
+    <p class="lead sub nb-up2" style="text-align:center;max-width:980px">Поки ніша тільки формується — є шанс зайняти місце першим.</p>
+    <div class="grid g3 nb-up3" style="margin-top:26px;max-width:1020px">
+      <div class="card" style="align-items:center;text-align:center;gap:10px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" style="width:34px;height:34px"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span class="ct">База лояльних клієнтів</span>
+        <span class="cd">Які повертаються й рекомендують вас далі</span>
+      </div>
+      <div class="card" style="align-items:center;text-align:center;gap:10px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" style="width:34px;height:34px"><path d="M12 3l2.2 5.3 5.8.5-4.4 3.8 1.3 5.6L12 16.8 7.1 18l1.3-5.6L4 8.8l5.8-.5Z"/></svg>
+        <span class="ct">Напрацьоване ім'я</span>
+        <span class="cd">Репутація, поки конкурентів ще мало</span>
+      </div>
+      <div class="card" style="align-items:center;text-align:center;gap:10px;border-color:rgba(15,122,82,.4);background:var(--accent-soft)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" style="width:34px;height:34px"><path d="M3 11v2a1 1 0 0 0 1 1h2l4 4V6L6 10H4a1 1 0 0 0-1 1ZM15 8a4 4 0 0 1 0 8M18 5a8 8 0 0 1 0 14"/></svg>
+        <span class="ct">Сарафанне радіо</span>
+        <span class="cd">Клієнти самі приводять нових клієнтів</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S15c — AI змінюється + синдром самозванця -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h2 class="nb-up" style="color:#eef3ef;max-width:1040px">В AI <span style="color:var(--mint)">все постійно змінюється</span></h2>
+    <p class="lead sub nb-up2" style="color:#cdd8d0;max-width:1000px;text-align:center;margin-top:14px">Тому вдосконалювати навички й навчатися новому треба <b style="color:#fff">постійно</b> — інакше легко вилетіти із затребуваної професії.</p>
+    <div class="nb-up3 nb-pulse" style="display:flex;align-items:flex-start;gap:16px;margin:30px auto 0;background:rgba(67,209,153,.08);border:1px solid rgba(95,223,172,.35);border-radius:18px;padding:22px 26px;max-width:980px;text-align:left">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--mint)" stroke-width="1.8" style="width:30px;height:30px;flex:none;margin-top:2px"><path d="M12 2a7 7 0 0 0-4 12.7V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.3A7 7 0 0 0 12 2ZM9 22h6"/></svg>
+      <p style="color:#e7efe9;font-size:clamp(15px,1.8vw,20px);line-height:1.45;margin:0">Навіть якщо ти вже <b style="color:#fff">«все знаєш»</b> і пройшов купу курсів — у цій сфері завжди є що опанувати. Тут виграє <b style="color:var(--mint)">не той, хто знає, а той, хто не зупиняється вчитися</b>.</p>
+    </div>
   </div>
 </section>
 
