@@ -622,6 +622,19 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 @media(max-width:1400px){.revwall{column-count:6}}
 @media(max-width:1100px){.revwall{column-count:4}}
 @media(max-width:760px){.revwall{column-count:2;column-gap:10px}.revcard{margin-bottom:10px}}
+
+/* ---------- 5 кроків створення відео ---------- */
+.steps5{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(12px,1.5vw,20px);width:100%;max-width:1280px;margin:24px auto 0}
+.stepcard{display:flex;flex-direction:column;align-items:center;text-align:center}
+.stepmedia{position:relative;width:100%;aspect-ratio:1/1;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--surface2);box-shadow:0 12px 30px rgba(21,32,26,.12)}
+.stepmedia>img,.stepmedia>video{width:100%;height:100%;object-fit:cover;display:block}
+.stepnum{position:absolute;top:9px;left:9px;z-index:3;width:30px;height:30px;border-radius:9px;background:var(--accent);color:#fff;display:grid;place-items:center;font-family:'Unbounded';font-weight:800;font-size:15px;box-shadow:0 4px 12px rgba(11,92,61,.45)}
+.steplabel{margin-top:13px;font-weight:700;font-size:clamp(12.5px,1.45vw,16px);line-height:1.32;color:var(--text);padding:0 4px}
+.step2grid{display:grid;grid-template-rows:1.35fr 1fr;gap:4px;width:100%;height:100%}
+.step2grid>video{width:100%;height:100%;object-fit:cover;display:block}
+.step2bot{display:grid;grid-template-columns:1fr 1fr;gap:4px;min-height:0}
+.step2bot>img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:760px){.steps5{grid-template-columns:repeat(2,1fr);max-width:420px}}
 </style>
 </head>
 <body>
@@ -1500,31 +1513,31 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
   <div class="slide-inner">
     <h2>Універсальна система створення будь-якого якісного AI-відео</h2>
     <p class="lead sub" style="text-align:center">5 кроків:</p>
-    <div class="grid g5" style="max-width:1040px;margin:22px auto 0">
-      <div class="card icard">
-        <span class="snum">1</span>
-        <div class="frame" style="aspect-ratio:4/3;margin-top:0;width:100%"><div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m3 16 5-5 4 4 5-5 4 4"/><circle cx="9" cy="8" r="1.5"/></svg></div></div>
-        <span class="ct">Придумай ідею відео + сценарій</span>
+    <div class="steps5">
+      <div class="stepcard">
+        <div class="stepmedia"><span class="stepnum">1</span><img src="step1.jpg" alt="Ідея та сценарій" loading="lazy"></div>
+        <span class="steplabel">Придумай ідею відео + сценарій</span>
       </div>
-      <div class="card icard">
-        <span class="snum">2</span>
-        <div class="frame" style="aspect-ratio:4/3;margin-top:0;width:100%"><div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m3 16 5-5 4 4 5-5 4 4"/><circle cx="9" cy="8" r="1.5"/></svg></div></div>
-        <span class="ct">Склади промти і створи картку персонажа</span>
+      <div class="stepcard">
+        <div class="stepmedia"><span class="stepnum">2</span>
+          <div class="step2grid">
+            <video src="step2.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            <div class="step2bot"><img src="step2a.jpg" alt="Промти" loading="lazy"><img src="step2b.jpg" alt="Картка персонажа" loading="lazy"></div>
+          </div>
+        </div>
+        <span class="steplabel">Склади промти і створи картку персонажа</span>
       </div>
-      <div class="card icard">
-        <span class="snum">3</span>
-        <div class="frame" style="aspect-ratio:4/3;margin-top:0;width:100%"><div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m3 16 5-5 4 4 5-5 4 4"/><circle cx="9" cy="8" r="1.5"/></svg></div></div>
-        <span class="ct">Зроби розкадровку з різних сцен</span>
+      <div class="stepcard">
+        <div class="stepmedia"><span class="stepnum">3</span><img src="step3.jpg" alt="Розкадровка" loading="lazy"></div>
+        <span class="steplabel">Зроби розкадровку з різних сцен</span>
       </div>
-      <div class="card icard">
-        <span class="snum">4</span>
-        <div class="frame" style="aspect-ratio:4/3;margin-top:0;width:100%"><div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m3 16 5-5 4 4 5-5 4 4"/><circle cx="9" cy="8" r="1.5"/></svg></div></div>
-        <span class="ct">Оживлення сцен</span>
+      <div class="stepcard">
+        <div class="stepmedia"><span class="stepnum">4</span><video src="step4.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+        <span class="steplabel">Оживлення сцен</span>
       </div>
-      <div class="card icard">
-        <span class="snum">5</span>
-        <div class="frame" style="aspect-ratio:4/3;margin-top:0;width:100%"><div class="ph-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m3 16 5-5 4 4 5-5 4 4"/><circle cx="9" cy="8" r="1.5"/></svg></div></div>
-        <span class="ct">Поєднай сцени в єдине відео на монтажі</span>
+      <div class="stepcard">
+        <div class="stepmedia"><span class="stepnum">5</span><img src="step5.jpg" alt="Монтаж" loading="lazy"></div>
+        <span class="steplabel">Поєднай сцени в єдине відео на монтажі</span>
       </div>
     </div>
   </div>
