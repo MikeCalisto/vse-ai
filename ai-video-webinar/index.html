@@ -316,9 +316,9 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.01em;line-height:1.
 .module-title{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--text);flex:1;line-height:1.35}
 .module-chevron{font-size:13px;color:var(--text3);flex-shrink:0;transition:transform .25s}
 .module.open .module-chevron{transform:rotate(180deg);color:var(--accent)}
-.module-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.module.open .module-body{max-height:720px}
-.module-inner{padding:0 24px 24px;padding-left:70px}
+.module-body{display:grid;grid-template-rows:0fr;overflow:hidden;transition:grid-template-rows .35s ease}
+.module.open .module-body{grid-template-rows:1fr}
+.module-inner{min-height:0;overflow:hidden;padding:0 24px 24px;padding-left:70px}
 .module-steps{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
 .module-steps li{font-size:14px;color:var(--text2);line-height:1.55;padding-left:18px;position:relative}
 .module-steps li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
