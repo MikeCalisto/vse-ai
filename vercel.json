@@ -25,6 +25,8 @@
     { "source": "/ai-video2/", "destination": "/ai-video2/index.html", "permanent": false },
     { "source": "/ai-video-webinar", "destination": "/ai-video-webinar/index.html", "permanent": false },
     { "source": "/ai-video-webinar/", "destination": "/ai-video-webinar/index.html", "permanent": false },
+    { "source": "/ai-video-webinar-full", "destination": "/ai-video-webinar-full/index.html", "permanent": false },
+    { "source": "/ai-video-webinar-full/", "destination": "/ai-video-webinar-full/index.html", "permanent": false },
     { "source": "/webinar", "destination": "/webinar/index.html", "permanent": false },
     { "source": "/webinar/", "destination": "/webinar/index.html", "permanent": false }
   ],
@@ -79,6 +81,12 @@
     },
     {
       "source": "/ai-video-webinar/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/ai-video-webinar-full/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
