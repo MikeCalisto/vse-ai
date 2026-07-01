@@ -441,6 +441,11 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.01em;line-height:1.
 .btn-parts:hover{border-color:var(--accent)!important;color:var(--accent)!important}
 .btn-book{background:transparent!important;border:1.5px solid rgba(230,194,92,.55)!important;color:#e6c25c!important}
 .btn-book:hover{border-color:#e6c25c!important;color:#e6c25c!important}
+.tier-sold{position:relative}
+.tier-sold .pc-name,.tier-sold .pc-old,.tier-sold .pc-amt,.tier-sold .pc-mo{filter:grayscale(.6);opacity:.5}
+.pc-soldbadge{position:absolute;top:14px;right:14px;z-index:3;font-family:var(--font-display);font-weight:800;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:#c0392b;padding:5px 11px;border-radius:100px}
+.pc-seats--closed{color:#e06a5c!important}
+.btn-closed{background:transparent!important;border:1.5px solid var(--border2)!important;color:var(--text3)!important;cursor:not-allowed;pointer-events:none}
 .book-note{margin:22px auto 0;max-width:780px;text-align:center;font-size:13.5px;color:var(--text2);line-height:1.6}
 .manager-cta{margin-top:28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:28px 34px;box-shadow:var(--shadow)}
 .manager-cta h3{font-family:var(--font-display);font-size:clamp(17px,2vw,21px);font-weight:800;margin-bottom:8px;text-transform:uppercase}
@@ -1405,7 +1410,7 @@ footer .wrap{max-width:760px}
         <li>Підлаштування програми під твій запит</li>
         <li><strong>+ 3 секретні модулі</strong> 🔒</li>
       </ul>
-      <a href="https://app.zenedu.io/l/70vkhemtmllCo7mh" class="tier-btn" target="_blank" rel="noopener">Обрати VIP</a>
+      <span class="tier-btn btn-closed" aria-disabled="true">Набір закрито</span>
     </div>
 
   </div>
@@ -1431,7 +1436,7 @@ footer .wrap{max-width:760px}
       </div>
       <div class="price-card special featured">
         <div class="pc-name">Преміум</div>
-        <div class="pc-seats">Залишилось 30 місць</div>
+        <div class="pc-seats">Залишилось 5 місць</div>
         <div class="pc-old">29 690 ₴</div>
         <div class="pc-amt">21 970 ₴</div>
         <div class="pc-mo">або ~3 662 ₴/міс × 6 платежів</div>
@@ -1441,16 +1446,15 @@ footer .wrap{max-width:760px}
           <a href="https://t.me/m/bFI_1MSJMDE6" class="tier-btn btn-book" target="_blank" rel="noopener">Бронь умов · 2 000 ₴</a>
         </div>
       </div>
-      <div class="price-card special">
+      <div class="price-card special tier-sold">
+        <span class="pc-soldbadge">Набір закрито</span>
         <div class="pc-name">VIP</div>
-        <div class="pc-seats">Залишилось 2 місця</div>
+        <div class="pc-seats pc-seats--closed">Місць немає</div>
         <div class="pc-old">47 290 ₴</div>
         <div class="pc-amt">34 990 ₴</div>
-        <div class="pc-mo">або ~5 832 ₴/міс × 6 платежів</div>
+        <div class="pc-mo">Доступні тарифи Стандарт і Преміум</div>
         <div class="pc-btns">
-          <a href="https://app.zenedu.io/l/70vkhemtmllCo7mh" class="tier-btn btn-pay" target="_blank" rel="noopener">Оплатити повністю</a>
-          <a href="https://app.zenedu.io/l/70vkhemtmllCo7mh" class="tier-btn btn-parts" target="_blank" rel="noopener">Оплата частинами</a>
-          <a href="https://t.me/m/bFI_1MSJMDE6" class="tier-btn btn-book" target="_blank" rel="noopener">Бронь умов · 2 000 ₴</a>
+          <span class="tier-btn btn-closed" aria-disabled="true">Набір закрито</span>
         </div>
       </div>
     </div>
