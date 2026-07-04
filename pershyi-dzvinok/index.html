@@ -579,19 +579,25 @@ ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:va
 .dark-nav .nav{background:linear-gradient(to top,#0c1512 40%,transparent)}
 .nbtn{width:40px;height:40px;flex:none;border-radius:11px;border:1px solid var(--line);background:transparent;color:var(--text);display:grid;place-items:center;cursor:pointer;transition:.2s}
 .nbtn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.dark-nav .nbtn{color:#eef3ef;border-color:rgba(255,255,255,.24);background:rgba(255,255,255,.06)}
+.dark-nav .nbtn:hover{color:var(--mint);border-color:var(--mint);background:rgba(95,223,172,.14)}
 .nbtn svg{width:20px;height:20px}
 .dots{display:none}
 .dot{width:7px;height:7px;border-radius:100px;background:var(--line);border:none;padding:0;cursor:pointer;transition:.3s}
 .dot.on{width:22px;background:var(--accent)}
 @media(max-width:760px){
   .dots{display:none}
-  .slide{overflow-y:auto;justify-content:flex-start;padding-top:54px;padding-bottom:84px}
+  .slide{overflow-y:auto;justify-content:flex-start;padding-top:54px;padding-bottom:96px}
   .slide-inner{margin:auto 0}
   .g2,.g3,.compare{grid-template-columns:1fr}
   .speaker{flex-direction:column;align-items:flex-start}
   .speaker .ph-photo{width:100%;height:180px}
   .ptable{font-size:12px}
   .ptable th,.ptable td{padding:8px 4px}
+  .nav{gap:26px;padding:14px 16px calc(14px + env(safe-area-inset-bottom))}
+  .nbtn{width:56px;height:56px;border-radius:16px;background:var(--surface);border-color:var(--line);box-shadow:0 6px 18px rgba(21,32,26,.16)}
+  .nbtn svg{width:26px;height:26px}
+  .dark-nav .nbtn{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3)}
 }
 
 /* ---------- ЗАЯВКИ: купа фото з розльотом ---------- */
