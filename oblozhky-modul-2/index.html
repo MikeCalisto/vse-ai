@@ -1,0 +1,137 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Обкладинки · Модуль 2 · AI-відеокреатор</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b1310;--ink:#eef3ef;--mint:#43d199;--mint2:#1fce8a;--deep:#0b5c3d;--mut:#8ea79a}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:'Manrope',sans-serif;background:#05100b;color:var(--ink);overflow:hidden;-webkit-font-smoothing:antialiased}
+.deck{position:fixed;inset:0}
+.cover{position:absolute;inset:0;display:none;overflow:hidden;background:
+  radial-gradient(120% 90% at 82% 18%, rgba(31,206,138,.20), transparent 55%),
+  radial-gradient(90% 80% at 10% 95%, rgba(11,92,61,.35), transparent 60%),
+  #0a140f}
+.cover.on{display:block}
+.grid{position:absolute;inset:0;background-image:radial-gradient(rgba(95,223,172,.11) 1.1px, transparent 1.1px);background-size:34px 34px;mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent)}
+.ghost{position:absolute;right:clamp(20px,4vw,80px);top:50%;transform:translateY(-50%);font-family:'Unbounded';font-weight:800;font-size:min(58vh,44vw);line-height:.8;color:transparent;-webkit-text-stroke:2px rgba(95,223,172,.16);user-select:none;pointer-events:none}
+.wrap{position:absolute;inset:0;padding:clamp(40px,6vw,96px);display:flex;flex-direction:column;justify-content:center;z-index:2}
+.top{position:absolute;top:clamp(34px,4.5vw,64px);left:clamp(40px,6vw,96px);right:clamp(40px,6vw,96px);display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;font-family:'Unbounded';font-weight:700;font-size:clamp(15px,1.7vw,22px);letter-spacing:.01em}
+.brand .dot{width:clamp(30px,3.4vw,44px);height:clamp(30px,3.4vw,44px);border-radius:11px;background:linear-gradient(135deg,var(--mint2),var(--deep));display:grid;place-items:center;color:#04140d}
+.brand .dot svg{width:60%;height:60%}
+.brand b{color:var(--mint)}
+.tag{font-family:'Unbounded';font-weight:700;font-size:clamp(11px,1.25vw,15px);letter-spacing:.14em;text-transform:uppercase;color:var(--mint);border:1.4px solid rgba(95,223,172,.4);border-radius:100px;padding:9px 18px;background:rgba(67,209,153,.08)}
+.eyebrow{font-family:'Unbounded';font-weight:700;font-size:clamp(13px,1.5vw,19px);letter-spacing:.16em;text-transform:uppercase;color:var(--mint);margin-bottom:clamp(14px,1.8vw,22px)}
+.title{font-family:'Unbounded';font-weight:800;line-height:1.02;letter-spacing:-.01em;color:#fff;max-width:15ch}
+.cover.lesson .title{font-size:clamp(34px,5.6vw,74px)}
+.cover.module .title{font-size:clamp(30px,4.6vw,60px);max-width:18ch}
+.title .hl{color:var(--mint)}
+.foot{position:absolute;bottom:clamp(34px,4.5vw,64px);left:clamp(40px,6vw,96px);right:clamp(40px,6vw,96px);display:flex;align-items:center;gap:16px;color:var(--mut);font-weight:600;font-size:clamp(12px,1.35vw,16px)}
+.foot .line{flex:1;height:1px;background:linear-gradient(90deg,rgba(95,223,172,.35),transparent)}
+/* nav */
+.nav{position:fixed;bottom:16px;left:0;right:0;z-index:30;display:flex;justify-content:center;gap:14px}
+.nb{width:46px;height:46px;border-radius:13px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#eef3ef;display:grid;place-items:center;cursor:pointer;transition:.2s}
+.nb:hover{border-color:var(--mint);color:var(--mint)}
+.nb svg{width:22px;height:22px}
+.count{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:30;font-family:'Unbounded';font-weight:700;font-size:12px;color:var(--mut);letter-spacing:.1em}
+@media print{.nav,.count{display:none}}
+</style>
+
+<div class="deck" id="deck">
+
+<!-- COVER 0 — модуль -->
+<section class="cover module on">
+  <div class="grid"></div>
+  <div class="ghost">2</div>
+  <div class="top">
+    <div class="brand"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 8-6 4 6 4Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></span>AI-<b>відеокреатор</b></div>
+    <span class="tag">Модуль&nbsp;2</span>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow">Модуль 2</div>
+    <div class="title">Як працювати з <span class="hl">промтами</span>: система роботи з AI</div>
+  </div>
+  <div class="foot"><span class="line"></span><span>8 уроків</span></div>
+</section>
+
+<!-- lessons -->
+<section class="cover lesson">
+  <div class="grid"></div><div class="ghost">01</div>
+  <div class="top"><div class="brand"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 8-6 4 6 4Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></span>AI-<b>відеокреатор</b></div><span class="tag">Модуль&nbsp;2</span></div>
+  <div class="wrap"><div class="eyebrow">Урок 1</div><div class="title">Вступ до <span class="hl">модуля</span></div></div>
+  <div class="foot"><span class="line"></span><span>Промти · система роботи з AI</span></div>
+</section>
+
+<section class="cover lesson">
+  <div class="grid"></div><div class="ghost">02</div>
+  <div class="top"><div class="brand"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 8-6 4 6 4Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></span>AI-<b>відеокреатор</b></div><span class="tag">Модуль&nbsp;2</span></div>
+  <div class="wrap"><div class="eyebrow">Урок 2</div><div class="title">Що таке <span class="hl">файл-довідник</span> і навіщо він</div></div>
+  <div class="foot"><span class="line"></span><span>Промти · система роботи з AI</span></div>
+</section>
+
+<section class="cover lesson">
+  <div class="grid"></div><div class="ghost">03</div>
+  <div class="top"><div class="brand"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 8-6 4 6 4Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></span>AI-<b>відеокреатор</b></div><span class="tag">Модуль&nbsp;2</span></div>
+  <div class="wrap"><div class="eyebrow">Урок 3</div><div class="title">Як зробити <span class="hl">власного асистента</span></div></div>
+  <div class="foot"><span class="line"></span><span>Промти · система роботи з AI</span></div>
+</section>
+
+<section class="cover lesson">
+  <div class="grid"></div><div class="ghost">04</div>
+  <div class="top"><div class="brand"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 8-6 4 6 4Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></span>AI-<b>відеокреатор</b></div><span class="tag">Модуль&nbsp;2</span></div>
+  <div class="wrap"><div class="eyebrow">Урок 4</div><div class="title">Приклад <span class="hl">універсальної інструкції</span> для асистентів</div></div>
+  <div class="foot"><span class="line"></span><span>Промти · система роботи з AI</span></div>
+</section>
+
+<section class="cover lesson">
+  <div class="grid"></div><div class="ghost">05</div>
+  <div class="top"><div class="brand"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 8-6 4 6 4Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></span>AI-<b>відеокреатор</b></div><span class="tag">Модуль&nbsp;2</span></div>
+  <div class="wrap"><div class="eyebrow">Урок 5</div><div class="title"><span class="hl">Готові асистенти</span> для ТОПових AI</div></div>
+  <div class="foot"><span class="line"></span><span>Промти · система роботи з AI</span></div>
+</section>
+
+<section class="cover lesson">
+  <div class="grid"></div><div class="ghost">06</div>
+  <div class="top"><div class="brand"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 8-6 4 6 4Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></span>AI-<b>відеокреатор</b></div><span class="tag">Модуль&nbsp;2</span></div>
+  <div class="wrap"><div class="eyebrow">Урок 6</div><div class="title">Як перетворити <span class="hl">картинку у промт</span> або JSON</div></div>
+  <div class="foot"><span class="line"></span><span>Промти · система роботи з AI</span></div>
+</section>
+
+<section class="cover lesson">
+  <div class="grid"></div><div class="ghost">07</div>
+  <div class="top"><div class="brand"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 8-6 4 6 4Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></span>AI-<b>відеокреатор</b></div><span class="tag">Модуль&nbsp;2</span></div>
+  <div class="wrap"><div class="eyebrow">Урок 7</div><div class="title"><span class="hl">Сильні</span> VS <span style="color:#e07a6e">Слабкі</span> промти</div></div>
+  <div class="foot"><span class="line"></span><span>Промти · система роботи з AI</span></div>
+</section>
+
+<section class="cover lesson">
+  <div class="grid"></div><div class="ghost">08</div>
+  <div class="top"><div class="brand"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 8-6 4 6 4Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></span>AI-<b>відеокреатор</b></div><span class="tag">Модуль&nbsp;2</span></div>
+  <div class="wrap"><div class="eyebrow">Урок 8</div><div class="title"><span class="hl">Підсумок</span> модуля</div></div>
+  <div class="foot"><span class="line"></span><span>Промти · система роботи з AI</span></div>
+</section>
+
+</div>
+
+<div class="count" id="count"></div>
+<div class="nav">
+  <button class="nb" id="prev" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18 9 12l6-6"/></svg></button>
+  <button class="nb" id="next" aria-label="Далі"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+  <button class="nb" id="fs" aria-label="Повний екран"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></button>
+</div>
+
+<script>
+(function(){
+  var c=[].slice.call(document.querySelectorAll('.cover')),i=0,cnt=document.getElementById('count');
+  function go(n){c[i].classList.remove('on');i=(n+c.length)%c.length;c[i].classList.add('on');cnt.textContent=(i+1)+' / '+c.length;}
+  document.getElementById('next').onclick=function(){go(i+1)};
+  document.getElementById('prev').onclick=function(){go(i-1)};
+  document.getElementById('fs').onclick=function(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();};
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key===' ')go(i+1);else if(e.key==='ArrowLeft')go(i-1);else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();}});
+  go(0);
+})();
+</script>
