@@ -4,7 +4,7 @@
   "installCommand": null,
   "rewrites": [
     { "source": "/", "destination": "/zakrytyi-klub/index.html" },
-    { "source": "/((?!product-ai-content|zakrytyi-klub|ai-lyudyna|links|fabryka-ai-kontentu|fabryka-spec|ai-video|ai-video2|ai-video-webinar|webinar|pershyi-dzvinok|oblozhky-modul-2|favicon|apple-touch-icon|robots\\.txt|sitemap).*)", "destination": "/zakrytyi-klub/$1" }
+    { "source": "/((?!product-ai-content|zakrytyi-klub|ai-lyudyna|links|fabryka-ai-kontentu|fabryka-spec|ai-video|ai-video2|ai-video-webinar|webinar|pershyi-dzvinok|oblozhky-modul-2|prezentaciya-kursu|favicon|apple-touch-icon|robots\\.txt|sitemap).*)", "destination": "/zakrytyi-klub/$1" }
   ],
   "redirects": [
     { "source": "/product-ai-content", "destination": "/product-ai-content/index.html", "permanent": false },
@@ -34,7 +34,9 @@
     { "source": "/pershyi-dzvinok", "destination": "/pershyi-dzvinok/index.html", "permanent": false },
     { "source": "/pershyi-dzvinok/", "destination": "/pershyi-dzvinok/index.html", "permanent": false },
     { "source": "/oblozhky-modul-2", "destination": "/oblozhky-modul-2/index.html", "permanent": false },
-    { "source": "/oblozhky-modul-2/", "destination": "/oblozhky-modul-2/index.html", "permanent": false }
+    { "source": "/oblozhky-modul-2/", "destination": "/oblozhky-modul-2/index.html", "permanent": false },
+    { "source": "/prezentaciya-kursu", "destination": "/prezentaciya-kursu/index.html", "permanent": false },
+    { "source": "/prezentaciya-kursu/", "destination": "/prezentaciya-kursu/index.html", "permanent": false }
   ],
   "headers": [
     {
@@ -111,6 +113,12 @@
     },
     {
       "source": "/pershyi-dzvinok/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/prezentaciya-kursu/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]

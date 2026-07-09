@@ -1,0 +1,2228 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>AI-відеокреатор · презентація навчання</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f0e7; --bg2:#ece6d9;
+  --surface:#ffffff; --surface2:#fbf9f4;
+  --text:#15201a; --text2:#5c6a61; --text3:#6f7d74;
+  --accent:#13935f; --accent-deep:#0b5c3d; --accent-soft:rgba(15,122,82,.10);
+  --mint:#43d199;
+  --gold:#b8902f; --gold-soft:rgba(184,144,47,.12);
+  --danger:#c0392b; --danger-soft:rgba(192,57,43,.10);
+  --line:rgba(21,32,26,.12);
+  --btn:linear-gradient(135deg,#13935f 0%,#0b5c3d 100%);
+  --r:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:'Manrope',system-ui,sans-serif;
+  background:var(--bg); color:var(--text);
+  overflow:hidden; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.uns{font-family:'Unbounded',sans-serif;line-height:1.04;letter-spacing:-.01em}
+.hl{color:var(--accent);font-weight:600}
+.dark .hl{color:var(--mint)}
+
+/* ---------- DECK ---------- */
+.deck{position:fixed;inset:0;background:var(--bg)}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:60;transition:width .45s ease}
+.counter{display:none}
+.counter .tot{color:var(--text3);opacity:.5;font-weight:500}
+
+.slide{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(28px,6vw,96px);
+  opacity:0;visibility:hidden;transform:translateY(18px);
+  transition:opacity .5s ease,transform .5s ease;
+  overflow:hidden;
+}
+.slide.active{opacity:1;visibility:visible;transform:none;z-index:10}
+.slide-inner{width:100%;max-width:1080px;margin:0 auto}
+
+/* dark separators */
+.slide.dark{background:#0c1512;color:#eef3ef}
+.slide.dark h1,.slide.dark h2,.slide.dark h3{color:var(--mint)}
+.slide.dark .t2{color:#a9b7ae}
+.slide.dark .kicker{color:#5fdfac;border-color:rgba(95,223,172,.4)}
+.slide.dark .frame{background:#10201a;border-color:rgba(95,223,172,.22)}
+.slide.dark .frame .ph-label{color:#a9b7ae}
+
+/* typography helpers */
+.kicker{display:inline-flex;align-items:center;gap:8px;font-family:'Manrope';font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:100px;padding:7px 14px;margin-bottom:26px}
+h1.title{font-weight:800;font-size:clamp(34px,7vw,84px)}
+h1.big{font-weight:800;font-size:clamp(40px,8.5vw,108px)}
+h2{font-weight:700;font-size:clamp(26px,4.4vw,52px)}
+h3{font-weight:700;font-size:clamp(20px,2.6vw,30px)}
+.lead{font-size:clamp(17px,2.1vw,24px);color:var(--text2);line-height:1.5;max-width:760px;font-weight:500}
+.t2{color:var(--text2)}
+.sub{margin-top:22px}
+.ph{color:var(--text3);font-style:italic;font-weight:500}
+.placeholder{color:var(--gold);font-weight:600;background:var(--gold-soft);padding:1px 9px;border-radius:7px}
+.mt8{margin-top:8px}.mt16{margin-top:16px}.mt24{margin-top:24px}.mt32{margin-top:32px}.mt40{margin-top:40px}
+.center{text-align:center;align-items:center}
+.center .slide-inner{display:flex;flex-direction:column;align-items:center}
+
+/* lists */
+ul.clean{list-style:none;display:flex;flex-direction:column;gap:16px;margin-top:14px}
+ul.clean li{position:relative;padding-left:40px;font-size:clamp(16px,2vw,22px);font-weight:500;line-height:1.4}
+ul.clean li svg{position:absolute;left:0;top:2px;width:26px;height:26px;color:var(--accent)}
+.dark ul.clean li svg{color:var(--mint)}
+
+/* numbered steps */
+.numlist{list-style:none;display:flex;flex-direction:column;gap:18px;margin-top:18px}
+.numlist li{position:relative;padding-left:64px;font-size:clamp(16px,2vw,23px);font-weight:500;line-height:1.42}
+.num{position:absolute;left:0;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:13px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:'Unbounded';font-weight:700;font-size:18px}
+.dark .num{background:rgba(95,223,172,.14);color:var(--mint)}
+
+/* video / image frame */
+.frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:var(--r);background:var(--surface2);border:1.5px dashed var(--line);display:grid;place-items:center;overflow:hidden;margin-top:20px}
+.frame video,.frame img{width:100%;height:100%;object-fit:cover}
+.frame .ph-inner{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--text3)}
+.frame .ph-inner svg{width:54px;height:54px;color:var(--accent);opacity:.8}
+.frame .ph-label{font-weight:600;font-size:14px;letter-spacing:.04em}
+.cap{margin-top:14px;color:var(--text2);font-size:clamp(14px,1.6vw,18px);font-weight:500}
+
+/* grids */
+.grid{display:grid;gap:16px;margin-top:24px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g5{grid-template-columns:repeat(5,1fr)}
+.snum{width:40px;height:40px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:'Unbounded';font-weight:700;font-size:17px;margin-bottom:4px}
+.course{gap:6px;padding:14px}
+.course .frame{margin-top:0;margin-bottom:6px}
+.course .ct{font-size:clamp(13px,1.5vw,15.5px);line-height:1.25}
+.cnum{font-family:'Unbounded';font-weight:800;font-size:clamp(20px,2.4vw,28px);color:var(--accent);line-height:1}
+.cnum small{font-family:'Manrope';font-weight:600;font-size:.46em;color:var(--text2);letter-spacing:0}
+.dark .snum{background:rgba(95,223,172,.14);color:var(--mint)}
+.icard{align-items:center;text-align:center;gap:8px}
+.icard .ic{width:32px;height:32px;margin-bottom:2px}
+.icard .ct{font-size:clamp(14px,1.6vw,17px)}
+
+/* callout */
+.callout{display:flex;gap:15px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px;margin-top:28px;max-width:840px}
+.dark .callout{background:#10201a;border-color:rgba(95,223,172,.22);border-left-color:var(--mint)}
+.callout svg{flex:none;width:28px;height:28px;color:var(--accent);margin-top:2px}
+.dark .callout svg{color:var(--mint)}
+.callout p{font-size:clamp(15px,1.85vw,21px);font-weight:600;line-height:1.4;margin:0}
+.callout b{color:var(--accent-deep)}
+.dark .callout b{color:var(--mint)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:8px}
+.card .ic{width:30px;height:30px;color:var(--accent);margin-bottom:4px}
+.card .cn{font-family:'Unbounded';font-weight:700;font-size:14px;color:var(--accent)}
+.card .ct{font-weight:700;font-size:clamp(16px,1.8vw,20px)}
+.card .cd{color:var(--text2);font-size:14.5px;line-height:1.45}
+.card.gold{border-color:rgba(184,144,47,.4);background:var(--gold-soft)}
+/* барчарт — результати по місяцях */
+.barchart{display:flex;align-items:flex-end;justify-content:center;gap:clamp(16px,3vw,40px);width:100%;max-width:760px;margin:18px auto 0;height:clamp(160px,24vh,220px)}
+.barchart .bcol{flex:1;max-width:90px;display:flex;flex-direction:column;height:100%}
+.barchart .bwrap{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px}
+.barchart .bv{font-family:'Unbounded';font-weight:800;font-size:clamp(15px,1.9vw,20px);color:var(--accent)}
+.barchart .bar{width:100%;border-radius:10px 10px 0 0;background:linear-gradient(180deg,var(--mint),var(--accent));min-height:8px}
+.barchart .bar.hot{background:linear-gradient(180deg,#1fce8a,var(--accent-deep));box-shadow:0 10px 26px rgba(15,122,82,.28)}
+.barchart .bm{text-align:center;margin-top:10px;font-size:clamp(12px,1.5vw,15px);font-weight:600;color:var(--text2)}
+.resstats{display:flex;justify-content:center;gap:clamp(24px,5vw,56px);flex-wrap:wrap;margin-top:20px}
+.resstats>div{display:flex;flex-direction:column;align-items:center;gap:4px;max-width:200px}
+.resstats .rs-n{font-family:'Unbounded';font-weight:800;font-size:clamp(24px,3vw,38px);color:var(--accent);white-space:nowrap}
+.resstats .rs-l{font-size:clamp(12px,1.4vw,14.5px);color:var(--text2);text-align:center;line-height:1.35}
+.card.gold .cn,.card.gold .ic{color:var(--gold)}
+
+/* two-column compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}
+.col{border-radius:var(--r);padding:24px}
+.col.bad{background:var(--bg2);color:var(--text2)}
+.col.good{background:var(--accent-soft);border:1px solid rgba(15,122,82,.25)}
+.col h3{font-size:18px;margin-bottom:14px;font-family:'Manrope';font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.col.bad h3{color:var(--text3)}
+.col.good h3{color:var(--accent-deep)}
+.col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.col li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;line-height:1.4;font-weight:500}
+.col li svg{flex:none;width:20px;height:20px;margin-top:1px}
+.col.bad li svg{color:var(--text3)}
+.col.good li svg{color:var(--accent)}
+
+/* quote */
+.quote{font-family:'Unbounded';font-weight:500;font-size:clamp(22px,3.4vw,40px);line-height:1.28;position:relative}
+.quote .mark{color:var(--accent);font-size:1.2em}
+.sign{margin-top:28px;font-weight:600;color:var(--text2);font-size:18px}
+
+/* price */
+.price-old{text-decoration:line-through;color:var(--text3);font-weight:600}
+.price-new{color:var(--accent);font-family:'Unbounded';font-weight:800}
+.pricerow{display:flex;flex-direction:column;gap:20px;margin-top:24px}
+.pricerow .pr{display:flex;align-items:baseline;justify-content:space-between;gap:18px;border-bottom:1px solid var(--line);padding-bottom:16px;flex-wrap:wrap}
+.pricerow .pr .pn{font-family:'Unbounded';font-weight:700;font-size:clamp(18px,2.4vw,26px)}
+.pricerow .pr .pv{display:flex;align-items:baseline;gap:14px}
+.pricerow .pr .pv .price-new{font-size:clamp(24px,3.4vw,40px)}
+.pricerow .pr .pv .price-old{font-size:clamp(15px,1.8vw,20px)}
+
+/* pricing table */
+.ptable{width:100%;margin-top:18px;border-collapse:collapse;font-size:clamp(12px,1.5vw,15.5px)}
+.ptable th,.ptable td{padding:10px 8px;text-align:center;border-bottom:1px solid var(--line)}
+.ptable th{font-family:'Unbounded';font-weight:700;font-size:clamp(12px,1.5vw,16px)}
+.ptable td:first-child,.ptable th:first-child{text-align:left;font-weight:600;color:var(--text2);width:42%}
+.ptable .col-prem{background:var(--accent-soft)}
+.ptable th.col-prem{color:var(--accent-deep);position:relative}
+.badge-best{display:block;font-family:'Manrope';font-weight:700;font-size:10px;letter-spacing:.06em;color:#fff;background:var(--accent);border-radius:6px;padding:3px 0;margin-bottom:6px}
+.yes{color:var(--accent);font-weight:700}.no{color:var(--text3);opacity:.6}
+.dark .yes{color:var(--mint)}
+
+/* badges */
+.tag{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:13px;letter-spacing:.04em;padding:7px 14px;border-radius:100px}
+.tag.green{background:var(--accent-soft);color:var(--accent-deep)}
+.tag.gold{background:var(--gold-soft);color:var(--gold)}
+.tag.danger{background:var(--danger-soft);color:var(--danger)}
+.danger-txt{color:var(--danger)}
+
+/* lock cards */
+.lock .ic,.lock .cn{color:var(--gold)}
+.lock{border-color:rgba(184,144,47,.4);background:var(--gold-soft);align-items:center;text-align:center}
+
+/* speaker */
+.speaker{display:flex;gap:50px;align-items:center;flex-wrap:nowrap}
+.speaker .ph-photo{flex:none;width:320px;height:400px;border-radius:24px;background:var(--surface2);border:1px solid var(--line);display:grid;place-items:center;color:var(--text3);overflow:hidden;box-shadow:0 26px 64px rgba(21,32,26,.20)}
+.speaker .ph-photo img{width:100%;height:100%;object-fit:cover}
+.speaker>div:last-child{min-width:0}
+.speaker h2{font-size:clamp(30px,4vw,52px)}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:100px;padding:10px 18px;font-weight:600;font-size:clamp(14px,1.7vw,18px)}
+.chip .d{color:var(--accent);margin-right:6px;font-weight:700}
+
+/* phases */
+.phases{display:flex;flex-direction:column;gap:14px;margin-top:22px}
+.phase{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:14px;padding:18px 20px}
+.phase .pf{font-family:'Unbounded';font-weight:700;color:var(--accent);font-size:14px;flex:none;width:90px}
+.phase .pb b{font-weight:700}
+.phase .pb{font-weight:500;font-size:clamp(15px,1.7vw,18px);line-height:1.4}
+.phase .pt{color:var(--text3);font-size:13px;font-weight:600;display:block;margin-top:3px}
+
+/* big number */
+.big-stat{font-family:'Unbounded';font-weight:800;font-size:clamp(40px,7vw,80px);color:var(--accent)}
+.dark .big-stat{color:var(--mint)}
+
+/* ---------- SPLIT (текст + медіа) ---------- */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,60px);align-items:center}
+.split-text .kicker{margin-bottom:18px}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:18px;margin-top:22px}
+.checklist li{display:flex;gap:14px;align-items:flex-start;font-size:clamp(15px,1.8vw,20px);font-weight:500;line-height:1.42}
+.checklist li b{font-weight:700;color:var(--accent-deep)}
+.checklist .ck{flex:none;width:30px;height:30px;border-radius:9px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-top:1px}
+.checklist .ck svg{width:18px;height:18px}
+.split-media{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;box-shadow:0 20px 50px rgba(21,32,26,.16);border:1px solid var(--line)}
+.split-video{width:100%;height:100%;object-fit:cover;display:block}
+.split-media.ph-frame{display:grid;place-items:center;background:var(--surface2);border:1.5px dashed var(--line);box-shadow:none}
+.split-media.ph-frame img{width:100%;height:100%;object-fit:cover}
+.split-media>img,.split-media>video{width:100%;height:100%;object-fit:cover;display:block}
+.vids3{align-items:start;width:100%;max-width:660px;margin-left:auto;margin-right:auto;gap:20px}
+.vids3 figure{display:flex;flex-direction:column;align-items:center;min-width:0}
+.vids3 .frame{width:100%}
+.vids3 figcaption{text-align:center;margin-top:12px;font-weight:600;color:#a9b7ae}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.reel-cap{margin-top:10px;text-align:center;display:flex;flex-direction:column;gap:1px}
+.reel-cap .rc-v{font-family:'Unbounded';font-weight:700;font-size:clamp(12.5px,1.4vw,15px);color:var(--accent)}
+.reel-cap .rc-s{font-size:12px;color:var(--text2);font-weight:600}
+.split-badge{position:absolute;left:14px;bottom:14px;z-index:2;font-family:'Manrope';font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+  color:#fff;background:rgba(12,21,18,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(95,223,172,.4);border-radius:100px;padding:7px 14px}
+@media(max-width:760px){
+  .split{grid-template-columns:1fr;gap:22px}
+  .split-media{aspect-ratio:16/10;order:-1}
+}
+
+/* ---------- фонове відео на контент-слайді ---------- */
+.has-bgvid{overflow:hidden}
+.bgvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.5}
+.bgvid-ov{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(12,21,18,.86) 0%,rgba(12,21,18,.72) 45%,rgba(12,21,18,.9) 100%)}
+.has-bgvid .slide-inner{position:relative;z-index:5}
+.has-bgvid .col{background:rgba(10,18,15,.5);border:1px solid rgba(255,255,255,.12);color:#eef3ef;backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+.has-bgvid .col.good{background:rgba(19,147,95,.2);border-color:rgba(95,223,172,.32)}
+.has-bgvid .col.bad h3{color:#c2cdc6}
+.has-bgvid .col.good h3{color:var(--mint)}
+.has-bgvid .col li{color:#eef3ef}
+.has-bgvid .col.bad li svg{color:#9fb0a6}
+.has-bgvid .col.good li svg{color:var(--mint)}
+
+/* ---------- відео-слайд: відео + характеристики ---------- */
+.vsplit{display:grid;grid-template-columns:248px 1fr;gap:clamp(28px,4vw,56px);align-items:center;margin-top:22px}
+.vsplit .frame{margin-top:0;aspect-ratio:9/16}
+.specs{list-style:none;display:flex;flex-direction:column}
+.specs li{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.specs li svg{width:22px;height:22px;flex:none;color:var(--accent)}
+.specs .sl{flex:1;font-weight:500;color:var(--text2);font-size:clamp(13.5px,1.55vw,17px);line-height:1.3}
+.specs .sv{font-family:'Unbounded';font-weight:700;font-size:clamp(15px,1.7vw,20px);white-space:nowrap}
+.specs li.muted .sv{color:var(--text3)}
+.specs li.muted svg{color:var(--text3)}
+.specs li.profit{border-bottom:none;margin-top:8px;background:var(--accent-soft);border-radius:12px;padding:14px 16px}
+.specs li.profit svg,.specs li.profit .sv{color:var(--accent-deep)}
+.specs li.profit .sl{color:var(--accent-deep);font-weight:700}
+.specs li.profit .sv{font-size:clamp(18px,2.1vw,26px)}
+.specs-note{margin-top:12px;font-size:12.5px;color:var(--text3);font-style:italic}
+@media(max-width:760px){.vsplit{grid-template-columns:1fr}.vsplit .frame{max-width:220px;margin:0 auto}}
+
+/* ---------- ПОРОЖНЕЧА (темні картки + danger) ---------- */
+.darkcards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px;width:100%;max-width:1060px;margin-left:auto;margin-right:auto}
+.darkcard{background:#13201b;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px;text-align:left;color:#b9c4bd;font-size:13.5px;line-height:1.55}
+.darkcard b{color:#fff;font-weight:700}
+.dangerbox{margin-top:18px;width:100%;max-width:1060px;margin-left:auto;margin-right:auto;background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.32);border-radius:16px;padding:18px 24px;color:#b9c4bd;font-size:14px;line-height:1.55;text-align:center}
+.dangerbox b{color:#e8847a;font-weight:700}
+
+/* ---------- AUDIENCE (для кого — розгорнуто) ---------- */
+.audlist{list-style:none;display:flex;flex-direction:column;gap:22px;margin-top:26px;max-width:960px}
+.audlist li{display:flex;gap:16px;align-items:flex-start;font-size:clamp(15px,1.85vw,20px);line-height:1.5;font-weight:500;color:var(--text2)}
+.audlist .ae{font-size:26px;line-height:1.25;flex:none}
+.audlist b{font-weight:700;color:var(--text)}
+.audlist .hl{color:var(--accent)}
+
+/* ---------- REASON (чому вийде — по слайду) ---------- */
+.reason-n{font-family:'Unbounded';font-weight:800;font-size:clamp(46px,7vw,80px);color:var(--accent);line-height:1;margin-bottom:10px}
+
+/* ---------- HERO навчання (як на лендінгу) ---------- */
+.hbadges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.hbadge{display:inline-flex;align-items:center;gap:7px;font-family:'Manrope';font-weight:700;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--text2);background:var(--surface);border:1px solid var(--line);border-radius:100px;padding:7px 13px}
+.hbadge .dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.hbadge .s{color:var(--accent)}
+.mark{background:var(--accent-soft);border-radius:5px;padding:0 5px;font-weight:600;color:var(--text)}
+.progcard{background:#0c1512;border-radius:20px;padding:24px;color:#eef3ef;text-align:left}
+.progcard .pc-head{font-family:'Unbounded';font-weight:700;font-size:12px;letter-spacing:.08em;color:var(--mint);text-transform:uppercase;margin-bottom:16px}
+.progtiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.progtile{background:#13231c;border:1px solid rgba(95,223,172,.14);border-radius:14px;padding:16px}
+.progtile .pt-n{font-family:'Unbounded';font-weight:800;font-size:clamp(28px,3.2vw,40px);color:var(--mint);line-height:1}
+.progtile .pt-l{font-size:12px;color:#a9b7ae;margin-top:6px;line-height:1.3}
+.proglive{margin-top:12px;background:rgba(67,209,153,.12);border:1px solid rgba(95,223,172,.3);border-radius:12px;padding:12px 14px;font-size:12.5px;color:#d2efe1;font-weight:600}
+.proglive b{color:var(--mint)}
+
+/* ---------- ТАРИФИ-картки (як на лендінгу) ---------- */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px;width:100%;max-width:1060px;margin-left:auto;margin-right:auto;align-items:start}
+.tier{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px 20px;text-align:left}
+.tier.featured{border-color:var(--accent);box-shadow:0 16px 40px rgba(15,122,82,.16)}
+.tier-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--btn);color:#fff;font-family:'Manrope';font-weight:700;font-size:10.5px;letter-spacing:.05em;padding:4px 13px;border-radius:100px;white-space:nowrap}
+.tier-name{font-family:'Unbounded';font-weight:700;font-size:19px;margin-bottom:6px}
+.tier-old{text-decoration:line-through;color:var(--text3);font-weight:600;font-size:14px;margin-right:8px}
+.tier-price{font-family:'Unbounded';font-weight:800;font-size:24px;color:var(--accent)}
+.tier-for{color:var(--text2);font-size:12px;line-height:1.4;margin:10px 0 14px;border-top:1px solid var(--line);padding-top:12px}
+.tier-feat{list-style:none;display:flex;flex-direction:column;gap:8px}
+.tier-feat li{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;line-height:1.35;font-weight:500}
+.tier-feat li svg{flex:none;width:15px;height:15px;margin-top:2px}
+.tier-feat li.on svg{color:var(--accent)}
+.tier-feat li.off{color:var(--text3)}
+.tier-feat li.off svg{color:var(--text3);opacity:.55}
+.tier-feat li .val{margin-left:auto;font-weight:700;color:var(--text);white-space:nowrap}
+@media(max-width:760px){.tiers{grid-template-columns:1fr}}
+/* металеві тарифи (срібло / золото / діамант) — світла тема */
+.tiers.metal{margin-top:14px;align-items:stretch}
+.tiers.metal .tier{background:var(--surface);border:2px solid var(--line);padding:20px 18px;box-shadow:0 12px 32px rgba(21,32,26,.07)}
+.tiers.metal .tier-name{font-size:21px}
+.tiers.metal .tier-for{color:var(--text2);border-top-color:var(--line);font-size:11.5px}
+.tiers.metal .tier-feat{gap:7px}
+.tiers.metal .tier-feat li{font-size:11px;color:var(--text);gap:7px;line-height:1.3}
+.tiers.metal .tier-feat li svg{width:13px;height:13px}
+.tiers.metal .tier-feat li.off{color:var(--text3);text-decoration:line-through;text-decoration-color:rgba(111,125,116,.5)}
+.tiers.metal .tier-feat li.off svg{opacity:.5}
+.tiers.metal .tier-feat li .val{color:var(--text)}
+.tier.silver{border-color:#b3bdc2;box-shadow:0 0 0 1px rgba(160,175,182,.25),0 12px 32px rgba(21,32,26,.07)}
+.tier.silver .tier-name{color:#7f8c92}
+.tier.silver .tier-feat li.on svg{color:#9aa6ac}
+.tier.gold{border-color:#cba636;box-shadow:0 0 0 1px rgba(184,144,47,.3),0 14px 34px rgba(184,144,47,.12)}
+.tier.gold .tier-name{color:#b8902f}
+.tier.gold .tier-feat li.on svg{color:#c79a2d}
+.tier.diamond{border-color:#4fa9cc;box-shadow:0 0 0 1px rgba(79,169,204,.28),0 14px 34px rgba(79,169,204,.12)}
+.tier.diamond .tier-name{color:#2f8fb0}
+.tier.diamond .tier-feat li.on svg{color:#3f9fc0}
+
+/* картки цін (метал, світла тема) */
+.pricecards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px;width:100%;max-width:1000px;margin-left:auto;margin-right:auto}
+.pricecard{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:28px 20px;text-align:center;box-shadow:0 12px 32px rgba(21,32,26,.07)}
+.pricecard .pc-name{font-family:'Unbounded';font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+.pricecard .pc-old{text-decoration:line-through;color:var(--text3);font-weight:600;font-size:16px;margin-bottom:4px}
+.pricecard .pc-amt{font-family:'Unbounded';font-weight:800;font-size:clamp(26px,3.4vw,42px);line-height:1}
+.pricecard .pc-seats{margin-top:12px;font-size:13px;font-weight:700;color:var(--danger)}
+.tier-seats{display:inline-block;margin-bottom:12px;font-size:12.5px;font-weight:700;color:var(--danger);background:rgba(192,57,43,.08);border-radius:8px;padding:4px 11px}
+.pricecard.silver{border-color:#b3bdc2;box-shadow:0 0 0 1px rgba(160,175,182,.25),0 12px 32px rgba(21,32,26,.07)}
+.pricecard.silver .pc-name,.pricecard.silver .pc-amt{color:#7f8c92}
+.pricecard.gold{border-color:#cba636;box-shadow:0 0 0 1px rgba(184,144,47,.3),0 14px 34px rgba(184,144,47,.14)}
+.pricecard.gold .pc-name,.pricecard.gold .pc-amt{color:#b8902f}
+.pricecard.diamond{border-color:#4fa9cc;box-shadow:0 0 0 1px rgba(79,169,204,.28),0 14px 34px rgba(79,169,204,.13)}
+.pricecard.diamond .pc-name,.pricecard.diamond .pc-amt{color:#2f8fb0}
+
+/* оплата частинами (як на референсі) */
+.paybanner{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#fff;border-radius:18px;padding:16px 22px;margin-top:26px;width:100%;max-width:1080px;margin-left:auto;margin-right:auto;flex-wrap:wrap}
+.paybanner .pb-left{display:flex;align-items:center;gap:14px}
+.paybanner .pb-icon{width:46px;height:46px;flex:none;border-radius:12px;background:var(--btn);color:#fff;display:grid;place-items:center;font-family:'Unbounded';font-weight:800;font-size:15px}
+.paybanner .pb-t{font-family:'Unbounded';font-weight:700;font-size:15px;color:var(--text);text-transform:uppercase;letter-spacing:.02em}
+.paybanner .pb-s{font-size:12.5px;color:var(--text2);font-weight:500;margin-top:3px}
+.paybanner .pb-banks{display:flex;gap:8px;flex-wrap:wrap}
+.bank{font-family:'Manrope';font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:9px}
+.bank.mono{background:#111;color:#fff}
+.bank.privat{background:#2aaf4e;color:#fff}
+.bank.abank{background:#e0b020;color:#1a1a1a}
+.bank.otp{background:#0aa84f;color:#fff}
+.bank.globus{background:#f08a1d;color:#fff}
+.installcards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px;width:100%;max-width:1080px;margin-left:auto;margin-right:auto}
+.installcard{background:#13201b;border:1.5px solid rgba(255,255,255,.1);border-radius:16px;padding:24px;text-align:center}
+.installcard .ic-name{font-family:'Unbounded';font-weight:700;font-size:13px;letter-spacing:.06em;color:#9fb0a6;margin-bottom:12px;text-transform:uppercase}
+.installcard .ic-amt{font-family:'Unbounded';font-weight:800;font-size:clamp(26px,3.4vw,40px);line-height:1}
+.installcard .ic-amt small{font-family:'Manrope';font-weight:600;font-size:.4em;color:#a9b7ae}
+.installcard .ic-sub{font-size:12px;color:#83918a;margin-top:10px}
+.installcard.silver{border-color:rgba(200,210,216,.45)}
+.installcard.silver .ic-amt{color:#cbd4d8}
+.installcard.gold{border-color:rgba(212,175,55,.6);box-shadow:0 14px 34px rgba(212,175,55,.1)}
+.installcard.gold .ic-amt{color:#e2c25a}
+.installcard.diamond{border-color:rgba(120,205,235,.55)}
+.installcard.diamond .ic-amt{color:#8fd4ee}
+
+/* бонус — нейромережі (як на референсі) */
+.neurogrid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:26px;width:100%;max-width:1100px;margin-left:auto;margin-right:auto}
+.neurocard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 14px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:7px;box-shadow:0 10px 28px rgba(21,32,26,.06)}
+.neuro-ic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;font-family:'Unbounded';font-weight:800;font-size:21px;color:#fff;margin-bottom:4px}
+.neuro-ic.kling{background:linear-gradient(135deg,#7b5bf0,#5b3fd6)}
+.neuro-ic.grok{background:#1a1a1a}
+.neuro-ic.flow{background:linear-gradient(135deg,#3b9bf0,#2670d6)}
+.neuro-ic.seed{background:linear-gradient(135deg,#3fc9b0,#2a9d8f)}
+.neuro-ic.heygen{background:linear-gradient(135deg,#5fcf7a,#3aab55)}
+.neurocard .nc-name{font-family:'Unbounded';font-weight:700;font-size:17px}
+.neurocard .nc-desc{font-size:12.5px;color:var(--text2);line-height:1.35}
+
+/* картка гарантії */
+.guarcard{display:flex;gap:32px;align-items:center;background:var(--surface2);border:1px solid var(--line);border-radius:24px;padding:40px 44px;width:100%;max-width:1000px;margin-left:auto;margin-right:auto;text-align:left}
+.guar-icon{flex:none;width:80px;height:80px;border-radius:20px;background:var(--accent-soft);display:grid;place-items:center}
+.guar-icon svg{width:42px;height:42px;color:var(--accent)}
+.guarcard h2{margin-bottom:14px}
+.guarcard .lead{margin:0}
+@media(max-width:760px){.guarcard{flex-direction:column;text-align:center;padding:28px 22px}}
+
+/* ---------- ФАЗИ (roadmap як на лендінгу) ---------- */
+.rmphases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;width:100%;max-width:1040px;margin-left:auto;margin-right:auto}
+.rmphase{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px 24px 24px 30px;overflow:hidden;text-align:left}
+.rmphase::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px}
+.rmphase.p1::before{background:#9b4dab}
+.rmphase.p2::before{background:var(--accent)}
+.rmphase.p3::before{background:var(--gold)}
+.rmphase .rp-top{font-family:'Unbounded';font-weight:700;font-size:12.5px;letter-spacing:.04em;color:var(--text3);margin-bottom:10px}
+.rmphase .rp-title{font-family:'Unbounded';font-weight:700;font-size:clamp(18px,2.1vw,24px);margin-bottom:8px}
+.rmphase .rp-desc{color:var(--text2);font-size:14px;line-height:1.45}
+
+/* ---------- МОДУЛЬ (детальний слайд) ---------- */
+.mod-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.mod-n{font-family:'Unbounded';font-weight:800;font-size:clamp(22px,2.6vw,32px);color:var(--mint);flex:none}
+.mod-emoji{font-size:26px;flex:none}
+.mod-head h2{font-size:clamp(19px,2.3vw,28px);color:#eef3ef;margin:0;line-height:1.1}
+.mod-split{display:grid;grid-template-columns:1.45fr .55fr;gap:26px;align-items:start}
+.mod-list{list-style:none;display:flex;flex-direction:column;gap:11px}
+.mod-list li{position:relative;padding-left:18px;font-size:clamp(13px,1.55vw,16px);line-height:1.42;color:#b9c4bd}
+.mod-list li::before{content:'';position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--mint)}
+.mod-result{margin-top:16px;background:rgba(67,209,153,.1);border:1px solid rgba(95,223,172,.28);border-radius:14px;padding:15px 18px}
+.mr-head{font-family:'Unbounded';font-weight:700;font-size:11px;letter-spacing:.06em;color:var(--mint);margin-bottom:6px}
+.mod-result p{font-size:clamp(13px,1.5vw,15.5px);line-height:1.45;color:#cdd6cf;margin:0}
+.mod-result b{color:var(--mint)}
+.mod-media{aspect-ratio:4/5;border:1.5px dashed rgba(95,223,172,.3);border-radius:14px;background:#10201a;display:grid;place-items:center;color:#7fbfa3;font-size:13px;font-weight:600;overflow:hidden}
+.mod-media img,.mod-media video{width:100%;height:100%;object-fit:cover}
+@media(max-width:760px){.mod-split{grid-template-columns:1fr}.mod-media{max-width:240px;aspect-ratio:16/10}}
+.mod-list li b{color:#dfe7e1;font-weight:700}
+/* слайди-експерти (Модуль 12) */
+.expert{display:grid;grid-template-columns:clamp(220px,24vw,290px) 1fr;gap:clamp(24px,3.5vw,46px);margin-top:12px;align-items:start}
+.exp-photo{width:100%;border-radius:16px;overflow:hidden;border:1px solid rgba(95,223,172,.22);box-shadow:0 14px 36px rgba(0,0,0,.32);background:#10201a;display:block}
+.exp-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.exp-role{display:inline-block;margin-top:12px;font-family:'Manrope';font-weight:700;font-size:12.5px;color:var(--mint);background:rgba(67,209,153,.1);border:1px solid rgba(95,223,172,.3);border-radius:100px;padding:6px 14px;line-height:1.3}
+.exp-proofs{display:flex;gap:8px;margin-top:10px}
+.exp-proofs img{flex:1;min-width:0;height:78px;object-fit:cover;object-position:top;border-radius:8px;border:1px solid rgba(95,223,172,.2)}
+.exp-bio{color:#9fb0a6;font-size:12.5px;line-height:1.5;margin-top:12px}
+.exp-bio b{color:#dfe7e1;font-weight:700}
+.exp-lessons-h{font-family:'Unbounded';font-weight:700;font-size:11px;letter-spacing:.06em;color:var(--mint);margin-bottom:12px;text-transform:uppercase}
+.exp-avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,#1fce8a,#0b5c3d);display:grid;place-items:center;font-family:'Unbounded';font-weight:800;font-size:34px;color:#fff}
+@media(max-width:760px){.expert{grid-template-columns:1fr}}
+/* бібліотека монтажу */
+.libgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:24px;width:100%;max-width:1080px;margin-left:auto;margin-right:auto}
+.libcard{display:flex;align-items:center;gap:9px;background:#13201b;border:1px solid rgba(255,255,255,.1);border-left:3px solid var(--mint);border-radius:11px;padding:11px 13px;text-align:left}
+.libcard svg{width:18px;height:18px;color:var(--mint);flex:none}
+.libcard span{font-size:12.5px;font-weight:600;color:#dfe7e1;line-height:1.2}
+@media(max-width:760px){.libgrid{grid-template-columns:1fr 1fr 1fr}}
+/* ChatGPT-style мок асистента */
+.gptmock{width:100%;height:100%;background:#fff;display:flex;flex-direction:column;text-align:left;overflow:hidden}
+.gptmock .gm-top{display:flex;align-items:center;gap:8px;padding:9px 13px;border-bottom:1px solid #ededed;font-family:'Manrope';font-weight:700;font-size:12.5px;color:#2d2d2d}
+.gptmock .gm-logo{width:19px;height:19px;border-radius:50%;background:#10a37f;display:grid;place-items:center;color:#fff;font-size:11px;font-weight:800}
+.gptmock .gm-body{flex:1;padding:11px 13px;display:flex;flex-direction:column;gap:9px;overflow:hidden;font-family:'Manrope'}
+.gptmock .gm-user{align-self:flex-end;max-width:82%;background:#f4f4f4;color:#2d2d2d;border-radius:14px;padding:7px 11px;font-size:11px;line-height:1.35}
+.gptmock .gm-ai{align-self:flex-start;display:flex;gap:7px;max-width:96%}
+.gptmock .gm-ava{width:18px;height:18px;border-radius:50%;background:#10a37f;flex:none;margin-top:1px}
+.gptmock .gm-card{background:#f7f9f8;border:1px solid #e6ebe8;border-radius:11px;padding:9px 11px;font-size:10px;line-height:1.5;color:#3a3a3a}
+.gptmock .gm-card .gm-h{font-weight:800;color:#10a37f;font-size:10.5px;margin-bottom:3px}
+.gptmock .gm-card b{color:#222}
+/* CTA-банер на слайдах заперечень */
+.ctabar{display:flex;align-items:center;gap:12px;margin-top:22px;background:var(--accent);color:#fff;border-radius:14px;padding:15px 22px;max-width:1000px;font-weight:700;font-size:clamp(15px,1.8vw,19px);box-shadow:0 14px 36px rgba(15,122,82,.22)}
+.ctabar svg{width:24px;height:24px;flex:none}
+.obj-label{display:inline-block;font-family:'Unbounded';font-weight:700;font-size:clamp(13px,1.6vw,16px);color:var(--accent);margin-bottom:6px}
+.obj-q2{font-size:clamp(20px,2.8vw,30px)}
+.obj-ans{font-size:clamp(14px,1.6vw,17.5px);line-height:1.5;color:var(--text2);max-width:1000px}
+.obj-ans b{color:var(--text);font-weight:700}
+/* картки бонусів з обкладинками */
+.bonuscard{text-align:center}
+.bonuscard .bc-img{aspect-ratio:4/5;max-width:190px;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--surface);box-shadow:0 12px 30px rgba(21,32,26,.08)}
+.bonuscard .bc-img img{width:100%;height:100%;object-fit:cover;display:block}
+.bonuscard .bc-t{font-family:'Unbounded';font-weight:700;font-size:clamp(17px,2vw,22px);margin-top:18px;line-height:1.25}
+.bonuscard .bc-d{font-size:clamp(15px,1.7vw,18px);color:var(--text2);margin-top:8px;line-height:1.45}
+/* візуалізація двох шляхів */
+@keyframes dashflow{to{stroke-dashoffset:-32}}
+.pathviz{width:100%;max-width:920px;margin:6px auto 0;display:block}
+.pathviz .pv-line{fill:none;stroke-width:2.6;stroke-dasharray:7 9;stroke-linecap:round;animation:dashflow 1.3s linear infinite}
+.pathviz .pv-bad{stroke:var(--text3)}
+.pathviz .pv-good{stroke:var(--accent)}
+.pathviz .pv-dot{fill:var(--text)}
+.twopaths{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:880px;margin:0 auto;width:100%}
+.twopaths .tp{border-radius:18px;padding:22px 24px;text-align:center}
+.twopaths .tp-bad{background:var(--surface);border:1px solid var(--line)}
+.twopaths .tp-good{background:var(--accent-soft);border:1.5px solid rgba(15,122,82,.45);box-shadow:0 16px 44px rgba(15,122,82,.12)}
+.twopaths .tp-t{font-family:'Unbounded';font-weight:700;font-size:clamp(17px,2vw,22px);margin-bottom:8px}
+.twopaths .tp-bad .tp-t{color:var(--text2)}
+.twopaths .tp-good .tp-t{color:var(--accent-deep)}
+.twopaths .tp-d{font-size:clamp(13.5px,1.5vw,16px);line-height:1.45;color:var(--text2)}
+
+/* ---------- ROADMAP (карта шляху) ---------- */
+.roadmap{position:relative;padding-left:50px;margin-top:14px;width:100%;max-width:1080px;margin-left:auto;margin-right:auto;text-align:left}
+.roadmap::before{content:'';position:absolute;left:16px;top:-60px;bottom:-60px;width:3px}
+.roadmap.p1::before{background:#9b4dab}
+.roadmap.p2::before{background:var(--accent)}
+.roadmap.p3::before{background:var(--gold)}
+.rm-phase-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-family:'Unbounded';font-weight:700}
+.rm-phase-head .rph-n{font-size:13px;letter-spacing:.04em;color:var(--text3)}
+.rm-phase-head .rph-t{font-size:clamp(18px,2.2vw,26px)}
+.roadmap.p1 .rph-t{color:#9b4dab}.roadmap.p2 .rph-t{color:var(--accent)}.roadmap.p3 .rph-t{color:var(--gold)}
+.rmrow{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:11px 16px;margin-bottom:10px;display:flex;gap:13px;align-items:flex-start}
+.rmrow::before{content:'';position:absolute;left:-41px;top:15px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:3px solid currentColor}
+.roadmap.p1 .rmrow::before{color:#9b4dab}.roadmap.p2 .rmrow::before{color:var(--accent)}.roadmap.p3 .rmrow::before{color:var(--gold)}
+.rmrow .rn{font-family:'Unbounded';font-weight:800;font-size:17px;flex:none;width:30px;line-height:1.4}
+.roadmap.p1 .rn{color:#9b4dab}.roadmap.p2 .rn{color:var(--accent)}.roadmap.p3 .rn{color:var(--gold)}
+.rmrow .rc{flex:1}
+.rmrow .rt{font-weight:600;font-size:clamp(12.5px,1.5vw,15.5px);line-height:1.35}
+.rmrow .rr{color:var(--text2);font-size:12px;line-height:1.35;margin-top:2px}
+.rmend{position:relative;margin-top:6px;background:rgba(21,32,26,.05);border-radius:12px;padding:11px 16px;font-weight:600;font-size:13px;display:flex;align-items:center;gap:10px}
+.rmend::before{content:'';position:absolute;left:-41px;top:50%;transform:translateY(-50%);width:15px;height:15px;border-radius:50%}
+.roadmap.p1 .rmend{color:#9b4dab}.roadmap.p1 .rmend::before{background:#9b4dab}
+.roadmap.p2 .rmend{color:var(--accent-deep)}.roadmap.p2 .rmend::before{background:var(--accent)}
+.roadmap.p3 .rmend{color:var(--gold)}.roadmap.p3 .rmend::before{background:var(--gold)}
+
+/* ---------- MORE cards (це більше) ---------- */
+.morecard{text-align:center;align-items:center;gap:8px}
+.morecard .me{font-size:26px;line-height:1}
+.morecard .mt{font-weight:700;font-size:clamp(15px,1.8vw,18px)}
+.morecard .md{color:var(--text2);font-size:13.5px;line-height:1.45}
+
+/* ---------- GET-GRID (як на лендінгу) ---------- */
+.getgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px;width:100%;max-width:1080px;margin-left:auto;margin-right:auto}
+.getcard{background:#13231c;border:1px solid rgba(95,223,172,.16);border-radius:16px;padding:18px;text-align:left}
+.getcard.flag{border-color:rgba(95,223,172,.5);background:rgba(67,209,153,.1)}
+.getcard .gn{font-family:'Unbounded';font-weight:800;font-size:clamp(26px,3vw,40px);color:var(--mint);line-height:1;margin-bottom:8px}
+.getcard .gl{font-weight:700;font-size:14.5px;color:#eef3ef;margin-bottom:4px;line-height:1.2}
+.getcard .gd{font-size:12.5px;color:#a9b7ae;line-height:1.4}
+@media(max-width:760px){.getgrid{grid-template-columns:1fr 1fr}}
+
+/* ---------- HERO (S1) ---------- */
+.hero{background:#0c1512;overflow:hidden}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.55}
+.hero-overlay{position:absolute;inset:0;z-index:1;
+  background:
+    radial-gradient(120% 90% at 50% 30%, rgba(12,21,18,.35) 0%, rgba(12,21,18,.78) 60%, rgba(12,21,18,.95) 100%),
+    linear-gradient(180deg, rgba(12,21,18,.6) 0%, rgba(12,21,18,.2) 45%, rgba(12,21,18,.85) 100%);
+}
+.hero-grid{position:absolute;inset:-2px;z-index:2;pointer-events:none;opacity:.5;
+  background-image:
+    linear-gradient(rgba(67,209,153,.10) 1px,transparent 1px),
+    linear-gradient(90deg, rgba(67,209,153,.10) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(120% 80% at 50% 45%, #000 30%, transparent 78%);
+  mask-image:radial-gradient(120% 80% at 50% 45%, #000 30%, transparent 78%);
+  animation:gridmove 18s linear infinite;
+}
+@keyframes gridmove{from{background-position:0 0,0 0}to{background-position:54px 54px,54px 54px}}
+.hero-glow{position:absolute;z-index:2;pointer-events:none;width:60vmax;height:60vmax;left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle, rgba(67,209,153,.16) 0%, transparent 60%);
+  animation:glowpulse 7s ease-in-out infinite;
+}
+@keyframes glowpulse{0%,100%{opacity:.45;transform:translate(-50%,-50%) scale(.9)}50%{opacity:.9;transform:translate(-50%,-50%) scale(1.12)}}
+.hero .slide-inner{position:relative;z-index:5}
+.hero-title{font-family:'Unbounded';font-weight:800;font-size:clamp(28px,5vw,62px);line-height:1.08;text-transform:none;max-width:980px;
+  color:#f3f8f4 !important;animation:heroin 1s ease both;text-shadow:0 4px 40px rgba(0,0,0,.55)}
+.hero .t2{animation:heroin 1s ease .25s both}
+@keyframes heroin{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.hero-meta{display:inline-flex;align-items:center;gap:clamp(16px,2.4vw,30px);flex-wrap:wrap;justify-content:center;margin-top:clamp(28px,4vw,44px);
+  padding:clamp(12px,1.6vw,16px) clamp(18px,2.4vw,26px);border-radius:100px;
+  background:rgba(12,21,18,.45);border:1px solid rgba(95,223,172,.22);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  animation:heroin 1s ease .35s both}
+.meta-item{display:flex;align-items:center;gap:13px;text-align:left}
+.meta-avatar{width:clamp(48px,5vw,62px);height:clamp(48px,5vw,62px);border-radius:50%;object-fit:cover;flex:none;
+  border:2px solid var(--mint);box-shadow:0 0 0 4px rgba(67,209,153,.15)}
+.meta-ic{width:clamp(44px,4.6vw,56px);height:clamp(44px,4.6vw,56px);border-radius:50%;flex:none;display:grid;place-items:center;
+  background:rgba(67,209,153,.12);border:1px solid rgba(95,223,172,.35);color:var(--mint)}
+.meta-ic svg{width:55%;height:55%}
+.meta-text{display:flex;flex-direction:column;line-height:1.15}
+.meta-label{font-size:clamp(11px,1.2vw,13px);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7fbfa3}
+.meta-val{font-family:'Unbounded';font-weight:700;font-size:clamp(16px,1.9vw,23px);color:#f3f8f4}
+.meta-val small{font-family:'Manrope';font-weight:500;font-size:.62em;color:#a9b7ae;letter-spacing:0}
+.meta-sep{width:1px;height:38px;background:rgba(95,223,172,.25)}
+@media(max-width:560px){.meta-sep{display:none}.hero-meta{gap:14px}}
+@media(prefers-reduced-motion:reduce){.hero-grid,.hero-glow,.hero-title,.hero .t2,.hero-meta{animation:none}}
+
+/* nav */
+.nav{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:center;gap:16px;padding:16px;background:linear-gradient(to top,var(--bg) 40%,transparent)}
+.dark-nav .nav{background:linear-gradient(to top,#0c1512 40%,transparent)}
+.nbtn{width:40px;height:40px;flex:none;border-radius:11px;border:1px solid var(--line);background:transparent;color:var(--text);display:grid;place-items:center;cursor:pointer;transition:.2s}
+.nbtn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.nbtn svg{width:20px;height:20px}
+.dots{display:none}
+.dot{width:7px;height:7px;border-radius:100px;background:var(--line);border:none;padding:0;cursor:pointer;transition:.3s}
+.dot.on{width:22px;background:var(--accent)}
+@media(max-width:760px){
+  .dots{display:none}
+  .slide{overflow-y:auto;justify-content:flex-start;padding-top:54px;padding-bottom:84px}
+  .slide-inner{margin:auto 0}
+  .g2,.g3,.compare{grid-template-columns:1fr}
+  .speaker{flex-direction:column;align-items:flex-start}
+  .speaker .ph-photo{width:100%;height:180px}
+  .ptable{font-size:12px}
+  .ptable th,.ptable td{padding:8px 4px}
+}
+
+/* ---------- ЗАЯВКИ: купа фото з розльотом ---------- */
+.zfans{display:flex;justify-content:center;align-items:center;gap:clamp(40px,9vw,140px);width:100%;margin:38px auto 8px;flex-wrap:nowrap}
+.zfan{position:relative;width:clamp(120px,13vw,168px);height:clamp(150px,17vw,210px);flex:none;cursor:pointer}
+.zfan img{position:absolute;left:50%;top:50%;width:clamp(96px,10.5vw,134px);height:auto;border-radius:9px;border:2px solid #fff;
+  box-shadow:0 6px 16px rgba(21,32,26,.22);background:#fff;
+  transform:translate(-50%,-50%) translate(var(--dx),var(--dy)) rotate(var(--drot));
+  transition:transform .55s cubic-bezier(.34,1.3,.5,1),box-shadow .4s ease;will-change:transform}
+.zfan:hover,.zfan:focus-visible{z-index:40;outline:none}
+.zfan:hover img,.zfan:focus-visible img{
+  transform:translate(-50%,-50%) translate(var(--tx),var(--ty)) rotate(var(--rot)) scale(1.42);
+  box-shadow:0 16px 36px rgba(21,32,26,.32)}
+.dirfan .zfan:hover img,.dirfan .zfan:focus-visible img{
+  transform:translate(-50%,-50%) translate(var(--tx),var(--ty)) rotate(var(--rot)) scale(1.78);
+  box-shadow:0 22px 46px rgba(21,32,26,.36)}
+.zfan-hint{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px;color:var(--text3);font-size:13px;font-weight:600}
+.zfan-hint svg{width:17px;height:17px;color:var(--accent)}
+@media(max-width:760px){
+  .zfans{gap:14px}
+  .zfan{width:30vw;height:38vw}
+  .zfan img{width:26vw}
+}
+
+/* ---------- СТІНА ВІДГУКІВ (масонрі-колаж) ---------- */
+.revwall{column-count:7;column-gap:10px;width:100%;max-width:1560px;margin:14px auto 0}
+.revcard{break-inside:avoid;margin:0 0 10px;border-radius:10px;overflow:hidden;background:#fff;border:1px solid var(--line);
+  box-shadow:0 8px 20px rgba(21,32,26,.12);transition:transform .35s cubic-bezier(.34,1.2,.5,1),box-shadow .35s ease,z-index 0s;position:relative;z-index:1}
+.revcard img{width:100%;height:auto;display:block}
+.revcard:hover{transform:scale(1.55) rotate(0deg)!important;z-index:30;box-shadow:0 22px 50px rgba(21,32,26,.34)}
+@media(max-width:1400px){.revwall{column-count:6}}
+@media(max-width:1100px){.revwall{column-count:4}}
+@media(max-width:760px){.revwall{column-count:2;column-gap:10px}.revcard{margin-bottom:10px}}
+
+/* ---------- 5 кроків створення відео ---------- */
+.steps5{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(12px,1.5vw,20px);width:100%;max-width:1280px;margin:24px auto 0}
+.stepcard{display:flex;flex-direction:column;align-items:center;text-align:center}
+.stepmedia{position:relative;width:100%;aspect-ratio:1/1;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--surface2);box-shadow:0 12px 30px rgba(21,32,26,.12)}
+.stepmedia>img,.stepmedia>video{width:100%;height:100%;object-fit:cover;display:block}
+.stepnum{position:absolute;top:9px;left:9px;z-index:3;width:30px;height:30px;border-radius:9px;background:var(--accent);color:#fff;display:grid;place-items:center;font-family:'Unbounded';font-weight:800;font-size:15px;box-shadow:0 4px 12px rgba(11,92,61,.45)}
+.steplabel{margin-top:13px;font-weight:700;font-size:clamp(12.5px,1.45vw,16px);line-height:1.32;color:var(--text);padding:0 4px}
+.step2grid{display:grid;grid-template-rows:1.35fr 1fr;gap:4px;width:100%;height:100%}
+.step2grid>video{width:100%;height:100%;object-fit:cover;display:block}
+.step2bot{display:grid;grid-template-columns:1fr 1fr;gap:4px;min-height:0}
+.step2bot>img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:760px){.steps5{grid-template-columns:repeat(2,1fr);max-width:420px}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="counter"><span id="cur">01</span><span class="tot"> / 62</span></div>
+
+<div class="deck" id="deck">
+<!-- S33 -->
+<section class="slide active">
+  <div class="slide-inner split">
+    <div class="split-text">
+      <div class="hbadges">
+        <span class="hbadge"><span class="dot"></span>Набір на перший потік відкрито</span>
+        <span class="hbadge"><span class="s">✦</span>Старт 30 червня</span>
+      </div>
+      <h1 class="title" style="font-size:clamp(30px,4.6vw,54px)">AI-<span class="hl">ВІДЕОКРЕАТОР</span></h1>
+      <p class="lead sub" style="font-size:clamp(15px,1.75vw,20px)">Ти навчишся створювати професійні <span class="mark">AI-відео вартістю від 50 до 300$</span>: рекламу, фільми, мультики та ролики для брендів.</p>
+      <p class="lead sub mt8" style="font-size:clamp(15px,1.75vw,20px)">Прямо під час курсу <span class="mark">сформуєш портфоліо, яке продаватиме тебе</span> як креатора.</p>
+      <p class="lead sub mt8" style="font-size:clamp(15px,1.75vw,20px)">Навчишся <b>продавати дорого</b>, отримаєш покроковий план і готові інструменти залучення клієнтів на створення AI-відео.</p>
+      <div class="callout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.2 5.3 5.8.5-4.4 3.8 1.3 5.6L12 16.8 7.1 18l1.3-5.6L4 8.8l5.8-.5Z"/></svg>
+        <p>Без досвіду в AI, без технічних знань і без англійської — <b>працюєш за авторською методикою Олександра</b></p>
+      </div>
+    </div>
+    <div>
+      <div class="progcard">
+        <div class="pc-head">● Що в програмі</div>
+        <div class="progtiles">
+          <div class="progtile"><div class="pt-n">12</div><div class="pt-l">модулів програми</div></div>
+          <div class="progtile"><div class="pt-n">35+</div><div class="pt-l">практичних уроків</div></div>
+          <div class="progtile"><div class="pt-n">5+</div><div class="pt-l">робіт додаш у портфоліо</div></div>
+          <div class="progtile"><div class="pt-n">2–3</div><div class="pt-l">години на тиждень для навчання</div></div>
+        </div>
+        <div class="proglive">💬 Живе спілкування з Олександром — <b>у групі або особисто 1:1</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S33a1 — чому після інших курсів порожнеча (темна) -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h2 style="color:#eef3ef">Чому після інших курсів лишається <span style="color:var(--mint)">порожнеча</span></h2>
+    <div class="darkcards">
+      <div class="darkcard">Тобі дають <b>багато «води» у відеоуроках</b>, але не дають системи — покрокової роботи з AI. Уроки записані рік тому: інструменти вже інші, інтерфейс змінився, а ти сам шукай, де тепер та звична кнопка.</div>
+      <div class="darkcard">Домашки після уроків прив'язані до <b>платних підписок на нейронки</b>, про які ніхто не попередив на старті. Замкнуте коло: заплатив за курс — і мусиш платити ще й за нейронки, щоб виконати ДЗ. Закінчуєш курс — а результату не відчуваєш.</div>
+      <div class="darkcard">Тебе вчать <b>тиснути кнопки за шаблоном і копіювати чужі промти</b>, а не розуміти логіку роботи з AI. Змінилась задача — і ти знову губишся. Куратори часто навіть не з цієї сфери. Зворотного зв'язку по суті немає.</div>
+    </div>
+    <div class="dangerbox">Підсумок, який пишуть самі учні: сертифікат є, а <b>портфоліо, клієнтів і впевненості, що зможеш на цьому заробляти, немає</b>. Гроші витрачені, час витрачений — а до першого замовлення так і не дійшов.</div>
+  </div>
+</section>
+
+<!-- S33a2 — курс побудований навпаки -->
+<section class="slide">
+  <div class="slide-inner">
+    <h2 style="text-align:center">Курс AI-відеокреатор побудований <span class="hl">навпаки</span></h2>
+    <div class="compare" style="max-width:1040px;margin-left:auto;margin-right:auto">
+      <div class="col bad">
+        <h3>Як зазвичай</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>Гори відео й теорії «про запас»</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>Уроки записані рік тому — на старих версіях нейронок</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>Домашки тільки на платних підписках нейронок</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>Готові промти «скопіюй-встав», без логіки роботи з AI</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>Після курсу кинули — жодної підтримки, далі сам</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>На виході: сертифікат і купа питань без відповідей</li>
+        </ul>
+      </div>
+      <div class="col good">
+        <h3>Як у цьому курсі</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Коротко й по суті — крок за кроком, без води</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>За реальним експертом, який щодня створює контент — собі в блог і на замовлення</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Актуальні інструменти + доступ до оновлень наступного потоку безкоштовно</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Доступ не лише до курсу, а й до моїх застосунків — створюй і тренуйся безкоштовно</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Пояснюю логіку: розумієш — і робиш під будь-яку задачу ринку</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg><b>Усе заточено під реальний дохід — доводжу до перших грошей, а не до сертифіката</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S33b — що конкретно отримаєш (як на лендінгу) -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h2 style="color:var(--mint)">Що конкретно ти отримаєш</h2>
+    <div class="getgrid">
+      <div class="getcard"><div class="gn">12</div><div class="gl">навчальних модулів</div><div class="gd">Покроково від нуля до готового портфоліо</div></div>
+      <div class="getcard flag"><div class="gn">35+</div><div class="gl">практичних уроків</div><div class="gd">Коротко, по суті, без зайвої теорії</div></div>
+      <div class="getcard"><div class="gn">5+</div><div class="gl">робіт у портфоліо</div><div class="gd">Фільм, мультик, реклама</div></div>
+      <div class="getcard"><div class="gn">5</div><div class="gl">бонусних модулів</div><div class="gd">Kling, Grok, Flow, Seedance, HeyGen</div></div>
+      <div class="getcard"><div class="gn">∞</div><div class="gl">паки промтів і карток</div><div class="gd">Готові промти й картки персонажів та локацій</div></div>
+      <div class="getcard"><div class="gn">AI</div><div class="gl">команда асистентів</div><div class="gd">Помічники, що пишуть промти й сценарії за тебе</div></div>
+      <div class="getcard"><div class="gn">Live</div><div class="gl">ефіри з Олександром</div><div class="gd">Прямі розбори й відповіді на питання</div></div>
+      <div class="getcard"><div class="gn">★</div><div class="gl">запрошені спікери</div><div class="gd">Гостьові ефіри від практиків ринку</div></div>
+      <div class="getcard"><div class="gn">✓</div><div class="gl">перевірка ДЗ</div><div class="gd">Особистий фідбек по твоїх роботах</div></div>
+      <div class="getcard"><div class="gn">→</div><div class="gl">передача клієнтів</div><div class="gd">Олександр передає замовлення найкращим учням</div></div>
+      <div class="getcard"><div class="gn">0%</div><div class="gl">оплата частинами</div><div class="gd">До 6 платежів без переплат</div></div>
+      <div class="getcard"><div class="gn">✦</div><div class="gl">сертифікат</div><div class="gd">Про проходження курсу AI-відеокреатор</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- S33c — чому вийде (інтро) -->
+<section class="slide center">
+  <div class="slide-inner">
+    <h1 class="title" style="font-size:clamp(28px,4.4vw,52px)">Чому в тебе вийде створювати <span class="hl">топові AI-відео</span> навіть якщо ти ніколи не працював з AI</h1>
+    <p class="lead sub" style="text-align:center">Цей курс спеціально побудований для тих, хто заходить у AI вперше. Нічого з цього не потрібно мати на старті:</p>
+  </div>
+</section>
+
+<!-- S33c-1 -->
+<section class="slide">
+  <div class="slide-inner" style="max-width:860px">
+    <div class="reason-n">01</div>
+    <h2>Не потрібен досвід у відео чи дизайні</h2>
+    <p class="lead sub">Починаєш із самих основ — що таке нейронка, як вона «думає», як скласти перший промт. Якщо вмієш користуватися телефоном і браузером — цього достатньо, щоб стартувати.</p>
+  </div>
+</section>
+
+<!-- S33c-2 -->
+<section class="slide">
+  <div class="slide-inner" style="max-width:860px">
+    <div class="reason-n">02</div>
+    <h2>Не потрібне обладнання й великі вкладення</h2>
+    <p class="lead sub">Жодних камер і студій. Покажу, де вчитися на безкоштовних інструментах, а коли дійде до роботи — які 1–2 підписки реально потрібні. Без зливу грошей «на спроби».</p>
+  </div>
+</section>
+
+<!-- S33c-3 -->
+<section class="slide">
+  <div class="slide-inner" style="max-width:860px">
+    <div class="reason-n">03</div>
+    <h2>Не потрібно багато часу</h2>
+    <p class="lead sub">2–3 години на тиждень — і програму реально поєднати з роботою, дитиною чи навчанням в університеті. Уроки короткі — можна дивитися навіть з телефону. Кожен модуль доводить тебе до конкретного результату, який залишається з тобою.</p>
+  </div>
+</section>
+
+<!-- S33c-4 -->
+<section class="slide">
+  <div class="slide-inner" style="max-width:860px">
+    <div class="reason-n">04</div>
+    <h2>Неважливо, скільки тобі років і який у тебе досвід</h2>
+    <p class="lead sub">Серед учнів моїх курсів є й ті, кому 25, і ті, кому 56+. Тут виграє не вік, а той, хто почав і не кинув на півдорозі. Цього разу не кинеш — бо буде особиста підтримка безпосередньо від мене.</p>
+  </div>
+</section>
+
+<!-- S33c-5 -->
+<section class="slide">
+  <div class="slide-inner" style="max-width:860px">
+    <div class="reason-n">05</div>
+    <h2>Неважливо, якщо ти вже десь вчився на авторських курсах</h2>
+    <p class="lead sub">Якщо після іншого курсу лишилася каша в голові — тут зберемо все в систему з нуля. Базу повторимо швидко, а далі підемо туди, куди інші не доходять: монетизація і клієнти.</p>
+  </div>
+</section>
+
+<!-- S34 -->
+<section class="slide">
+  <div class="slide-inner">
+    <h2>Для кого це навчання</h2>
+    <ul class="audlist">
+      <li><span class="ae">🌱</span><div><b>Для новачків,</b> які заходять у AI вперше — без досвіду в AI, зйомці чи монтажі. Хочеш з нуля опанувати навичку, за яку <span class="hl">реально платять кошти</span>, і дійти до перших замовлень.</div></li>
+      <li><span class="ae">🎯</span><div><b>Для тих, хто вже пробував</b> генерувати через нейронки, але часто виходять неякісні відео, результат непередбачуваний — і незрозуміло, <span class="hl">де шукати клієнтів і як продавати свої послуги</span>.</div></li>
+      <li><span class="ae">🚀</span><div><b>Для власників бізнесу та інтернет-магазинів,</b> кому регулярно потрібен відеоконтент: від предметної зйомки товарів до відеооглядів і реклами — без оператора, студії й бюджетів на зйомку. <span class="hl">Робиш контент під свій бізнес сам.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- S35 -->
+<section class="slide">
+  <div class="slide-inner">
+    <h2>Твій шлях крок за кроком</h2>
+    <div class="rmphases">
+      <div class="rmphase p1">
+        <div class="rp-top">Фаза 1</div>
+        <div class="rp-title">Фундамент</div>
+        <div class="rp-desc">Ніша AI-відео, промти, перший AI-персонаж і перші кінокадри</div>
+      </div>
+      <div class="rmphase p2">
+        <div class="rp-top">Фаза 2</div>
+        <div class="rp-title">Виробництво</div>
+        <div class="rp-desc">Від кадру до готових робіт — фільм, мультик, реклама — у форматах, які купують за 50–300$</div>
+      </div>
+      <div class="rmphase p3">
+        <div class="rp-top">Фаза 3</div>
+        <div class="rp-title">Вихід на дохід</div>
+        <div class="rp-desc">Портфоліо, перший дохід і система залучення клієнтів</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S35-roadmap1 -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="roadmap p1">
+      <div class="rm-phase-head"><span class="rph-n">ФАЗА 1</span><span class="rph-t">Фундамент</span></div>
+      <div class="rmrow"><span class="rn">01</span><div class="rc"><div class="rt">Розбираєшся в ніші AI-відео: де гроші і як зайти саме туди</div><div class="rr">= обираєш нішу, з якою працюватимеш, і бачиш свій шлях</div></div></div>
+      <div class="rmrow"><span class="rn">02</span><div class="rc"><div class="rt">Опановуєш промт-інженерію й налаштовуєш власного AI-асистента на базі ChatGPT, який пише промти за тебе</div><div class="rr">= генерації передбачувані, без зливу токенів на «як пощастить»</div></div></div>
+      <div class="rmrow"><span class="rn">03</span><div class="rc"><div class="rt">Створюєш AI-персонажів зі стабільною зовнішністю, локаціями та стилем</div><div class="rr">= герої не змінюються між кадрами — фундамент будь-якого AI-контенту</div></div></div>
+      <div class="rmrow"><span class="rn">04</span><div class="rc"><div class="rt">Будуєш розкадровку і генеруєш кінематографічні кадри</div><div class="rr">= готовий візуал для першого відео</div></div></div>
+      <div class="rmend">Кінець фази 1 — є персонаж, розуміння інструментів і перші кадри</div>
+    </div>
+  </div>
+</section>
+
+<!-- S35-roadmap2 -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="roadmap p2">
+      <div class="rm-phase-head"><span class="rph-n">ФАЗА 2</span><span class="rph-t">Виробництво</span></div>
+      <div class="rmrow"><span class="rn">05</span><div class="rc"><div class="rt">Оживляєш кадри: рух, динаміка камери, звук прямо в генерації</div><div class="rr">= перші живі відеофрагменти — вже є що показати клієнту</div></div></div>
+      <div class="rmrow"><span class="rn">06</span><div class="rc"><div class="rt">Монтуєш цілісний ролик з переходами, озвучкою і музикою</div><div class="rr">= перше повноцінне відео, готове до публікації</div></div></div>
+      <div class="rmrow"><span class="rn">07</span><div class="rc"><div class="rt">Знімаєш короткий AI-фільм від ідеї до фінального монтажу</div><div class="rr">= перша серйозна робота для портфоліо</div></div></div>
+      <div class="rmrow"><span class="rn">08</span><div class="rc"><div class="rt">Робиш рекламу з AI-блогером і відео для товарів</div><div class="rr">= формат, який купують найчастіше — і добре платять, бо зробити складно</div></div></div>
+      <div class="rmrow"><span class="rn">09</span><div class="rc"><div class="rt">Створюєш мультик у власному стилі з послідовним сюжетом</div><div class="rr">= друга робота в портфоліо й окремий ринок</div></div></div>
+      <div class="rmrow"><span class="rn">10</span><div class="rc"><div class="rt">Робиш комерційну рекламу для товару чи бізнесу</div><div class="rr">= рекламний ролик, який можна одразу показати клієнту</div></div></div>
+      <div class="rmend">Кінець фази 2 — фільм, мультик і реклама. Три формати — три ринки</div>
+    </div>
+  </div>
+</section>
+
+<!-- S35-roadmap3 -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="roadmap p3">
+      <div class="rm-phase-head"><span class="rph-n">ФАЗА 3</span><span class="rph-t">Вихід на дохід</span></div>
+      <div class="rmrow"><span class="rn">11</span><div class="rc"><div class="rt">Збираєш 5 робіт, зроблених під час курсу, в єдине портфоліо</div><div class="rr">= портфоліо продає тебе як AI-відеокреатора ще до першої розмови з клієнтом</div></div></div>
+      <div class="rmrow"><span class="rn">12</span><div class="rc"><div class="rt">Дізнаєшся, де брати клієнтів і як вести свої соцмережі як AI-відеокреатор</div><div class="rr">= конкретний план залучення перших клієнтів — ще під час навчання</div></div></div>
+      <div class="rmend">Кінець фази 3 — портфоліо з 5 робіт, розуміння ринку і перші клієнти 🏁</div>
+    </div>
+  </div>
+</section>
+
+<!-- S35d — роздільник програми -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h1 class="big">ПРОГРАМА НАВЧАННЯ<br><span class="hl">АІ-ВІДЕОКРЕАТОР</span></h1>
+  </div>
+</section>
+
+<!-- Модуль 1 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">01</span><span class="mod-emoji">🖼️</span><h2>Вступ. AI-відео індустрія та можливості заробітку</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Який AI-контент зараз купують і скільки за це платять. Як правильно виставляти свою ціну за роботу</li>
+          <li>Що таке мовні моделі й генератори, чим вони відрізняються</li>
+          <li>Огляд ключових інструментів/нейронок — як зібрати свій робочий стек (воркфлоу)</li>
+          <li>Список нейронок + безкоштовні сервіси для старту на курсі «AI-відеокреатор»</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p>Розумієш, як влаштована ніша й <b>де в ній гроші</b>. Бачиш свій шлях, а не блукаєш у сотні інструментів, і не витрачаєш зайві кошти на помилкові генерації.</p></div>
+      </div>
+      <div class="mod-media"><img src="/webinar/mod1.jpg" alt="Модуль 1" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 2 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">02</span><span class="mod-emoji">🧠</span><h2>Як працювати з промтами: система роботи з AI</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Покрокова інструкція по налаштуванню AI-асистентів під задачі AI-відеокреатора</li>
+          <li>Що це за асистенти і як вони працюють — детальний розбір</li>
+          <li>Як правильно працювати з референсами — створювати подібний, але унікальний контент</li>
+          <li>Спосіб: як перетворити будь-який референс у готовий промт</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p>Пишеш ефективні промти під будь-яке відео: рекламу, фільми, мультики. <b>Бачиш → описуєш → отримуєш</b> — без сотні правок.</p></div>
+      </div>
+      <div class="mod-media"><img src="/webinar/mod2.jpg" alt="Модуль 2" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 3 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">03</span><span class="mod-emoji">🎭</span><h2>Створення персонажів, карток персонажів і локацій</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Покроковий алгоритм створення ідеального AI-персонажа</li>
+          <li>Картка персонажа — система збереження образу</li>
+          <li>Як зберігати зовнішність у кожному кадрі</li>
+          <li>Картки локацій і розробка візуалу одягу</li>
+          <li>Технологія стабільного обличчя через <b>Nano Banana</b>: персонаж не змінюється між кадрами — навіть коли оживляєш його з фото</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p><b>Унікальний персонаж зі стабільною зовнішністю</b>, готовими локаціями та одягом — від першого до останнього кадру.</p></div>
+      </div>
+      <div class="mod-media"><img src="/webinar/mod3.jpg" alt="Модуль 3" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 4 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">04</span><span class="mod-emoji">📸</span><h2>Розкадровка та генерація сцен</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Як скласти історію відео й розкласти її по кадрах (сторіборд)</li>
+          <li>Розкадровка сцен з персонажем</li>
+          <li>Генерація кінематографічних кадрів, плани й ракурси</li>
+          <li>Збираєш візуальний стиль відео (мудборд) — атмосфера, освітлення та AI-кольорокорекція, щоб усі кадри виглядали як єдиний фільм</li>
+          <li>Генерація кадрів строго по сценарію (<b>Nano Banana</b>) + кінематографічні плани, ракурси і світло</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p><b>Готовий набір кінокадрів для першого відео.</b> Не «щось вийшло», а заплановано й зроблено.</p></div>
+      </div>
+      <div class="mod-media"><img src="/webinar/mod4.jpg" alt="Модуль 4" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 5 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">05</span><span class="mod-emoji">🎥</span><h2>Генерація відеофрагментів та оживлення сцен</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Як працює відеогенерація — простими словами, без складних термінів</li>
+          <li>Усі способи генерувати відео: image-to-video, text-to-video, за першим і останнім кадром</li>
+          <li>Керування рухом і динамікою кадру</li>
+          <li>Звук і музика: нейромережі, які генерують озвучку й музику, зокрема українською мовою</li>
+          <li>Чиста <b>україномовна озвучка</b> з природним ліпсинком (<b>Veo 3.1, ElevenLabs</b>) і музика під ролик (<b>Suno</b>)</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p><b>Перші живі відеофрагменти зі звуком</b>, які вже не соромно показати клієнту або викласти в соцмережі.</p></div>
+      </div>
+      <div class="mod-media"><img src="/webinar/mod5.jpg" alt="Модуль 5" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 6 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">06</span><span class="mod-emoji">✂️</span><h2>Монтаж AI-відео</h2></div>
+    <div class="mod-split">
+      <div>
+        <p class="lead sub" style="color:#9fb0a6;max-width:760px;margin:0 0 12px">6 уроків — від бази до вірусних Reels (записує практикуючий монтажер):</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 30px">
+          <ul class="mod-list">
+            <li>Що таке монтаж і чому одні відео дивляться до кінця, а інші пролистують</li>
+            <li>База монтажу — все, що потрібно знати новачку</li>
+            <li>Adobe Premiere Pro без зайвої води</li>
+          </ul>
+          <ul class="mod-list">
+            <li>Монтаж у стилі мінімалізм — як утримувати увагу без перевантаження</li>
+            <li>Як покращувати контент, створений нейромережами (практика)</li>
+            <li>Формула вірусних Reels і TikTok</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mod-media"><img src="/webinar/mod6.jpg" alt="Модуль 6" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 6 — результат + матеріали та фішки -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <h2 style="color:#eef3ef">Модуль «Монтаж»: результат і матеріали</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px 40px;margin-top:18px">
+      <div>
+        <div class="mr-head" style="margin-bottom:10px">✦ Результат модуля</div>
+        <ul class="clean" style="gap:9px">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Зрозумієш принципи сучасного монтажу</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Опануєш базу, яку використовують у професійній роботі</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Навчишся утримувати увагу глядача без перевантажених ефектів</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Опануєш монтаж в Adobe Premiere Pro і на телефоні</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Дізнаєшся, як покращувати контент, створений нейромережами</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Зможеш створювати Reels, TikTok і Shorts вищого рівня</li>
+        </ul>
+      </div>
+      <div>
+        <div class="mr-head" style="margin-bottom:10px">🛠 Матеріали та фішки</div>
+        <ul class="clean" style="gap:9px">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Розбір роликів з мільйонами переглядів</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Готові налаштування Adobe Premiere Pro</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Гарячі клавіші для пришвидшення монтажу</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Чек-лист утримання уваги</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Набір ефектів, переходів і звуків</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Практичний розбір AI-контенту до і після монтажу</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 6 — акцент: ми вчимо монтувати -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <h2 style="color:#eef3ef">Модуль 06: ми вчимо монтувати — а не «розберись сам»</h2>
+    <p class="lead sub" style="color:#b9c4bd;max-width:1000px">Усередині навчання — окремий модуль з уроками саме по <b style="color:var(--mint)">якісному монтажу</b>, як на телефоні, так і на ПК. Покрокові уроки, як монтувати так, щоб результат виглядав професійно, динамічно, яскраво — і приносив <b style="color:var(--mint)">мільйони переглядів</b>.</p>
+    <p class="lead mt16" style="color:#b9c4bd;max-width:1000px">Ми не залишаємо тебе наодинці з матеріалами — <b style="color:var(--mint)">ми вчимо ними користуватись</b>.</p>
+    <div class="mod-result" style="max-width:1000px"><div class="mr-head">🔓 Хто веде блок</div><p>Блок записує <b>професійний монтажер</b>, який співпрацює з великими агенціями по монтажу, TikTok- та Reels-просуванню.</p></div>
+  </div>
+</section>
+
+<!-- Модуль 6 — бібліотека 20+ ГБ -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h2 style="color:#eef3ef"><span style="color:var(--mint)">20+ ГБ</span> готових матеріалів для монтажу</h2>
+    <p class="lead sub" style="text-align:center;color:#9fb0a6">Футажі · Ефекти · Переходи · SFX · Оверлеї</p>
+    <div class="libgrid">
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Film FX</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Glow FX</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>TV / Glitch</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>LUTs Pack</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>SFX Pack</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Title Card FX</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Money FX</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Vintage Scan</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Glass FX</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>16mm Film</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Paper Rip</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Paint FX</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>2D FX</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Animations</span></div>
+      <div class="libcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><span>Super 8mm</span></div>
+    </div>
+    <p class="ph mt16" style="text-align:center;color:#7fbfa3">…та ще десятки паків усередині · працює на телефоні і ПК · CapCut · VN · Premiere · DaVinci</p>
+  </div>
+</section>
+
+<!-- Модуль 6 — як користуватись бібліотекою -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <h2 style="color:#eef3ef">Готова бібліотека — і ти вмієш нею користуватись</h2>
+    <ul class="clean" style="margin-top:18px;max-width:1000px">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Футажі, ефекти, переходи та <b style="color:#eef3ef">оверлеї</b></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Звукові ефекти <b style="color:#eef3ef">(SFX)</b> для утримання уваги</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Якісні відеовставки під <b style="color:#eef3ef">Reels, TikTok та Shorts</b></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Матеріали під динамічний і мінімалістичний монтаж</li>
+    </ul>
+    <p class="lead mt16" style="color:#b9c4bd;max-width:1000px">Працює і на телефоні (<b style="color:var(--mint)">CapCut, VN, Alight Motion</b>), і на ПК (<b style="color:var(--mint)">Premiere, DaVinci, After Effects</b>). А ще ці матеріали можна використовувати як <b style="color:var(--mint)">референси для AI-генерації</b> в Kling, Veo, Runway.</p>
+  </div>
+</section>
+
+<!-- Модуль 7 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">07</span><span class="mod-emoji">🎬</span><h2>Фільммейкінг: повноцінний AI короткометражний фільм</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Від ідеї до сценарію: як поставити задачу AI, щоб отримати готовий сценарій під ролик потрібної довжини</li>
+          <li>Виробництво: збираєш персонажів, локації та сцени за єдиною системою карток з модуля 3</li>
+          <li>Фінальний монтаж, озвучка й публікація</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p>Застосовуєш усе з модулів 1–6 і <b>створюєш свій перший AI-фільм до 1 хвилини</b>. На ринку такі відео коштують від $20 (10 сек) до $120 (1 хв).</p></div>
+      </div>
+      <div class="mod-media"><img src="/webinar/mod7.jpg" alt="Модуль 7" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 8 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">08</span><span class="mod-emoji">🛍️</span><h2>Рекламний контент: AI-блогер та відео для товарів</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Як створити реалістичного AI-блогера: голос, міміка, поведінка</li>
+          <li>Відео для товарів: проблема → продукт → результат</li>
+          <li>Відео-відгук: AI-блогер тримає товар у руках і дає на нього свій чесний відгук</li>
+          <li>Ноди — більше контролю в генерації, як у професіоналів</li>
+          <li>Предметна зйомка товарів і відеоогляди для інтернет-магазинів — формат, який товарка купує постійно</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p><b>Готове рекламне відео для товару</b>, яке вже можна продати клієнту.</p></div>
+      </div>
+      <div class="mod-media"><img src="/webinar/mod8.jpg" alt="Модуль 8" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 9 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">09</span><span class="mod-emoji">✨</span><h2>Генерація мультиків у стилях топових студій — Pixar, Disney та інших</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Стилі AI-анімації: 2D, 3D, аніме, cartoon — від простого до рівня великих студій</li>
+          <li>Покроковий процес: сценарій → персонажі → сцени → монтаж</li>
+          <li>Збереження стилю між кадрами, озвучення й музика</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p><b>Готовий мультик у власному стилі</b> — окремий формат і окремий ринок.</p></div>
+      </div>
+      <div class="mod-media"><img src="/webinar/mod9.jpg" alt="Модуль 9" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 10 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">10</span><span class="mod-emoji">📢</span><h2>Комерційна реклама для товарів та бізнесів</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Структура комерційного AI-відео — чим реклама відрізняється від «гарного відео»</li>
+          <li>Формула ефективного рекламного ролика</li>
+          <li>Формула ефективного рекламного креативу — ідея, яка продає</li>
+          <li>Практика: повний цикл від брифу до готового ролика</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p><b>Рекламний ролик для реального клієнта</b> — найдорожчий формат на ринку.</p></div>
+      </div>
+      <div class="mod-media"><img src="/webinar/mod10.jpg" alt="Модуль 10" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 11 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">11</span><span class="mod-emoji">💼</span><h2>Формування портфоліо AI-відеокреатора</h2></div>
+    <div class="mod-split">
+      <div>
+        <ul class="mod-list">
+          <li>Що має бути в портфоліо й скільки робіт достатньо для старту</li>
+          <li>Упаковка робіт: завдання → рішення → результат</li>
+          <li>Створення свого сайту-портфоліо через Клод Код</li>
+        </ul>
+        <div class="mod-result"><div class="mr-head">✦ Результат модуля</div><p>Збираєш <b>конкурентоспроможне портфоліо</b> з 5+ робіт, упаковане за схемою завдання → рішення → результат, щоб клієнт бачив твою цінність ще до першої розмови.</p></div>
+      </div>
+      <div class="mod-media"><img src="/webinar/mod11.jpg" alt="Модуль 11" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 12 · інтро (4 експерти) -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <div class="mod-head" style="justify-content:center"><span class="mod-n">12</span><span class="mod-emoji">🧲</span></div>
+    <h2 style="color:#eef3ef;max-width:1020px">Модуль 12 я зробив <span style="color:var(--mint)">максимально насиченим</span></h2>
+    <p class="lead sub" style="color:#cdd8d0;max-width:920px;text-align:center;margin-top:14px">Уроки для вас записують <b style="color:#fff">аж 4 експерти</b> — кожен у своїй сильній темі.</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:30px;width:100%;max-width:1060px">
+      <div style="flex:1;min-width:210px;background:rgba(255,255,255,.04);border:1px solid rgba(95,223,172,.18);border-radius:16px;padding:22px 18px;text-align:center">
+        <div style="font-size:28px">🔗</div>
+        <div style="font-family:'Unbounded';font-weight:700;font-size:clamp(14px,1.5vw,17px);color:#fff;margin-top:8px">Богдан Титоренко</div>
+        <div style="color:#9fb0a6;font-size:13px;margin-top:4px">Клієнти через LinkedIn</div>
+      </div>
+      <div style="flex:1;min-width:210px;background:rgba(255,255,255,.04);border:1px solid rgba(95,223,172,.18);border-radius:16px;padding:22px 18px;text-align:center">
+        <div style="font-size:28px">📈</div>
+        <div style="font-family:'Unbounded';font-weight:700;font-size:clamp(14px,1.5vw,17px);color:#fff;margin-top:8px">Ілля Косенко</div>
+        <div style="color:#9fb0a6;font-size:13px;margin-top:4px">Просування в соцмережах</div>
+      </div>
+      <div style="flex:1;min-width:210px;background:rgba(255,255,255,.04);border:1px solid rgba(95,223,172,.18);border-radius:16px;padding:22px 18px;text-align:center">
+        <div style="font-size:28px">🤝</div>
+        <div style="font-family:'Unbounded';font-weight:700;font-size:clamp(14px,1.5vw,17px);color:#fff;margin-top:8px">Богдан Степаненко</div>
+        <div style="color:#9fb0a6;font-size:13px;margin-top:4px">Лідогенерація та продажі</div>
+      </div>
+      <div style="flex:1;min-width:210px;background:rgba(67,209,153,.1);border:1px solid rgba(95,223,172,.4);border-radius:16px;padding:22px 18px;text-align:center">
+        <div style="font-size:28px">🎬</div>
+        <div style="font-family:'Unbounded';font-weight:700;font-size:clamp(14px,1.5vw,17px);color:#fff;margin-top:8px">Олександр Цюцьмаць</div>
+        <div style="color:var(--mint);font-size:13px;margin-top:4px">Блог, Threads, ефіри</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 12 · експерт 1 — Богдан Титоренко -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">12</span><span class="mod-emoji">🔗</span><h2>Богдан Титоренко — клієнти через LinkedIn</h2></div>
+    <div class="expert">
+      <div>
+        <div class="exp-photo" style="aspect-ratio:4/5"><img src="/webinar/bogdan.jpg" alt="Богдан Титоренко"></div>
+        <span class="exp-role">Пошук клієнтів через LinkedIn</span>
+      </div>
+      <div>
+        <div class="exp-lessons-h">3 уроки про пошук клієнтів</div>
+        <ul class="mod-list" style="gap:14px">
+          <li><b style="color:#fff">Урок 1.</b> Безкоштовні канали лідогенерації для AI-креатора</li>
+          <li><b style="color:#fff">Урок 2.</b> Майже безкоштовний LinkedIn-аутріч: автоматизація, контент і ручний пошук</li>
+          <li><b style="color:#fff">Урок 3.</b> Upwork для AI-креатора</li>
+        </ul>
+        <div class="exp-lessons-h" style="margin-top:24px">Профіль і реальні проєкти</div>
+        <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap">
+          <img src="/webinar/bogdan-linkedin.jpg" alt="LinkedIn Богдана" style="height:clamp(150px,23vh,220px);width:auto;max-width:100%;border-radius:12px;border:1px solid rgba(95,223,172,.25);box-shadow:0 10px 26px rgba(0,0,0,.3)">
+          <img src="/webinar/bogdan-upwork.jpg" alt="Upwork Богдана" style="height:clamp(150px,23vh,220px);width:auto;max-width:100%;border-radius:12px;border:1px solid rgba(95,223,172,.25);box-shadow:0 10px 26px rgba(0,0,0,.3)">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Богдан Титоренко · Урок 1 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">12</span><span class="mod-emoji">🔗</span><h2>Урок 1 · Безкоштовні канали лідогенерації</h2></div>
+    <div style="display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(24px,3.5vw,46px);align-items:start;margin-top:6px">
+      <div>
+        <div class="exp-lessons-h">Наповнення уроку</div>
+        <ul class="mod-list" style="gap:9px">
+          <li>Де шукати <b>перших клієнтів без бюджету</b>: Telegram-чати з вакансіями, digital-комʼюніті, чати для бізнесу та маркетингу</li>
+          <li>Як знаходити <b>запити на AI-контент</b>: генерацію відео, креативи, аватари, рекламні ролики, візуали та контент для соцмереж</li>
+          <li>Як правильно відповідати на запити, <b>щоб не виглядати як спам</b></li>
+          <li>Як використовувати <b>Threads, Instagram, TikTok</b> та особисті соцмережі для пошуку клієнтів</li>
+          <li>Що писати в профілі, щоб одразу розуміли, <b>які AI-послуги</b> ти надаєш</li>
+          <li>Які пости та кейси публікувати, щоб отримувати <b>перші звернення</b></li>
+        </ul>
+      </div>
+      <div>
+        <div class="mod-result" style="margin-top:0">
+          <div class="mr-head">✦ Результат</div>
+          <ul class="mod-list" style="gap:6px">
+            <li>Зрозумієш, де шукати перших клієнтів без бюджету</li>
+            <li>Зможеш правильно відповідати на запити в чатах і комʼюніті</li>
+            <li>Підготуєш соцмережі так, щоб вони продавали твої AI-послуги</li>
+          </ul>
+        </div>
+        <div class="exp-lessons-h" style="margin-top:18px">🛠 Матеріали та фішки</div>
+        <ul class="mod-list" style="gap:7px">
+          <li>Список Telegram-чатів та digital-комʼюніті</li>
+          <li>Шаблони перших повідомлень</li>
+          <li>Структура профілю для AI-креатора</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Богдан Титоренко · Урок 2 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">12</span><span class="mod-emoji">🔗</span><h2>Урок 2 · LinkedIn-аутріч</h2></div>
+    <div style="display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(24px,3.5vw,46px);align-items:start;margin-top:6px">
+      <div>
+        <div class="exp-lessons-h">Наповнення уроку</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 28px">
+          <ul class="mod-list" style="gap:8px">
+            <li>Як оформити <b>LinkedIn-профіль</b> AI-креатора професійно</li>
+            <li>Як визначити <b>ICP</b>: кому продавати — агентствам, стартапам, експертам, e-commerce, SaaS, брендам</li>
+            <li>Як знаходити клієнтів <b>вручну</b> через пошук LinkedIn</li>
+            <li>Як робити простий <b>manual outreach</b> без спаму</li>
+          </ul>
+          <ul class="mod-list" style="gap:8px">
+            <li>Як працює <b>автоматизація</b> аутрічу та коли її варто вмикати</li>
+            <li>Як поєднувати <b>аутріч і контент</b>, щоб клієнти більше довіряли</li>
+            <li>Повідомлення для першого контакту, <b>follow-up</b> та після відповіді</li>
+            <li>Як вести діалог до <b>дзвінка чи замовлення</b></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="mod-result" style="margin-top:0">
+          <div class="mr-head">✦ Результат</div>
+          <ul class="mod-list" style="gap:6px">
+            <li>Запустиш LinkedIn як канал пошуку клієнтів</li>
+            <li>Писатимеш повідомлення без агресивного продажу</li>
+            <li>Стабільно знаходитимеш релевантних клієнтів майже без бюджету</li>
+          </ul>
+        </div>
+        <div class="exp-lessons-h" style="margin-top:18px">🛠 Матеріали та фішки</div>
+        <ul class="mod-list" style="gap:7px">
+          <li>Структура LinkedIn-профілю · ICP-шаблон</li>
+          <li>Скрипти для manual outreach</li>
+          <li>Приклади follow-up · простий CRM для лідів</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Богдан Титоренко · Урок 3 -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">12</span><span class="mod-emoji">🔗</span><h2>Урок 3 · Upwork для AI-креатора</h2></div>
+    <div style="display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(24px,3.5vw,46px);align-items:start;margin-top:6px">
+      <div>
+        <div class="exp-lessons-h">Наповнення уроку</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 28px">
+          <ul class="mod-list" style="gap:8px">
+            <li>Як оформити <b>Upwork-профіль</b> під AI-послуги</li>
+            <li>Як вибрати нішу та ICP: AI video, AI ads, avatars, product visuals, UGC-креативи</li>
+            <li>Як описати послуги, щоб клієнт <b>бачив результат</b>, а не «AI generation»</li>
+            <li>Як шукати <b>релевантні проєкти</b> на Upwork</li>
+          </ul>
+          <ul class="mod-list" style="gap:8px">
+            <li>Які <b>фільтри</b> вмикати, щоб не палити конекти на слабкі заявки</li>
+            <li>Як писати короткі <b>proposal-и</b> під конкретний запит</li>
+            <li>Як показувати портфоліо, <b>якщо ще мало кейсів</b></li>
+            <li>Як вести клієнта від відповіді до <b>дзвінка чи контракту</b></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="mod-result" style="margin-top:0">
+          <div class="mr-head">✦ Результат</div>
+          <ul class="mod-list" style="gap:6px">
+            <li>Оформиш Upwork-профіль під AI-креатора</li>
+            <li>Вибиратимеш релевантні проєкти й не зливатимеш бюджет на конекти</li>
+            <li>Писатимеш короткі заявки, що виглядають персонально</li>
+          </ul>
+        </div>
+        <div class="exp-lessons-h" style="margin-top:18px">🛠 Матеріали та фішки</div>
+        <ul class="mod-list" style="gap:7px">
+          <li>Шаблон Upwork-профілю</li>
+          <li>Список ключових слів для пошуку проєктів</li>
+          <li>Фільтри для Upwork · 2 шаблони proposal-ів</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 12 · експерт 2 — Ілля Косенко -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">12</span><span class="mod-emoji">📈</span><h2>Ілля Косенко — просування в соцмережах</h2></div>
+    <div class="expert">
+      <div>
+        <div class="exp-photo" style="aspect-ratio:1320/1115"><img src="/webinar/kosenko.jpg" alt="Ілля Косенко · Instagram"></div>
+        <span class="exp-role">Просування в соцмережах</span>
+        <div class="exp-bio">CEO &amp; Founder <b>@kosenko.agency</b> · <b>42 активні проєкти</b> (MacCoffee, Curaprox). Навчив <b>205 людей</b> заробляти в TikTok <b>1000$+</b>.</div>
+      </div>
+      <div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 30px">
+          <div>
+            <div style="font-weight:700;color:var(--mint);font-size:clamp(13.5px,1.55vw,16.5px);margin-bottom:10px;line-height:1.3">Урок 1 — клієнти через TikTok та Reels <b>без вкладень у рекламу</b></div>
+            <ul class="mod-list" style="gap:9px">
+              <li>Як генерувати ідеї та писати <b>сценарії</b> для відео, що працюють + ефективні формати</li>
+              <li><b>Воронка та офер</b>: як сформувати УТП і приводити клієнтів найефективніше</li>
+              <li>Приклади відео, які згенерували <b>найбільше лідів</b> у мою TikTok-агенцію на послуги</li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-weight:700;color:var(--mint);font-size:clamp(13.5px,1.55vw,16.5px);margin-bottom:10px;line-height:1.3">Урок 2 — платні методи, партнерства та нетворкінг</div>
+            <ul class="mod-list" style="gap:9px">
+              <li>Як залучати <b>лідів по 5$</b> через таргет на послуги + які креативи (рілси) знімати</li>
+              <li>Як ефективно залучати клієнтів через <b>партнерську програму</b></li>
+              <li>Клієнти з <b>офлайн-івентів</b>: самопрезентація та нетворкінг</li>
+              <li><b>Ефективні розсилки</b>: індивідуалізовані КП, а не просто холодні СМС</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 12 · експерт 3 — Богдан Степаненко -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">12</span><span class="mod-emoji">🤝</span><h2>Богдан Степаненко — лідогенерація та продажі</h2></div>
+    <div class="expert" style="grid-template-columns:clamp(180px,18vw,220px) 1fr">
+      <div>
+        <div class="exp-photo" style="aspect-ratio:1/1"><img src="/webinar/stepanenko.jpg" alt="Богдан Степаненко"></div>
+        <div style="margin-top:12px"><span class="exp-role">Лідогенерація та продажі</span></div>
+        <div class="exp-bio">Експерт із <b>продюсування освітніх продуктів</b> і побудови автоворонок продажів. Допомагає мені складати, упаковувати й просувати <b>всі мої продукти</b>.</div>
+      </div>
+      <div>
+        <div class="exp-lessons-h">Уроки за 3 напрямами</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+          <span style="background:rgba(67,209,153,.1);border:1px solid rgba(95,223,172,.4);border-radius:100px;padding:7px 14px;font-weight:700;color:#e7efe9;font-size:clamp(12px,1.4vw,15px)">Філософія фрілансера</span>
+          <span style="background:rgba(67,209,153,.1);border:1px solid rgba(95,223,172,.4);border-radius:100px;padding:7px 14px;font-weight:700;color:#e7efe9;font-size:clamp(12px,1.4vw,15px)">Лідогенерація</span>
+          <span style="background:rgba(67,209,153,.1);border:1.5px solid rgba(95,223,172,.55);border-radius:100px;padding:7px 14px;font-weight:700;color:var(--mint);font-size:clamp(12px,1.4vw,15px)">Продажі</span>
+        </div>
+        <div class="exp-lessons-h">Уроки з продажів</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px 30px">
+          <ul class="mod-list" style="gap:7px">
+            <li>База продажів: що треба знати на старті</li>
+            <li>Як готуватися до перших продажів</li>
+            <li>Що таке продукт AI-відеокреатора й як чітко описати послуги</li>
+            <li>Чому треба мати продуктову лінійку AI-креатору</li>
+            <li>Як правильно спілкуватись у переписці</li>
+            <li>Як правильно спілкуватись у форматі дзвінків</li>
+            <li>Техніки продажів послуг AI-креатора</li>
+            <li>Як правильно відповідати на заперечення</li>
+            <li>Як ставити правильні питання</li>
+          </ul>
+          <ul class="mod-list" style="gap:7px">
+            <li>Як правильно презентувати себе / продукт</li>
+            <li>Як обрати конкурентне позиціонування</li>
+            <li>Як боротися з фейк-домовленостями</li>
+            <li>Як правильно створювати <b>КП</b> (комерційну пропозицію)</li>
+            <li>Як підтримувати довгострокові відносини — <b>сарафанне радіо</b></li>
+            <li>Конкретні скрипти</li>
+            <li>Конкретні формули</li>
+            <li>Як нестандартно мислити проти ринку при пошуку клієнтів</li>
+            <li>Де і як шукати клієнтів // лідогенерація // конкретні інструменти</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Модуль 12 · експерт 4 — Олександр Цюцьмаць -->
+<section class="slide dark">
+  <div class="slide-inner">
+    <div class="mod-head"><span class="mod-n">12</span><span class="mod-emoji">🎬</span><h2>Олександр Цюцьмаць — блог, Threads та ефіри</h2></div>
+    <div class="expert" style="grid-template-columns:clamp(300px,34vw,430px) 1fr">
+      <div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="exp-photo" style="aspect-ratio:9/16"><img src="/webinar/inst.jpg" alt="Instagram Олександра"></div>
+          <div class="exp-photo" style="aspect-ratio:9/16"><img src="/webinar/tt.jpg" alt="TikTok Олександра"></div>
+        </div>
+        <div style="margin-top:14px"><span class="exp-role">Особистий бренд · автор навчання</span></div>
+      </div>
+      <div>
+        <div class="exp-lessons-h">Уроки</div>
+        <ul class="mod-list" style="gap:12px">
+          <li>Залучення клієнтів через <b>ведення свого блогу</b></li>
+          <li>Ситуація з життя — <b>дитяча кімната</b></li>
+          <li>Пошук клієнтів через <b>Threads</b></li>
+          <li>Формула <b>1 млн охоплень</b> + прямі запити в Threads</li>
+          <li>Як через <b>прямі ефіри</b> залучати потенційних клієнтів</li>
+          <li>Як зачепитися за <b>бренд блогера</b> з активною відміткою</li>
+          <li>Унікальний спосіб — <b>пробний рілс</b> (якщо є 1к підписників)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S38 -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <p class="mb16" style="margin-bottom:14px"><span class="tag gold">Тільки Преміум &amp; VIP</span></p>
+    <h2 style="color:var(--mint)">+ 3 секретні модулі 🔒</h2>
+    <p class="lead sub" style="color:#a9b7ae">Що саме в них — поки таємниця. Ці модулі відкриються вже всередині курсу для учнів Преміум і VIP. Повір, воно того варте 👀</p>
+    <div class="grid g3" style="margin-top:26px;max-width:900px">
+      <div class="card lock" style="background:rgba(184,144,47,.12);border-color:rgba(184,144,47,.4)"><div style="font-size:30px">🔒</div><span class="cn">Модуль 13</span><span class="ct">Засекречено</span></div>
+      <div class="card lock" style="background:rgba(184,144,47,.12);border-color:rgba(184,144,47,.4)"><div style="font-size:30px">🔒</div><span class="cn">Модуль 14</span><span class="ct">Засекречено</span></div>
+      <div class="card lock" style="background:rgba(184,144,47,.12);border-color:rgba(184,144,47,.4)"><div style="font-size:30px">🔒</div><span class="cn">Модуль 15</span><span class="ct">Засекречено</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- S39 -->
+<section class="slide center">
+  <div class="slide-inner">
+    <h2 style="text-align:center">Це більше, ніж записані уроки</h2>
+    <p class="lead sub" style="text-align:center">Навколо курсу — живе середовище, яке росте разом з тобою й нішею</p>
+    <div class="grid g2" style="margin:24px auto 0;max-width:920px">
+      <div class="card morecard"><span class="me">💬</span><span class="mt">Живий чат щодня</span><span class="md">Свіжі теми, оновлення нейронок, відповіді на питання та ефіри з експертами — завжди актуальне, а не «записане рік тому».</span></div>
+      <div class="card morecard"><span class="me">🔄</span><span class="mt">Оновлення наступного потоку — безкоштовно</span><span class="md">Зайшов на перший потік — отримуєш оновлені уроки другого. Без доплат і «купуй курс заново».</span></div>
+      <div class="card morecard"><span class="me">🗓</span><span class="mt">Зворотний зв'язок у твоєму темпі</span><span class="md">Олександр і куратор перевіряють домашки. Вмикаєш перевірки, коли зручно (на тарифах із супроводом).</span></div>
+      <div class="card morecard"><span class="me">🤝</span><span class="mt">Передача клієнтів від Олександра</span><span class="md">Замовлення з агенції Олександра — найкращим учням, щоб ти заробляв перші гроші на реальних проєктах.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- S39a — чесно про витрати на нейромережі -->
+<section class="slide center">
+  <div class="slide-inner">
+    <h2>Чесно про витрати на нейромережі</h2>
+    <p class="lead sub" style="text-align:center;max-width:940px">Розкажу про <b>приховані витрати</b> під час навчання. На курсі ми реально ділимо нейромережі на три категорії:</p>
+    <div class="grid g3" style="margin-top:26px;max-width:1040px">
+      <div class="card" style="gap:10px;border-color:rgba(15,122,82,.4);background:var(--accent-soft)">
+        <span class="cn" style="color:var(--accent)">Безкоштовно</span>
+        <span class="ct">Можна генерувати безкоштовно</span>
+        <span class="cd">Для старту й відпрацювання навичок вистачає безкоштовних лімітів.</span>
+      </div>
+      <div class="card gold" style="gap:10px">
+        <span class="cn">Оплата заради якості</span>
+        <span class="ct">Треба оплатити, щоб навчитися</span>
+        <span class="cd">Окремі нейромережі варто оплатити, щоб опанувати справді якісний результат.</span>
+      </div>
+      <div class="card" style="gap:10px">
+        <span class="cn">Коли є клієнти</span>
+        <span class="ct">Оплачуєш, коли пішли замовлення</span>
+        <span class="cd">Платні інструменти підключаєш тоді, коли вони вже окупаються клієнтами.</span>
+      </div>
+    </div>
+    <div class="callout" style="margin-left:auto;margin-right:auto;max-width:1000px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      <p style="font-weight:500"><b>Домашні завдання прив'язані до безкоштовних нейромереж</b> — щоб ти опрацював усе разом зі мною, без зайвих витрат на старті.</p>
+    </div>
+  </div>
+</section>
+
+<!-- S39b — короткі уроки, лише практика -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h2 style="color:#eef3ef;max-width:1000px">Уроки — <span style="color:var(--mint)">короткі й по факту</span></h2>
+    <p class="lead sub" style="color:#cdd8d0;max-width:960px;text-align:center;margin-top:16px">У мене <b style="color:#fff">немає бажання</b> записувати вам уроки по 20–30 хвилин «ні про що».</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:clamp(20px,5vw,64px);flex-wrap:wrap;margin-top:30px">
+      <div style="text-align:center"><div style="font-family:'Unbounded';font-weight:800;font-size:clamp(40px,6vw,72px);color:var(--mint);line-height:1">0%</div><div style="color:#a9b7ae;font-size:14px;margin-top:6px">води</div></div>
+      <div style="width:1px;height:54px;background:rgba(95,223,172,.25)"></div>
+      <div style="text-align:center"><div style="font-family:'Unbounded';font-weight:800;font-size:clamp(40px,6vw,72px);color:#fff;line-height:1">100%</div><div style="color:#a9b7ae;font-size:14px;margin-top:6px">практики</div></div>
+    </div>
+    <p class="lead" style="color:#cdd8d0;max-width:980px;text-align:center;margin-top:28px;font-size:clamp(15px,1.8vw,20px)">Хто був на міні-продуктах або на «Фабриці AI-контенту» — <b style="color:#fff">знає, як я записую уроки</b>: тільки чітка практична вижимка, яку одразу можна застосувати.</p>
+  </div>
+</section>
+
+<!-- S39c — безкоштовні оновлення на 2-му потоці -->
+<section class="slide">
+  <div class="slide-inner">
+    <h2 style="max-width:1080px">Чому кожному з <span class="hl">першого потоку</span> я дарую безкоштовний доступ до оновлень курсу на другому?</h2>
+    <p class="lead sub" style="max-width:1040px">Бо нейромережі <b>постійно оновлюються</b>, і моя мета — щоб мої студенти завжди отримували найактуальнішу інформацію.</p>
+    <ul class="numlist mt24" style="max-width:1040px;gap:14px">
+      <li><span class="num">1</span>Я як AI-відеокреатор і власник агенції <b>вивчаю кожне оновлення</b> нейромереж</li>
+      <li><span class="num">2</span><b>Тестую на власних грошах</b>, кредитах і часі</li>
+      <li><span class="num">3</span>І <b>лише потім</b> показую це вам — уже відпрацьоване й перевірене</li>
+    </ul>
+    <div class="callout" style="max-width:1040px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2ZM12 8v5M12 16h.01"/></svg>
+      <p style="font-weight:500">Я <b>пропускаю все через себе</b>, а потім передаю учням. Я не кажу «піди протестуй нову модель» — я вже зробив це за вас.</p>
+    </div>
+  </div>
+</section>
+
+<!-- S39d — не залишишся сам на сам -->
+<section class="slide center">
+  <div class="slide-inner">
+    <h2>Ти не залишишся <span class="hl">сам на сам</span> зі своїми проблемами</h2>
+    <div class="grid g2" style="margin-top:26px;max-width:1000px">
+      <div class="card" style="gap:10px">
+        <span class="cn">Груповий формат</span>
+        <span class="ct">Куратори поруч</span>
+        <span class="cd">З тобою працюють куратори, які допомагають на кожному етапі навчання.</span>
+      </div>
+      <div class="card" style="gap:10px;border-color:rgba(15,122,82,.4);background:var(--accent-soft)">
+        <span class="cn">Особистий формат</span>
+        <span class="ct">Я + куратори</span>
+        <span class="cd">Окрім кураторів — <b>особисто я</b>: занурююсь у твої роботи й відповідаю на будь-які запитання.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S39e — не просто натискати кнопки -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h2 style="color:#eef3ef;max-width:1040px">Я не вчитиму вас просто <span style="color:var(--mint)">натискати кнопки</span></h2>
+    <p class="lead sub" style="color:#cdd8d0;max-width:1000px;text-align:center;margin-top:16px">Бо з кожним оновленням нейромережі <b style="color:#fff">кнопки змінюються</b>. Натомість я вчитиму глибшого:</p>
+    <div class="callout" style="margin:26px auto 0;max-width:960px;background:rgba(67,209,153,.08);border-left-color:var(--mint)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--mint)" stroke-width="1.8"><path d="M12 3l2.2 5.3 5.8.5-4.4 3.8 1.3 5.6L12 16.8 7.1 18l1.3-5.6L4 8.8l5.8-.5Z"/></svg>
+      <p style="color:#e7efe9;font-weight:500"><b style="color:#fff">Яка логіка роботи всіх нейронок</b> та яку послідовність дій зберігати, щоб отримувати стабільний результат — а не просто копіювати мої.</p>
+    </div>
+    <p class="lead" style="color:#cdd8d0;max-width:980px;text-align:center;margin-top:24px;font-size:clamp(15px,1.8vw,20px)">Інакше ви не зможете створювати AI-відео під <b style="color:#fff">конкретні задачі клієнтів</b>, з якими працюватимете.</p>
+  </div>
+</section>
+
+<!-- S39f — іменний сертифікат -->
+<section class="slide">
+  <div class="slide-inner split">
+    <div class="split-text">
+      <h2>Іменний сертифікат AI-креатора</h2>
+      <p class="lead sub" style="max-width:560px">Кожному, хто виконає певні критерії на курсі, я видам <b>свій сертифікат</b> — підтвердження, що ти <b>професійний AI-креатор</b>. Це виділятиме тебе на фоні багатьох.</p>
+      <ul class="clean mt24">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>У <b>LinkedIn</b> важливо додавати кейси, попередні місця роботи та сертифікати</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>Так <b>HR-и знаходять вас самі</b> й пропонують вакансії</li>
+      </ul>
+    </div>
+    <div class="split-media ph-frame" style="aspect-ratio:4/5;display:grid;place-items:center;background:var(--surface2)">
+      <div style="text-align:center;padding:26px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" style="width:64px;height:64px;margin:0 auto"><circle cx="12" cy="9" r="6"/><path d="M9 14.5 7 22l5-3 5 3-2-7.5"/></svg>
+        <div style="font-family:'Unbounded';font-weight:800;font-size:clamp(18px,2.2vw,24px);color:var(--accent-deep);margin-top:16px;line-height:1.2">Сертифікат<br>AI-відеокреатора</div>
+        <div style="color:var(--text2);font-size:14px;margin-top:8px">іменний · підтверджує рівень</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S43 -->
+<section class="slide center">
+  <div class="slide-inner">
+    <p class="quote"><span class="mark">«</span>Я не обіцяю «3000$ вже через місяць». Я даю покрокову систему створення AI-відео, які <span class="hl">купують за 50–300$</span>, та готові інструменти пошуку клієнтів<span class="mark">»</span></p>
+    <p class="quote mt24" style="font-size:clamp(18px,2.4vw,26px)">Вивести це на стабільний дохід — твоя робота. А я буду поруч стільки, скільки потрібно — і піду лише тоді, коли ти сам вирішиш здатися.</p>
+    <p class="sign">— Олександр</p>
+  </div>
+</section>
+
+<!-- ========== БЛОК 10 — ЦІНИ ========== -->
+<!-- S44 -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h1 class="title">ТАРИФИ<br><span class="hl">НАВЧАННЯ</span></h1>
+  </div>
+</section>
+
+<!-- S45 -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="tiers metal">
+      <div class="tier silver">
+        <div class="tier-name">Стандарт</div>
+        <div class="tier-seats">Залишилось 15 місць</div>
+        <div class="tier-for">Для тих, хто хоче просто переглянути уроки й легко засвоює інформацію без зворотного зв'язку</div>
+        <ul class="tier-feat">
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Усі 12 модулів</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Паки промтів, готові картки персонажів та локацій</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Чат учасників</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Доступ до уроків <span class="val">6 місяців</span></li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Сертифікат про проходження курсу AI-відеокреатор</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>12 тижнів прямого спілкування з Олександром</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>12 групових Zoom-ефірів</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>Перевірка домашніх завдань</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>Команда AI-асистентів під кожну задачу</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>Персональний AI-асистент для навчання</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>Передача клієнтів з агенції Олександра</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>Іменний сертифікат AI-відеокреатора</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>3 особисті Zoom дзвінки 1:1 з Олександром</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>VIP-чат з Олександром та учасниками</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>Підлаштування програми під твій запит</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>+ 3 секретні модулі 🔒</li>
+        </ul>
+      </div>
+      <div class="tier gold">
+        <div class="tier-name">Преміум</div>
+        <div class="tier-seats">Залишилось 60 місць</div>
+        <div class="tier-for">Для тих, кому важливий зворотний зв'язок і супровід від Олександра у груповому форматі</div>
+        <ul class="tier-feat">
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Усі 12 модулів</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Паки промтів, готові картки персонажів та локацій</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Чат учасників</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Доступ до уроків <span class="val">1 рік</span></li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Сертифікат про проходження курсу AI-відеокреатор</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>12 тижнів прямого спілкування з Олександром</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>12 групових Zoom-ефірів</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Перевірка домашніх завдань</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Команда AI-асистентів під кожну задачу</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Персональний AI-асистент для навчання</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Передача клієнтів з агенції Олександра</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Іменний сертифікат AI-відеокреатора</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>3 особисті Zoom дзвінки 1:1 з Олександром</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>VIP-чат з Олександром та учасниками</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>Підлаштування програми під твій запит</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><b>+ 3 секретні модулі 🔒</b></li>
+        </ul>
+      </div>
+      <div class="tier diamond">
+        <div class="tier-name">VIP</div>
+        <div class="tier-seats">Залишилось 8 місць</div>
+        <div class="tier-for">Для тих, кому потрібен особистий ментор і програма, підлаштована під твій запит</div>
+        <ul class="tier-feat">
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Усі 12 модулів</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Паки промтів, готові картки персонажів та локацій</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Чат учасників</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Доступ до уроків <span class="val">1 рік</span></li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Сертифікат про проходження курсу AI-відеокреатор</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>12 тижнів прямого спілкування з Олександром</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>12 групових Zoom-ефірів</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Перевірка домашніх завдань</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Команда AI-асистентів під кожну задачу</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Персональний AI-асистент для навчання</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Передача клієнтів з агенції Олександра</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Іменний сертифікат AI-відеокреатора</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>3 особисті Zoom 1:1 з Олександром <span class="val">з 7-го мод.</span></li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>VIP-чат з Олександром та учасниками</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Підлаштування програми під твій запит</li>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><b>+ 3 секретні модулі 🔒</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S45a — груповий формат -->
+<section class="slide center">
+  <div class="slide-inner">
+    <h2>Що таке <span class="hl">груповий формат</span></h2>
+    <p class="lead sub" style="text-align:center;max-width:980px">Ми будемо <b>зідзвонюватися у встановлений час</b>, і я розбиратиму для вас нові нейромережі, тренди та свіжі способи створення відео.</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:clamp(20px,4vw,48px);flex-wrap:wrap;margin-top:28px;width:100%;max-width:920px">
+      <div style="text-align:center;flex:none">
+        <div style="font-family:'Unbounded';font-weight:800;font-size:clamp(40px,6vw,72px);color:var(--accent);line-height:1">+12–20</div>
+        <div style="color:var(--text2);font-size:clamp(14px,1.6vw,17px);margin-top:6px;font-weight:600">годин додаткового контенту<br><span style="color:var(--text3);font-weight:500">окрім записаних уроків</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;max-width:420px;text-align:left">
+        <div style="display:flex;align-items:center;gap:10px;font-weight:600;font-size:clamp(14px,1.6vw,17px)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" style="width:20px;height:20px;flex:none"><path d="M20 6 9 17l-5-5"/></svg>Розбір нових нейромереж</div>
+        <div style="display:flex;align-items:center;gap:10px;font-weight:600;font-size:clamp(14px,1.6vw,17px)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" style="width:20px;height:20px;flex:none"><path d="M20 6 9 17l-5-5"/></svg>Тренди та свіжі способи створення відео</div>
+        <div style="display:flex;align-items:center;gap:10px;font-weight:600;font-size:clamp(14px,1.6vw,17px)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" style="width:20px;height:20px;flex:none"><path d="M20 6 9 17l-5-5"/></svg>Жива комунікація у встановлений час</div>
+      </div>
+    </div>
+    <div class="callout" style="margin-left:auto;margin-right:auto;max-width:920px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+      <p style="font-weight:500">Ви знаєте мій підхід — це будуть <b>не «пусті балачки»</b>, а конкретна вижимка та робочі інструменти.</p>
+    </div>
+  </div>
+</section>
+
+<!-- S45b — VIP-формат -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <p style="margin-bottom:14px"><span class="tag gold">💎 VIP</span></p>
+    <h2 style="color:#eef3ef">Що таке <span style="color:var(--mint)">VIP-формат</span></h2>
+    <p class="lead sub" style="color:#cdd8d0;max-width:920px;text-align:center;margin-top:14px">Це спілкування <b style="color:#fff">один на один</b>, де я повністю занурююсь у ваші роботи.</p>
+    <div class="grid g3" style="margin-top:28px;max-width:1000px">
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(95,223,172,.2);border-radius:16px;padding:26px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--mint)" stroke-width="1.7" style="width:32px;height:32px"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <div style="font-weight:700;color:#fff;font-size:clamp(15px,1.7vw,18px);line-height:1.35">Глибокий персональний розбір ваших робіт</div>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(95,223,172,.2);border-radius:16px;padding:26px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--mint)" stroke-width="1.7" style="width:32px;height:32px"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5ZM3 8l9 5 9-5M12 13v8"/></svg>
+        <div style="font-weight:700;color:#fff;font-size:clamp(15px,1.7vw,18px);line-height:1.35">Повне занурення у ваші проєкти чи бізнес</div>
+      </div>
+      <div style="background:rgba(67,209,153,.1);border:1.5px solid rgba(95,223,172,.4);border-radius:16px;padding:26px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--mint)" stroke-width="1.7" style="width:32px;height:32px"><path d="M9.7 17l-5.4 1.4 1.4-5.4a9 9 0 1 1 4 4ZM12 8v4M12 16h.01"/></svg>
+        <div style="font-weight:700;color:#fff;font-size:clamp(15px,1.7vw,18px);line-height:1.35">Допомога з унікальними та нестандартними ситуаціями</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S46 — опитування + вгадай ціну -->
+<section class="slide center">
+  <div class="slide-inner">
+    <h2>На який тариф хочете потрапити?</h2>
+    <p class="lead sub" style="text-align:center">Як гадаєте, <span class="hl">скільки він коштує?</span> Пишіть у чат свій варіант 👇</p>
+    <div class="chips" style="justify-content:center">
+      <span class="chip"><span class="d">1</span>СТАНДАРТ</span>
+      <span class="chip"><span class="d">2</span>ПРЕМІУМ</span>
+      <span class="chip"><span class="d">3</span>VIP</span>
+    </div>
+  </div>
+</section>
+
+<!-- S47 — повна вартість -->
+<section class="slide">
+  <div class="slide-inner">
+    <h2 style="text-align:center">Повна вартість навчання</h2>
+    <div class="pricecards">
+      <div class="pricecard silver"><div class="pc-name">Стандарт</div><div class="pc-amt">12 790 ₴</div><div class="pc-seats">Залишилось 15 місць</div></div>
+      <div class="pricecard gold"><div class="pc-name">Преміум</div><div class="pc-amt">21 970 ₴</div><div class="pc-seats">Залишилось 60 місць</div></div>
+      <div class="pricecard diamond"><div class="pc-name">VIP</div><div class="pc-amt">34 990 ₴</div><div class="pc-seats">Залишилось 8 місць</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== БЛОК 11 — УНІКАЛЬНІ УМОВИ ========== -->
+<!-- S47b — обґрунтування -->
+<section class="slide center">
+  <div class="slide-inner">
+    <h1 class="title" style="font-size:clamp(28px,4vw,48px)">Я враховую всю ситуацію зараз — <span class="hl">у світі та в нашій країні</span></h1>
+    <p class="lead sub" style="text-align:center">Усі складнощі, через які проходить кожен із нас. І тому…</p>
+  </div>
+</section>
+
+<!-- S47c — знижка -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h1 class="title" style="font-size:clamp(28px,4vw,48px)">Для учасників ефіру я роблю <span class="hl">спеціальну ціну</span></h1>
+    <p class="lead sub" style="color:#a9b7ae">Щоб кожен міг почати тут і зараз — а не «колись потім». Щоб кожен міг опанувати затребувану на ринку навичку і почати її монетизувати.</p>
+  </div>
+</section>
+
+<!-- S49 — ціна для учасників ефіру -->
+<section class="slide">
+  <div class="slide-inner">
+    <h2 style="text-align:center">Ціна тільки для учасників ефіру</h2>
+    <div class="pricecards">
+      <div class="pricecard silver"><div class="pc-name">Стандарт</div><div class="pc-old">12 790 ₴</div><div class="pc-amt">7 990 ₴</div><div class="pc-seats">Залишилось 15 місць</div></div>
+      <div class="pricecard gold"><div class="pc-name">Преміум</div><div class="pc-old">21 970 ₴</div><div class="pc-amt">13 990 ₴</div><div class="pc-seats">Залишилось 60 місць</div></div>
+      <div class="pricecard diamond"><div class="pc-name">VIP</div><div class="pc-old">34 990 ₴</div><div class="pc-amt">24 990 ₴</div><div class="pc-seats">Залишилось 8 місць</div></div>
+    </div>
+    <p class="lead sub" style="text-align:center;max-width:980px;font-size:clamp(15px,1.8vw,20px)">І це <b>не маркетинг</b> — це реальні обсяги людей, яких я можу взяти на це навчання.</p>
+  </div>
+</section>
+
+<!-- S50 — оплата частинами -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h2 style="color:#eef3ef">Оплата частинами</h2>
+    <div class="paybanner">
+      <div class="pb-left">
+        <div class="pb-icon">0%</div>
+        <div>
+          <div class="pb-t">0% оплата частинами</div>
+          <div class="pb-s">до 6 платежів · без переплат і відсотків</div>
+        </div>
+      </div>
+      <div class="pb-banks">
+        <span class="bank mono">monobank</span>
+        <span class="bank abank">А-Банк</span>
+        <span class="bank otp">OTP Bank</span>
+        <span class="bank globus">Глобус</span>
+      </div>
+    </div>
+    <div class="installcards">
+      <div class="installcard silver"><div class="ic-name">Стандарт</div><div class="ic-amt">~1 332 ₴<small>/міс</small></div><div class="ic-sub">6 рівних платежів</div></div>
+      <div class="installcard gold"><div class="ic-name">Преміум</div><div class="ic-amt">~2 332 ₴<small>/міс</small></div><div class="ic-sub">6 рівних платежів</div></div>
+      <div class="installcard diamond"><div class="ic-name">VIP</div><div class="ic-amt">~4 165 ₴<small>/міс</small></div><div class="ic-sub">6 рівних платежів</div></div>
+    </div>
+    <p class="mt24" style="color:var(--mint);font-weight:700;font-size:clamp(14px,1.7vw,18px)">Старт від ~1 332 ₴/міс — це ≈ 44 ₴ на день, менше за одну каву ☕</p>
+  </div>
+</section>
+
+<!-- S50a2 — немає оплати від Привату -->
+<section class="slide center">
+  <div class="slide-inner">
+    <h2>Оплати частинами від <span class="hl">ПриватБанку</span> немає — але є рішення</h2>
+    <div class="ctabar" style="margin-left:auto;margin-right:auto;background:var(--surface);color:var(--text);border:1px solid var(--line);box-shadow:none;align-items:flex-start;gap:14px;max-width:920px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>
+      <span style="font-weight:600;font-size:clamp(14px,1.7vw,18px);line-height:1.45">Залиште на сайті <b>заявку на зв'язок із менеджером</b> — там буде окрема кнопка під цю задачу. Менеджер допоможе приєднатися до курсу й підбере зручний для вас варіант оплати.</span>
+    </div>
+  </div>
+</section>
+
+<!-- S50c — проста математика -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h1 class="title">ПРОСТА <span class="hl">МАТЕМАТИКА</span></h1>
+    <p class="lead sub" style="color:#cdd8d0;max-width:980px;text-align:center;margin-top:14px">Порахуємо. Середня вартість одного замовлення AI-відео — <b style="color:var(--mint)">$100</b>, навіть для новачка. Тобто всього за <b style="color:var(--mint)">3–4 замовлення</b> ви відіб'єте це навчання по вартості. Ви це розумієте?</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:24px;font-family:'Unbounded';font-weight:800;color:#fff;font-size:clamp(20px,3vw,34px)">
+      <span style="color:var(--mint)">$100</span><span style="color:#7c8a82">×</span><span style="color:var(--mint)">3–4</span><span style="color:#7c8a82">=</span><span>навчання окупилось</span>
+    </div>
+    <p class="lead mt16" style="color:#b9c5bd;max-width:980px;text-align:center">Навіть якщо у вас немає досвіду в пошуку клієнтів і продажах — це не проблема. За допомогою знань із навчання ви точно знайдете перших 3–4 клієнтів за короткий час і далі працюватимете в плюс.</p>
+  </div>
+</section>
+
+<!-- S50d — це не довга перспектива -->
+<section class="slide center">
+  <div class="slide-inner">
+    <h2>Це не якась довга перспектива</h2>
+    <div class="grid g3 mt24" style="max-width:1020px">
+      <div class="card"><span class="cn">Крок 1</span><span class="ct">Інвестуєте зараз</span><span class="cd">Наприклад, тариф Преміум — $310. А при оплаті частинами — від ~$50 на старті.</span></div>
+      <div class="card"><span class="cn">Крок 2</span><span class="ct">Відбиваєте за 1,5–2 місяці</span><span class="cd">Перші 3–4 замовлення повертають вартість навчання.</span></div>
+      <div class="card" style="border-color:rgba(15,122,82,.4);background:var(--accent-soft)"><span class="cn">Крок 3</span><span class="ct">Працюєте в плюс</span><span class="cd">Піднімаєте ціни, формуєте сарафанне радіо, застосовуєте нові методи пошуку клієнтів — і кладете в кишеню більше.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- S50d3 — накопичуй потенціал · сарафанне радіо -->
+<section class="slide center">
+  <div class="slide-inner">
+    <h2 style="max-width:1040px">Використовуй <span class="hl">увесь інструментарій</span> ще будучи новачком</h2>
+    <p class="lead sub" style="text-align:center;max-width:1000px">Так у тебе накопичується потенціал. Ми покажемо й підберемо <b>під кожного ефективний набір інструментів</b> пошуку клієнтів. Але на дистанції шукати клієнтів треба <b>доти, доки не з'явиться широке сарафанне радіо</b>.</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:clamp(16px,3vw,32px);flex-wrap:wrap;margin-top:30px">
+      <div style="text-align:center"><div style="font-family:'Unbounded';font-weight:800;font-size:clamp(34px,5vw,58px);color:var(--accent);line-height:1">50–100</div><div style="color:var(--text2);font-size:14px;margin-top:6px">перших клієнтів</div></div>
+      <div style="color:var(--accent);font-size:30px;font-weight:700">→</div>
+      <div style="text-align:center"><div style="font-family:'Unbounded';font-weight:800;font-size:clamp(20px,2.6vw,30px);color:var(--accent-deep);line-height:1.1">Сарафанне радіо<br>починає працювати</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- S50e — 60% місць + скрини оплат -->
+<section class="slide center">
+  <div class="slide-inner">
+    <h2>Уже <span class="hl">60% місць</span> зайнято через анкети передзапису</h2>
+    <p class="lead sub" style="text-align:center">Залишилось зовсім небагато — ось скільки місць є зараз на кожному тарифі:</p>
+    <div class="grid g3" style="margin-top:30px;max-width:920px">
+      <div class="card" style="align-items:center;text-align:center;gap:6px">
+        <span class="cn">Стандарт</span>
+        <span class="big-stat" style="font-size:clamp(40px,6vw,68px);color:var(--danger)">15</span>
+        <span class="cd" style="font-weight:600">місць залишилось</span>
+      </div>
+      <div class="card" style="align-items:center;text-align:center;gap:6px">
+        <span class="cn">Преміум</span>
+        <span class="big-stat" style="font-size:clamp(40px,6vw,68px);color:var(--danger)">60</span>
+        <span class="cd" style="font-weight:600">місць залишилось</span>
+      </div>
+      <div class="card" style="align-items:center;text-align:center;gap:6px;border-color:rgba(192,57,43,.35);background:var(--danger-soft)">
+        <span class="cn" style="color:var(--danger)">VIP</span>
+        <span class="big-stat" style="font-size:clamp(40px,6vw,68px);color:var(--danger)">8</span>
+        <span class="cd" style="font-weight:600">місць залишилось</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S50g — бронь 2000 -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h2 style="color:#eef3ef">Немає повної суми зараз?</h2>
+    <div style="margin:24px auto 0;background:rgba(67,209,153,.10);border:1.5px solid rgba(67,209,153,.5);border-radius:20px;padding:26px 34px;max-width:680px;box-shadow:0 18px 50px rgba(67,209,153,.12)">
+      <div style="font-family:'Unbounded';font-weight:700;font-size:12px;letter-spacing:.05em;color:var(--mint);text-transform:uppercase;margin-bottom:8px">Бронь унікальних умов</div>
+      <div style="font-family:'Unbounded';font-weight:800;color:#fff;font-size:clamp(36px,6vw,60px);line-height:1">2 000 ₴</div>
+    </div>
+    <p class="lead sub" style="color:#cdd8d0;max-width:900px;text-align:center;margin-top:20px">Ця сума <b style="color:var(--mint)">враховується до вартості навчання</b>. Ви бронюєте за собою місце за спеціальною ціною — аж до старту навчання.</p>
+  </div>
+</section>
+
+<!-- S50h — але і це ще не все -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h1 class="title">АЛЕ І ЦЕ <span class="hl">ЩЕ НЕ ВСЕ</span></h1>
+  </div>
+</section>
+
+<!-- S51 -->
+<section class="slide center">
+  <div class="slide-inner">
+    <p style="margin-bottom:14px"><span class="tag gold">🎁 Бонус за швидке рішення</span></p>
+    <h2>Я підготував для вас аж <span class="hl">5 бонусів</span> по топових нейромережах</h2>
+    <p class="lead sub" style="text-align:center">Окремі покрокові розбори кожної нейромережі — щоб не губитися в інтерфейсі. <b>Дістаються тим, хто приєднується до навчання або бронює умови до кінця цього дня.</b></p>
+    <div class="neurogrid">
+      <div class="neurocard"><div class="neuro-ic kling">K</div><div class="nc-name">Kling</div><div class="nc-desc">Рух і керування персонажем</div></div>
+      <div class="neurocard"><div class="neuro-ic grok">G</div><div class="nc-name">Grok</div><div class="nc-desc">Швидка генерація</div></div>
+      <div class="neurocard"><div class="neuro-ic flow">F</div><div class="nc-name">Flow</div><div class="nc-desc">Робота з відео</div></div>
+      <div class="neurocard"><div class="neuro-ic seed">S</div><div class="nc-name">Seedance</div><div class="nc-desc">Референси й контроль сцени</div></div>
+      <div class="neurocard"><div class="neuro-ic heygen">H</div><div class="nc-name">HeyGen</div><div class="nc-desc">Аватари й говорящі персонажі</div></div>
+    </div>
+    <p class="mt24" style="color:var(--accent);font-weight:700;font-size:clamp(14px,1.7vw,18px)">⌛ Бонус згорає наприкінці цієї доби — встигни оплатити сьогодні</p>
+  </div>
+</section>
+
+<!-- S52b — ще 2 бонуси -->
+<section class="slide center">
+  <div class="slide-inner">
+    <p style="margin-bottom:14px"><span class="tag gold">🎁 І це ще не все</span></p>
+    <h2>Та ще <span class="hl">2 потужні бонуси</span> зверху</h2>
+    <div class="grid g2" style="margin-top:28px;max-width:1000px">
+      <div class="card gold" style="gap:12px;padding:26px 28px;text-align:left">
+        <div style="display:flex;align-items:center;gap:12px">
+          <span style="width:40px;height:40px;flex:none;border-radius:12px;background:var(--gold);color:#fff;display:grid;place-items:center;font-family:'Unbounded';font-weight:800;font-size:18px">1</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" style="width:28px;height:28px"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M12 17v4M8 21h8M7 8l3 3 5-5"/></svg>
+        </div>
+        <div class="ct" style="font-size:clamp(17px,2vw,21px)">Урок: як зроблена ця презентація через Claude</div>
+        <div class="cd" style="font-size:clamp(14px,1.6vw,16px)">Щоб ви могли робити <b>такі самі презентації</b> — як комерційні пропозиції для великих компаній або щоб упакувати своє <b>портфоліо у форматі презентації</b>.</div>
+      </div>
+      <div class="card gold" style="gap:12px;padding:26px 28px;text-align:left">
+        <div style="display:flex;align-items:center;gap:12px">
+          <span style="width:40px;height:40px;flex:none;border-radius:12px;background:var(--gold);color:#fff;display:grid;place-items:center;font-family:'Unbounded';font-weight:800;font-size:18px">2</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" style="width:28px;height:28px"><path d="M4 4h16v12H4zM4 16l4-4 3 3 5-5 4 4M2 20h20"/></svg>
+        </div>
+        <div class="ct" style="font-size:clamp(17px,2vw,21px)">Платформа для автопостингу</div>
+        <div class="cd" style="font-size:clamp(14px,1.6vw,16px)">Багатоканальна платформа для <b>автоматичного постингу</b> контенту одразу в усі соцмережі — на <b>реальному прикладі Саші</b>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S53 — ціни сьогодні vs завтра -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h2 style="color:#eef3ef">Бонуси та спеціальна ціна — <span style="color:var(--mint)">тільки сьогодні</span></h2>
+    <p class="lead sub" style="color:#cdd8d0;max-width:980px;text-align:center;margin-top:12px">…і тільки для учасників вебінару. Щойно я викладу інформацію про навчання у свої соцмережі та для всіх учнів — бонусів уже не буде, а ціни стануть ось такими:</p>
+    <div style="display:flex;align-items:stretch;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:26px;width:100%;max-width:1000px">
+      <div style="flex:1;min-width:300px;background:rgba(67,209,153,.10);border:1.5px solid rgba(67,209,153,.5);border-radius:20px;padding:22px 26px;text-align:left;box-shadow:0 18px 50px rgba(67,209,153,.12)">
+        <div style="font-family:'Unbounded';font-weight:700;font-size:12px;letter-spacing:.04em;color:var(--mint);text-transform:uppercase;margin-bottom:14px">Сьогодні · на вебінарі</div>
+        <div style="display:flex;justify-content:space-between;font-size:15px;color:#e7efe9;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span>Стандарт</span><b style="color:#fff">7 990 ₴</b></div>
+        <div style="display:flex;justify-content:space-between;font-size:15px;color:#e7efe9;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span>Преміум</span><b style="color:#fff">13 990 ₴</b></div>
+        <div style="display:flex;justify-content:space-between;font-size:15px;color:#e7efe9;padding:6px 0"><span>VIP</span><b style="color:#fff">24 990 ₴</b></div>
+        <div style="margin-top:14px;display:flex;align-items:center;gap:8px;color:var(--mint);font-weight:700;font-size:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:18px;height:18px"><path d="M20 6 9 17l-5-5"/></svg>+ 5 бонусів по нейромережах</div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;color:#7c8a82;font-size:26px;flex:none">→</div>
+      <div style="flex:1;min-width:300px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.13);border-radius:20px;padding:22px 26px;text-align:left">
+        <div style="font-family:'Unbounded';font-weight:700;font-size:12px;letter-spacing:.04em;color:#8c9b92;text-transform:uppercase;margin-bottom:14px">Завтра · для всіх</div>
+        <div style="display:flex;justify-content:space-between;font-size:15px;color:#b9c5bd;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06)"><span>Стандарт</span><b style="color:#dfe7e1">12 790 ₴</b></div>
+        <div style="display:flex;justify-content:space-between;font-size:15px;color:#b9c5bd;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06)"><span>Преміум</span><b style="color:#dfe7e1">21 970 ₴</b></div>
+        <div style="display:flex;justify-content:space-between;font-size:15px;color:#b9c5bd;padding:6px 0"><span>VIP</span><b style="color:#dfe7e1">34 990 ₴</b></div>
+        <div style="margin-top:14px;display:flex;align-items:center;gap:8px;color:#c0392b;font-weight:700;font-size:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:18px;height:18px"><path d="M18 6 6 18M6 6l12 12"/></svg>без бонусів</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== БЛОК 12 — ДОЖИМ ========== -->
+<!-- S53b — вебінар не закінчується -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h2 style="color:#eef3ef;max-width:1040px">Вже на наступному слайді ви зможете <span style="color:var(--mint)">доєднатися до навчання</span></h2>
+    <p class="lead sub" style="color:#cdd8d0;max-width:960px;text-align:center;margin-top:16px">Я дам вам можливість перейти на сайт і оформити участь. <b style="color:#fff">Але на цьому наш вебінар не закінчується.</b></p>
+    <div class="callout" style="margin-left:auto;margin-right:auto;max-width:900px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      <p style="font-weight:500">Купуйте і <b>повертайтеся</b> — поспілкуємося особисто на <b>Q&amp;A-сесії</b>, а потім ви заберете свої <b>бонуси</b>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- S54 -->
+<section class="slide">
+  <div class="slide-inner">
+    <h2>Як приєднатися</h2>
+    <ul class="numlist mt24" style="gap:20px;max-width:1000px">
+      <li><span class="num">1</span> Натисніть на <b>кнопку</b>, яка зараз з'явиться у чаті та під цим відео — вас переадресує на сайт, де ви ще раз ознайомитесь із наповненням навчання</li>
+      <li><span class="num">2</span> Виберіть <b>тариф</b>, який вам найбільше сподобався, та зручний <b>метод оплати</b></li>
+      <li><span class="num">3</span> Виникли питання — <b>не проходить платіж</b> чи недоступна оплата частинами в банку? Залиште заявку на сайті, і вам допоможуть це вирішити</li>
+    </ul>
+  </div>
+</section>
+
+<!-- S50f — є два шляхи (візуалізація) -->
+<section class="slide">
+  <div class="slide-inner">
+    <h2 style="text-align:center">Є два шляхи. <span class="hl">Обирайте свій</span></h2>
+    <svg class="pathviz" viewBox="0 0 920 210" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle class="pv-dot" cx="460" cy="14" r="6"/>
+      <path class="pv-line pv-bad" d="M460 18 C 430 70, 560 95, 470 125 S 250 165, 215 196"/>
+      <path class="pv-line pv-good" d="M460 18 C 520 80, 680 120, 705 196"/>
+      <path class="pv-bad" fill="none" stroke="var(--text3)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M205 188 l10 12 11 -11"/>
+      <path class="pv-good" fill="none" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M695 188 l10 12 11 -11"/>
+    </svg>
+    <div class="twopaths">
+      <div class="tp tp-bad">
+        <div class="tp-t">Довший шлях</div>
+        <div class="tp-d">Шукати інформацію та знання самому — методом спроб і помилок, місяцями.</div>
+      </div>
+      <div class="tp tp-good">
+        <div class="tp-t">Швидкий шлях</div>
+        <div class="tp-d">Отримати мій концентрований досвід, знання та навички — і відбити інвестицію в себе за <b>1,5–2 місяці</b>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- S55 — інтро заперечень -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h1 class="title">«Так, я хочу на навчання, <span class="hl">але…»</span></h1>
+    <p class="lead sub" style="color:#a9b7ae">Розберемо кожен сумнів відверто</p>
+  </div>
+</section>
+
+<!-- S55a — заперечення 1: дорого -->
+<section class="slide">
+  <div class="slide-inner">
+    <span class="obj-label">Хочу на навчання, але…</span>
+    <h2 class="obj-q2">💸 «Дорого. Я ще нічого не заробив на AI»</h2>
+    <p class="obj-ans mt16">Один комерційний ролик — реклама, анімація — на ринку коштує від кількох тисяч гривень. Портфоліо після курсу містить <b>5 таких робіт</b>. Закриєш одне-два замовлення — курс окупиться.</p>
+    <p class="obj-ans mt8">Моя задача не «продати курс», а довести тебе до перших грошей. І так — є оплата частинами, до 6 платежів.</p>
+    <div class="ctabar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Переходь на сайт і приєднуйся до навчання «AI-відеокреатор»</div>
+  </div>
+</section>
+
+<!-- S55b — заперечення 2: я нуль -->
+<section class="slide">
+  <div class="slide-inner">
+    <span class="obj-label">Хочу на навчання, але…</span>
+    <h2 class="obj-q2">🧩 «У мене немає досвіду. Точно не вийде»</h2>
+    <p class="obj-ans mt16">Новачки діляться на два типи. <b>Перший</b> — роками вважає, що спочатку треба «набити шишки» самостійно, і витрачає час та гроші впусту. <b>Другий</b> — одразу серйозно ставиться до справи й вчиться робити правильно з першого дня. Саме це в довгостроковій перспективі <b>гарантує успіх</b>.</p>
+    <p class="obj-ans mt8">Серед моїх учнів — люди різного віку й професій: від студентів до тих, кому 55+. Виграє не «талант», а <b>той, хто йде крок за кроком і не кидає</b>. Цього разу поруч буде підтримка.</p>
+    <div class="ctabar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Переходь на сайт і приєднуйся до навчання «AI-відеокреатор»</div>
+  </div>
+</section>
+
+<!-- S55c — заперечення 3: немає часу -->
+<section class="slide">
+  <div class="slide-inner">
+    <span class="obj-label">Хочу на навчання, але…</span>
+    <h2 class="obj-q2">⏰ «Немає часу — робота, діти, і так усе зайнято»</h2>
+    <p class="obj-ans mt16">Програма розрахована на <b>2–3 години на тиждень</b>. Уроки короткі, дивитися можна з телефону, у своєму темпі — доступ лишається.</p>
+    <p class="obj-ans mt8">Якщо маєш час гортати TikTok про нейронки — маєш час пройти цей курс. Різниця в тому, що після курсу <b>лишається результат</b>, а не просто «подивився».</p>
+    <div class="ctabar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Переходь на сайт і приєднуйся до навчання «AI-відеокреатор»</div>
+  </div>
+</section>
+
+<!-- S55d — заперечення 4: вже вчився -->
+<section class="slide">
+  <div class="slide-inner">
+    <span class="obj-label">Хочу на навчання, але…</span>
+    <h2 class="obj-q2">😮‍💨 «Я вже вчився — і нічого. Чергова "вода"?»</h2>
+    <p class="obj-ans mt16">Розумію — багато курсів дають гори відео, домашки на платних підписках і кидають після сертифіката. Тут інакше: <b>коротко, по суті, з логікою</b>, а не шаблонами «натисни сюди».</p>
+    <p class="obj-ans mt8">Головне, чого зазвичай не дають, — <b>монетизація і клієнти</b>. У нас це окрема фаза. І підтримка не закінчується разом з останнім уроком.</p>
+    <div class="ctabar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Переходь на сайт і приєднуйся до навчання «AI-відеокреатор»</div>
+  </div>
+</section>
+
+<!-- S55e — заперечення 5: наступний потік -->
+<section class="slide">
+  <div class="slide-inner">
+    <span class="obj-label">Хочу на навчання, але…</span>
+    <h2 class="obj-q2">🔄 «Прийду на наступний потік. Поки не час»</h2>
+    <p class="obj-ans mt16">Наступний потік буде — <b>але дорожче й без такої особистої залученості</b>. Перший потік — фокус-група: максимум уваги, прямий зв'язок, корекція програми під групу.</p>
+    <p class="obj-ans mt8">Ніша росте щомісяця. Поки чекаєш «слушного моменту», інші вже набирають портфоліо й перших клієнтів. Через рік конкуренція буде значно вищою. <b>«Не час» — це майже завжди «ще не вирішив».</b></p>
+    <div class="ctabar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Переходь на сайт і приєднуйся до навчання «AI-відеокреатор»</div>
+  </div>
+</section>
+
+<!-- S59 -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h1 class="big">Q&amp;A</h1>
+    <p class="lead sub" style="color:#a9b7ae">Відповім на всі питання</p>
+  </div>
+</section>
+
+<!-- S60 -->
+<section class="slide center">
+  <div class="slide-inner">
+    <span class="tag danger">⌛ Останні хвилини</span>
+    <h2 class="mt16">Вебінар добігає кінця</h2>
+    <p class="lead sub">А з ним <span class="danger-txt">спеціальні ціни й бонуси.</span></p>
+    <p class="lead mt8" style="max-width:900px">Ще не впевнений, чи хочеш іти на навчання — пиши прямо зараз свої запитання в чат. Це <b>остання можливість</b> отримати відповіді від мене на ефірі.</p>
+  </div>
+</section>
+
+<!-- S60b — неочевидний бонус -->
+<section class="slide dark center">
+  <div class="slide-inner">
+    <h2 style="color:var(--mint)">Ще один неочевидний бонус 🎁</h2>
+    <p class="lead sub" style="color:#cdd8d0;max-width:860px;text-align:center;margin-top:18px">Сам факт того, що ти додивився вебінар до кінця і переглянув увесь контент, який я для тебе підготував, означає, що ти вже знаєш трохи більше за інших — і завдяки цьому вже попереду них.</p>
+  </div>
+</section>
+
+<!-- S61 — фінальні бонуси + як забрати -->
+<section class="slide center">
+  <div class="slide-inner">
+    <h2>🎁 Бонуси для тих, хто був до кінця</h2>
+    <div class="grid g3" style="max-width:760px;margin:18px auto 0">
+      <div class="bonuscard">
+        <div class="bc-img" style="max-width:150px"><img src="/webinar/bonus1.jpg" alt="AI-асистент на базі ChatGPT"></div>
+        <div class="bc-t">AI-асистент на базі ChatGPT</div>
+      </div>
+      <div class="bonuscard">
+        <div class="bc-img" style="max-width:150px"><img src="/webinar/bonus2.jpg" alt="Безкоштовні нейромережі"></div>
+        <div class="bc-t">Список безкоштовних нейромереж</div>
+      </div>
+      <div class="bonuscard">
+        <div class="bc-img" style="max-width:150px"><img src="/webinar/bonus3.jpg" alt="Пак промтів для Claude"></div>
+        <div class="bc-t">Пак промтів для Claude</div>
+      </div>
+    </div>
+    <div class="ctabar" style="margin:22px auto 0;background:var(--surface);color:var(--text);border:1px solid var(--line);box-shadow:none;align-items:flex-start;gap:14px;max-width:980px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <span style="font-weight:600;font-size:clamp(14px,1.6vw,17px);line-height:1.45">Зараз у чаті та <b>під цим відео з'явиться кнопка</b> — просто натисни на неї, і тебе одразу перекине в <b>бота</b>, який <b>видасть усі бонуси</b>. Нічого чекати не треба — все автоматично.</span>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ========== NAV ========== -->
+<div class="nav" id="nav">
+  <button class="nbtn" id="prev" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18 9 12l6-6"/></svg></button>
+  <div class="dots" id="dots"></div>
+  <button class="nbtn" id="next" aria-label="Далі"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+  <button class="nbtn" id="fs" aria-label="Повний екран"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></button>
+</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  var cur = 0;
+  var dotsWrap = document.getElementById('dots');
+  var progress = document.getElementById('progress');
+  var curEl = document.getElementById('cur');
+  var totEl = document.querySelector('.tot');
+  if(totEl) totEl.textContent = ' / ' + total;
+  var nav = document.getElementById('nav');
+  var pad = function(n){return (n<10?'0':'')+n;};
+
+  // build dots
+  var dots = [];
+  for(var i=0;i<total;i++){
+    var d = document.createElement('button');
+    d.className='dot'; d.setAttribute('aria-label','Слайд '+(i+1));
+    (function(idx){d.addEventListener('click',function(e){e.stopPropagation();go(idx);});})(i);
+    dotsWrap.appendChild(d); dots.push(d);
+  }
+
+  function go(n){
+    n = Math.max(0, Math.min(total-1, n));
+    slides[cur].classList.remove('active');
+    cur = n;
+    slides[cur].classList.add('active');
+    slides[cur].scrollTop = 0;
+    dots.forEach(function(d,i){d.classList.toggle('on', i===cur);});
+    progress.style.width = ((cur+1)/total*100)+'%';
+    curEl.textContent = pad(cur+1);
+    document.body.classList.toggle('dark-nav', slides[cur].classList.contains('dark'));
+  }
+  function nextS(){go(cur+1);}
+  function prevS(){go(cur-1);}
+
+  document.getElementById('next').addEventListener('click',function(e){e.stopPropagation();nextS();});
+  document.getElementById('prev').addEventListener('click',function(e){e.stopPropagation();prevS();});
+
+  // fullscreen
+  document.getElementById('fs').addEventListener('click',function(e){
+    e.stopPropagation();
+    if(!document.fullscreenElement){ (document.documentElement.requestFullscreen||function(){})(); }
+    else { (document.exitFullscreen||function(){})(); }
+  });
+
+  // keyboard
+  document.addEventListener('keydown',function(e){
+    switch(e.key){
+      case 'ArrowRight': case ' ': case 'PageDown': e.preventDefault(); nextS(); break;
+      case 'ArrowLeft': case 'PageUp': e.preventDefault(); prevS(); break;
+      case 'Home': e.preventDefault(); go(0); break;
+      case 'End': e.preventDefault(); go(total-1); break;
+      case 'f': case 'F':
+        if(!document.fullscreenElement){ (document.documentElement.requestFullscreen||function(){})(); }
+        else { (document.exitFullscreen||function(){})(); }
+        break;
+    }
+  });
+
+  go(0);
+})();
+</script>
+</body>
+</html>
