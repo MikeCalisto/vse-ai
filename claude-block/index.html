@@ -2,1237 +2,911 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <meta name="theme-color" content="#7c3aed">
-
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>Claude — універсальна нейромережа №1. Окремий блок з «Фабрики АІ контенту»</title>
-<meta name="description" content="Забери один блок з «Фабрики АІ контенту» — про Claude. 8 уроків + авторський скіл для сайтів. 490 грн замість 990. Сайти без коду, автопостинг у соцмережі, презентації без дизайнера."></meta>
-
-<!-- Meta Pixel -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1454724509580252');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1454724509580252&ev=PageView&noscript=1" /></noscript>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#CC785C">
+<title>Claude — окремий блок з «Фабрики АІ контенту» · Ai_Sashka</title>
+<meta name="description" content="8 уроків + авторський скіл для сайтів. Освой Claude — нейромережу №1, про яку зараз говорять всі топові підприємці. Спец-ціна 490 грн замість 990.">
+<meta property="og:title" content="Claude — окремий блок з «Фабрики АІ контенту»">
+<meta property="og:description" content="8 уроків. Сайти без коду, автопостинг у соцмережі, Claude + Higgsfield MCP. 490 грн замість 990.">
+<meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap&subset=cyrillic" rel="stylesheet">
+
+<!-- Vercel Web Analytics -->
+<script defer src="/_vercel/insights/script.js"></script>
 
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth}
+/* =========================================================
+   CLAUDE-BLOCK · Anthropic-inspired editorial style
+   Palette: warm cream + Claude coral + ink
+   Type: Fraunces (serif) headlines + Inter (sans) body
+   ========================================================= */
 :root{
-  --violet:#CC785C;
-  --violet-2:#A75B44;
-  --violet-light:#E8A585;
-  --violet-soft:#FAEDDF;
-  --violet-glow:rgba(204,120,92,.35);
-  --cream:#F7EFE3;
-  --cream-2:#EFE4D0;
-  --paper:#FDF8EE;
-  --dark:#1F1512;
-  --dark-2:#2E1F19;
-  --gray:#6b6478;
-  --line:rgba(31,21,18,.10);
-  --font:'Jost',-apple-system,'SF Pro Display','Helvetica Neue',Arial,sans-serif;
-  --hand:'Caveat',cursive;
+  --coral:#CC785C;             /* Claude signature */
+  --coral-deep:#B4634A;
+  --coral-soft:#F2C9B8;
+  --coral-tint:#FAEDDF;
+
+  --ink:#181613;               /* body text */
+  --ink-soft:#464340;
+  --gray:#6E6A64;
+  --gray-line:rgba(24,22,19,.09);
+  --gray-line-2:rgba(24,22,19,.16);
+
+  --paper:#FAF9F6;             /* main bg */
+  --paper-2:#F5F1EB;
+  --cream:#EFEAE0;
+  --sand:#E8E2D4;
+
+  --dark:#1B1613;              /* dark section */
+  --dark-2:#2A211C;
+
+  --sans:'Inter','SF Pro Display',-apple-system,'Helvetica Neue',Arial,sans-serif;
+  --serif:'Fraunces','New York',Georgia,'Times New Roman',serif;
+
+  --radius:16px;
+  --radius-lg:22px;
+
+  --shadow-soft:0 1px 2px rgba(24,22,19,.04), 0 8px 24px -12px rgba(24,22,19,.10);
+  --shadow-card:0 2px 6px rgba(24,22,19,.05), 0 24px 40px -24px rgba(24,22,19,.16);
 }
 
-html,body{background:var(--cream);color:var(--dark);font-family:var(--font);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-img,video{display:block;max-width:100%;height:auto}
-button{font-family:inherit;cursor:pointer;border:none;background:none}
-a{color:inherit;text-decoration:none}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.55}
+body{font-size:16px}
+img,svg,video{display:block;max-width:100%}
+a{color:var(--coral);text-decoration:none}
+button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
+::selection{background:var(--coral-tint);color:var(--ink)}
 
-/* ===== DESKTOP WRAPPER (phone-wrap) ===== */
-.desktop-bg{
+/* Desktop bg — soft warm gradient, phone-wrap centered */
+.desk-bg{
   min-height:100vh;
-  background:
-    radial-gradient(ellipse 60% 40% at 20% 15%, rgba(204,120,92,.10), transparent 60%),
-    radial-gradient(ellipse 50% 40% at 85% 60%, rgba(204,120,92,.07), transparent 60%),
-    var(--cream);
+  background:radial-gradient(1200px 800px at 50% -10%, #F0EEE5 0%, #E8E2D4 40%, #DDD5C3 100%);
+  padding:24px 12px;
   display:flex;justify-content:center;
 }
 .phone{
-  width:100%;max-width:480px;background:var(--cream);
-  position:relative;overflow:hidden;
-}
-@media (min-width:520px){
-  .desktop-bg{padding:24px 0}
-  .phone{
-    max-width:400px;
-    border-radius:32px;
-    box-shadow:0 0 60px rgba(29,23,48,.10),0 30px 80px rgba(29,23,48,.18);
-    border:1px solid rgba(29,23,48,.05);
-  }
+  width:100%;max-width:480px;background:var(--paper);
+  border-radius:36px;overflow:hidden;position:relative;
+  box-shadow:0 40px 80px -30px rgba(24,22,19,.25), 0 0 0 1px rgba(24,22,19,.06);
 }
 
-/* ===== TYPOGRAPHY ===== */
-h1,h2,h3{font-weight:900;letter-spacing:-.025em;line-height:1.1;color:var(--dark)}
-h2{font-size:1.7rem}
-h3{font-size:1.1rem}
-p{font-size:.92rem;line-height:1.6;color:#3a3450}
-.muted{color:var(--gray)}
-.hand{font-family:var(--hand);font-weight:700}
-
-.highlight{
-  display:inline;
-  background:linear-gradient(180deg,transparent 60%,rgba(204,120,92,.30) 60%);
-  padding:0 4px;margin:0 -4px;
-}
-.violet-text{color:var(--violet)}
-
-/* ===== SECTIONS ===== */
-.section{padding:54px 22px;position:relative;overflow:hidden}
-.section-tight{padding:36px 22px}
-.section-cream{background:var(--cream)}
-.section-paper{background:var(--paper)}
-.section-dark{background:var(--dark);color:#fff}
-.section-dark h1,.section-dark h2,.section-dark h3{color:#fff}
-.section-dark p{color:rgba(255,255,255,.78)}
-.section-dark .muted{color:rgba(255,255,255,.55)}
-.section-violet{
-  background:linear-gradient(180deg,var(--violet) 0%,var(--violet-2) 100%);
-  color:#fff;
-}
-.section-violet h1,.section-violet h2,.section-violet h3{color:#fff}
-.section-violet p{color:rgba(255,255,255,.88)}
-
-.section-label{
-  display:inline-flex;align-items:center;gap:10px;
-  background:none;color:var(--violet);
-  font-size:.7rem;font-weight:800;
-  letter-spacing:.20em;text-transform:uppercase;
-  padding:0;margin-bottom:10px;
-  border-radius:0;box-shadow:none;
-}
-.section-label::before{
-  content:'';width:28px;height:2px;
-  background:var(--violet);border-radius:2px;
-}
-.section-dark .section-label,.section-violet .section-label{color:rgba(255,255,255,.95)}
-.section-dark .section-label::before,.section-violet .section-label::before{background:rgba(255,255,255,.7)}
-
-.section-title{margin-bottom:18px}
-
-/* ===== FLOATING DECOR ===== */
-.deco{position:absolute;pointer-events:none;z-index:0}
-@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
-@keyframes floatR{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(8deg)}}
-@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
-@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-
-.spark{animation:floatY 7s ease-in-out infinite}
-.spark.delay-2{animation-delay:1.5s}
-.spark.delay-3{animation-delay:3s}
-.dashed-c{animation:floatR 14s ease-in-out infinite}
-.drift{animation:driftX 18s ease-in-out infinite}
-.spin-slow{animation:spin 28s linear infinite}
-.wob{animation:wob 6s ease-in-out infinite}
-@keyframes driftX{0%,100%{transform:translateX(0)}50%{transform:translateX(14px)}}
-@keyframes wob{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(3deg) translateY(-6px)}}
-
-/* Subtle dotted-grid backdrop for some sections */
-.dot-grid{
-  position:absolute;inset:0;pointer-events:none;z-index:0;
-  background-image:radial-gradient(rgba(204,120,92,.18) 1px,transparent 1px);
-  background-size:22px 22px;
-  mask-image:linear-gradient(180deg,transparent 0%,#000 25%,#000 75%,transparent 100%);
-  -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 25%,#000 75%,transparent 100%);
-  opacity:.55;
-}
-
-/* ===== HERO ===== */
-.hero{padding:24px 22px 36px;position:relative}
-.brand-row{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:18px;position:relative;z-index:2;
-}
-.brand{
+/* ============ TYPOGRAPHY ============ */
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.015em;line-height:1.08;color:var(--ink);font-optical-sizing:auto}
+.eyebrow{
   display:inline-flex;align-items:center;gap:8px;
-  font-weight:800;font-size:.95rem;color:var(--dark);
-  letter-spacing:-.01em;
+  font-family:var(--sans);font-size:.68rem;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--coral-deep);
 }
-.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--violet);box-shadow:0 0 0 3px rgba(204,120,92,.18)}
-.menu-pill{
-  font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  padding:7px 14px;background:#fff;border:1px solid var(--line);border-radius:999px;color:var(--dark);
-  display:inline-flex;align-items:center;gap:6px;
+.eyebrow::before{
+  content:'';width:26px;height:1px;background:var(--coral);
 }
-.menu-pill .lvd{width:7px;height:7px;border-radius:50%;background:var(--violet);animation:pulseDot 2s ease-in-out infinite}
+.eyebrow.on-dark{color:var(--coral-soft)}
+.eyebrow.on-dark::before{background:var(--coral-soft)}
 
-.hero-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:#fff;color:var(--dark);
-  padding:9px 18px;border-radius:999px;
-  font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  box-shadow:0 6px 16px rgba(29,23,48,.08);
-  margin-bottom:18px;
-}
-.hero-badge .em{color:var(--violet)}
+/* ============ SECTIONS ============ */
+.section{padding:52px 24px;position:relative}
+.section.dark{background:var(--dark);color:#F5F1EB}
+.section.dark h1,.section.dark h2,.section.dark h3,.section.dark h4{color:#FAF9F6}
+.section.cream{background:var(--cream)}
+.section.paper{background:var(--paper)}
+.section.coral{background:linear-gradient(160deg, var(--coral) 0%, var(--coral-deep) 100%);color:#FDF5F0}
+.section.coral h1,.section.coral h2,.section.coral h3{color:#FFF7F1}
+.section+.section{border-top:1px solid var(--gray-line)}
+.section.dark+.section, .section+.section.dark{border-top:0}
+.section.coral+.section,.section+.section.coral{border-top:0}
 
-.hero h1{
-  font-size:2.1rem;
-  line-height:1.05;
-  font-weight:900;
-  letter-spacing:-.03em;
-  margin-bottom:14px;
-  position:relative;z-index:2;
-}
-.hero h1 .v{color:var(--violet)}
-.hero-sub{
-  font-size:1.02rem;line-height:1.5;color:#3a3450;
-  margin-bottom:18px;position:relative;z-index:2;
-  font-weight:500;
-}
-.hero-sub strong{color:var(--violet);font-weight:700}
+.h-section{font-size:clamp(1.75rem,7vw,2.4rem);margin-bottom:14px}
+.h-section .accent{color:var(--coral)}
+.h-section .u{border-bottom:2px solid var(--coral);padding-bottom:.06em}
+.section.dark .h-section .accent{color:var(--coral-soft)}
+.section.dark .h-section .u{border-bottom-color:var(--coral-soft)}
+.section.coral .h-section .accent{color:#FFF}
+.section.coral .h-section .u{border-bottom-color:#FFF}
+.sub{font-size:1rem;color:var(--ink-soft);margin-bottom:8px;line-height:1.6}
+.section.dark .sub{color:#DBD3C6}
+.muted{color:var(--gray);font-size:.85rem}
 
-.hero-row{
-  display:grid;grid-template-columns:1fr 1fr;gap:16px;
-  align-items:stretch;
-  margin-bottom:22px;position:relative;z-index:2;
-}
-.hero-feats{
-  list-style:none;display:flex;flex-direction:column;
-  justify-content:space-between;
-  gap:14px;padding:6px 0;
-}
-.hero-feats li{
-  display:flex;gap:10px;align-items:flex-start;
-  font-size:.86rem;line-height:1.4;color:var(--dark);font-weight:500;
-}
-.hero-feats .ck{
-  flex-shrink:0;width:22px;height:22px;border-radius:50%;
-  background:var(--violet);color:#fff;
-  display:grid;place-items:center;font-size:.68rem;font-weight:900;
-  margin-top:1px;
-}
-
-/* HERO visual block — Claude poster (no video, no ai-lyudyna assets) */
-.hero-visual{
-  position:relative;
-  border-radius:22px;overflow:hidden;
-  background:
-    radial-gradient(120% 80% at 30% 20%, rgba(232,165,133,.55), transparent 60%),
-    radial-gradient(120% 80% at 80% 90%, rgba(204,120,92,.55), transparent 60%),
-    linear-gradient(160deg, #F7EFE3 0%, #FDF8EE 100%);
-  aspect-ratio:9/16;
-  color:var(--violet);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  box-shadow:0 16px 36px -14px rgba(204,120,92,.45),0 0 0 5px #fff,0 0 0 6px var(--line);
-  padding:22px 14px;
-  gap:18px;
-}
-.hero-visual .play-tag{
-  position:absolute;top:11px;left:11px;
-  background:rgba(255,255,255,.92);
-  color:var(--dark);
-  padding:5px 11px;border-radius:999px;
-  font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:6px;backdrop-filter:blur(8px);
-}
-.hero-visual .play-tag .lvd{width:6px;height:6px;border-radius:50%;background:var(--violet);animation:pulseDot 1.6s ease-in-out infinite}
-.hero-visual__logo{
-  display:flex;align-items:center;justify-content:center;
-  filter:drop-shadow(0 12px 24px rgba(204,120,92,.4));
-  animation:heroLogoBreathe 4s ease-in-out infinite;
-}
-@keyframes heroLogoBreathe{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.05)}
-}
-.hero-visual__stripe{
-  display:flex;flex-wrap:wrap;justify-content:center;gap:6px 10px;
-  padding:0 8px;
-  font-family:var(--font);font-size:.62rem;font-weight:800;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--dark);
-  opacity:.75;line-height:1.5;
-}
-.hero-visual__stripe span:nth-child(even){color:var(--violet);opacity:.55}
-
-.price-row{
-  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
-  margin-bottom:16px;position:relative;z-index:2;
-}
-.price-row .now{
-  font-size:2.4rem;font-weight:900;color:var(--dark);letter-spacing:-.03em;line-height:1;
-}
-.price-row .now .gr{font-size:1rem;font-weight:700;color:var(--gray);margin-left:4px}
-.price-row .old{font-size:1rem;color:var(--gray);text-decoration:line-through;font-weight:600}
-.price-row .save{
-  font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
-  background:var(--violet);color:#fff;padding:5px 10px;border-radius:6px;
-}
-
-/* ===== CTA BUTTONS ===== */
+/* ============ CTA / PRICE ============ */
 .cta{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  padding:18px 30px;background:var(--violet);color:#fff;
-  border-radius:14px;font-weight:700;font-size:.92rem;
-  letter-spacing:.04em;text-transform:uppercase;
-  width:100%;
-  box-shadow:0 14px 32px -8px rgba(204,120,92,.55),inset 0 1px 0 rgba(255,255,255,.18);
-  position:relative;overflow:hidden;
-  transition:transform .25s,box-shadow .25s;
+  padding:16px 26px;border-radius:12px;
+  background:var(--coral);color:#fff;
+  font-family:var(--sans);font-weight:600;font-size:.94rem;letter-spacing:.005em;
+  transition:background .25s, transform .25s, box-shadow .25s;
+  box-shadow:0 4px 14px -4px rgba(204,120,92,.5);
 }
-.cta::before{
-  content:'';position:absolute;top:0;left:-100%;
-  width:60%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.30),transparent);
-  transform:skewX(-20deg);transition:left .8s ease;
+.cta:hover{background:var(--coral-deep);transform:translateY(-1px);box-shadow:0 8px 20px -6px rgba(180,99,74,.55)}
+.cta .arr{transition:transform .25s;font-family:var(--serif);font-size:1.05rem}
+.cta:hover .arr{transform:translateX(3px)}
+.cta-full{width:100%}
+.cta-ghost{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:12px 0;border-bottom:1px solid var(--coral);
+  color:var(--coral);font-weight:600;font-size:.9rem;letter-spacing:.01em;
 }
-.cta:hover{transform:translateY(-2px);box-shadow:0 20px 42px -8px rgba(204,120,92,.65)}
-.cta:hover::before{left:130%}
-.cta:active{transform:scale(.98)}
-.cta .arr{font-size:1.05rem;transition:transform .25s}
-.cta:hover .arr{transform:translateX(4px)}
-.cta-light{background:#fff;color:var(--violet);box-shadow:0 14px 32px -8px rgba(0,0,0,.25)}
-.cta-light:hover{box-shadow:0 20px 42px -8px rgba(0,0,0,.35)}
+.cta-ghost:hover{color:var(--coral-deep)}
 
-.cta-row .gift{font-size:1.1rem}
+.price-cluster{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.price-now{font-family:var(--serif);font-size:2.6rem;font-weight:700;color:var(--ink);line-height:1;letter-spacing:-.02em}
+.price-now .cur{font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--gray);margin-left:6px}
+.price-old{font-family:var(--sans);font-size:.95rem;color:var(--gray);text-decoration:line-through;font-weight:500}
+.price-save{
+  font-family:var(--sans);font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--coral);color:#fff;padding:5px 10px;border-radius:6px;
+}
 
-/* ===== TIMER BAR ===== */
+/* ============ HERO ============ */
+.hero{padding:36px 24px 44px;position:relative;overflow:hidden}
+.hero .brand-row{
+  display:flex;justify-content:space-between;align-items:center;margin-bottom:26px;
+  font-size:.72rem;font-weight:600;color:var(--gray);letter-spacing:.06em;
+}
+.hero .brand{display:inline-flex;align-items:center;gap:8px}
+.hero .brand-dot{width:8px;height:8px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 3px var(--coral-tint)}
+.hero .start-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 12px;border:1px solid var(--gray-line-2);border-radius:999px;
+  color:var(--ink-soft);
+}
+.hero .start-pill::before{content:'';width:5px;height:5px;border-radius:50%;background:#4a9d5f}
+
+.hero-badge{
+  display:inline-block;
+  padding:6px 12px;border:1px solid var(--gray-line-2);border-radius:999px;
+  font-size:.7rem;font-weight:600;letter-spacing:.08em;color:var(--ink-soft);
+  margin-bottom:22px;background:var(--paper-2);
+}
+.hero-badge b{color:var(--coral-deep);font-weight:700;text-transform:uppercase;letter-spacing:.14em}
+
+.h-hero{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(2.1rem,10vw,3.2rem);
+  line-height:1.02;letter-spacing:-.028em;
+  margin-bottom:16px;
+}
+.h-hero .accent{color:var(--coral);font-style:italic;font-weight:500}
+.hero-sub{font-size:1.05rem;line-height:1.55;color:var(--ink-soft);margin-bottom:26px;max-width:44ch}
+.hero-sub b{color:var(--ink);font-weight:600}
+
+.hero-poster{
+  position:relative;margin:0 0 26px;
+  aspect-ratio:5/4;border-radius:var(--radius-lg);overflow:hidden;
+  background:
+    radial-gradient(120% 100% at 20% 0%, rgba(242,201,184,.6), transparent 55%),
+    radial-gradient(120% 100% at 100% 100%, rgba(204,120,92,.35), transparent 60%),
+    linear-gradient(160deg,#F5EEE4 0%,#EDE4D6 100%);
+  border:1px solid var(--gray-line-2);
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:22px;
+}
+.poster-top{display:flex;justify-content:space-between;align-items:flex-start}
+.poster-chip{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:6px 12px;background:rgba(255,255,255,.85);
+  backdrop-filter:blur(8px);border-radius:999px;
+  font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+}
+.poster-chip::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 3px var(--coral-tint)}
+.poster-tag{
+  font-family:var(--serif);font-style:italic;font-size:.85rem;color:var(--ink-soft);
+}
+.poster-logo{
+  align-self:center;
+  filter:drop-shadow(0 20px 32px rgba(204,120,92,.32));
+  animation:posterBreathe 5s ease-in-out infinite;
+}
+@keyframes posterBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.poster-bottom{
+  display:flex;flex-wrap:wrap;gap:5px 8px;
+  font-family:var(--serif);font-style:italic;font-size:.9rem;color:var(--ink);
+  line-height:1.35;
+}
+.poster-bottom span{white-space:nowrap}
+.poster-bottom em{font-style:normal;color:var(--coral-deep);opacity:.7;font-size:.75em}
+
+.hero-feats{list-style:none;display:grid;gap:10px;margin-bottom:26px}
+.hero-feats li{display:flex;gap:12px;font-size:.95rem;line-height:1.5;color:var(--ink-soft)}
+.hero-feats li b{color:var(--ink);font-weight:600}
+.hero-feats .ck{
+  flex-shrink:0;width:22px;height:22px;border-radius:50%;
+  background:var(--coral-tint);color:var(--coral-deep);
+  display:grid;place-items:center;font-size:.78rem;font-weight:700;
+}
+
 .timer-bar{
-  background:#fff;border:1px dashed var(--violet);
-  border-radius:14px;padding:14px 16px;
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  margin-top:14px;
+  margin-top:16px;padding:12px 16px;
+  background:var(--paper-2);border:1px solid var(--gray-line-2);border-radius:12px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--sans);
 }
-.timer-bar .lbl{
-  font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);
-}
-.timer-bar .val{
-  font-size:1.05rem;font-weight:900;color:var(--violet);letter-spacing:.05em;font-variant-numeric:tabular-nums;
-}
+.timer-bar .lbl{font-size:.72rem;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.timer-bar .val{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--coral-deep);letter-spacing:.02em;font-variant-numeric:tabular-nums}
 
-/* ===== BONUS CARDS ===== */
-.bonus-grid{display:grid;gap:14px;margin-top:18px}
+/* ============ BONUSES / DIFFERENTIATORS ============ */
+.bonus-grid{display:grid;gap:14px;margin-top:22px}
 .bonus-card{
-  background:#fff;border-radius:20px;padding:22px 20px;
-  border:1px solid var(--line);
-  position:relative;overflow:hidden;
-  box-shadow:0 10px 30px -16px rgba(29,23,48,.18);
+  position:relative;padding:22px 20px;
+  background:var(--paper);border:1px solid var(--gray-line-2);border-radius:var(--radius);
+  transition:border-color .25s, transform .25s;
 }
+.bonus-card:hover{border-color:var(--coral);transform:translateY(-1px)}
 .bonus-card .tag{
-  display:inline-flex;align-items:center;gap:6px;
-  background:var(--violet-soft);color:var(--violet);
-  padding:5px 12px;border-radius:999px;
-  font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
-  margin-bottom:10px;
+  display:inline-block;padding:3px 9px;border-radius:6px;
+  background:var(--coral-tint);color:var(--coral-deep);
+  font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  margin-bottom:12px;
 }
-.bonus-card h3{font-size:1.15rem;margin-bottom:8px}
-.bonus-card p{
-  font-size:.86rem;line-height:1.55;color:#4a4360;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
-  overflow:hidden;
-}
-.bonus-card.expanded p{display:block;-webkit-line-clamp:unset;overflow:visible}
-.bonus-card .toggle{
-  margin-top:10px;background:none;border:none;padding:0;cursor:pointer;
-  display:inline-flex;align-items:center;gap:6px;
-  color:var(--violet);font-family:inherit;font-weight:800;
-  font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
-}
-.bonus-card .toggle .arr{
-  display:inline-block;transition:transform .25s;font-size:.85rem;line-height:1;
-}
-.bonus-card.expanded .toggle .arr{transform:rotate(180deg)}
 .bonus-card .ic{
-  position:absolute;top:18px;right:18px;
-  width:42px;height:42px;border-radius:12px;
-  background:var(--violet);color:#fff;
-  display:grid;place-items:center;font-size:1.3rem;
-  box-shadow:0 8px 20px -6px var(--violet-glow);
+  position:absolute;top:20px;right:20px;
+  width:36px;height:36px;border-radius:10px;
+  background:var(--coral);color:#fff;
+  display:grid;place-items:center;font-size:1.05rem;
 }
+.bonus-card h3{font-family:var(--serif);font-size:1.15rem;font-weight:600;margin-bottom:8px;padding-right:44px;line-height:1.2}
+.bonus-card p{font-size:.9rem;color:var(--ink-soft);line-height:1.55}
+.bonus-card p b{color:var(--ink);font-weight:600}
 
-/* ===== GALLERY (Claude use-case cards) ===== */
+.callout{
+  margin-top:22px;padding:20px 22px;
+  border-left:3px solid var(--coral);background:var(--paper-2);border-radius:0 var(--radius) var(--radius) 0;
+  font-size:.92rem;line-height:1.6;color:var(--ink-soft);
+}
+.callout p+p{margin-top:10px}
+.callout b{color:var(--ink);font-weight:600}
+.section.dark .callout{background:#231A16;color:#DBD3C6;border-left-color:var(--coral-soft)}
+.section.dark .callout b{color:#FAF9F6}
+
+/* ============ GALLERY (use cases) ============ */
 .gallery-track{
   display:flex;gap:12px;overflow-x:auto;
-  scroll-snap-type:x mandatory;
+  scroll-snap-type:x mandatory;scrollbar-width:none;
+  padding:8px 24px 20px;margin:14px -24px 0;
   -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;padding:8px 22px 18px;
-  margin:0 -22px;
 }
 .gallery-track::-webkit-scrollbar{display:none}
 .gallery-item{
-  min-width:220px;max-width:240px;
-  flex-shrink:0;scroll-snap-align:start;
-  aspect-ratio:3/4;border-radius:18px;overflow:hidden;
-  background:linear-gradient(160deg, #FDF8EE 0%, #F7EFE3 100%);
-  border:1px solid rgba(204,120,92,.22);
-  position:relative;
-  box-shadow:0 14px 30px -14px rgba(204,120,92,.4);
-  padding:18px 16px;
-  display:flex;flex-direction:column;
-  content-visibility:auto;
-  contain-intrinsic-size:220px 293px;
+  min-width:230px;max-width:250px;flex-shrink:0;
+  scroll-snap-align:start;
+  aspect-ratio:3/4;
+  padding:20px 18px;
+  border-radius:var(--radius-lg);
+  background:var(--paper);border:1px solid var(--gray-line-2);
+  display:flex;flex-direction:column;position:relative;
 }
-.gallery-item .g-num{
-  font-family:var(--font);font-weight:900;font-size:.62rem;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--violet);
-  margin-bottom:6px;
+.g-num{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--coral-deep);margin-bottom:10px}
+.g-ico{font-size:1.9rem;line-height:1;margin-bottom:14px;color:var(--coral)}
+.g-title{font-family:var(--serif);font-size:1.15rem;font-weight:600;line-height:1.18;color:var(--ink);margin-bottom:auto;letter-spacing:-.01em}
+.g-desc{margin-top:12px;font-size:.82rem;line-height:1.5;color:var(--gray)}
+.g-desc b{color:var(--coral-deep);font-weight:600}
+.g-badge{
+  position:absolute;top:14px;right:14px;
+  font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--coral-deep);
+  padding:3px 8px;background:var(--coral-tint);border-radius:6px;
 }
-.gallery-item .g-ico{
-  font-size:2rem;line-height:1;margin-bottom:10px;
-}
-.gallery-item .g-title{
-  font-size:.98rem;font-weight:800;color:var(--dark);letter-spacing:-.01em;
-  line-height:1.2;margin-bottom:auto;
-}
-.gallery-item .g-desc{
-  font-size:.75rem;line-height:1.45;color:var(--gray);
-  margin-top:10px;
-}
-.gallery-item .g-desc b{color:var(--violet);font-weight:800}
-.gallery-item .lab{
-  position:absolute;bottom:10px;left:10px;
-  background:rgba(31,21,18,.85);color:#fff;backdrop-filter:blur(8px);
-  font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
-  padding:4px 9px;border-radius:999px;
-}
-.scroll-hint{
-  text-align:center;font-size:.75rem;color:var(--gray);
-  letter-spacing:.1em;text-transform:uppercase;margin-top:6px;font-weight:600;
-}
+.scroll-hint{text-align:center;font-size:.72rem;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-top:4px}
 
-/* ===== AUDIENCE LIST (cream cards) ===== */
-.aud-list{display:grid;gap:12px;margin-top:18px}
+/* ============ AUDIENCE ============ */
+.aud-list{display:grid;gap:12px;margin-top:20px}
 .aud-card{
-  background:#fff;border-radius:18px;padding:18px;
-  border:1px solid var(--line);
-  display:flex;gap:14px;align-items:flex-start;
+  display:flex;gap:14px;
+  padding:18px 20px;border:1px solid var(--gray-line-2);border-radius:var(--radius);
+  background:var(--paper);
+  transition:border-color .25s;
 }
-.aud-card .em{
-  flex-shrink:0;width:42px;height:42px;border-radius:12px;
-  background:var(--violet-soft);color:var(--violet);
-  display:grid;place-items:center;font-size:1.25rem;
-}
-.aud-card h4{font-size:.98rem;font-weight:800;margin-bottom:4px;color:var(--dark)}
-.aud-card p{font-size:.85rem;line-height:1.5;color:#4a4360}
+.aud-card:hover{border-color:var(--coral)}
+.aud-card .em{font-size:1.5rem;line-height:1;flex-shrink:0;color:var(--coral)}
+.aud-card h4{font-family:var(--serif);font-size:1.05rem;font-weight:600;margin-bottom:4px;color:var(--ink);letter-spacing:-.005em}
+.aud-card p{font-size:.85rem;line-height:1.5;color:var(--gray)}
 
-/* ===== PROBLEM / RESULT BLOCKS ===== */
-.bullets{list-style:none;display:grid;gap:14px;margin:18px 0}
-.bullets li{
-  display:flex;gap:12px;align-items:flex-start;
-  font-size:.92rem;line-height:1.55;color:rgba(255,255,255,.86);
+/* ============ PROBLEM / SOLVE ============ */
+.pains{list-style:none;display:grid;gap:12px;margin:20px 0}
+.pains li{
+  display:flex;gap:12px;padding:14px 18px;
+  border-left:2px solid var(--coral-soft);background:rgba(255,255,255,.03);
+  font-size:.94rem;line-height:1.5;color:#DBD3C6;
 }
-.bullets li .b{
-  flex-shrink:0;width:24px;height:24px;border-radius:50%;
-  background:rgba(255,255,255,.12);color:#fff;
-  display:grid;place-items:center;font-size:.85rem;font-weight:900;margin-top:1px;
-}
-.section-cream .bullets li,.section-paper .bullets li{color:#3a3450}
-.section-cream .bullets li .b,.section-paper .bullets li .b{
-  background:var(--violet);color:#fff;
-}
-
+.pains li b{color:#FAF9F6}
+.pains li::before{content:'—';color:var(--coral-soft);flex-shrink:0}
 .solve-card{
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);
-  border-radius:18px;padding:20px;margin-top:18px;
+  margin-top:22px;padding:22px;
+  background:#231A16;border:1px solid #3A2A22;border-radius:var(--radius);
 }
-.solve-card h3{font-size:1.05rem;margin-bottom:12px}
-.solve-card .row{
-  display:flex;gap:12px;align-items:flex-start;padding:10px 0;
-  border-bottom:1px solid rgba(255,255,255,.07);
-}
-.solve-card .row:last-child{border-bottom:0}
-.solve-card .row .em{
-  flex-shrink:0;width:34px;height:34px;border-radius:10px;
-  background:var(--violet);color:#fff;
-  display:grid;place-items:center;font-size:1.05rem;
-}
-.solve-card .row p{color:rgba(255,255,255,.92);font-size:.88rem;line-height:1.45;font-weight:500}
-.solve-card .row p strong{color:#fff;font-weight:700}
+.solve-card h3{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:#FAF9F6;margin-bottom:14px}
+.solve-card .row{display:flex;gap:12px;align-items:flex-start;padding:8px 0;font-size:.92rem;line-height:1.5;color:#DBD3C6}
+.solve-card .row+.row{border-top:1px dashed rgba(204,120,92,.25)}
+.solve-card .row b{color:#FAF9F6;font-weight:600}
+.solve-card .row .ic{color:var(--coral);flex-shrink:0;font-size:1.05rem;line-height:1.3}
 
-.callout-box{
-  background:#fff;color:var(--dark);
-  border-radius:18px;padding:18px 20px;margin-top:20px;
-  border-left:5px solid var(--violet);
-  font-size:.92rem;line-height:1.55;
+/* ============ MONEY ============ */
+.money-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px;
 }
-.callout-box p{color:inherit;font-size:inherit;line-height:inherit;margin:0}
-.callout-box strong{color:var(--violet)}
-.section-cream .callout-box,.section-paper .callout-box{
-  background:var(--violet);color:#fff;border-left-color:#fff;
+.money-grid .item{
+  padding:16px;background:rgba(255,255,255,.08);border-radius:12px;
+  text-align:left;
 }
-.section-cream .callout-box strong,.section-paper .callout-box strong{color:#fff;text-decoration:underline}
+.money-grid .em{font-size:1.4rem;margin-bottom:8px;color:#FFF}
+.money-grid .t{font-family:var(--serif);font-weight:600;font-size:1.05rem;color:#FFF;line-height:1.2;margin-bottom:3px}
+.money-grid .d{font-size:.78rem;color:rgba(255,247,241,.75);line-height:1.4}
 
-/* ===== MONETIZATION TABLE ===== */
-.money-table{
-  margin-top:18px;background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.10);
-  border-radius:18px;overflow:hidden;
-}
+.money-table{margin-top:22px;background:rgba(0,0,0,.08);border-radius:var(--radius);padding:6px 18px}
 .money-table .row{
-  display:flex;align-items:center;justify-content:space-between;gap:14px;
-  padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.07);
-  font-size:.88rem;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:14px 0;border-bottom:1px dashed rgba(255,255,255,.18);
 }
 .money-table .row:last-child{border-bottom:0}
-.money-table .row .svc{color:rgba(255,255,255,.85);font-weight:500;flex:1}
-.money-table .row .pr{color:#fff;font-weight:800;letter-spacing:-.01em;white-space:nowrap}
+.money-table .svc{font-size:.9rem;color:rgba(255,247,241,.9)}
+.money-table .pr{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:#FFF;white-space:nowrap}
 
-.money-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
-.money-grid .item{
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);
-  border-radius:14px;padding:14px;
-}
-.money-grid .item .em{font-size:1.4rem;color:var(--violet-light);margin-bottom:6px;display:block;line-height:1}
-.money-grid .item .t{font-size:.78rem;font-weight:700;color:#fff;margin-bottom:3px;letter-spacing:-.01em}
-.money-grid .item .d{font-size:.75rem;color:rgba(255,255,255,.65);line-height:1.4}
-
-/* ===== PROGRAM (lessons) ===== */
-.lessons{display:grid;gap:14px;margin-top:18px}
+/* ============ PROGRAM ============ */
+.lessons{display:grid;gap:10px;margin-top:22px}
 .lesson{
-  background:#fff;border-radius:20px;padding:0;
-  border:1px solid var(--line);
-  position:relative;overflow:hidden;
-  box-shadow:0 8px 24px -14px rgba(29,23,48,.18);
+  border:1px solid var(--gray-line-2);border-radius:var(--radius);
+  background:var(--paper);overflow:hidden;
 }
 .lesson summary{
   list-style:none;cursor:pointer;
-  display:flex;gap:14px;padding:14px;align-items:stretch;
+  padding:18px 20px;
+  display:flex;gap:16px;align-items:flex-start;
 }
 .lesson summary::-webkit-details-marker{display:none}
-.lesson-thumb{
-  flex-shrink:0;width:104px;aspect-ratio:9/16;
-  border-radius:14px;overflow:hidden;background:#000;
-  position:relative;
-}
-.lesson-thumb video,.lesson-thumb img,.lesson-thumb picture{width:100%;height:100%;object-fit:cover;display:block}
 .lesson-num{
-  position:absolute;top:8px;left:8px;z-index:2;
-  width:32px;height:32px;border-radius:10px;
-  background:var(--violet);color:#fff;
-  display:grid;place-items:center;font-weight:900;font-size:1rem;
-  box-shadow:0 6px 14px -4px var(--violet-glow);
+  flex-shrink:0;
+  width:38px;height:38px;border-radius:50%;
+  background:var(--coral-tint);color:var(--coral-deep);
+  font-family:var(--serif);font-weight:700;font-size:1rem;
+  display:grid;place-items:center;
 }
-.lesson-title{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
-.lesson-title .ttl{font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--violet);margin-bottom:6px}
-.lesson-title h3{font-size:1rem;line-height:1.25;color:var(--dark);margin-bottom:10px;font-weight:800}
+.lesson[open] .lesson-num{background:var(--coral);color:#fff}
+.lesson-head{flex:1;min-width:0}
+.lesson-head .ttl{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:3px}
+.lesson-head h3{font-family:var(--serif);font-size:1.05rem;font-weight:600;line-height:1.25;letter-spacing:-.005em}
 .lesson-toggle{
-  display:inline-flex;align-items:center;gap:6px;align-self:flex-start;
-  font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--violet);
+  flex-shrink:0;align-self:center;
+  width:26px;height:26px;border-radius:50%;
+  background:var(--paper-2);color:var(--coral-deep);
+  display:grid;place-items:center;font-size:1.1rem;font-weight:600;line-height:1;
+  transition:transform .25s, background .25s;
 }
-.lesson-toggle .arr{
-  display:inline-grid;place-items:center;
-  width:18px;height:18px;border-radius:50%;
-  background:var(--violet-soft);color:var(--violet);
-  font-size:.7rem;line-height:1;
-  transition:transform .25s,background .25s,color .25s;
-}
-.lesson[open] .lesson-toggle .arr{transform:rotate(180deg);background:var(--violet);color:#fff}
-.lesson-body{padding:0 18px 18px}
-.lesson-body ul{list-style:none;display:grid;gap:8px;margin-bottom:12px}
-.lesson-body ul li{
-  display:flex;gap:10px;align-items:flex-start;
-  font-size:.85rem;line-height:1.45;color:#4a4360;
-}
-.lesson-body ul li::before{
-  content:'';flex-shrink:0;width:6px;height:6px;border-radius:50%;
-  background:var(--violet);margin-top:7px;
-}
-.lesson .res{
-  padding:14px;border-radius:12px;
-  background:var(--violet-soft);
-  font-size:.84rem;line-height:1.45;color:var(--dark-2);
-  display:grid;gap:8px;
-}
-.lesson .res strong{color:var(--violet);font-weight:800}
-.lesson .res-row{display:flex;gap:10px;align-items:flex-start}
-.lesson .res-row .rem{flex-shrink:0;font-size:1rem;width:22px;text-align:center;line-height:1.3}
-.lesson .res-row b{color:var(--violet);font-weight:800}
+.lesson[open] .lesson-toggle{transform:rotate(45deg);background:var(--coral);color:#fff}
+.lesson-body{padding:0 20px 20px 74px;animation:fadeIn .3s ease}
+.lesson-body ul{list-style:none;display:grid;gap:8px}
+.lesson-body ul li{display:flex;gap:10px;font-size:.9rem;line-height:1.5;color:var(--ink-soft)}
+.lesson-body ul li::before{content:'·';color:var(--coral);font-weight:800;flex-shrink:0}
+.lesson-body ul li b{color:var(--ink);font-weight:600}
+.lesson-body .res{margin-top:14px;padding-top:12px;border-top:1px dashed var(--gray-line-2);display:grid;gap:6px}
+.lesson-body .res .r{display:flex;gap:8px;font-size:.85rem;color:var(--ink-soft)}
+.lesson-body .res .r b{color:var(--ink);font-weight:600}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 
-/* Wide-image variant: full-width image on top, title below */
-.lesson.lesson-wide summary{
-  flex-direction:column;align-items:stretch;
-  gap:14px;padding:0;
-}
-.lesson.lesson-wide .lesson-thumb{
-  width:100%;aspect-ratio:auto;height:auto;
-  border-radius:18px 18px 0 0;
-  background:#f3ede0;
-}
-.lesson.lesson-wide .lesson-thumb img,
-.lesson.lesson-wide .lesson-thumb picture{
-  width:100%;height:auto;object-fit:contain;display:block;
-}
-.lesson.lesson-wide .lesson-num{top:10px;left:10px}
-.lesson.lesson-wide .lesson-title{padding:0 18px 14px}
-.lesson.lesson-wide .lesson-title h3{margin-bottom:12px}
-.lesson.lesson-wide[open] .lesson-thumb{border-radius:18px 18px 0 0}
-.lesson.lesson-wide .lesson-body{padding:0 18px 18px}
-
-/* ===== ASSISTANTS UTP BLOCK ===== */
-.utp-grid{display:grid;gap:12px;margin-top:18px}
-.utp-card{
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);
-  border-radius:14px;padding:14px 16px;
-  display:flex;gap:12px;align-items:center;
-}
-.utp-card .em{
-  flex-shrink:0;width:38px;height:38px;border-radius:11px;
-  background:var(--violet);color:#fff;
-  display:grid;place-items:center;font-size:1rem;
-}
-.utp-card .t{flex:1}
-.utp-card .t b{display:block;font-size:.92rem;font-weight:800;color:#fff;margin-bottom:2px}
-.utp-card .t span{font-size:.78rem;color:rgba(255,255,255,.7);line-height:1.4}
-
-/* ===== HOW IT WORKS (4 cards) ===== */
-.how-grid{display:grid;gap:12px;margin-top:18px}
+/* ============ HOW IT WORKS ============ */
+.how-grid{display:grid;gap:12px;margin-top:22px}
 .how-card{
-  background:#fff;border-radius:16px;padding:18px;
-  border:1px solid var(--line);
-  display:flex;gap:14px;align-items:flex-start;
+  display:flex;gap:14px;padding:18px 20px;
+  border:1px solid var(--gray-line-2);border-radius:var(--radius);background:var(--paper);
 }
-.how-card .em{
-  flex-shrink:0;width:44px;height:44px;border-radius:12px;
-  background:var(--violet);color:#fff;
-  display:grid;place-items:center;font-size:1.2rem;
-  box-shadow:0 8px 16px -6px var(--violet-glow);
-}
-.how-card h4{font-size:.96rem;font-weight:800;margin-bottom:4px}
-.how-card p{font-size:.85rem;line-height:1.5;color:#4a4360}
+.how-card .em{font-size:1.4rem;color:var(--coral);flex-shrink:0}
+.how-card h4{font-family:var(--serif);font-size:1.02rem;font-weight:600;margin-bottom:4px}
+.how-card p{font-size:.84rem;line-height:1.5;color:var(--gray)}
 
-/* ===== AUTHOR ===== */
-.author-card{
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);
-  border-radius:22px;padding:24px 22px;margin-top:18px;
-}
-.author-photo{
-  width:130px;height:130px;border-radius:50%;
-  margin:0 auto 16px;overflow:hidden;
-  border:4px solid var(--violet);
-  box-shadow:0 12px 32px -10px var(--violet-glow);
-  position:relative;
-}
-.author-photo img,.author-photo picture{width:100%;height:100%;object-fit:cover;display:block}
-.author-card h3{text-align:center;font-size:1.3rem;margin-bottom:14px}
-.author-list{list-style:none;display:grid;gap:10px}
-.author-list li{
-  display:flex;gap:10px;align-items:flex-start;
-  font-size:.88rem;line-height:1.5;color:rgba(255,255,255,.88);
-}
-.author-list li::before{
-  content:'✓';color:var(--violet-light);font-weight:900;flex-shrink:0;
-  width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.10);
-  display:grid;place-items:center;font-size:.7rem;margin-top:1px;
+.summary-list{list-style:none;display:grid;gap:10px;margin-top:22px}
+.summary-list li{display:flex;gap:10px;font-size:.92rem;line-height:1.5}
+.summary-list li::before{
+  content:'';flex-shrink:0;margin-top:9px;
+  width:12px;height:1px;background:var(--coral);
 }
 
-/* ===== GUARANTEE ===== */
+/* ============ UTP ============ */
+.utp-grid{display:grid;gap:10px;margin-top:22px}
+.utp-card{
+  display:flex;gap:14px;padding:16px 18px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+}
+.utp-card .em{font-size:1.3rem;flex-shrink:0;color:#F5E4D9}
+.utp-card b{font-family:var(--serif);font-size:.98rem;font-weight:600;color:#FAF9F6;display:block;margin-bottom:2px}
+.utp-card span{font-size:.82rem;color:#DBD3C6;line-height:1.45}
+
+/* ============ GUARANTEE ============ */
 .guarantee{
-  background:#fff;border-radius:22px;padding:28px 22px;
-  border:1px solid var(--line);
-  text-align:center;margin-top:18px;
-  box-shadow:0 12px 30px -16px rgba(29,23,48,.18);
+  padding:26px 24px;background:var(--paper);border:1px solid var(--gray-line-2);border-radius:var(--radius-lg);
+  text-align:center;
 }
 .guarantee .shield{
-  width:64px;height:64px;border-radius:50%;
-  background:var(--violet-soft);color:var(--violet);
-  display:grid;place-items:center;font-size:1.8rem;margin:0 auto 14px;
+  width:64px;height:64px;margin:0 auto 14px;
+  border-radius:50%;background:var(--coral-tint);
+  display:grid;place-items:center;font-size:1.8rem;color:var(--coral);
 }
-.guarantee h3{font-size:1.4rem;margin-bottom:10px}
-.guarantee p{font-size:.92rem;line-height:1.55;color:#4a4360}
-.guarantee p + p{margin-top:8px}
+.guarantee h3{font-family:var(--serif);font-size:1.4rem;font-weight:600;margin-bottom:10px}
+.guarantee p{font-size:.95rem;line-height:1.55;color:var(--ink-soft);margin-bottom:10px}
+.guarantee p b{color:var(--coral-deep);font-weight:600}
 .guarantee .quote{
-  margin-top:16px;font-style:italic;color:var(--violet);font-weight:600;
-  border-top:1px solid var(--line);padding-top:14px;
+  margin-top:16px;padding:14px 18px;
+  border-top:1px dashed var(--gray-line-2);
+  font-family:var(--serif);font-style:italic;font-size:.98rem;color:var(--ink);
 }
 
-/* ===== INCLUDED LIST ===== */
-.included{
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
-  border-radius:20px;padding:22px;margin-top:18px;
+/* ============ AUTHOR ============ */
+.author-block{display:grid;gap:18px;margin-top:20px}
+.author-photo{
+  width:120px;height:120px;border-radius:50%;overflow:hidden;
+  border:3px solid var(--coral);
+  margin:0 auto;
+  box-shadow:0 12px 32px -8px rgba(204,120,92,.5);
 }
+.author-photo img{width:100%;height:100%;object-fit:cover}
+.author-block h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;text-align:center;color:#FAF9F6}
+.author-block .role{
+  text-align:center;font-size:.68rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--coral-soft);
+  margin-top:4px;
+}
+.author-block p{font-size:.92rem;line-height:1.6;color:#DBD3C6;margin-top:10px}
+.author-block p b{color:#FAF9F6;font-weight:600}
+.author-facts{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:18px;
+  padding:16px;background:#231A16;border-radius:var(--radius);
+}
+.author-fact{text-align:center}
+.author-fact b{font-family:var(--serif);font-weight:700;font-size:1.3rem;color:var(--coral-soft);display:block}
+.author-fact span{font-size:.68rem;color:#B0A79A;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+
+/* ============ FULL LIST ============ */
+.included{list-style:none;display:grid;gap:12px;margin-top:22px}
 .included li{
-  display:flex;gap:12px;align-items:flex-start;
-  padding:11px 0;border-bottom:1px solid rgba(255,255,255,.07);
-  font-size:.9rem;line-height:1.45;color:rgba(255,255,255,.92);
-  list-style:none;
+  display:flex;gap:12px;align-items:flex-start;padding:12px 16px;
+  background:rgba(255,255,255,.08);border-radius:10px;
+  font-size:.92rem;line-height:1.45;color:#FFF7F1;
 }
-.included li:last-child{border-bottom:0}
-.included li .em{
-  flex-shrink:0;font-size:1.05rem;width:24px;text-align:center;
+.included li .em{flex-shrink:0;font-size:1.05rem;color:#FFF}
+.included li.bonus{
+  background:#FFF;color:var(--coral-deep);
 }
-.included li.bonus{color:#fff;font-weight:600}
-.included li.bonus .em{color:var(--violet-light)}
+.included li.bonus .em{color:var(--coral)}
 
-/* ===== PRICE FINAL ===== */
-.price-final{
-  background:#fff;color:var(--dark);
-  border-radius:20px;padding:22px;margin-top:18px;text-align:center;
-  border:2px solid var(--violet);
+.final-price-card{
+  margin-top:22px;padding:22px;
+  background:#FFF;color:var(--ink);
+  border-radius:var(--radius-lg);text-align:center;
 }
-.price-final .lbl{font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--violet);margin-bottom:6px}
-.price-final .row{display:flex;align-items:baseline;justify-content:center;gap:12px;margin-bottom:4px}
-.price-final .row .n{font-size:2.6rem;font-weight:900;letter-spacing:-.03em;color:var(--dark)}
-.price-final .row .gr{font-size:1rem;font-weight:700;color:var(--gray)}
-.price-final .row .o{font-size:1rem;color:var(--gray);text-decoration:line-through;font-weight:600}
-.price-final .hint{font-size:.8rem;color:var(--gray);font-style:italic}
-.price-final-timer{
-  margin-top:14px;padding-top:14px;
-  border-top:1px dashed rgba(204,120,92,.35);
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
+.final-price-card .lbl{
+  font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--coral-deep);margin-bottom:10px;
 }
-.price-final-timer .tlbl{
-  font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);
+.final-price-card .row{display:flex;align-items:baseline;justify-content:center;gap:14px;flex-wrap:wrap}
+.final-price-card .o{font-size:1rem;color:var(--gray);text-decoration:line-through}
+.final-price-card .n{font-family:var(--serif);font-size:2.8rem;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+.final-price-card .n .gr{font-size:.9rem;font-weight:600;color:var(--gray);margin-left:6px;font-family:var(--sans)}
+.final-price-card .hint{margin-top:6px;font-size:.78rem;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.final-price-card .timer-row{
+  margin-top:14px;padding-top:14px;border-top:1px dashed var(--gray-line-2);
+  display:flex;justify-content:space-between;font-family:var(--sans);
 }
-.price-final-timer .tval{
-  font-size:1.15rem;font-weight:900;color:var(--violet);letter-spacing:.05em;font-variant-numeric:tabular-nums;
-}
+.final-price-card .timer-row .lb{font-size:.7rem;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.final-price-card .timer-row .vl{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--coral-deep);font-variant-numeric:tabular-nums}
 
-/* ===== REVIEWS ===== */
+/* ============ REVIEWS ============ */
 .reviews-track{
   display:flex;gap:12px;overflow-x:auto;
-  scroll-snap-type:x mandatory;
+  scroll-snap-type:x mandatory;scrollbar-width:none;
+  padding:20px 24px 20px;margin:0 -24px;
+  align-items:center;
   -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;padding:8px 22px 18px;
-  margin:0 -22px;
 }
 .reviews-track::-webkit-scrollbar{display:none}
 .review-item{
-  min-width:260px;max-width:280px;
   flex-shrink:0;scroll-snap-align:start;
-  aspect-ratio:9/16;border-radius:14px;overflow:hidden;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.10);
-  content-visibility:auto;
-  contain-intrinsic-size:260px 462px;
+  height:auto;max-height:380px;
+  padding:8px;background:var(--paper);border-radius:var(--radius);
+  border:1px solid var(--gray-line-2);
   display:flex;align-items:center;justify-content:center;
 }
-.review-item img{width:100%;height:100%;object-fit:contain}
-
-/* ===== FAQ ===== */
-.faq{display:grid;gap:10px;margin-top:18px}
-.faq details{
-  background:#fff;border-radius:14px;border:1px solid var(--line);
-  padding:0;overflow:hidden;
+.review-item img{
+  display:block;height:auto;max-height:360px;max-width:280px;width:auto;
+  border-radius:8px;
 }
-.faq details[open]{border-color:var(--violet)}
+
+/* ============ FAQ ============ */
+.faq{margin-top:20px;display:grid;gap:8px}
+.faq details{
+  border:1px solid var(--gray-line-2);border-radius:12px;
+  background:var(--paper);overflow:hidden;
+}
 .faq summary{
   list-style:none;cursor:pointer;
-  padding:16px 18px;
-  display:flex;justify-content:space-between;align-items:center;gap:12px;
-  font-weight:700;font-size:.92rem;color:var(--dark);
-  position:relative;
+  padding:16px 20px;
+  display:flex;justify-content:space-between;align-items:flex-start;gap:12px;
+  font-family:var(--serif);font-weight:600;font-size:.98rem;line-height:1.35;letter-spacing:-.005em;
 }
 .faq summary::-webkit-details-marker{display:none}
-.faq summary .plus{
-  flex-shrink:0;width:26px;height:26px;border-radius:50%;
-  background:var(--violet-soft);color:var(--violet);
-  display:grid;place-items:center;font-size:1.05rem;font-weight:900;
-  transition:transform .25s,background .25s;
+.faq summary .p{
+  flex-shrink:0;width:24px;height:24px;border-radius:50%;
+  background:var(--coral-tint);color:var(--coral-deep);
+  display:grid;place-items:center;font-size:1rem;font-weight:600;line-height:1;
+  transition:transform .25s;
 }
-.faq details[open] summary .plus{transform:rotate(45deg);background:var(--violet);color:#fff}
-.faq .body{
-  padding:0 18px 18px;font-size:.88rem;line-height:1.55;color:#4a4360;
-}
+.faq details[open] summary .p{transform:rotate(45deg);background:var(--coral);color:#fff}
+.faq .body{padding:0 20px 18px;font-size:.9rem;line-height:1.55;color:var(--ink-soft)}
+.faq .body b{color:var(--ink);font-weight:600}
 
-/* ===== STICKY BOTTOM ===== */
+/* ============ FOOTER ============ */
+footer{
+  padding:36px 24px 100px;background:#141110;color:#8A837A;font-size:.78rem;line-height:1.55;
+}
+footer .foot-title{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:#FAF9F6;margin-bottom:14px}
+footer .ent{margin-top:14px;padding-top:14px;border-top:1px dashed rgba(255,255,255,.1)}
+footer .ent b{color:#DBD3C6;font-family:var(--sans);font-weight:700;font-size:.8rem;letter-spacing:.02em;display:block;margin-bottom:4px}
+footer .links{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px}
+footer .links a{color:var(--coral-soft);text-decoration:underline;text-underline-offset:3px}
+footer .links a:hover{color:#FFF}
+footer .disclaimer{margin-top:20px;padding:14px;background:rgba(255,255,255,.03);border-radius:10px;font-size:.72rem;color:#736C63}
+footer .disclaimer b{color:#B0A79A;font-weight:700}
+
+/* ============ STICKY BAR ============ */
 .sticky-bar{
-  position:fixed;bottom:12px;left:50%;transform:translateX(-50%) translateY(120%);
-  width:calc(100% - 24px);max-width:456px;
-  background:var(--dark);color:#fff;
-  border-radius:14px;padding:10px 12px 10px 16px;
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
-  z-index:50;box-shadow:0 18px 40px -10px rgba(29,23,48,.55);
-  transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  position:fixed;left:50%;bottom:12px;transform:translateX(-50%) translateY(140%);
+  width:calc(100% - 24px);max-width:456px;z-index:99;
+  background:#181613;color:#FAF9F6;
+  border-radius:14px;border:1px solid rgba(255,255,255,.08);
+  padding:12px 14px 12px 18px;
+  display:flex;align-items:center;gap:12px;
+  box-shadow:0 20px 40px -12px rgba(24,22,19,.6);
+  transition:transform .4s cubic-bezier(.2,.8,.2,1);
 }
 .sticky-bar.show{transform:translateX(-50%) translateY(0)}
-.sticky-bar .pricew{display:flex;align-items:baseline;gap:8px;flex-shrink:0}
-.sticky-bar .pricew .n{font-size:1.05rem;font-weight:900;letter-spacing:-.02em}
-.sticky-bar .pricew .o{font-size:.78rem;color:rgba(255,255,255,.55);text-decoration:line-through}
+.sticky-bar .pricew{display:flex;flex-direction:column;line-height:1.05;flex:1}
+.sticky-bar .pricew .n{font-family:var(--serif);font-weight:700;font-size:1.2rem;color:#FAF9F6}
+.sticky-bar .pricew .o{font-size:.72rem;color:#8A837A;text-decoration:line-through;font-family:var(--sans);margin-top:2px}
 .sticky-bar .cta-mini{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:10px 16px;background:var(--violet);color:#fff;
-  border-radius:10px;font-weight:700;font-size:.78rem;
-  letter-spacing:.06em;text-transform:uppercase;
-  box-shadow:0 6px 16px -4px var(--violet-glow);
+  padding:11px 18px;background:var(--coral);color:#fff;border-radius:10px;
+  font-family:var(--sans);font-weight:600;font-size:.82rem;letter-spacing:.02em;
+  white-space:nowrap;
 }
 
-/* ===== FOOTER ===== */
-.footer{padding:36px 22px 80px;background:var(--dark);color:rgba(255,255,255,.7)}
-.footer h4{color:#fff;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:10px}
-.footer .support{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(255,255,255,.07);color:#fff;
-  padding:10px 16px;border-radius:999px;font-size:.82rem;font-weight:600;
-  margin-bottom:24px;border:1px solid rgba(255,255,255,.10);
+/* ============ ACCENT DIVIDERS ============ */
+.divider-star{
+  display:flex;align-items:center;gap:12px;justify-content:center;
+  margin:30px 0;color:var(--coral);
 }
-.footer .ent{font-size:.78rem;line-height:1.6;margin-bottom:14px}
-.footer .ent strong{color:#fff;font-weight:700}
-.footer .links{margin:18px 0;display:flex;gap:16px;flex-wrap:wrap}
-.footer .links a{color:var(--violet-light);font-size:.82rem;font-weight:600;border-bottom:1px solid rgba(232,165,133,.3)}
-.footer .disclaimer{font-size:.72rem;line-height:1.55;color:rgba(255,255,255,.4);margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)}
-.footer .disclaimer strong{color:rgba(255,255,255,.7)}
-
-/* ===== REVEAL ===== */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
-.reveal.vis{opacity:1;transform:translateY(0)}
-.reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}.reveal-d4{transition-delay:.32s}
-
+.divider-star::before,.divider-star::after{
+  content:'';flex:1;height:1px;background:var(--gray-line-2);
+}
+.divider-star svg{flex-shrink:0}
+.section.dark .divider-star::before,.section.dark .divider-star::after{background:rgba(204,120,92,.28)}
+.section.coral .divider-star::before,.section.coral .divider-star::after{background:rgba(255,255,255,.35)}
+.section.coral .divider-star svg path{fill:#FFF}
 </style>
 </head>
 <body>
 
-<div class="desktop-bg">
+<div class="desk-bg">
 <div class="phone">
 
 <!-- ============== HERO ============== -->
-<section class="hero">
-  <span class="dot-grid"></span>
-  <!-- decorative sparks & shapes -->
-  <svg class="deco spark" style="top:7%;right:14px" width="22" height="22" viewBox="0 0 22 22" fill="none">
-    <path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#CC785C" opacity=".6"/>
-  </svg>
-  <svg class="deco spark delay-2" style="top:38%;left:8px" width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#CC785C" opacity=".45"/>
-  </svg>
-  <!-- wavy underline accent -->
-  <svg class="deco drift" style="top:52%;right:-10px;opacity:.35" width="90" height="22" viewBox="0 0 90 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
-  </svg>
-  <!-- dotted cluster bottom-left -->
-  <svg class="deco wob" style="bottom:8%;left:-4px;opacity:.45" width="70" height="40" viewBox="0 0 70 40" fill="none">
-    <circle cx="6" cy="6" r="2.5" fill="#CC785C"/>
-    <circle cx="20" cy="4" r="2" fill="#CC785C" opacity=".7"/>
-    <circle cx="34" cy="10" r="2.5" fill="#CC785C" opacity=".5"/>
-    <circle cx="48" cy="6" r="2" fill="#CC785C" opacity=".75"/>
-    <circle cx="14" cy="22" r="2" fill="#CC785C" opacity=".6"/>
-    <circle cx="28" cy="28" r="2.5" fill="#CC785C" opacity=".5"/>
-    <circle cx="44" cy="22" r="2" fill="#CC785C" opacity=".7"/>
-    <circle cx="60" cy="30" r="2.5" fill="#CC785C" opacity=".55"/>
-  </svg>
-  <!-- plus sign top-right -->
-  <svg class="deco spark delay-3" style="top:30%;right:-2px;opacity:.4" width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <path d="M10 2 v16 M2 10 h16" stroke="#CC785C" stroke-width="2.4" stroke-linecap="round"/>
-  </svg>
-  <!-- small dashed ring -->
-  <svg class="deco dashed-c" style="bottom:18%;right:8px;opacity:.22" width="48" height="48">
-    <circle cx="24" cy="24" r="20" stroke="#CC785C" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
-  </svg>
-
+<section class="hero paper">
   <div class="brand-row">
-    <div class="brand"><span class="dot"></span> Ai_Sashka</div>
-    <span class="menu-pill"><span class="lvd"></span> Старт <span id="start-date">завтра</span></span>
+    <span class="brand"><span class="brand-dot"></span> Ai_Sashka</span>
+    <span class="start-pill">Старт <span id="start-date">завтра</span></span>
   </div>
 
-  <div class="hero-badge"><span class="em">Блок з «Фабрики АІ контенту»</span> · 8 уроків + скіл</div>
+  <div class="hero-badge"><b>Окремий блок</b> · з «Фабрики АІ контенту»</div>
 
-  <h1>Освой <span class="v">Claude</span> — нейромережу №1, про яку зараз говорять всі топові підприємці</h1>
+  <h1 class="h-hero">Освой <span class="accent">Claude</span> — нейромережу №1, про яку зараз говорять всі топові підприємці</h1>
 
-  <p class="hero-sub">створюй <strong>сайти без коду, презентації без дизайнера, тексти без копірайтера</strong> — та підключай Claude до сотні задач замість людей</p>
+  <p class="hero-sub">Опануй <b>Skills, Connectors, MCP</b> — три речі, що перетворюють Claude на другий мозок. Роби сайти без коду, презентації без дизайнера, тексти без копірайтера.</p>
 
-  <div class="hero-row">
-    <div class="hero-visual">
-      <span class="play-tag"><span class="lvd"></span> Claude · Sonnet</span>
-      <div class="hero-visual__logo" aria-hidden="true">
-        <svg viewBox="0 0 100 100" width="72" height="72" fill="none">
-          <path d="M50 12 L74 32 L74 68 L50 88 L26 68 L26 32 Z" stroke="currentColor" stroke-width="2.5" fill="none" opacity=".35"/>
-          <circle cx="50" cy="50" r="18" fill="currentColor" opacity=".9"/>
-          <path d="M42 50 L48 56 L60 42" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
-      </div>
-      <div class="hero-visual__stripe">
-        <span>сайти</span><span>·</span><span>презентації</span><span>·</span><span>тексти</span><span>·</span><span>аналітика</span><span>·</span><span>автопостинг</span><span>·</span><span>MCP</span><span>·</span><span>Skills</span><span>·</span><span>Connectors</span>
-      </div>
+  <!-- POSTER -->
+  <figure class="hero-poster">
+    <div class="poster-top">
+      <div class="poster-chip">Claude · Sonnet</div>
+      <div class="poster-tag">by&nbsp;Anthropic</div>
     </div>
-    <ul class="hero-feats">
-      <li><span class="ck">✓</span><span>окремий блок з «Фабрики» — без покупки всього курсу</span></li>
-      <li><span class="ck">✓</span><span>8 практичних уроків + <em style="font-style:normal;color:var(--violet);font-weight:700">авторський скіл для сайтів</em></span></li>
-      <li><span class="ck">✓</span><span>Claude + Higgsfield MCP — зв’язка, якої немає ніде</span></li>
-    </ul>
+
+    <div class="poster-logo">
+      <!-- Claude-inspired 8-point starburst -->
+      <svg width="112" height="112" viewBox="0 0 100 100" fill="none">
+        <g fill="#CC785C">
+          <path d="M50 4 L54 44 L50 50 L46 44 Z"/>
+          <path d="M96 50 L56 54 L50 50 L56 46 Z"/>
+          <path d="M50 96 L46 56 L50 50 L54 56 Z"/>
+          <path d="M4 50 L44 46 L50 50 L44 54 Z"/>
+          <path d="M82.5 17.5 L60 40 L50 50 L60 40 Z" opacity=".82"/>
+          <path d="M82.5 82.5 L60 60 L50 50 L60 60 Z" opacity=".82"/>
+          <path d="M17.5 82.5 L40 60 L50 50 L40 60 Z" opacity=".82"/>
+          <path d="M17.5 17.5 L40 40 L50 50 L40 40 Z" opacity=".82"/>
+        </g>
+        <circle cx="50" cy="50" r="6" fill="#CC785C"/>
+      </svg>
+    </div>
+
+    <div class="poster-bottom">
+      <span>Sites</span><em>·</em>
+      <span>Slides</span><em>·</em>
+      <span>Copy</span><em>·</em>
+      <span>MCP</span><em>·</em>
+      <span>Skills</span><em>·</em>
+      <span>Connectors</span>
+    </div>
+  </figure>
+
+  <ul class="hero-feats">
+    <li><span class="ck">✓</span><span>Окремий блок з «Фабрики» — <b>без покупки всього курсу</b></span></li>
+    <li><span class="ck">✓</span><span><b>8 практичних уроків</b> + авторський скіл для сайтів</span></li>
+    <li><span class="ck">✓</span><span>Claude&nbsp;+&nbsp;Higgsfield MCP — <b>звʼязка, якої немає ніде в UA</b></span></li>
+  </ul>
+
+  <div class="price-cluster">
+    <span class="price-now">490<span class="cur">грн</span></span>
+    <span class="price-old">990 грн</span>
+    <span class="price-save">−50%</span>
   </div>
 
-  <div class="price-row">
-    <span class="now">490<span class="gr">грн</span></span>
-    <span class="old">990 грн</span>
-    <span class="save">−50%</span>
-  </div>
-
-  <a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta cta-row" data-cta="hero"><span class="gift">🎁</span> Приєднатися · −50% <span class="arr">→</span></a>
+  <a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta cta-full">Приєднатися за 490 грн <span class="arr">→</span></a>
 
   <div class="timer-bar">
-    <span class="lbl">До кінця спеціальної ціни</span>
-    <span class="val js-timer" id="timer">00:10:00</span>
+    <span class="lbl">До кінця акції</span>
+    <span class="val js-timer">00:10:00</span>
   </div>
 </section>
 
-<!-- ============== BONUSES ============== -->
-<section class="section section-paper">
-  <span class="dot-grid"></span>
-  <svg class="deco dashed-c" style="top:30px;right:18px;opacity:.22" width="60" height="60">
-    <circle cx="30" cy="30" r="22" stroke="#CC785C" stroke-width="1.5" fill="none"/>
-    <circle cx="30" cy="30" r="13" stroke="#CC785C" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
-  </svg>
-  <!-- big spark left -->
-  <svg class="deco spark" style="top:8%;left:-8px;opacity:.5" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8Z" fill="#CC785C"/>
-  </svg>
-  <!-- curly bracket top-center -->
-  <svg class="deco wob" style="top:80px;left:50%;margin-left:-30px;opacity:.25" width="60" height="20" viewBox="0 0 60 20" fill="none">
-    <path d="M2 18 Q 12 2, 22 18 Q 32 2, 42 18 Q 52 2, 58 18" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
-  </svg>
-  <!-- small spark mid-right -->
-  <svg class="deco spark delay-2" style="top:48%;right:14px;opacity:.45" width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#CC785C"/>
-  </svg>
-  <!-- arrow doodle bottom-left -->
-  <svg class="deco drift" style="bottom:14%;left:-6px;opacity:.3" width="60" height="40" viewBox="0 0 60 40" fill="none">
-    <path d="M4 30 Q 18 8, 36 22 Q 48 30, 56 16" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
-    <path d="M48 10 L 56 16 L 50 24" stroke="#CC785C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  </svg>
-  <!-- plus bottom-right -->
-  <svg class="deco spark delay-3" style="bottom:6%;right:6px;opacity:.4" width="18" height="18" viewBox="0 0 18 18" fill="none">
-    <path d="M9 2 v14 M2 9 h14" stroke="#CC785C" stroke-width="2.2" stroke-linecap="round"/>
-  </svg>
-
-  <div class="reveal">
-    <div class="section-label">Бонус</div>
-    <h2 class="section-title">Купи блок <span class="highlight">до кінця таймеру</span> — і отримай авторський скіл 🎁</h2>
-    <p class="muted" style="font-size:.85rem">Скіл для створення сайтів у Claude — з ним ти запускаєш повноцінний сайт без коду за 30 хв.</p>
-  </div>
+<!-- ============== BONUSES / WHAT'S INSIDE ============== -->
+<section class="section cream">
+  <span class="eyebrow">Що всередині</span>
+  <h2 class="h-section">Скіл, MCP, автопостинг, connectors — <span class="accent">все як у справжнього</span> AI-фахівця</h2>
+  <p class="sub">Це не «просто уроки». Це готові інструменти, які працюють з коробки — включаючи авторський скіл, доступний тільки учням.</p>
 
   <div class="bonus-grid">
-    <div class="bonus-card reveal reveal-d1">
-      <span class="ic">🛠️</span>
-      <span class="tag">Бонус</span>
-      <h3>Авторський скіл «Site Builder for Claude»</h3>
-      <p>Готовий скіл, який робить з Claude повноцінного веб-розробника. Ти описуєш ідею сайту звичайними словами — Claude пише HTML, CSS, JS, підключає адаптивність, робить темну/світлу теми. За 30 хвилин у тебе готовий сайт-портфоліо, лендинг або сторінка для клієнта — без жодного рядка коду руками.</p>
-      <button class="toggle" type="button"><span class="lab">Розгорнути</span><span class="arr">▾</span></button>
+    <div class="bonus-card">
+      <div class="ic">✦</div>
+      <div class="tag">Бонус</div>
+      <h3>Авторський Skill «Site Builder for Claude»</h3>
+      <p>Готовий скіл, що робить з Claude веб-розробника. Ти описуєш ідею — Claude пише HTML/CSS/JS з адаптивністю. <b>Один сайт за 30 хвилин, без рядка коду руками.</b></p>
     </div>
-    <div class="bonus-card reveal reveal-d2">
-      <span class="ic">🔌</span>
-      <span class="tag">Всередині</span>
+    <div class="bonus-card">
+      <div class="ic">◈</div>
+      <div class="tag">Всередині</div>
       <h3>Claude + Higgsfield MCP</h3>
-      <p>Зв'язка, якої немає майже ніде в українському сегменті. Ти показуєш Claude, як генерувати AI-відео через Higgsfield одним запитом — і отримуєш кіношні ролики без ручного перемикання між сервісами. Ця фішка окупає весь блок з першого запуску.</p>
-      <button class="toggle" type="button"><span class="lab">Розгорнути</span><span class="arr">▾</span></button>
+      <p>Звʼязка, якої майже немає в українському сегменті. Пишеш промт у Claude — <b>отримуєш кіношне AI-відео</b> у Higgsfield. Без ручного перемикання між сервісами.</p>
     </div>
-    <div class="bonus-card reveal reveal-d3">
-      <span class="ic">📤</span>
-      <span class="tag">Всередині</span>
-      <h3>Автопостинг через Metricool + Claude Code</h3>
-      <p>Налаштовуєш Claude Code + Metricool — і публікація постів на 5 соцмереж одночасно робиться автоматично. Твій контент виходить, поки ти спиш. Один раз налаштував — і забув про рутину копі-паст щодня.</p>
-      <button class="toggle" type="button"><span class="lab">Розгорнути</span><span class="arr">▾</span></button>
+    <div class="bonus-card">
+      <div class="ic">↑</div>
+      <div class="tag">Всередині</div>
+      <h3>Автопостинг: Metricool + Claude Code</h3>
+      <p>Одне налаштування — <b>публікація на 5 соцмереж одночасно.</b> Твій контент виходить, поки ти спиш. Один раз зробив — і забув про рутину.</p>
     </div>
-    <div class="bonus-card reveal reveal-d4">
-      <span class="ic">🧬</span>
-      <span class="tag">Всередині</span>
+    <div class="bonus-card">
+      <div class="ic">◎</div>
+      <div class="tag">Всередині</div>
       <h3>Connectors — Claude в екосистемі</h3>
-      <p>Підключення Claude до Google Drive, Notion, GitHub, Slack та десятків сервісів. Claude бачить твої файли, читає, редагує, створює — стає повноцінним асистентом у щоденній роботі. Не просто «ще один чат», а справжній «другий мозок».</p>
-      <button class="toggle" type="button"><span class="lab">Розгорнути</span><span class="arr">▾</span></button>
+      <p>Підключення Claude до Google Drive, Notion, GitHub, Slack. <b>Claude бачить твої файли, читає, редагує, створює</b> — стає повноцінним асистентом.</p>
     </div>
   </div>
 
-  <div class="callout-box reveal" style="margin-top:22px">
-    <p>👉 Один готовий сайт-портфоліо через скіл — і <strong>490 грн окупились</strong> у перший день.</p>
-    <p style="margin-top:10px">⚡ Один налаштований автопостинг — і ти <strong>економиш 5–10 годин на тиждень</strong>.</p>
-    <p style="margin-top:10px">🧠 Claude + MCP — це <strong>рівень, який зараз має 5% ринку</strong>. Ти будеш серед них.</p>
-    <p style="margin-top:10px">Це не «ще один урок про GPT». Це <strong>окремий сильний блок з «Фабрики»</strong>, який працює як самостійний продукт.</p>
+  <div class="callout">
+    <p>Один готовий сайт-портфоліо через скіл — і <b>490 грн окупились у перший день.</b></p>
+    <p>Один налаштований автопостинг — і ти <b>економиш 5–10 годин на тиждень.</b></p>
+    <p>Claude + MCP — це <b>рівень, який зараз має 5% ринку</b>. Ти будеш серед них.</p>
   </div>
 </section>
 
-<!-- ============== GALLERY ============== -->
-<section class="section section-cream">
-  <span class="dot-grid"></span>
-  <!-- corner spark TL -->
-  <svg class="deco spark" style="top:24px;left:6px;opacity:.5" width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#CC785C"/>
-  </svg>
-  <!-- spark TR -->
-  <svg class="deco spark delay-2" style="top:14%;right:14px;opacity:.45" width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#CC785C"/>
-  </svg>
-  <!-- big dashed ring R -->
-  <svg class="deco dashed-c" style="top:26%;right:-30px;opacity:.18" width="120" height="120">
-    <circle cx="60" cy="60" r="50" stroke="#CC785C" stroke-width="1.5" fill="none"/>
-    <circle cx="60" cy="60" r="34" stroke="#CC785C" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
-  </svg>
-  <!-- wavy line under title -->
-  <svg class="deco drift" style="top:18%;left:-10px;opacity:.32" width="130" height="22" viewBox="0 0 130 22" fill="none">
-    <path d="M2 12 Q 16 2, 30 12 T 60 12 T 90 12 T 120 12" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
-  </svg>
-  <!-- plus BL -->
-  <svg class="deco spark delay-3" style="bottom:18%;left:8px;opacity:.4" width="18" height="18" viewBox="0 0 18 18" fill="none">
-    <path d="M9 2 v14 M2 9 h14" stroke="#CC785C" stroke-width="2.2" stroke-linecap="round"/>
-  </svg>
-  <!-- spark BR -->
-  <svg class="deco wob" style="bottom:8%;right:6px;opacity:.4" width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#CC785C"/>
-  </svg>
+<!-- ============== GALLERY / USE-CASES ============== -->
+<section class="section paper">
+  <span class="eyebrow">8 use-кейсів</span>
+  <h2 class="h-section">Ось, що ти <span class="u">зможеш зробити</span> з Claude після цього блоку</h2>
 
-  <div class="reveal">
-    <div class="section-label">Приклади контенту</div>
-    <h2 class="section-title">Ось що ти зможеш <span class="highlight">зробити з Claude</span> після цього блоку</h2>
-  </div>
-
-  <div class="gallery-track" id="gallery">
+  <div class="gallery-track">
     <div class="gallery-item">
       <div class="g-num">Кейс 01</div>
-      <div class="g-ico">🌐</div>
-      <div class="g-title">Сайт-портфоліо за&nbsp;30&nbsp;хвилин</div>
+      <div class="g-ico">✦</div>
+      <div class="g-title">Сайт-портфоліо за 30 хв</div>
       <p class="g-desc">Опис ідеї → готовий адаптивний сайт з темною темою. <b>Без коду.</b></p>
-      <span class="lab">Sites</span>
+      <span class="g-badge">Sites</span>
     </div>
     <div class="gallery-item">
       <div class="g-num">Кейс 02</div>
-      <div class="g-ico">📊</div>
-      <div class="g-title">Аналіз конкурентів за&nbsp;2&nbsp;хвилини</div>
-      <p class="g-desc">Скидаєш 3 сайти → отримуєш SWOT, позиціонування, слабкі місця. <b>1 запит.</b></p>
-      <span class="lab">Analysis</span>
+      <div class="g-ico">◈</div>
+      <div class="g-title">Аналіз конкурентів</div>
+      <p class="g-desc">3 сайти → SWOT, позиціонування, слабкі місця. <b>1 запит.</b></p>
+      <span class="g-badge">Analysis</span>
     </div>
     <div class="gallery-item">
       <div class="g-num">Кейс 03</div>
-      <div class="g-ico">✍️</div>
+      <div class="g-ico">◎</div>
       <div class="g-title">Продавальний лендинг-текст</div>
-      <p class="g-desc">Одна фраза про продукт → готовий текст лендингу з CTA. <b>Без копірайтера.</b></p>
-      <span class="lab">Copy</span>
+      <p class="g-desc">Одна фраза про продукт → готовий текст з CTA. <b>Без копірайтера.</b></p>
+      <span class="g-badge">Copy</span>
     </div>
     <div class="gallery-item">
       <div class="g-num">Кейс 04</div>
-      <div class="g-ico">🎬</div>
-      <div class="g-title">AI-відео через Higgsfield MCP</div>
-      <p class="g-desc">Пишеш промт у Claude → кіношне відео виходить у Higgsfield. <b>Не перемикаючись.</b></p>
-      <span class="lab">MCP</span>
+      <div class="g-ico">▷</div>
+      <div class="g-title">AI-відео через Higgsfield</div>
+      <p class="g-desc">Пишеш промт у Claude → відео у Higgsfield. <b>Не перемикаючись.</b></p>
+      <span class="g-badge">MCP</span>
     </div>
     <div class="gallery-item">
       <div class="g-num">Кейс 05</div>
-      <div class="g-ico">📤</div>
-      <div class="g-title">Автопост у&nbsp;5&nbsp;соцмереж</div>
-      <p class="g-desc">Metricool + Claude Code = пости виходять самі, поки ти спиш.</p>
-      <span class="lab">Autopost</span>
+      <div class="g-ico">↑</div>
+      <div class="g-title">Автопост у 5 соцмереж</div>
+      <p class="g-desc">Metricool + Claude Code = пости виходять, поки ти спиш.</p>
+      <span class="g-badge">Autopost</span>
     </div>
     <div class="gallery-item">
       <div class="g-num">Кейс 06</div>
-      <div class="g-ico">🧾</div>
+      <div class="g-ico">▤</div>
       <div class="g-title">Презентація 20+ слайдів</div>
-      <p class="g-desc">Тема → готова презентація зі структурою і текстами. <b>Без Canva.</b></p>
-      <span class="lab">Slides</span>
+      <p class="g-desc">Тема → готова презентація зі структурою. <b>Без Canva.</b></p>
+      <span class="g-badge">Slides</span>
     </div>
     <div class="gallery-item">
       <div class="g-num">Кейс 07</div>
-      <div class="g-ico">🔌</div>
+      <div class="g-ico">◇</div>
       <div class="g-title">Claude бачить твої файли</div>
-      <p class="g-desc">Connectors до Google Drive, Notion, GitHub — Claude читає, редагує, створює.</p>
-      <span class="lab">Connectors</span>
+      <p class="g-desc">Connectors до Drive, Notion, GitHub — читає, редагує, створює.</p>
+      <span class="g-badge">Connectors</span>
     </div>
     <div class="gallery-item">
       <div class="g-num">Кейс 08</div>
-      <div class="g-ico">⚙️</div>
+      <div class="g-ico">✧</div>
       <div class="g-title">Skills — Claude на стероїдах</div>
-      <p class="g-desc">Один клік = Claude знає промти, стиль, задачу. <b>Готовий скіл у комплекті.</b></p>
-      <span class="lab">Skills</span>
+      <p class="g-desc">Один клік = Claude знає промти, стиль, задачу. <b>Скіл у комплекті.</b></p>
+      <span class="g-badge">Skills</span>
     </div>
   </div>
   <div class="scroll-hint">← гортай →</div>
-
-  <div class="callout-box reveal" style="margin-top:8px">
-    Ти будеш робити <strong>сайти, презентації, автопостинги, аналітику, тексти</strong> — одним запитом до Claude, без жодного рядка коду.
-  </div>
 </section>
 
 <!-- ============== AUDIENCE ============== -->
-<section class="section section-paper">
-  <span class="dot-grid"></span>
-  <svg class="deco spark" style="top:30px;right:14px;opacity:.5" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#CC785C"/></svg>
-  <svg class="deco wob" style="top:18%;left:-8px;opacity:.32" width="80" height="22" viewBox="0 0 80 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 76 12" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
-  </svg>
-  <svg class="deco dashed-c" style="top:48%;right:-26px;opacity:.16" width="100" height="100">
-    <circle cx="50" cy="50" r="42" stroke="#CC785C" stroke-width="1.5" fill="none"/>
-    <circle cx="50" cy="50" r="28" stroke="#CC785C" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
-  </svg>
-  <svg class="deco spark delay-3" style="bottom:24%;left:6px;opacity:.4" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#CC785C"/></svg>
-  <svg class="deco drift" style="bottom:6%;right:10px;opacity:.4" width="22" height="22" viewBox="0 0 22 22"><path d="M11 2 v18 M2 11 h18" stroke="#CC785C" stroke-width="2.4" stroke-linecap="round"/></svg>
+<section class="section cream">
+  <span class="eyebrow">Для кого</span>
+  <h2 class="h-section">Цей блок для тебе, <span class="accent">якщо ти:</span></h2>
 
-  <div class="reveal">
-    <div class="section-label">для кого</div>
-    <h2 class="section-title">Цей курс для тебе, <span class="highlight">якщо ти:</span></h2>
-  </div>
   <div class="aud-list">
-    <div class="aud-card reveal"><span class="em">🚀</span><div><h4>Хочеш зайти в AI глибше за GPT</h4><p>всі знають ChatGPT — а Claude це нова хвиля, у якій ще мало гравців. Заходиш перший — на крок попереду ринку.</p></div></div>
-    <div class="aud-card reveal reveal-d1"><span class="em">🌐</span><div><h4>Робиш собі або клієнтам сайти</h4><p>і хочеш робити їх у 10 разів швидше, без Tilda / Webflow / програмістів. Claude пише повний код, ти лише описуєш ідею.</p></div></div>
-    <div class="aud-card reveal reveal-d2"><span class="em">📊</span><div><h4>SMM-ник, маркетолог, таргетолог</h4><p>і хочеш налаштувати автопостинг у 5 соцмереж одночасно, писати рекламні тексти за 2 хв замість 2 год, аналізувати конкурентів за один запит.</p></div></div>
-    <div class="aud-card reveal reveal-d3"><span class="em">💼</span><div><h4>Підприємець, фрилансер, консультант</h4><p>і Claude стає твоїм персональним помічником: пише тексти, робить презентації, аналізує ринок, шукає інсайти.</p></div></div>
-    <div class="aud-card reveal reveal-d4"><span class="em">🎬</span><div><h4>Уже працюєш з AI-контентом</h4><p>і хочеш підключити Claude + Higgsfield MCP для генерації кіношних відео одним запитом — фішки, яку зараз мало хто знає.</p></div></div>
-    <div class="aud-card reveal reveal-d4"><span class="em">🤖</span><div><h4>Хочеш свій AI-стартап або продукт</h4><p>Claude з Skills та Connectors дає можливість зібрати робочий MVP за 1 вечір — те, що раніше вимагало команди розробників.</p></div></div>
+    <div class="aud-card"><span class="em">◐</span>
+      <div><h4>Хочеш зайти в AI глибше за GPT</h4><p>всі знають ChatGPT — Claude це нова хвиля, у якій ще мало гравців. Заходиш перший — на крок попереду ринку.</p></div>
+    </div>
+    <div class="aud-card"><span class="em">◇</span>
+      <div><h4>Робиш собі або клієнтам сайти</h4><p>і хочеш робити їх у 10 разів швидше — без Tilda, Webflow чи програмістів. Claude пише повний код, ти лише описуєш ідею.</p></div>
+    </div>
+    <div class="aud-card"><span class="em">◈</span>
+      <div><h4>SMM-ник, маркетолог, таргетолог</h4><p>і хочеш налаштувати автопостинг у 5 соцмереж, писати рекламні тексти за 2 хв, аналізувати конкурентів за один запит.</p></div>
+    </div>
+    <div class="aud-card"><span class="em">✦</span>
+      <div><h4>Підприємець, фрилансер, консультант</h4><p>і Claude стає твоїм персональним помічником: пише тексти, робить презентації, аналізує ринок, шукає інсайти.</p></div>
+    </div>
+    <div class="aud-card"><span class="em">▷</span>
+      <div><h4>Уже працюєш з AI-контентом</h4><p>і хочеш підключити Claude + Higgsfield MCP для генерації кіношних відео — фішка, яку зараз мало хто знає.</p></div>
+    </div>
+    <div class="aud-card"><span class="em">✧</span>
+      <div><h4>Хочеш свій AI-стартап або продукт</h4><p>Claude з Skills та Connectors дає можливість зібрати робочий MVP за 1 вечір — те, що раніше вимагало команди розробників.</p></div>
+    </div>
   </div>
 </section>
 
-<!-- ============== PROBLEM ============== -->
-<section class="section section-dark">
-  <svg class="deco spark" style="top:34px;right:22px;opacity:.55" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#E8A585"/></svg>
-  <svg class="deco spark delay-2" style="top:22%;left:10px;opacity:.4" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#E8A585"/></svg>
-  <svg class="deco wob" style="top:38%;right:-10px;opacity:.3" width="90" height="22" viewBox="0 0 90 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#E8A585" stroke-width="2" stroke-linecap="round" fill="none"/>
-  </svg>
-  <svg class="deco dashed-c" style="bottom:14%;left:-30px;opacity:.16" width="100" height="100">
-    <circle cx="50" cy="50" r="42" stroke="#E8A585" stroke-width="1.5" fill="none"/>
-    <circle cx="50" cy="50" r="28" stroke="#E8A585" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
-  </svg>
-  <svg class="deco drift" style="bottom:8%;right:14px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#E8A585" stroke-width="2.4" stroke-linecap="round"/></svg>
+<!-- ============== PROBLEM / SOLVE ============== -->
+<section class="section dark">
+  <span class="eyebrow on-dark">Проблема</span>
+  <h2 class="h-section">Чому 9 з 10 не використовують <span class="accent">Claude на 100%?</span></h2>
+  <p class="sub">Якщо ти вже пробував Claude — швидше за все, стикався з цим:</p>
 
-  <div class="reveal">
-    <div class="section-label">проблема</div>
-    <h2 class="section-title">Чому 9 з 10 <br>не використовують <span class="highlight">Claude на 100%?</span></h2>
-    <p style="margin-bottom:6px">Якщо ти вже пробував Claude — швидше за все, стикався з цим:</p>
-  </div>
-
-  <ul class="bullets reveal">
-    <li><span class="b">●</span><span>відкрив, спробував, отримав відповідь як від <strong style="color:#fff">звичайного GPT</strong>, і закрив — думаючи, що «нічого особливого»</span></li>
-    <li><span class="b">●</span><span>інтерфейс англомовний, <strong style="color:#fff">Skills, Connectors, MCP</strong> — не зрозуміло, що це і як цим користуватись</span></li>
-    <li><span class="b">●</span><span>у YouTube «купа теорії», але <strong style="color:#fff">майже немає практичних відео українською</strong> — як зробити сайт, автопостинг, MCP-звʼязку</span></li>
+  <ul class="pains">
+    <li><span>Відкрив, спробував, отримав відповідь як від <b>звичайного GPT</b> — і закрив, думаючи «нічого особливого».</span></li>
+    <li><span>Інтерфейс англомовний. <b>Skills, Connectors, MCP</b> — не зрозуміло, що це і як цим користуватись.</span></li>
+    <li><span>YouTube забитий теорією, але <b>майже немає практичних відео українською</b> — як зробити сайт, автопостинг, MCP-звʼязку.</span></li>
   </ul>
 
-  <p style="font-style:italic;margin-bottom:0">В результаті більшість використовує Claude <span style="color:#fff">на 5% його можливостей</span>. І пропускає найсильніший інструмент 2026 року.</p>
+  <p style="font-family:var(--serif);font-style:italic;color:#DBD3C6">В результаті більшість використовує Claude <b style="color:#FAF9F6;font-style:normal">на 5% його можливостей</b>. І пропускає найсильніший інструмент 2026 року.</p>
 
-  <div class="solve-card reveal">
+  <div class="solve-card">
     <h3>Цей блок вирішує всі три проблеми:</h3>
-    <div class="row"><span class="em">🎯</span><p><strong>Покрокова інсталяція</strong> — від встановлення до першого сайту за 30 хвилин, все українською</p></div>
-    <div class="row"><span class="em">🎯</span><p><strong>Skills, Connectors, MCP</strong> — розбираємо все на практиці, без теорії</p></div>
-    <div class="row"><span class="em">🎯</span><p><strong>Готові фішки</strong> — авторський скіл для сайтів + звʼязка Claude + Higgsfield MCP</p></div>
+    <div class="row"><span class="ic">✦</span><span><b>Покрокова інсталяція</b> — від встановлення до першого сайту за 30 хвилин, все українською.</span></div>
+    <div class="row"><span class="ic">✦</span><span><b>Skills, Connectors, MCP</b> — розбираємо все на практиці, без теорії.</span></div>
+    <div class="row"><span class="ic">✦</span><span><b>Готові фішки</b> — авторський скіл для сайтів + звʼязка Claude&nbsp;+&nbsp;Higgsfield MCP.</span></div>
   </div>
 
-  <div class="callout-box reveal" style="margin-top:18px">
-    👉 Ти платиш не за теорію — її повно в англомовному ютубі.<br>
-    Ти отримуєш <strong>покроковий український курс</strong> з готовими скілами й лайфхаками, які <strong>працюють з коробки</strong>. Таких в відкритому доступі просто немає.
+  <div class="callout">
+    Ти платиш не за теорію — її повно в англомовному ютубі.<br>
+    Ти отримуєш <b>покроковий український курс</b> з готовими скілами й лайфхаками, які <b>працюють з коробки</b>.
   </div>
 </section>
 
 <!-- ============== MONEY ============== -->
-<section class="section section-violet">
-  <svg class="deco dashed-c" style="top:24px;right:18px;opacity:.3" width="60" height="60">
-    <circle cx="30" cy="30" r="22" stroke="#fff" stroke-width="1.5" fill="none"/>
-    <circle cx="30" cy="30" r="13" stroke="#fff" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
-  </svg>
-  <svg class="deco spark" style="top:14%;left:12px;opacity:.6" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#fff"/></svg>
-  <svg class="deco wob" style="top:50%;left:-12px;opacity:.35" width="80" height="22" viewBox="0 0 80 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 76 12" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"/>
-  </svg>
-  <svg class="deco spark delay-2" style="top:42%;right:14px;opacity:.5" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#fff"/></svg>
-  <svg class="deco drift" style="bottom:10%;left:8px;opacity:.45" width="22" height="22" viewBox="0 0 22 22"><path d="M11 2 v18 M2 11 h18" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
-  <svg class="deco spark delay-3" style="bottom:18%;right:-2px;opacity:.5" width="18" height="18" viewBox="0 0 18 18"><path d="M9 0L10.7 7.3L18 9L10.7 10.7L9 18L7.3 10.7L0 9L7.3 7.3Z" fill="#fff"/></svg>
+<section class="section coral">
+  <span class="eyebrow on-dark" style="color:#FFF7F1">Монетизація</span>
+  <h2 class="h-section">Що дає вміння володіти <span class="u">Claude</span></h2>
+  <p class="sub" style="color:rgba(255,247,241,.9)">Людина, яка знає Claude на топ-рівні:</p>
 
-  <div class="reveal">
-    <div class="section-label">монетизація</div>
-    <h2 class="section-title">Що дає вміння <br>володіти <span style="border-bottom:3px solid #fff">Claude?</span></h2>
-    <p>Людина, яка знає Claude на топ-рівні:</p>
+  <div class="money-grid">
+    <div class="item"><span class="em">✦</span><div class="t">Робить сайти</div><div class="d">без коду за 30 хвилин</div></div>
+    <div class="item"><span class="em">◈</span><div class="t">Аналізує ринок</div><div class="d">без маркетологів, за один запит</div></div>
+    <div class="item"><span class="em">◐</span><div class="t">Пише тексти</div><div class="d">рекламу, продажники, презентації</div></div>
+    <div class="item"><span class="em">↑</span><div class="t">Автоматизує</div><div class="d">рутину через MCP та Connectors</div></div>
   </div>
 
-  <div class="money-grid reveal">
-    <div class="item"><span class="em">🌐</span><div class="t">Робить сайти</div><div class="d">без коду за 30 хвилин</div></div>
-    <div class="item"><span class="em">📊</span><div class="t">Аналізує ринок</div><div class="d">без маркетологів, за один запит</div></div>
-    <div class="item"><span class="em">✍️</span><div class="t">Пише тексти</div><div class="d">рекламу, продавці, презентації</div></div>
-    <div class="item"><span class="em">🤖</span><div class="t">Автоматизує</div><div class="d">рутину через MCP і Connectors</div></div>
+  <p style="margin-top:22px;font-family:var(--serif);font-style:italic;font-size:1.05rem;color:#FFF">І за це платять:</p>
+
+  <div class="money-table">
+    <div class="row"><span class="svc">Односторінковий сайт-лендинг</span><span class="pr">від $200</span></div>
+    <div class="row"><span class="svc">Портфоліо-сайт (multipage)</span><span class="pr">від $400</span></div>
+    <div class="row"><span class="svc">Автопостинг у 5 соцмереж під ключ</span><span class="pr">$150/міс</span></div>
+    <div class="row"><span class="svc">Презентація на 20+ слайдів</span><span class="pr">$80</span></div>
+    <div class="row"><span class="svc">Маркетинговий текст-звʼязка</span><span class="pr">від $50</span></div>
   </div>
 
-  <p class="reveal" style="margin-top:22px;color:#fff;font-weight:600">І за це платять:</p>
-
-  <div class="money-table reveal">
-    <div class="row"><span class="svc">Односторінковий сайт-лендинг</span><span class="pr">від 200$</span></div>
-    <div class="row"><span class="svc">Портфоліо-сайт (multipage)</span><span class="pr">від 400$</span></div>
-    <div class="row"><span class="svc">Автопостинг у 5 соцмереж під ключ</span><span class="pr">150$/міс</span></div>
-    <div class="row"><span class="svc">Презентація на 20+ слайдів</span><span class="pr">80$</span></div>
-    <div class="row"><span class="svc">Маркетинговий текст-звязка</span><span class="pr">від 50$</span></div>
-  </div>
-
-  <p class="reveal" style="margin-top:18px;color:#fff;font-weight:500">👉 Платять, бо ти замінюєш собою <strong style="color:#fff;text-decoration:underline">програміста, дизайнера, копірайтера, маркетолога</strong> — в одному вікні.</p>
+  <p style="margin-top:20px;font-size:.95rem;color:#FFF7F1">Платять, бо ти замінюєш собою <b style="color:#FFF;border-bottom:1px solid #FFF">програміста, дизайнера, копірайтера, маркетолога</b> — в одному вікні.</p>
 </section>
 
 <!-- ============== PROGRAM ============== -->
-<section class="section section-cream">
-  <span class="dot-grid"></span>
-  <svg class="deco spark" style="top:50px;left:14px;opacity:.5" width="18" height="18" viewBox="0 0 18 18"><path d="M9 0L10.7 7.3L18 9L10.7 10.7L9 18L7.3 10.7L0 9L7.3 7.3Z" fill="#CC785C"/></svg>
-  <svg class="deco spark delay-2" style="top:30px;right:18px;opacity:.45" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#CC785C"/></svg>
-  <svg class="deco wob" style="top:14%;right:-10px;opacity:.3" width="80" height="22" viewBox="0 0 80 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 76 12" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
-  </svg>
-  <svg class="deco dashed-c" style="top:30%;left:-30px;opacity:.16" width="100" height="100">
-    <circle cx="50" cy="50" r="42" stroke="#CC785C" stroke-width="1.5" fill="none"/>
-    <circle cx="50" cy="50" r="28" stroke="#CC785C" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
-  </svg>
-  <svg class="deco drift" style="bottom:24%;right:6px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#CC785C" stroke-width="2.4" stroke-linecap="round"/></svg>
-  <svg class="deco spark delay-3" style="bottom:12%;left:8px;opacity:.4" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#CC785C"/></svg>
-
-  <div class="reveal">
-    <div class="section-label">Програма блоку</div>
-    <h2 class="section-title">8 уроків + скіл — <span class="highlight">від нуля до реальної роботи з Claude</span></h2>
-    <p class="muted">8 практичних уроків · авторський скіл для сайтів · доступ назавжди</p>
-  </div>
+<section class="section paper">
+  <span class="eyebrow">Програма блоку</span>
+  <h2 class="h-section">8 уроків + скіл — <span class="accent">від нуля до реальної роботи</span> з Claude</h2>
+  <p class="sub muted" style="font-size:.85rem">8 практичних уроків · авторський скіл для сайтів · доступ назавжди</p>
 
   <div class="lessons">
-    <details class="lesson reveal">
+
+    <details class="lesson">
       <summary>
-        <div class="lesson-thumb"><span class="lesson-num">0</span></div>
-        <div class="lesson-title">
-          <div class="ttl">Урок №0</div>
+        <span class="lesson-num">0</span>
+        <div class="lesson-head">
+          <div class="ttl">Урок 0</div>
           <h3>Як встановити Claude на ПК + знайомство з нейромережею</h3>
-          <span class="lesson-toggle"><span class="lab">Що в уроці</span><span class="arr">▾</span></span>
         </div>
+        <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
           <li>покрокова інсталяція Claude на ПК — Windows, macOS</li>
           <li>реєстрація акаунту без гемору, українською інструкцією</li>
           <li>перший огляд: що вміє, чим кращий за GPT, куди тиснути</li>
-          <li>як писати запити, щоб Claude давав <b>топ-результат</b>, а не «як в GPT»</li>
+          <li>як писати запити, щоб Claude давав <b>топ-результат</b></li>
         </ul>
         <div class="res">
-          <div class="res-row"><span class="rem">🎯</span><span><b>Результат:</b> Claude встановлений і працює на твоєму ПК за 10 хвилин.</span></div>
-          <div class="res-row"><span class="rem">⚡</span><span><b>Навичка:</b> знаєш, як звертатись до Claude і про що взагалі можна питати.</span></div>
+          <div class="r"><b>Результат:</b>&nbsp;Claude встановлений і працює на твоєму ПК за 10 хвилин.</div>
+          <div class="r"><b>Навичка:</b>&nbsp;знаєш, як звертатись до Claude і про що взагалі можна питати.</div>
         </div>
       </div>
     </details>
 
-    <details class="lesson lesson-wide reveal">
+    <details class="lesson">
       <summary>
-        <div class="lesson-thumb"><span class="lesson-num">1</span></div>
-        <div class="lesson-title">
-          <div class="ttl">Урок №1</div>
-          <h3>Інтерфейс Claude + скіл для якісних результатів</h3>
-          <span class="lesson-toggle"><span class="lab">Що в уроці</span><span class="arr">▾</span></span>
+        <span class="lesson-num">1</span>
+        <div class="lesson-head">
+          <div class="ttl">Урок 1</div>
+          <h3>Інтерфейс Claude + авторський скіл для якісних результатів</h3>
         </div>
+        <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
-          <li>розбір всіх кнопок і панелей — жодного «а що це?»</li>
+          <li>розбір усіх кнопок і панелей — жодного «а що це?»</li>
           <li>Projects, Artifacts, чат-історія — як з ними працювати</li>
           <li>як завантажувати файли, скріншоти, документи</li>
           <li>авторський <b>скіл для Claude</b> — щоб він одразу видавав відповіді на 10/10</li>
         </ul>
         <div class="res">
-          <div class="res-row"><span class="rem">🎯</span><span><b>Результат:</b> ти вільно орієнтуєшся в Claude, як у своєму робочому чаті.</span></div>
-          <div class="res-row"><span class="rem">⚡</span><span><b>Навичка:</b> отримуєш глибокі та точні відповіді з першого запиту.</span></div>
+          <div class="r"><b>Результат:</b>&nbsp;ти вільно орієнтуєшся в Claude, як у своєму робочому чаті.</div>
+          <div class="r"><b>Навичка:</b>&nbsp;отримуєш глибокі та точні відповіді з першого запиту.</div>
         </div>
       </div>
     </details>
 
-    <details class="lesson reveal">
+    <details class="lesson">
       <summary>
-        <div class="lesson-thumb"><span class="lesson-num">2</span></div>
-        <div class="lesson-title">
-          <div class="ttl">Урок №2</div>
+        <span class="lesson-num">2</span>
+        <div class="lesson-head">
+          <div class="ttl">Урок 2</div>
           <h3>Як встановити Skill в Claude</h3>
-          <span class="lesson-toggle"><span class="lab">Що в уроці</span><span class="arr">▾</span></span>
         </div>
+        <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
@@ -1242,66 +916,66 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
           <li>де знаходити ще скіли і як їх додавати</li>
         </ul>
         <div class="res">
-          <div class="res-row"><span class="rem">🎯</span><span><b>Результат:</b> у тебе працює перший скіл — а це ключ до «прокачаного» Claude.</span></div>
-          <div class="res-row"><span class="rem">⚡</span><span><b>Навичка:</b> вмієш ставити будь-який скіл під будь-яку задачу.</span></div>
+          <div class="r"><b>Результат:</b>&nbsp;у тебе працює перший скіл — а це ключ до «прокачаного» Claude.</div>
+          <div class="r"><b>Навичка:</b>&nbsp;вмієш ставити будь-який скіл під будь-яку задачу.</div>
         </div>
       </div>
     </details>
 
-    <details class="lesson reveal">
+    <details class="lesson">
       <summary>
-        <div class="lesson-thumb"><span class="lesson-num">3</span></div>
-        <div class="lesson-title">
-          <div class="ttl">Урок №3</div>
+        <span class="lesson-num">3</span>
+        <div class="lesson-head">
+          <div class="ttl">Урок 3</div>
           <h3>Connectors — як користуватись підключеннями</h3>
-          <span class="lesson-toggle"><span class="lab">Що в уроці</span><span class="arr">▾</span></span>
         </div>
+        <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
-          <li>підключаємо Claude до Google Drive, Notion, GitHub, Gmail та інших сервісів</li>
+          <li>підключаємо Claude до Google Drive, Notion, GitHub, Gmail</li>
           <li>як зробити, щоб Claude сам читав твої файли і документи</li>
-          <li>приклади: аналіз таблиць, редагування Notion-нотатки, робота з кодом</li>
-          <li>лайфхаки, як не спалити зайві ліміти на підключеннях</li>
+          <li>приклади: аналіз таблиць, редагування Notion, робота з кодом</li>
+          <li>лайфхаки, як не спалити зайві ліміти</li>
         </ul>
         <div class="res">
-          <div class="res-row"><span class="rem">🎯</span><span><b>Результат:</b> Claude стає інтегрованим у твою робочу екосистему.</span></div>
-          <div class="res-row"><span class="rem">⚡</span><span><b>Навичка:</b> один запит = дія одразу в потрібному сервісі.</span></div>
+          <div class="r"><b>Результат:</b>&nbsp;Claude стає інтегрованим у твою робочу екосистему.</div>
+          <div class="r"><b>Навичка:</b>&nbsp;один запит = дія одразу в потрібному сервісі.</div>
         </div>
       </div>
     </details>
 
-    <details class="lesson reveal">
+    <details class="lesson">
       <summary>
-        <div class="lesson-thumb"><span class="lesson-num">4</span></div>
-        <div class="lesson-title">
-          <div class="ttl">Урок №4</div>
+        <span class="lesson-num">4</span>
+        <div class="lesson-head">
+          <div class="ttl">Урок 4</div>
           <h3>Claude + Higgsfield MCP — генеруємо AI-відео з чату</h3>
-          <span class="lesson-toggle"><span class="lab">Що в уроці</span><span class="arr">▾</span></span>
         </div>
+        <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
           <li>що таке MCP і чому це майбутнє AI-інструментів</li>
           <li>покрокова інсталяція Higgsfield MCP на Claude</li>
-          <li>генерація кіношних AI-відео <b>прямо з чату Claude</b> — без перемикання вкладок</li>
+          <li>генерація кіношних AI-відео <b>прямо з чату Claude</b></li>
           <li>лайфхак, який знає ~5% користувачів Claude у всьому світі</li>
         </ul>
         <div class="res">
-          <div class="res-row"><span class="rem">🎯</span><span><b>Результат:</b> Claude робить AI-відео за твоїм текстовим описом.</span></div>
-          <div class="res-row"><span class="rem">⚡</span><span><b>Навичка:</b> знаєш зв'язку, якою похвалитись перед топовими AI-фахівцями.</span></div>
+          <div class="r"><b>Результат:</b>&nbsp;Claude робить AI-відео за твоїм текстовим описом.</div>
+          <div class="r"><b>Навичка:</b>&nbsp;знаєш звʼязку, якою похвалитись перед топовими AI-фахівцями.</div>
         </div>
       </div>
     </details>
 
-    <details class="lesson reveal">
+    <details class="lesson">
       <summary>
-        <div class="lesson-thumb"><span class="lesson-num">5</span></div>
-        <div class="lesson-title">
-          <div class="ttl">Урок №5</div>
+        <span class="lesson-num">5</span>
+        <div class="lesson-head">
+          <div class="ttl">Урок 5</div>
           <h3>Як зробити свій сайт-портфоліо через Claude</h3>
-          <span class="lesson-toggle"><span class="lab">Що в уроці</span><span class="arr">▾</span></span>
         </div>
+        <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
@@ -1309,48 +983,47 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
           <li>крок за кроком: від ідеї сайту → до готового посилання</li>
           <li>адаптивність, темна/світла тема, анімації — все через Claude</li>
           <li>як залити сайт на Vercel безкоштовно за 5 хвилин</li>
-          <li>приклад: портфоліо-сайт за 30 хвилин без жодного рядка коду</li>
         </ul>
         <div class="res">
-          <div class="res-row"><span class="rem">🎯</span><span><b>Результат:</b> у тебе є свій робочий сайт-портфоліо у прод-версії.</span></div>
-          <div class="res-row"><span class="rem">⚡</span><span><b>Навичка:</b> робиш повноцінні сайти без знань коду.</span></div>
-          <div class="res-row"><span class="rem">💰</span><span><b>Можливість:</b> клієнтські сайти-лендинги від 200$ за штуку.</span></div>
+          <div class="r"><b>Результат:</b>&nbsp;у тебе є свій робочий сайт-портфоліо у прод-версії.</div>
+          <div class="r"><b>Навичка:</b>&nbsp;робиш повноцінні сайти без знань коду.</div>
+          <div class="r"><b>Можливість:</b>&nbsp;клієнтські сайти-лендинги від $200 за штуку.</div>
         </div>
       </div>
     </details>
 
-    <details class="lesson reveal">
+    <details class="lesson">
       <summary>
-        <div class="lesson-thumb"><span class="lesson-num">6</span></div>
-        <div class="lesson-title">
-          <div class="ttl">Урок №6</div>
+        <span class="lesson-num">6</span>
+        <div class="lesson-head">
+          <div class="ttl">Урок 6</div>
           <h3>Автопостинг у соцмережі: Metricool + Claude Code</h3>
-          <span class="lesson-toggle"><span class="lab">Що в уроці</span><span class="arr">▾</span></span>
         </div>
+        <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
           <li>налаштування Metricool + звʼязка з Claude Code</li>
-          <li>як публікувати в Instagram, Facebook, TikTok, X, LinkedIn — одночасно</li>
+          <li>публікація в Instagram, Facebook, TikTok, X, LinkedIn — одночасно</li>
           <li>Claude сам пише пости, підбирає теги, розписує розклад</li>
           <li>приклад робочого автопостингу для бренду з 0 до 30 постів у місяць</li>
         </ul>
         <div class="res">
-          <div class="res-row"><span class="rem">🎯</span><span><b>Результат:</b> твої соцмережі публікуються самі, без ручної роботи.</span></div>
-          <div class="res-row"><span class="rem">⚡</span><span><b>Навичка:</b> економиш 5–10 годин на тиждень.</span></div>
-          <div class="res-row"><span class="rem">💰</span><span><b>Можливість:</b> послуга «SMM під ключ через AI» — 150$/міс з клієнта.</span></div>
+          <div class="r"><b>Результат:</b>&nbsp;твої соцмережі публікуються самі, без ручної роботи.</div>
+          <div class="r"><b>Навичка:</b>&nbsp;економиш 5–10 годин на тиждень.</div>
+          <div class="r"><b>Можливість:</b>&nbsp;послуга «SMM під ключ через AI» — $150/міс з клієнта.</div>
         </div>
       </div>
     </details>
 
-    <details class="lesson reveal">
+    <details class="lesson">
       <summary>
-        <div class="lesson-thumb"><span class="lesson-num">🎁</span></div>
-        <div class="lesson-title">
-          <div class="ttl">Бонус</div>
+        <span class="lesson-num">✦</span>
+        <div class="lesson-head">
+          <div class="ttl">Бонус · скіл</div>
           <h3>Авторський Skill для створення сайтів у Claude</h3>
-          <span class="lesson-toggle"><span class="lab">Що всередині</span><span class="arr">▾</span></span>
         </div>
+        <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
@@ -1360,213 +1033,140 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
           <li>тільки для учнів цього блоку — у відкритому доступі немає</li>
         </ul>
         <div class="res">
-          <div class="res-row"><span class="rem">🎯</span><span><b>Результат:</b> ти маєш скіл, який в один клік перетворює Claude на веб-девелопера.</span></div>
-          <div class="res-row"><span class="rem">💰</span><span><b>Можливість:</b> один сайт по скілу вже окупив весь блок.</span></div>
+          <div class="r"><b>Результат:</b>&nbsp;ти маєш скіл, який в один клік перетворює Claude на веб-девелопера.</div>
+          <div class="r"><b>Можливість:</b>&nbsp;один сайт по скілу вже окупив весь блок.</div>
         </div>
       </div>
     </details>
-  </div>
 
-  <div style="margin-top:22px"><a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta" data-cta="program">Приєднатися за 490 грн <span class="arr">→</span></a></div>
+  </div>
 </section>
 
 <!-- ============== HOW IT WORKS ============== -->
-<section class="section section-cream">
-  <span class="dot-grid"></span>
-  <svg class="deco spark" style="top:30px;left:12px;opacity:.5" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#CC785C"/></svg>
-  <svg class="deco spark delay-2" style="top:8%;right:18px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#CC785C"/></svg>
-  <svg class="deco dashed-c" style="top:34%;right:-26px;opacity:.16" width="100" height="100">
-    <circle cx="50" cy="50" r="42" stroke="#CC785C" stroke-width="1.5" fill="none"/>
-    <circle cx="50" cy="50" r="28" stroke="#CC785C" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
-  </svg>
-  <svg class="deco wob" style="top:60%;left:-10px;opacity:.32" width="90" height="22" viewBox="0 0 90 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
-  </svg>
-  <svg class="deco drift" style="bottom:14%;right:8px;opacity:.4" width="22" height="22" viewBox="0 0 22 22"><path d="M11 2 v18 M2 11 h18" stroke="#CC785C" stroke-width="2.4" stroke-linecap="round"/></svg>
-
-  <div class="reveal">
-    <div class="section-label">Формат</div>
-    <h2 class="section-title">Як проходить <span class="highlight">навчання</span></h2>
-  </div>
+<section class="section cream">
+  <span class="eyebrow">Формат</span>
+  <h2 class="h-section">Як проходить <span class="accent">навчання</span></h2>
 
   <div class="how-grid">
-    <div class="how-card reveal"><span class="em">📱</span><div><h4>Доступ до уроків у Telegram-боті</h4><p>Дивишся уроки коли зручно, одразу застосовуєш на практиці.</p></div></div>
-    <div class="how-card reveal reveal-d1"><span class="em">📋</span><div><h4>Покрокові інструкції українською</h4><p>Що натиснути, куди тиснути, який запит скопіювати — навіть якщо вперше відкриваєш Claude.</p></div></div>
-    <div class="how-card reveal reveal-d2"><span class="em">🛠️</span><div><h4>Готовий скіл для сайтів</h4><p>Замість того щоб копирати Claude місяцями — ти одразу отримуєш робочий скіл для сайтів.</p></div></div>
-    <div class="how-card reveal reveal-d3"><span class="em">💬</span><div><h4>Чат-підтримка з автором</h4><p>Ставиш будь-яке питання — отримуєш розбір. Без пошуку відповідей у ютубі англійською.</p></div></div>
+    <div class="how-card"><span class="em">◇</span>
+      <div><h4>Доступ у Telegram-боті</h4><p>Дивишся уроки коли зручно, одразу застосовуєш на практиці.</p></div>
+    </div>
+    <div class="how-card"><span class="em">✦</span>
+      <div><h4>Покрокові інструкції українською</h4><p>Що натиснути, куди тиснути, який запит скопіювати — навіть якщо вперше відкриваєш Claude.</p></div>
+    </div>
+    <div class="how-card"><span class="em">◈</span>
+      <div><h4>Готовий скіл для сайтів</h4><p>Замість того щоб копирати Claude місяцями — одразу отримуєш робочий скіл.</p></div>
+    </div>
+    <div class="how-card"><span class="em">◐</span>
+      <div><h4>Чат-підтримка з автором</h4><p>Ставиш будь-яке питання — отримуєш розбір. Без пошуку відповідей у ютубі англійською.</p></div>
+    </div>
   </div>
 
-  <h3 class="reveal" style="margin-top:24px;font-size:1.15rem">За 8 коротких уроків ти:</h3>
-  <ul class="bullets reveal" style="margin-top:12px">
-    <li><span class="b">✓</span><span>встановиш Claude і навчишся писати запити для топ-результату</span></li>
-    <li><span class="b">✓</span><span>розберешся зі Skills, Connectors і MCP — трьома супер-фішками Claude</span></li>
-    <li><span class="b">✓</span><span>підключиш Claude + Higgsfield MCP і будеш генерувати відео з чату</span></li>
-    <li><span class="b">✓</span><span>зробиш свій перший сайт-портфоліо за 30 хвилин</span></li>
-    <li><span class="b">✓</span><span>налаштуєш автопостинг у 5 соцмереж через Claude Code + Metricool</span></li>
+  <h3 style="font-family:var(--serif);font-weight:600;font-size:1.2rem;margin-top:28px">За 8 коротких уроків ти:</h3>
+  <ul class="summary-list">
+    <li>встановиш Claude і навчишся писати запити для топ-результату</li>
+    <li>розберешся зі Skills, Connectors і MCP — трьома супер-фішками Claude</li>
+    <li>підключиш Claude + Higgsfield MCP і будеш генерувати відео з чату</li>
+    <li>зробиш свій перший сайт-портфоліо за 30 хвилин</li>
+    <li>налаштуєш автопостинг у 5 соцмереж через Claude Code + Metricool</li>
   </ul>
 
-  <div class="callout-box reveal" style="margin-top:18px">
-    Кожен урок = <strong>практична дія</strong>. Не «подивився і забув», а «зробив і використовуєш».
+  <div class="callout">
+    Кожен урок = <b>практична дія</b>. Не «подивився і забув», а «зробив і використовуєш».
   </div>
-
-  <div style="margin-top:22px"><a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta" data-cta="how">Приєднатися за 490 грн <span class="arr">→</span></a></div>
 </section>
 
-<!-- ============== UTP / ASSISTANTS ============== -->
-<section class="section section-dark">
-  <svg class="deco spark" style="top:24px;right:14px;opacity:.55" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#E8A585"/></svg>
-  <svg class="deco spark delay-2" style="top:24%;left:8px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#E8A585"/></svg>
-  <svg class="deco wob" style="top:42%;right:-10px;opacity:.3" width="90" height="22" viewBox="0 0 90 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#E8A585" stroke-width="2" stroke-linecap="round" fill="none"/>
-  </svg>
-  <svg class="deco dashed-c" style="bottom:18%;left:-30px;opacity:.16" width="100" height="100">
-    <circle cx="50" cy="50" r="42" stroke="#E8A585" stroke-width="1.5" fill="none"/>
-    <circle cx="50" cy="50" r="28" stroke="#E8A585" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
-  </svg>
-  <svg class="deco drift" style="bottom:8%;right:10px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#E8A585" stroke-width="2.4" stroke-linecap="round"/></svg>
+<!-- ============== UTP / DIFFERENTIATORS ============== -->
+<section class="section dark">
+  <span class="eyebrow on-dark">Унікальність</span>
+  <h2 class="h-section">Що робить цей блок <span class="accent">унікальним</span></h2>
+  <p class="sub">Всі 8 уроків збудовані так, щоб ти не просто «подивився», а зайшов з відкритим Claude і зробив крок за кроком. Практика замість теорії.</p>
 
-  <div class="reveal">
-    <h2 class="section-title">Що робить цей блок <span class="highlight" style="color:#fff">унікальним</span></h2>
-    <p>Всі 8 уроків збудовані так, щоб ти <strong style="color:#fff">не просто «подивився»</strong>, а зайшов з відкритим Claude і зробив крок за кроком у реальному часі. Практика замість теорії.</p>
-  </div>
-
-  <h3 class="reveal" style="margin-top:22px;font-size:1.1rem;color:#fff">Чому це важливо?</h3>
-  <p class="reveal" style="margin-top:8px">Тому що більшість відео про Claude — це англомовна теорія «а ось у нього є Skills, а ось MCP». Але <strong style="color:#fff">жоден урок не показує «як це поставити тобі на ПК і використати завтра»</strong>.</p>
-  <p class="reveal" style="margin-top:6px">Цей блок — інший. У ньому 4 конкретні відмінності:</p>
+  <p style="margin-top:14px;font-size:.95rem;color:#DBD3C6;line-height:1.6">
+    Більшість відео про Claude — англомовна теорія «а ось у нього є Skills, а ось MCP». Але <b style="color:#FAF9F6">жоден урок не показує «як це поставити тобі на ПК і використати завтра»</b>. Цей блок — інший.
+  </p>
 
   <div class="utp-grid">
-    <div class="utp-card reveal"><span class="em">🇺🇦</span><div class="t"><b>Українська мова</b><span>жодного англомовного скріншоту без пояснення</span></div></div>
-    <div class="utp-card reveal reveal-d1"><span class="em">🛠️</span><div class="t"><b>Готовий скіл</b><span>для сайтів — просто активуй і працюй</span></div></div>
-    <div class="utp-card reveal reveal-d2"><span class="em">🔌</span><div class="t"><b>Claude + Higgsfield MCP</b><span>звʼязка, яку зараз показую вперше в UA-сегменті</span></div></div>
-    <div class="utp-card reveal reveal-d3"><span class="em">🚀</span><div class="t"><b>Metricool + Claude Code</b><span>автопостинг у 5 соцмереж під ключ</span></div></div>
+    <div class="utp-card"><span class="em">✦</span><div><b>Українська мова</b><span>жодного англомовного скріншоту без пояснення</span></div></div>
+    <div class="utp-card"><span class="em">◈</span><div><b>Готовий скіл для сайтів</b><span>активуй і одразу працюй</span></div></div>
+    <div class="utp-card"><span class="em">▷</span><div><b>Claude + Higgsfield MCP</b><span>звʼязка, яку показую вперше в UA-сегменті</span></div></div>
+    <div class="utp-card"><span class="em">↑</span><div><b>Metricool + Claude Code</b><span>автопостинг у 5 соцмереж під ключ</span></div></div>
   </div>
 
-  <div class="callout-box reveal" style="margin-top:22px;color:var(--dark)">
-    👉 Разом цей блок дає тобі <strong>3 робочих інструменти монетизації</strong>: клієнтські сайти, SMM під ключ через AI, послуга «Claude-інсталяція під ключ».<br>
-    Одна послуга з клієнта окупить блок вже в перший тиждень.
+  <div class="callout">
+    Разом цей блок дає тобі <b>3 робочі інструменти монетизації</b>: клієнтські сайти, SMM під ключ через AI, послуга «Claude-інсталяція під ключ». Одна послуга з клієнта — і блок окупився в перший тиждень.
   </div>
 </section>
 
 <!-- ============== GUARANTEE ============== -->
-<section class="section section-paper">
-  <span class="dot-grid"></span>
-  <svg class="deco spark" style="top:24px;right:18px;opacity:.5" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#CC785C"/></svg>
-  <svg class="deco wob" style="top:18%;left:-10px;opacity:.32" width="90" height="22" viewBox="0 0 90 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
-  </svg>
-  <svg class="deco dashed-c" style="bottom:16%;right:-20px;opacity:.16" width="80" height="80">
-    <circle cx="40" cy="40" r="32" stroke="#CC785C" stroke-width="1.5" fill="none"/>
-    <circle cx="40" cy="40" r="20" stroke="#CC785C" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
-  </svg>
-  <svg class="deco drift" style="bottom:10%;left:6px;opacity:.4" width="18" height="18" viewBox="0 0 18 18"><path d="M9 2 v14 M2 9 h14" stroke="#CC785C" stroke-width="2.2" stroke-linecap="round"/></svg>
-  <svg class="deco spark delay-3" style="top:40%;left:6px;opacity:.4" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#CC785C"/></svg>
+<section class="section cream">
+  <span class="eyebrow">Гарантія</span>
+  <h2 class="h-section">14 днів на <span class="u">повернення коштів</span></h2>
 
-  <div class="reveal">
-    <div class="section-label">Гарантія</div>
-    <h2 class="section-title">14 днів на <span class="highlight">повернення коштів</span></h2>
-  </div>
-
-  <div class="guarantee reveal">
-    <div class="shield">🛡️</div>
-    <h3>14 днів повернення коштів</h3>
-    <p>Я впевнений у цінності цього блоку, тому даю <strong style="color:var(--violet)">14 днів повної гарантії</strong>.</p>
-    <p>Якщо протягом двох тижнів ти пройдеш уроки, встановиш Claude, активуєш скіл, спробуєш зробити свій сайт — але не побачиш цінності — я <strong>без жодних питань поверну кошти</strong>.</p>
+  <div class="guarantee">
+    <div class="shield">◈</div>
+    <h3>14 днів повної гарантії</h3>
+    <p>Я впевнений у цінності цього блоку, тому даю <b>14 днів повної гарантії</b>.</p>
+    <p>Якщо протягом двох тижнів ти пройдеш уроки, встановиш Claude, активуєш скіл, спробуєш зробити свій сайт — і не побачиш цінності — я <b>без жодних питань поверну кошти</b>.</p>
     <div class="quote">Жодних ризиків. Або ти освоюєш Claude — або я повертаю гроші.</div>
   </div>
 </section>
 
 <!-- ============== AUTHOR ============== -->
-<section class="section section-dark">
-  <svg class="deco spark" style="top:24px;left:14px;opacity:.55" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#E8A585"/></svg>
-  <svg class="deco spark delay-2" style="top:16%;right:14px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#E8A585"/></svg>
-  <svg class="deco dashed-c" style="top:38%;right:-30px;opacity:.16" width="100" height="100">
-    <circle cx="50" cy="50" r="42" stroke="#E8A585" stroke-width="1.5" fill="none"/>
-    <circle cx="50" cy="50" r="28" stroke="#E8A585" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
-  </svg>
-  <svg class="deco wob" style="bottom:18%;left:-10px;opacity:.3" width="90" height="22" viewBox="0 0 90 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#E8A585" stroke-width="2" stroke-linecap="round" fill="none"/>
-  </svg>
-  <svg class="deco drift" style="bottom:8%;right:8px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#E8A585" stroke-width="2.4" stroke-linecap="round"/></svg>
+<section class="section dark">
+  <span class="eyebrow on-dark">Автор</span>
+  <h2 class="h-section">Олександр <span class="accent">Цюцьмаць</span></h2>
 
-  <div class="reveal">
-    <div class="section-label">автор</div>
-    <h2 class="section-title">Олександр <span class="highlight" style="color:#fff">Цюцьмаць</span></h2>
-  </div>
-
-  <div class="author-card reveal">
-    <div class="author-photo"><picture><source srcset="author.avif" type="image/avif"><img src="author.jpg" alt="Олександр Цюцьмаць" loading="lazy" decoding="async"></picture></div>
-    <h3>Олександр Цюцьмаць</h3>
-    <ul class="author-list">
-      <li><span>Вивчаю АІ-інструменти <strong>кожен день з 2024 року</strong></span></li>
-      <li><span><strong>Власник агенції</strong> зі створення АІ-контенту під ключ</span></li>
-      <li><span><strong>3 918+ учнів</strong> уже пройшли мої навчальні програми</span></li>
-      <li><span>Створив десятки авторських AI-асистентів, якими користуються мої клієнти та учні</span></li>
-      <li><span>Я вірю, що AI — це <strong>не про «магію кнопки»</strong>, а про системний підхід і авторські інструменти</span></li>
-    </ul>
+  <div class="author-block">
+    <div class="author-photo">
+      <picture>
+        <source srcset="author.avif" type="image/avif">
+        <img src="author.jpg" alt="Олександр Цюцьмаць">
+      </picture>
+    </div>
+    <div>
+      <p><b>Автор навчальних програм з AI</b> для 4200+ учнів. Створюю системні продукти, які працюють у реальному житті — а не «а ось як цим користуватись» без результату.</p>
+      <p>Вивчаю Claude з самого запуску. Побудував авторський скіл, який використовую щодня у своїй роботі, і тепер ділюсь ним з учнями цього блоку.</p>
+    </div>
+    <div class="author-facts">
+      <div class="author-fact"><b>4 200+</b><span>учнів</span></div>
+      <div class="author-fact"><b>15</b><span>блоків</span></div>
+      <div class="author-fact"><b>3 роки</b><span>в AI</span></div>
+    </div>
   </div>
 </section>
 
-<!-- ============== FULL LIST + PRICE ============== -->
-<section class="section section-violet">
-  <svg class="deco spark" style="top:24px;right:14px;opacity:.6" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#fff"/></svg>
-  <svg class="deco spark delay-2" style="top:14%;left:10px;opacity:.5" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#fff"/></svg>
-  <svg class="deco dashed-c" style="top:38%;left:-26px;opacity:.22" width="90" height="90">
-    <circle cx="45" cy="45" r="38" stroke="#fff" stroke-width="1.5" fill="none"/>
-    <circle cx="45" cy="45" r="24" stroke="#fff" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
-  </svg>
-  <svg class="deco wob" style="top:60%;right:-10px;opacity:.35" width="80" height="22" viewBox="0 0 80 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 76 12" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"/>
-  </svg>
-  <svg class="deco drift" style="bottom:12%;left:8px;opacity:.45" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
-  <svg class="deco spark delay-3" style="bottom:16%;right:8px;opacity:.5" width="18" height="18" viewBox="0 0 18 18"><path d="M9 0L10.7 7.3L18 9L10.7 10.7L9 18L7.3 10.7L0 9L7.3 7.3Z" fill="#fff"/></svg>
+<!-- ============== FULL LIST + FINAL PRICE ============== -->
+<section class="section coral">
+  <span class="eyebrow on-dark" style="color:#FFF7F1">Що входить у блок</span>
+  <h2 class="h-section">Повний список того, що <span class="u">ти отримаєш</span></h2>
 
-  <div class="reveal">
-    <div class="section-label">Що входить у блок</div>
-    <h2 class="section-title">Повний список <br>усього, що ти <span style="border-bottom:3px solid #fff">отримаєш</span></h2>
-  </div>
-
-  <ul class="included reveal">
-    <li><span class="em">📘</span><span>8 практичних уроків: від встановлення до реальних кейсів</span></li>
-    <li><span class="em">🧩</span><span>Розбір Skills, Connectors, MCP — трьох головних фішок Claude</span></li>
-    <li><span class="em">🌐</span><span>Готовий сайт-портфоліо, зроблений тобою за 30 хв (без коду)</span></li>
-    <li><span class="em">🎬</span><span>Звʼязка Claude + Higgsfield MCP — рідкісна фішка українською</span></li>
-    <li><span class="em">📤</span><span>Автопостинг у соцмережі через Metricool + Claude Code</span></li>
-    <li class="bonus"><span class="em">🎁</span><span>БОНУС: авторський Skill «Site Builder for Claude»</span></li>
-    <li><span class="em">♾️</span><span>Доступ до блоку — назавжди</span></li>
-    <li><span class="em">🤝</span><span>Підтримка від автора у Telegram</span></li>
-    <li><span class="em">🛡️</span><span>Гарантія повернення коштів на 14 днів</span></li>
+  <ul class="included">
+    <li><span class="em">▤</span><span>8 практичних уроків: від встановлення до реальних кейсів</span></li>
+    <li><span class="em">◈</span><span>Розбір Skills, Connectors, MCP — трьох головних фішок Claude</span></li>
+    <li><span class="em">◇</span><span>Готовий сайт-портфоліо, зроблений тобою за 30 хв (без коду)</span></li>
+    <li><span class="em">▷</span><span>Звʼязка Claude + Higgsfield MCP — рідкісна фішка українською</span></li>
+    <li><span class="em">↑</span><span>Автопостинг у соцмережі через Metricool + Claude Code</span></li>
+    <li class="bonus"><span class="em">✦</span><span>БОНУС: авторський Skill «Site Builder for Claude»</span></li>
+    <li><span class="em">◎</span><span>Доступ до блоку — назавжди</span></li>
+    <li><span class="em">◐</span><span>Підтримка від автора у Telegram</span></li>
+    <li><span class="em">✧</span><span>Гарантія повернення коштів на 14 днів</span></li>
   </ul>
 
-  <div class="price-final reveal">
+  <div class="final-price-card">
     <div class="lbl">Спеціальна ціна −50%</div>
     <div class="row"><span class="o">990 грн</span><span class="n">490<span class="gr">грн</span></span></div>
     <div class="hint">тільки до кінця таймера</div>
-    <div class="price-final-timer">
-      <span class="tlbl">До кінця акції</span>
-      <span class="tval js-timer">00:10:00</span>
-    </div>
+    <div class="timer-row"><span class="lb">До кінця акції</span><span class="vl js-timer">00:10:00</span></div>
   </div>
 
-  <div style="margin-top:18px"><a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta cta-light" data-cta="list">Приєднатися за 490 грн <span class="arr">→</span></a></div>
+  <div style="margin-top:20px"><a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta cta-full" style="background:#FFF;color:var(--coral-deep)">Приєднатися за 490 грн <span class="arr">→</span></a></div>
 </section>
 
 <!-- ============== REVIEWS ============== -->
-<section class="section section-dark">
-  <svg class="deco spark" style="top:30px;right:16px;opacity:.55" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#E8A585"/></svg>
-  <svg class="deco spark delay-2" style="top:14%;left:12px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#E8A585"/></svg>
-  <svg class="deco dashed-c" style="top:42%;left:-30px;opacity:.16" width="100" height="100">
-    <circle cx="50" cy="50" r="42" stroke="#E8A585" stroke-width="1.5" fill="none"/>
-    <circle cx="50" cy="50" r="28" stroke="#E8A585" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
-  </svg>
-  <svg class="deco wob" style="bottom:22%;right:-10px;opacity:.3" width="90" height="22" viewBox="0 0 90 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#E8A585" stroke-width="2" stroke-linecap="round" fill="none"/>
-  </svg>
-  <svg class="deco drift" style="bottom:10%;left:8px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#E8A585" stroke-width="2.4" stroke-linecap="round"/></svg>
-
-  <div class="reveal">
-    <div class="section-label">відгуки</div>
-    <h2 class="section-title">Уже <span class="highlight" style="color:#fff">3 918+ учнів</span> пройшли мої навчальні програми</h2>
-  </div>
+<section class="section paper">
+  <span class="eyebrow">Відгуки</span>
+  <h2 class="h-section">Уже <span class="accent">4 200+ учнів</span> пройшли мої навчальні програми</h2>
 
   <div class="reviews-track">
     <div class="review-item"><img src="reviews/review1.jpg" alt="" loading="lazy"></div>
@@ -1579,210 +1179,128 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
     <div class="review-item"><img src="reviews/review8.jpg" alt="" loading="lazy"></div>
     <div class="review-item"><img src="reviews/review9.jpg" alt="" loading="lazy"></div>
     <div class="review-item"><img src="reviews/review10.jpg" alt="" loading="lazy"></div>
-    <div class="review-item"><img src="reviews/review11.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="review-item"><img src="reviews/review12.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="review-item"><img src="reviews/review13.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="review-item"><img src="reviews/review14.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="review-item"><img src="reviews/review15.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="review-item"><img src="reviews/review16.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="review-item"><img src="reviews/review17.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="review-item"><img src="reviews/review18.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="review-item"><img src="reviews/review19.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="review-item"><img src="reviews/review20.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="review-item"><img src="reviews/review21.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="review-item"><img src="reviews/review11.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review12.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review13.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review14.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review15.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review16.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review17.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review18.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review19.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review20.jpg" alt="" loading="lazy"></div>
+    <div class="review-item"><img src="reviews/review21.jpg" alt="" loading="lazy"></div>
   </div>
   <div class="scroll-hint">← гортай →</div>
 
-  <div style="margin-top:18px"><a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta" data-cta="reviews">Приєднатися за спеціальною ціною −50% <span class="arr">→</span></a></div>
+  <div style="margin-top:22px"><a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta cta-full">Приєднатися за спеціальною ціною <span class="arr">→</span></a></div>
 </section>
 
 <!-- ============== FAQ ============== -->
-<section class="section section-cream">
-  <span class="dot-grid"></span>
-  <svg class="deco spark" style="top:30px;left:14px;opacity:.5" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#CC785C"/></svg>
-  <svg class="deco spark delay-2" style="top:18%;right:14px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#CC785C"/></svg>
-  <svg class="deco wob" style="top:44%;left:-10px;opacity:.32" width="80" height="22" viewBox="0 0 80 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 76 12" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
-  </svg>
-  <svg class="deco dashed-c" style="bottom:18%;right:-22px;opacity:.16" width="80" height="80">
-    <circle cx="40" cy="40" r="32" stroke="#CC785C" stroke-width="1.5" fill="none"/>
-    <circle cx="40" cy="40" r="20" stroke="#CC785C" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
-  </svg>
-  <svg class="deco drift" style="bottom:10%;left:8px;opacity:.4" width="18" height="18" viewBox="0 0 18 18"><path d="M9 2 v14 M2 9 h14" stroke="#CC785C" stroke-width="2.2" stroke-linecap="round"/></svg>
-
-  <div class="reveal">
-    <div class="section-label">faq</div>
-    <h2 class="section-title">Питання — <span class="highlight">відповіді</span></h2>
-  </div>
+<section class="section cream">
+  <span class="eyebrow">FAQ</span>
+  <h2 class="h-section">Питання — <span class="accent">відповіді</span></h2>
 
   <div class="faq">
     <details>
-      <summary>Я повний новачок і не працював з Claude. У мене вийде?<span class="plus">+</span></summary>
+      <summary>Я повний новачок і не працював з Claude. У мене вийде?<span class="p">+</span></summary>
       <div class="body">Так, гарантовано. Урок №0 починається зі встановлення Claude «з нуля» — від реєстрації до першого запиту. Все українською, покроково.</div>
     </details>
     <details>
-      <summary>Скільки часу займе проходження блоку?<span class="plus">+</span></summary>
-      <div class="body">8 уроків реально пройти за 2–3 вечори. Але можеш у своєму темпі — доступ назавжди, ніхто не жене.</div>
+      <summary>Скільки часу займе проходження блоку?<span class="p">+</span></summary>
+      <div class="body">8 уроків реально пройти за 2–3 вечори. Але можеш у своєму темпі — <b>доступ назавжди</b>, ніхто не жене.</div>
     </details>
     <details>
-      <summary>Чи потрібна платна підписка на Claude?<span class="plus">+</span></summary>
+      <summary>Чи потрібна платна підписка на Claude?<span class="p">+</span></summary>
       <div class="body">Для базових уроків — ні, вистачить безкоштовного плану. Для звʼязки з MCP та автопостингу знадобиться Pro-план (~$20/міс), але тільки на 1 місяць — потім можна відписатись.</div>
     </details>
     <details>
-      <summary>А що з англійською? Claude же англомовний.<span class="plus">+</span></summary>
-      <div class="body">Не потрібна. Claude чудово розуміє українську та російську. Всі уроки українською, всі приклади запитів українською.</div>
+      <summary>А що з англійською? Claude же англомовний.<span class="p">+</span></summary>
+      <div class="body">Не потрібна. <b>Claude чудово розуміє українську</b> та російську. Всі уроки українською, всі приклади запитів українською.</div>
     </details>
     <details>
-      <summary>Це той самий блок, що в повній «Фабриці АІ контенту»?<span class="plus">+</span></summary>
+      <summary>Це той самий блок, що в повній «Фабриці АІ контенту»?<span class="p">+</span></summary>
       <div class="body">Так, це <b>ідентичний блок з «Фабрики»</b> — той самий контент, ті самі уроки, той самий скіл. Просто продається окремо для тих, хто хоче почати з малого. Купивши його, ти пізніше зможеш при бажанні докупити повну «Фабрику» з окремими умовами.</div>
-    </details>
-    <details>
-      <summary>Чи актуальна інформація?<span class="plus">+</span></summary>
-      <div class="body">Так, актуальна на травень 2026. Як тільки виходить оновлення нейронок — записую новий урок або викладаю апдейт.</div>
     </details>
   </div>
 
-  <div style="margin-top:24px"><a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta" data-cta="faq">Приєднатися за 490 грн <span class="arr">→</span></a></div>
+  <div style="margin-top:22px"><a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta cta-full">Приєднатися за 490 грн <span class="arr">→</span></a></div>
 </section>
 
 <!-- ============== FOOTER ============== -->
-<footer class="footer">
-  <h4>З будь-яких питань пишіть в підтримку ↓</h4>
-  <a href="https://t.me/Mihail_Zemlianoy" class="support" target="_blank" rel="noopener">💬 Технічна підтримка</a>
-
-  <p class="ent"><strong>СТЕПАНЕНКО БОГДАН ОЛЕКСАНДРОВИЧ ФОП</strong><br>ЄДРПОУ 3757902952<br>stepanenkob30@gmail.com</p>
-  <p class="ent"><strong>ЗЕМЛЯНИЙ МИХАЙЛО СЕРГІЙОВИЧ ФОП</strong><br>ЄДРПОУ 3758302175<br>+380 98 596 6120</p>
-  <p class="ent"><strong>БРЖЕСТОВСЬКА ГАННА ЮРІЇВНА ФОП</strong><br>ЄДРПОУ 2877703349</p>
+<footer>
+  <div class="foot-title">Ai_Sashka · Claude Block</div>
+  <p>Питання щодо оплати, доступу чи технічних моментів — пиши в підтримку.</p>
 
   <div class="links">
+    <a href="https://t.me/ai_sashka_support">Технічна підтримка</a>
     <a href="politika.html">Політика конфіденційності</a>
     <a href="oferta.html">Договір оферти</a>
   </div>
 
-  <p class="disclaimer"><strong>ВАЖЛИВО:</strong> не вводьте свою контактну інформацію, доки не прочитаєте legal disclaimer. Ми не даємо жодних гарантій, що ви досягнете якихось результатів за допомогою наших інструментів, стратегій або інформації. Всі продукти і сервіси компанії призначені для освітніх цілей. Ви несете відповідальність за свої дії і результати.</p>
+  <div class="ent"><b>СТЕПАНЕНКО БОГДАН ОЛЕКСАНДРОВИЧ ФОП</b>ЄДРПОУ 3757902952<br>stepanenkob30@gmail.com</div>
+  <div class="ent"><b>ЗЕМЛЯНИЙ МИХАЙЛО СЕРГІЙОВИЧ ФОП</b>ЄДРПОУ 3758302175<br>+380&nbsp;98&nbsp;596&nbsp;6120</div>
+  <div class="ent"><b>БРЖЕСТОВСЬКА ГАННА ЮРІЇВНА ФОП</b>ЄДРПОУ 2877703349</div>
+
+  <p class="disclaimer"><b>ВАЖЛИВО:</b> не вводьте свою контактну інформацію, доки не прочитаєте legal disclaimer. Ми не даємо жодних гарантій, що ви досягнете якихось результатів за допомогою наших інструментів, стратегій або інформації. Всі продукти і сервіси компанії призначені для освітніх цілей. Ви несете відповідальність за свої дії і результати.</p>
 </footer>
 
 </div><!-- /.phone -->
-</div><!-- /.desktop-bg -->
+</div><!-- /.desk-bg -->
 
-<!-- ============== STICKY CTA ============== -->
+<!-- ============== STICKY BAR ============== -->
 <div class="sticky-bar" id="sticky">
-  <div class="pricew"><span class="n">490 грн</span><span class="o">990 грн</span></div>
-  <a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta-mini" data-cta="sticky">Купити −50% →</a>
+  <div class="pricew">
+    <span class="n">490 грн</span>
+    <span class="o">990 грн</span>
+  </div>
+  <a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta-mini">Купити −50% →</a>
 </div>
 
 <script>
-// Dynamic course start date — always tomorrow
+// Dynamic start date — always tomorrow
 (function(){
   var el = document.getElementById('start-date');
-  if (!el) return;
+  if(!el) return;
   var months = ['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
-  var d = new Date();
-  d.setDate(d.getDate() + 1);
+  var d = new Date(); d.setDate(d.getDate()+1);
   el.textContent = d.getDate() + ' ' + months[d.getMonth()];
 })();
 
-// reveal on scroll
-const io = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } });
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-// 10-min countdown timer (cookie-persisted, updates all .js-timer elements)
+// 10-minute rolling countdown per session
 (function(){
-  const els = document.querySelectorAll('.js-timer');
-  if(!els.length) return;
-  const KEY='ai_lyudyna_deadline_v1';
-  let dl = +localStorage.getItem(KEY);
-  const now = Date.now();
-  if(!dl || dl<now) dl = now + 10*60*1000;
-  localStorage.setItem(KEY,dl);
+  var timers = document.querySelectorAll('.js-timer');
+  if(!timers.length) return;
+  var KEY = 'claudeBlockTimerEnd';
+  var DURATION = 10 * 60 * 1000; // 10 min
+  var end = parseInt(sessionStorage.getItem(KEY) || '0', 10);
+  if(!end || end - Date.now() <= 0){
+    end = Date.now() + DURATION;
+    try { sessionStorage.setItem(KEY, String(end)); } catch(_){}
+  }
+  function pad(n){ return n < 10 ? '0'+n : ''+n; }
   function tick(){
-    const left = Math.max(0, dl - Date.now());
-    const h = Math.floor(left/3600000);
-    const m = Math.floor((left%3600000)/60000);
-    const s = Math.floor((left%60000)/1000);
-    const txt = (h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
-    els.forEach(el=>{el.textContent = txt});
+    var diff = Math.max(0, end - Date.now());
+    var m = Math.floor(diff / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    var txt = '00:' + pad(m) + ':' + pad(s);
+    timers.forEach(function(el){ el.textContent = txt; });
   }
-  tick(); setInterval(tick,1000);
+  tick(); setInterval(tick, 1000);
 })();
 
-// sticky bar after hero
+// Sticky bar reveal after user scrolls past hero
 (function(){
-  const bar=document.getElementById('sticky');
-  const hero=document.querySelector('.hero');
-  if(!bar||!hero) return;
-  function check(){
-    const r=hero.getBoundingClientRect();
-    if(r.bottom<60) bar.classList.add('show'); else bar.classList.remove('show');
-  }
-  window.addEventListener('scroll',check,{passive:true});
-  check();
+  var bar = document.getElementById('sticky');
+  if(!bar) return;
+  var shown = false;
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    if(!shown && y > 700){ bar.classList.add('show'); shown = true; }
+    else if(shown && y < 500){ bar.classList.remove('show'); shown = false; }
+  }, {passive:true});
 })();
-
-// Lazy-load videos: set src + play when visible, pause when not
-(function(){
-  const vids=document.querySelectorAll('video[data-src]');
-  if(!vids.length) return;
-  function activate(v){
-    if(!v.src){ v.src=v.dataset.src; v.load(); }
-    v.play().catch(()=>{});
-  }
-  // Eagerly activate videos already in viewport on page load
-  const vh=window.innerHeight;
-  vids.forEach(v=>{
-    const r=v.getBoundingClientRect();
-    if(r.top<vh+200 && r.bottom>-200) activate(v);
-  });
-  if(!('IntersectionObserver' in window)){
-    vids.forEach(activate);
-    return;
-  }
-  const vio=new IntersectionObserver(es=>{
-    es.forEach(e=>{
-      const v=e.target;
-      if(e.isIntersecting) activate(v);
-      else { try{v.pause()}catch(_){} }
-    });
-  },{rootMargin:'600px 800px',threshold:0});
-  vids.forEach(v=>vio.observe(v));
-
-  // Horizontal gallery: when section is in/near viewport, eagerly buffer all its videos
-  const gallery=document.getElementById('gallery');
-  if(gallery){
-    const galleryIO=new IntersectionObserver(es=>{
-      es.forEach(e=>{
-        if(e.isIntersecting){
-          gallery.querySelectorAll('video[data-src]').forEach(v=>{
-            if(!v.src){ v.src=v.dataset.src; v.preload='auto'; v.load(); }
-          });
-          galleryIO.disconnect();
-        }
-      });
-    },{rootMargin:'600px 0px'});
-    galleryIO.observe(gallery);
-  }
-})();
-
-// Bonus card expand/collapse
-document.querySelectorAll('.bonus-card .toggle').forEach(function(btn){
-  btn.addEventListener('click',function(){
-    var card = btn.closest('.bonus-card');
-    var open = card.classList.toggle('expanded');
-    btn.querySelector('.lab').textContent = open ? 'Згорнути' : 'Розгорнути';
-  });
-});
-
-// CTA pixel tracking
-document.querySelectorAll('[data-cta]').forEach(el=>{
-  el.addEventListener('click',function(){
-    if(window.fbq) fbq('track','Lead',{content_name:'ai-lyudyna',source:this.dataset.cta});
-  });
-});
 </script>
 
-<!-- Vercel Web Analytics -->
-<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
