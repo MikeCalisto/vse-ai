@@ -356,37 +356,37 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.015em;line
 }
 .lesson summary{
   list-style:none;cursor:pointer;
-  padding:18px 20px;
-  display:flex;gap:16px;align-items:flex-start;
+  padding:16px 18px;
+  display:grid;
+  grid-template-columns:38px 1fr 26px;
+  gap:14px;align-items:center;
 }
 .lesson summary::-webkit-details-marker{display:none}
 .lesson-num{
-  flex-shrink:0;
   width:38px;height:38px;border-radius:50%;
   background:var(--coral-tint);color:var(--coral-deep);
   font-family:var(--serif);font-weight:700;font-size:1rem;
   display:grid;place-items:center;
 }
 .lesson[open] .lesson-num{background:var(--coral);color:#fff}
-.lesson-head{flex:1;min-width:0}
+.lesson-head{min-width:0;overflow-wrap:break-word}
 .lesson-head .ttl{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:3px}
-.lesson-head h3{font-family:var(--serif);font-size:1.05rem;font-weight:600;line-height:1.25;letter-spacing:-.005em}
+.lesson-head h3{font-family:var(--serif);font-size:1rem;font-weight:600;line-height:1.25;letter-spacing:-.005em;overflow-wrap:break-word;word-wrap:break-word;hyphens:auto}
 .lesson-toggle{
-  flex-shrink:0;align-self:center;
   width:26px;height:26px;border-radius:50%;
   background:var(--paper-2);color:var(--coral-deep);
   display:grid;place-items:center;font-size:1.1rem;font-weight:600;line-height:1;
   transition:transform .25s, background .25s;
 }
 .lesson[open] .lesson-toggle{transform:rotate(45deg);background:var(--coral);color:#fff}
-.lesson-body{padding:0 20px 20px 74px;animation:fadeIn .3s ease}
+.lesson-body{padding:0 18px 18px 18px;animation:fadeIn .3s ease}
 .lesson-body ul{list-style:none;display:grid;gap:8px}
 .lesson-body ul li{display:flex;gap:10px;font-size:.9rem;line-height:1.5;color:var(--ink-soft)}
 .lesson-body ul li::before{content:'·';color:var(--coral);font-weight:800;flex-shrink:0}
 .lesson-body ul li b{color:var(--ink);font-weight:600}
 .lesson-body .res{margin-top:14px;padding-top:12px;border-top:1px dashed var(--gray-line-2);display:grid;gap:6px}
-.lesson-body .res .r{display:flex;gap:8px;font-size:.85rem;color:var(--ink-soft)}
-.lesson-body .res .r b{color:var(--ink);font-weight:600}
+.lesson-body .res .r{display:flex;gap:8px;font-size:.85rem;color:var(--ink-soft);flex-wrap:wrap}
+.lesson-body .res .r b{color:var(--ink);font-weight:600;flex-shrink:0}
 @keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 
 /* ============ HOW IT WORKS ============ */
@@ -596,14 +596,14 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 <section class="hero paper">
   <div class="brand-row">
     <span class="brand"><span class="brand-dot"></span> Ai_Sashka</span>
-    <span class="start-pill">Старт <span id="start-date">завтра</span></span>
+    <span class="start-pill">Миттєвий доступ</span>
   </div>
 
-  <div class="hero-badge"><b>Окремий блок</b> · з «Фабрики АІ контенту»</div>
+  <div class="hero-badge"><b>Вперше в історії</b> · частинка «Фабрики АІ контенту» окремо</div>
 
-  <h1 class="h-hero">Освой <span class="accent">Claude</span> — нейромережу №1, про яку зараз говорять всі топові підприємці</h1>
+  <h1 class="h-hero">Опануй <span class="accent">Claude</span> — нейромережу №1 у 2026 році</h1>
 
-  <p class="hero-sub">Опануй <b>Skills, Connectors, MCP</b> — три речі, що перетворюють Claude на другий мозок. Роби сайти без коду, презентації без дизайнера, тексти без копірайтера.</p>
+  <p class="hero-sub">Навчись створювати <b>сайти без знань коду</b>, презентації без навиків дизайну та писати топові тексти без професійних копірайтерів.</p>
 
   <!-- POSTER -->
   <figure class="hero-poster">
@@ -640,9 +640,9 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
   </figure>
 
   <ul class="hero-feats">
-    <li><span class="ck">✓</span><span>Окремий блок з «Фабрики» — <b>без покупки всього курсу</b></span></li>
-    <li><span class="ck">✓</span><span><b>8 практичних уроків</b> + авторський скіл для сайтів</span></li>
-    <li><span class="ck">✓</span><span>Claude&nbsp;+&nbsp;Higgsfield MCP — <b>звʼязка, якої немає ніде в UA</b></span></li>
+    <li><span class="ck">✓</span><span><b>8 практичних уроків</b> без води</span></li>
+    <li><span class="ck">✓</span><span>Авторський скіл від Олександра для <b>створення сайтів</b></span></li>
+    <li><span class="ck">✓</span><span>Повноцінне опанування Claude <b>з повного нуля</b></span></li>
   </ul>
 
   <div class="price-cluster">
@@ -653,121 +653,21 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 
   <a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta cta-full">Приєднатися за 490 грн <span class="arr">→</span></a>
 
-  <div class="timer-bar">
-    <span class="lbl">До кінця акції</span>
-    <span class="val js-timer">00:10:00</span>
-  </div>
-</section>
-
-<!-- ============== BONUSES / WHAT'S INSIDE ============== -->
-<section class="section cream">
-  <span class="eyebrow">Що всередині</span>
-  <h2 class="h-section">Скіл, MCP, автопостинг, connectors — <span class="accent">все як у справжнього</span> AI-фахівця</h2>
-  <p class="sub">Це не «просто уроки». Це готові інструменти, які працюють з коробки — включаючи авторський скіл, доступний тільки учням.</p>
-
-  <div class="bonus-grid">
-    <div class="bonus-card">
-      <div class="ic">✦</div>
-      <div class="tag">Бонус</div>
-      <h3>Авторський Skill «Site Builder for Claude»</h3>
-      <p>Готовий скіл, що робить з Claude веб-розробника. Ти описуєш ідею — Claude пише HTML/CSS/JS з адаптивністю. <b>Один сайт за 30 хвилин, без рядка коду руками.</b></p>
+  <div class="seats" data-seats-widget>
+    <div class="seats-head">
+      <span class="live">Місць залишилось</span>
+      <span class="count"><b data-seats-free>52</b> / 150</span>
     </div>
-    <div class="bonus-card">
-      <div class="ic">◈</div>
-      <div class="tag">Всередині</div>
-      <h3>Claude + Higgsfield MCP</h3>
-      <p>Звʼязка, якої майже немає в українському сегменті. Пишеш промт у Claude — <b>отримуєш кіношне AI-відео</b> у Higgsfield. Без ручного перемикання між сервісами.</p>
-    </div>
-    <div class="bonus-card">
-      <div class="ic">↑</div>
-      <div class="tag">Всередині</div>
-      <h3>Автопостинг: Metricool + Claude Code</h3>
-      <p>Одне налаштування — <b>публікація на 5 соцмереж одночасно.</b> Твій контент виходить, поки ти спиш. Один раз зробив — і забув про рутину.</p>
-    </div>
-    <div class="bonus-card">
-      <div class="ic">◎</div>
-      <div class="tag">Всередині</div>
-      <h3>Connectors — Claude в екосистемі</h3>
-      <p>Підключення Claude до Google Drive, Notion, GitHub, Slack. <b>Claude бачить твої файли, читає, редагує, створює</b> — стає повноцінним асистентом.</p>
+    <div class="seats-bar"><div class="seats-bar__fill" data-seats-fill style="width:65.33%"></div></div>
+    <div class="seats-meta">
+      <span>Вже придбали · <b data-seats-taken>98</b></span>
+      <span class="free">Тільки для найшвидших</span>
     </div>
   </div>
-
-  <div class="callout">
-    <p>Один готовий сайт-портфоліо через скіл — і <b>490 грн окупились у перший день.</b></p>
-    <p>Один налаштований автопостинг — і ти <b>економиш 5–10 годин на тиждень.</b></p>
-    <p>Claude + MCP — це <b>рівень, який зараз має 5% ринку</b>. Ти будеш серед них.</p>
-  </div>
-</section>
-
-<!-- ============== GALLERY / USE-CASES ============== -->
-<section class="section paper">
-  <span class="eyebrow">8 use-кейсів</span>
-  <h2 class="h-section">Ось, що ти <span class="u">зможеш зробити</span> з Claude після цього блоку</h2>
-
-  <div class="gallery-track">
-    <div class="gallery-item">
-      <div class="g-num">Кейс 01</div>
-      <div class="g-ico">✦</div>
-      <div class="g-title">Сайт-портфоліо за 30 хв</div>
-      <p class="g-desc">Опис ідеї → готовий адаптивний сайт з темною темою. <b>Без коду.</b></p>
-      <span class="g-badge">Sites</span>
-    </div>
-    <div class="gallery-item">
-      <div class="g-num">Кейс 02</div>
-      <div class="g-ico">◈</div>
-      <div class="g-title">Аналіз конкурентів</div>
-      <p class="g-desc">3 сайти → SWOT, позиціонування, слабкі місця. <b>1 запит.</b></p>
-      <span class="g-badge">Analysis</span>
-    </div>
-    <div class="gallery-item">
-      <div class="g-num">Кейс 03</div>
-      <div class="g-ico">◎</div>
-      <div class="g-title">Продавальний лендинг-текст</div>
-      <p class="g-desc">Одна фраза про продукт → готовий текст з CTA. <b>Без копірайтера.</b></p>
-      <span class="g-badge">Copy</span>
-    </div>
-    <div class="gallery-item">
-      <div class="g-num">Кейс 04</div>
-      <div class="g-ico">▷</div>
-      <div class="g-title">AI-відео через Higgsfield</div>
-      <p class="g-desc">Пишеш промт у Claude → відео у Higgsfield. <b>Не перемикаючись.</b></p>
-      <span class="g-badge">MCP</span>
-    </div>
-    <div class="gallery-item">
-      <div class="g-num">Кейс 05</div>
-      <div class="g-ico">↑</div>
-      <div class="g-title">Автопост у 5 соцмереж</div>
-      <p class="g-desc">Metricool + Claude Code = пости виходять, поки ти спиш.</p>
-      <span class="g-badge">Autopost</span>
-    </div>
-    <div class="gallery-item">
-      <div class="g-num">Кейс 06</div>
-      <div class="g-ico">▤</div>
-      <div class="g-title">Презентація 20+ слайдів</div>
-      <p class="g-desc">Тема → готова презентація зі структурою. <b>Без Canva.</b></p>
-      <span class="g-badge">Slides</span>
-    </div>
-    <div class="gallery-item">
-      <div class="g-num">Кейс 07</div>
-      <div class="g-ico">◇</div>
-      <div class="g-title">Claude бачить твої файли</div>
-      <p class="g-desc">Connectors до Drive, Notion, GitHub — читає, редагує, створює.</p>
-      <span class="g-badge">Connectors</span>
-    </div>
-    <div class="gallery-item">
-      <div class="g-num">Кейс 08</div>
-      <div class="g-ico">✧</div>
-      <div class="g-title">Skills — Claude на стероїдах</div>
-      <p class="g-desc">Один клік = Claude знає промти, стиль, задачу. <b>Скіл у комплекті.</b></p>
-      <span class="g-badge">Skills</span>
-    </div>
-  </div>
-  <div class="scroll-hint">← гортай →</div>
 </section>
 
 <!-- ============== AUDIENCE ============== -->
 <section class="section cream">
-  <span class="eyebrow">Для кого</span>
   <h2 class="h-section">Цей блок для тебе, <span class="accent">якщо ти:</span></h2>
 
   <div class="aud-list">
@@ -792,62 +692,8 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
   </div>
 </section>
 
-<!-- ============== PROBLEM / SOLVE ============== -->
-<section class="section dark">
-  <span class="eyebrow on-dark">Проблема</span>
-  <h2 class="h-section">Чому 9 з 10 не використовують <span class="accent">Claude на 100%?</span></h2>
-  <p class="sub">Якщо ти вже пробував Claude — швидше за все, стикався з цим:</p>
-
-  <ul class="pains">
-    <li><span>Відкрив, спробував, отримав відповідь як від <b>звичайного GPT</b> — і закрив, думаючи «нічого особливого».</span></li>
-    <li><span>Інтерфейс англомовний. <b>Skills, Connectors, MCP</b> — не зрозуміло, що це і як цим користуватись.</span></li>
-    <li><span>YouTube забитий теорією, але <b>майже немає практичних відео українською</b> — як зробити сайт, автопостинг, MCP-звʼязку.</span></li>
-  </ul>
-
-  <p style="font-family:var(--serif);font-style:italic;color:#DBD3C6">В результаті більшість використовує Claude <b style="color:#FAF9F6;font-style:normal">на 5% його можливостей</b>. І пропускає найсильніший інструмент 2026 року.</p>
-
-  <div class="solve-card">
-    <h3>Цей блок вирішує всі три проблеми:</h3>
-    <div class="row"><span class="ic">✦</span><span><b>Покрокова інсталяція</b> — від встановлення до першого сайту за 30 хвилин, все українською.</span></div>
-    <div class="row"><span class="ic">✦</span><span><b>Skills, Connectors, MCP</b> — розбираємо все на практиці, без теорії.</span></div>
-    <div class="row"><span class="ic">✦</span><span><b>Готові фішки</b> — авторський скіл для сайтів + звʼязка Claude&nbsp;+&nbsp;Higgsfield MCP.</span></div>
-  </div>
-
-  <div class="callout">
-    Ти платиш не за теорію — її повно в англомовному ютубі.<br>
-    Ти отримуєш <b>покроковий український курс</b> з готовими скілами й лайфхаками, які <b>працюють з коробки</b>.
-  </div>
-</section>
-
-<!-- ============== MONEY ============== -->
-<section class="section coral">
-  <span class="eyebrow on-dark" style="color:#FFF7F1">Монетизація</span>
-  <h2 class="h-section">Що дає вміння володіти <span class="u">Claude</span></h2>
-  <p class="sub" style="color:rgba(255,247,241,.9)">Людина, яка знає Claude на топ-рівні:</p>
-
-  <div class="money-grid">
-    <div class="item"><span class="em">✦</span><div class="t">Робить сайти</div><div class="d">без коду за 30 хвилин</div></div>
-    <div class="item"><span class="em">◈</span><div class="t">Аналізує ринок</div><div class="d">без маркетологів, за один запит</div></div>
-    <div class="item"><span class="em">◐</span><div class="t">Пише тексти</div><div class="d">рекламу, продажники, презентації</div></div>
-    <div class="item"><span class="em">↑</span><div class="t">Автоматизує</div><div class="d">рутину через MCP та Connectors</div></div>
-  </div>
-
-  <p style="margin-top:22px;font-family:var(--serif);font-style:italic;font-size:1.05rem;color:#FFF">І за це платять:</p>
-
-  <div class="money-table">
-    <div class="row"><span class="svc">Односторінковий сайт-лендинг</span><span class="pr">від $200</span></div>
-    <div class="row"><span class="svc">Портфоліо-сайт (multipage)</span><span class="pr">від $400</span></div>
-    <div class="row"><span class="svc">Автопостинг у 5 соцмереж під ключ</span><span class="pr">$150/міс</span></div>
-    <div class="row"><span class="svc">Презентація на 20+ слайдів</span><span class="pr">$80</span></div>
-    <div class="row"><span class="svc">Маркетинговий текст-звʼязка</span><span class="pr">від $50</span></div>
-  </div>
-
-  <p style="margin-top:20px;font-size:.95rem;color:#FFF7F1">Платять, бо ти замінюєш собою <b style="color:#FFF;border-bottom:1px solid #FFF">програміста, дизайнера, копірайтера, маркетолога</b> — в одному вікні.</p>
-</section>
-
 <!-- ============== PROGRAM ============== -->
 <section class="section paper">
-  <span class="eyebrow">Програма блоку</span>
   <h2 class="h-section">8 уроків + скіл — <span class="accent">від нуля до реальної роботи</span> з Claude</h2>
   <p class="sub muted" style="font-size:.85rem">8 практичних уроків · авторський скіл для сайтів · доступ назавжди</p>
 
@@ -1042,9 +888,98 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
   </div>
 </section>
 
+<!-- ============== BONUSES / WHAT'S INSIDE ============== -->
+<section class="section cream">
+  <h2 class="h-section">Скіл, MCP, автопостинг, connectors — <span class="accent">все як у справжнього</span> AI-фахівця</h2>
+  <p class="sub">Це не «просто уроки». Це готові інструменти, які працюють з коробки — включаючи авторський скіл, доступний тільки учням.</p>
+
+  <div class="bonus-grid">
+    <div class="bonus-card">
+      <div class="ic">✦</div>
+      <div class="tag">Бонус</div>
+      <h3>Авторський Skill «Site Builder for Claude»</h3>
+      <p>Готовий скіл, що робить з Claude веб-розробника. Ти описуєш ідею — Claude пише HTML/CSS/JS з адаптивністю. <b>Один сайт за 30 хвилин, без рядка коду руками.</b></p>
+    </div>
+    <div class="bonus-card">
+      <div class="ic">◈</div>
+      <div class="tag">Всередині</div>
+      <h3>Claude + Higgsfield MCP</h3>
+      <p>Звʼязка, якої майже немає в українському сегменті. Пишеш промт у Claude — <b>отримуєш кіношне AI-відео</b> у Higgsfield. Без ручного перемикання між сервісами.</p>
+    </div>
+    <div class="bonus-card">
+      <div class="ic">↑</div>
+      <div class="tag">Всередині</div>
+      <h3>Автопостинг: Metricool + Claude Code</h3>
+      <p>Одне налаштування — <b>публікація на 5 соцмереж одночасно.</b> Твій контент виходить, поки ти спиш. Один раз зробив — і забув про рутину.</p>
+    </div>
+    <div class="bonus-card">
+      <div class="ic">◎</div>
+      <div class="tag">Всередині</div>
+      <h3>Connectors — Claude в екосистемі</h3>
+      <p>Підключення Claude до Google Drive, Notion, GitHub, Slack. <b>Claude бачить твої файли, читає, редагує, створює</b> — стає повноцінним асистентом.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p>Один готовий сайт-портфоліо через скіл — і <b>490 грн окупились у перший день.</b></p>
+    <p>Один налаштований автопостинг — і ти <b>економиш 5–10 годин на тиждень.</b></p>
+    <p>Claude + MCP — це <b>рівень, який зараз має 5% ринку</b>. Ти будеш серед них.</p>
+  </div>
+</section>
+
+<!-- ============== PROBLEM / SOLVE ============== -->
+<section class="section dark">
+  <h2 class="h-section">Чому 9 з 10 не використовують <span class="accent">Claude на 100%?</span></h2>
+  <p class="sub">Якщо ти вже пробував Claude — швидше за все, стикався з цим:</p>
+
+  <ul class="pains">
+    <li><span>Відкрив, спробував, отримав відповідь як від <b>звичайного GPT</b> — і закрив, думаючи «нічого особливого».</span></li>
+    <li><span>Інтерфейс англомовний. <b>Skills, Connectors, MCP</b> — не зрозуміло, що це і як цим користуватись.</span></li>
+    <li><span>YouTube забитий теорією, але <b>майже немає практичних відео українською</b> — як зробити сайт, автопостинг, MCP-звʼязку.</span></li>
+  </ul>
+
+  <p style="font-family:var(--serif);font-style:italic;color:#DBD3C6">В результаті більшість використовує Claude <b style="color:#FAF9F6;font-style:normal">на 5% його можливостей</b>. І пропускає найсильніший інструмент 2026 року.</p>
+
+  <div class="solve-card">
+    <h3>Цей блок вирішує всі три проблеми:</h3>
+    <div class="row"><span class="ic">✦</span><span><b>Покрокова інсталяція</b> — від встановлення до першого сайту за 30 хвилин, все українською.</span></div>
+    <div class="row"><span class="ic">✦</span><span><b>Skills, Connectors, MCP</b> — розбираємо все на практиці, без теорії.</span></div>
+    <div class="row"><span class="ic">✦</span><span><b>Готові фішки</b> — авторський скіл для сайтів + звʼязка Claude&nbsp;+&nbsp;Higgsfield MCP.</span></div>
+  </div>
+
+  <div class="callout">
+    Ти платиш не за теорію — її повно в англомовному ютубі.<br>
+    Ти отримуєш <b>покроковий український курс</b> з готовими скілами й лайфхаками, які <b>працюють з коробки</b>.
+  </div>
+</section>
+
+<!-- ============== MONEY ============== -->
+<section class="section coral">
+  <h2 class="h-section">Що дає вміння працювати з <span class="u">Claude</span></h2>
+  <p class="sub" style="color:rgba(255,247,241,.9)">Людина, яка знає Claude на топ-рівні:</p>
+
+  <div class="money-grid">
+    <div class="item"><span class="em">✦</span><div class="t">Робить сайти</div><div class="d">без коду за 30 хвилин</div></div>
+    <div class="item"><span class="em">◈</span><div class="t">Аналізує ринок</div><div class="d">без маркетологів, за один запит</div></div>
+    <div class="item"><span class="em">◐</span><div class="t">Пише тексти</div><div class="d">рекламу, продажники, презентації</div></div>
+    <div class="item"><span class="em">↑</span><div class="t">Автоматизує</div><div class="d">рутину через MCP та Connectors</div></div>
+  </div>
+
+  <p style="margin-top:22px;font-family:var(--serif);font-style:italic;font-size:1.05rem;color:#FFF">І за це платять:</p>
+
+  <div class="money-table">
+    <div class="row"><span class="svc">Односторінковий сайт-лендинг</span><span class="pr">від $200</span></div>
+    <div class="row"><span class="svc">Портфоліо-сайт (multipage)</span><span class="pr">від $400</span></div>
+    <div class="row"><span class="svc">Автопостинг у 5 соцмереж під ключ</span><span class="pr">$150/міс</span></div>
+    <div class="row"><span class="svc">Презентація на 20+ слайдів</span><span class="pr">$80</span></div>
+    <div class="row"><span class="svc">Маркетинговий текст-звʼязка</span><span class="pr">від $50</span></div>
+  </div>
+
+  <p style="margin-top:20px;font-size:.95rem;color:#FFF7F1">Платять, бо ти замінюєш собою <b style="color:#FFF;border-bottom:1px solid #FFF">програміста, дизайнера, копірайтера, маркетолога</b> — в одному вікні.</p>
+</section>
+
 <!-- ============== HOW IT WORKS ============== -->
 <section class="section cream">
-  <span class="eyebrow">Формат</span>
   <h2 class="h-section">Як проходить <span class="accent">навчання</span></h2>
 
   <div class="how-grid">
@@ -1078,7 +1013,6 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 
 <!-- ============== UTP / DIFFERENTIATORS ============== -->
 <section class="section dark">
-  <span class="eyebrow on-dark">Унікальність</span>
   <h2 class="h-section">Що робить цей блок <span class="accent">унікальним</span></h2>
   <p class="sub">Всі 8 уроків збудовані так, щоб ти не просто «подивився», а зайшов з відкритим Claude і зробив крок за кроком. Практика замість теорії.</p>
 
@@ -1100,7 +1034,6 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 
 <!-- ============== GUARANTEE ============== -->
 <section class="section cream">
-  <span class="eyebrow">Гарантія</span>
   <h2 class="h-section">14 днів на <span class="u">повернення коштів</span></h2>
 
   <div class="guarantee">
@@ -1114,7 +1047,6 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 
 <!-- ============== AUTHOR ============== -->
 <section class="section dark">
-  <span class="eyebrow on-dark">Автор</span>
   <h2 class="h-section">Олександр <span class="accent">Цюцьмаць</span></h2>
 
   <div class="author-block">
@@ -1138,7 +1070,6 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 
 <!-- ============== FULL LIST + FINAL PRICE ============== -->
 <section class="section coral">
-  <span class="eyebrow on-dark" style="color:#FFF7F1">Що входить у блок</span>
   <h2 class="h-section">Повний список того, що <span class="u">ти отримаєш</span></h2>
 
   <ul class="included">
@@ -1157,7 +1088,17 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
     <div class="lbl">Спеціальна ціна −50%</div>
     <div class="row"><span class="o">990 грн</span><span class="n">490<span class="gr">грн</span></span></div>
     <div class="hint">тільки до кінця таймера</div>
-    <div class="timer-row"><span class="lb">До кінця акції</span><span class="vl js-timer">00:10:00</span></div>
+    <div class="seats on-light" data-seats-widget style="margin-top:14px">
+      <div class="seats-head">
+        <span class="live">Місць залишилось</span>
+        <span class="count"><b data-seats-free>52</b> / 150</span>
+      </div>
+      <div class="seats-bar"><div class="seats-bar__fill" data-seats-fill style="width:65.33%"></div></div>
+      <div class="seats-meta">
+        <span>Вже придбали · <b data-seats-taken>98</b></span>
+        <span class="free">Тільки для найшвидших</span>
+      </div>
+    </div>
   </div>
 
   <div style="margin-top:20px"><a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta cta-full" style="background:#FFF;color:var(--coral-deep)">Приєднатися за 490 грн <span class="arr">→</span></a></div>
@@ -1165,7 +1106,6 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 
 <!-- ============== REVIEWS ============== -->
 <section class="section paper">
-  <span class="eyebrow">Відгуки</span>
   <h2 class="h-section">Уже <span class="accent">4 200+ учнів</span> пройшли мої навчальні програми</h2>
 
   <div class="reviews-track">
@@ -1198,7 +1138,6 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 
 <!-- ============== FAQ ============== -->
 <section class="section cream">
-  <span class="eyebrow">FAQ</span>
   <h2 class="h-section">Питання — <span class="accent">відповіді</span></h2>
 
   <div class="faq">
@@ -1248,6 +1187,9 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 </div><!-- /.phone -->
 </div><!-- /.desk-bg -->
 
+<!-- ============== SEATS TOAST ============== -->
+<div class="seat-toast" id="seat-toast" role="status" aria-live="polite"></div>
+
 <!-- ============== STICKY BAR ============== -->
 <div class="sticky-bar" id="sticky">
   <div class="pricew">
@@ -1258,35 +1200,63 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 </div>
 
 <script>
-// Dynamic start date — always tomorrow
+// ============ SEATS COUNTER ============
+// 150 total, starts at 98 taken. Every ~15s another purchase happens.
+// Never fills up completely — always keeps 1 seat free (max taken = 149).
+// State persists per browser via localStorage so counter doesn't reset on reload.
 (function(){
-  var el = document.getElementById('start-date');
-  if(!el) return;
-  var months = ['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
-  var d = new Date(); d.setDate(d.getDate()+1);
-  el.textContent = d.getDate() + ' ' + months[d.getMonth()];
-})();
+  var TOTAL = 150;
+  var MAX_TAKEN = TOTAL - 1;              // never fully sold out
+  var INTERVAL = 15 * 1000;               // one purchase every 15s
+  var KEY = 'claudeBlockSeats_v1';
+  var NAMES = ['Олена','Марія','Дмитро','Богдан','Ірина','Тарас','Владислав','Софія','Оксана','Наталя','Роман','Сергій','Юлія','Артур','Анна','Ілля','Данило','Катерина','Микола','Ольга','Валерія','Максим','Христина','Юрій','Марина','Андрій','Вероніка','Олексій','Аліна','Владислав','Юрій','Ярослав'];
+  var CITIES = ['Київ','Львів','Дніпро','Одеса','Харків','Вінниця','Полтава','Івано-Франківськ','Тернопіль','Луцьк','Рівне','Чернівці','Житомир','Ужгород','Черкаси','Херсон','Хмельницький','Миколаїв','Кропивницький','Суми'];
 
-// 10-minute rolling countdown per session
-(function(){
-  var timers = document.querySelectorAll('.js-timer');
-  if(!timers.length) return;
-  var KEY = 'claudeBlockTimerEnd';
-  var DURATION = 10 * 60 * 1000; // 10 min
-  var end = parseInt(sessionStorage.getItem(KEY) || '0', 10);
-  if(!end || end - Date.now() <= 0){
-    end = Date.now() + DURATION;
-    try { sessionStorage.setItem(KEY, String(end)); } catch(_){}
+  // Restore or init
+  var saved = null;
+  try { saved = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch(_){}
+  var taken, lastTick;
+  if(saved && typeof saved.taken === 'number' && typeof saved.lastTick === 'number'){
+    // Advance counter based on elapsed time since last visit
+    var elapsedTicks = Math.floor((Date.now() - saved.lastTick) / INTERVAL);
+    taken = Math.min(MAX_TAKEN, saved.taken + elapsedTicks);
+    lastTick = saved.lastTick + elapsedTicks * INTERVAL;
+  } else {
+    taken = 98;
+    lastTick = Date.now();
   }
-  function pad(n){ return n < 10 ? '0'+n : ''+n; }
-  function tick(){
-    var diff = Math.max(0, end - Date.now());
-    var m = Math.floor(diff / 60000);
-    var s = Math.floor((diff % 60000) / 1000);
-    var txt = '00:' + pad(m) + ':' + pad(s);
-    timers.forEach(function(el){ el.textContent = txt; });
+
+  function save(){
+    try { localStorage.setItem(KEY, JSON.stringify({taken:taken, lastTick:lastTick})); } catch(_){}
   }
-  tick(); setInterval(tick, 1000);
+  function render(){
+    var free = TOTAL - taken;
+    var pct  = (taken / TOTAL) * 100;
+    document.querySelectorAll('[data-seats-free]').forEach(function(el){ el.textContent = free; });
+    document.querySelectorAll('[data-seats-taken]').forEach(function(el){ el.textContent = taken; });
+    document.querySelectorAll('[data-seats-fill]').forEach(function(el){ el.style.width = pct.toFixed(2) + '%'; });
+  }
+  function showToast(){
+    var t = document.getElementById('seat-toast');
+    if(!t) return;
+    var name = NAMES[Math.floor(Math.random()*NAMES.length)];
+    var city = CITIES[Math.floor(Math.random()*CITIES.length)];
+    t.innerHTML = '<b>'+name+'</b> з '+city+' щойно приєднався(-лась)<em>Залишилось '+(TOTAL-taken)+' місць</em>';
+    t.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(function(){ t.classList.remove('show'); }, 4200);
+  }
+  render();
+  save();
+
+  setInterval(function(){
+    if(taken >= MAX_TAKEN) return;         // stop when 1 seat left
+    taken += 1;
+    lastTick = Date.now();
+    save();
+    render();
+    showToast();
+  }, INTERVAL);
 })();
 
 // Sticky bar reveal after user scrolls past hero
