@@ -231,6 +231,95 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.015em;line
 .timer-bar .lbl{font-size:.72rem;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
 .timer-bar .val{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--coral-deep);letter-spacing:.02em;font-variant-numeric:tabular-nums}
 
+/* ============ SEATS COUNTER ============ */
+.seats{
+  margin-top:18px;padding:22px 24px 20px;
+  background:#FFFFFF;border:1px solid var(--gray-line-2);border-radius:16px;
+  font-family:var(--sans);
+  box-shadow:0 1px 0 rgba(24,22,19,.02);
+}
+.seats-head{
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  margin-bottom:14px;
+}
+.seats-head .lbl{
+  font-size:.72rem;color:var(--gray);
+  letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+}
+.seats-head .count{
+  font-family:var(--serif);
+  font-size:1.55rem;font-weight:500;
+  color:var(--ink);
+  letter-spacing:-.01em;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+.seats-head .count b{font-weight:700;color:var(--ink)}
+.seats-head .count .sep{color:var(--gray);font-weight:400;margin:0 .18em}
+.seats-bar{
+  height:8px;border-radius:999px;
+  background:var(--paper-2);
+  overflow:hidden;position:relative;
+}
+.seats-bar__fill{
+  height:100%;border-radius:999px;
+  background:linear-gradient(90deg, var(--coral) 0%, var(--coral-deep) 100%);
+  transition:width .7s cubic-bezier(.2,.8,.2,1);
+}
+.seats-meta{
+  margin-top:14px;
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+}
+.seats-meta .live{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:.9rem;line-height:1.4;color:var(--ink-soft);
+  font-weight:500;
+}
+.seats-meta .live::before{
+  content:'';flex-shrink:0;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--coral);
+  box-shadow:0 0 0 4px rgba(204,120,92,.18);
+  animation:seatsPulse 1.6s ease-in-out infinite;
+}
+@keyframes seatsPulse{50%{opacity:.4}}
+.seats-meta .free{
+  font-family:var(--serif);
+  font-size:1.15rem;font-weight:700;
+  color:var(--coral-deep);
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+.seats.on-light{background:#FFF;border-color:var(--gray-line-2)}
+.seats.on-light .seats-bar{background:var(--paper-2)}
+
+/* toast — bottom center */
+.seat-toast{
+  position:fixed;left:50%;bottom:96px;
+  transform:translateX(-50%) translateY(140%);
+  background:#1B1613;color:#F5F1EB;
+  border-radius:14px;
+  padding:14px 18px 14px 46px;
+  font-family:var(--sans);font-size:.85rem;line-height:1.35;
+  max-width:calc(100% - 24px);min-width:250px;
+  box-shadow:0 20px 40px -12px rgba(24,22,19,.55), 0 0 0 1px rgba(255,255,255,.06);
+  opacity:0;pointer-events:none;z-index:100;
+  transition:transform .5s cubic-bezier(.2,.8,.2,1), opacity .4s;
+}
+.seat-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.seat-toast::before{
+  content:'✦';
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  width:22px;height:22px;border-radius:50%;
+  background:var(--coral);color:#fff;
+  display:grid;place-items:center;font-size:.8rem;
+}
+.seat-toast b{color:#FAEDDF;font-weight:600}
+.seat-toast em{
+  font-style:normal;color:#8A837A;
+  font-size:.72rem;display:block;margin-top:2px;letter-spacing:.02em;
+}
+
 /* ============ BONUSES / DIFFERENTIATORS ============ */
 .bonus-grid{display:grid;gap:14px;margin-top:22px}
 .bonus-card{
@@ -655,13 +744,13 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 
   <div class="seats" data-seats-widget>
     <div class="seats-head">
-      <span class="live">Місць залишилось</span>
-      <span class="count"><b data-seats-free>52</b> / 150</span>
+      <span class="lbl">Зайнято місць</span>
+      <span class="count"><b data-seats-taken>98</b><span class="sep">/</span>150</span>
     </div>
     <div class="seats-bar"><div class="seats-bar__fill" data-seats-fill style="width:65.33%"></div></div>
     <div class="seats-meta">
-      <span>Вже придбали · <b data-seats-taken>98</b></span>
-      <span class="free">Тільки для найшвидших</span>
+      <span class="live">Місця розкуповують просто зараз — лишилось</span>
+      <span class="free" data-seats-free>52</span>
     </div>
   </div>
 </section>
@@ -1090,13 +1179,13 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
     <div class="hint">тільки до кінця таймера</div>
     <div class="seats on-light" data-seats-widget style="margin-top:14px">
       <div class="seats-head">
-        <span class="live">Місць залишилось</span>
-        <span class="count"><b data-seats-free>52</b> / 150</span>
+        <span class="lbl">Зайнято місць</span>
+        <span class="count"><b data-seats-taken>98</b><span class="sep">/</span>150</span>
       </div>
       <div class="seats-bar"><div class="seats-bar__fill" data-seats-fill style="width:65.33%"></div></div>
       <div class="seats-meta">
-        <span>Вже придбали · <b data-seats-taken>98</b></span>
-        <span class="free">Тільки для найшвидших</span>
+        <span class="live">Місця розкуповують просто зараз — лишилось</span>
+        <span class="free" data-seats-free>52</span>
       </div>
     </div>
   </div>
