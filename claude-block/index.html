@@ -8,10 +8,10 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#CC785C">
-<title>Claude — окремий блок з «Фабрики АІ контенту» · Ai_Sashka</title>
-<meta name="description" content="8 уроків + авторський скіл для сайтів. Освой Claude — нейромережу №1, про яку зараз говорять всі топові підприємці. Спец-ціна 490 грн замість 990.">
-<meta property="og:title" content="Claude — окремий блок з «Фабрики АІ контенту»">
-<meta property="og:description" content="8 уроків. Сайти без коду, автопостинг у соцмережі, Claude + Higgsfield MCP. 490 грн замість 990.">
+<title>Claude з нуля — навчальний блок із «Фабрики АІ контенту» · Ai_Sashka</title>
+<meta name="description" content="7 уроків + авторський скіл для створення сайтів. Claude без коду і без англійської. 490 грн замість 990.">
+<meta property="og:title" content="Claude з нуля — навчальний блок із «Фабрики АІ контенту»">
+<meta property="og:description" content="7 уроків. Сайти без коду, автопостинг у соцмережі, Claude + Higgsfield MCP. 490 грн замість 990.">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -404,6 +404,137 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.015em;line
 .aud-card h4{font-family:var(--serif);font-size:1.05rem;font-weight:600;margin-bottom:4px;color:var(--ink);letter-spacing:-.005em}
 .aud-card p{font-size:.85rem;line-height:1.5;color:var(--gray)}
 
+/* ============ WHY SEPARATE (personal letter) ============ */
+.why-sep__body{
+  max-width:600px;margin:20px auto 0;
+  font-family:var(--serif);
+  font-size:1.02rem;line-height:1.65;color:var(--ink-soft);
+}
+.why-sep__body p{margin-bottom:14px}
+.why-sep__body p b{color:var(--ink)}
+.why-sep__mid{font-family:var(--sans);font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-top:22px !important;margin-bottom:10px !important;font-weight:600}
+.why-sep__list{list-style:none;padding:0;margin:0 0 18px}
+.why-sep__list li{
+  padding:12px 0 12px 22px;position:relative;
+  font-size:.98rem;line-height:1.55;
+  border-bottom:1px dashed var(--gray-line);
+}
+.why-sep__list li:last-child{border-bottom:none}
+.why-sep__list li::before{
+  content:'—';position:absolute;left:0;top:12px;
+  color:var(--coral);font-weight:700;
+}
+.why-sep__list li b{color:var(--ink);font-weight:700}
+.why-sep__end{
+  margin-top:20px !important;padding:16px 18px;
+  background:var(--coral-tint);border-left:3px solid var(--coral);
+  border-radius:6px;font-size:.98rem;
+}
+
+/* ============ DEMO / RESULT ============ */
+.demo-grid{
+  display:grid;gap:16px;margin-top:22px;
+}
+.demo-card{margin:0}
+.demo-thumb{
+  aspect-ratio:16/10;border-radius:14px;overflow:hidden;
+  border:1px solid var(--gray-line-2);
+  background:linear-gradient(160deg, var(--sand,#EFE7D8) 0%, #E4D8C4 100%);
+  display:grid;place-items:center;
+  color:var(--gray);font-family:var(--sans);
+  font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+}
+.demo-thumb--placeholder span{opacity:.7}
+.demo-card figcaption{
+  margin-top:10px;font-size:.85rem;line-height:1.5;color:var(--ink-soft);
+}
+.demo-card figcaption b{color:var(--ink);font-weight:600}
+.demo-proof{
+  margin-top:26px;padding:20px 22px;
+  background:var(--coral);color:#FFF;
+  border-radius:16px;
+  display:flex;gap:14px;align-items:flex-start;
+  box-shadow:0 12px 30px -8px rgba(204,120,92,.45);
+}
+.demo-proof__ic{
+  flex-shrink:0;font-size:1.4rem;line-height:1;
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,.22);
+  display:grid;place-items:center;color:#FFF;
+}
+.demo-proof b{font-family:var(--serif);font-weight:600;font-size:1.05rem;line-height:1.35;letter-spacing:-.005em}
+.demo-proof p{margin-top:6px;font-size:.9rem;line-height:1.5;color:rgba(255,247,241,.9)}
+.demo-proof p b{font-size:.9rem;color:#FFF;font-weight:700}
+
+/* ============ CROSSROADS / FINAL ============ */
+.cross .h-section{color:#FAF9F6}
+.cross-grid{display:grid;gap:16px;margin-top:24px}
+.cross-col{
+  padding:22px 20px;border-radius:16px;
+  border:1px solid rgba(219,211,198,.14);
+}
+.cross-col--muted{
+  background:rgba(255,255,255,.03);
+  color:#9C948A;
+}
+.cross-col--accent{
+  background:linear-gradient(160deg, var(--coral-deep) 0%, var(--coral) 100%);
+  color:#FFF;border-color:transparent;
+  box-shadow:0 20px 40px -12px rgba(204,120,92,.5);
+}
+.cross-col__hd{
+  font-family:var(--sans);font-size:.72rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;
+  margin-bottom:14px;padding-bottom:12px;
+  border-bottom:1px dashed currentColor;opacity:.65;
+}
+.cross-col--accent .cross-col__hd{opacity:.9}
+.cross-col ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.cross-col li{
+  padding-left:22px;position:relative;
+  font-size:.94rem;line-height:1.5;
+}
+.cross-col--muted li::before{
+  content:'✕';position:absolute;left:0;top:0;
+  color:#6B655D;font-weight:600;
+}
+.cross-col--accent li::before{
+  content:'✓';position:absolute;left:0;top:0;
+  color:#FFE9DA;font-weight:700;
+}
+.cross-note{
+  margin-top:24px;text-align:center;
+  font-family:var(--serif);font-style:italic;
+  font-size:1rem;color:#DBD3C6;line-height:1.5;
+}
+.cross-note b{color:#FAF9F6;font-style:normal;font-weight:700}
+.cross-cta{
+  margin-top:22px;padding:22px 20px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(219,211,198,.14);
+  border-radius:16px;text-align:center;
+}
+.cross-price{
+  display:inline-flex;align-items:baseline;gap:12px;
+  margin-bottom:16px;
+}
+.cross-price .o{
+  font-family:var(--sans);font-size:1rem;font-weight:500;
+  color:#7C766D;text-decoration:line-through;text-decoration-skip-ink:none;
+}
+.cross-price .n{
+  font-family:var(--serif);font-weight:700;
+  font-size:2.4rem;color:#FFF;letter-spacing:-.02em;
+  line-height:1;
+}
+.cross-price .save{
+  padding:5px 10px;border-radius:999px;
+  background:var(--coral);color:#FFF;
+  font-family:var(--sans);font-size:.72rem;font-weight:700;
+  letter-spacing:.06em;
+}
+.cta-big{font-size:1.05rem;padding:20px 24px}
+
 /* ============ PROBLEM / SOLVE ============ */
 .pains{list-style:none;display:grid;gap:12px;margin:20px 0}
 .pains li{
@@ -413,6 +544,26 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.015em;line
 }
 .pains li b{color:#FAF9F6}
 .pains li::before{content:'—';color:var(--coral-soft);flex-shrink:0}
+.pains-numbered{list-style:none;display:grid;gap:22px;margin:22px 0 8px}
+.pains-numbered li{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:flex-start}
+.pains-numbered .pn{
+  font-family:var(--serif);font-weight:700;
+  font-size:1.9rem;line-height:1;color:var(--coral);
+  letter-spacing:-.02em;padding-top:2px;
+}
+.pains-numbered .pt h4{
+  font-family:var(--serif);font-weight:600;font-size:1.05rem;line-height:1.3;
+  color:#FAF9F6;margin-bottom:6px;letter-spacing:-.005em;
+}
+.pains-numbered .pt p{
+  font-size:.92rem;line-height:1.55;color:#DBD3C6;
+}
+.pains-numbered .pn-note{
+  margin-top:8px;padding-left:12px;
+  border-left:2px solid rgba(204,120,92,.5);
+  color:#B8B0A3;font-size:.88rem;
+}
+.pains-numbered .pn-note em{font-style:italic;color:#DBD3C6}
 .solve-card{
   margin-top:22px;padding:22px;
   background:#231A16;border:1px solid #3A2A22;border-radius:var(--radius);
@@ -695,11 +846,11 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
     <span class="start-pill">Миттєвий доступ</span>
   </div>
 
-  <div class="hero-badge"><b>Вперше в історії</b> · частинка «Фабрики АІ контенту» окремо</div>
+  <div class="hero-badge">Навчальний блок із «Фабрики АІ контенту»</div>
 
-  <h1 class="h-hero">Опануй <span class="accent">Claude</span> — нейромережу №1 у 2026 році</h1>
+  <h1 class="h-hero">Опануй <span class="accent">Claude</span> з нуля — нейромережу №1 у 2026 році</h1>
 
-  <p class="hero-sub">Навчись створювати <b>сайти без знань коду</b>, презентації без навиків дизайну та писати топові тексти без професійних копірайтерів.</p>
+  <p class="hero-sub"><b>7 практичних уроків</b>, після яких Claude буде створювати тобі сайти, публікувати контент в соцмережі на автопілоті й генерувати кіношні відео прямо з чату.</p>
 
   <!-- POSTER -->
   <figure class="hero-poster hero-poster--img">
@@ -707,9 +858,9 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
   </figure>
 
   <ul class="hero-feats">
-    <li><span class="ck">✓</span><span><b>8 практичних уроків</b> без води</span></li>
-    <li><span class="ck">✓</span><span>Авторський скіл від Олександра для <b>створення сайтів</b></span></li>
-    <li><span class="ck">✓</span><span>Повноцінне опанування Claude <b>з повного нуля</b></span></li>
+    <li><span class="ck">✓</span><span>Без знань коду і <b>без англійської</b></span></li>
+    <li><span class="ck">✓</span><span>Весь блок — <b>менше години</b>, уроки по 3–4 хвилини, без води</span></li>
+    <li><span class="ck">✓</span><span>З <b>авторськими скілами</b> від Олександра</span></li>
   </ul>
 
   <div class="price-cluster">
@@ -718,7 +869,8 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
     <span class="price-save">−50%</span>
   </div>
 
-  <a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta cta-full">Приєднатися за 490 грн <span class="arr">→</span></a>
+  <a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta cta-full">Забрати блок за 490 грн <span class="arr">→</span></a>
+  <p class="cta-sub" style="margin-top:10px;font-size:.82rem;color:var(--gray);text-align:center;line-height:1.5">Після оплати доступ відкривається одразу в Telegram-боті.</p>
 
   <div class="seats" data-seats-widget>
     <div class="seats-head">
@@ -733,39 +885,83 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
   </div>
 </section>
 
+<!-- ============== WHY THIS BLOCK SEPARATELY ============== -->
+<section class="section cream why-sep">
+  <h2 class="h-section">Чому я <span class="accent">вперше виношу</span> один блок із «Фабрики» окремо</h2>
+
+  <div class="why-sep__body">
+    <p>У «Фабриці АІ контенту» <b>[N]</b> блоків. Багато хто з вас дивився програму — і просто відкладав покупку. Бо це великий курс, помітна сума і питання «а чи зайде мені взагалі такий формат».</p>
+    <p>Тому я взяв звідти один блок — про Claude — і даю його для вас окремо.</p>
+
+    <p class="why-sep__mid"><b>Чому саме цей блок:</b></p>
+
+    <ul class="why-sep__list">
+      <li>він працює <b>самостійно</b>. Тобі не треба проходити попередні блоки, щоб зробити свій перший сайт.</li>
+      <li>результат видно одразу: не «через місяць застосуєш», а вже через <b>2 вечори</b> маєш готове посилання.</li>
+      <li>це інструмент, яким я користуюсь <b>щодня</b> — сайти, тексти, презентації, автопостинг.</li>
+    </ul>
+
+    <p class="why-sep__end">Це не урізана версія і не демо. <b>Той самий блок, ті самі уроки, той самий скіл</b>, який отримують учні повної «Фабрики». Нічого не вирізано.</p>
+  </div>
+</section>
+
+<!-- ============== DEMO RESULT ============== -->
+<section class="section paper">
+  <h2 class="h-section">Ось такі сайти <span class="accent">ти зможеш робити</span> після цього блоку</h2>
+  <p class="sub">Жодного рядка коду руками. Ти описуєш ідею — Claude пише сайт. Далі 5 хвилин на публікацію — і в тебе є робоче посилання.</p>
+
+  <div class="demo-grid">
+    <figure class="demo-card">
+      <div class="demo-thumb demo-thumb--placeholder"><span>Скріншот сайту №1</span></div>
+      <figcaption><b>Сайт-портфоліо</b> · зібраний на уроці №5 · <b>[N]</b> хвилин</figcaption>
+    </figure>
+    <figure class="demo-card">
+      <div class="demo-thumb demo-thumb--placeholder"><span>Скріншот сайту №2</span></div>
+      <figcaption><b>Лендинг під послугу</b> · адаптив, темна тема · <b>[N]</b> хвилин</figcaption>
+    </figure>
+    <figure class="demo-card">
+      <div class="demo-thumb demo-thumb--placeholder"><span>Скріншот сайту №3</span></div>
+      <figcaption><b>[Третій приклад]</b> · <b>[опис]</b> · <b>[N]</b> хвилин</figcaption>
+    </figure>
+  </div>
+
+  <div class="demo-proof">
+    <div class="demo-proof__ic">✦</div>
+    <div>
+      <b>Сторінка, яку ти зараз читаєш, зроблена цим самим скілом.</b>
+      <p>Не в конструкторі, не дизайнером — я описав, що хочу, і Claude зібрав її за <b>[N]</b> хвилин.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:24px"><a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta cta-full">Хочу так само · 490 грн <span class="arr">→</span></a></div>
+</section>
+
 <!-- ============== AUDIENCE ============== -->
 <section class="section cream">
   <h2 class="h-section">Цей блок для тебе, <span class="accent">якщо ти:</span></h2>
 
   <div class="aud-list">
     <div class="aud-card"><span class="em">✿</span>
-      <div><h4>Новачок, який тільки знайомиться з AI</h4><p>ти вже купував/ла мої міні-курси, може пробував/ла ChatGPT. Тут я з нуля покажу, як працювати з Claude — без коду, без технічних знань, крок за кроком.</p></div>
-    </div>
-    <div class="aud-card"><span class="em">◐</span>
-      <div><h4>Хочеш зайти в AI глибше за GPT</h4><p>всі знають ChatGPT — Claude це нова хвиля, у якій ще мало гравців. Заходиш перший — на крок попереду ринку.</p></div>
-    </div>
-    <div class="aud-card"><span class="em">◇</span>
-      <div><h4>Робиш собі або клієнтам сайти</h4><p>і хочеш робити їх у 10 разів швидше — без Tilda, Webflow чи програмістів. Claude пише повний код, ти лише описуєш ідею.</p></div>
+      <div><h4>Уже проходив мої міні-курси, але далі ChatGPT поки не йдеш</h4><p>Claude для тебе — щось складне і незрозуміле. Тут я з нуля покажу, що з ним робити і як використовувати.</p></div>
     </div>
     <div class="aud-card"><span class="em">◈</span>
-      <div><h4>SMM-ник, маркетолог, таргетолог</h4><p>і хочеш налаштувати автопостинг у 5 соцмереж, писати рекламні тексти за 2 хв, аналізувати конкурентів за один запит.</p></div>
+      <div><h4>Дивився на «Фабрику», але не наважився купити</h4><p>Курс великий, сума помітна, а рішення відкладається місяцями. Візьми один блок, подивись на формат — і вирішуй далі спокійно.</p></div>
     </div>
     <div class="aud-card"><span class="em">✦</span>
-      <div><h4>Підприємець, фрилансер, консультант</h4><p>і Claude стає твоїм персональним помічником: пише тексти, робить презентації, аналізує ринок, шукає інсайти.</p></div>
+      <div><h4>SMM, маркетолог, таргетолог, фрілансер</h4><p>Тексти, презентації, аналіз конкурентів, автопостинг. Все з одного вікна, без стрибків між сервісами.</p></div>
     </div>
     <div class="aud-card"><span class="em">▷</span>
-      <div><h4>Уже працюєш з AI-контентом</h4><p>і хочеш підключити Claude + Higgsfield MCP для генерації кіношних відео — фішка, яку зараз мало хто знає.</p></div>
-    </div>
-    <div class="aud-card"><span class="em">✧</span>
-      <div><h4>Хочеш свій AI-стартап або продукт</h4><p>Claude з Skills та Connectors дає можливість зібрати робочий MVP за 1 вечір — те, що раніше вимагало команди розробників.</p></div>
+      <div><h4>Підприємець, який робить усе сам</h4><p>Немає команди — і не треба. Claude закриває копірайтера, дизайнера презентацій і того, хто «зробить сайтик».</p></div>
     </div>
   </div>
+
+  <p class="aud-cutoff" style="margin-top:22px;font-size:.82rem;color:var(--gray);font-style:italic;line-height:1.55;text-align:center;max-width:44ch;margin-left:auto;margin-right:auto">Кому цей блок не потрібен: якщо ти вже впевнено ставиш Skills, підключаєш MCP і збираєш сайти через AI — тут не буде нового. Це блок для тих, хто ще не почав.</p>
 </section>
 
 <!-- ============== PROGRAM ============== -->
 <section class="section paper">
-  <h2 class="h-section">8 уроків + скіл — <span class="accent">від нуля до реальної роботи</span> з Claude</h2>
-  <p class="sub muted" style="font-size:.85rem">8 практичних уроків · авторський скіл для сайтів · доступ назавжди</p>
+  <h2 class="h-section">Які уроки <span class="accent">всередині?</span></h2>
+  <p class="sub muted" style="font-size:.85rem">7 уроків · 3–4 хвилини кожен · авторський скіл · доступ назавжди</p>
 
   <div class="lessons">
 
@@ -774,20 +970,20 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
         <span class="lesson-num">0</span>
         <div class="lesson-head">
           <div class="ttl">Урок 0</div>
-          <h3>Як встановити Claude на ПК + знайомство з нейромережею</h3>
+          <h3>Встановлення Claude на ПК і перший запит</h3>
         </div>
         <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
-          <li>покрокова інсталяція Claude на ПК — Windows, macOS</li>
-          <li>реєстрація акаунту без гемору, українською інструкцією</li>
-          <li>перший огляд: що вміє, чим кращий за GPT, куди тиснути</li>
-          <li>як писати запити, щоб Claude давав <b>топ-результат</b></li>
+          <li>інсталяція на Windows і macOS, крок за кроком</li>
+          <li>реєстрація акаунту українською інструкцією</li>
+          <li>огляд можливостей: що Claude уміє і в яких задачах він сильніший за ChatGPT</li>
+          <li>як формулювати запит, щоб отримати робочу відповідь з першого разу</li>
         </ul>
         <div class="res">
-          <div class="r"><b>Результат:</b>&nbsp;Claude встановлений і працює на твоєму ПК за 10 хвилин.</div>
-          <div class="r"><b>Навичка:</b>&nbsp;знаєш, як звертатись до Claude і про що взагалі можна питати.</div>
+          <div class="r"><b>Результат:</b>&nbsp;Claude встановлений і працює на твоєму ПК.</div>
+          <div class="r"><b>Навичка:</b>&nbsp;розумієш, які задачі можна віддавати Claude.</div>
         </div>
       </div>
     </details>
@@ -797,20 +993,20 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
         <span class="lesson-num">1</span>
         <div class="lesson-head">
           <div class="ttl">Урок 1</div>
-          <h3>Інтерфейс Claude + авторський скіл для якісних результатів</h3>
+          <h3>Інтерфейс Claude і авторський скіл для точних відповідей</h3>
         </div>
         <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
-          <li>розбір усіх кнопок і панелей — жодного «а що це?»</li>
-          <li>Projects, Artifacts, чат-історія — як з ними працювати</li>
-          <li>як завантажувати файли, скріншоти, документи</li>
-          <li>авторський <b>скіл для Claude</b> — щоб він одразу видавав відповіді на 10/10</li>
+          <li>розбір усіх розділів і панелей інтерфейсу</li>
+          <li>Projects і Artifacts: де зберігати робочі задачі та готові матеріали</li>
+          <li>завантаження файлів, скріншотів і документів у чат</li>
+          <li>установка <b>авторського скіла</b>, який підвищує якість відповідей</li>
         </ul>
         <div class="res">
-          <div class="r"><b>Результат:</b>&nbsp;ти вільно орієнтуєшся в Claude, як у своєму робочому чаті.</div>
-          <div class="r"><b>Навичка:</b>&nbsp;отримуєш глибокі та точні відповіді з першого запиту.</div>
+          <div class="r"><b>Результат:</b>&nbsp;вільно орієнтуєшся в Claude і знаєш, де що лежить.</div>
+          <div class="r"><b>Навичка:</b>&nbsp;отримуєш точні відповіді без десятка уточнень.</div>
         </div>
       </div>
     </details>
@@ -820,20 +1016,20 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
         <span class="lesson-num">2</span>
         <div class="lesson-head">
           <div class="ttl">Урок 2</div>
-          <h3>Як встановити Skill в Claude</h3>
+          <h3>Skills у Claude: установка і налаштування</h3>
         </div>
         <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
-          <li>що таке Skills у Claude і чому це супер-фішка</li>
-          <li>покрокова установка скіла на твій акаунт</li>
-          <li>як активувати, редагувати, видалити скіл</li>
-          <li>де знаходити ще скіли і як їх додавати</li>
+          <li>що таке Skills і які задачі вони закривають</li>
+          <li>установка скіла на твій акаунт</li>
+          <li>активація, редагування і видалення скілів</li>
+          <li>де знаходити готові скіли під різні задачі</li>
         </ul>
         <div class="res">
-          <div class="r"><b>Результат:</b>&nbsp;у тебе працює перший скіл — а це ключ до «прокачаного» Claude.</div>
-          <div class="r"><b>Навичка:</b>&nbsp;вмієш ставити будь-який скіл під будь-яку задачу.</div>
+          <div class="r"><b>Результат:</b>&nbsp;у тебе працює перший скіл.</div>
+          <div class="r"><b>Навичка:</b>&nbsp;ставиш скіли самостійно під будь-яку задачу.</div>
         </div>
       </div>
     </details>
@@ -843,20 +1039,20 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
         <span class="lesson-num">3</span>
         <div class="lesson-head">
           <div class="ttl">Урок 3</div>
-          <h3>Connectors — як користуватись підключеннями</h3>
+          <h3>Connectors: підключення Claude до Google Drive, Notion і Gmail</h3>
         </div>
         <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
-          <li>підключаємо Claude до Google Drive, Notion, GitHub, Gmail</li>
-          <li>як зробити, щоб Claude сам читав твої файли і документи</li>
-          <li>приклади: аналіз таблиць, редагування Notion, робота з кодом</li>
-          <li>лайфхаки, як не спалити зайві ліміти</li>
+          <li>підключення Google Drive, Notion, GitHub і Gmail</li>
+          <li>налаштування доступу до твоїх файлів і документів</li>
+          <li>приклади задач: аналіз таблиці, редагування Notion, робота з поштою</li>
+          <li>контроль лімітів під час роботи з підключеннями</li>
         </ul>
         <div class="res">
-          <div class="r"><b>Результат:</b>&nbsp;Claude стає інтегрованим у твою робочу екосистему.</div>
-          <div class="r"><b>Навичка:</b>&nbsp;один запит = дія одразу в потрібному сервісі.</div>
+          <div class="r"><b>Результат:</b>&nbsp;Claude працює з твоїми файлами напряму.</div>
+          <div class="r"><b>Навичка:</b>&nbsp;виконуєш дії в потрібному сервісі одним запитом.</div>
         </div>
       </div>
     </details>
@@ -866,20 +1062,20 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
         <span class="lesson-num">4</span>
         <div class="lesson-head">
           <div class="ttl">Урок 4</div>
-          <h3>Claude + Higgsfield MCP — генеруємо AI-відео з чату</h3>
+          <h3>Higgsfield MCP: генерація AI-відео з чату Claude</h3>
         </div>
         <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
-          <li>що таке MCP і чому це майбутнє AI-інструментів</li>
-          <li>покрокова інсталяція Higgsfield MCP на Claude</li>
-          <li>генерація кіношних AI-відео <b>прямо з чату Claude</b></li>
-          <li>лайфхак, який знає ~5% користувачів Claude у всьому світі</li>
+          <li>що таке MCP і для чого він потрібен</li>
+          <li>установка Higgsfield MCP на Claude</li>
+          <li>генерація відео за текстовим описом <b>усередині чату</b></li>
+          <li>приклади промтів для кіношного результату</li>
         </ul>
         <div class="res">
-          <div class="r"><b>Результат:</b>&nbsp;Claude робить AI-відео за твоїм текстовим описом.</div>
-          <div class="r"><b>Навичка:</b>&nbsp;знаєш звʼязку, якою похвалитись перед топовими AI-фахівцями.</div>
+          <div class="r"><b>Результат:</b>&nbsp;Claude генерує AI-відео за твоїм описом.</div>
+          <div class="r"><b>Навичка:</b>&nbsp;володієш звʼязкою, якої немає в жодному українському курсі.</div>
         </div>
       </div>
     </details>
@@ -889,21 +1085,21 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
         <span class="lesson-num">5</span>
         <div class="lesson-head">
           <div class="ttl">Урок 5</div>
-          <h3>Як зробити свій сайт-портфоліо через Claude</h3>
+          <h3>Сайт-портфоліо через авторський Skill for Sites</h3>
         </div>
         <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
-          <li>розбираємо авторський <b>Skill for Sites</b></li>
-          <li>крок за кроком: від ідеї сайту → до готового посилання</li>
-          <li>адаптивність, темна/світла тема, анімації — все через Claude</li>
-          <li>як залити сайт на Vercel безкоштовно за 5 хвилин</li>
+          <li>розбір скіла <b>Skill for Sites</b></li>
+          <li>шлях від опису ідеї до готового посилання</li>
+          <li>адаптив, темна і світла тема, анімації</li>
+          <li>публікація на Vercel за 5 хвилин, безкоштовно</li>
         </ul>
         <div class="res">
-          <div class="r"><b>Результат:</b>&nbsp;у тебе є свій робочий сайт-портфоліо у прод-версії.</div>
-          <div class="r"><b>Навичка:</b>&nbsp;робиш повноцінні сайти без знань коду.</div>
-          <div class="r"><b>Можливість:</b>&nbsp;клієнтські сайти-лендинги від $200 за штуку.</div>
+          <div class="r"><b>Результат:</b>&nbsp;у тебе є робочий сайт-портфоліо з живим посиланням.</div>
+          <div class="r"><b>Навичка:</b>&nbsp;створюєш сайти без знань коду.</div>
+          <div class="r"><b>Можливість:</b>&nbsp;клієнтський лендинг від $200 за штуку.</div>
         </div>
       </div>
     </details>
@@ -913,139 +1109,51 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
         <span class="lesson-num">6</span>
         <div class="lesson-head">
           <div class="ttl">Урок 6</div>
-          <h3>Автопостинг у соцмережі: Metricool + Claude Code</h3>
+          <h3>Автопостинг у соцмережі: Metricool і Claude Code</h3>
         </div>
         <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
-          <li>налаштування Metricool + звʼязка з Claude Code</li>
-          <li>публікація в Instagram, Facebook, TikTok, X, LinkedIn — одночасно</li>
-          <li>Claude сам пише пости, підбирає теги, розписує розклад</li>
-          <li>приклад робочого автопостингу для бренду з 0 до 30 постів у місяць</li>
+          <li>налаштування Metricool і звʼязка з Claude Code</li>
+          <li>публікація в Instagram, Facebook, TikTok, X і LinkedIn одночасно</li>
+          <li>Claude пише пости, підбирає теги і формує розклад</li>
+          <li>приклад налаштованого автопостингу на 30 постів у місяць</li>
         </ul>
         <div class="res">
-          <div class="r"><b>Результат:</b>&nbsp;твої соцмережі публікуються самі, без ручної роботи.</div>
+          <div class="r"><b>Результат:</b>&nbsp;соцмережі публікуються за розкладом без ручної роботи.</div>
           <div class="r"><b>Навичка:</b>&nbsp;економиш 5–10 годин на тиждень.</div>
-          <div class="r"><b>Можливість:</b>&nbsp;послуга «SMM під ключ через AI» — $150/міс з клієнта.</div>
+          <div class="r"><b>Можливість:</b>&nbsp;послуга SMM під ключ через AI від $150/міс.</div>
         </div>
       </div>
     </details>
 
-    <details class="lesson">
+    <details class="lesson lesson--bonus">
       <summary>
         <span class="lesson-num">✦</span>
         <div class="lesson-head">
           <div class="ttl">Бонус · скіл</div>
-          <h3>Авторський Skill для створення сайтів у Claude</h3>
+          <h3>Авторський Skill «Site Builder for Claude»</h3>
         </div>
         <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
-          <li>готовий скіл, який робить з Claude веб-розробника рівня middle</li>
-          <li>адаптивність, SEO, meta-теги, темна/світла тема — все з коробки</li>
-          <li>Claude «розуміє» твої брендові кольори, стиль, тон комунікації</li>
-          <li>тільки для учнів цього блоку — у відкритому доступі немає</li>
+          <li>готовий скіл для створення сайтів у Claude</li>
+          <li>адаптив, SEO, meta-теги, темна і світла тема з коробки</li>
+          <li>скіл враховує твої кольори, шрифти і тон комунікації</li>
+          <li>доступний тільки учням цього блоку</li>
         </ul>
         <div class="res">
-          <div class="r"><b>Результат:</b>&nbsp;ти маєш скіл, який в один клік перетворює Claude на веб-девелопера.</div>
-          <div class="r"><b>Можливість:</b>&nbsp;один сайт по скілу вже окупив весь блок.</div>
+          <div class="r"><b>Результат:</b>&nbsp;Claude збирає сайт за твоїм описом.</div>
+          <div class="r"><b>Можливість:</b>&nbsp;один сайт по скілу перекриває вартість блоку.</div>
         </div>
       </div>
     </details>
 
   </div>
-</section>
 
-<!-- ============== BONUSES / WHAT'S INSIDE ============== -->
-<section class="section cream">
-  <h2 class="h-section">Скіл, MCP, автопостинг, connectors — <span class="accent">все як у справжнього</span> AI-фахівця</h2>
-  <p class="sub">Це не «просто уроки». Це готові інструменти, які працюють з коробки — включаючи авторський скіл, доступний тільки учням.</p>
-
-  <div class="bonus-grid">
-    <div class="bonus-card">
-      <div class="ic">✦</div>
-      <div class="tag">Бонус</div>
-      <h3>Авторський Skill «Site Builder for Claude»</h3>
-      <p>Готовий скіл, що робить з Claude веб-розробника. Ти описуєш ідею — Claude пише HTML/CSS/JS з адаптивністю. <b>Один сайт за 30 хвилин, без рядка коду руками.</b></p>
-    </div>
-    <div class="bonus-card">
-      <div class="ic">◈</div>
-      <div class="tag">Всередині</div>
-      <h3>Claude + Higgsfield MCP</h3>
-      <p>Звʼязка, якої майже немає в українському сегменті. Пишеш промт у Claude — <b>отримуєш кіношне AI-відео</b> у Higgsfield. Без ручного перемикання між сервісами.</p>
-    </div>
-    <div class="bonus-card">
-      <div class="ic">↑</div>
-      <div class="tag">Всередині</div>
-      <h3>Автопостинг: Metricool + Claude Code</h3>
-      <p>Одне налаштування — <b>публікація на 5 соцмереж одночасно.</b> Твій контент виходить, поки ти спиш. Один раз зробив — і забув про рутину.</p>
-    </div>
-    <div class="bonus-card">
-      <div class="ic">◎</div>
-      <div class="tag">Всередині</div>
-      <h3>Connectors — Claude в екосистемі</h3>
-      <p>Підключення Claude до Google Drive, Notion, GitHub, Slack. <b>Claude бачить твої файли, читає, редагує, створює</b> — стає повноцінним асистентом.</p>
-    </div>
-  </div>
-
-  <div class="callout">
-    <p>Один готовий сайт-портфоліо через скіл — і <b>490 грн окупились у перший день.</b></p>
-    <p>Один налаштований автопостинг — і ти <b>економиш 5–10 годин на тиждень.</b></p>
-    <p>Claude + MCP — це <b>рівень, який зараз має 5% ринку</b>. Ти будеш серед них.</p>
-  </div>
-</section>
-
-<!-- ============== PROBLEM / SOLVE ============== -->
-<section class="section dark">
-  <h2 class="h-section">Чому 9 з 10 не використовують <span class="accent">Claude на 100%?</span></h2>
-  <p class="sub">Якщо ти вже пробував Claude — швидше за все, стикався з цим:</p>
-
-  <ul class="pains">
-    <li><span>Відкрив, спробував, отримав відповідь як від <b>звичайного GPT</b> — і закрив, думаючи «нічого особливого».</span></li>
-    <li><span>Інтерфейс англомовний. <b>Skills, Connectors, MCP</b> — не зрозуміло, що це і як цим користуватись.</span></li>
-    <li><span>YouTube забитий теорією, але <b>майже немає практичних відео українською</b> — як зробити сайт, автопостинг, MCP-звʼязку.</span></li>
-  </ul>
-
-  <p style="font-family:var(--serif);font-style:italic;color:#DBD3C6">В результаті більшість використовує Claude <b style="color:#FAF9F6;font-style:normal">на 5% його можливостей</b>. І пропускає найсильніший інструмент 2026 року.</p>
-
-  <div class="solve-card">
-    <h3>Цей блок вирішує всі три проблеми:</h3>
-    <div class="row"><span class="ic">✦</span><span><b>Покрокова інсталяція</b> — від встановлення до першого сайту за 30 хвилин, все українською.</span></div>
-    <div class="row"><span class="ic">✦</span><span><b>Skills, Connectors, MCP</b> — розбираємо все на практиці, без теорії.</span></div>
-    <div class="row"><span class="ic">✦</span><span><b>Готові фішки</b> — авторський скіл для сайтів + звʼязка Claude&nbsp;+&nbsp;Higgsfield MCP.</span></div>
-  </div>
-
-  <div class="callout">
-    Ти платиш не за теорію — її повно в англомовному ютубі.<br>
-    Ти отримуєш <b>покроковий український курс</b> з готовими скілами й лайфхаками, які <b>працюють з коробки</b>.
-  </div>
-</section>
-
-<!-- ============== MONEY ============== -->
-<section class="section coral">
-  <h2 class="h-section">Що дає вміння працювати з <span class="u">Claude</span></h2>
-  <p class="sub" style="color:rgba(255,247,241,.9)">Людина, яка знає Claude на топ-рівні:</p>
-
-  <div class="money-grid">
-    <div class="item"><span class="em">✦</span><div class="t">Робить сайти</div><div class="d">без коду за 30 хвилин</div></div>
-    <div class="item"><span class="em">◈</span><div class="t">Аналізує ринок</div><div class="d">без маркетологів, за один запит</div></div>
-    <div class="item"><span class="em">◐</span><div class="t">Пише тексти</div><div class="d">рекламу, продажники, презентації</div></div>
-    <div class="item"><span class="em">↑</span><div class="t">Автоматизує</div><div class="d">рутину через MCP та Connectors</div></div>
-  </div>
-
-  <p style="margin-top:22px;font-family:var(--serif);font-style:italic;font-size:1.05rem;color:#FFF">І за це платять:</p>
-
-  <div class="money-table">
-    <div class="row"><span class="svc">Односторінковий сайт-лендинг</span><span class="pr">від $200</span></div>
-    <div class="row"><span class="svc">Портфоліо-сайт (multipage)</span><span class="pr">від $400</span></div>
-    <div class="row"><span class="svc">Автопостинг у 5 соцмереж під ключ</span><span class="pr">$150/міс</span></div>
-    <div class="row"><span class="svc">Презентація на 20+ слайдів</span><span class="pr">$80</span></div>
-    <div class="row"><span class="svc">Маркетинговий текст-звʼязка</span><span class="pr">від $50</span></div>
-  </div>
-
-  <p style="margin-top:20px;font-size:.95rem;color:#FFF7F1">Платять, бо ти замінюєш собою <b style="color:#FFF;border-bottom:1px solid #FFF">програміста, дизайнера, копірайтера, маркетолога</b> — в одному вікні.</p>
+  <a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta cta-full" style="margin-top:30px">Забрати 7 уроків + скіл · 490 грн <span class="arr">→</span></a>
 </section>
 
 <!-- ============== HOW IT WORKS ============== -->
@@ -1054,51 +1162,76 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 
   <div class="how-grid">
     <div class="how-card"><span class="em">◇</span>
-      <div><h4>Доступ у Telegram-боті</h4><p>Дивишся уроки коли зручно, одразу застосовуєш на практиці.</p></div>
+      <div><h4>Доступ у Telegram-боті</h4><p>Уроки відкриваються одразу після оплати. Дивишся у зручний час, з телефона або з компʼютера.</p></div>
     </div>
     <div class="how-card"><span class="em">✦</span>
-      <div><h4>Покрокові інструкції українською</h4><p>Що натиснути, куди тиснути, який запит скопіювати — навіть якщо вперше відкриваєш Claude.</p></div>
+      <div><h4>Покрокові інструкції українською</h4><p>Куди натиснути, що завантажити, який запит скопіювати. Кожен англомовний екран розібраний окремо.</p></div>
     </div>
     <div class="how-card"><span class="em">◈</span>
-      <div><h4>Готовий скіл для сайтів</h4><p>Замість того щоб копирати Claude місяцями — одразу отримуєш робочий скіл.</p></div>
-    </div>
-    <div class="how-card"><span class="em">◐</span>
-      <div><h4>Чат-підтримка з автором</h4><p>Ставиш будь-яке питання — отримуєш розбір. Без пошуку відповідей у ютубі англійською.</p></div>
+      <div><h4>Готові скіли</h4><p>Отримуєш робочі скіли одразу, без місяців самостійного підбору запитів.</p></div>
     </div>
   </div>
 
-  <h3 style="font-family:var(--serif);font-weight:600;font-size:1.2rem;margin-top:28px">За 8 коротких уроків ти:</h3>
+  <h3 style="font-family:var(--serif);font-weight:600;font-size:1.2rem;margin-top:28px">За 7 уроків ти:</h3>
   <ul class="summary-list">
-    <li>встановиш Claude і навчишся писати запити для топ-результату</li>
-    <li>розберешся зі Skills, Connectors і MCP — трьома супер-фішками Claude</li>
-    <li>підключиш Claude + Higgsfield MCP і будеш генерувати відео з чату</li>
-    <li>зробиш свій перший сайт-портфоліо за 30 хвилин</li>
-    <li>налаштуєш автопостинг у 5 соцмереж через Claude Code + Metricool</li>
+    <li>встановиш Claude і навчишся формулювати запити для точного результату</li>
+    <li>розберешся зі Skills, Connectors і MCP</li>
+    <li>підключиш Higgsfield MCP і згенеруєш AI-відео з чату</li>
+    <li>зробиш сайт-портфоліо і опублікуєш його на Vercel</li>
+    <li>налаштуєш автопостинг у соцмережі через Metricool і Claude Code</li>
   </ul>
 
+  <p style="margin-top:16px;font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--ink-soft);line-height:1.55">Кожен урок — це дія з відкритим Claude. Не перегляд, а робота, після якої залишається результат.</p>
+
   <div class="callout">
-    Кожен урок = <b>практична дія</b>. Не «подивився і забув», а «зробив і використовуєш».
+    <b>♾️ Доступ назавжди.</b> Проходь у своєму темпі, повертайся до уроків, коли знадобиться.
   </div>
 </section>
 
-<!-- ============== UTP / DIFFERENTIATORS ============== -->
+<!-- ============== PROBLEM / SOLVE ============== -->
 <section class="section dark">
-  <h2 class="h-section">Що робить цей блок <span class="accent">унікальним</span></h2>
-  <p class="sub">Всі 8 уроків збудовані так, щоб ти не просто «подивився», а зайшов з відкритим Claude і зробив крок за кроком. Практика замість теорії.</p>
+  <h2 class="h-section">Чому 9 з 10 відкривають <span class="accent">Claude — і закривають</span></h2>
+  <p class="sub">Якщо ти вже пробував — швидше за все, було так:</p>
 
-  <p style="margin-top:14px;font-size:.95rem;color:#DBD3C6;line-height:1.6">
-    Більшість відео про Claude — англомовна теорія «а ось у нього є Skills, а ось MCP». Але <b style="color:#FAF9F6">жоден урок не показує «як це поставити тобі на ПК і використати завтра»</b>. Цей блок — інший.
-  </p>
+  <ol class="pains-numbered">
+    <li>
+      <span class="pn">01</span>
+      <div class="pt">
+        <h4>Відкрив, спитав щось — і не побачив різниці</h4>
+        <p>Відповідь як у ChatGPT, інтерфейс порожній, кнопок майже немає. Логічний висновок: «та це те саме». І вкладка закривається.</p>
+        <p class="pn-note"><em>Насправді Claude без налаштування — це 5% від того, що він уміє. Уся сила вмикається трьома речами, яких не видно з першого екрана.</em></p>
+      </div>
+    </li>
+    <li>
+      <span class="pn">02</span>
+      <div class="pt">
+        <h4>Skills, Connectors, MCP — три слова, за якими нічого не зрозуміло</h4>
+        <p>Ти бачив ці назви. Можливо, навіть заходив у налаштування. Але що це, навіщо, як поставити собі й що воно дасть завтра — ніде не пояснено українською.</p>
+        <p class="pn-note"><em>А це і є та частина, заради якої Claude беруть.</em></p>
+      </div>
+    </li>
+    <li>
+      <span class="pn">03</span>
+      <div class="pt">
+        <h4>Практики українською просто немає</h4>
+        <p>В англомовному ютубі — години теорії. Але немає відео, де тобі покроково ставлять скіл на твій акаунт і виводять готовий сайт у прод.</p>
+        <p class="pn-note"><em>Тому більшість так і залишається на рівні «чат як чат».</em></p>
+      </div>
+    </li>
+  </ol>
 
-  <div class="utp-grid">
-    <div class="utp-card"><span class="em">✦</span><div><b>Українська мова</b><span>жодного англомовного скріншоту без пояснення</span></div></div>
-    <div class="utp-card"><span class="em">◈</span><div><b>Готовий скіл для сайтів</b><span>активуй і одразу працюй</span></div></div>
-    <div class="utp-card"><span class="em">▷</span><div><b>Claude + Higgsfield MCP</b><span>звʼязка, яку показую вперше в UA-сегменті</span></div></div>
-    <div class="utp-card"><span class="em">↑</span><div><b>Metricool + Claude Code</b><span>автопостинг у 5 соцмереж під ключ</span></div></div>
+  <p style="font-family:var(--serif);font-style:italic;color:#DBD3C6;margin-top:20px">У результаті інструмент, яким зараз працюють топові команди, лежить у тебе у вкладці — <b style="color:#FAF9F6;font-style:normal">і не використовується</b>.</p>
+
+  <div class="solve-card">
+    <h3>Цей блок закриває всі три:</h3>
+    <div class="row"><span class="ic">✦</span><span><b>Покрокова установка</b> — від реєстрації до першого сайту. Все українською, без пропущених кроків.</span></div>
+    <div class="row"><span class="ic">✦</span><span><b>Skills, Connectors, MCP на практиці</b> — не «що це таке», а «ось так ти ставиш це собі і використовуєш завтра».</span></div>
+    <div class="row"><span class="ic">✦</span><span><b>Готові скіли</b> — не треба місяцями підбирати запити, активуєш і працюєш.</span></div>
   </div>
 
   <div class="callout">
-    Разом цей блок дає тобі <b>3 робочі інструменти монетизації</b>: клієнтські сайти, SMM під ключ через AI, послуга «Claude-інсталяція під ключ». Одна послуга з клієнта — і блок окупився в перший тиждень.
+    Ти платиш не за теорію — її повно в англомовному ютубі безкоштовно.<br>
+    Ти платиш за те, щоб <b>не витрачати два місяці на розбір і почати користуватись сьогодні</b>.
   </div>
 </section>
 
@@ -1109,32 +1242,9 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
   <div class="guarantee">
     <div class="shield">◈</div>
     <h3>14 днів повної гарантії</h3>
-    <p>Я впевнений у цінності цього блоку, тому даю <b>14 днів повної гарантії</b>.</p>
-    <p>Якщо протягом двох тижнів ти пройдеш уроки, встановиш Claude, активуєш скіл, спробуєш зробити свій сайт — і не побачиш цінності — я <b>без жодних питань поверну кошти</b>.</p>
-    <div class="quote">Жодних ризиків. Або ти освоюєш Claude — або я повертаю гроші.</div>
-  </div>
-</section>
-
-<!-- ============== AUTHOR ============== -->
-<section class="section dark">
-  <h2 class="h-section">Олександр <span class="accent">Цюцьмаць</span></h2>
-
-  <div class="author-block">
-    <div class="author-photo">
-      <picture>
-        <source srcset="author.avif" type="image/avif">
-        <img src="author.jpg" alt="Олександр Цюцьмаць">
-      </picture>
-    </div>
-    <div>
-      <p><b>Автор навчальних програм з AI</b> для 4200+ учнів. Створюю системні продукти, які працюють у реальному житті — а не «а ось як цим користуватись» без результату.</p>
-      <p>Вивчаю Claude з самого запуску. Побудував авторський скіл, який використовую щодня у своїй роботі, і тепер ділюсь ним з учнями цього блоку.</p>
-    </div>
-    <div class="author-facts">
-      <div class="author-fact"><b>4 200+</b><span>учнів</span></div>
-      <div class="author-fact"><b>15</b><span>блоків</span></div>
-      <div class="author-fact"><b>3 роки</b><span>в AI</span></div>
-    </div>
+    <p>Я впевнений у цьому блоці, тому даю <b>14 днів повної гарантії</b>.</p>
+    <p>Пройди уроки, встанови Claude, активуй скіл, спробуй зробити свій сайт. Якщо не побачиш цінності — напиши мені протягом двох тижнів, і я <b>поверну кошти</b>. Без пояснень і без питань.</p>
+    <div class="quote">Ризику немає. Або ти освоюєш Claude — або забираєш гроші назад.</div>
   </div>
 </section>
 
@@ -1143,21 +1253,19 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
   <h2 class="h-section">Повний список того, що <span class="u">ти отримаєш</span></h2>
 
   <ul class="included">
-    <li><span class="em">▤</span><span>8 практичних уроків: від встановлення до реальних кейсів</span></li>
-    <li><span class="em">◈</span><span>Розбір Skills, Connectors, MCP — трьох головних фішок Claude</span></li>
-    <li><span class="em">◇</span><span>Готовий сайт-портфоліо, зроблений тобою за 30 хв (без коду)</span></li>
-    <li><span class="em">▷</span><span>Звʼязка Claude + Higgsfield MCP — рідкісна фішка українською</span></li>
-    <li><span class="em">↑</span><span>Автопостинг у соцмережі через Metricool + Claude Code</span></li>
-    <li class="bonus"><span class="em">✦</span><span>БОНУС: авторський Skill «Site Builder for Claude»</span></li>
-    <li><span class="em">◎</span><span>Доступ до блоку — назавжди</span></li>
-    <li><span class="em">◐</span><span>Підтримка від автора у Telegram</span></li>
-    <li><span class="em">✧</span><span>Гарантія повернення коштів на 14 днів</span></li>
+    <li><span class="em">▤</span><span><b>7 практичних уроків</b> — від встановлення до готового сайту</span></li>
+    <li><span class="em">◈</span><span><b>Skills, Connectors, MCP</b> — розібрані на практиці</span></li>
+    <li><span class="em">◇</span><span><b>Сайт-портфоліо</b>, зроблений тобою, з живим посиланням</span></li>
+    <li><span class="em">▷</span><span><b>Звʼязка Claude + Higgsfield MCP</b> — генерація відео з чату</span></li>
+    <li><span class="em">↑</span><span><b>Автопостинг</b> через Metricool і Claude Code</span></li>
+    <li class="bonus"><span class="em">✦</span><span><b>БОНУС: авторський Skill «Site Builder for Claude»</b> — у відкритому доступі немає</span></li>
+    <li><span class="em">◎</span><span><b>Доступ до блоку назавжди</b></span></li>
+    <li><span class="em">✧</span><span><b>Гарантія повернення коштів 14 днів</b></span></li>
   </ul>
 
   <div class="final-price-card">
     <div class="lbl">Спеціальна ціна −50%</div>
     <div class="row"><span class="o">990 грн</span><span class="n">490<span class="gr">грн</span></span></div>
-    <div class="hint">тільки до кінця таймера</div>
     <div class="seats on-light" data-seats-widget style="margin-top:14px">
       <div class="seats-head">
         <span class="lbl">Зайнято місць</span>
@@ -1171,7 +1279,7 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
     </div>
   </div>
 
-  <div style="margin-top:20px"><a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta cta-full" style="background:#FFF;color:var(--coral-deep)">Приєднатися за 490 грн <span class="arr">→</span></a></div>
+  <div style="margin-top:20px"><a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta cta-full" style="background:#FFF;color:var(--coral-deep)">Забрати блок за 490 грн <span class="arr">→</span></a></div>
 </section>
 
 <!-- ============== REVIEWS ============== -->
@@ -1213,27 +1321,74 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
   <div class="faq">
     <details>
       <summary>Я повний новачок і не працював з Claude. У мене вийде?<span class="p">+</span></summary>
-      <div class="body">Так, гарантовано. Урок №0 починається зі встановлення Claude «з нуля» — від реєстрації до першого запиту. Все українською, покроково.</div>
+      <div class="body">Урок №0 починається зі встановлення з нуля — від реєстрації до першого запиту. Все українською, покроково, з розбором кожного англомовного екрана.</div>
     </details>
     <details>
-      <summary>Скільки часу займе проходження блоку?<span class="p">+</span></summary>
-      <div class="body">8 уроків реально пройти за 2–3 вечори. Але можеш у своєму темпі — <b>доступ назавжди</b>, ніхто не жене.</div>
+      <summary>Скільки часу займе проходження?<span class="p">+</span></summary>
+      <div class="body">Усе відео — менше години. Реально пройти за 2 спокійні вечори, бо кожен урок передбачає дію з відкритим Claude. <b>Доступ назавжди</b>, тому можна у своєму темпі.</div>
     </details>
     <details>
       <summary>Чи потрібна платна підписка на Claude?<span class="p">+</span></summary>
-      <div class="body">Для базових уроків — ні, вистачить безкоштовного плану. Для звʼязки з MCP та автопостингу знадобиться Pro-план (~$20/міс), але тільки на 1 місяць — потім можна відписатись.</div>
+      <div class="body">Для базових уроків вистачить безкоштовного плану. Для звʼязки з MCP і автопостингу знадобиться Pro (~$20/міс) — можна взяти на один місяць і відписатись.</div>
     </details>
     <details>
-      <summary>А що з англійською? Claude же англомовний.<span class="p">+</span></summary>
-      <div class="body">Не потрібна. <b>Claude чудово розуміє українську</b> та російську. Всі уроки українською, всі приклади запитів українською.</div>
+      <summary>А що з англійською?<span class="p">+</span></summary>
+      <div class="body">Не потрібна. <b>Claude розуміє українську</b> та російську. Всі уроки й приклади запитів — українською.</div>
     </details>
     <details>
       <summary>Це той самий блок, що в повній «Фабриці АІ контенту»?<span class="p">+</span></summary>
-      <div class="body">Так, це <b>ідентичний блок з «Фабрики»</b> — той самий контент, ті самі уроки, той самий скіл. Просто продається окремо для тих, хто хоче почати з малого. Купивши його, ти пізніше зможеш при бажанні докупити повну «Фабрику» з окремими умовами.</div>
+      <div class="body">Так, ідентичний. Ті самі уроки, той самий скіл. Просто вперше продається окремо — для тих, хто хоче почати з малого.</div>
+    </details>
+    <details>
+      <summary>Я планую купити «Фабрику». Чи є сенс брати цей блок?<span class="p">+</span></summary>
+      <div class="body">Якщо ти вже впевнений, що готовий у «Фабрику» — краще одразу туди. Цей блок — вхід для тих, хто ще сумнівається у форматі й хоче спробувати на одному розділі.</div>
+    </details>
+    <details>
+      <summary>Чому так дешево?<span class="p">+</span></summary>
+      <div class="body">Це <b>один блок із великого курсу</b>, а не курс цілком. Я свідомо роблю вхід дешевим: хочу, щоб ти подивився формат на реальному результаті, а не на описі програми.</div>
     </details>
   </div>
 
   <div style="margin-top:22px"><a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta cta-full">Приєднатися за 490 грн <span class="arr">→</span></a></div>
+</section>
+
+<!-- ============== CROSSROADS / FINAL CTA ============== -->
+<section class="section dark cross">
+  <h2 class="h-section">Зараз у тебе <span class="accent">два варіанти</span></h2>
+
+  <div class="cross-grid">
+    <div class="cross-col cross-col--muted">
+      <div class="cross-col__hd">Якщо залишити як є</div>
+      <ul>
+        <li>Claude так і лишиться вкладкою, яку ти відкрив один раз</li>
+        <li>сайт замовиш підряднику за $200–400 і чекатимеш два тижні</li>
+        <li>пости в соцмережі так і робитимеш руками</li>
+        <li>Skills, Connectors і MCP залишаться словами з чужих відео</li>
+        <li>«Фабрику» будеш відкладати ще пів року</li>
+      </ul>
+    </div>
+    <div class="cross-col cross-col--accent">
+      <div class="cross-col__hd">Якщо зайти зараз</div>
+      <ul>
+        <li>за годину відео і два вечори маєш свій сайт у проді</li>
+        <li>авторський скіл стоїть у твоєму Claude і працює щодня</li>
+        <li>соцмережі публікуються без тебе</li>
+        <li>ти розумієш формат навчання — і вирішуєш про «Фабрику» спокійно</li>
+        <li>490 грн, які повертаються з першої ж задачі</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="cross-note">Блок відкритий уперше і на <b>150 місць</b>.</p>
+
+  <div class="cross-cta">
+    <div class="cross-price">
+      <span class="o">990 грн</span>
+      <span class="n">490 грн</span>
+      <span class="save">−50%</span>
+    </div>
+    <a href="https://app.zenedu.io/l/CLAUDE_BLOCK_ZENEDU_ID" target="_blank" rel="noopener" class="cta cta-full cta-big">Забрати блок за 490 грн <span class="arr">→</span></a>
+  </div>
 </section>
 
 <!-- ============== FOOTER ============== -->
