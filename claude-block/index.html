@@ -40,18 +40,18 @@ src="https://www.facebook.com/tr?id=1454724509580252&ev=PageView&noscript=1" /><
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
 :root{
-  --violet:#6B4FBB;
-  --violet-2:#5a3fa8;
-  --violet-light:#8a6fd6;
-  --violet-soft:#e9e1f7;
-  --violet-glow:rgba(107,79,187,.35);
-  --cream:#f3ede0;
-  --cream-2:#ebe3d2;
-  --paper:#fbf7ec;
-  --dark:#1d1730;
-  --dark-2:#2a2245;
+  --violet:#CC785C;
+  --violet-2:#A75B44;
+  --violet-light:#E8A585;
+  --violet-soft:#FAEDDF;
+  --violet-glow:rgba(204,120,92,.35);
+  --cream:#F7EFE3;
+  --cream-2:#EFE4D0;
+  --paper:#FDF8EE;
+  --dark:#1F1512;
+  --dark-2:#2E1F19;
   --gray:#6b6478;
-  --line:rgba(29,23,48,.10);
+  --line:rgba(31,21,18,.10);
   --font:'Jost',-apple-system,'SF Pro Display','Helvetica Neue',Arial,sans-serif;
   --hand:'Caveat',cursive;
 }
@@ -65,8 +65,8 @@ a{color:inherit;text-decoration:none}
 .desktop-bg{
   min-height:100vh;
   background:
-    radial-gradient(ellipse 60% 40% at 20% 15%, rgba(107,79,187,.10), transparent 60%),
-    radial-gradient(ellipse 50% 40% at 85% 60%, rgba(107,79,187,.07), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 20% 15%, rgba(204,120,92,.10), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 60%, rgba(204,120,92,.07), transparent 60%),
     var(--cream);
   display:flex;justify-content:center;
 }
@@ -94,7 +94,7 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
 
 .highlight{
   display:inline;
-  background:linear-gradient(180deg,transparent 60%,rgba(107,79,187,.30) 60%);
+  background:linear-gradient(180deg,transparent 60%,rgba(204,120,92,.30) 60%);
   padding:0 4px;margin:0 -4px;
 }
 .violet-text{color:var(--violet)}
@@ -152,7 +152,7 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
 /* Subtle dotted-grid backdrop for some sections */
 .dot-grid{
   position:absolute;inset:0;pointer-events:none;z-index:0;
-  background-image:radial-gradient(rgba(107,79,187,.18) 1px,transparent 1px);
+  background-image:radial-gradient(rgba(204,120,92,.18) 1px,transparent 1px);
   background-size:22px 22px;
   mask-image:linear-gradient(180deg,transparent 0%,#000 25%,#000 75%,transparent 100%);
   -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 25%,#000 75%,transparent 100%);
@@ -170,7 +170,7 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
   font-weight:800;font-size:.95rem;color:var(--dark);
   letter-spacing:-.01em;
 }
-.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--violet);box-shadow:0 0 0 3px rgba(107,79,187,.18)}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--violet);box-shadow:0 0 0 3px rgba(204,120,92,.18)}
 .menu-pill{
   font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
   padding:7px 14px;background:#fff;border:1px solid var(--line);border-radius:999px;color:var(--dark);
@@ -225,27 +225,47 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
   margin-top:1px;
 }
 
-/* HERO video block — phone-shaped, compact column variant */
-.hero-video-wrap{
+/* HERO visual block — Claude poster (no video, no ai-lyudyna assets) */
+.hero-visual{
   position:relative;
   border-radius:22px;overflow:hidden;
-  background:#000;
+  background:
+    radial-gradient(120% 80% at 30% 20%, rgba(232,165,133,.55), transparent 60%),
+    radial-gradient(120% 80% at 80% 90%, rgba(204,120,92,.55), transparent 60%),
+    linear-gradient(160deg, #F7EFE3 0%, #FDF8EE 100%);
   aspect-ratio:9/16;
-  box-shadow:0 16px 36px -14px rgba(107,79,187,.45),0 0 0 5px #fff,0 0 0 6px var(--line);
+  color:var(--violet);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 16px 36px -14px rgba(204,120,92,.45),0 0 0 5px #fff,0 0 0 6px var(--line);
+  padding:22px 14px;
+  gap:18px;
 }
-.hero-video-wrap .play-tag{font-size:.55rem !important;padding:4px 9px !important;top:9px !important;left:9px !important;letter-spacing:.10em !important}
-.hero-video-wrap video{
-  width:100%;height:100%;object-fit:cover;
-}
-.hero-video-wrap .play-tag{
-  position:absolute;top:14px;left:14px;
+.hero-visual .play-tag{
+  position:absolute;top:11px;left:11px;
   background:rgba(255,255,255,.92);
   color:var(--dark);
-  padding:6px 12px;border-radius:999px;
-  font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  padding:5px 11px;border-radius:999px;
+  font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
   display:inline-flex;align-items:center;gap:6px;backdrop-filter:blur(8px);
 }
-.hero-video-wrap .play-tag .lvd{width:6px;height:6px;border-radius:50%;background:#e63946;animation:pulseDot 1.6s ease-in-out infinite}
+.hero-visual .play-tag .lvd{width:6px;height:6px;border-radius:50%;background:var(--violet);animation:pulseDot 1.6s ease-in-out infinite}
+.hero-visual__logo{
+  display:flex;align-items:center;justify-content:center;
+  filter:drop-shadow(0 12px 24px rgba(204,120,92,.4));
+  animation:heroLogoBreathe 4s ease-in-out infinite;
+}
+@keyframes heroLogoBreathe{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
+}
+.hero-visual__stripe{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:6px 10px;
+  padding:0 8px;
+  font-family:var(--font);font-size:.62rem;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--dark);
+  opacity:.75;line-height:1.5;
+}
+.hero-visual__stripe span:nth-child(even){color:var(--violet);opacity:.55}
 
 .price-row{
   display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
@@ -268,7 +288,7 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
   border-radius:14px;font-weight:700;font-size:.92rem;
   letter-spacing:.04em;text-transform:uppercase;
   width:100%;
-  box-shadow:0 14px 32px -8px rgba(107,79,187,.55),inset 0 1px 0 rgba(255,255,255,.18);
+  box-shadow:0 14px 32px -8px rgba(204,120,92,.55),inset 0 1px 0 rgba(255,255,255,.18);
   position:relative;overflow:hidden;
   transition:transform .25s,box-shadow .25s;
 }
@@ -278,7 +298,7 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.30),transparent);
   transform:skewX(-20deg);transition:left .8s ease;
 }
-.cta:hover{transform:translateY(-2px);box-shadow:0 20px 42px -8px rgba(107,79,187,.65)}
+.cta:hover{transform:translateY(-2px);box-shadow:0 20px 42px -8px rgba(204,120,92,.65)}
 .cta:hover::before{left:130%}
 .cta:active{transform:scale(.98)}
 .cta .arr{font-size:1.05rem;transition:transform .25s}
@@ -342,7 +362,7 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
   box-shadow:0 8px 20px -6px var(--violet-glow);
 }
 
-/* ===== GALLERY (videos) ===== */
+/* ===== GALLERY (Claude use-case cards) ===== */
 .gallery-track{
   display:flex;gap:12px;overflow-x:auto;
   scroll-snap-type:x mandatory;
@@ -352,20 +372,40 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
 }
 .gallery-track::-webkit-scrollbar{display:none}
 .gallery-item{
-  min-width:240px;max-width:260px;
+  min-width:220px;max-width:240px;
   flex-shrink:0;scroll-snap-align:start;
-  aspect-ratio:9/16;border-radius:18px;overflow:hidden;
-  background:#000;position:relative;
-  box-shadow:0 14px 30px -14px rgba(29,23,48,.35);
+  aspect-ratio:3/4;border-radius:18px;overflow:hidden;
+  background:linear-gradient(160deg, #FDF8EE 0%, #F7EFE3 100%);
+  border:1px solid rgba(204,120,92,.22);
+  position:relative;
+  box-shadow:0 14px 30px -14px rgba(204,120,92,.4);
+  padding:18px 16px;
+  display:flex;flex-direction:column;
   content-visibility:auto;
-  contain-intrinsic-size:240px 427px;
+  contain-intrinsic-size:220px 293px;
 }
-.gallery-item video{width:100%;height:100%;object-fit:cover}
+.gallery-item .g-num{
+  font-family:var(--font);font-weight:900;font-size:.62rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--violet);
+  margin-bottom:6px;
+}
+.gallery-item .g-ico{
+  font-size:2rem;line-height:1;margin-bottom:10px;
+}
+.gallery-item .g-title{
+  font-size:.98rem;font-weight:800;color:var(--dark);letter-spacing:-.01em;
+  line-height:1.2;margin-bottom:auto;
+}
+.gallery-item .g-desc{
+  font-size:.75rem;line-height:1.45;color:var(--gray);
+  margin-top:10px;
+}
+.gallery-item .g-desc b{color:var(--violet);font-weight:800}
 .gallery-item .lab{
   position:absolute;bottom:10px;left:10px;
-  background:rgba(0,0,0,.55);color:#fff;backdrop-filter:blur(8px);
-  font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
-  padding:5px 10px;border-radius:999px;
+  background:rgba(31,21,18,.85);color:#fff;backdrop-filter:blur(8px);
+  font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+  padding:4px 9px;border-radius:999px;
 }
 .scroll-hint{
   text-align:center;font-size:.75rem;color:var(--gray);
@@ -649,7 +689,7 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
 .price-final .hint{font-size:.8rem;color:var(--gray);font-style:italic}
 .price-final-timer{
   margin-top:14px;padding-top:14px;
-  border-top:1px dashed rgba(107,79,187,.35);
+  border-top:1px dashed rgba(204,120,92,.35);
   display:flex;align-items:center;justify-content:space-between;gap:12px;
 }
 .price-final-timer .tlbl{
@@ -740,7 +780,7 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
 .footer .ent{font-size:.78rem;line-height:1.6;margin-bottom:14px}
 .footer .ent strong{color:#fff;font-weight:700}
 .footer .links{margin:18px 0;display:flex;gap:16px;flex-wrap:wrap}
-.footer .links a{color:var(--violet-light);font-size:.82rem;font-weight:600;border-bottom:1px solid rgba(138,111,214,.3)}
+.footer .links a{color:var(--violet-light);font-size:.82rem;font-weight:600;border-bottom:1px solid rgba(232,165,133,.3)}
 .footer .disclaimer{font-size:.72rem;line-height:1.55;color:rgba(255,255,255,.4);margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)}
 .footer .disclaimer strong{color:rgba(255,255,255,.7)}
 
@@ -761,33 +801,33 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
   <span class="dot-grid"></span>
   <!-- decorative sparks & shapes -->
   <svg class="deco spark" style="top:7%;right:14px" width="22" height="22" viewBox="0 0 22 22" fill="none">
-    <path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#6B4FBB" opacity=".6"/>
+    <path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#CC785C" opacity=".6"/>
   </svg>
   <svg class="deco spark delay-2" style="top:38%;left:8px" width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#6B4FBB" opacity=".45"/>
+    <path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#CC785C" opacity=".45"/>
   </svg>
   <!-- wavy underline accent -->
   <svg class="deco drift" style="top:52%;right:-10px;opacity:.35" width="90" height="22" viewBox="0 0 90 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
   </svg>
   <!-- dotted cluster bottom-left -->
   <svg class="deco wob" style="bottom:8%;left:-4px;opacity:.45" width="70" height="40" viewBox="0 0 70 40" fill="none">
-    <circle cx="6" cy="6" r="2.5" fill="#6B4FBB"/>
-    <circle cx="20" cy="4" r="2" fill="#6B4FBB" opacity=".7"/>
-    <circle cx="34" cy="10" r="2.5" fill="#6B4FBB" opacity=".5"/>
-    <circle cx="48" cy="6" r="2" fill="#6B4FBB" opacity=".75"/>
-    <circle cx="14" cy="22" r="2" fill="#6B4FBB" opacity=".6"/>
-    <circle cx="28" cy="28" r="2.5" fill="#6B4FBB" opacity=".5"/>
-    <circle cx="44" cy="22" r="2" fill="#6B4FBB" opacity=".7"/>
-    <circle cx="60" cy="30" r="2.5" fill="#6B4FBB" opacity=".55"/>
+    <circle cx="6" cy="6" r="2.5" fill="#CC785C"/>
+    <circle cx="20" cy="4" r="2" fill="#CC785C" opacity=".7"/>
+    <circle cx="34" cy="10" r="2.5" fill="#CC785C" opacity=".5"/>
+    <circle cx="48" cy="6" r="2" fill="#CC785C" opacity=".75"/>
+    <circle cx="14" cy="22" r="2" fill="#CC785C" opacity=".6"/>
+    <circle cx="28" cy="28" r="2.5" fill="#CC785C" opacity=".5"/>
+    <circle cx="44" cy="22" r="2" fill="#CC785C" opacity=".7"/>
+    <circle cx="60" cy="30" r="2.5" fill="#CC785C" opacity=".55"/>
   </svg>
   <!-- plus sign top-right -->
   <svg class="deco spark delay-3" style="top:30%;right:-2px;opacity:.4" width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <path d="M10 2 v16 M2 10 h16" stroke="#6B4FBB" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M10 2 v16 M2 10 h16" stroke="#CC785C" stroke-width="2.4" stroke-linecap="round"/>
   </svg>
   <!-- small dashed ring -->
   <svg class="deco dashed-c" style="bottom:18%;right:8px;opacity:.22" width="48" height="48">
-    <circle cx="24" cy="24" r="20" stroke="#6B4FBB" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
+    <circle cx="24" cy="24" r="20" stroke="#CC785C" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
   </svg>
 
   <div class="brand-row">
@@ -802,9 +842,18 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
   <p class="hero-sub">створюй <strong>сайти без коду, презентації без дизайнера, тексти без копірайтера</strong> — та підключай Claude до сотні задач замість людей</p>
 
   <div class="hero-row">
-    <div class="hero-video-wrap">
-      <span class="play-tag"><span class="lvd"></span> Превʼю</span>
-      <video data-src="media/ai-hero.mp4" poster="media/ai-hero.jpg" autoplay loop muted playsinline preload="none"></video>
+    <div class="hero-visual">
+      <span class="play-tag"><span class="lvd"></span> Claude · Sonnet</span>
+      <div class="hero-visual__logo" aria-hidden="true">
+        <svg viewBox="0 0 100 100" width="72" height="72" fill="none">
+          <path d="M50 12 L74 32 L74 68 L50 88 L26 68 L26 32 Z" stroke="currentColor" stroke-width="2.5" fill="none" opacity=".35"/>
+          <circle cx="50" cy="50" r="18" fill="currentColor" opacity=".9"/>
+          <path d="M42 50 L48 56 L60 42" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="hero-visual__stripe">
+        <span>сайти</span><span>·</span><span>презентації</span><span>·</span><span>тексти</span><span>·</span><span>аналітика</span><span>·</span><span>автопостинг</span><span>·</span><span>MCP</span><span>·</span><span>Skills</span><span>·</span><span>Connectors</span>
+      </div>
     </div>
     <ul class="hero-feats">
       <li><span class="ck">✓</span><span>окремий блок з «Фабрики» — без покупки всього курсу</span></li>
@@ -831,29 +880,29 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
 <section class="section section-paper">
   <span class="dot-grid"></span>
   <svg class="deco dashed-c" style="top:30px;right:18px;opacity:.22" width="60" height="60">
-    <circle cx="30" cy="30" r="22" stroke="#6B4FBB" stroke-width="1.5" fill="none"/>
-    <circle cx="30" cy="30" r="13" stroke="#6B4FBB" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
+    <circle cx="30" cy="30" r="22" stroke="#CC785C" stroke-width="1.5" fill="none"/>
+    <circle cx="30" cy="30" r="13" stroke="#CC785C" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
   </svg>
   <!-- big spark left -->
   <svg class="deco spark" style="top:8%;left:-8px;opacity:.5" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8Z" fill="#6B4FBB"/>
+    <path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8Z" fill="#CC785C"/>
   </svg>
   <!-- curly bracket top-center -->
   <svg class="deco wob" style="top:80px;left:50%;margin-left:-30px;opacity:.25" width="60" height="20" viewBox="0 0 60 20" fill="none">
-    <path d="M2 18 Q 12 2, 22 18 Q 32 2, 42 18 Q 52 2, 58 18" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M2 18 Q 12 2, 22 18 Q 32 2, 42 18 Q 52 2, 58 18" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
   </svg>
   <!-- small spark mid-right -->
   <svg class="deco spark delay-2" style="top:48%;right:14px;opacity:.45" width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#6B4FBB"/>
+    <path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#CC785C"/>
   </svg>
   <!-- arrow doodle bottom-left -->
   <svg class="deco drift" style="bottom:14%;left:-6px;opacity:.3" width="60" height="40" viewBox="0 0 60 40" fill="none">
-    <path d="M4 30 Q 18 8, 36 22 Q 48 30, 56 16" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
-    <path d="M48 10 L 56 16 L 50 24" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M4 30 Q 18 8, 36 22 Q 48 30, 56 16" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M48 10 L 56 16 L 50 24" stroke="#CC785C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   </svg>
   <!-- plus bottom-right -->
   <svg class="deco spark delay-3" style="bottom:6%;right:6px;opacity:.4" width="18" height="18" viewBox="0 0 18 18" fill="none">
-    <path d="M9 2 v14 M2 9 h14" stroke="#6B4FBB" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M9 2 v14 M2 9 h14" stroke="#CC785C" stroke-width="2.2" stroke-linecap="round"/>
   </svg>
 
   <div class="reveal">
@@ -906,28 +955,28 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
   <span class="dot-grid"></span>
   <!-- corner spark TL -->
   <svg class="deco spark" style="top:24px;left:6px;opacity:.5" width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#6B4FBB"/>
+    <path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#CC785C"/>
   </svg>
   <!-- spark TR -->
   <svg class="deco spark delay-2" style="top:14%;right:14px;opacity:.45" width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#6B4FBB"/>
+    <path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#CC785C"/>
   </svg>
   <!-- big dashed ring R -->
   <svg class="deco dashed-c" style="top:26%;right:-30px;opacity:.18" width="120" height="120">
-    <circle cx="60" cy="60" r="50" stroke="#6B4FBB" stroke-width="1.5" fill="none"/>
-    <circle cx="60" cy="60" r="34" stroke="#6B4FBB" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+    <circle cx="60" cy="60" r="50" stroke="#CC785C" stroke-width="1.5" fill="none"/>
+    <circle cx="60" cy="60" r="34" stroke="#CC785C" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
   </svg>
   <!-- wavy line under title -->
   <svg class="deco drift" style="top:18%;left:-10px;opacity:.32" width="130" height="22" viewBox="0 0 130 22" fill="none">
-    <path d="M2 12 Q 16 2, 30 12 T 60 12 T 90 12 T 120 12" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M2 12 Q 16 2, 30 12 T 60 12 T 90 12 T 120 12" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
   </svg>
   <!-- plus BL -->
   <svg class="deco spark delay-3" style="bottom:18%;left:8px;opacity:.4" width="18" height="18" viewBox="0 0 18 18" fill="none">
-    <path d="M9 2 v14 M2 9 h14" stroke="#6B4FBB" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M9 2 v14 M2 9 h14" stroke="#CC785C" stroke-width="2.2" stroke-linecap="round"/>
   </svg>
   <!-- spark BR -->
   <svg class="deco wob" style="bottom:8%;right:6px;opacity:.4" width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#6B4FBB"/>
+    <path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#CC785C"/>
   </svg>
 
   <div class="reveal">
@@ -936,14 +985,62 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
   </div>
 
   <div class="gallery-track" id="gallery">
-    <div class="gallery-item"><video data-src="media/ai-1.mp4" poster="media/ai-1.jpg" autoplay loop muted playsinline preload="none"></video></div>
-    <div class="gallery-item"><video data-src="media/ai-2.mp4" poster="media/ai-2.jpg" autoplay loop muted playsinline preload="none"></video></div>
-    <div class="gallery-item"><video data-src="media/ai-3.mp4" poster="media/ai-3.jpg" autoplay loop muted playsinline preload="none"></video></div>
-    <div class="gallery-item"><video data-src="media/ai-4.mp4" poster="media/ai-4.jpg" autoplay loop muted playsinline preload="none"></video></div>
-    <div class="gallery-item"><video data-src="media/ai-5.mp4" poster="media/ai-5.jpg" autoplay loop muted playsinline preload="none"></video></div>
-    <div class="gallery-item"><video data-src="media/ai-6.mp4" poster="media/ai-6.jpg" autoplay loop muted playsinline preload="none"></video></div>
-    <div class="gallery-item"><video data-src="media/ai-7.mp4" poster="media/ai-7.jpg" autoplay loop muted playsinline preload="none"></video></div>
-    <div class="gallery-item"><video data-src="media/ai-8.mp4" poster="media/ai-8.jpg" autoplay loop muted playsinline preload="none"></video></div>
+    <div class="gallery-item">
+      <div class="g-num">Кейс 01</div>
+      <div class="g-ico">🌐</div>
+      <div class="g-title">Сайт-портфоліо за&nbsp;30&nbsp;хвилин</div>
+      <p class="g-desc">Опис ідеї → готовий адаптивний сайт з темною темою. <b>Без коду.</b></p>
+      <span class="lab">Sites</span>
+    </div>
+    <div class="gallery-item">
+      <div class="g-num">Кейс 02</div>
+      <div class="g-ico">📊</div>
+      <div class="g-title">Аналіз конкурентів за&nbsp;2&nbsp;хвилини</div>
+      <p class="g-desc">Скидаєш 3 сайти → отримуєш SWOT, позиціонування, слабкі місця. <b>1 запит.</b></p>
+      <span class="lab">Analysis</span>
+    </div>
+    <div class="gallery-item">
+      <div class="g-num">Кейс 03</div>
+      <div class="g-ico">✍️</div>
+      <div class="g-title">Продавальний лендинг-текст</div>
+      <p class="g-desc">Одна фраза про продукт → готовий текст лендингу з CTA. <b>Без копірайтера.</b></p>
+      <span class="lab">Copy</span>
+    </div>
+    <div class="gallery-item">
+      <div class="g-num">Кейс 04</div>
+      <div class="g-ico">🎬</div>
+      <div class="g-title">AI-відео через Higgsfield MCP</div>
+      <p class="g-desc">Пишеш промт у Claude → кіношне відео виходить у Higgsfield. <b>Не перемикаючись.</b></p>
+      <span class="lab">MCP</span>
+    </div>
+    <div class="gallery-item">
+      <div class="g-num">Кейс 05</div>
+      <div class="g-ico">📤</div>
+      <div class="g-title">Автопост у&nbsp;5&nbsp;соцмереж</div>
+      <p class="g-desc">Metricool + Claude Code = пости виходять самі, поки ти спиш.</p>
+      <span class="lab">Autopost</span>
+    </div>
+    <div class="gallery-item">
+      <div class="g-num">Кейс 06</div>
+      <div class="g-ico">🧾</div>
+      <div class="g-title">Презентація 20+ слайдів</div>
+      <p class="g-desc">Тема → готова презентація зі структурою і текстами. <b>Без Canva.</b></p>
+      <span class="lab">Slides</span>
+    </div>
+    <div class="gallery-item">
+      <div class="g-num">Кейс 07</div>
+      <div class="g-ico">🔌</div>
+      <div class="g-title">Claude бачить твої файли</div>
+      <p class="g-desc">Connectors до Google Drive, Notion, GitHub — Claude читає, редагує, створює.</p>
+      <span class="lab">Connectors</span>
+    </div>
+    <div class="gallery-item">
+      <div class="g-num">Кейс 08</div>
+      <div class="g-ico">⚙️</div>
+      <div class="g-title">Skills — Claude на стероїдах</div>
+      <p class="g-desc">Один клік = Claude знає промти, стиль, задачу. <b>Готовий скіл у комплекті.</b></p>
+      <span class="lab">Skills</span>
+    </div>
   </div>
   <div class="scroll-hint">← гортай →</div>
 
@@ -955,16 +1052,16 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
 <!-- ============== AUDIENCE ============== -->
 <section class="section section-paper">
   <span class="dot-grid"></span>
-  <svg class="deco spark" style="top:30px;right:14px;opacity:.5" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#6B4FBB"/></svg>
+  <svg class="deco spark" style="top:30px;right:14px;opacity:.5" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#CC785C"/></svg>
   <svg class="deco wob" style="top:18%;left:-8px;opacity:.32" width="80" height="22" viewBox="0 0 80 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 76 12" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 76 12" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
   </svg>
   <svg class="deco dashed-c" style="top:48%;right:-26px;opacity:.16" width="100" height="100">
-    <circle cx="50" cy="50" r="42" stroke="#6B4FBB" stroke-width="1.5" fill="none"/>
-    <circle cx="50" cy="50" r="28" stroke="#6B4FBB" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+    <circle cx="50" cy="50" r="42" stroke="#CC785C" stroke-width="1.5" fill="none"/>
+    <circle cx="50" cy="50" r="28" stroke="#CC785C" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
   </svg>
-  <svg class="deco spark delay-3" style="bottom:24%;left:6px;opacity:.4" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#6B4FBB"/></svg>
-  <svg class="deco drift" style="bottom:6%;right:10px;opacity:.4" width="22" height="22" viewBox="0 0 22 22"><path d="M11 2 v18 M2 11 h18" stroke="#6B4FBB" stroke-width="2.4" stroke-linecap="round"/></svg>
+  <svg class="deco spark delay-3" style="bottom:24%;left:6px;opacity:.4" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#CC785C"/></svg>
+  <svg class="deco drift" style="bottom:6%;right:10px;opacity:.4" width="22" height="22" viewBox="0 0 22 22"><path d="M11 2 v18 M2 11 h18" stroke="#CC785C" stroke-width="2.4" stroke-linecap="round"/></svg>
 
   <div class="reveal">
     <div class="section-label">для кого</div>
@@ -982,16 +1079,16 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
 
 <!-- ============== PROBLEM ============== -->
 <section class="section section-dark">
-  <svg class="deco spark" style="top:34px;right:22px;opacity:.55" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#8a6fd6"/></svg>
-  <svg class="deco spark delay-2" style="top:22%;left:10px;opacity:.4" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#8a6fd6"/></svg>
+  <svg class="deco spark" style="top:34px;right:22px;opacity:.55" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#E8A585"/></svg>
+  <svg class="deco spark delay-2" style="top:22%;left:10px;opacity:.4" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#E8A585"/></svg>
   <svg class="deco wob" style="top:38%;right:-10px;opacity:.3" width="90" height="22" viewBox="0 0 90 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#8a6fd6" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#E8A585" stroke-width="2" stroke-linecap="round" fill="none"/>
   </svg>
   <svg class="deco dashed-c" style="bottom:14%;left:-30px;opacity:.16" width="100" height="100">
-    <circle cx="50" cy="50" r="42" stroke="#8a6fd6" stroke-width="1.5" fill="none"/>
-    <circle cx="50" cy="50" r="28" stroke="#8a6fd6" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+    <circle cx="50" cy="50" r="42" stroke="#E8A585" stroke-width="1.5" fill="none"/>
+    <circle cx="50" cy="50" r="28" stroke="#E8A585" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
   </svg>
-  <svg class="deco drift" style="bottom:8%;right:14px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#8a6fd6" stroke-width="2.4" stroke-linecap="round"/></svg>
+  <svg class="deco drift" style="bottom:8%;right:14px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#E8A585" stroke-width="2.4" stroke-linecap="round"/></svg>
 
   <div class="reveal">
     <div class="section-label">проблема</div>
@@ -1063,17 +1160,17 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
 <!-- ============== PROGRAM ============== -->
 <section class="section section-cream">
   <span class="dot-grid"></span>
-  <svg class="deco spark" style="top:50px;left:14px;opacity:.5" width="18" height="18" viewBox="0 0 18 18"><path d="M9 0L10.7 7.3L18 9L10.7 10.7L9 18L7.3 10.7L0 9L7.3 7.3Z" fill="#6B4FBB"/></svg>
-  <svg class="deco spark delay-2" style="top:30px;right:18px;opacity:.45" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#6B4FBB"/></svg>
+  <svg class="deco spark" style="top:50px;left:14px;opacity:.5" width="18" height="18" viewBox="0 0 18 18"><path d="M9 0L10.7 7.3L18 9L10.7 10.7L9 18L7.3 10.7L0 9L7.3 7.3Z" fill="#CC785C"/></svg>
+  <svg class="deco spark delay-2" style="top:30px;right:18px;opacity:.45" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#CC785C"/></svg>
   <svg class="deco wob" style="top:14%;right:-10px;opacity:.3" width="80" height="22" viewBox="0 0 80 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 76 12" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 76 12" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
   </svg>
   <svg class="deco dashed-c" style="top:30%;left:-30px;opacity:.16" width="100" height="100">
-    <circle cx="50" cy="50" r="42" stroke="#6B4FBB" stroke-width="1.5" fill="none"/>
-    <circle cx="50" cy="50" r="28" stroke="#6B4FBB" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+    <circle cx="50" cy="50" r="42" stroke="#CC785C" stroke-width="1.5" fill="none"/>
+    <circle cx="50" cy="50" r="28" stroke="#CC785C" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
   </svg>
-  <svg class="deco drift" style="bottom:24%;right:6px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#6B4FBB" stroke-width="2.4" stroke-linecap="round"/></svg>
-  <svg class="deco spark delay-3" style="bottom:12%;left:8px;opacity:.4" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#6B4FBB"/></svg>
+  <svg class="deco drift" style="bottom:24%;right:6px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#CC785C" stroke-width="2.4" stroke-linecap="round"/></svg>
+  <svg class="deco spark delay-3" style="bottom:12%;left:8px;opacity:.4" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#CC785C"/></svg>
 
   <div class="reveal">
     <div class="section-label">Програма блоку</div>
@@ -1276,16 +1373,16 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
 <!-- ============== HOW IT WORKS ============== -->
 <section class="section section-cream">
   <span class="dot-grid"></span>
-  <svg class="deco spark" style="top:30px;left:12px;opacity:.5" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#6B4FBB"/></svg>
-  <svg class="deco spark delay-2" style="top:8%;right:18px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#6B4FBB"/></svg>
+  <svg class="deco spark" style="top:30px;left:12px;opacity:.5" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#CC785C"/></svg>
+  <svg class="deco spark delay-2" style="top:8%;right:18px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#CC785C"/></svg>
   <svg class="deco dashed-c" style="top:34%;right:-26px;opacity:.16" width="100" height="100">
-    <circle cx="50" cy="50" r="42" stroke="#6B4FBB" stroke-width="1.5" fill="none"/>
-    <circle cx="50" cy="50" r="28" stroke="#6B4FBB" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+    <circle cx="50" cy="50" r="42" stroke="#CC785C" stroke-width="1.5" fill="none"/>
+    <circle cx="50" cy="50" r="28" stroke="#CC785C" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
   </svg>
   <svg class="deco wob" style="top:60%;left:-10px;opacity:.32" width="90" height="22" viewBox="0 0 90 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
   </svg>
-  <svg class="deco drift" style="bottom:14%;right:8px;opacity:.4" width="22" height="22" viewBox="0 0 22 22"><path d="M11 2 v18 M2 11 h18" stroke="#6B4FBB" stroke-width="2.4" stroke-linecap="round"/></svg>
+  <svg class="deco drift" style="bottom:14%;right:8px;opacity:.4" width="22" height="22" viewBox="0 0 22 22"><path d="M11 2 v18 M2 11 h18" stroke="#CC785C" stroke-width="2.4" stroke-linecap="round"/></svg>
 
   <div class="reveal">
     <div class="section-label">Формат</div>
@@ -1317,16 +1414,16 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
 
 <!-- ============== UTP / ASSISTANTS ============== -->
 <section class="section section-dark">
-  <svg class="deco spark" style="top:24px;right:14px;opacity:.55" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#8a6fd6"/></svg>
-  <svg class="deco spark delay-2" style="top:24%;left:8px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#8a6fd6"/></svg>
+  <svg class="deco spark" style="top:24px;right:14px;opacity:.55" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#E8A585"/></svg>
+  <svg class="deco spark delay-2" style="top:24%;left:8px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#E8A585"/></svg>
   <svg class="deco wob" style="top:42%;right:-10px;opacity:.3" width="90" height="22" viewBox="0 0 90 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#8a6fd6" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#E8A585" stroke-width="2" stroke-linecap="round" fill="none"/>
   </svg>
   <svg class="deco dashed-c" style="bottom:18%;left:-30px;opacity:.16" width="100" height="100">
-    <circle cx="50" cy="50" r="42" stroke="#8a6fd6" stroke-width="1.5" fill="none"/>
-    <circle cx="50" cy="50" r="28" stroke="#8a6fd6" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+    <circle cx="50" cy="50" r="42" stroke="#E8A585" stroke-width="1.5" fill="none"/>
+    <circle cx="50" cy="50" r="28" stroke="#E8A585" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
   </svg>
-  <svg class="deco drift" style="bottom:8%;right:10px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#8a6fd6" stroke-width="2.4" stroke-linecap="round"/></svg>
+  <svg class="deco drift" style="bottom:8%;right:10px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#E8A585" stroke-width="2.4" stroke-linecap="round"/></svg>
 
   <div class="reveal">
     <h2 class="section-title">Що робить цей блок <span class="highlight" style="color:#fff">унікальним</span></h2>
@@ -1353,16 +1450,16 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
 <!-- ============== GUARANTEE ============== -->
 <section class="section section-paper">
   <span class="dot-grid"></span>
-  <svg class="deco spark" style="top:24px;right:18px;opacity:.5" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#6B4FBB"/></svg>
+  <svg class="deco spark" style="top:24px;right:18px;opacity:.5" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#CC785C"/></svg>
   <svg class="deco wob" style="top:18%;left:-10px;opacity:.32" width="90" height="22" viewBox="0 0 90 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
   </svg>
   <svg class="deco dashed-c" style="bottom:16%;right:-20px;opacity:.16" width="80" height="80">
-    <circle cx="40" cy="40" r="32" stroke="#6B4FBB" stroke-width="1.5" fill="none"/>
-    <circle cx="40" cy="40" r="20" stroke="#6B4FBB" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+    <circle cx="40" cy="40" r="32" stroke="#CC785C" stroke-width="1.5" fill="none"/>
+    <circle cx="40" cy="40" r="20" stroke="#CC785C" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
   </svg>
-  <svg class="deco drift" style="bottom:10%;left:6px;opacity:.4" width="18" height="18" viewBox="0 0 18 18"><path d="M9 2 v14 M2 9 h14" stroke="#6B4FBB" stroke-width="2.2" stroke-linecap="round"/></svg>
-  <svg class="deco spark delay-3" style="top:40%;left:6px;opacity:.4" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#6B4FBB"/></svg>
+  <svg class="deco drift" style="bottom:10%;left:6px;opacity:.4" width="18" height="18" viewBox="0 0 18 18"><path d="M9 2 v14 M2 9 h14" stroke="#CC785C" stroke-width="2.2" stroke-linecap="round"/></svg>
+  <svg class="deco spark delay-3" style="top:40%;left:6px;opacity:.4" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#CC785C"/></svg>
 
   <div class="reveal">
     <div class="section-label">Гарантія</div>
@@ -1380,16 +1477,16 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
 
 <!-- ============== AUTHOR ============== -->
 <section class="section section-dark">
-  <svg class="deco spark" style="top:24px;left:14px;opacity:.55" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#8a6fd6"/></svg>
-  <svg class="deco spark delay-2" style="top:16%;right:14px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#8a6fd6"/></svg>
+  <svg class="deco spark" style="top:24px;left:14px;opacity:.55" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#E8A585"/></svg>
+  <svg class="deco spark delay-2" style="top:16%;right:14px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#E8A585"/></svg>
   <svg class="deco dashed-c" style="top:38%;right:-30px;opacity:.16" width="100" height="100">
-    <circle cx="50" cy="50" r="42" stroke="#8a6fd6" stroke-width="1.5" fill="none"/>
-    <circle cx="50" cy="50" r="28" stroke="#8a6fd6" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+    <circle cx="50" cy="50" r="42" stroke="#E8A585" stroke-width="1.5" fill="none"/>
+    <circle cx="50" cy="50" r="28" stroke="#E8A585" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
   </svg>
   <svg class="deco wob" style="bottom:18%;left:-10px;opacity:.3" width="90" height="22" viewBox="0 0 90 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#8a6fd6" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#E8A585" stroke-width="2" stroke-linecap="round" fill="none"/>
   </svg>
-  <svg class="deco drift" style="bottom:8%;right:8px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#8a6fd6" stroke-width="2.4" stroke-linecap="round"/></svg>
+  <svg class="deco drift" style="bottom:8%;right:8px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#E8A585" stroke-width="2.4" stroke-linecap="round"/></svg>
 
   <div class="reveal">
     <div class="section-label">автор</div>
@@ -1455,16 +1552,16 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
 
 <!-- ============== REVIEWS ============== -->
 <section class="section section-dark">
-  <svg class="deco spark" style="top:30px;right:16px;opacity:.55" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#8a6fd6"/></svg>
-  <svg class="deco spark delay-2" style="top:14%;left:12px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#8a6fd6"/></svg>
+  <svg class="deco spark" style="top:30px;right:16px;opacity:.55" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0L11.8 8.2L20 10L11.8 11.8L10 20L8.2 11.8L0 10L8.2 8.2Z" fill="#E8A585"/></svg>
+  <svg class="deco spark delay-2" style="top:14%;left:12px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#E8A585"/></svg>
   <svg class="deco dashed-c" style="top:42%;left:-30px;opacity:.16" width="100" height="100">
-    <circle cx="50" cy="50" r="42" stroke="#8a6fd6" stroke-width="1.5" fill="none"/>
-    <circle cx="50" cy="50" r="28" stroke="#8a6fd6" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+    <circle cx="50" cy="50" r="42" stroke="#E8A585" stroke-width="1.5" fill="none"/>
+    <circle cx="50" cy="50" r="28" stroke="#E8A585" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
   </svg>
   <svg class="deco wob" style="bottom:22%;right:-10px;opacity:.3" width="90" height="22" viewBox="0 0 90 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#8a6fd6" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 74 12 T 88 12" stroke="#E8A585" stroke-width="2" stroke-linecap="round" fill="none"/>
   </svg>
-  <svg class="deco drift" style="bottom:10%;left:8px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#8a6fd6" stroke-width="2.4" stroke-linecap="round"/></svg>
+  <svg class="deco drift" style="bottom:10%;left:8px;opacity:.4" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 v16 M2 10 h16" stroke="#E8A585" stroke-width="2.4" stroke-linecap="round"/></svg>
 
   <div class="reveal">
     <div class="section-label">відгуки</div>
@@ -1502,16 +1599,16 @@ p{font-size:.92rem;line-height:1.6;color:#3a3450}
 <!-- ============== FAQ ============== -->
 <section class="section section-cream">
   <span class="dot-grid"></span>
-  <svg class="deco spark" style="top:30px;left:14px;opacity:.5" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#6B4FBB"/></svg>
-  <svg class="deco spark delay-2" style="top:18%;right:14px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#6B4FBB"/></svg>
+  <svg class="deco spark" style="top:30px;left:14px;opacity:.5" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0L13 9L22 11L13 13L11 22L9 13L0 11L9 9Z" fill="#CC785C"/></svg>
+  <svg class="deco spark delay-2" style="top:18%;right:14px;opacity:.45" width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.3 5.7L14 7L8.3 8.3L7 14L5.7 8.3L0 7L5.7 5.7Z" fill="#CC785C"/></svg>
   <svg class="deco wob" style="top:44%;left:-10px;opacity:.32" width="80" height="22" viewBox="0 0 80 22" fill="none">
-    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 76 12" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M2 12 Q 14 2, 26 12 T 50 12 T 76 12" stroke="#CC785C" stroke-width="2" stroke-linecap="round" fill="none"/>
   </svg>
   <svg class="deco dashed-c" style="bottom:18%;right:-22px;opacity:.16" width="80" height="80">
-    <circle cx="40" cy="40" r="32" stroke="#6B4FBB" stroke-width="1.5" fill="none"/>
-    <circle cx="40" cy="40" r="20" stroke="#6B4FBB" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
+    <circle cx="40" cy="40" r="32" stroke="#CC785C" stroke-width="1.5" fill="none"/>
+    <circle cx="40" cy="40" r="20" stroke="#CC785C" stroke-width="1" fill="none" stroke-dasharray="3 4"/>
   </svg>
-  <svg class="deco drift" style="bottom:10%;left:8px;opacity:.4" width="18" height="18" viewBox="0 0 18 18"><path d="M9 2 v14 M2 9 h14" stroke="#6B4FBB" stroke-width="2.2" stroke-linecap="round"/></svg>
+  <svg class="deco drift" style="bottom:10%;left:8px;opacity:.4" width="18" height="18" viewBox="0 0 18 18"><path d="M9 2 v14 M2 9 h14" stroke="#CC785C" stroke-width="2.2" stroke-linecap="round"/></svg>
 
   <div class="reveal">
     <div class="section-label">faq</div>
