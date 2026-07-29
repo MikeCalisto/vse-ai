@@ -603,12 +603,21 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.015em;line
 }
 .lesson summary{
   list-style:none;cursor:pointer;
-  padding:16px 18px;
+  padding:0;display:block;
+}
+.lesson summary::-webkit-details-marker{display:none}
+.lesson-thumb{
+  display:block;width:100%;height:auto;
+  aspect-ratio:16/9;object-fit:cover;
+  background:var(--paper-2);
+  border-bottom:1px solid var(--gray-line-2);
+}
+.lesson-row{
   display:grid;
   grid-template-columns:38px 1fr 26px;
   gap:14px;align-items:center;
+  padding:16px 18px;
 }
-.lesson summary::-webkit-details-marker{display:none}
 .lesson-num{
   width:38px;height:38px;border-radius:50%;
   background:var(--coral-tint);color:var(--coral-deep);
@@ -936,12 +945,15 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 
     <details class="lesson">
       <summary>
-        <span class="lesson-num">0</span>
-        <div class="lesson-head">
-          <div class="ttl">Урок 0</div>
-          <h3>Встановлення Claude на ПК і перший запит</h3>
+        <img class="lesson-thumb" src="l1.jpg" alt="" loading="lazy" decoding="async">
+        <div class="lesson-row">
+          <span class="lesson-num">0</span>
+          <div class="lesson-head">
+            <div class="ttl">Урок 0</div>
+            <h3>Встановлення Claude на ПК і перший запит</h3>
+          </div>
+          <span class="lesson-toggle">+</span>
         </div>
-        <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
@@ -959,12 +971,15 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 
     <details class="lesson">
       <summary>
-        <span class="lesson-num">1</span>
-        <div class="lesson-head">
-          <div class="ttl">Урок 1</div>
-          <h3>Інтерфейс Claude і авторський скіл для точних відповідей</h3>
+        <img class="lesson-thumb" src="l2.jpg" alt="" loading="lazy" decoding="async">
+        <div class="lesson-row">
+          <span class="lesson-num">1</span>
+          <div class="lesson-head">
+            <div class="ttl">Урок 1</div>
+            <h3>Інтерфейс Claude і авторський скіл для точних відповідей</h3>
+          </div>
+          <span class="lesson-toggle">+</span>
         </div>
-        <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
@@ -982,12 +997,15 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 
     <details class="lesson">
       <summary>
-        <span class="lesson-num">2</span>
-        <div class="lesson-head">
-          <div class="ttl">Урок 2</div>
-          <h3>Skills у Claude: установка і налаштування</h3>
+        <img class="lesson-thumb" src="l3.jpg" alt="" loading="lazy" decoding="async">
+        <div class="lesson-row">
+          <span class="lesson-num">2</span>
+          <div class="lesson-head">
+            <div class="ttl">Урок 2</div>
+            <h3>Skills у Claude: установка і налаштування</h3>
+          </div>
+          <span class="lesson-toggle">+</span>
         </div>
-        <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
@@ -1005,12 +1023,15 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 
     <details class="lesson">
       <summary>
-        <span class="lesson-num">3</span>
-        <div class="lesson-head">
-          <div class="ttl">Урок 3</div>
-          <h3>Connectors: підключення Claude до Google Drive, Notion і Gmail</h3>
+        <img class="lesson-thumb" src="l4.jpg" alt="" loading="lazy" decoding="async">
+        <div class="lesson-row">
+          <span class="lesson-num">3</span>
+          <div class="lesson-head">
+            <div class="ttl">Урок 3</div>
+            <h3>Connectors: підключення Claude до Google Drive, Notion і Gmail</h3>
+          </div>
+          <span class="lesson-toggle">+</span>
         </div>
-        <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
@@ -1028,12 +1049,15 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 
     <details class="lesson">
       <summary>
-        <span class="lesson-num">4</span>
-        <div class="lesson-head">
-          <div class="ttl">Урок 4</div>
-          <h3>Higgsfield MCP: генерація AI-відео з чату Claude</h3>
+        <img class="lesson-thumb" src="l5.jpg" alt="" loading="lazy" decoding="async">
+        <div class="lesson-row">
+          <span class="lesson-num">4</span>
+          <div class="lesson-head">
+            <div class="ttl">Урок 4</div>
+            <h3>Higgsfield MCP: генерація AI-відео з чату Claude</h3>
+          </div>
+          <span class="lesson-toggle">+</span>
         </div>
-        <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
@@ -1051,12 +1075,15 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 
     <details class="lesson">
       <summary>
-        <span class="lesson-num">5</span>
-        <div class="lesson-head">
-          <div class="ttl">Урок 5</div>
-          <h3>Сайт-портфоліо через авторський Skill for Sites</h3>
+        <img class="lesson-thumb" src="l6.jpg" alt="" loading="lazy" decoding="async">
+        <div class="lesson-row">
+          <span class="lesson-num">5</span>
+          <div class="lesson-head">
+            <div class="ttl">Урок 5</div>
+            <h3>Сайт-портфоліо через авторський Skill for Sites</h3>
+          </div>
+          <span class="lesson-toggle">+</span>
         </div>
-        <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
@@ -1075,12 +1102,15 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 
     <details class="lesson">
       <summary>
-        <span class="lesson-num">6</span>
-        <div class="lesson-head">
-          <div class="ttl">Урок 6</div>
-          <h3>Автопостинг у соцмережі: Metricool і Claude Code</h3>
+        <img class="lesson-thumb" src="l7.jpg" alt="" loading="lazy" decoding="async">
+        <div class="lesson-row">
+          <span class="lesson-num">6</span>
+          <div class="lesson-head">
+            <div class="ttl">Урок 6</div>
+            <h3>Автопостинг у соцмережі: Metricool і Claude Code</h3>
+          </div>
+          <span class="lesson-toggle">+</span>
         </div>
-        <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
@@ -1099,12 +1129,14 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
 
     <details class="lesson lesson--bonus">
       <summary>
-        <span class="lesson-num">✦</span>
-        <div class="lesson-head">
-          <div class="ttl">Бонус · скіл</div>
-          <h3>Авторський Skill «Site Builder for Claude»</h3>
+        <div class="lesson-row">
+          <span class="lesson-num">✦</span>
+          <div class="lesson-head">
+            <div class="ttl">Бонус · скіл</div>
+            <h3>Авторський Skill «Site Builder for Claude»</h3>
+          </div>
+          <span class="lesson-toggle">+</span>
         </div>
-        <span class="lesson-toggle">+</span>
       </summary>
       <div class="lesson-body">
         <ul>
