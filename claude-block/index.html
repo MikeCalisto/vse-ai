@@ -1465,8 +1465,7 @@ footer .disclaimer b{color:#B0A79A;font-weight:700}
     var t = document.getElementById('seat-toast');
     if(!t) return;
     var name = NAMES[Math.floor(Math.random()*NAMES.length)];
-    var city = CITIES[Math.floor(Math.random()*CITIES.length)];
-    t.innerHTML = '<b>'+name+'</b> з '+city+' щойно приєднався(-лась)<em>Залишилось '+(TOTAL-taken)+' місць</em>';
+    t.innerHTML = '<b>'+name+'</b> щойно приєднався(-лась)<em>Залишилось '+(TOTAL-taken)+' місць</em>';
     t.classList.add('show');
     clearTimeout(showToast._t);
     showToast._t = setTimeout(function(){ t.classList.remove('show'); }, 4200);
