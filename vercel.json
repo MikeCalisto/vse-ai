@@ -4,7 +4,7 @@
   "installCommand": null,
   "rewrites": [
     { "source": "/", "destination": "/zakrytyi-klub/index.html" },
-    { "source": "/((?!product-ai-content|content-tovar|zakrytyi-klub|ai-lyudyna|links|fabryka-ai-kontentu|fabryka-spec|fabryka-spec-claude|claude-block|ai-video|ai-video2|ai-video-webinar|webinar|pershyi-dzvinok|oblozhky-modul-2|prezentaciya-kursu|favicon|apple-touch-icon|robots\\.txt|sitemap).*)", "destination": "/zakrytyi-klub/$1" }
+    { "source": "/((?!product-ai-content|content-tovar|zakrytyi-klub|ai-content|ai-lyudyna|links|fabryka-ai-kontentu|fabryka-spec|fabryka-spec-claude|claude-block|ai-video|ai-video2|ai-video-webinar|webinar|pershyi-dzvinok|oblozhky-modul-2|prezentaciya-kursu|favicon|apple-touch-icon|robots\\.txt|sitemap).*)", "destination": "/zakrytyi-klub/$1" }
   ],
   "redirects": [
     { "source": "/product-ai-content", "destination": "/product-ai-content/index.html", "permanent": false },
@@ -13,6 +13,8 @@
     { "source": "/product-ai-content-ubt/", "destination": "/product-ai-content-ubt/index.html", "permanent": false },
     { "source": "/content-tovar", "destination": "/content-tovar/index.html", "permanent": false },
     { "source": "/content-tovar/", "destination": "/content-tovar/index.html", "permanent": false },
+    { "source": "/ai-content", "destination": "/ai-content/index.html", "permanent": false },
+    { "source": "/ai-content/", "destination": "/ai-content/index.html", "permanent": false },
     { "source": "/ai-lyudyna", "destination": "/ai-lyudyna/index.html", "permanent": false },
     { "source": "/ai-lyudyna/", "destination": "/ai-lyudyna/index.html", "permanent": false },
     { "source": "/ai-lyudyna-ubt", "destination": "/ai-lyudyna-ubt/index.html", "permanent": false },
@@ -59,6 +61,12 @@
     },
     {
       "source": "/content-tovar/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/ai-content/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
