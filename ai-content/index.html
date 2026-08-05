@@ -270,6 +270,7 @@ a{color:inherit;text-decoration:none}
   padding:24px 0;
   border-bottom:1px solid var(--line);
   position:relative;
+  z-index:0;
 }
 .bonus:last-child{border-bottom:0}
 .bonus::after{content:'';display:block;clear:both}
@@ -279,15 +280,17 @@ a{color:inherit;text-decoration:none}
 .bonus__title{font-weight:600;font-size:21px;line-height:1.24;color:var(--ink)}
 .bonus__body{font-size:14px;line-height:1.6;color:var(--navy)}
 .bonus__body b{color:var(--navy);font-weight:700}
+/* логотипи стоять праворуч поверх блоку, текст просто не заходить під них */
 .bonus__logos{
-  position:relative;float:right;
-  width:162px;height:182px;
-  margin:-26px -20px 0 12px;
-  shape-outside:inset(0);
+  position:absolute;top:14px;right:-22px;
+  width:150px;height:170px;
+  pointer-events:none;z-index:2;
 }
 .bonus__logos img{position:absolute;width:auto}
-.bonus__logos img:first-child{right:0;top:0;height:103px}
-.bonus__logos img:last-child{left:0;top:61px;height:120px}
+.bonus__logos img:first-child{right:0;top:0;height:96px}
+.bonus__logos img:last-child{left:0;top:56px;height:112px}
+.bonus--gem .bonus__title{padding-right:50px}
+.bonus--gem .bonus__body{padding-right:76px}
 .bonus__pic{margin-top:14px;border-radius:var(--r-sm);overflow:hidden;clear:both}
 .bonus__side{float:right;width:81px;margin:0 -4px 6px 12px}
 
@@ -439,8 +442,9 @@ a{color:inherit;text-decoration:none}
    ============================================================ */
 .carousel{position:relative}
 .track{
-  display:flex;gap:12px;
-  overflow-x:auto;
+  display:flex;gap:12px;align-items:flex-start;
+  transition:height .3s cubic-bezier(.4,0,.2,1);
+  overflow-x:auto;overflow-y:hidden;
   scroll-snap-type:x mandatory;
   scroll-behavior:smooth;
   padding:0 var(--pad) 4px;
@@ -454,12 +458,11 @@ a{color:inherit;text-decoration:none}
   overflow:hidden;
   box-shadow:var(--shadow-md);
   background:linear-gradient(160deg,#EDF2EF,#DDE6E1);
-  content-visibility:auto;
 }
 .slide img{width:100%;height:auto;display:block}
 .slide--neuro{aspect-ratio:16/9}
 .slide--neuro img{height:100%;object-fit:cover}
-.slide--rev{background:#fff;min-height:220px}
+.slide--rev{background:#fff;box-shadow:none;border-radius:12px}
 .nav{
   position:absolute;top:50%;transform:translateY(-50%);
   width:34px;height:34px;border-radius:50%;
@@ -511,7 +514,8 @@ a{color:inherit;text-decoration:none}
 .dark__deco--tl{top:-98px;left:-123px;width:269px;filter:blur(3px)}
 .dark__deco--br{right:-82px;bottom:6px;width:179px}
 .dark__deco--tr{top:-115px;right:-136px;width:249px;filter:blur(3px);z-index:1}
-.dark__deco--l{left:-81px;top:38%;width:131px;z-index:3}
+/* z-index:1 — куб над фоном, но ПОД текстом, щоб не перекривав «Якщо ви:» */
+.dark__deco--l{left:-88px;top:42%;width:131px;z-index:1}
 
 /* ============================================================
    HOW IT GOES — карточки с emoji
@@ -694,7 +698,7 @@ img.miss{display:none}
   <div class="hero__grid">
     <div class="hero__photocol">
       <div class="hero__photo ph">
-        <img src="images/hero.jpg" alt="Автор курсу за ноутбуком створює AI-контент" onerror="this.classList.add('miss')">
+        <img width="558" height="1000" src="images/hero.jpg" alt="Автор курсу за ноутбуком створює AI-контент" onerror="this.classList.add('miss')">
       </div>
       <img class="hero__deco hero__deco--2" src="images/deco-ai.png" alt="" onerror="this.classList.add('miss')">
     </div>
@@ -737,16 +741,16 @@ img.miss{display:none}
     <div class="timer__cell"><div class="timer__num" id="t-s">00</div><div class="timer__lab">Секунд</div></div>
   </div>
 
-  <article class="bonus">
+  <article class="bonus bonus--gem">
+    <div class="bonus__logos">
+      <img src="images/logo-gemini.png" alt="Google Gemini" onerror="this.classList.add('miss')">
+      <img src="images/logo-nanobanana.png" alt="Nano Banana" onerror="this.classList.add('miss')">
+    </div>
     <div class="bonus__head">
       <div class="bonus__ico"><img src="images/deco-gift.png" alt="" onerror="this.classList.add('miss')"></div>
       <h3 class="bonus__title">Бонус №1: Як отримати платні нейронки безкоштовно</h3>
     </div>
     <p class="bonus__body">Покажу лайфхак, як користуватися Veo 3.1, Nano Banana та іншими інструментами без покупки підписки</p>
-    <div class="bonus__logos">
-      <img src="images/logo-gemini.png" alt="Google Gemini" onerror="this.classList.add('miss')">
-      <img src="images/logo-nanobanana.png" alt="Nano Banana" onerror="this.classList.add('miss')">
-    </div>
   </article>
 
   <article class="bonus">
@@ -758,7 +762,7 @@ img.miss{display:none}
       <img class="bonus__side" src="images/logo-chatgpt.png" alt="ChatGPT" onerror="this.classList.add('miss')">
       Зможете зробити зі свого ChatGPT персонального професійного <b>бізнес-аналітика, маркетолога, копірайтера, коуча, юриста та ще 5 ролей.</b>
     </p>
-    <div class="bonus__pic"><img src="images/bonus-roles.jpg" alt="10 готових ролей для ChatGPT" loading="lazy" onerror="this.classList.add('miss')"></div>
+    <div class="bonus__pic"><img width="1600" height="363" src="images/bonus-roles.jpg" alt="10 готових ролей для ChatGPT" loading="lazy" onerror="this.classList.add('miss')"></div>
   </article>
 
   <article class="bonus">
@@ -834,7 +838,7 @@ img.miss{display:none}
         <div class="lesson__name">Як спілкуватися з ChatGPT так, щоб отримувати ідеальний результат</div>
       </div>
       <div class="lesson__body">
-        <div class="lesson__media"><img src="images/lesson-1.jpg" alt="Урок 1 — ChatGPT" onerror="this.classList.add('miss')"></div>
+        <div class="lesson__media"><img width="458" height="820" src="images/lesson-1.jpg" alt="Урок 1 — ChatGPT" onerror="this.classList.add('miss')"></div>
         <div>
           <ul class="lesson__ul">
             <li>розбір інтерфейсу ChatGPT</li>
@@ -855,7 +859,7 @@ img.miss{display:none}
         <div class="lesson__name">Перша генерація фото через нейромережі</div>
       </div>
       <div class="lesson__body">
-        <div class="lesson__media"><img src="images/lesson-2.jpg" alt="Урок 2 — генерація фото" onerror="this.classList.add('miss')"></div>
+        <div class="lesson__media"><img width="457" height="820" src="images/lesson-2.jpg" alt="Урок 2 — генерація фото" onerror="this.classList.add('miss')"></div>
         <div>
           <ul class="lesson__ul">
             <li>де безкоштовно генерувати AI-картинки</li>
@@ -876,7 +880,7 @@ img.miss{display:none}
       </div>
       <div class="lesson__body">
         <button type="button" class="lesson__media ytf" data-yt="qtTvqEtS-es" aria-label="Дивитись відео уроку №3">
-          <img src="images/lesson-3.jpg" alt="Урок 3 — генерація відео" loading="lazy" onerror="this.classList.add('miss')">
+          <img width="405" height="720" src="images/lesson-3.jpg" alt="Урок 3 — генерація відео" loading="lazy" onerror="this.classList.add('miss')">
           <span class="ytf__play"></span>
         </button>
         <div>
@@ -898,7 +902,7 @@ img.miss{display:none}
       </div>
       <div class="lesson__body">
         <button type="button" class="lesson__media ytf" data-yt="aBfSLpMRzAQ" aria-label="Дивитись відео уроку №4">
-          <img src="images/lesson-4.jpg" alt="Урок 4 — AI-озвучка" loading="lazy" onerror="this.classList.add('miss')">
+          <img width="405" height="720" src="images/lesson-4.jpg" alt="Урок 4 — AI-озвучка" loading="lazy" onerror="this.classList.add('miss')">
           <span class="ytf__play"></span>
         </button>
         <div>
@@ -920,7 +924,7 @@ img.miss{display:none}
       </div>
       <div class="lesson__body">
         <button type="button" class="lesson__media ytf" data-yt="GY-67pDR_j0" aria-label="Дивитись відео уроку №5">
-          <img src="images/lesson-5.jpg" alt="Урок 5 — AI-музика" loading="lazy" onerror="this.classList.add('miss')">
+          <img width="405" height="720" src="images/lesson-5.jpg" alt="Урок 5 — AI-музика" loading="lazy" onerror="this.classList.add('miss')">
           <span class="ytf__play"></span>
         </button>
         <div>
@@ -941,7 +945,7 @@ img.miss{display:none}
         <div class="lesson__name">5 кроків, щоб перетворись з учня в АІ креатора</div>
       </div>
       <div class="lesson__body">
-        <div class="lesson__media"><img src="images/lesson-6.jpg" alt="Урок 6 — до і після" onerror="this.classList.add('miss')"></div>
+        <div class="lesson__media"><img width="457" height="820" src="images/lesson-6.jpg" alt="Урок 6 — до і після" onerror="this.classList.add('miss')"></div>
         <div>
           <p class="lesson__res" style="margin:0 0 12px;font-weight:700">Фінальний урок, де ви зберете усі навички, отримані на цьому курсі, воєдино:</p>
           <ul class="lesson__ul">
@@ -972,7 +976,7 @@ img.miss{display:none}
       <p>«Уроки настільки прості та зрозумілі, що мені здається, навіть дитина в них розбереться...»</p>
     </div>
     <button type="button" class="alina__media ph ytf" data-yt="hRibNsc4RT4" aria-label="Дивитись відгук Аліни">
-      <img src="images/alina.jpg" alt="Відгук Аліни про курс" loading="lazy" onerror="this.classList.add('miss')">
+      <img width="405" height="720" src="images/alina.jpg" alt="Відгук Аліни про курс" loading="lazy" onerror="this.classList.add('miss')">
       <span class="ytf__play"></span>
     </button>
   </div>
@@ -986,14 +990,14 @@ img.miss{display:none}
   <div class="carousel" data-carousel>
     <button class="nav nav--prev" data-prev aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
     <div class="track" data-track>
-      <div class="slide slide--neuro"><img src="images/neuro-1.jpg" alt="ChatGPT" loading="lazy" onerror="this.classList.add('miss')"></div>
-      <div class="slide slide--neuro"><img src="images/neuro-2.jpg" alt="Нейромережа 2" loading="lazy" onerror="this.classList.add('miss')"></div>
-      <div class="slide slide--neuro"><img src="images/neuro-3.jpg" alt="Нейромережа 3" loading="lazy" onerror="this.classList.add('miss')"></div>
-      <div class="slide slide--neuro"><img src="images/neuro-4.jpg" alt="Нейромережа 4" loading="lazy" onerror="this.classList.add('miss')"></div>
-      <div class="slide slide--neuro"><img src="images/neuro-5.jpg" alt="Нейромережа 5" loading="lazy" onerror="this.classList.add('miss')"></div>
-      <div class="slide slide--neuro"><img src="images/neuro-6.jpg" alt="Нейромережа 6" loading="lazy" onerror="this.classList.add('miss')"></div>
-      <div class="slide slide--neuro"><img src="images/neuro-7.jpg" alt="Нейромережа 7" loading="lazy" onerror="this.classList.add('miss')"></div>
-      <div class="slide slide--neuro"><img src="images/neuro-8.jpg" alt="Нейромережа 8" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--neuro"><img width="1024" height="683" src="images/neuro-1.jpg" alt="ChatGPT" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--neuro"><img width="1024" height="683" src="images/neuro-2.jpg" alt="Нейромережа 2" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--neuro"><img width="1024" height="683" src="images/neuro-3.jpg" alt="Нейромережа 3" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--neuro"><img width="944" height="628" src="images/neuro-4.jpg" alt="Нейромережа 4" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--neuro"><img width="1200" height="476" src="images/neuro-5.jpg" alt="Нейромережа 5" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--neuro"><img width="1024" height="683" src="images/neuro-6.jpg" alt="Нейромережа 6" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--neuro"><img width="1200" height="630" src="images/neuro-7.jpg" alt="Нейромережа 7" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--neuro"><img width="481" height="518" src="images/neuro-8.jpg" alt="Нейромережа 8" loading="lazy" onerror="this.classList.add('miss')"></div>
     </div>
     <button class="nav nav--next" data-next aria-label="Вперед"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
     <div class="dots" data-dots></div>
@@ -1003,7 +1007,7 @@ img.miss{display:none}
 <!-- ============================ АВТОРСЬКІ ЗАСТОСУНКИ ============================ -->
 <section class="section rv">
   <div class="dark">
-    <img class="dark__bg" src="images/apps-bg.jpg" alt="" onerror="this.classList.add('miss')">
+    <img width="746" height="900" class="dark__bg" src="images/apps-bg.jpg" alt="" onerror="this.classList.add('miss')">
     <img class="dark__deco dark__deco--tl" src="images/deco-laptop-flip.png" alt="" onerror="this.classList.add('miss')">
     <img class="dark__deco dark__deco--br" src="images/deco-laptop.png" alt="" onerror="this.classList.add('miss')">
     <h2 class="h2">Авторські<br><span class="gold">застосунки</span></h2>
@@ -1065,7 +1069,7 @@ img.miss{display:none}
 <!-- ============================ ГАРАНТІЯ ============================ -->
 <section class="section rv">
   <div class="dark">
-    <img class="dark__bg" src="images/guarantee-bg.jpg" alt="" onerror="this.classList.add('miss')">
+    <img width="470" height="900" class="dark__bg" src="images/guarantee-bg.jpg" alt="" onerror="this.classList.add('miss')">
     <img class="dark__deco dark__deco--tr" src="images/deco-ai.png" alt="" onerror="this.classList.add('miss')">
     <img class="dark__deco dark__deco--l" src="images/deco-ai.png" alt="" onerror="this.classList.add('miss')">
     <h2 class="h2">Розширена<br><span class="gold">гарантія від</span><br><span class="gold">автора курсу</span></h2>
@@ -1083,7 +1087,7 @@ img.miss{display:none}
   <h2 class="h2">Автор курсу</h2>
 
   <div class="author__pics">
-    <div class="author__pic ph"><img src="images/author.jpg" alt="Олександр Цюцьмаць — Ai_Sasha" loading="lazy" onerror="this.classList.add('miss')"></div>
+    <div class="author__pic ph"><img width="747" height="1000" src="images/author.jpg" alt="Олександр Цюцьмаць — Ai_Sasha" loading="lazy" onerror="this.classList.add('miss')"></div>
   </div>
 
   <div class="author__name">Олександр<br>Цюцьмаць</div>
@@ -1145,17 +1149,17 @@ img.miss{display:none}
   <div class="carousel" data-carousel>
     <button class="nav nav--prev" data-prev aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
     <div class="track" data-track>
-      <div class="slide slide--rev"><img src="images/review-1.jpg" alt="Відгук 1" loading="lazy" onerror="this.classList.add('miss')"></div>
-      <div class="slide slide--rev"><img src="images/review-2.jpg" alt="Відгук 2" loading="lazy" onerror="this.classList.add('miss')"></div>
-      <div class="slide slide--rev"><img src="images/review-3.jpg" alt="Відгук 3" loading="lazy" onerror="this.classList.add('miss')"></div>
-      <div class="slide slide--rev"><img src="images/review-4.jpg" alt="Відгук 4" loading="lazy" onerror="this.classList.add('miss')"></div>
-      <div class="slide slide--rev"><img src="images/review-5.jpg" alt="Відгук 5" loading="lazy" onerror="this.classList.add('miss')"></div>
-      <div class="slide slide--rev"><img src="images/review-6.jpg" alt="Відгук 6" loading="lazy" onerror="this.classList.add('miss')"></div>
-      <div class="slide slide--rev"><img src="images/review-7.jpg" alt="Відгук 7" loading="lazy" onerror="this.classList.add('miss')"></div>
-      <div class="slide slide--rev"><img src="images/review-8.jpg" alt="Відгук 8" loading="lazy" onerror="this.classList.add('miss')"></div>
-      <div class="slide slide--rev"><img src="images/review-9.jpg" alt="Відгук 9" loading="lazy" onerror="this.classList.add('miss')"></div>
-      <div class="slide slide--rev"><img src="images/review-10.jpg" alt="Відгук 10" loading="lazy" onerror="this.classList.add('miss')"></div>
-      <div class="slide slide--rev"><img src="images/review-11.jpg" alt="Відгук 11" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="653" height="900" src="images/review-1.jpg" alt="Відгук 1" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="766" height="246" src="images/review-2.jpg" alt="Відгук 2" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="744" height="216" src="images/review-3.jpg" alt="Відгук 3" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="798" height="448" src="images/review-4.jpg" alt="Відгук 4" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="806" height="422" src="images/review-5.jpg" alt="Відгук 5" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="798" height="484" src="images/review-6.jpg" alt="Відгук 6" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="786" height="210" src="images/review-7.jpg" alt="Відгук 7" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="774" height="276" src="images/review-8.jpg" alt="Відгук 8" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="512" height="900" src="images/review-9.jpg" alt="Відгук 9" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="531" height="900" src="images/review-10.jpg" alt="Відгук 10" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="796" height="218" src="images/review-11.jpg" alt="Відгук 11" loading="lazy" onerror="this.classList.add('miss')"></div>
     </div>
     <button class="nav nav--next" data-next aria-label="Вперед"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
     <div class="dots" data-dots></div>
@@ -1323,9 +1327,21 @@ img.miss{display:none}
       track.scrollTo({ left: slides[cur].offsetLeft - track.offsetLeft, behavior: 'smooth' });
       sync(cur);
     }
+    /* высота трека = высота активного слайда, чтобы под низкими отзывами не было пустоты */
+    function fit(i){
+      var h = slides[i].offsetHeight;
+      if (h > 40) track.style.height = h + 'px';   // 0 бывает пока картинка не загрузилась
+    }
     function sync(i){
       dots.forEach(function(d, k){ d.classList.toggle('on', k === i); });
+      fit(i);
     }
+    fit(0);
+    track.querySelectorAll('img').forEach(function(im){
+      if (im.complete) return;
+      im.addEventListener('load', function(){ fit(cur); }, {once:true});
+    });
+    window.addEventListener('resize', function(){ fit(cur); });
 
     var raf;
     track.addEventListener('scroll', function(){
