@@ -17,7 +17,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lato:wght@400;700;900&display=swap&subset=cyrillic" rel="stylesheet">
 
 <style>
 /* ============================================================
@@ -27,11 +27,14 @@
   --green:#21653E;
   --green-dk:#184b2e;
   --green-lt:#2f8355;
-  --gold:#E8B409;
+  --gold:#E9B409;
   --yellow:#FEC601;
-  --navy:#252B5C;
-  --ink:#0B0B0B;
-  --ink-2:#3A3A3A;
+  --navy:#252758;
+  --ink:#000000;
+  --ink-2:#252758;
+  --grey:#8E8E8E;
+  --lab:#898AA6;
+  --red:#DA0405;
   --paper:#FFFFFF;
   --paper-2:#F6F7F9;
   --line:#E7E9EE;
@@ -41,8 +44,9 @@
   --r-lg:24px;
   --r-md:18px;
   --r-sm:12px;
-  --font:'Golos Text',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-  --pad:22px;
+  --font:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-alt:'Lato','Montserrat',-apple-system,sans-serif;
+  --pad:21px;
 }
 
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
@@ -75,7 +79,7 @@ a{color:inherit;text-decoration:none}
 }
 .phone{
   width:100%;
-  max-width:480px;
+  max-width:440px;
   background:var(--paper);
   position:relative;
   overflow:hidden;
@@ -97,25 +101,23 @@ a{color:inherit;text-decoration:none}
 
 .h1{
   font-weight:900;
-  font-size:clamp(30px,8.6vw,40px);
-  line-height:1.02;
-  letter-spacing:-.02em;
+  font-size:38px;
+  line-height:1.1;
   text-transform:uppercase;
   text-align:center;
 }
 .h2{
   font-weight:900;
-  font-size:clamp(25px,7.2vw,33px);
-  line-height:1.08;
-  letter-spacing:-.015em;
+  font-size:32px;
+  line-height:1.2;
   text-transform:uppercase;
   text-align:center;
 }
-.h3{font-weight:800;font-size:20px;line-height:1.2;letter-spacing:-.01em}
+.h3{font-weight:700;font-size:20px;line-height:1.2}
 .gold{color:var(--gold)}
 .grn{color:var(--green)}
 .lead{
-  font-size:17px;line-height:1.42;text-align:center;font-weight:500;
+  font-size:16px;line-height:1.4;text-align:center;font-weight:400;
 }
 .mark{
   background:var(--yellow);
@@ -134,6 +136,8 @@ a{color:inherit;text-decoration:none}
 .btn{
   display:flex;align-items:center;justify-content:center;gap:12px;
   width:100%;
+  max-width:316px;
+  margin-left:auto;margin-right:auto;
   padding:19px 22px;
   background:linear-gradient(180deg,var(--green-lt) 0%,var(--green) 42%,var(--green-dk) 100%);
   color:#fff;
@@ -155,7 +159,7 @@ a{color:inherit;text-decoration:none}
 @media (hover:hover){.btn:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(33,101,62,.38), inset 0 1px 0 rgba(255,255,255,.22)}}
 .btn__ico{
   flex:0 0 auto;width:28px;height:28px;border-radius:50%;
-  background:#fff;color:var(--green);
+  background:#fff;color:var(--red);
   display:grid;place-items:center;font-size:15px;font-weight:900;
 }
 .btn--ghost{
@@ -171,19 +175,24 @@ a{color:inherit;text-decoration:none}
   display:flex;align-items:baseline;justify-content:center;gap:12px;flex-wrap:wrap;
   font-weight:900;
 }
-.price__new{font-size:clamp(30px,8vw,38px);color:var(--gold);letter-spacing:-.02em}
-.price__old{font-size:clamp(21px,5.6vw,26px);color:#9AA0A6;text-decoration:line-through;text-decoration-thickness:2px}
+.price__new{font-size:29px;color:var(--gold)}
+.price__old{font-size:23px;color:var(--grey);text-decoration:line-through;text-decoration-thickness:2px}
 
 /* ============================================================
    HERO
    ============================================================ */
-.hero{position:relative;padding-top:26px}
+.hero{position:relative;padding-top:20px;overflow:hidden}
+/* дальний куб — размытый, ЗА бейджами */
 .hero__deco{
-  position:absolute;top:-14px;right:-34px;width:150px;pointer-events:none;
-  filter:drop-shadow(0 12px 22px rgba(33,101,62,.28));
+  position:absolute;top:-68px;right:-85px;width:209px;pointer-events:none;
+  filter:blur(3px);
   z-index:0;
 }
-.hero__deco--2{top:auto;right:auto;left:-40px;bottom:120px;width:110px;transform:rotate(-12deg)}
+/* ближний куб — резкий, ПОВЕРХ фото, привязан к нижнему левому углу фото */
+.hero__deco--2{
+  top:77%;right:auto;left:-74px;bottom:auto;width:123px;
+  filter:none;z-index:3;
+}
 .hero > *:not(.hero__deco){position:relative;z-index:1}
 
 .badges{display:flex;gap:12px;justify-content:center;margin-bottom:26px}
@@ -210,27 +219,26 @@ a{color:inherit;text-decoration:none}
 .hero__lead{margin-bottom:24px}
 
 .hero__grid{
+  position:relative;
   display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-  gap:16px;align-items:center;
-  margin-bottom:26px;
+  grid-template-columns:173fr 190fr;
+  gap:16px;align-items:start;
+  margin-bottom:22px;
 }
+.hero__photocol{position:relative}
 .hero__photo{
-  border-radius:var(--r-md);overflow:hidden;
-  box-shadow:var(--shadow-md);
-  aspect-ratio:3/4;
+  border-radius:14px;overflow:hidden;
+  aspect-ratio:173/314;
+  position:relative;z-index:1;
 }
 .hero__photo img{width:100%;height:100%;object-fit:cover}
-.hero__list{display:flex;flex-direction:column;gap:16px}
-.hero__item{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.3;font-weight:500}
+/* галочка сверху по центру, текст по центру под ней — как в оригинале */
+.hero__list{display:flex;flex-direction:column;gap:0;padding-top:4px}
+.hero__item{text-align:center;font-size:15px;line-height:1.35;font-weight:400;color:var(--navy)}
 .hero__item .ck{
-  flex:0 0 auto;width:22px;height:22px;border-radius:6px;
-  background:linear-gradient(180deg,#FFD84D,var(--yellow));
-  display:grid;place-items:center;margin-top:1px;
-  box-shadow:0 3px 8px rgba(232,180,9,.35);
+  display:block;width:60px;height:auto;margin:0 auto;
 }
-.hero__item .ck svg{width:13px;height:13px}
-.hero__item--plain{padding-left:32px}
+.hero__item--plain{margin-top:12px}
 
 .hero__price{margin-bottom:20px}
 
@@ -249,11 +257,11 @@ a{color:inherit;text-decoration:none}
   content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--line);
 }
 .timer__num{
-  font-weight:900;font-size:clamp(34px,10vw,44px);line-height:1;
-  letter-spacing:-.03em;
+  font-weight:900;font-size:40px;line-height:1;
+  color:var(--navy);
   font-variant-numeric:tabular-nums;
 }
-.timer__lab{font-size:14px;color:#8A9099;font-weight:500;margin-top:6px}
+.timer__lab{font-size:21px;color:var(--lab);font-weight:400;margin-top:8px}
 
 /* ============================================================
    BONUS CARDS
@@ -264,55 +272,67 @@ a{color:inherit;text-decoration:none}
   position:relative;
 }
 .bonus:last-child{border-bottom:0}
-.bonus__head{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
-.bonus__ico{flex:0 0 auto;width:38px}
+.bonus::after{content:'';display:block;clear:both}
+.bonus__head{display:flex;gap:14px;align-items:flex-start;margin-bottom:12px}
+.bonus__ico{flex:0 0 auto;width:69px}
 .bonus__ico img{width:100%}
-.bonus__title{font-weight:700;font-size:19px;line-height:1.24;letter-spacing:-.01em}
-.bonus__body{font-size:15.5px;line-height:1.45;color:var(--ink-2)}
-.bonus__body b{color:var(--ink);font-weight:700}
+.bonus__title{font-weight:600;font-size:21px;line-height:1.24;color:var(--ink)}
+.bonus__body{font-size:14px;line-height:1.6;color:var(--navy)}
+.bonus__body b{color:var(--navy);font-weight:700}
 .bonus__logos{
-  display:flex;gap:14px;align-items:center;justify-content:flex-end;
-  margin-top:14px;flex-wrap:wrap;
+  position:relative;float:right;
+  width:162px;height:182px;
+  margin:-26px -20px 0 12px;
+  shape-outside:inset(0);
 }
-.bonus__logos img{height:44px;width:auto}
-.bonus__pic{margin-top:14px;border-radius:var(--r-sm);overflow:hidden;box-shadow:var(--shadow-sm)}
-.bonus__side{float:right;width:88px;margin:0 0 8px 14px}
+.bonus__logos img{position:absolute;width:auto}
+.bonus__logos img:first-child{right:0;top:0;height:103px}
+.bonus__logos img:last-child{left:0;top:61px;height:120px}
+.bonus__pic{margin-top:14px;border-radius:var(--r-sm);overflow:hidden;clear:both}
+.bonus__side{float:right;width:81px;margin:0 -4px 6px 12px}
 
 /* ============================================================
    «ЦЕЙ КУРС ДЛЯ ВАС» — карточки с вылезающей иконкой
    ============================================================ */
-.forlist{display:flex;flex-direction:column;gap:16px;margin-top:26px;padding-left:26px}
+.forlist{display:flex;flex-direction:column;gap:16px;margin-top:26px}
 .forcard{
   position:relative;
   background:#fff;
   border-radius:var(--r-md);
   box-shadow:var(--shadow-md);
-  padding:18px 20px 18px 44px;
-  font-size:16px;line-height:1.34;font-weight:500;
-  min-height:78px;display:flex;align-items:center;
+  padding:20px 18px 20px 84px;
+  font-size:18px;line-height:1.2;font-weight:600;color:var(--ink);
+  min-height:88px;display:flex;align-items:center;
 }
+/* иконки разного размера, как в оригинале, и вылезают за левый край */
 .forcard__ico{
-  position:absolute;left:-26px;top:50%;transform:translateY(-50%);
-  width:74px;pointer-events:none;
-  filter:drop-shadow(0 8px 16px rgba(33,101,62,.28));
+  position:absolute;top:50%;transform:translateY(-50%);
+  pointer-events:none;height:auto;
 }
+.forcard:nth-child(1) .forcard__ico{width:168px;left:-48px}
+.forcard:nth-child(2) .forcard__ico{width:146px;left:-43px}
+.forcard:nth-child(3) .forcard__ico{width:135px;left:-33px}
+.forcard:nth-child(4) .forcard__ico{width:137px;left:-39px}
+.forcard:nth-child(5) .forcard__ico{width:197px;left:-80px}
 
 /* ============================================================
    «У ВАС ВИЙДЕ» — 3 пункта с 3D-цифрами
    ============================================================ */
-.steps{display:flex;flex-direction:column;gap:22px;margin-top:26px}
-.step{display:flex;gap:14px;align-items:flex-start}
-.step__num{
-  flex:0 0 auto;width:56px;
-  filter:drop-shadow(0 8px 16px rgba(33,101,62,.25));
-}
+.steps{display:flex;flex-direction:column;gap:18px;margin-top:26px}
+.step{display:flex;gap:16px;align-items:flex-start}
+.step__num{flex:0 0 auto;height:auto}
+.step:nth-child(1) .step__num{width:69px}
+.step:nth-child(2) .step__num{width:82px;margin-left:-6px}
+.step:nth-child(3) .step__num{width:73px;margin-left:-2px}
 .step__num--fallback{
-  font-weight:900;font-size:52px;line-height:.9;
+  font-weight:900;font-size:56px;line-height:.9;
   color:var(--green);
-  -webkit-text-stroke:0;
 }
-.step__txt{font-size:15.5px;line-height:1.42;font-weight:500;padding-top:2px}
-.step__txt b{font-weight:800}
+.step__txt{
+  font-family:var(--font-alt);
+  font-size:16px;line-height:1.3;font-weight:400;color:var(--navy);padding-top:2px;
+}
+.step__txt b{font-weight:700}
 
 /* ============================================================
    LESSON CARDS
@@ -333,18 +353,20 @@ a{color:inherit;text-decoration:none}
   box-shadow:var(--shadow-md);
   padding:16px 74px 18px 20px;
 }
-.lesson__no{font-weight:900;font-size:26px;line-height:1.1;letter-spacing:-.02em}
-.lesson__name{font-weight:800;font-size:17.5px;line-height:1.2;margin-top:4px;letter-spacing:-.01em}
-.lesson__play{
-  position:absolute;top:-16px;right:-14px;width:64px;z-index:3;
-  filter:drop-shadow(0 8px 16px rgba(33,101,62,.3));
+.lesson__no{font-weight:900;font-size:26px;line-height:1.1}
+.lesson__name{
+  font-family:var(--font-alt);
+  font-weight:700;font-size:20px;line-height:1.1;margin-top:6px;color:var(--ink);
 }
-.lesson__body{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1fr);gap:14px;align-items:start}
+.lesson__play{
+  position:absolute;top:-58px;right:-44px;width:122px;z-index:3;
+  pointer-events:none;
+}
+.lesson__body{display:grid;grid-template-columns:141px minmax(0,1fr);gap:15px;align-items:start}
 .lesson__media{
-  border-radius:var(--r-sm);overflow:hidden;
+  border-radius:10px;overflow:hidden;
   background:linear-gradient(160deg,#E8F3EC,#D6E9DD);
-  aspect-ratio:9/16;
-  box-shadow:var(--shadow-sm);
+  aspect-ratio:141/252;
   position:relative;
 }
 .lesson__media img,.lesson__media video{width:100%;height:100%;object-fit:cover}
@@ -370,17 +392,17 @@ a{color:inherit;text-decoration:none}
 @media (hover:hover){.ytf:hover .ytf__play{transform:translate(-50%,-50%) scale(1.08)}}
 .lesson__ul{list-style:none;display:flex;flex-direction:column;gap:10px}
 .lesson__ul li{
-  position:relative;padding-left:17px;
-  font-size:15px;line-height:1.32;font-weight:500;
+  position:relative;padding-left:15px;
+  font-size:14px;line-height:1.3;font-weight:400;color:var(--ink);
 }
 .lesson__ul li::before{
   content:'';position:absolute;left:0;top:.5em;
-  width:6px;height:6px;border-radius:50%;background:var(--navy);
+  width:5px;height:5px;border-radius:50%;background:var(--navy);
 }
 .lesson__res{
-  margin-top:14px;font-size:15px;line-height:1.36;font-weight:500;
+  margin-top:14px;font-size:14px;line-height:1.3;font-weight:400;color:var(--ink);
 }
-.lesson__res b{font-weight:800}
+.lesson__res b{font-weight:700}
 
 /* ============================================================
    GREEN BANNER
@@ -463,7 +485,6 @@ a{color:inherit;text-decoration:none}
 .dark{
   position:relative;
   border-radius:var(--r-lg);
-  overflow:hidden;
   color:#fff;
   background:#151915;
   padding:34px 24px 32px;
@@ -472,10 +493,12 @@ a{color:inherit;text-decoration:none}
 .dark__bg{
   position:absolute;inset:0;
   width:100%;height:100%;object-fit:cover;
+  border-radius:inherit;
   opacity:.42;
 }
 .dark::after{
   content:'';position:absolute;inset:0;
+  border-radius:inherit;
   background:linear-gradient(180deg,rgba(10,14,11,.72),rgba(10,14,11,.9));
 }
 .dark > *:not(.dark__bg):not(.dark__deco){position:relative;z-index:2}
@@ -483,13 +506,12 @@ a{color:inherit;text-decoration:none}
 .dark p:last-child{margin-bottom:0}
 .dark b{font-weight:800;color:#fff}
 .dark .h2{margin-bottom:20px}
-.dark__deco{
-  position:absolute;width:120px;pointer-events:none;z-index:3;
-  filter:drop-shadow(0 10px 20px rgba(0,0,0,.4));
-}
-.dark__deco--tl{top:-26px;left:-30px;transform:rotate(-14deg)}
-.dark__deco--br{right:-26px;bottom:-14px;width:132px;transform:rotate(8deg)}
-.dark__deco--l{left:-46px;top:46%;width:88px;transform:rotate(-8deg);z-index:1}
+.dark__deco{position:absolute;pointer-events:none;z-index:3;height:auto}
+/* дальний декор — размытый, как в оригинале */
+.dark__deco--tl{top:-98px;left:-123px;width:269px;filter:blur(3px)}
+.dark__deco--br{right:-82px;bottom:6px;width:179px}
+.dark__deco--tr{top:-115px;right:-136px;width:249px;filter:blur(3px);z-index:1}
+.dark__deco--l{left:-81px;top:38%;width:131px;z-index:3}
 
 /* ============================================================
    HOW IT GOES — карточки с emoji
@@ -502,9 +524,9 @@ a{color:inherit;text-decoration:none}
   box-shadow:var(--shadow-md);
   padding:18px 20px;
 }
-.howcard__ico{flex:0 0 auto;font-size:28px;line-height:1}
-.howcard__txt{font-size:15px;line-height:1.4;font-weight:500}
-.howcard__txt b{font-weight:800}
+.howcard__ico{flex:0 0 auto;font-size:34px;line-height:1}
+.howcard__txt{font-family:var(--font-alt);font-size:15px;line-height:1.26;font-weight:400;color:var(--ink)}
+.howcard__txt b{font-weight:700}
 .howcard__txt a{color:var(--navy);font-weight:800;text-decoration:underline}
 
 .result{margin-top:24px}
@@ -518,7 +540,7 @@ a{color:inherit;text-decoration:none}
    AUTHOR
    ============================================================ */
 .author__pics{display:flex;flex-direction:column;gap:14px;margin:24px 0}
-.author__pic{border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:985/1319}
+.author__pic{border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:362/388}
 .author__pic img{width:100%;height:100%;object-fit:cover}
 .author__name{
   font-weight:900;font-size:clamp(24px,6.6vw,30px);line-height:1.06;
@@ -526,15 +548,9 @@ a{color:inherit;text-decoration:none}
   margin-bottom:22px;
 }
 .author__ul{list-style:none;display:flex;flex-direction:column;gap:18px}
-.author__ul li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;line-height:1.38;font-weight:500}
-.author__ul li b{font-weight:800}
-.author__ul .ck{
-  flex:0 0 auto;width:20px;height:20px;border-radius:5px;margin-top:2px;
-  background:linear-gradient(180deg,#FFD84D,var(--yellow));
-  display:grid;place-items:center;
-  box-shadow:0 3px 8px rgba(232,180,9,.3);
-}
-.author__ul .ck svg{width:12px;height:12px}
+.author__ul li{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.4;font-weight:400;color:var(--navy)}
+.author__ul li b{font-weight:700}
+.author__ul .ck{flex:0 0 auto;width:48px;height:auto;margin-top:-2px}
 
 /* ============================================================
    FULL LIST CARD
@@ -571,7 +587,7 @@ a{color:inherit;text-decoration:none}
   padding:20px 20px;
   background:none;border:0;
   font-family:var(--font);
-  font-size:16.5px;line-height:1.26;font-weight:600;
+  font-size:18px;line-height:1.4;font-weight:600;
   color:var(--ink);text-align:left;cursor:pointer;
 }
 .faq__plus{
@@ -622,6 +638,7 @@ a{color:inherit;text-decoration:none}
 .sticky.on{opacity:1;transform:none}
 .sticky__inner{width:100%;max-width:452px;pointer-events:auto}
 .sticky .btn{
+  max-width:none;
   padding:16px 18px;font-size:17px;line-height:1.15;text-align:center;
   border-radius:22px;
   box-shadow:0 12px 34px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.22);
@@ -653,7 +670,6 @@ img.miss{display:none}
 <!-- ============================ HERO ============================ -->
 <header class="section hero">
   <img class="hero__deco" src="images/deco-ai.png" alt="" onerror="this.classList.add('miss')">
-  <img class="hero__deco hero__deco--2" src="images/deco-ai.png" alt="" onerror="this.classList.add('miss')">
 
   <div class="badges">
     <div class="badge">
@@ -676,24 +692,27 @@ img.miss{display:none}
   </p>
 
   <div class="hero__grid">
-    <div class="hero__photo ph">
-      <img src="images/hero.jpg" alt="Автор курсу за ноутбуком створює AI-контент" onerror="this.classList.add('miss')">
+    <div class="hero__photocol">
+      <div class="hero__photo ph">
+        <img src="images/hero.jpg" alt="Автор курсу за ноутбуком створює AI-контент" onerror="this.classList.add('miss')">
+      </div>
+      <img class="hero__deco hero__deco--2" src="images/deco-ai.png" alt="" onerror="this.classList.add('miss')">
     </div>
     <div class="hero__list">
       <div class="hero__item">
-        <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <span>8 простих та безкоштовних нейромереж</span>
+        <img class="ck" src="images/check.png" alt="" onerror="this.classList.add('miss')">
+        8 простих та безкоштовних нейромереж
       </div>
       <div class="hero__item">
-        <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <span>без технічних знань, без навиків кодування та без знання англійської</span>
+        <img class="ck" src="images/check.png" alt="" onerror="this.classList.add('miss')">
+        без технічних знань, без навиків кодування та без знання англійської
       </div>
       <div class="hero__item">
-        <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <span>створиш свій перший AI-контент</span>
+        <img class="ck" src="images/check.png" alt="" onerror="this.classList.add('miss')">
+        створиш свій перший AI-контент
       </div>
       <div class="hero__item hero__item--plain">
-        <span>за який готові платити $</span>
+        за який готові платити $
       </div>
     </div>
   </div>
@@ -824,9 +843,9 @@ img.miss{display:none}
             <li>що таке роль у ChatGPT</li>
             <li>формула сильного промта</li>
           </ul>
+          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> ви більше не будете використовувати ChatGPT як Google і навчитесь створювати сильні промти для генерації AI-контенту.</p>
         </div>
       </div>
-      <p class="lesson__res"><span class="mark mark--sq">Результат:</span> ви більше не будете використовувати ChatGPT як Google і навчитесь створювати сильні промти для генерації AI-контенту.</p>
     </article>
 
     <article class="lesson">
@@ -844,9 +863,9 @@ img.miss{display:none}
             <li>як створювати різні стилі зображень</li>
             <li>як зробити AI-фотосесію для себе</li>
           </ul>
+          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> ви створите свої перші AI зображення і персональну AI-фотосесію.</p>
         </div>
       </div>
-      <p class="lesson__res"><span class="mark mark--sq">Результат:</span> ви створите свої перші AI зображення і персональну AI-фотосесію.</p>
     </article>
 
     <article class="lesson">
@@ -866,9 +885,9 @@ img.miss{display:none}
             <li>Генерація відео з картинки</li>
             <li>Генерація відео з ідеї</li>
           </ul>
+          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> ви навчитесь створювати свої перші AI-відео, які можна використовувати для контенту, Reels або продавати за $ для бізнесів</p>
         </div>
       </div>
-      <p class="lesson__res"><span class="mark mark--sq">Результат:</span> ви навчитесь створювати свої перші AI-відео, які можна використовувати для контенту, Reels або продавати за $ для бізнесів</p>
     </article>
 
     <article class="lesson">
@@ -888,9 +907,9 @@ img.miss{display:none}
             <li>як зробити голос живим</li>
             <li>клонування свого голосу</li>
           </ul>
+          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> ви створите професійну AI-озвучку для своїх відео з уроку №3 та навчитесь клонувати свій голос для пришвидшення створення майбутнього контенту.</p>
         </div>
       </div>
-      <p class="lesson__res"><span class="mark mark--sq">Результат:</span> ви створите професійну AI-озвучку для своїх відео з уроку №3 та навчитесь клонувати свій голос для пришвидшення створення майбутнього контенту.</p>
     </article>
 
     <article class="lesson">
@@ -910,9 +929,9 @@ img.miss{display:none}
             <li>розбір інтерфейсу топових нейронок, де будемо генерувати музику</li>
             <li>створення фонової музики для вашого відео</li>
           </ul>
+          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> ви створите свою першу AI-музику та навчитесь генерувати треки або фонову музику для відео всього за кілька кліків.</p>
         </div>
       </div>
-      <p class="lesson__res"><span class="mark mark--sq">Результат:</span> ви створите свою першу AI-музику та навчитесь генерувати треки або фонову музику для відео всього за кілька кліків.</p>
     </article>
 
     <article class="lesson">
@@ -1047,6 +1066,7 @@ img.miss{display:none}
 <section class="section rv">
   <div class="dark">
     <img class="dark__bg" src="images/guarantee-bg.jpg" alt="" onerror="this.classList.add('miss')">
+    <img class="dark__deco dark__deco--tr" src="images/deco-ai.png" alt="" onerror="this.classList.add('miss')">
     <img class="dark__deco dark__deco--l" src="images/deco-ai.png" alt="" onerror="this.classList.add('miss')">
     <h2 class="h2">Розширена<br><span class="gold">гарантія від</span><br><span class="gold">автора курсу</span></h2>
     <p>Я впевнений у якості курсу «Легкий старт в AI-контенті з повного 0». <b>Чому?</b></p>
@@ -1070,19 +1090,19 @@ img.miss{display:none}
 
   <ul class="author__ul">
     <li>
-      <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+      <img class="ck" src="images/check.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
       <span>Вивчаю АІ інструменти <b>кожен день з 2024 року</b></span>
     </li>
     <li>
-      <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+      <img class="ck" src="images/check.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
       <span><b>Власник агенції</b> зі створення АІ контенту під ключ</span>
     </li>
     <li>
-      <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+      <img class="ck" src="images/check.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
       <span><b>2600 учнів</b> вже пройшли мої навчальні програми та використовують AI для заробітку, контенту й особистого бренду</span>
     </li>
     <li>
-      <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+      <img class="ck" src="images/check.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
       <span>Я вірю, що <b>AI — це не про “магію кнопки”, а про системний підхід,</b> правильні промти та розуміння, як отримувати саме той результат, який ти хочеш бачити</span>
     </li>
   </ul>
