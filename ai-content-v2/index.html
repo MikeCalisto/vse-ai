@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#1668E3">
+<title>AI КОНТЕНТ З ПОВНОГО НУЛЯ — для діджитал-спеціалістів</title>
+<meta name="description" content="Опануй 8 топових нейромереж для генерації фото, відео, музики та озвучки всього за 6 коротких уроків. Для SMM, таргетологів, дизайнерів і монтажерів." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="AI КОНТЕНТ З ПОВНОГО НУЛЯ — для діджитал-спеціалістів" />
+<meta property="og:description" content="Опануй 8 топових нейромереж для генерації фото, відео, музики та озвучки всього за 6 коротких уроків." />
+<meta name="robots" content="index, follow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lato:wght@400;700;900&display=swap&subset=cyrillic" rel="stylesheet">
+
+<style>
+/* ============================================================
+   TOKENS — синя палітра з референсу
+   ============================================================ */
+:root{
+  --blue:#1668E3;
+  --blue-dk:#0E4CAF;
+  --blue-lt:#3B87F2;
+  --blue-soft:#E8F0FE;
+  --blue-line:#CFE0FC;
+  --ink:#0B0D12;
+  --ink-2:#252B38;
+  --navy:#1E2534;
+  --grey:#8E93A0;
+  --lab:#98A0B2;
+  --paper:#FFFFFF;
+  --paper-2:#F5F7FB;
+  --line:#E4E8F0;
+  --shadow-sm:0 2px 10px rgba(16,24,40,.06);
+  --shadow-md:0 6px 24px rgba(16,24,40,.09);
+  --shadow-lg:0 18px 48px rgba(16,24,40,.14);
+  --r-lg:24px;
+  --r-md:18px;
+  --r-sm:12px;
+  --font:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-alt:'Lato','Montserrat',-apple-system,sans-serif;
+  --pad:21px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ============================================================
+   DESKTOP WRAPPER — «телефон» по центру
+   ============================================================ */
+.desktop-bg{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  background:#E8EDF5;
+  background-image:
+    radial-gradient(ellipse 55% 40% at 14% 6%,  rgba(22,104,227,.30), transparent 64%),
+    radial-gradient(ellipse 52% 38% at 90% 26%, rgba(59,135,242,.28), transparent 64%),
+    radial-gradient(ellipse 55% 38% at 16% 74%, rgba(59,135,242,.22), transparent 64%),
+    radial-gradient(ellipse 52% 38% at 88% 96%, rgba(22,104,227,.26), transparent 64%);
+  background-attachment:fixed;
+}
+.phone{
+  width:100%;
+  max-width:440px;
+  background:var(--paper);
+  position:relative;
+  overflow:hidden;
+}
+@media (min-width:900px){
+  .desktop-bg{padding:28px 0}
+  .phone{
+    border-radius:32px;
+    box-shadow:0 40px 90px rgba(16,24,40,.22), 0 0 0 1px rgba(16,24,40,.06);
+  }
+}
+
+/* ============================================================
+   LAYOUT / TYPO
+   ============================================================ */
+.section{padding:44px var(--pad)}
+.section--tight{padding:28px var(--pad)}
+.section--flush{padding-left:0;padding-right:0}
+.section--soft{background:var(--paper-2)}
+
+.h1{
+  font-weight:900;
+  font-size:38px;
+  line-height:1.06;
+  letter-spacing:-.015em;
+  text-transform:uppercase;
+  text-align:center;
+}
+.h2{
+  font-weight:900;
+  font-size:32px;
+  line-height:1.14;
+  letter-spacing:-.01em;
+  text-transform:uppercase;
+  text-align:center;
+}
+.h3{font-weight:700;font-size:20px;line-height:1.2}
+.acc{color:var(--blue)}
+.lead{
+  font-size:16px;line-height:1.42;text-align:center;font-weight:500;color:var(--ink-2);
+}
+.sub{
+  font-size:14.5px;line-height:1.45;text-align:center;font-weight:500;color:var(--grey);
+  margin-top:12px;
+}
+.mark{
+  background:var(--blue-soft);
+  color:var(--blue-dk);
+  border-radius:999px;
+  padding:.06em .42em .12em;
+  font-weight:800;
+  box-decoration-break:clone;
+  -webkit-box-decoration-break:clone;
+}
+.mark--sq{border-radius:6px;padding:.06em .32em .12em}
+.mark--blue{background:var(--blue);color:#fff;border-radius:6px;padding:.06em .3em .1em}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  width:100%;
+  max-width:340px;
+  margin-left:auto;margin-right:auto;
+  padding:19px 22px;
+  background:linear-gradient(180deg,var(--blue-lt) 0%,var(--blue) 45%,var(--blue-dk) 100%);
+  color:#fff;
+  border-radius:18px;
+  font-weight:800;font-size:18px;letter-spacing:.01em;line-height:1.15;
+  text-align:center;
+  box-shadow:0 10px 26px rgba(22,104,227,.34), inset 0 1px 0 rgba(255,255,255,.24);
+  transition:transform .18s ease, box-shadow .18s ease;
+  position:relative;overflow:hidden;
+}
+.btn::after{
+  content:'';position:absolute;top:0;left:-60%;width:45%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.30),transparent);
+  transform:skewX(-18deg);
+  animation:shine 3.6s ease-in-out infinite;
+}
+@keyframes shine{0%,72%{left:-60%}100%{left:130%}}
+.btn:active{transform:scale(.98)}
+@media (hover:hover){.btn:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(22,104,227,.4), inset 0 1px 0 rgba(255,255,255,.24)}}
+.btn__ico{
+  flex:0 0 auto;width:28px;height:28px;
+  display:grid;place-items:center;
+}
+.btn__ico svg{width:24px;height:24px;stroke:#fff}
+.btn--ghost{
+  background:#fff;color:var(--blue-dk);
+  box-shadow:0 8px 24px rgba(0,0,0,.28);
+}
+.btn--ghost::after{display:none}
+
+.note{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin:14px auto 0;max-width:330px;
+  font-size:13px;line-height:1.35;font-weight:500;color:#616B7D;text-align:center;
+}
+.note svg{flex:0 0 auto;width:17px;height:17px;stroke:#8A93A5}
+
+/* ============================================================
+   PRICE
+   ============================================================ */
+.price{
+  display:flex;align-items:baseline;justify-content:center;gap:12px;flex-wrap:wrap;
+  font-weight:900;
+}
+.price__new{font-size:30px;color:var(--blue)}
+.price__old{font-size:23px;color:var(--grey);text-decoration:line-through;text-decoration-thickness:2px}
+.price__off{
+  font-size:14px;font-weight:800;color:#fff;background:var(--blue);
+  border-radius:999px;padding:5px 11px;letter-spacing:.02em;
+  align-self:center;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;padding-top:20px;overflow:hidden}
+.hero__deco{
+  position:absolute;top:-68px;right:-85px;width:209px;pointer-events:none;
+  filter:blur(3px);
+  z-index:0;
+}
+.hero__deco--2{
+  top:auto;bottom:-44px;right:auto;left:-70px;width:118px;
+  filter:none;z-index:3;
+}
+.hero > *:not(.hero__deco){position:relative;z-index:1}
+
+.badges{display:flex;gap:10px;justify-content:center;align-items:stretch;margin-bottom:22px}
+.badge{
+  flex:1 1 0;
+  position:relative;
+  display:flex;flex-direction:column;justify-content:center;gap:2px;
+  border:1.5px solid var(--blue-line);
+  border-radius:var(--r-sm);
+  background:#fff;
+  padding:12px 8px 11px;
+  text-align:center;
+  line-height:1.2;
+  box-shadow:var(--shadow-sm);
+}
+/* лівий блок ширший — текст лягає у два рядки замість чотирьох */
+.badge:first-child{flex:1.75 1 0}
+.badge:first-child span{white-space:nowrap}
+.badge__ico{
+  position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+  background:#fff;padding:0 6px;font-size:17px;line-height:1;
+}
+.badge b{display:block;font-weight:800;font-size:14.5px;letter-spacing:-.01em}
+.badge span{display:block;font-weight:500;font-size:13.5px;color:var(--ink-2)}
+.badge span.up{text-transform:uppercase;color:var(--blue);font-weight:700}
+
+.hero__title{margin-bottom:14px}
+.hero__lead{margin-bottom:22px}
+
+.hero__photowrap{position:relative;margin-bottom:22px}
+.hero__photo{
+  position:relative;
+  border-radius:18px;overflow:hidden;
+  aspect-ratio:559/620;
+  box-shadow:var(--shadow-md);
+}
+.hero__photo img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+
+/* картки-фічі в стилі референсу: синя іконка + смужка + текст */
+.fcards{display:flex;flex-direction:column;gap:11px;margin-bottom:22px}
+.fcard{
+  display:flex;align-items:center;gap:13px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:12px 15px;
+  box-shadow:0 2px 9px rgba(16,24,40,.05);
+}
+.fcard__ico{
+  flex:0 0 auto;width:44px;height:44px;border-radius:13px;
+  background:var(--blue);
+  display:grid;place-items:center;
+  box-shadow:0 5px 14px rgba(22,104,227,.32);
+}
+.fcard__ico svg{width:23px;height:23px;stroke:#fff}
+.fcard__bar{flex:0 0 auto;width:2px;height:30px;border-radius:2px;background:var(--blue);opacity:.5}
+.fcard__txt{font-size:15px;line-height:1.32;font-weight:600;color:var(--ink)}
+.fcard__txt b{font-weight:800}
+.fcard__txt i{display:block;font-style:normal;font-weight:500;font-size:13.5px;color:#6A7284;margin-top:2px}
+
+/* теги професій — рухома стрічка на всю ширину */
+.marquee{
+  position:relative;
+  overflow:hidden;
+  margin:0 calc(var(--pad) * -1) 20px;
+  padding:2px 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%);
+}
+.marquee__row{display:flex;width:max-content;animation:marquee 26s linear infinite}
+.marquee__group{display:flex;gap:8px;padding-right:8px;flex:0 0 auto}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tag{
+  flex:0 0 auto;white-space:nowrap;
+  font-size:13px;font-weight:600;line-height:1;
+  color:var(--blue-dk);
+  background:var(--blue-soft);
+  border:1px solid var(--blue-line);
+  border-radius:999px;
+  padding:9px 14px;
+}
+
+.hero__price{margin-bottom:20px}
+
+/* ============================================================
+   TIMER
+   ============================================================ */
+.timer{
+  display:flex;justify-content:center;align-items:stretch;
+  margin:30px 0 8px;
+}
+.timer__cell{
+  flex:1 1 0;text-align:center;padding:0 6px;
+  position:relative;
+}
+.timer__cell + .timer__cell::before{
+  content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--line);
+}
+.timer__num{
+  font-weight:900;font-size:40px;line-height:1;
+  color:var(--blue);
+  font-variant-numeric:tabular-nums;
+}
+.timer__lab{font-size:20px;color:var(--lab);font-weight:400;margin-top:8px}
+
+/* ============================================================
+   BONUS CARDS
+   ============================================================ */
+.bonus{
+  padding:24px 0;
+  border-bottom:1px solid var(--line);
+  position:relative;
+  z-index:0;
+}
+.bonus:last-child{border-bottom:0}
+.bonus::after{content:'';display:block;clear:both}
+.bonus__head{display:flex;gap:14px;align-items:flex-start;margin-bottom:12px}
+.bonus__ico{flex:0 0 auto;width:69px}
+.bonus__ico img{width:100%}
+.bonus__title{font-weight:700;font-size:21px;line-height:1.24;color:var(--ink)}
+.bonus__body{font-size:14.5px;line-height:1.6;color:var(--navy)}
+.bonus__body b{font-weight:700}
+/* пара логотипів обтікається текстом, а не лежить поверх заголовка */
+.bonus__pair{
+  float:right;
+  width:152px;
+  margin:-2px -10px 4px 12px;
+  display:flex;align-items:center;gap:4px;
+}
+.bonus__pair img{width:calc(50% - 2px)}
+.bonus__pic{margin-top:14px;border-radius:var(--r-sm);overflow:hidden;clear:both}
+.bonus__side{float:right;width:81px;margin:0 -4px 6px 12px}
+
+/* ============================================================
+   ДЛЯ КОГО — картки професій
+   ============================================================ */
+.who{display:flex;flex-direction:column;gap:14px;margin-top:26px}
+.whocard{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--r-md);
+  box-shadow:var(--shadow-md);
+  padding:20px 18px;
+}
+.whocard__top{display:flex;align-items:center;gap:13px;margin-bottom:11px}
+.whocard__ico{
+  flex:0 0 auto;width:46px;height:46px;border-radius:14px;
+  background:linear-gradient(180deg,var(--blue-lt),var(--blue));
+  display:grid;place-items:center;
+  box-shadow:0 6px 16px rgba(22,104,227,.3);
+}
+.whocard__ico svg{width:24px;height:24px;stroke:#fff}
+.whocard__name{font-weight:800;font-size:19px;line-height:1.15;color:var(--ink)}
+.whocard__txt{font-family:var(--font-alt);font-size:15px;line-height:1.42;color:var(--navy)}
+
+/* ============================================================
+   «У ТЕБЕ ВИЙДЕ» — 3 пункти з 3D-цифрами
+   ============================================================ */
+.steps{display:flex;flex-direction:column;gap:18px;margin-top:26px}
+.step{display:flex;gap:16px;align-items:flex-start}
+.step__num{flex:0 0 auto;height:auto}
+.step:nth-child(1) .step__num{width:69px}
+.step:nth-child(2) .step__num{width:82px;margin-left:-6px}
+.step:nth-child(3) .step__num{width:73px;margin-left:-2px}
+.step__num--fallback{
+  font-weight:900;font-size:56px;line-height:.9;
+  color:var(--blue);
+}
+.step__txt{
+  font-family:var(--font-alt);
+  font-size:16px;line-height:1.34;font-weight:400;color:var(--navy);padding-top:2px;
+}
+.step__txt b{font-weight:700}
+
+/* ============================================================
+   LESSON CARDS
+   ============================================================ */
+.lessons{display:flex;flex-direction:column;gap:34px;margin-top:28px}
+.lesson{
+  position:relative;
+  border:2px solid var(--blue-line);
+  border-radius:var(--r-lg);
+  padding:0 16px 20px;
+  margin-top:26px;
+}
+.lesson__head{
+  position:relative;
+  margin:-26px -4px 18px;
+  background:#fff;
+  border-radius:var(--r-md);
+  box-shadow:var(--shadow-md);
+  padding:16px 74px 18px 20px;
+}
+.lesson__no{font-weight:900;font-size:26px;line-height:1.1}
+.lesson__name{
+  font-family:var(--font-alt);
+  font-weight:700;font-size:20px;line-height:1.12;margin-top:6px;color:var(--ink);
+}
+.lesson__play{
+  position:absolute;top:-58px;right:-44px;width:122px;z-index:3;
+  pointer-events:none;
+}
+.lesson__body{display:grid;grid-template-columns:141px minmax(0,1fr);gap:15px;align-items:start}
+.lesson__media{
+  border-radius:10px;overflow:hidden;
+  background:linear-gradient(160deg,#E8EFFA,#D8E5F7);
+  aspect-ratio:141/252;
+  position:relative;
+}
+.lesson__media img,.lesson__media video{width:100%;height:100%;object-fit:cover}
+
+/* фасад YouTube — постер + кнопка play, iframe грузиться лише по кліку */
+.ytf{display:block;border:0;padding:0;cursor:pointer;font:inherit;color:inherit}
+.ytf iframe{width:100%;height:100%;border:0;display:block}
+.ytf__play{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:54px;height:54px;border-radius:50%;
+  background:linear-gradient(180deg,var(--blue-lt),var(--blue));
+  box-shadow:0 8px 22px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.3);
+  display:grid;place-items:center;
+  transition:transform .18s ease;
+}
+.ytf__play::before{
+  content:'';border-style:solid;
+  border-width:11px 0 11px 18px;
+  border-color:transparent transparent transparent #fff;
+  margin-left:4px;
+}
+.ytf:active .ytf__play{transform:translate(-50%,-50%) scale(.92)}
+@media (hover:hover){.ytf:hover .ytf__play{transform:translate(-50%,-50%) scale(1.08)}}
+.lesson__ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.lesson__ul li{
+  position:relative;padding-left:15px;
+  font-size:14px;line-height:1.34;font-weight:400;color:var(--ink);
+}
+.lesson__ul li::before{
+  content:'';position:absolute;left:0;top:.5em;
+  width:5px;height:5px;border-radius:50%;background:var(--blue);
+}
+.lesson__res{
+  margin-top:14px;font-size:14px;line-height:1.36;font-weight:400;color:var(--ink);
+}
+.lesson__res b{font-weight:700}
+
+/* ============================================================
+   BLUE BANNER
+   ============================================================ */
+.banner{
+  display:block;
+  background:linear-gradient(180deg,var(--blue-lt),var(--blue) 55%,var(--blue-dk));
+  color:#fff;
+  border-radius:var(--r-md);
+  padding:22px;
+  text-align:center;
+  font-weight:800;font-size:16.5px;line-height:1.32;
+  text-transform:uppercase;
+  box-shadow:0 14px 30px rgba(22,104,227,.28);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+@media (hover:hover){.banner:hover{transform:translateY(-2px);box-shadow:0 20px 40px rgba(22,104,227,.34)}}
+
+/* ============================================================
+   CAROUSEL
+   ============================================================ */
+.carousel{position:relative}
+.track{
+  display:flex;gap:12px;align-items:flex-start;
+  transition:height .3s cubic-bezier(.4,0,.2,1);
+  overflow-x:auto;overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  padding:0 var(--pad) 4px;
+  -ms-overflow-style:none;scrollbar-width:none;
+}
+.track::-webkit-scrollbar{display:none}
+.slide{
+  flex:0 0 100%;
+  scroll-snap-align:center;
+  border-radius:var(--r-md);
+  overflow:hidden;
+  box-shadow:var(--shadow-md);
+  background:linear-gradient(160deg,#EDF2FA,#DDE5F2);
+  position:relative;
+}
+.slide img{width:100%;height:auto;display:block}
+.slide--neuro{aspect-ratio:16/9}
+.slide--neuro img{height:100%;object-fit:cover}
+.slide__cap{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:22px 14px 11px;
+  background:linear-gradient(180deg,transparent,rgba(6,12,24,.82));
+  color:#fff;font-weight:800;font-size:15px;letter-spacing:.01em;
+}
+.slide--rev{background:#fff;box-shadow:none;border-radius:12px}
+.nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:34px;height:34px;border-radius:50%;
+  background:rgba(255,255,255,.94);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-sm);
+  display:grid;place-items:center;
+  cursor:pointer;z-index:3;
+  color:var(--blue);
+  transition:transform .15s ease;
+}
+.nav:active{transform:translateY(-50%) scale(.92)}
+.nav--prev{left:8px}
+.nav--next{right:8px}
+.nav svg{width:15px;height:15px}
+.swipe{
+  text-align:center;font-size:13px;font-weight:600;color:var(--grey);
+  margin-top:14px;letter-spacing:.02em;
+}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:12px;flex-wrap:wrap;padding:0 var(--pad)}
+.dot{width:8px;height:8px;border-radius:50%;background:#D3D9E4;transition:all .2s ease;cursor:pointer}
+.dot.on{background:var(--blue);width:20px;border-radius:999px}
+
+/* ============================================================
+   DARK BLOCKS (застосунки / гарантія)
+   ============================================================ */
+.dark{
+  position:relative;
+  border-radius:var(--r-lg);
+  color:#fff;
+  background:#0C1220;
+  padding:34px 24px 32px;
+  box-shadow:var(--shadow-lg);
+}
+.dark__bg{
+  position:absolute;inset:0;
+  width:100%;height:100%;object-fit:cover;
+  border-radius:inherit;
+  opacity:.4;
+}
+.dark::after{
+  content:'';position:absolute;inset:0;
+  border-radius:inherit;
+  background:linear-gradient(180deg,rgba(8,14,26,.72),rgba(8,14,26,.92));
+}
+.dark > *:not(.dark__bg):not(.dark__deco){position:relative;z-index:2}
+.dark p{font-size:15.5px;line-height:1.5;margin-bottom:16px;color:rgba(255,255,255,.92)}
+.dark p:last-child{margin-bottom:0}
+.dark b{font-weight:800;color:#fff}
+.dark .h2{margin-bottom:20px}
+.dark__deco{position:absolute;pointer-events:none;z-index:3;height:auto}
+.dark__deco--tl{top:-98px;left:-123px;width:269px;filter:blur(3px)}
+.dark__deco--br{right:-82px;bottom:6px;width:179px}
+.dark__deco--tr{top:-115px;right:-136px;width:249px;filter:blur(3px);z-index:1}
+.dark__deco--l{left:-88px;top:42%;width:131px;z-index:1}
+
+/* три застосунки всередині тёмного блоку */
+.apps{display:flex;flex-direction:column;gap:12px;margin:20px 0}
+.appcard{
+  display:flex;gap:13px;align-items:flex-start;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:16px;
+  padding:15px 16px;
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+.appcard__ico{
+  flex:0 0 auto;width:42px;height:42px;border-radius:13px;
+  background:linear-gradient(180deg,var(--blue-lt),var(--blue));
+  display:grid;place-items:center;
+  box-shadow:0 6px 16px rgba(22,104,227,.42);
+}
+.appcard__ico svg{width:22px;height:22px;stroke:#fff}
+.appcard__txt{font-size:14.5px;line-height:1.4;color:rgba(255,255,255,.86)}
+.appcard__txt b{display:block;font-weight:800;font-size:16px;color:#fff;margin-bottom:3px}
+
+/* ============================================================
+   ЯК ПРОХОДИТЬ НАВЧАННЯ
+   ============================================================ */
+.how{display:flex;flex-direction:column;gap:14px;margin-top:26px}
+.howcard{
+  display:flex;gap:14px;align-items:center;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--r-md);
+  box-shadow:var(--shadow-md);
+  padding:18px 20px;
+}
+.howcard__ico{flex:0 0 auto;font-size:32px;line-height:1}
+.howcard__txt{font-family:var(--font-alt);font-size:15px;line-height:1.3;font-weight:400;color:var(--ink)}
+.howcard__txt b{font-weight:700}
+
+.result{margin-top:24px}
+.result__intro{display:flex;gap:14px;align-items:flex-start;font-size:15px;line-height:1.4;font-weight:700;margin-bottom:16px}
+.result__intro .ico{font-size:28px;line-height:1;flex:0 0 auto}
+.result__ul{list-style:none;display:flex;flex-direction:column;gap:14px;font-size:15px;line-height:1.42;font-weight:500}
+.result__ul li{position:relative;padding-left:18px}
+.result__ul li::before{content:'•';position:absolute;left:2px;top:-1px;font-size:18px;color:var(--blue)}
+
+/* ============================================================
+   AUTHOR
+   ============================================================ */
+.author__pics{display:flex;flex-direction:column;gap:14px;margin:24px 0}
+.author__pic{border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:362/388}
+.author__pic img{width:100%;height:100%;object-fit:cover}
+.author__name{
+  font-weight:900;font-size:clamp(24px,6.6vw,30px);line-height:1.06;
+  color:var(--blue);text-transform:uppercase;text-align:center;letter-spacing:-.02em;
+  margin-bottom:22px;
+}
+.author__ul{list-style:none;display:flex;flex-direction:column;gap:18px}
+.author__ul li{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.4;font-weight:400;color:var(--navy)}
+.author__ul li b{font-weight:700}
+.author__ul .ck{flex:0 0 auto;width:48px;height:auto;margin-top:-2px}
+
+/* ============================================================
+   FULL LIST CARD
+   ============================================================ */
+.pack{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  box-shadow:var(--shadow-lg);
+  padding:26px 22px 28px;
+  margin-top:26px;
+  color:var(--navy);
+}
+.pack__ul{list-style:none;display:flex;flex-direction:column;gap:18px;margin-bottom:28px}
+.pack__ul li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;line-height:1.38;font-weight:500}
+.pack__ul li b{font-weight:800}
+.pack__ul .ico{flex:0 0 auto;font-size:21px;line-height:1.15}
+.pack .price{margin-bottom:20px}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{
+  border:1.5px solid var(--blue);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  margin-top:26px;
+  background:#fff;
+}
+.faq__item{border-bottom:1px solid var(--line)}
+.faq__item:last-child{border-bottom:0}
+.faq__q{
+  width:100%;
+  display:flex;gap:16px;align-items:center;justify-content:space-between;
+  padding:20px;
+  background:none;border:0;
+  font-family:var(--font);
+  font-size:17px;line-height:1.4;font-weight:600;
+  color:var(--ink);text-align:left;cursor:pointer;
+}
+.faq__plus{
+  flex:0 0 auto;position:relative;width:18px;height:18px;color:var(--blue);
+}
+.faq__plus::before,.faq__plus::after{
+  content:'';position:absolute;left:50%;top:50%;background:currentColor;border-radius:2px;
+  transform:translate(-50%,-50%);transition:transform .25s ease,opacity .25s ease;
+}
+.faq__plus::before{width:18px;height:2px}
+.faq__plus::after{width:2px;height:18px}
+.faq__item.open .faq__plus::after{transform:translate(-50%,-50%) rotate(90deg);opacity:0}
+.faq__a{
+  overflow:hidden;max-height:0;
+  transition:max-height .34s cubic-bezier(.4,0,.2,1);
+}
+.faq__a p{
+  padding:0 20px 20px;
+  font-size:15px;line-height:1.5;color:var(--ink-2);font-weight:500;
+  white-space:pre-line;
+}
+
+/* ============================================================
+   SUPPORT + FOOTER
+   ============================================================ */
+.support{background:#0B0F1A;color:#fff;padding:44px var(--pad);text-align:center}
+.support .h2{margin-bottom:26px}
+.footer{background:#0B0F1A;color:#fff;padding:8px var(--pad) 130px;text-align:center}
+.footer__co{font-size:16px;line-height:1.75;letter-spacing:.01em;color:rgba(255,255,255,.94)}
+.footer__links{margin:26px 0;display:flex;flex-direction:column;gap:18px}
+.footer__links a{font-size:16px;font-style:italic;text-decoration:underline;text-underline-offset:3px}
+.footer__legal{
+  margin-top:26px;font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.8);
+}
+.footer__legal p + p{margin-top:14px}
+
+/* ============================================================
+   STICKY CTA
+   ============================================================ */
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  display:flex;justify-content:center;
+  padding:12px 14px calc(12px + env(safe-area-inset-bottom));
+  pointer-events:none;
+  opacity:0;transform:translateY(110%);
+  transition:opacity .3s ease,transform .3s ease;
+}
+.sticky.on{opacity:1;transform:none}
+.sticky__inner{
+  width:100%;max-width:452px;pointer-events:auto;
+  background:rgba(255,255,255,.96);
+  border-radius:24px;
+  box-shadow:0 14px 40px rgba(8,14,26,.28);
+  padding:9px 12px;
+  display:flex;align-items:center;gap:12px;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+.sticky__price{flex:0 0 auto;line-height:1.05;text-align:left}
+.sticky__price b{display:block;font-weight:900;font-size:20px;color:var(--blue)}
+.sticky__price s{font-size:12.5px;color:var(--grey);font-weight:700}
+.sticky .btn{
+  max-width:none;margin:0;
+  padding:14px 16px;font-size:15px;line-height:1.15;
+  border-radius:16px;
+  box-shadow:0 8px 20px rgba(22,104,227,.34), inset 0 1px 0 rgba(255,255,255,.22);
+}
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+.ph{background:linear-gradient(150deg,#EAF0FA 0%,#DCE5F3 55%,#E9EDF6 100%)}
+img.miss{display:none}
+
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  .btn::after{animation:none}
+  .marquee__row{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+
+<body>
+<div class="desktop-bg">
+<div class="phone">
+
+<!-- ============================ HERO ============================ -->
+<header class="section hero">
+  <img class="hero__deco" src="images/deco-ai.png" alt="" onerror="this.classList.add('miss')">
+
+  <div class="badges">
+    <div class="badge">
+      <span class="badge__ico">🕐</span>
+      <b>6-денний марафон</b>
+      <span>для діджитал-спеціаліста</span>
+    </div>
+    <div class="badge">
+      <span class="badge__ico">📅</span>
+      <b>дата старту</b>
+      <span class="up" data-start-date>—</span>
+    </div>
+  </div>
+
+  <div class="marquee" aria-label="Для кого курс">
+    <div class="marquee__row">
+      <div class="marquee__group">
+        <span class="tag">SMM</span>
+        <span class="tag">таргетолог</span>
+        <span class="tag">дизайнер</span>
+        <span class="tag">монтажер</span>
+        <span class="tag">motion designer</span>
+        <span class="tag">маркетолог</span>
+        <span class="tag">контент-мейкер</span>
+        <span class="tag">відеограф</span>
+      </div>
+      <div class="marquee__group" aria-hidden="true">
+        <span class="tag">SMM</span>
+        <span class="tag">таргетолог</span>
+        <span class="tag">дизайнер</span>
+        <span class="tag">монтажер</span>
+        <span class="tag">motion designer</span>
+        <span class="tag">маркетолог</span>
+        <span class="tag">контент-мейкер</span>
+        <span class="tag">відеограф</span>
+      </div>
+    </div>
+  </div>
+
+  <h1 class="h1 hero__title">AI контент<br>з повного <span class="acc">нуля</span></h1>
+
+  <p class="lead hero__lead">
+    Опануй <span class="mark">8 топових нейромереж</span> для генерації фото, відео, музики та озвучки усього за 6 коротких уроків
+  </p>
+
+  <div class="hero__photowrap">
+    <div class="hero__photo ph">
+      <img width="559" height="1000" src="images/hero.jpg" alt="Діджитал-спеціаліст створює AI-контент за ноутбуком">
+    </div>
+    <img class="hero__deco hero__deco--2" src="images/deco-ai.png" alt="" onerror="this.classList.add('miss')">
+  </div>
+
+  <div class="fcards">
+    <div class="fcard">
+      <span class="fcard__ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12l1-8.5Z"/></svg>
+      </span>
+      <span class="fcard__bar"></span>
+      <span class="fcard__txt"><b>Закривай задачі клієнтів швидше</b><i>те, що займало день, робиш за годину</i></span>
+    </div>
+    <div class="fcard">
+      <span class="fcard__ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.7a1 1 0 0 0 .83-.45l1-1.5A1 1 0 0 1 9.86 3.6h4.28a1 1 0 0 1 .83.45l1 1.5a1 1 0 0 0 .83.45h1.7A2.5 2.5 0 0 1 21 8.5v8A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5v-8Z"/><circle cx="12" cy="12.5" r="3.4"/></svg>
+      </span>
+      <span class="fcard__bar"></span>
+      <span class="fcard__txt"><b>Створюй контент самостійно</b><i>без фотографа та відеографа</i></span>
+    </div>
+    <div class="fcard">
+      <span class="fcard__ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2 14.1 9l5.9 2.1-5.9 2.1L12 19l-2.1-5.8L4 11.1 9.9 9 12 3.2Z"/><path d="M19 3.5v3M17.5 5h3"/></svg>
+      </span>
+      <span class="fcard__bar"></span>
+      <span class="fcard__txt"><b>Давай клієнту сильніший результат</b><i>за рахунок якіснішого візуалу</i></span>
+    </div>
+  </div>
+
+  <div class="price hero__price">
+    <span class="price__new">390 грн</span>
+    <span class="price__old">2400 грн</span>
+    <span class="price__off">−75%</span>
+  </div>
+
+  <a class="btn" href="https://app.zenedu.io/l/wOwQbPxU9UIGiRkB" target="_blank" rel="noopener">
+    <span class="btn__ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="m12.5 6 6 6-6 6"/></svg></span>
+    Приєднатись −75%
+  </a>
+
+  <p class="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="2.5"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/></svg>
+    Після оплати одразу отримаєш доступ у Telegram-боті
+  </p>
+</header>
+
+<!-- ============================ БОНУСИ ============================ -->
+<section class="section rv">
+  <h2 class="h2">Бонуси для тих,<br>хто <span class="acc">купує до<br>кінця таймеру</span></h2>
+
+  <div class="timer" id="timer">
+    <div class="timer__cell"><div class="timer__num" id="t-h">00</div><div class="timer__lab">Годин</div></div>
+    <div class="timer__cell"><div class="timer__num" id="t-m">30</div><div class="timer__lab">Хвилин</div></div>
+    <div class="timer__cell"><div class="timer__num" id="t-s">00</div><div class="timer__lab">Секунд</div></div>
+  </div>
+
+  <article class="bonus bonus--gem">
+    <div class="bonus__head">
+      <div class="bonus__ico"><img width="480" height="480" src="images/deco-gift.png" alt="" onerror="this.classList.add('miss')"></div>
+      <h3 class="bonus__title">Бонус №1: Як отримати платні нейронки безкоштовно</h3>
+    </div>
+    <p class="bonus__body">
+      <span class="bonus__pair">
+        <img width="420" height="420" src="images/logo-gemini.png" alt="Google Gemini" onerror="this.classList.add('miss')">
+        <img width="420" height="420" src="images/logo-nanobanana.png" alt="Nano Banana" onerror="this.classList.add('miss')">
+      </span>
+      Покажу лайфхак, як користуватися Veo 3.1, Nano Banana та іншими інструментами без покупки підписки.
+    </p>
+  </article>
+
+  <article class="bonus">
+    <div class="bonus__head">
+      <div class="bonus__ico"><img src="images/deco-gift.png" alt="" onerror="this.classList.add('miss')"></div>
+      <h3 class="bonus__title">Бонус №2: 10 готових ролей для ChatGPT</h3>
+    </div>
+    <p class="bonus__body">
+      <img class="bonus__side" src="images/logo-chatgpt.png" alt="ChatGPT" onerror="this.classList.add('miss')">
+      Зробиш зі свого ChatGPT персонального <b>бізнес-аналітика, маркетолога, копірайтера, коуча, юриста та ще 5 ролей.</b>
+    </p>
+    <div class="bonus__pic"><img width="1600" height="363" src="images/bonus-roles.jpg" alt="10 готових ролей для ChatGPT" loading="lazy" onerror="this.classList.add('miss')"></div>
+  </article>
+
+  <article class="bonus">
+    <div class="bonus__head">
+      <div class="bonus__ico"><img src="images/deco-gift.png" alt="" onerror="this.classList.add('miss')"></div>
+      <h3 class="bonus__title">Бонус №3: Авторські AI-застосунки безкоштовно</h3>
+    </div>
+    <p class="bonus__body">
+      <img class="bonus__side" src="images/deco-gear.png" alt="" onerror="this.classList.add('miss')">
+      Безкоштовний доступ до застосунків, які я створив: <b>генерація озвучок, фотосесій живих людей та фото товарів у будь-яких стилях.</b> Все в одному місці, без складних інтерфейсів, за пару кліків.
+    </p>
+  </article>
+</section>
+
+<!-- ============================ ДЛЯ КОГО ============================ -->
+<section class="section section--soft rv">
+  <h2 class="h2">Цей курс для<br>тебе, <span class="acc">якщо ти:</span></h2>
+
+  <div class="who">
+    <div class="whocard">
+      <div class="whocard__top">
+        <span class="whocard__ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.6"/><path d="M10.7 5.4h2.6"/><path d="M11 18.6h2"/></svg>
+        </span>
+        <div class="whocard__name">SMM-спеціаліст</div>
+      </div>
+      <p class="whocard__txt">Ведеш клієнтів, а контент-план щоразу впирається в те, що немає з чого робити візуал. Стоки набридли, зйомку клієнт не оплачує.</p>
+    </div>
+
+    <div class="whocard">
+      <div class="whocard__top">
+        <span class="whocard__ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><circle cx="12" cy="12" r="4.6"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <div class="whocard__name">Таргетолог</div>
+      </div>
+      <p class="whocard__txt">Хочеш робити креативи швидше і не чекати на дизайнера. І тестувати не два банери на тиждень, а десять за вечір.</p>
+    </div>
+
+    <div class="whocard">
+      <div class="whocard__top">
+        <span class="whocard__ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.4a8.6 8.6 0 1 0 0 17.2c1.3 0 2-.8 2-1.8 0-.6-.3-1-.6-1.4-.3-.4-.6-.8-.6-1.4 0-1 .8-1.8 1.8-1.8h1.5a4.5 4.5 0 0 0 4.5-4.5c0-3.5-3.8-6.3-8.6-6.3Z"/><circle cx="8" cy="10" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="7.6" r="1.1" fill="currentColor" stroke="none"/><circle cx="16" cy="9.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <div class="whocard__name">Дизайнер</div>
+      </div>
+      <p class="whocard__txt">Треба картинка, якої не існує в природі. Зараз ти її малюєш або збираєш з кількох стоків — а можна згенерувати за пару хвилин.</p>
+    </div>
+
+    <div class="whocard">
+      <div class="whocard__top">
+        <span class="whocard__ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="7" width="18.8" height="12.4" rx="2.4"/><path d="M2.6 11.4h18.8"/><path d="m5.8 7 2.6-3.4M11 7l2.6-3.4M16.2 7l2.6-3.4"/></svg>
+        </span>
+        <div class="whocard__name">Монтажер або motion-дизайнер</div>
+      </div>
+      <p class="whocard__txt">Не вистачає відзнятого матеріалу під сценарій. Або потрібна озвучка, а диктора немає.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ У ТЕБЕ ВИЙДЕ ============================ -->
+<section class="section rv">
+  <h2 class="h2">У тебе вийде,<br>навіть якщо <span class="acc">ти ще<br>не працював з AI</span></h2>
+
+  <div class="steps">
+    <div class="step">
+      <img class="step__num" src="images/num-1.png" alt="1" onerror="this.outerHTML='&lt;div class=\'step__num step__num--fallback\'&gt;1&lt;/div&gt;'">
+      <p class="step__txt">Уроки побудовані у форматі:<br><span class="mark mark--sq">«натисни → повтори → отримай результат»</span></p>
+    </div>
+    <div class="step">
+      <img class="step__num" src="images/num-2.png" alt="2" onerror="this.outerHTML='&lt;div class=\'step__num step__num--fallback\'&gt;2&lt;/div&gt;'">
+      <p class="step__txt">Для роботи <span class="mark mark--sq">не потрібні платні підписки</span> на сервіси та платформи. Усі уроки побудовані на базі безкоштовних нейронок</p>
+    </div>
+    <div class="step">
+      <img class="step__num" src="images/num-3.png" alt="3" onerror="this.outerHTML='&lt;div class=\'step__num step__num--fallback\'&gt;3&lt;/div&gt;'">
+      <p class="step__txt"><span class="mark mark--sq">Курс уже пройшли 5853 людей</span> — від повних новачків до тих, хто вже працює з контентом. Усі змогли створити свої перші фото, відео, озвучку та навіть музику через AI</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ПРОГРАМА ============================ -->
+<section class="section rv">
+  <h2 class="h2">Програма практичного<br><span class="acc">курсу по AI контенту</span></h2>
+  <p class="sub">6 уроків · домашка після кожного · практика з першого дня</p>
+
+  <div class="lessons">
+
+    <article class="lesson">
+      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
+      <div class="lesson__head">
+        <div class="lesson__no">Урок <span class="acc">№1</span></div>
+        <div class="lesson__name">Як спілкуватися з ChatGPT так, щоб отримувати ідеальний результат</div>
+      </div>
+      <div class="lesson__body">
+        <div class="lesson__media"><img width="458" height="820" src="images/lesson-1.jpg" alt="Урок 1 — ChatGPT" loading="lazy" onerror="this.classList.add('miss')"></div>
+        <div>
+          <ul class="lesson__ul">
+            <li>розбір інтерфейсу ChatGPT</li>
+            <li>чим ChatGPT відрізняється від Google</li>
+            <li>що таке промт простими словами</li>
+            <li>що таке роль у ChatGPT</li>
+            <li>формула сильного промта</li>
+          </ul>
+          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> ти перестанеш витрачати генерації на спроби навмання і почнеш отримувати саме той результат, який задумав.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="lesson">
+      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
+      <div class="lesson__head">
+        <div class="lesson__no">Урок <span class="acc">№2</span></div>
+        <div class="lesson__name">Перша генерація фото через нейромережі</div>
+      </div>
+      <div class="lesson__body">
+        <div class="lesson__media"><img width="457" height="820" src="images/lesson-2.jpg" alt="Урок 2 — генерація фото" loading="lazy" onerror="this.classList.add('miss')"></div>
+        <div>
+          <ul class="lesson__ul">
+            <li>де безкоштовно генерувати AI-картинки</li>
+            <li>як писати промти для генерації</li>
+            <li>як створювати різні стилі зображень</li>
+            <li>як зробити AI-фотосесію</li>
+          </ul>
+          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> зможеш зробити візуал під будь-яку задачу клієнта — без стоків, без зйомки, без пошуку референсів.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="lesson">
+      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
+      <div class="lesson__head">
+        <div class="lesson__no">Урок <span class="acc">№3</span></div>
+        <div class="lesson__name">Як безкоштовно генерувати відео через AI — 3 способи</div>
+      </div>
+      <div class="lesson__body">
+        <button type="button" class="lesson__media ytf" data-yt="qtTvqEtS-es" aria-label="Дивитись відео уроку №3">
+          <img width="405" height="720" src="images/lesson-3.jpg" alt="Урок 3 — генерація відео" loading="lazy" onerror="this.classList.add('miss')">
+          <span class="ytf__play"></span>
+        </button>
+        <div>
+          <ul class="lesson__ul">
+            <li>генерація відео з тексту</li>
+            <li>генерація відео з картинки</li>
+            <li>генерація відео з ідеї</li>
+          </ul>
+          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> зможеш закривати відео-задачі сам — не віддавати на сторону і не відмовляти клієнту.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="lesson">
+      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
+      <div class="lesson__head">
+        <div class="lesson__no">Урок <span class="acc">№4</span></div>
+        <div class="lesson__name">Озвучка для відео без мікрофону та професійного обладнання</div>
+      </div>
+      <div class="lesson__body">
+        <button type="button" class="lesson__media ytf" data-yt="aBfSLpMRzAQ" aria-label="Дивитись відео уроку №4">
+          <img width="405" height="720" src="images/lesson-4.jpg" alt="Урок 4 — AI-озвучка" loading="lazy" onerror="this.classList.add('miss')">
+          <span class="ytf__play"></span>
+        </button>
+        <div>
+          <ul class="lesson__ul">
+            <li>генерація голосу з тексту</li>
+            <li>як зробити голос живим</li>
+            <li>клонування свого голосу</li>
+          </ul>
+          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> озвучиш будь-яке відео без диктора і без студії. Клон власного голосу — щоб не перезаписувати щоразу.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="lesson">
+      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
+      <div class="lesson__head">
+        <div class="lesson__no">Урок <span class="acc">№5</span></div>
+        <div class="lesson__name">Як генерувати музику через AI</div>
+      </div>
+      <div class="lesson__body">
+        <button type="button" class="lesson__media ytf" data-yt="GY-67pDR_j0" aria-label="Дивитись відео уроку №5">
+          <img width="405" height="720" src="images/lesson-5.jpg" alt="Урок 5 — AI-музика" loading="lazy" onerror="this.classList.add('miss')">
+          <span class="ytf__play"></span>
+        </button>
+        <div>
+          <ul class="lesson__ul">
+            <li>в яких нейронках безкоштовно генерувати музику</li>
+            <li>розбір інтерфейсу топових нейронок</li>
+            <li>створення фонової музики для твого відео</li>
+          </ul>
+          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> фонова музика під ролик за кілька хвилин, замість пошуку по стоках.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="lesson">
+      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
+      <div class="lesson__head">
+        <div class="lesson__no">Урок <span class="acc">№6</span></div>
+        <div class="lesson__name">5 кроків, щоб перетворитись з учня в AI-креатора</div>
+      </div>
+      <div class="lesson__body">
+        <div class="lesson__media"><img width="457" height="820" src="images/lesson-6.jpg" alt="Урок 6 — до і після" loading="lazy" onerror="this.classList.add('miss')"></div>
+        <div>
+          <p class="lesson__res" style="margin:0 0 12px;font-weight:700">Фінальний урок, де ти збереш усі навички воєдино:</p>
+          <ul class="lesson__ul">
+            <li>як поєднувати всі нейронки між собою</li>
+            <li>як створювати повноцінний AI-ролик — для кого і під які задачі</li>
+            <li>як застосовувати отримані навички в комерційних задачах</li>
+          </ul>
+          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> повний цикл у твоїх руках — від ідеї до готового ролика з озвучкою і музикою.</p>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============================ BANNER ============================ -->
+<section class="section section--tight rv">
+  <a class="banner" href="https://app.zenedu.io/l/wOwQbPxU9UIGiRkB" target="_blank" rel="noopener">
+    Додай AI до того, що вже вмієш →
+  </a>
+</section>
+
+<!-- ============================ 8 НЕЙРОМЕРЕЖ ============================ -->
+<section class="section section--flush rv">
+  <div style="padding:0 var(--pad)">
+    <h2 class="h2" style="margin-bottom:10px">На цьому курсі<br>ти <span class="acc">опануєш 8<br>нейромереж</span></h2>
+    <p class="sub" style="margin-bottom:24px">Під кожну задачу — свій інструмент. Ти будеш знати, який відкривати і коли.</p>
+  </div>
+  <div class="carousel" data-carousel>
+    <button class="nav nav--prev" data-prev aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+    <div class="track" data-track>
+      <div class="slide slide--neuro"><img width="1024" height="683" src="images/neuro-1.jpg" alt="ChatGPT" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">ChatGPT</span></div>
+      <div class="slide slide--neuro"><img width="1024" height="683" src="images/neuro-2.jpg" alt="Claude" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Claude</span></div>
+      <div class="slide slide--neuro"><img width="1024" height="683" src="images/neuro-3.jpg" alt="Google Gemini" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Google Gemini</span></div>
+      <div class="slide slide--neuro"><img width="944" height="628" src="images/neuro-4.jpg" alt="Nano Banana" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Nano Banana</span></div>
+      <div class="slide slide--neuro"><img width="1200" height="476" src="images/neuro-5.jpg" alt="Google Veo 3" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Google Veo 3</span></div>
+      <div class="slide slide--neuro"><img width="1024" height="683" src="images/neuro-6.jpg" alt="Grok" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Grok</span></div>
+      <div class="slide slide--neuro"><img width="1200" height="630" src="images/neuro-7.jpg" alt="Suno" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Suno</span></div>
+      <div class="slide slide--neuro"><img width="481" height="518" src="images/neuro-8.jpg" alt="MiniMax" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">MiniMax</span></div>
+    </div>
+    <button class="nav nav--next" data-next aria-label="Вперед"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+    <div class="swipe">← гортай →</div>
+    <div class="dots" data-dots></div>
+  </div>
+</section>
+
+<!-- ============================ АВТОРСЬКІ ЗАСТОСУНКИ ============================ -->
+<section class="section rv">
+  <div class="dark">
+    <img width="746" height="900" class="dark__bg" src="images/apps-bg.jpg" alt="" loading="lazy" onerror="this.classList.add('miss')">
+    <img class="dark__deco dark__deco--tl" src="images/deco-laptop-flip.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
+    <img class="dark__deco dark__deco--br" src="images/deco-laptop.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
+    <h2 class="h2">Авторські<br><span class="acc">застосунки</span></h2>
+    <p>Я створив власні AI-застосунки, у яких <b>логіка правильної генерації вже налаштована всередині.</b> Ти не обираєш модель, не підбираєш промт і не розбираєшся в інтерфейсі — відкриваєш і отримуєш результат.</p>
+    <p><span class="mark mark--blue">Три застосунки,</span> доступ до яких отримують усі учасники курсу:</p>
+
+    <div class="apps">
+      <div class="appcard">
+        <span class="appcard__ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.7a1 1 0 0 0 .83-.45l1-1.5A1 1 0 0 1 9.86 3.6h4.28a1 1 0 0 1 .83.45l1 1.5a1 1 0 0 0 .83.45h1.7A2.5 2.5 0 0 1 21 8.5v8A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5v-8Z"/><circle cx="12" cy="12.5" r="3.4"/></svg>
+        </span>
+        <span class="appcard__txt"><b>AI-фотосесія людей</b>портрети і зйомка в будь-яких образах, локаціях і стилях</span>
+      </div>
+      <div class="appcard">
+        <span class="appcard__ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8.2 4.4v9.2L12 21l-8.2-4.4V7.4L12 3Z"/><path d="M3.8 7.4 12 11.9l8.2-4.5M12 11.9V21"/></svg>
+        </span>
+        <span class="appcard__txt"><b>AI-фотосесія товарів</b>предметка без студії, світла і самого товару в руках</span>
+      </div>
+      <div class="appcard">
+        <span class="appcard__ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.6" width="6" height="11.2" rx="3"/><path d="M5.4 11.4a6.6 6.6 0 0 0 13.2 0M12 18v3.4"/></svg>
+        </span>
+        <span class="appcard__txt"><b>AI-озвучка</b>голос під відео без диктора і мікрофона</span>
+      </div>
+    </div>
+
+    <p>Це три задачі, які в роботі зустрічаються найчастіше і забирають найбільше часу. Тому вони винесені в окремі застосунки — <b>щоб ти закривав їх за пару кліків,</b> а не збирав щоразу з нуля.</p>
+  </div>
+</section>
+
+<!-- ============================ ЯК ПРОХОДИТЬ НАВЧАННЯ ============================ -->
+<section class="section section--soft rv">
+  <h2 class="h2">Як проходить<br><span class="acc">навчання</span></h2>
+
+  <div class="how">
+    <div class="howcard">
+      <span class="howcard__ico">💻</span>
+      <p class="howcard__txt"><b>Доступ до уроків у Telegram-боті</b><br>дивишся у будь-який час і одразу застосовуєш у роботі</p>
+    </div>
+    <div class="howcard">
+      <span class="howcard__ico">❗</span>
+      <p class="howcard__txt"><b>Домашнє завдання після кожного уроку</b><br>виконуєш одразу — без відкладання «на потім»</p>
+    </div>
+    <div class="howcard">
+      <span class="howcard__ico">📝</span>
+      <p class="howcard__txt"><b>Особливий бонус за всі домашні</b><br>виконаєш усі завдання — отримаєш додатковий бонус від автора</p>
+    </div>
+    <div class="howcard">
+      <span class="howcard__ico">🤖</span>
+      <p class="howcard__txt"><b>Авторські промти та методики роботи з нейронками</b><br>готові формулювання, які працюють — не треба підбирати самому</p>
+    </div>
+    <div class="howcard">
+      <span class="howcard__ico">📚</span>
+      <p class="howcard__txt"><b>Покрокові інструкції без води</b><br>що натиснути, куди завантажити, як отримати результат</p>
+    </div>
+    <div class="howcard">
+      <span class="howcard__ico">✍️</span>
+      <p class="howcard__txt"><b>Чат-підтримка</b><br>ставиш питання — отримуєш розбір, а не шукаєш відповідь самостійно</p>
+    </div>
+  </div>
+
+  <div class="result">
+    <div class="result__intro">
+      <span class="ico">👌</span>
+      <span>Як результат, за 6 коротких, але дуже змістовних уроків ти:</span>
+    </div>
+    <ul class="result__ul">
+      <li>закриватимеш задачі клієнтів, які раніше віддавав на сторону</li>
+      <li>створюватимеш фото, відео, озвучку та музику під конкретну задачу</li>
+      <li>зрозумієш просту систему створення AI-контенту</li>
+      <li>працюватимеш швидше — без стоків, зйомки та підрядників</li>
+      <li>матимеш готовий процес, який можна повторювати на кожному проєкті</li>
+    </ul>
+  </div>
+
+  <a class="btn" style="margin-top:28px" href="https://app.zenedu.io/l/wOwQbPxU9UIGiRkB" target="_blank" rel="noopener">
+    Приєднатись до курсу
+    <span class="btn__ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="m12.5 6 6 6-6 6"/></svg></span>
+  </a>
+</section>
+
+<!-- ============================ ГАРАНТІЯ ============================ -->
+<section class="section rv">
+  <div class="dark">
+    <img width="470" height="900" class="dark__bg" src="images/guarantee-bg.jpg" alt="" loading="lazy" onerror="this.classList.add('miss')">
+    <img class="dark__deco dark__deco--tr" src="images/deco-ai.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
+    <img class="dark__deco dark__deco--l" src="images/deco-ai.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
+    <h2 class="h2">Розширена<br><span class="acc">гарантія від<br>автора курсу</span></h2>
+    <p>Я впевнений у якості курсу. <b>Чому?</b></p>
+    <p>Тому що <b>мої програми з AI-контенту вже пройшли 5853 людей</b>, і тисячі робіт учнів доводять, що ця система працює. Саме тому я даю гарантію <span class="mark mark--blue">повернення коштів — 14 днів.</span></p>
+    <p><b>Якщо ти:</b><br>· пройдеш усі уроки курсу<br>· застосуєш те, що я показую в уроках<br>· повториш технологію, яку я демонструю</p>
+    <p>і в тебе не вийде безкоштовно створювати AI-контент, а саме:<br>— зображення<br>— відео<br>— озвучку<br>— музику</p>
+    <p><b>я просто поверну тобі гроші.</b></p>
+    <p><span class="mark mark--blue">Головна задача цього курсу</span> — щоб ти вийшов з нього з готовим процесом, який можна одразу застосовувати в роботі 🚀</p>
+  </div>
+</section>
+
+<!-- ============================ АВТОР ============================ -->
+<section class="section rv">
+  <h2 class="h2">Автор курсу</h2>
+
+  <div class="author__pics">
+    <div class="author__pic ph"><img width="747" height="1000" src="images/author.jpg" alt="Олександр Цюцьмаць — автор курсу" loading="lazy" onerror="this.classList.add('miss')"></div>
+  </div>
+
+  <div class="author__name">Олександр<br>Цюцьмаць</div>
+
+  <ul class="author__ul">
+    <li>
+      <img class="ck" src="images/check.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
+      <span>Вивчаю AI-інструменти <b>кожен день з 2024 року</b></span>
+    </li>
+    <li>
+      <img class="ck" src="images/check.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
+      <span><b>Власник агенції</b> зі створення AI-контенту під ключ</span>
+    </li>
+    <li>
+      <img class="ck" src="images/check.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
+      <span><b>5853 учні</b> вже пройшли мої навчальні програми та використовують AI для заробітку, контенту й особистого бренду</span>
+    </li>
+    <li>
+      <img class="ck" src="images/check.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
+      <span>Я вірю, що <b>AI — це не про «магію кнопки», а про системний підхід,</b> правильні промти та розуміння, як отримувати саме той результат, який ти хочеш бачити</span>
+    </li>
+  </ul>
+</section>
+
+<!-- ============================ ПОВНИЙ СПИСОК ============================ -->
+<section class="section section--soft rv">
+  <h2 class="h2">Повний список<br>того, <span class="acc">що ти<br>отримаєш на курсі</span></h2>
+
+  <div class="pack">
+    <ul class="pack__ul">
+      <li><span class="ico">📘</span><span><b>6 практичних уроків</b> без води</span></li>
+      <li><span class="ico">🎓</span><span><b>Домашні завдання,</b> щоб одразу відпрацьовувати навички</span></li>
+      <li><span class="ico">🧩</span><span><b>Готові промти та інструкції,</b> які я використовую для генерації AI-контенту</span></li>
+      <li><span class="ico">📸</span><span><b>БОНУС:</b> безкоштовний доступ до 3 авторських застосунків для генерації фото та озвучки</span></li>
+      <li><span class="ico">🎁</span><span><b>БОНУС:</b> як отримати платні AI-інструменти безкоштовно</span></li>
+      <li><span class="ico">🎁</span><span><b>БОНУС:</b> 10 готових ролей для ChatGPT</span></li>
+      <li><span class="ico">🔓</span><span><b>Доступ до курсу</b> — 3 тижні</span></li>
+      <li><span class="ico">🤝</span><span><b>Підтримка</b> протягом навчання</span></li>
+      <li><span class="ico">🛡</span><span><b>Гарантія повернення</b> коштів на 14 днів</span></li>
+      <li><span class="ico">🚀</span><span>Унікальні умови для <b>участі у «Фабриці АІ контенту»</b></span></li>
+    </ul>
+
+    <div class="price">
+      <span class="price__new">390 грн</span>
+      <span class="price__old">2400 грн</span>
+      <span class="price__off">−75%</span>
+    </div>
+
+    <a class="btn" href="https://app.zenedu.io/l/wOwQbPxU9UIGiRkB" target="_blank" rel="noopener">
+      <span class="btn__ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="m12.5 6 6 6-6 6"/></svg></span>
+      Приєднатись −75%
+    </a>
+  </div>
+</section>
+
+<!-- ============================ ВІДГУКИ ============================ -->
+<section class="section section--flush rv">
+  <div style="padding:0 var(--pad)">
+    <h2 class="h2" style="margin-bottom:26px">Вже 5853 учні<br>пройшли мої курси,<br>і ось <span class="acc">їх відгуки</span></h2>
+  </div>
+  <div class="carousel" data-carousel>
+    <button class="nav nav--prev" data-prev aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+    <div class="track" data-track>
+      <div class="slide slide--rev"><img width="653" height="900" src="images/review-1.jpg" alt="Відгук 1" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="766" height="246" src="images/review-2.jpg" alt="Відгук 2" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="744" height="216" src="images/review-3.jpg" alt="Відгук 3" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="798" height="448" src="images/review-4.jpg" alt="Відгук 4" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="806" height="422" src="images/review-5.jpg" alt="Відгук 5" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="798" height="484" src="images/review-6.jpg" alt="Відгук 6" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="786" height="210" src="images/review-7.jpg" alt="Відгук 7" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="774" height="276" src="images/review-8.jpg" alt="Відгук 8" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="512" height="900" src="images/review-9.jpg" alt="Відгук 9" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="531" height="900" src="images/review-10.jpg" alt="Відгук 10" loading="lazy" onerror="this.classList.add('miss')"></div>
+      <div class="slide slide--rev"><img width="796" height="218" src="images/review-11.jpg" alt="Відгук 11" loading="lazy" onerror="this.classList.add('miss')"></div>
+    </div>
+    <button class="nav nav--next" data-next aria-label="Вперед"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+    <div class="swipe">← гортай →</div>
+    <div class="dots" data-dots></div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="section rv">
+  <h2 class="h2" style="text-align:left">Питання – <span class="acc">відповіді</span></h2>
+
+  <div class="faq">
+    <div class="faq__item">
+      <button class="faq__q" type="button">Я вже пробував працювати з нейронками, але виходило не те. Чим цей курс відрізняється?<span class="faq__plus"></span></button>
+      <div class="faq__a"><p>Більшість проблем із генерацією — це не про нейронку, а про те, який інструмент узятий під задачу і як сформульований запит.
+
+На курсі ти отримуєш готові промти й чітку послідовність: який сервіс відкрити під конкретну задачу, що написати, що натиснути.
+
+Плюс три авторські застосунки, де логіка генерації вже налаштована всередині.</p></div>
+    </div>
+    <div class="faq__item">
+      <button class="faq__q" type="button">Скільки часу займе проходження?<span class="faq__plus"></span></button>
+      <div class="faq__a"><p>Уроки короткі й практичні. Один день — один урок, повне проходження займе 6 днів.
+
+Але ти можеш проходити у своєму темпі протягом 3 тижнів.</p></div>
+    </div>
+    <div class="faq__item">
+      <button class="faq__q" type="button">Чи вистачить цих навичок для клієнтських задач?<span class="faq__plus"></span></button>
+      <div class="faq__a"><p>Курс дає базу під чотири напрямки: зображення, відео, озвучка, музика.
+
+Цього достатньо, щоб закривати типові задачі — креативи, предметка, короткі ролики, озвучення.
+
+Для складніших проєктів знадобиться глибше занурення, і для цього є «Фабрика АІ контенту».</p></div>
+    </div>
+    <div class="faq__item">
+      <button class="faq__q" type="button">Чи не застаріє інформація через пару місяців?<span class="faq__plus"></span></button>
+      <div class="faq__a"><p>Інформація актуальна на серпень 2026 року. Коли виходить оновлення для нейронок — я записую новий урок або викладаю опис, що змінилося і як з цим працювати.
+
+Але головне: на курсі ти вчиш принцип роботи з промтами, а не набір кнопок у конкретному інтерфейсі.</p></div>
+    </div>
+    <div class="faq__item">
+      <button class="faq__q" type="button">Чи потрібні платні підписки?<span class="faq__plus"></span></button>
+      <div class="faq__a"><p>Ні. Усі уроки побудовані на базі безкоштовних нейронок.
+
+Плюс окремий бонус про те, як користуватися платними інструментами без покупки підписки.</p></div>
+    </div>
+    <div class="faq__item">
+      <button class="faq__q" type="button">Чи обов'язково мати комп'ютер? Чи можна з телефону?<span class="faq__plus"></span></button>
+      <div class="faq__a"><p>Усі інструменти працюють через браузер. Підійде звичайний ноутбук або комп'ютер.
+
+Зі смартфона теж можна — це питання зручності.</p></div>
+    </div>
+    <div class="faq__item">
+      <button class="faq__q" type="button">Якщо в мене не вийде — мені хтось допоможе?<span class="faq__plus"></span></button>
+      <div class="faq__a"><p>На курсі є куратор, який відповідає на запитання в чат-боті.</p></div>
+    </div>
+    <div class="faq__item">
+      <button class="faq__q" type="button">Чому так дешево?<span class="faq__plus"></span></button>
+      <div class="faq__a"><p>Це вхідний продукт. Моя задача — щоб ти отримав перший результат і побачив, як це працює.
+
+Далі є повна програма «Фабрика АІ контенту» для тих, хто захоче йти глибше.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ПІДТРИМКА ============================ -->
+<section class="support">
+  <h2 class="h2">З будь-яких питань<br>пиши в підтримку<br>за посиланням<br>нижче 👇</h2>
+  <a class="btn btn--ghost" href="https://t.me/ai_sashka_support" target="_blank" rel="noopener">Технічна підтримка</a>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <div class="footer__co">
+    ЗЕМЛЯНИЙ МИХАЙЛО СЕРГІЙОВИЧ ФОП<br>
+    ЄДРПОУ 3758302175<br>
+    +380985966120<br>
+    m.zemlyanie@gmail.com
+  </div>
+
+  <div class="footer__links">
+    <a href="politika.html">Політика конфіденційності</a>
+    <a href="oferta.html">Договір оферти</a>
+  </div>
+
+  <div class="footer__co">
+    БРЖЕСТОВСЬКА ГАННА ЮРІЇВНА ФОП<br>
+    ЄДРПОУ 2877703349<br>
+    894159@gmail.com
+  </div>
+
+  <a class="btn" style="margin-top:28px" href="https://app.zenedu.io/l/wOwQbPxU9UIGiRkB" target="_blank" rel="noopener">
+    <span class="btn__ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="m12.5 6 6 6-6 6"/></svg></span>
+    Приєднатися за спеціальною ціною −75%
+  </a>
+
+  <div class="footer__legal">
+    <p>ВАЖЛИВО: не вводьте свою контактну інформацію, доки не прочитаєте legal disclaimer. Ми не даємо жодних гарантій, що ви досягнете якихось результатів за допомогою наших інструментів, стратегій або інформації. Всі продукти і сервіси компанії призначені для освітніх цілей. Жодна інформація на цьому сайті або будь-яких інших сайтах компанії не гарантує і не обіцяє отримання результатів. Ви несете відповідальність за свої дії і результати. Реєструючись на даному сайті, ви знімаєте з нас відповідальність за ваші дії та результати.</p>
+    <p>IMPORTANT: Do not enter your name and email until you have read the Legal Disclaimer. We are not able to make any guarantees and we will not make any guarantees about your ability to generate results with our ideas, information, tools and resources, or strategies. You should know that all products and services by our company are for educational and informational purposes only. Nothing on this website, or any of our websites, or any of our content or curriculum is a implication, promise, or guarantee of results. Use caution and always consult your accountant, lawyer or professional adviser before acting on this or any information related to a lifestyle change, your business and finances. You are responsible for your decisions, actions and results. By registering on this website you agree not to attempt to hold us liable for your decisions, actions or results, at any time, under any circumstance.</p>
+  </div>
+</footer>
+
+</div><!-- /.phone -->
+</div><!-- /.desktop-bg -->
+
+<!-- ============================ STICKY CTA ============================ -->
+<div class="sticky" id="sticky">
+  <div class="sticky__inner">
+    <div class="sticky__price">
+      <b>390 грн</b>
+      <s>2400 грн</s>
+    </div>
+    <a class="btn" href="https://app.zenedu.io/l/wOwQbPxU9UIGiRkB" target="_blank" rel="noopener">
+      Приєднатись −75%
+      <span class="btn__ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="m12.5 6 6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---------- Дата старту = завтра ---------- */
+  var d = new Date();
+  d.setDate(d.getDate() + 1);
+  var months = ['січня','лютого','березня','квітня','травня','червня',
+                'липня','серпня','вересня','жовтня','листопада','грудня'];
+  document.querySelectorAll('[data-start-date]').forEach(function(el){
+    el.textContent = d.getDate() + ' ' + months[d.getMonth()];
+  });
+
+  /* ---------- Reveal on scroll ---------- */
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.06});
+    rv.forEach(function(el){ io.observe(el); });
+  } else {
+    rv.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- Countdown (30 хв, зберігається в localStorage) ---------- */
+  var LEN = 30*60*1000, KEY = 'aicontentspec_timer_end';
+  var eh = document.getElementById('t-h'), em = document.getElementById('t-m'), es = document.getElementById('t-s');
+  function pad(n){ return n < 10 ? '0'+n : ''+n; }
+  function endTime(){
+    var v = 0;
+    try { v = parseInt(localStorage.getItem(KEY) || '0', 10); } catch(e){}
+    if (!v || isNaN(v) || v - Date.now() <= 0) {
+      v = Date.now() + LEN;
+      try { localStorage.setItem(KEY, String(v)); } catch(e){}
+    }
+    return v;
+  }
+  var end = endTime();
+  function tick(){
+    var left = end - Date.now();
+    if (left <= 0) { end = endTime(); left = end - Date.now(); }
+    var s = Math.floor(left/1000);
+    if (eh) eh.textContent = pad(Math.floor(s/3600));
+    if (em) em.textContent = pad(Math.floor(s%3600/60));
+    if (es) es.textContent = pad(s%60);
+  }
+  if (eh) { tick(); setInterval(tick, 1000); }
+
+  /* ---------- YouTube: iframe грузиться лише по кліку ---------- */
+  document.querySelectorAll('.ytf').forEach(function(box){
+    box.addEventListener('click', function(){
+      var id = box.getAttribute('data-yt');
+      if (!id || box.dataset.loaded) return;
+      box.dataset.loaded = '1';
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&playsinline=1';
+      f.title = box.getAttribute('aria-label') || 'Відео';
+      f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen = true;
+      box.innerHTML = '';
+      box.appendChild(f);
+    });
+  });
+
+  /* ---------- Carousels ---------- */
+  document.querySelectorAll('[data-carousel]').forEach(function(root){
+    var track = root.querySelector('[data-track]');
+    var dotsBox = root.querySelector('[data-dots]');
+    var slides = Array.prototype.slice.call(track.children);
+    if (!slides.length) return;
+
+    slides.forEach(function(_, i){
+      var dt = document.createElement('span');
+      dt.className = 'dot' + (i === 0 ? ' on' : '');
+      dt.addEventListener('click', function(){ go(i); });
+      dotsBox.appendChild(dt);
+    });
+    var dots = Array.prototype.slice.call(dotsBox.children);
+    var cur = 0;
+
+    function go(i){
+      cur = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: slides[cur].offsetLeft - track.offsetLeft, behavior: 'smooth' });
+      sync(cur);
+    }
+    /* висота треку = висота активного слайда */
+    function fit(i){
+      var h = slides[i].offsetHeight;
+      if (h > 40) track.style.height = h + 'px';
+    }
+    function sync(i){
+      dots.forEach(function(dd, k){ dd.classList.toggle('on', k === i); });
+      fit(i);
+    }
+    fit(0);
+    track.querySelectorAll('img').forEach(function(im){
+      if (im.complete) return;
+      im.addEventListener('load', function(){ fit(cur); }, {once:true});
+    });
+    window.addEventListener('resize', function(){ fit(cur); });
+
+    var raf;
+    track.addEventListener('scroll', function(){
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(function(){
+        var mid = track.scrollLeft + track.clientWidth / 2;
+        var best = 0, bestD = Infinity;
+        slides.forEach(function(s, i){
+          var c = s.offsetLeft - track.offsetLeft + s.offsetWidth / 2;
+          var dd = Math.abs(c - mid);
+          if (dd < bestD) { bestD = dd; best = i; }
+        });
+        cur = best; sync(best);
+      });
+    }, {passive:true});
+
+    var p = root.querySelector('[data-prev]'), n = root.querySelector('[data-next]');
+    if (p) p.addEventListener('click', function(){ go(cur - 1); });
+    if (n) n.addEventListener('click', function(){ go(cur + 1); });
+  });
+
+  /* ---------- FAQ ---------- */
+  document.querySelectorAll('.faq__q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.parentElement;
+      var panel = item.querySelector('.faq__a');
+      var open = item.classList.contains('open');
+      item.parentElement.querySelectorAll('.faq__item.open').forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.faq__a').style.maxHeight = '';
+      });
+      if (!open) {
+        item.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+
+  window.addEventListener('resize', function(){
+    document.querySelectorAll('.faq__item.open .faq__a').forEach(function(p){
+      p.style.maxHeight = 'none';
+      var h = p.scrollHeight;
+      p.style.maxHeight = h + 'px';
+    });
+  });
+
+  /* ---------- Sticky CTA ---------- */
+  var sticky = document.getElementById('sticky');
+  var hero = document.querySelector('.hero');
+  function onScroll(){
+    if (!sticky || !hero) return;
+    var past = window.scrollY > hero.offsetHeight * 0.85;
+    var atEnd = (window.innerHeight + window.scrollY) > (document.body.scrollHeight - 40);
+    sticky.classList.toggle('on', past && !atEnd);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
+</script>
+</body>
+</html>
