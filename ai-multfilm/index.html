@@ -525,12 +525,10 @@ details li{font-size:14px;margin-bottom:6px;line-height:1.4}
 .ph .play svg{width:52px;height:52px;display:block;
               filter:drop-shadow(0 3px 10px rgba(0,0,0,.35))}
 .ph.on .play{opacity:0;pointer-events:none}
-/* відгуки — горизонтальна карусель */
-.revs{display:flex;align-items:center;gap:10px;margin-top:18px;overflow-x:auto;scroll-snap-type:x mandatory;
-      -webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
-.revs::-webkit-scrollbar{display:none}
-.rev{flex:0 0 88%;scroll-snap-align:center;margin:0;background:#fff;
-     border:1px solid rgba(255,255,255,.16);overflow:hidden}
+/* відгуки — одна колонка, стрічкою вниз */
+.revs{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.rev{margin:0;background:#fff;border:1px solid rgba(255,255,255,.16);overflow:hidden;
+     content-visibility:auto;contain-intrinsic-size:auto 220px}
 .rev img{width:100%;height:auto;display:block}
 /* прайс-рядки */
 .pr{display:flex;justify-content:space-between;align-items:center;gap:10px;
@@ -1158,15 +1156,28 @@ details li{font-size:14px;margin-bottom:6px;line-height:1.4}
     <blockquote class="quote">Сашко, за 390 грн — це ВАУ!</blockquote>
 
     <div class="revs">
-      <figure class="rev"><img src="rev-1.jpg" width="806" height="422" alt="Відгук студентки: згенерувала мультфільм і фото" loading="lazy"></figure>
-      <figure class="rev"><img src="rev-2.jpg" width="744" height="216" alt="Відгук: блоки навчання простою мовою, підходить новачку" loading="lazy"></figure>
-      <figure class="rev"><img src="rev-3.jpg" width="774" height="276" alt="Відгук: багато інформації та мотивації, курс оновлюється" loading="lazy"></figure>
-      <figure class="rev"><img src="rev-4.jpg" width="796" height="218" alt="Відгук: жодного разу не пожалкувала, що доєдналася" loading="lazy"></figure>
-      <figure class="rev"><img src="rev-5.jpg" width="766" height="246" alt="Відгук: немає води, усе по суті і з прикладами" loading="lazy"></figure>
-      <figure class="rev"><img src="rev-6.jpg" width="798" height="484" alt="Відгук: підказки, взаємодопомога й нова інформація" loading="lazy"></figure>
-      <figure class="rev"><img src="rev-7.jpg" width="798" height="448" alt="Відгук: працює з постійними замовниками після навчання" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-1.jpg" width="900" height="471" alt="Відгук студента 1" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-2.jpg" width="900" height="321" alt="Відгук студента 2" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-3.jpg" width="900" height="246" alt="Відгук студента 3" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-4.jpg" width="900" height="289" alt="Відгук студента 4" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-5.jpg" width="900" height="261" alt="Відгук студента 5" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-6.jpg" width="900" height="546" alt="Відгук студента 6" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-7.jpg" width="900" height="240" alt="Відгук студента 7" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-8.jpg" width="511" height="900" alt="Відгук студента 8" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-9.jpg" width="531" height="900" alt="Відгук студента 9" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-10.jpg" width="653" height="900" alt="Відгук студента 10" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-11.jpg" width="900" height="505" alt="Відгук студента 11" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-12.jpg" width="900" height="685" alt="Відгук студента 12" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-13.jpg" width="770" height="900" alt="Відгук студента 13" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-14.jpg" width="900" height="747" alt="Відгук студента 14" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-15.jpg" width="880" height="900" alt="Відгук студента 15" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-16.jpg" width="900" height="707" alt="Відгук студента 16" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-17.jpg" width="900" height="516" alt="Відгук студента 17" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-18.jpg" width="817" height="900" alt="Відгук студента 18" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-19.jpg" width="877" height="900" alt="Відгук студента 19" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-20.jpg" width="900" height="358" alt="Відгук студента 20" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-21.jpg" width="900" height="802" alt="Відгук студента 21" loading="lazy"></figure>
     </div>
-    <p class="sm" style="color:rgba(255,255,255,.5);margin-top:8px">гортай убік →</p>
   </section>
 
   <!-- ═══ 15b. ФІНАЛЬНИЙ CTA ═══ -->
