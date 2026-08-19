@@ -525,6 +525,13 @@ details li{font-size:14px;margin-bottom:6px;line-height:1.4}
 .ph .play svg{width:52px;height:52px;display:block;
               filter:drop-shadow(0 3px 10px rgba(0,0,0,.35))}
 .ph.on .play{opacity:0;pointer-events:none}
+/* відгуки — горизонтальна карусель */
+.revs{display:flex;align-items:center;gap:10px;margin-top:18px;overflow-x:auto;scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
+.revs::-webkit-scrollbar{display:none}
+.rev{flex:0 0 88%;scroll-snap-align:center;margin:0;background:#fff;
+     border:1px solid rgba(255,255,255,.16);overflow:hidden}
+.rev img{width:100%;height:auto;display:block}
 /* прайс-рядки */
 .pr{display:flex;justify-content:space-between;align-items:center;gap:10px;
     padding:10px 0;border-top:1px solid var(--line);font-size:14px}
@@ -1150,12 +1157,16 @@ details li{font-size:14px;margin-bottom:6px;line-height:1.4}
        З них <b style="color:var(--lime)">90%</b> доходять до кінця та кажуть:</p>
     <blockquote class="quote">Сашко, за 390 грн — це ВАУ!</blockquote>
 
-    <div class="gal" style="margin-top:18px">
-      <div class="ph" style="aspect-ratio:4/5;background:#191919">скрін відгуку 1</div>
-      <div class="ph" style="aspect-ratio:4/5;background:#191919">скрін відгуку 2</div>
-      <div class="ph" style="aspect-ratio:4/5;background:#191919">скрін відгуку 3</div>
-      <div class="ph" style="aspect-ratio:4/5;background:#191919">скрін відгуку 4</div>
+    <div class="revs">
+      <figure class="rev"><img src="rev-1.jpg" width="806" height="422" alt="Відгук студентки: згенерувала мультфільм і фото" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-2.jpg" width="744" height="216" alt="Відгук: блоки навчання простою мовою, підходить новачку" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-3.jpg" width="774" height="276" alt="Відгук: багато інформації та мотивації, курс оновлюється" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-4.jpg" width="796" height="218" alt="Відгук: жодного разу не пожалкувала, що доєдналася" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-5.jpg" width="766" height="246" alt="Відгук: немає води, усе по суті і з прикладами" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-6.jpg" width="798" height="484" alt="Відгук: підказки, взаємодопомога й нова інформація" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-7.jpg" width="798" height="448" alt="Відгук: працює з постійними замовниками після навчання" loading="lazy"></figure>
     </div>
+    <p class="sm" style="color:rgba(255,255,255,.5);margin-top:8px">гортай убік →</p>
   </section>
 
   <!-- ═══ 15b. ФІНАЛЬНИЙ CTA ═══ -->
