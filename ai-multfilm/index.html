@@ -516,6 +516,8 @@ details li{font-size:14px;margin-bottom:6px;line-height:1.4}
 .gal{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
 .ph{background:#111;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;
     color:rgba(255,255,255,.45);font-size:10px;text-transform:uppercase;letter-spacing:.09em;text-align:center;padding:8px}
+.ph.v{padding:0}
+.ph video{width:100%;height:100%;object-fit:cover;display:block}
 /* прайс-рядки */
 .pr{display:flex;justify-content:space-between;align-items:center;gap:10px;
     padding:10px 0;border-top:1px solid var(--line);font-size:14px}
@@ -727,8 +729,10 @@ details li{font-size:14px;margin-bottom:6px;line-height:1.4}
   <section class="card glassy">
     <h2 class="h h2">Ось такі АІ мультики ти <span class="acc">зможеш робити</span> вже під час воркшопу</h2>
     <div class="gal">
-      <div class="ph">кадр 1</div><div class="ph">кадр 2</div>
-      <div class="ph">кадр 3</div><div class="ph">кадр 4</div>
+      <div class="ph v"><video data-src="mult1.mp4" poster="mult1.jpg" autoplay muted loop playsinline preload="none" aria-label="Приклад AI-мультика 1"></video></div>
+      <div class="ph v"><video data-src="mult2.mp4" poster="mult2.jpg" autoplay muted loop playsinline preload="none" aria-label="Приклад AI-мультика 2"></video></div>
+      <div class="ph v"><video data-src="mult3.mp4" poster="mult3.jpg" autoplay muted loop playsinline preload="none" aria-label="Приклад AI-мультика 3"></video></div>
+      <div class="ph v"><video data-src="mult4.mp4" poster="mult4.jpg" autoplay muted loop playsinline preload="none" aria-label="Приклад AI-мультика 4"></video></div>
     </div>
     <p class="p">Я покажу тобі дієвий технічний спосіб <b>від А до Я</b>, ЯК створювати через АІ мультики, далі — ти зможеш створювати все, що захочеш, адже все залежить від твоєї фантазії. Навіть зможеш робити <b>міні-серіали</b>.</p>
 
@@ -1181,6 +1185,25 @@ details li{font-size:14px;margin-bottom:6px;line-height:1.4}
 
 <script>
 document.documentElement.classList.add('js');
+// відео-галерея прикладів: вантажимо й запускаємо тільки коли доскролили
+(function(){
+  var vids = document.querySelectorAll('.gal video[data-src]');
+  if(!vids.length) return;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function load(v){
+    if(v.src) return;
+    v.src = v.dataset.src;
+    if(!still){ v.play().catch(function(){}) }
+  }
+  if(!('IntersectionObserver' in window)){ vids.forEach(load); return }
+  var vio = new IntersectionObserver(function(list){
+    list.forEach(function(e){
+      if(!e.isIntersecting) return;
+      load(e.target); vio.unobserve(e.target);
+    });
+  }, {rootMargin:'200px 0px'});
+  vids.forEach(function(v){ vio.observe(v) });
+})();
 // сегменти та бонуси — поява по черзі під час скролу
 (function(){
   var segs = document.querySelectorAll('.seg, .bcard');
