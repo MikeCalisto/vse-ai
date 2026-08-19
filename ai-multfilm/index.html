@@ -516,8 +516,15 @@ details li{font-size:14px;margin-bottom:6px;line-height:1.4}
 .gal{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
 .ph{background:#111;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;
     color:rgba(255,255,255,.45);font-size:10px;text-transform:uppercase;letter-spacing:.09em;text-align:center;padding:8px}
-.ph.v{padding:0}
+.ph.v{padding:0;position:relative;cursor:pointer}
 .ph video{width:100%;height:100%;object-fit:cover;display:block}
+/* кнопка плей поверх прев'ю */
+.ph .play{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;
+          background:rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;
+          cursor:pointer;transition:opacity .18s ease}
+.ph .play svg{width:52px;height:52px;display:block;
+              filter:drop-shadow(0 3px 10px rgba(0,0,0,.35))}
+.ph.on .play{opacity:0;pointer-events:none}
 /* прайс-рядки */
 .pr{display:flex;justify-content:space-between;align-items:center;gap:10px;
     padding:10px 0;border-top:1px solid var(--line);font-size:14px}
@@ -729,10 +736,42 @@ details li{font-size:14px;margin-bottom:6px;line-height:1.4}
   <section class="card glassy">
     <h2 class="h h2">Ось такі АІ мультики ти <span class="acc">зможеш робити</span> вже під час воркшопу</h2>
     <div class="gal">
-      <div class="ph v"><video data-src="mult1.mp4" poster="mult1.jpg" autoplay muted loop playsinline preload="none" aria-label="Приклад AI-мультика 1"></video></div>
-      <div class="ph v"><video data-src="mult2.mp4" poster="mult2.jpg" autoplay muted loop playsinline preload="none" aria-label="Приклад AI-мультика 2"></video></div>
-      <div class="ph v"><video data-src="mult3.mp4" poster="mult3.jpg" autoplay muted loop playsinline preload="none" aria-label="Приклад AI-мультика 3"></video></div>
-      <div class="ph v"><video data-src="mult4.mp4" poster="mult4.jpg" autoplay muted loop playsinline preload="none" aria-label="Приклад AI-мультика 4"></video></div>
+      <div class="ph v">
+        <video data-src="mult1.mp4" poster="mult1.jpg" loop playsinline preload="none"></video>
+        <button class="play" type="button" aria-label="Відтворити приклад 1 зі звуком">
+          <svg viewBox="0 0 56 56" aria-hidden="true">
+            <circle cx="28" cy="28" r="25" fill="var(--lime)" stroke="#0A0A0A" stroke-width="3"/>
+            <path d="M23 19 L39 28 L23 37 Z" fill="#0A0A0A"/>
+          </svg>
+        </button>
+      </div>
+      <div class="ph v">
+        <video data-src="mult2.mp4" poster="mult2.jpg" loop playsinline preload="none"></video>
+        <button class="play" type="button" aria-label="Відтворити приклад 2 зі звуком">
+          <svg viewBox="0 0 56 56" aria-hidden="true">
+            <circle cx="28" cy="28" r="25" fill="var(--lime)" stroke="#0A0A0A" stroke-width="3"/>
+            <path d="M23 19 L39 28 L23 37 Z" fill="#0A0A0A"/>
+          </svg>
+        </button>
+      </div>
+      <div class="ph v">
+        <video data-src="mult3.mp4" poster="mult3.jpg" loop playsinline preload="none"></video>
+        <button class="play" type="button" aria-label="Відтворити приклад 3 зі звуком">
+          <svg viewBox="0 0 56 56" aria-hidden="true">
+            <circle cx="28" cy="28" r="25" fill="var(--lime)" stroke="#0A0A0A" stroke-width="3"/>
+            <path d="M23 19 L39 28 L23 37 Z" fill="#0A0A0A"/>
+          </svg>
+        </button>
+      </div>
+      <div class="ph v">
+        <video data-src="mult4.mp4" poster="mult4.jpg" loop playsinline preload="none"></video>
+        <button class="play" type="button" aria-label="Відтворити приклад 4 зі звуком">
+          <svg viewBox="0 0 56 56" aria-hidden="true">
+            <circle cx="28" cy="28" r="25" fill="var(--lime)" stroke="#0A0A0A" stroke-width="3"/>
+            <path d="M23 19 L39 28 L23 37 Z" fill="#0A0A0A"/>
+          </svg>
+        </button>
+      </div>
     </div>
     <p class="p">Я покажу тобі дієвий технічний спосіб <b>від А до Я</b>, ЯК створювати через АІ мультики, далі — ти зможеш створювати все, що захочеш, адже все залежить від твоєї фантазії. Навіть зможеш робити <b>міні-серіали</b>.</p>
 
@@ -1185,24 +1224,76 @@ details li{font-size:14px;margin-bottom:6px;line-height:1.4}
 
 <script>
 document.documentElement.classList.add('js');
-// відео-галерея прикладів: вантажимо й запускаємо тільки коли доскролили
+// відео-галерея прикладів: плей за кліком, зі звуком; пауза, коли пішли зі скролом
 (function(){
-  var vids = document.querySelectorAll('.gal video[data-src]');
-  if(!vids.length) return;
-  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function load(v){
-    if(v.src) return;
-    v.src = v.dataset.src;
-    if(!still){ v.play().catch(function(){}) }
-  }
-  if(!('IntersectionObserver' in window)){ vids.forEach(load); return }
-  var vio = new IntersectionObserver(function(list){
-    list.forEach(function(e){
-      if(!e.isIntersecting) return;
-      load(e.target); vio.unobserve(e.target);
+  var cells = [].slice.call(document.querySelectorAll('.gal .ph.v'));
+  if(!cells.length) return;
+
+  function stopOthers(cur){
+    cells.forEach(function(c){
+      var v = c.querySelector('video');
+      if(v !== cur && !v.paused){ v.pause() }
     });
-  }, {rootMargin:'200px 0px'});
-  vids.forEach(function(v){ vio.observe(v) });
+  }
+
+  cells.forEach(function(cell){
+    var v = cell.querySelector('video');
+    function toggle(){
+      if(v.paused){
+        stopOthers(v);
+        if(!v.src){ v.src = v.dataset.src }
+        v.muted = false;
+        v.volume = 1;
+        v.play().catch(function(){});
+      } else {
+        v.pause();
+      }
+    }
+    cell.addEventListener('click', toggle);
+    v.addEventListener('play',  function(){ cell.classList.add('on') });
+    v.addEventListener('pause', function(){ cell.classList.remove('on') });
+    v.addEventListener('ended', function(){ cell.classList.remove('on') });
+  });
+
+  // пішли зі скролом — ставимо на паузу
+  var last = 0;
+  function checkVisible(){
+    last = new Date().getTime();
+    cells.forEach(function(c){
+      var v = c.querySelector('video');
+      if(v.paused) return;
+      var r = c.getBoundingClientRect();
+      var seen = Math.min(r.bottom, window.innerHeight || 0) - Math.max(r.top, 0);
+      if(seen < r.height * 0.35){ v.pause() }
+    });
+  }
+  document.addEventListener('scroll', function(){
+    if(new Date().getTime() - last < 120) return;
+    checkVisible();
+  }, {capture:true, passive:true});
+  window.addEventListener('resize', checkVisible, {passive:true});
+
+  // пішли з вкладки — теж пауза
+  document.addEventListener('visibilitychange', function(){
+    if(!document.hidden) return;
+    cells.forEach(function(c){
+      var v = c.querySelector('video');
+      if(!v.paused){ v.pause() }
+    });
+  });
+
+  // підвантажуємо метадані заздалегідь, щоб клік спрацьовував одразу
+  if('IntersectionObserver' in window){
+    var lio = new IntersectionObserver(function(list){
+      list.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var v = e.target.querySelector('video');
+        if(!v.src){ v.preload = 'metadata'; v.src = v.dataset.src }
+        lio.unobserve(e.target);
+      });
+    }, {rootMargin:'300px 0px'});
+    cells.forEach(function(c){ lio.observe(c) });
+  }
 })();
 // сегменти та бонуси — поява по черзі під час скролу
 (function(){
