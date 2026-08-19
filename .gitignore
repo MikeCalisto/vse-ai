@@ -4,3 +4,6 @@ bg_video.mp4
 .claude/
 .vercel
 .DS_Store
+
+# исходники медиа для блоков программы (оригиналы, в деплой не нужны)
+fabryka-ai-kontentu/Блоки фабрики/
