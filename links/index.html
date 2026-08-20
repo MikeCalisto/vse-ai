@@ -163,6 +163,11 @@
     background:#111;
     min-width:0;
     align-self:stretch;
+    /* iOS Safari: власний радіус, бо composited-шар ігнорує overflow:hidden батька */
+    border-top-left-radius:21px;
+    border-bottom-left-radius:21px;
+    -webkit-mask-image:-webkit-radial-gradient(#fff,#000);
+    mask-image:radial-gradient(#fff,#000);
   }
   .card__media img,
   .card__media video {
@@ -376,6 +381,12 @@
     background:linear-gradient(135deg,#67e8f9,#a7f3d0,#fde68a);
     -webkit-background-clip:text; background-clip:text;
     -webkit-text-fill-color:transparent;
+    /* Ніколи не рвати слово посередині: перенос лише по дефісу «AI-» */
+    font-size:clamp(17px,4.4vw,24px);
+    word-break:normal;
+    overflow-wrap:normal;
+    hyphens:none;
+    -webkit-hyphens:none;
   }
   .card--new .card__cta {
     background:linear-gradient(135deg,#10b981 0%,#22d3ee 100%);
@@ -529,7 +540,7 @@
       </div>
       <div class="card__body">
         <span class="card__pill"><span class="spark">✨</span> новинка</span>
-        <div class="card__kicker"><span class="dot"></span>воркшоп · тільки-но</div>
+        <div class="card__kicker"><span class="dot"></span>воркшоп · <span style="white-space:nowrap">тільки-но</span></div>
         <div class="card__title">AI-Мультфільм</div>
         <div class="card__desc">Готова технологія створення мультиків, які залітають на мільйони переглядів — від створення персонажа до публікації.</div>
         <div class="card__cta">Деталі про воркшоп <span class="card__cta-arrow">→</span></div>
@@ -683,21 +694,40 @@
   // Lazy-load videos: тягнемо src лише коли картка наближається до екрану.
   // Після першого play() припиняємо спостереження — щоб уникнути паузи
   // на чорному кадрі під час скролу.
+  const lazyVideos = Array.from(document.querySelectorAll('video[data-src]'));
+
+  function startVideo(v) {
+    // iOS дозволяє автоплей лише якщо muted виставлено і в DOM, і в JS
+    v.muted = true;
+    v.defaultMuted = true;
+    v.setAttribute('muted', '');
+    v.setAttribute('playsinline', '');
+    if (!v.src && v.dataset.src) {
+      v.preload = 'auto';
+      v.src = v.dataset.src;
+      v.load();
+    }
+    const tryPlay = () => v.play().catch(() => {});
+    tryPlay();
+    v.addEventListener('loadeddata', tryPlay, { once: true });
+    v.addEventListener('canplay', tryPlay, { once: true });
+  }
+
   const videoObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
-      const v = e.target;
-      if (!v.src && v.dataset.src) {
-        v.preload = 'auto';
-        v.src = v.dataset.src;
-      }
-      const tryPlay = () => v.play().catch(() => {});
-      if (v.readyState >= 2) tryPlay();
-      else v.addEventListener('loadeddata', tryPlay, { once: true });
-      videoObs.unobserve(v);
+      startVideo(e.target);
+      videoObs.unobserve(e.target);
     });
   }, { rootMargin: '500px 0px', threshold: 0 });
-  document.querySelectorAll('video[data-src]').forEach(v => videoObs.observe(v));
+  lazyVideos.forEach(v => videoObs.observe(v));
+
+  // Резерв: якщо автоплей заблокований (Low Power Mode на iOS тощо) —
+  // стартуємо на першій же взаємодії користувача зі сторінкою.
+  const kickVideos = () => lazyVideos.forEach(v => { if (v.paused) startVideo(v); });
+  ['touchstart', 'pointerdown', 'scroll'].forEach(evt =>
+    window.addEventListener(evt, kickVideos, { once: true, passive: true })
+  );
 </script>
 
 <!-- Vercel Web Analytics -->
