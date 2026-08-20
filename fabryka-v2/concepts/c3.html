@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Концепт 3 · Аврора — Фабрика АІ контенту</title>
+<meta name="theme-color" content="#FBFAFF">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root{
+  --ink:#16151D;
+  --ink2:#3B3949;
+  --mute:#807D93;
+  --bg:#FBFAFF;
+  --bg2:#F1EFFA;
+  --glass:rgba(255,255,255,.72);
+  --glass-b:rgba(255,255,255,.9);
+  --mint:#3FD0A8;
+  --peach:#FF8A6B;
+  --lav:#7C6BFF;
+  --sky:#4FA8FF;
+  --shadow:0 18px 46px -14px rgba(60,50,120,.22);
+  --shadow-s:0 6px 20px -8px rgba(60,50,120,.2);
+  --f:'Outfit',-apple-system,'SF Pro Display',Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:var(--f);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:520px;margin:0 auto;padding:0 22px;position:relative;z-index:2}
+
+/* aurora field */
+.aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;filter:blur(58px)}
+.aurora i{position:absolute;display:block;border-radius:50%;opacity:.5}
+.a1{width:60vw;height:60vw;background:var(--lav);left:-22vw;top:-10vw;animation:dr1 22s ease-in-out infinite}
+.a2{width:52vw;height:52vw;background:var(--mint);right:-20vw;top:16vh;animation:dr2 26s ease-in-out infinite}
+.a3{width:56vw;height:56vw;background:var(--peach);left:-10vw;top:62vh;animation:dr3 30s ease-in-out infinite}
+@keyframes dr1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(9vw,7vh) scale(1.12)}}
+@keyframes dr2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-11vw,-6vh) scale(.92)}}
+@keyframes dr3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(7vw,-9vh) scale(1.08)}}
+
+/* pill top */
+.pill-top{display:flex;justify-content:center;padding:20px 0 0}
+.pill-top .p{display:inline-flex;align-items:center;gap:9px;background:var(--glass);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.85);border-radius:999px;padding:8px 16px;
+  box-shadow:var(--shadow-s);font-size:.72rem;font-weight:500;color:var(--ink2)}
+.pill-top b{font-weight:700;color:var(--ink)}
+.pip{width:7px;height:7px;border-radius:50%;background:var(--mint);
+  box-shadow:0 0 0 4px rgba(63,208,168,.22);animation:pp 2.2s ease-in-out infinite}
+@keyframes pp{50%{box-shadow:0 0 0 7px rgba(63,208,168,0)}}
+.sep{width:1px;height:12px;background:rgba(0,0,0,.12)}
+
+/* hero */
+.hero{padding:28px 0 0;text-align:center}
+.eye{font-size:.76rem;line-height:1.5;color:var(--mute);max-width:30ch;margin:0 auto 22px}
+h1{font-size:clamp(2.7rem,11.6vw,4.1rem);font-weight:800;letter-spacing:-.04em;line-height:.94}
+h1 .g{background:linear-gradient(115deg,var(--lav) 0%,var(--sky) 42%,var(--mint) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;display:block}
+.sub{margin:16px auto 0;font-size:1rem;line-height:1.5;color:var(--ink2);max-width:26ch;font-weight:500}
+.sub .hl{position:relative;white-space:nowrap;font-weight:700;color:var(--ink)}
+.sub .hl::after{content:'';position:absolute;left:-3px;right:-3px;bottom:1px;height:8px;
+  background:linear-gradient(90deg,rgba(124,107,255,.28),rgba(63,208,168,.32));border-radius:4px;z-index:-1}
+
+/* floating cards */
+.deck-3d{margin:34px 0 0;height:330px;position:relative;perspective:1200px}
+.card3{position:absolute;width:58%;aspect-ratio:3/4;border-radius:22px;overflow:hidden;
+  box-shadow:var(--shadow);border:5px solid #fff;background:#fff;
+  transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .9s}
+.card3 img{width:100%;height:100%;object-fit:cover}
+.c-l{left:0;top:34px;transform:rotate(-8deg) scale(.86);opacity:.62;z-index:1}
+.c-c{left:21%;top:0;transform:rotate(0);z-index:3}
+.c-r{right:0;top:34px;transform:rotate(8deg) scale(.86);opacity:.62;z-index:1}
+.badge-f{position:absolute;z-index:5;background:var(--glass-b);backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);border-radius:14px;box-shadow:var(--shadow-s);
+  padding:8px 12px;font-size:.66rem;font-weight:700;display:flex;align-items:center;gap:6px;
+  border:1px solid rgba(255,255,255,.9)}
+.bf1{left:-4px;bottom:24px;color:var(--lav);animation:fl 6s ease-in-out infinite}
+.bf2{right:-4px;top:8px;color:var(--peach);animation:fl 7.5s ease-in-out infinite .8s}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+.lede{margin:34px 0 0;font-size:.92rem;line-height:1.68;color:var(--ink2);text-align:left;
+  background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.85);border-radius:22px;padding:20px 20px;box-shadow:var(--shadow-s)}
+.lede b{color:var(--ink);font-weight:700}
+
+.tiles{margin:16px 0 0;display:grid;gap:9px}
+.tile{display:flex;gap:12px;align-items:center;text-align:left;background:var(--glass);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.85);border-radius:18px;padding:13px 15px;
+  box-shadow:var(--shadow-s);font-size:.86rem;line-height:1.4;font-weight:500;
+  transition:transform .25s,box-shadow .25s}
+.tile:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.tile .ic{width:30px;height:30px;flex:0 0 30px;border-radius:10px;display:grid;place-items:center;
+  color:#fff;font-size:.78rem;font-weight:800}
+.i1{background:linear-gradient(135deg,var(--lav),var(--sky))}
+.i2{background:linear-gradient(135deg,var(--mint),var(--sky))}
+.i3{background:linear-gradient(135deg,var(--peach),var(--lav))}
+.i4{background:linear-gradient(135deg,var(--sky),var(--mint))}
+
+/* price card */
+.price{margin:24px 0 0;border-radius:28px;padding:2px;text-align:left;
+  background:linear-gradient(140deg,var(--lav),var(--sky) 45%,var(--mint));box-shadow:var(--shadow)}
+.price__in{background:rgba(255,255,255,.94);backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);border-radius:26px;padding:22px 20px}
+.price__top{display:flex;align-items:center;gap:8px;font-size:.68rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--peach);margin-bottom:14px}
+.price__row{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap}
+.p-old{font-size:1.05rem;color:var(--mute);text-decoration:line-through;font-weight:500;padding-bottom:8px}
+.p-new{font-size:clamp(3rem,12vw,3.8rem);font-weight:800;letter-spacing:-.04em;line-height:.9;
+  background:linear-gradient(120deg,var(--lav),var(--sky));-webkit-background-clip:text;
+  background-clip:text;color:transparent}
+.p-new span{font-size:.9rem;font-weight:600;color:var(--ink2);-webkit-text-fill-color:var(--ink2);margin-left:5px}
+.cd{margin:18px 0 0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.cd__l{font-size:.7rem;color:var(--mute);font-weight:500;width:100%}
+.cd__b{background:var(--bg2);border-radius:13px;padding:9px 12px;text-align:center;min-width:56px}
+.cd__b b{display:block;font-size:1.2rem;font-weight:800;letter-spacing:-.02em;line-height:1}
+.cd__b i{font-style:normal;font-size:.58rem;color:var(--mute);text-transform:uppercase;letter-spacing:.08em}
+.instal{margin:16px 0 0;font-size:.8rem;color:var(--ink2);padding-top:14px;
+  border-top:1px solid rgba(0,0,0,.07)}
+.instal b{font-weight:700;color:var(--ink)}
+.gift{margin:12px 0 0;display:flex;gap:10px;align-items:flex-start;background:linear-gradient(120deg,rgba(124,107,255,.1),rgba(63,208,168,.12));
+  border-radius:16px;padding:12px 13px;font-size:.78rem;line-height:1.45;color:var(--ink2)}
+.gift b{color:var(--lav);font-weight:700}
+
+.cta{margin:22px 0 0;display:grid;gap:11px}
+.bg1{display:flex;align-items:center;justify-content:center;gap:12px;padding:19px;border-radius:20px;
+  background:linear-gradient(120deg,var(--lav),var(--sky));color:#fff;font-weight:700;font-size:.95rem;
+  box-shadow:0 14px 32px -10px rgba(124,107,255,.65);transition:transform .25s,box-shadow .25s}
+.bg1:hover{transform:translateY(-3px);box-shadow:0 20px 40px -10px rgba(124,107,255,.75)}
+.bg1 b{font-weight:800}
+.bg2{text-align:center;padding:16px;border-radius:20px;background:var(--glass);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.9);
+  color:var(--ink2);font-weight:600;font-size:.86rem;box-shadow:var(--shadow-s)}
+
+/* marquee */
+.mq{margin-top:40px;overflow:hidden;padding:14px 0;background:rgba(255,255,255,.5);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-top:1px solid rgba(255,255,255,.9);border-bottom:1px solid rgba(255,255,255,.9);position:relative;z-index:2}
+.mq__t{display:flex;width:max-content;white-space:nowrap;animation:mar 32s linear infinite}
+.mq__t span{font-size:.74rem;font-weight:600;color:var(--ink2);padding:0 12px;display:flex;align-items:center;gap:12px}
+.mq__t span::after{content:'';width:5px;height:5px;border-radius:50%;
+  background:linear-gradient(120deg,var(--lav),var(--mint))}
+@keyframes mar{to{transform:translateX(-50%)}}
+
+/* sections */
+.sec{padding:52px 0;position:relative;z-index:2}
+.lbl{display:inline-flex;align-items:center;gap:7px;font-size:.66rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--peach);
+  background:rgba(255,138,107,.12);border-radius:999px;padding:6px 13px;margin-bottom:14px}
+h2{font-size:clamp(1.85rem,7.4vw,2.6rem);font-weight:800;letter-spacing:-.035em;line-height:1.06}
+h2 .g{background:linear-gradient(115deg,var(--peach),var(--lav));-webkit-background-clip:text;
+  background-clip:text;color:transparent}
+.xs{margin:24px 0 0;display:grid;gap:10px}
+.xs li{list-style:none;display:flex;gap:13px;align-items:flex-start;background:var(--glass);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.85);
+  border-radius:18px;padding:15px 16px;box-shadow:var(--shadow-s);font-size:.88rem;line-height:1.45;color:var(--ink2)}
+.xs li .x{width:24px;height:24px;flex:0 0 24px;border-radius:50%;background:rgba(255,138,107,.16);
+  color:var(--peach);display:grid;place-items:center;font-weight:800;font-size:.72rem}
+
+.callout{margin:24px 0 0;border-radius:26px;padding:24px 22px;
+  background:linear-gradient(150deg,rgba(124,107,255,.1),rgba(255,138,107,.1));
+  border:1px solid rgba(255,255,255,.85);box-shadow:var(--shadow-s);display:grid;gap:14px}
+.callout p{font-size:.98rem;line-height:1.55;color:var(--ink2)}
+.callout p b{color:var(--ink);font-weight:700}
+.callout p:last-child{font-size:.86rem;color:var(--mute);padding-top:14px;
+  border-top:1px solid rgba(0,0,0,.07)}
+
+.foot{padding:20px 0 44px;text-align:center;font-size:.68rem;color:var(--mute);position:relative;z-index:2}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.vis{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}
+  .aurora i,.mq__t,.badge-f{animation:none}}
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+
+<div class="wrap">
+  <div class="pill-top">
+    <div class="p">
+      <span class="pip"></span><span>Актуальний на <b id="liveDate">сьогодні</b></span>
+      <span class="sep"></span><span>Доступ <b>назавжди</b></span>
+    </div>
+  </div>
+
+  <section class="hero">
+    <p class="eye">Авторська програма Олександра Цюцьмаця по практичному використанню нейромереж</p>
+    <h1>ФАБРИКА<span class="g">АІ КОНТЕНТУ</span></h1>
+    <p class="sub">Створи власну Фабрику AI-контенту за <span class="hl">15 практичних блоків</span>, з повного 0.</p>
+
+    <div class="deck-3d reveal">
+      <div class="card3 c-l"><img src="/fabryka-ai-kontentu/images/samples/sample2.jpg" alt="" loading="lazy"></div>
+      <div class="card3 c-r"><img src="/fabryka-ai-kontentu/images/samples/sample3.jpg" alt="" loading="lazy"></div>
+      <div class="card3 c-c"><img src="/fabryka-ai-kontentu/images/samples/sample1.jpg" alt="" fetchpriority="high"></div>
+      <div class="badge-f bf1">✨ 15 блоків</div>
+      <div class="badge-f bf2">🎬 14+ нейромереж</div>
+    </div>
+
+    <p class="lede">Навчись <b>генерувати</b>: фото, відео, музику, озвучку, АІ-персонажів, предметну зйомку товару, рекламні ролики для товарів а також аватарів з повного 0 — та <b>монетизуй цю навичку</b> прямо під час проходження курсу практикуму.</p>
+
+    <div class="tiles reveal">
+      <div class="tile"><span class="ic i1">01</span><span>Без технічної освіти та складних програм</span></div>
+      <div class="tile"><span class="ic i2">02</span><span>Навіть якщо вам 18–60 років</span></div>
+      <div class="tile"><span class="ic i3">03</span><span>Є можливість отримати перших клієнтів прямо під час проходження курсу</span></div>
+      <div class="tile"><span class="ic i4">04</span><span>Покрокова система: повторюй → отримуй результат</span></div>
+    </div>
+
+    <div class="price reveal"><div class="price__in">
+      <div class="price__top"><span class="pip" style="background:var(--peach);box-shadow:0 0 0 4px rgba(255,138,107,.2)"></span>Знижка діє лише 48 годин</div>
+      <div class="price__row">
+        <span class="p-old">7400 грн</span>
+        <span class="p-new">3499<span>грн</span></span>
+      </div>
+      <div class="cd">
+        <span class="cd__l">До завершення знижки:</span>
+        <span class="cd__b"><b id="cdHours">—</b><i>год</i></span>
+        <span class="cd__b"><b id="cdMin">—</b><i>хв</i></span>
+        <span class="cd__b"><b id="cdSec">—</b><i>сек</i></span>
+      </div>
+      <p class="instal">або оплата частинами на <b>6 платежів</b> · <b>583 грн</b>/міс</p>
+      <div class="gift"><span>🎁</span><span>+ <b>клуб VSE AI</b> назавжди у подарунок <i>(зазвичай 490 грн/міс)</i></span></div>
+    </div></div>
+
+    <div class="cta">
+      <a href="https://app.zenedu.io/l/rZH9t1mXisTdgf06" target="_blank" rel="noopener" class="bg1">
+        Купити курс <b>3499 грн</b> →
+      </a>
+      <a href="#program" class="bg2">↓ Дивитись програму</a>
+    </div>
+  </section>
+</div>
+
+<div class="mq"><div class="mq__t">
+  <span>ChatGPT</span><span>NanoBanana</span><span>Grok</span><span>Veo 3.1</span><span>MetaVibes</span><span>ElevenLabs</span><span>MiniMax</span><span>Suno</span><span>HeyGen</span><span>Claude</span><span>Kling 3.0</span><span>Seedance 2.0</span><span>Higgsfield</span>
+  <span>ChatGPT</span><span>NanoBanana</span><span>Grok</span><span>Veo 3.1</span><span>MetaVibes</span><span>ElevenLabs</span><span>MiniMax</span><span>Suno</span><span>HeyGen</span><span>Claude</span><span>Kling 3.0</span><span>Seedance 2.0</span><span>Higgsfield</span>
+</div></div>
+
+<div class="wrap">
+  <section class="sec">
+    <div class="lbl">Проблема</div>
+    <h2>Чому навчають інші <span class="g">в АІ?</span></h2>
+    <ul class="xs reveal">
+      <li><span class="x">✕</span><span>Робити конкретний контент по готовому шаблону</span></li>
+      <li><span class="x">✕</span><span>Копіювати чужі промти слово в слово</span></li>
+      <li><span class="x">✕</span><span>Генерувати одне «вірусне» відео за інструкцією</span></li>
+      <li><span class="x">✕</span><span>Повторювати за автором, не розуміючи логіки</span></li>
+    </ul>
+  </section>
+
+  <section class="sec">
+    <div class="lbl">Наслідок</div>
+    <h2>До чого призводить <span class="g">таке навчання?</span></h2>
+    <div class="callout reveal">
+      <p>У результаті ви просто <b>відтворюєте чужий алгоритм</b>.</p>
+      <p>Але варто змінити задачу, формат або стиль — і ви губитесь.</p>
+      <p>Замість свободи — <b>залежність від шаблону</b>. Замість творчості — копіювання.</p>
+      <p>І в якийсь момент здається, що «AI — це складно» або «це не для мене».</p>
+    </div>
+  </section>
+</div>
+
+<div class="foot">Концепт 3 · Аврора</div>
+
+<script>
+(function(){
+  var m=['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
+  var d=new Date(),el=document.getElementById('liveDate');
+  if(el) el.textContent=d.getDate()+' '+m[d.getMonth()];
+
+  var H=document.getElementById('cdHours'),M=document.getElementById('cdMin'),S=document.getElementById('cdSec');
+  function pad(n){return n<10?'0'+n:''+n}
+  function tick(){
+    var cycle=48*3600*1000,left=cycle-(Date.now()%cycle),t=Math.floor(left/1000);
+    if(H)H.textContent=pad(Math.floor(t/3600));
+    if(M)M.textContent=pad(Math.floor(t%3600/60));
+    if(S)S.textContent=pad(t%60);
+  }
+  tick(); setInterval(tick,1000);
+
+  var pool=['sample1','sample2','sample3','sample4','sample5','sample6'],
+      cards=[document.querySelector('.c-c img'),document.querySelector('.c-l img'),document.querySelector('.c-r img')],k=0;
+  setInterval(function(){
+    k=(k+1)%pool.length;
+    var c=cards[k%3];
+    if(!c) return;
+    c.style.opacity='0';
+    setTimeout(function(){
+      c.src='/fabryka-ai-kontentu/images/samples/'+pool[(k+2)%pool.length]+'.jpg';
+      c.style.transition='opacity .5s'; c.style.opacity='1';
+    },420);
+  },3400);
+
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>

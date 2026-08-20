@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Концепт 4 · Y2K — Фабрика АІ контенту</title>
+<meta name="theme-color" content="#14103A">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root{
+  --navy:#14103A;
+  --navy2:#1D1750;
+  --ink:#08061C;
+  --pink:#FF3D9A;
+  --cyan:#22E0FF;
+  --yellow:#FFD23F;
+  --lime:#8CFF5A;
+  --white:#FFFFFF;
+  --soft:#C9C3F5;
+  --disp:'Archivo Black','Space Grotesk',sans-serif;
+  --f:'Space Grotesk',-apple-system,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--navy);color:var(--white);
+  font-family:var(--f);font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;
+  background-image:
+    radial-gradient(120% 80% at 20% -5%,rgba(255,61,154,.32) 0%,transparent 55%),
+    radial-gradient(100% 70% at 92% 12%,rgba(34,224,255,.28) 0%,transparent 52%),
+    radial-gradient(110% 80% at 50% 105%,rgba(140,255,90,.16) 0%,transparent 55%);
+  background-attachment:fixed;
+}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.28;
+  background-image:radial-gradient(rgba(255,255,255,.35) 1px,transparent 1px);
+  background-size:7px 7px}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:540px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
+
+/* top sticker bar */
+.tbar{position:relative;z-index:3;padding:16px 0 0;display:flex;justify-content:center}
+.tbar .s{display:inline-flex;align-items:center;gap:9px;background:var(--yellow);color:var(--ink);
+  border:3px solid var(--ink);border-radius:999px;padding:7px 15px;font-size:.68rem;font-weight:700;
+  box-shadow:4px 4px 0 var(--ink);transform:rotate(-1.4deg)}
+.tbar .s b{font-weight:700;text-decoration:underline;text-decoration-thickness:2px}
+.blip{width:8px;height:8px;border-radius:50%;background:var(--pink);border:2px solid var(--ink);
+  animation:bp 1.6s ease-in-out infinite}
+@keyframes bp{50%{transform:scale(.6)}}
+
+/* hero */
+.hero{padding:24px 0 0}
+.eye{display:block;background:var(--ink);border:2px solid var(--cyan);color:var(--cyan);
+  font-size:.68rem;font-weight:600;line-height:1.5;padding:10px 13px;border-radius:12px;
+  box-shadow:4px 4px 0 rgba(34,224,255,.35);transform:rotate(.6deg)}
+
+.mega{margin:22px 0 0;font-family:var(--disp);text-transform:uppercase;line-height:.82;
+  letter-spacing:-.045em;font-size:clamp(3rem,14.5vw,5.6rem);text-align:center}
+.mega .t1{display:block;color:var(--white);
+  text-shadow:5px 5px 0 var(--pink),10px 10px 0 rgba(8,6,28,.55)}
+.mega .t2{display:block;
+  background:linear-gradient(180deg,#FFFFFF 0%,#B9F0FF 32%,#22E0FF 52%,#7A5BFF 74%,#FF3D9A 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  -webkit-text-stroke:2px var(--ink);
+  filter:drop-shadow(4px 5px 0 rgba(8,6,28,.7));transform:rotate(-1.6deg)}
+
+.sub{margin:20px auto 0;max-width:30ch;text-align:center;font-size:1.02rem;font-weight:600;line-height:1.4;
+  color:var(--soft)}
+.sub mark{background:var(--lime);color:var(--ink);padding:2px 7px;border:2px solid var(--ink);
+  border-radius:8px;display:inline-block;transform:rotate(-1.2deg);box-shadow:3px 3px 0 var(--ink)}
+
+/* polaroids */
+.polas{margin:32px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.pola{background:var(--white);padding:8px 8px 30px;border:3px solid var(--ink);
+  box-shadow:6px 6px 0 var(--ink);position:relative;transition:transform .3s}
+.pola:nth-child(1){transform:rotate(-3deg)}
+.pola:nth-child(2){transform:rotate(2.4deg);margin-top:14px}
+.pola:nth-child(3){transform:rotate(1.8deg)}
+.pola:nth-child(4){transform:rotate(-2.2deg);margin-top:-8px}
+.pola:hover{transform:rotate(0) scale(1.03);z-index:5}
+.pola img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.pola figcaption{position:absolute;left:8px;right:8px;bottom:7px;text-align:center;z-index:4;
+  font-size:.6rem;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.06em}
+.tape{position:absolute;z-index:4;top:-11px;left:50%;transform:translateX(-50%) rotate(-3deg);
+  width:56px;height:20px;background:rgba(255,210,63,.82);border:1px dashed rgba(8,6,28,.35)}
+.pola--stack{position:relative;overflow:hidden}
+.pola--stack .g{position:absolute;inset:8px 8px 30px;opacity:0;transition:opacity .7s;
+  width:auto;height:auto;aspect-ratio:auto;object-fit:cover}
+.pola--stack .g:first-child{position:relative;inset:auto;width:100%;height:auto;aspect-ratio:1/1}
+.pola--stack .g.on{opacity:1}
+
+.lede{margin:30px 0 0;background:var(--ink);border:3px solid var(--white);border-radius:16px;
+  padding:18px 17px;font-size:.9rem;line-height:1.6;color:var(--soft);
+  box-shadow:6px 6px 0 var(--pink)}
+.lede b{color:var(--yellow);font-weight:700}
+
+.bl{margin:18px 0 0;display:grid;gap:10px;list-style:none}
+.bl li{display:flex;gap:11px;align-items:center;background:var(--navy2);
+  border:2px solid var(--white);border-radius:12px;padding:12px 14px;font-size:.85rem;
+  font-weight:500;line-height:1.4;box-shadow:4px 4px 0 rgba(8,6,28,.75)}
+.bl li b{width:26px;height:26px;flex:0 0 26px;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--disp);font-size:.7rem;color:var(--ink);border:2px solid var(--ink)}
+.bl li:nth-child(1) b{background:var(--cyan)}
+.bl li:nth-child(2) b{background:var(--lime)}
+.bl li:nth-child(3) b{background:var(--yellow)}
+.bl li:nth-child(4) b{background:var(--pink)}
+
+/* price sticker */
+.deal{margin:30px 0 0;position:relative;background:var(--white);color:var(--ink);
+  border:4px solid var(--ink);border-radius:20px;padding:24px 18px 20px;box-shadow:8px 8px 0 var(--cyan)}
+.burst{position:absolute;right:-14px;top:-24px;width:82px;height:82px;display:grid;place-items:center;
+  background:var(--pink);color:var(--white);font-family:var(--disp);font-size:1.15rem;
+  border:3px solid var(--ink);text-align:center;line-height:.95;
+  clip-path:polygon(50% 0,61% 16%,79% 10%,80% 29%,97% 35%,88% 50%,97% 65%,80% 71%,79% 90%,61% 84%,50% 100%,39% 84%,21% 90%,20% 71%,3% 65%,12% 50%,3% 35%,20% 29%,21% 10%,39% 16%);
+  animation:wob 3.6s ease-in-out infinite;z-index:3}
+@keyframes wob{0%,100%{transform:rotate(-9deg) scale(1)}50%{transform:rotate(5deg) scale(1.06)}}
+.deal__hd{display:inline-flex;align-items:center;gap:7px;background:var(--ink);color:var(--yellow);
+  font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;
+  border-radius:999px;margin-bottom:14px}
+.prow{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap}
+.pold{font-size:1.1rem;font-weight:700;color:#8A85A8;position:relative;padding-bottom:9px}
+.pold::after{content:'';position:absolute;left:-3px;right:-3px;top:44%;height:3px;background:var(--pink);
+  transform:rotate(-8deg)}
+.pnew{font-family:var(--disp);font-size:clamp(3.2rem,13vw,4.4rem);line-height:.85;color:var(--ink)}
+.pnew span{font-family:var(--f);font-size:.9rem;font-weight:700;margin-left:5px}
+.cd{margin:18px 0 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.cd__l{width:100%;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#6E68A0}
+.cd__b{background:var(--ink);color:var(--lime);border-radius:10px;padding:8px 11px;text-align:center;min-width:54px}
+.cd__b b{display:block;font-family:var(--disp);font-size:1.2rem;line-height:1}
+.cd__b i{font-style:normal;font-size:.55rem;color:#7E9E6B;text-transform:uppercase;letter-spacing:.1em}
+.instal{margin:16px 0 0;padding-top:14px;border-top:3px dashed rgba(8,6,28,.2);font-size:.82rem;font-weight:500}
+.instal b{font-weight:700}
+.gift{margin:12px 0 0;background:var(--yellow);border:3px solid var(--ink);border-radius:14px;
+  padding:11px 13px;font-size:.79rem;line-height:1.45;font-weight:500;transform:rotate(-.8deg)}
+.gift b{font-weight:700}
+
+.cta{margin:24px 0 0;display:grid;gap:12px}
+.b1{display:flex;align-items:center;justify-content:center;gap:12px;background:var(--lime);color:var(--ink);
+  border:4px solid var(--ink);border-radius:16px;padding:18px;font-family:var(--disp);font-size:1rem;
+  text-transform:uppercase;letter-spacing:-.01em;box-shadow:7px 7px 0 var(--ink);
+  transition:transform .18s,box-shadow .18s}
+.b1:hover{transform:translate(3px,3px);box-shadow:3px 3px 0 var(--ink)}
+.b2{text-align:center;border:3px solid var(--cyan);color:var(--cyan);border-radius:16px;padding:15px;
+  font-weight:700;font-size:.86rem;transition:background .2s,color .2s}
+.b2:hover{background:var(--cyan);color:var(--ink)}
+
+/* marquee */
+.mq-clip{margin-top:38px;overflow:hidden;position:relative;z-index:2}
+.mq{background:var(--pink);border-top:4px solid var(--ink);border-bottom:4px solid var(--ink);
+  padding:10px 0;overflow:hidden;transform:rotate(-1.2deg);width:108%;margin-left:-4%}
+.mq__t{display:flex;width:max-content;white-space:nowrap;animation:mar 26s linear infinite}
+.mq__t span{font-family:var(--disp);font-size:.8rem;text-transform:uppercase;color:var(--ink);padding:0 13px}
+.mq__t span::after{content:'★';color:var(--white);margin-left:13px}
+@keyframes mar{to{transform:translateX(-50%)}}
+
+/* sections */
+.sec{padding:52px 0;position:relative;z-index:2}
+.lbl{display:inline-block;background:var(--cyan);color:var(--ink);border:3px solid var(--ink);
+  font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;
+  border-radius:999px;box-shadow:4px 4px 0 var(--ink);transform:rotate(-2deg);margin-bottom:18px}
+h2{font-family:var(--disp);font-size:clamp(1.95rem,8vw,3rem);line-height:.92;letter-spacing:-.04em;
+  text-transform:uppercase}
+h2 u{text-decoration:none;color:var(--yellow);text-shadow:3px 3px 0 var(--ink)}
+
+.xs{margin:26px 0 0;display:grid;gap:12px;list-style:none}
+.xs li{display:flex;gap:12px;align-items:flex-start;background:var(--white);color:var(--ink);
+  border:3px solid var(--ink);border-radius:14px;padding:14px 15px;font-size:.87rem;font-weight:500;
+  line-height:1.4;box-shadow:5px 5px 0 rgba(8,6,28,.85);transition:transform .22s}
+.xs li:nth-child(odd){transform:rotate(-1deg)}
+.xs li:nth-child(even){transform:rotate(1deg)}
+.xs li:hover{transform:rotate(0) translateY(-3px)}
+.xs li .x{width:24px;height:24px;flex:0 0 24px;border-radius:50%;background:var(--pink);color:var(--white);
+  display:grid;place-items:center;font-weight:700;font-size:.75rem;border:2px solid var(--ink)}
+
+.callout{margin:26px 0 0;background:var(--ink);border:4px solid var(--yellow);border-radius:20px;
+  padding:24px 20px;display:grid;gap:14px;box-shadow:8px 8px 0 rgba(255,210,63,.28)}
+.callout p{font-size:.96rem;line-height:1.55;color:var(--soft);font-weight:500}
+.callout p b{color:var(--yellow);font-weight:700}
+.callout p:last-child{font-size:.85rem;color:#8A84C4;border-top:3px dashed rgba(255,255,255,.16);padding-top:14px}
+
+.foot{padding:22px 0 44px;text-align:center;font-size:.68rem;color:var(--soft);position:relative;z-index:2}
+.reveal{opacity:0;transform:translateY(18px)}
+.reveal.vis{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}
+  .mq__t,.burst,.blip{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="tbar"><div class="s"><span class="blip"></span>Актуальний на <b id="liveDate">сьогодні</b> · доступ назавжди</div></div>
+
+  <section class="hero">
+    <span class="eye">Авторська програма Олександра Цюцьмаця по практичному використанню нейромереж</span>
+
+    <h1 class="mega"><span class="t1">Фабрика</span><span class="t2">АІ контенту</span></h1>
+
+    <p class="sub">Створи власну Фабрику AI-контенту за <mark>15 практичних блоків</mark>, з повного 0.</p>
+
+    <div class="polas reveal">
+      <figure class="pola pola--stack">
+        <span class="tape"></span>
+        <img class="g on" src="/fabryka-ai-kontentu/images/samples/sample1.jpg" alt="" fetchpriority="high">
+        <img class="g" src="/fabryka-ai-kontentu/images/w1.jpg" alt="" loading="lazy">
+        <img class="g" src="/fabryka-ai-kontentu/images/w9.jpg" alt="" loading="lazy">
+        <figcaption>AI-фото</figcaption>
+      </figure>
+      <figure class="pola"><span class="tape"></span><img src="/fabryka-ai-kontentu/images/samples/sample6.jpg" alt="" loading="lazy"><figcaption>Персонажі</figcaption></figure>
+      <figure class="pola"><span class="tape"></span><img src="/fabryka-ai-kontentu/images/samples/sample3.jpg" alt="" loading="lazy"><figcaption>Товар</figcaption></figure>
+      <figure class="pola"><span class="tape"></span><img src="/fabryka-ai-kontentu/images/samples/sample4.jpg" alt="" loading="lazy"><figcaption>Відео</figcaption></figure>
+    </div>
+
+    <p class="lede">Навчись <b>генерувати</b>: фото, відео, музику, озвучку, АІ-персонажів, предметну зйомку товару, рекламні ролики для товарів а також аватарів з повного 0 — та <b>монетизуй цю навичку</b> прямо під час проходження курсу практикуму.</p>
+
+    <ul class="bl reveal">
+      <li><b>1</b><span>Без технічної освіти та складних програм</span></li>
+      <li><b>2</b><span>Навіть якщо вам 18–60 років</span></li>
+      <li><b>3</b><span>Є можливість отримати перших клієнтів прямо під час проходження курсу</span></li>
+      <li><b>4</b><span>Покрокова система: повторюй → отримуй результат</span></li>
+    </ul>
+
+    <div class="deal reveal">
+      <div class="burst">-53%</div>
+      <div class="deal__hd"><span class="blip"></span>Знижка діє лише 48 годин</div>
+      <div class="prow">
+        <span class="pold">7400 грн</span>
+        <span class="pnew">3499<span>грн</span></span>
+      </div>
+      <div class="cd">
+        <span class="cd__l">До завершення знижки:</span>
+        <span class="cd__b"><b id="cdHours">—</b><i>год</i></span>
+        <span class="cd__b"><b id="cdMin">—</b><i>хв</i></span>
+        <span class="cd__b"><b id="cdSec">—</b><i>сек</i></span>
+      </div>
+      <p class="instal">або оплата частинами на <b>6 платежів</b> · <b>583 грн</b>/міс</p>
+      <div class="gift">🎁 + <b>клуб VSE AI</b> назавжди у подарунок (зазвичай 490 грн/міс)</div>
+    </div>
+
+    <div class="cta">
+      <a href="https://app.zenedu.io/l/rZH9t1mXisTdgf06" target="_blank" rel="noopener" class="b1">Купити курс · 3499 грн →</a>
+      <a href="#program" class="b2">↓ Дивитись програму</a>
+    </div>
+  </section>
+</div>
+
+<div class="mq-clip"><div class="mq"><div class="mq__t">
+  <span>ChatGPT</span><span>NanoBanana</span><span>Grok</span><span>Veo 3.1</span><span>MetaVibes</span><span>ElevenLabs</span><span>MiniMax</span><span>Suno</span><span>HeyGen</span><span>Claude</span><span>Kling 3.0</span><span>Seedance 2.0</span><span>Higgsfield</span>
+  <span>ChatGPT</span><span>NanoBanana</span><span>Grok</span><span>Veo 3.1</span><span>MetaVibes</span><span>ElevenLabs</span><span>MiniMax</span><span>Suno</span><span>HeyGen</span><span>Claude</span><span>Kling 3.0</span><span>Seedance 2.0</span><span>Higgsfield</span>
+</div></div></div>
+
+<div class="wrap">
+  <section class="sec">
+    <div class="lbl">Проблема ✕</div>
+    <h2>Чому навчають інші <u>в АІ?</u></h2>
+    <ul class="xs reveal">
+      <li><span class="x">✕</span><span>Робити конкретний контент по готовому шаблону</span></li>
+      <li><span class="x">✕</span><span>Копіювати чужі промти слово в слово</span></li>
+      <li><span class="x">✕</span><span>Генерувати одне «вірусне» відео за інструкцією</span></li>
+      <li><span class="x">✕</span><span>Повторювати за автором, не розуміючи логіки</span></li>
+    </ul>
+  </section>
+
+  <section class="sec">
+    <div class="lbl">Наслідок ⚠</div>
+    <h2>До чого призводить <u>таке навчання?</u></h2>
+    <div class="callout reveal">
+      <p>У результаті ви просто <b>відтворюєте чужий алгоритм</b>.</p>
+      <p>Але варто змінити задачу, формат або стиль — і ви губитесь.</p>
+      <p>Замість свободи — <b>залежність від шаблону</b>. Замість творчості — копіювання.</p>
+      <p>І в якийсь момент здається, що «AI — це складно» або «це не для мене».</p>
+    </div>
+  </section>
+</div>
+
+<div class="foot">Концепт 4 · Y2K</div>
+
+<script>
+(function(){
+  var m=['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
+  var d=new Date(),el=document.getElementById('liveDate');
+  if(el) el.textContent=d.getDate()+' '+m[d.getMonth()];
+
+  var H=document.getElementById('cdHours'),M=document.getElementById('cdMin'),S=document.getElementById('cdSec');
+  function pad(n){return n<10?'0'+n:''+n}
+  function tick(){
+    var cycle=48*3600*1000,left=cycle-(Date.now()%cycle),t=Math.floor(left/1000);
+    if(H)H.textContent=pad(Math.floor(t/3600));
+    if(M)M.textContent=pad(Math.floor(t%3600/60));
+    if(S)S.textContent=pad(t%60);
+  }
+  tick(); setInterval(tick,1000);
+
+  var gs=document.querySelectorAll('.pola--stack .g'),i=0;
+  if(gs.length>1) setInterval(function(){
+    gs[i].classList.remove('on'); i=(i+1)%gs.length; gs[i].classList.add('on');
+  },3000);
+
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>
