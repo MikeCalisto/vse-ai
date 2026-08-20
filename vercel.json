@@ -27,6 +27,8 @@
     { "source": "/fabryka-ai-kontentu/", "destination": "/fabryka-ai-kontentu/index.html", "permanent": false },
     { "source": "/fabryka-v2", "destination": "/fabryka-v2/index.html", "permanent": false },
     { "source": "/fabryka-v2/", "destination": "/fabryka-v2/index.html", "permanent": false },
+    { "source": "/fabryka-v2/concepts", "destination": "/fabryka-v2/concepts/index.html", "permanent": false },
+    { "source": "/fabryka-v2/concepts/", "destination": "/fabryka-v2/concepts/index.html", "permanent": false },
     { "source": "/fabryka-spec", "destination": "/fabryka-spec/index.html", "permanent": false },
     { "source": "/fabryka-spec/", "destination": "/fabryka-spec/index.html", "permanent": false },
     { "source": "/claude-block", "destination": "/claude-block/index.html", "permanent": false },
