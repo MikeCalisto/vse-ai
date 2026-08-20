@@ -4,7 +4,7 @@
   "installCommand": null,
   "rewrites": [
     { "source": "/", "destination": "/zakrytyi-klub/index.html" },
-    { "source": "/((?!product-ai-content|ai-multfilm|content-tovar|zakrytyi-klub|ai-content|ai-content-v2|ai-lyudyna|links|fabryka-ai-kontentu|fabryka-spec|fabryka-spec-claude|claude-block|ai-video|ai-video2|ai-video-webinar|webinar|pershyi-dzvinok|oblozhky-modul-2|prezentaciya-kursu|favicon|apple-touch-icon|robots\\.txt|sitemap).*)", "destination": "/zakrytyi-klub/$1" }
+    { "source": "/((?!product-ai-content|ai-multfilm|ai-multfilm-ubt|content-tovar|zakrytyi-klub|ai-content|ai-content-v2|ai-lyudyna|links|fabryka-ai-kontentu|fabryka-spec|fabryka-spec-claude|claude-block|ai-video|ai-video2|ai-video-webinar|webinar|pershyi-dzvinok|oblozhky-modul-2|prezentaciya-kursu|favicon|apple-touch-icon|robots\\.txt|sitemap).*)", "destination": "/zakrytyi-klub/$1" }
   ],
   "redirects": [
     { "source": "/product-ai-content", "destination": "/product-ai-content/index.html", "permanent": false },
@@ -48,7 +48,9 @@
     { "source": "/prezentaciya-kursu", "destination": "/prezentaciya-kursu/index.html", "permanent": false },
     { "source": "/prezentaciya-kursu/", "destination": "/prezentaciya-kursu/index.html", "permanent": false },
     { "source": "/ai-multfilm", "destination": "/ai-multfilm/index.html", "permanent": false },
-    { "source": "/ai-multfilm/", "destination": "/ai-multfilm/index.html", "permanent": false }
+    { "source": "/ai-multfilm/", "destination": "/ai-multfilm/index.html", "permanent": false },
+    { "source": "/ai-multfilm-ubt", "destination": "/ai-multfilm-ubt/index.html", "permanent": false },
+    { "source": "/ai-multfilm-ubt/", "destination": "/ai-multfilm-ubt/index.html", "permanent": false }
   ],
   "headers": [
     {
@@ -167,6 +169,12 @@
     },
     {
       "source": "/ai-multfilm/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/ai-multfilm-ubt/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]

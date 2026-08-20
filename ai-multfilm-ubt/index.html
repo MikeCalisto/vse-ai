@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1454724509580252');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1454724509580252&ev=PageView&noscript=1" /></noscript>
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#6B2BEE">
+<title>Створи свій перший AI-мультик — Ai_Sashka</title>
+<meta name="description" content="Як створити свій перший АІ-мультик будь-якою мовою, навіть українською, через нейромережі — за 5 простих змістовних уроків.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vse-ai.vercel.app/ai-multfilm-ubt/">
+<meta property="og:title" content="Воркшоп по AI-мультиках — Ai_Sashka">
+<meta property="og:description" content="5 уроків + 1 додатковий. Персонаж, сценарій, кадри, українська озвучка, монтаж. Seedance 2.5 та ще 9 нейронок. 390 грн замість 2 113.">
+<meta property="og:image" content="https://vse-ai.vercel.app/ai-multfilm-ubt/style-1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700;900&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E9E9E9;          /* фон сторінки / поля по боках на десктопі */
+  --card:#FFFFFF;
+  --ink:#0A0A0A;
+  --muted:#6E6E6E;
+  --line:#E4E4E4;
+  --accent:#6B2BEE;      /* фіолетовий акцент */
+  --lime:#C6F432;        /* лаймовий стикер */
+  --pad:20px;            /* внутрішній відступ картки */
+  --gap:10px;            /* відстань між картками */
+  --col:460px;           /* ширина колонки на десктопі */
+  /* шрифт УСІХ заголовків — міняється тільки тут */
+  --display:'Roboto Condensed',Impact,Haettenschweiler,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Manrope',system-ui,-apple-system,sans-serif;
+  font-size:15px;line-height:1.45;
+  overflow-x:hidden;
+}
+/* ── КОЛОНКА: mobile-first, на десктопі центрована ─────────── */
+.wrap{
+  width:100%;max-width:var(--col);margin:0 auto;
+  padding:var(--gap) var(--gap) calc(var(--gap) + env(safe-area-inset-bottom));
+  display:flex;flex-direction:column;gap:var(--gap);
+}
+@media (min-width:768px){
+  .wrap{
+    min-height:100vh;
+    box-shadow:0 0 0 1px rgba(0,0,0,.06), 0 30px 80px rgba(0,0,0,.10);
+    background:var(--bg);
+  }
+}
+/* ── УТИЛІТИ ───────────────────────────────────────────────── */
+.card{background:var(--card);padding:var(--pad)}
+.h{font-family:var(--display);font-weight:900;
+   text-transform:uppercase;line-height:.88;letter-spacing:-.01em}
+.h1{font-size:clamp(30px,8.6vw,40px);line-height:.98;letter-spacing:-.005em}
+.h2{font-size:clamp(30px,9vw,42px);line-height:.97;letter-spacing:-.005em}
+.acc{color:var(--accent)}
+.sm{font-size:13px;color:var(--muted);line-height:1.4}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);
+      border-radius:100px;padding:5px 11px;font-size:11px;font-weight:700;
+      text-transform:uppercase;letter-spacing:.06em}
+/* плашки-факти з галочкою */
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);
+      border-radius:100px;padding:7px 14px;font-size:13px;font-weight:700;line-height:1.25}
+.chip:before{content:'✓';color:var(--accent);font-weight:900;flex:0 0 auto}
+/* ледь помітне «розбите скло» на шапці */
+.glass{position:relative;overflow:hidden}
+.glass>*{position:relative;z-index:1}
+.glass:before{content:'';position:absolute;inset:0;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 440 60' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23000' stroke-opacity='.16' stroke-width='.9'%3E%3Cpath d='M330 26 L246 0'/%3E%3Cpath d='M330 26 L214 60'/%3E%3Cpath d='M330 26 L118 9'/%3E%3Cpath d='M330 26 L60 60'/%3E%3Cpath d='M330 26 L440 47'/%3E%3Cpath d='M330 26 L404 0'/%3E%3Cpath d='M330 26 L352 60'/%3E%3Cpath d='M298 17 L286 41'/%3E%3Cpath d='M262 12 L238 47'/%3E%3Cpath d='M186 6 L154 52'/%3E%3Cpath d='M368 12 L392 38'/%3E%3C/g%3E%3C/svg%3E") center/100% 100% no-repeat}
+/* розбите скло на високому блоці */
+.glassy{position:relative;overflow:hidden}
+.glassy>*{position:relative;z-index:1}
+.glassy:before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20440%20800%27%20preserveAspectRatio%3D%27none%27%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-opacity%3D%27.15%27%20stroke-width%3D%27.9%27%3E%3Cpath%20d%3D%27M330%20110%20L440%2040%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L440%20250%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L410%20800%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L250%20800%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L60%20690%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L0%20400%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L0%20130%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L120%200%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L300%200%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L440%20690%27%2F%3E%3Cpath%20d%3D%27M296%2092%20L246%20186%27%2F%3E%3Cpath%20d%3D%27M362%20168%20L300%20300%27%2F%3E%3Cpath%20d%3D%27M182%2052%20L120%20214%27%2F%3E%3Cpath%20d%3D%27M386%20402%20L300%20512%27%2F%3E%3Cpath%20d%3D%27M152%20528%20L92%20648%27%2F%3E%3Cpath%20d%3D%27M270%20300%20L210%20470%27%2F%3E%3Cpath%20d%3D%27M350%20470%20L300%20640%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") center/100% 100% no-repeat}
+/* міні-блоки бонусів */
+.bcard{border:1px solid var(--line);padding:14px;margin-top:10px}
+.brow{display:flex;gap:12px;align-items:flex-start;margin-top:9px}
+.bico{width:64px;height:64px;flex:0 0 auto;background:#F4F4F4;border:1px solid var(--line);
+      display:flex;align-items:center;justify-content:center;padding:9px;overflow:hidden}
+.bico img,.bico svg{width:100%;height:100%;display:block}
+.bcard h4{font-family:var(--display);font-weight:900;text-transform:uppercase;
+          font-size:18px;line-height:1.02;letter-spacing:-.01em}
+/* віяло бонусів */
+.fan{display:flex;justify-content:center;align-items:flex-end;margin:14px 0 18px;padding:10px 0}
+.fan span{width:clamp(62px,18vw,84px);aspect-ratio:3/4;background:#F1F1F1;
+          border:1px solid var(--line);box-shadow:0 8px 20px rgba(0,0,0,.12);
+          display:flex;flex-direction:column;align-items:center;justify-content:center;
+          gap:7px;text-align:center;padding:7px 5px;
+          font-size:9px;font-weight:800;line-height:1.2;text-transform:uppercase;
+          letter-spacing:.03em;color:var(--muted)}
+.fan span+span{margin-left:-15px}
+.fan svg{width:clamp(26px,7.6vw,34px);height:auto;flex:0 0 auto}
+.fan span:nth-child(1){transform:rotate(-9deg);z-index:1}
+.fan span:nth-child(2){transform:rotate(-4.5deg);z-index:2}
+.fan span:nth-child(3){z-index:3}
+.fan span:nth-child(4){transform:rotate(4.5deg);z-index:2}
+.fan span:nth-child(5){transform:rotate(9deg);z-index:1}
+/* плашка-«бренд»: інверсна, з лаймовим відблиском */
+.pill.solid{background:var(--ink);color:#fff;border-color:var(--ink);
+            position:relative;overflow:hidden}
+.pill.solid:after{content:'';position:absolute;top:0;left:-60%;width:38%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(198,244,50,.6),transparent);
+  animation:sheen 5s ease-in-out infinite}
+@keyframes sheen{0%,62%{transform:translateX(0)}100%{transform:translateX(460%)}}
+/* пульсуюча крапка «скоро старт» */
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;
+     animation:pulse 2.2s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(107,43,238,.7)}
+                 70%{box-shadow:0 0 0 7px rgba(107,43,238,0)}
+                 100%{box-shadow:0 0 0 0 rgba(107,43,238,0)}}
+@media (prefers-reduced-motion:reduce){.dot,.pill.solid:after{animation:none}}
+.btn{display:block;background:var(--accent);color:#fff;text-decoration:none;
+     text-align:center;font-weight:800;font-size:17px;padding:17px 18px;
+     border-radius:2px;letter-spacing:.01em}
+.btn:active{transform:translateY(1px)}
+/* відблиск, що пробігає по кнопці */
+.btn.shine{position:relative;overflow:hidden}
+.btn.shine:after{content:'';position:absolute;top:0;left:-45%;width:32%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
+  animation:shine 3.8s ease-in-out infinite}
+@keyframes shine{0%,58%{transform:translateX(0)}100%{transform:translateX(460%)}}
+@media (prefers-reduced-motion:reduce){.btn.shine:after{animation:none}}
+/* CTA з чипом знижки: напис ліворуч, відсоток у білому чипі праворуч */
+.btn.cta{display:flex;align-items:center;justify-content:space-between;gap:10px;
+         font-family:var(--display);font-weight:900;text-transform:uppercase;
+         font-size:clamp(16px,5.2vw,21px);letter-spacing:.01em;line-height:1.05;
+         padding:12px 12px 12px 18px}
+.btn.cta i{font-style:normal;background:#fff;color:var(--accent);flex:0 0 auto;
+           padding:10px 12px;font-size:19px;border-radius:2px}
+/* ── ХЕДЕР ─────────────────────────────────────────────────── */
+.star{width:16px;height:16px;background:var(--accent);display:inline-block;flex:0 0 auto;
+      clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);font-style:normal}
+.hname{font-family:var(--display);font-weight:900;text-transform:uppercase;text-align:center;
+       font-size:clamp(20px,5.8vw,25px);line-height:1;letter-spacing:-.01em;margin-top:13px}
+/* ── БІЖУЧИЙ РЯДОК ─────────────────────────────────────────── */
+.marq{background:var(--ink);overflow:hidden;padding:6px 0}
+.marq .track{display:flex;width:max-content;animation:marq 22s linear infinite}
+.marq span{font-family:var(--display);font-weight:900;font-size:15px;color:#fff;
+           text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center;
+           gap:16px;padding-right:16px;white-space:nowrap}
+.marq .star{width:9px;height:9px;background:var(--lime)}
+.marq .nw{color:var(--lime)}
+@keyframes marq{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media (prefers-reduced-motion:reduce){.marq .track{animation:none}}
+/* ── ГЕРОЙ ─────────────────────────────────────────────────── */
+.hero{position:relative}
+.hero .lead{font-size:14px;line-height:1.4;font-weight:500;max-width:230px;margin-bottom:14px}
+.media{position:relative;margin:22px 0 0;aspect-ratio:16/9;background:#111;
+       display:flex;align-items:center;justify-content:center;
+       /* оправа: тонка чорна рамка з відступом + неонове розсіювання */
+       outline:2px solid var(--ink);outline-offset:7px;
+       box-shadow:0 26px 55px -20px rgba(107,43,238,.62),
+                  0 -10px 42px -22px rgba(198,244,50,.75)}
+.media img,.media video{width:100%;height:100%;object-fit:cover;display:block}
+.media span{color:#fff;opacity:.45;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+/* лаймовий стикер */
+.badge{position:absolute;right:12px;bottom:12px;width:clamp(84px,24vw,104px);aspect-ratio:1;
+       z-index:3;display:block;cursor:pointer;
+       filter:drop-shadow(0 8px 18px rgba(0,0,0,.45));transition:transform .18s ease}
+.badge:active{transform:scale(.94)}
+.badge svg{width:100%;height:100%;animation:spin 14s linear infinite}
+.badge b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.badge b svg{width:30px;height:30px;animation:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.badge svg{animation:none}}
+.sub{font-style:italic;font-weight:700;font-size:clamp(19px,5.6vw,26px);
+     line-height:1.1;color:var(--accent);margin-top:11px}
+/* ── ЦІНА ──────────────────────────────────────────────────── */
+.price{display:flex;align-items:baseline;gap:10px}
+.price b{font-family:var(--display);font-weight:900;font-size:56px;line-height:.9}
+.price s{color:var(--muted);font-size:17px;font-weight:700}
+.price em{background:var(--lime);font-style:normal;font-weight:800;font-size:13px;padding:3px 8px}
+.cur{font-family:var(--display);font-weight:900;font-size:22px}
+.ticks{display:flex;flex-direction:column;gap:7px;margin:14px 0 16px}
+.ticks div{display:flex;gap:9px;font-size:14px;font-weight:500;align-items:flex-start}
+.ticks i{color:var(--accent);font-style:normal;font-weight:900}
+/* ── ВАРІАНТИ КАРТОК ───────────────────────────────────────── */
+.dark{background:var(--ink);color:#fff}
+.dark .sm{color:#9A9A9A}
+.violet{background:var(--accent);color:#fff}
+.violet .sm{color:rgba(255,255,255,.72)}
+.eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;
+         color:var(--muted);margin-bottom:9px}
+.dark .eyebrow{color:#8E8E8E}.violet .eyebrow{color:rgba(255,255,255,.6)}
+.h3{font-family:var(--display);font-weight:900;text-transform:uppercase;
+    font-size:19px;line-height:1;letter-spacing:-.01em}
+.p{font-size:14px;line-height:1.5;margin-top:12px}
+hr{border:0;border-top:1px solid var(--line);margin:16px 0}
+.dark hr,.violet hr{border-color:rgba(255,255,255,.2)}
+/* нумерований список — головний прийом макета */
+.item{display:flex;gap:12px;padding:15px 0;border-top:1px solid var(--line)}
+.dark .item,.violet .item{border-color:rgba(255,255,255,.2)}
+.item .n{font-family:var(--display);font-weight:900;font-size:21px;color:#BDBDBD;
+          min-width:26px;padding-top:2px;letter-spacing:-.02em}
+/* фонові знаки, що дрейфують */
+#program{position:relative;overflow:hidden}
+#program>*{position:relative;z-index:1}
+.floaters{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.fl{position:absolute;font-family:var(--display);font-weight:900;text-transform:uppercase;
+    letter-spacing:-.01em;color:var(--ink);white-space:nowrap;will-change:transform}
+.fl svg{width:1em;height:1em;display:block}
+@keyframes d1{0%,100%{transform:translate(0,0) rotate(-9deg)}
+              50%{transform:translate(26px,-30px) rotate(3deg)}}
+@keyframes d2{0%,100%{transform:translate(0,0) rotate(7deg)}
+              50%{transform:translate(-30px,24px) rotate(-5deg)}}
+@keyframes d3{0%,100%{transform:translate(0,0) rotate(-3deg)}
+              50%{transform:translate(18px,34px) rotate(9deg)}}
+@media (prefers-reduced-motion:reduce){.fl{animation:none !important}}
+/* врізка «Важливо» */
+.note{position:relative;background:var(--ink);color:#fff;padding:20px 16px 17px;
+      margin-top:18px;overflow:hidden}
+/* попереджувальна стрічка згори */
+.note:before{content:'';position:absolute;top:0;left:0;right:0;height:7px;
+  background:repeating-linear-gradient(135deg,var(--lime) 0 9px,#0A0A0A 9px 18px)}
+.nlabel{display:inline-block;background:var(--lime);color:var(--ink);font-size:10px;font-weight:800;
+        letter-spacing:.16em;text-transform:uppercase;padding:5px 9px;margin-bottom:11px}
+.note p{font-size:14px;line-height:1.5;color:rgba(255,255,255,.88)}
+.note b{color:var(--lime)}
+/* розкривна кнопка «Що в уроці» */
+.acc{margin-top:13px}
+.acc>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  border:1.5px solid var(--ink);padding:9px 12px;cursor:pointer;
+  font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:14px;
+  letter-spacing:.02em;color:var(--ink)}
+.acc>summary:after{content:'+';font-family:var(--display);font-size:19px;line-height:1;transform:none}
+.acc[open]>summary{background:var(--ink);color:#fff}
+.acc[open]>summary:after{content:'–';transform:none}
+.acc .bul{margin-top:12px}
+.item h4{font-family:var(--display);font-weight:900;text-transform:uppercase;
+         font-size:clamp(22px,6.6vw,28px);line-height:.95;letter-spacing:-.01em}
+/* кнопка всередині блока монетизації */
+.money .mbtn{position:relative;z-index:1;margin-top:16px;background:var(--lime);color:var(--ink);
+  font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:17px;
+  letter-spacing:.02em;padding:14px 16px}
+html{scroll-behavior:smooth}
+#program{scroll-margin-top:12px}
+/* 4 способи генерації */
+.ways{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.way{position:relative;border:1.5px solid var(--ink);padding:26px 11px 12px;min-height:88px;
+     display:flex;align-items:flex-end}
+.way b{position:absolute;top:9px;left:11px;font-size:10px;font-weight:800;
+       letter-spacing:.09em;color:var(--muted)}
+.way:after{content:'';position:absolute;top:0;right:0;width:0;height:0;
+           border-top:12px solid var(--accent);border-left:12px solid transparent}
+.way span{font-family:var(--display);font-weight:900;text-transform:uppercase;
+          font-size:16px;line-height:1.02;letter-spacing:-.01em}
+/* міні-блок монетизації */
+.money{background:var(--accent);color:#fff;padding:18px;margin-top:16px;position:relative;overflow:hidden}
+.money:before{content:'$';position:absolute;right:-14px;bottom:-34px;
+              font-family:var(--display);font-weight:900;font-size:132px;line-height:1;
+              color:rgba(255,255,255,.12)}
+.money p{font-size:13.5px;line-height:1.45;position:relative;z-index:1}
+.money b{display:block;position:relative;z-index:1;font-family:var(--display);font-weight:900;
+         font-size:clamp(40px,12vw,56px);line-height:.9;letter-spacing:-.02em;
+         color:var(--lime);margin:10px 0 2px}
+.money i{font-style:normal;font-size:12.5px;color:rgba(255,255,255,.75);position:relative;z-index:1}
+/* додаткова гарантія */
+.gsep{height:1px;background:repeating-linear-gradient(90deg,var(--ink) 0 6px,transparent 6px 12px);
+      margin:20px 0 16px;position:relative}
+.glabel{position:relative;font-family:var(--display);font-weight:900;text-transform:uppercase;
+        font-size:15px;letter-spacing:.04em;margin-bottom:10px}
+.rate{position:relative;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.rate b{font-family:var(--display);font-weight:900;font-size:clamp(38px,11vw,48px);line-height:.9;
+        letter-spacing:-.02em}
+.rate em{font-style:normal;font-size:14px;font-weight:700;color:var(--muted)}
+.stars{display:flex;gap:3px;margin-left:2px;align-self:center}
+.stars svg{width:17px;height:17px;display:block}
+.punch{position:relative;background:var(--lime);display:inline-block;margin-top:10px;padding:11px 13px;
+       font-family:var(--display);font-weight:900;text-transform:uppercase;
+       font-size:clamp(15px,4.4vw,18px);line-height:1.08;letter-spacing:-.01em}
+/* бренди з персонажами */
+.brands{display:flex;gap:7px;margin-top:16px}
+.brand{flex:1;min-width:0;text-align:center}
+.brand .bc{width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;
+           background:rgba(255,255,255,.14);border:2px solid rgba(255,255,255,.55);
+           display:flex;align-items:center;justify-content:center;
+           font-size:7.5px;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.brand .bc img{width:100%;height:100%;object-fit:cover;display:block}
+.brand span{display:block;margin-top:8px;font-size:10px;font-weight:800;line-height:1.2;
+            letter-spacing:.01em;overflow-wrap:anywhere}
+/* підсумок «тепер» */
+.now{border:2px solid var(--lime);padding:15px;margin-top:22px;font-size:15px;line-height:1.45;
+     font-weight:600}
+/* велика відповідь «так» */
+.yes{font-family:var(--display);font-weight:900;text-transform:uppercase;color:var(--lime);
+     font-size:clamp(30px,9vw,42px);line-height:.98;letter-spacing:-.01em;margin-top:12px}
+/* підкреслення лаймом */
+.uline{text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:3px;
+       text-underline-offset:3px;font-weight:800}
+/* що вирішує воркшоп — по групах */
+.grp{margin-top:22px}
+.ghead{display:flex;gap:10px;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:8px}
+.gn{font-family:var(--display);font-weight:900;font-size:13px;color:var(--muted);flex:0 0 auto}
+.ghead h4{font-family:var(--display);font-weight:900;text-transform:uppercase;
+          font-size:clamp(16px,4.8vw,19px);line-height:1.05;letter-spacing:-.01em}
+.solves{list-style:none;margin:4px 0 0;padding:0}
+.solves li{display:flex;gap:11px;align-items:flex-start;padding:11px 0;
+           border-bottom:1px solid var(--line);font-size:14px;line-height:1.4}
+.solves li:last-child{border-bottom:0}
+.solves li i{width:19px;height:19px;flex:0 0 auto;background:var(--accent);margin-top:1px;
+             display:flex;align-items:center;justify-content:center}
+.solves li i:before{content:'✓';color:#fff;font-size:12px;font-weight:900;line-height:1}
+/* інструменти воркшопу */
+.tools{margin-top:18px}
+.tool{display:flex;gap:14px;align-items:flex-start;padding:15px 0;
+      border-top:1px solid rgba(255,255,255,.16)}
+.tico{width:54px;height:54px;flex:0 0 auto;background:#161616;
+      border:1.5px solid rgba(255,255,255,.28);padding:9px;
+      display:flex;align-items:center;justify-content:center}
+.tico svg{width:100%;height:100%;display:block}
+.tool b{display:block;font-family:var(--display);font-weight:900;text-transform:uppercase;
+        font-size:17px;line-height:1.05;letter-spacing:-.01em;margin-bottom:5px}
+.tool span{display:block;font-size:13.5px;line-height:1.45;color:rgba(255,255,255,.72)}
+.tlbl{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:15px;
+      letter-spacing:.03em;color:var(--lime);margin-top:20px}
+/* блок проблеми */
+.thesis{font-family:var(--display);font-weight:900;text-transform:uppercase;
+        font-size:clamp(19px,5.6vw,25px);line-height:1.06;letter-spacing:-.01em;margin-top:16px}
+.beats{margin-top:18px}
+.beats div{position:relative;padding:12px 0 12px 26px;font-size:14.5px;line-height:1.4;
+           border-top:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.86)}
+.beats div:before{content:'';position:absolute;left:0;top:20px;width:13px;height:2px;background:var(--lime)}
+.quote{position:relative;margin-top:12px;padding:16px 16px 16px 20px;
+       border-left:3px solid var(--lime);background:rgba(255,255,255,.06);
+       font-size:15.5px;line-height:1.4;font-style:italic;font-weight:600}
+.quote:before,.quote:after{content:'«'}
+.quote:after{content:'»'}
+/* перехід до рішення */
+.solve{border:1.5px solid var(--lime);padding:16px;margin-top:20px}
+.solve .h3{color:var(--lime);margin-bottom:8px}
+.solve p{font-size:14px;line-height:1.5}
+/* фінальний CTA */
+.final .price s{color:#8E8E8E}
+.fkick{display:inline-block;background:var(--lime);color:var(--ink);font-family:var(--display);
+       font-weight:900;text-transform:uppercase;font-size:13px;letter-spacing:.08em;
+       padding:5px 10px;margin-bottom:12px}
+.btn.cta.lime{background:var(--lime);color:var(--ink);margin-top:16px}
+.btn.cta.lime i{background:var(--ink);color:var(--lime)}
+/* фінальний оффер */
+.incl{list-style:none;margin:18px 0 0;padding:0}
+.incl li{display:flex;gap:11px;align-items:flex-start;padding:11px 0;
+         border-top:1px solid rgba(255,255,255,.24);font-size:14px;line-height:1.4}
+.incl li i{width:20px;height:20px;flex:0 0 auto;background:var(--lime);margin-top:1px;
+           display:flex;align-items:center;justify-content:center}
+.incl li i:before{content:'✓';color:var(--ink);font-size:13px;font-weight:900;line-height:1}
+.incl li.bon i{background:#fff}
+.incl li.bon b{display:inline-block;background:var(--lime);color:var(--ink);font-size:10px;
+               font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 6px;
+               margin-right:7px;vertical-align:1px}
+.obox{background:#fff;color:var(--ink);padding:18px 16px 16px;margin-top:20px;text-align:center}
+.olbl{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:13px;
+      letter-spacing:.14em;color:var(--muted);margin-bottom:10px}
+.obox .price s{color:var(--muted)}
+.obox .timer i{background:var(--ink);color:#fff}
+.obox .timer i:after{background:rgba(255,255,255,.22)}
+.obox .btn.cta{margin-top:14px;text-align:left}
+/* автор */
+.auth{position:relative}
+.ava{width:clamp(160px,50vw,200px);aspect-ratio:1;margin:18px auto;background:#191919;
+     border:2px solid var(--accent);position:relative;overflow:hidden;
+     display:flex;align-items:center;justify-content:center;
+     color:rgba(255,255,255,.38);font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+.ava img,.ava video{width:100%;height:100%;object-fit:cover;display:block}
+.facts div{display:flex;gap:11px;align-items:flex-start;padding:11px 0;
+           border-top:1px solid rgba(255,255,255,.15)}
+.facts i{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:rgba(107,43,238,.4);
+         color:var(--lime);font-style:normal;font-size:12px;font-weight:900;margin-top:1px;
+         display:flex;align-items:center;justify-content:center}
+.facts span{font-size:14px;line-height:1.45}
+/* сертифікат гарантії */
+.guar{position:relative;border:2px solid var(--ink);background:#FBFBFB;padding:20px 16px 18px;margin-top:16px}
+.guar:before{content:'';position:absolute;inset:6px;border:1px dashed rgba(0,0,0,.22);pointer-events:none}
+.guar p{position:relative;font-size:14px;line-height:1.5;margin-top:10px}
+.guar p:first-of-type{margin-top:0}
+.guar .last{font-family:var(--display);font-weight:900;text-transform:uppercase;
+            font-size:clamp(17px,5vw,21px);line-height:1.05;margin-top:16px;letter-spacing:-.01em}
+.seal{position:relative;width:118px;height:118px;margin:0 auto 16px;transform:rotate(-7deg)}
+.seal svg{width:100%;height:100%;display:block;filter:drop-shadow(0 6px 14px rgba(0,0,0,.2))}
+.seal b{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+        justify-content:center;font-family:var(--display);font-weight:900;line-height:.82;color:var(--ink)}
+.seal i{font-style:normal;font-size:40px;letter-spacing:-.03em}
+.seal u{text-decoration:none;font-size:16px;text-transform:uppercase;letter-spacing:.02em}
+.seal s{text-decoration:none;font-family:'Manrope',sans-serif;font-weight:800;font-size:8.5px;
+        letter-spacing:.16em;text-transform:uppercase;margin-top:6px}
+/* сегменти «для кого» */
+.segs{margin-top:16px}
+.seg{display:flex;gap:13px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--line)}
+.seg svg{width:32px;height:32px;flex:0 0 auto;margin-top:2px}
+.seg h4{font-family:var(--display);font-weight:900;text-transform:uppercase;
+        font-size:17px;line-height:1.03;letter-spacing:-.01em}
+.seg p{font-size:13.5px;line-height:1.42;color:var(--muted);margin-top:5px}
+/* сегменти з'являються по черзі під час скролу */
+.js .seg,.js .bcard{opacity:0;transform:translateY(16px);
+         transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.3,1)}
+.js .seg.in,.js .bcard.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .seg,.js .bcard{opacity:1;transform:none;transition:none}}
+/* нейронки воркшопу */
+.nets{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.nets span{position:relative;min-height:62px;padding:14px 10px;
+           border:1px solid rgba(255,255,255,.24);
+           display:flex;align-items:center;justify-content:center;text-align:center;
+           font-family:var(--display);font-weight:900;text-transform:uppercase;
+           font-size:clamp(15px,4.4vw,19px);letter-spacing:-.01em;color:#fff}
+.nets span:before{content:'';position:absolute;top:-1px;left:-1px;width:7px;height:7px;
+                  background:var(--lime)}
+/* найсвіжіша модель: пульсує і має мітку NEW */
+.nets span.hot{border-color:var(--lime);z-index:2;animation:breathe 2.8s ease-in-out infinite}
+.nets span.hot:before{display:none}
+.nets .new{position:absolute;top:-8px;right:-7px;background:var(--lime);color:var(--ink);
+           font-family:'Manrope',sans-serif;font-size:9px;font-weight:800;letter-spacing:.09em;
+           padding:3px 6px;line-height:1}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+@media (prefers-reduced-motion:reduce){.nets span.hot{animation:none}}
+/* сітка стилів мультиків */
+.styles{display:grid;grid-template-columns:1fr 1fr;gap:16px 14px;margin:22px 0 8px}
+.st{background:#FCFCFC;border:1px solid var(--line);padding:8px 8px 10px;position:relative;
+    box-shadow:0 7px 18px rgba(0,0,0,.13)}
+/* смужка скотчу згори */
+.st:before{content:'';position:absolute;top:-8px;left:50%;width:44px;height:15px;
+           background:rgba(198,244,50,.9);border:1px solid rgba(0,0,0,.07);
+           transform:translateX(-50%) rotate(-4deg)}
+/* висять несиметрично */
+.st:nth-child(1){transform:rotate(-2.2deg)}
+.st:nth-child(2){transform:rotate(1.7deg)}
+.st:nth-child(3){transform:rotate(1.2deg)}
+.st:nth-child(4){transform:rotate(-1.6deg)}
+.st:nth-child(5){transform:rotate(.7deg)}
+.st:nth-child(2):before{transform:translateX(-50%) rotate(5deg);width:38px}
+.st:nth-child(3):before{transform:translateX(-50%) rotate(-2deg);width:50px}
+.st:nth-child(4):before{transform:translateX(-50%) rotate(6deg);width:41px}
+.st:nth-child(5):before{transform:translateX(-50%) rotate(-3deg);width:56px}
+.st .pic{aspect-ratio:1/1;background:#111;overflow:hidden;display:flex;
+         align-items:center;justify-content:center;color:rgba(255,255,255,.4);
+         font-size:9px;text-transform:uppercase;letter-spacing:.08em;text-align:center;padding:6px}
+.st .pic img,.st .pic video{width:100%;height:100%;object-fit:cover;display:block}
+.st b{display:block;font-size:10px;font-weight:800;color:var(--muted);margin:9px 0 3px;letter-spacing:.06em}
+.st h4{font-family:var(--display);font-weight:900;text-transform:uppercase;
+       font-size:15px;line-height:1.03;letter-spacing:-.01em}
+.st:last-child{grid-column:1/-1}
+.st:last-child .pic{aspect-ratio:16/9}
+/* презентація великого продукту всередині програми */
+.promo{background:#F4F0FE;border:1px solid #DED2FB;padding:14px;margin-top:2px}
+.promo .add{background:var(--accent);color:#fff}
+/* буллети всередині уроку */
+.bul{list-style:none;margin:13px 0 0;padding:0}
+.bul li{position:relative;padding-left:19px;font-size:13.5px;line-height:1.45;
+        margin-bottom:9px;color:#3C3C3C}
+.bul li:before{content:'';position:absolute;left:0;top:7px;width:8px;height:8px;background:var(--accent)}
+/* виділений буллет — маркером */
+.bul li.mark{font-weight:800;color:var(--ink)}
+.bul li.mark:before{background:var(--lime)}
+.bul li.mark span{background:linear-gradient(transparent 58%,var(--lime) 58%);
+                  box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:0 2px}
+/* інструменти уроку */
+.lt{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:14px}
+.lt b{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:11px;
+      letter-spacing:.12em;color:var(--muted);margin-right:3px}
+.lt span{border:1px solid var(--line);background:#F7F7F7;border-radius:100px;
+         padding:5px 10px;font-size:11.5px;font-weight:700;line-height:1;white-space:nowrap}
+/* результат уроку */
+.resbox{background:#F4F4F4;border-left:3px solid var(--accent);padding:13px 14px;margin-top:14px;
+        font-size:13.5px;line-height:1.5;color:#2A2A2A}
+.resbox b{display:block;font-family:var(--display);font-weight:900;text-transform:uppercase;
+          font-size:12px;letter-spacing:.14em;color:var(--accent);margin-bottom:6px}
+/* слот під скрін з уроку */
+.shot{position:relative;aspect-ratio:16/9;background:#111;border:1px solid var(--line);margin:5px 0 15px;
+      display:flex;align-items:center;justify-content:center;overflow:hidden;
+      color:rgba(255,255,255,.42);font-size:10px;text-transform:uppercase;letter-spacing:.09em;
+      /* те саме неонове розсіювання, що під прев'ю в першому екрані */
+      box-shadow:0 18px 42px -18px rgba(107,43,238,.6),
+                 0 -8px 30px -20px rgba(198,244,50,.7)}
+.shot img,.shot video{width:100%;height:100%;object-fit:contain;display:block}
+/* урок із безкоштовним методом — виділений */
+.shot.free{border-color:var(--lime);border-width:2px;
+           box-shadow:0 18px 42px -18px rgba(198,244,50,.9), 0 -8px 30px -20px rgba(107,43,238,.6)}
+.shot .tag{position:absolute;top:0;left:0;right:0;z-index:2;background:var(--lime);color:var(--ink);
+           font-size:11px;font-weight:800;line-height:1.3;letter-spacing:.01em;
+           padding:7px 10px;text-align:center;text-transform:none}
+/* аккордеони на <details> — без JS */
+details{margin-top:9px}
+summary{list-style:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;
+        letter-spacing:.07em;color:var(--accent);display:flex;gap:5px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary:after{content:'▾';font-size:13px;transition:transform .2s}
+details[open] summary:after{transform:rotate(180deg)}
+.dark summary,.violet summary{color:var(--lime)}
+details ul{margin:10px 0 0;padding-left:17px}
+details li{font-size:14px;margin-bottom:6px;line-height:1.4}
+.res{font-size:13.5px;line-height:1.45;margin-top:9px}
+.res b{font-weight:800}
+/* плитки */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.tile{background:#F4F4F4;padding:14px;font-size:13.5px;line-height:1.4}
+.dark .tile{background:#191919}.violet .tile{background:rgba(255,255,255,.13)}
+.tile b{display:block;font-family:var(--display);font-weight:900;text-transform:uppercase;
+        font-size:17px;line-height:1.02;letter-spacing:-.01em;margin-bottom:6px}
+/* питання FAQ — теж заголовки */
+.q{font-family:var(--display);font-weight:900;font-size:19px;line-height:1.05;
+   letter-spacing:-.01em;text-transform:uppercase;color:var(--ink)}
+.tile em{font-style:normal;font-size:21px;display:block;margin-bottom:7px}
+.wide{grid-column:1/-1}
+.add{background:var(--lime);color:var(--ink);font-size:10px;font-weight:800;text-transform:uppercase;
+     letter-spacing:.06em;padding:3px 7px;display:inline-block;margin-bottom:7px}
+/* галерея прикладів */
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.ph{background:#111;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;
+    color:rgba(255,255,255,.45);font-size:10px;text-transform:uppercase;letter-spacing:.09em;text-align:center;padding:8px}
+.ph.v{padding:0;position:relative;cursor:pointer}
+.ph video{width:100%;height:100%;object-fit:cover;display:block}
+/* кнопка плей поверх прев'ю */
+.ph .play{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;
+          background:rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;
+          cursor:pointer;transition:opacity .18s ease}
+.ph .play svg{width:52px;height:52px;display:block;
+              filter:drop-shadow(0 3px 10px rgba(0,0,0,.35))}
+.ph.on .play{opacity:0;pointer-events:none}
+/* відгуки — одна колонка, стрічкою вниз */
+.revs{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.rev{margin:0;background:#fff;border:1px solid rgba(255,255,255,.16);overflow:hidden;
+     content-visibility:auto;contain-intrinsic-size:auto 220px}
+.rev img{width:100%;height:auto;display:block}
+/* прайс-рядки */
+.pr{display:flex;justify-content:space-between;align-items:center;gap:10px;
+    padding:10px 0;border-top:1px solid var(--line);font-size:14px}
+.violet .pr{border-color:rgba(255,255,255,.22)}
+.pr b{font-family:var(--display);font-weight:900;font-size:19px;white-space:nowrap}
+/* статистика — блок «FIGURES THAT DEFINE US» */
+.stats{display:flex;flex-direction:column;gap:16px;margin-top:18px}
+.stat b{font-family:var(--display);font-weight:900;font-size:clamp(38px,12vw,52px);
+        line-height:.85;display:block;letter-spacing:-.02em}
+.stat span{font-size:13px;color:var(--muted);display:block;margin-top:5px;max-width:210px}
+.dark .stat span{color:#8E8E8E}
+.stat:nth-child(2){padding-left:14%}.stat:nth-child(3){padding-left:28%}
+/* чек-лист */
+.list div{display:flex;gap:9px;font-size:14px;line-height:1.4;padding:9px 0;border-top:1px solid var(--line)}
+.dark .list div,.violet .list div{border-color:rgba(255,255,255,.2)}
+.list i{font-style:normal;flex:0 0 auto}
+/* таймер */
+.timer{display:flex;gap:5px;justify-content:center;margin:12px 0;perspective:420px}
+.timer i{font-style:normal;font-family:var(--display);font-weight:900;font-size:26px;
+         background:var(--ink);color:#fff;padding:5px 9px;min-width:44px;text-align:center;
+         position:relative;will-change:transform}
+/* лінія-згин, як на перекидному календарі */
+.timer.glass:before{opacity:.85}
+.timer i:after{content:'';position:absolute;left:0;right:0;top:50%;height:1px;
+               background:rgba(255,255,255,.22)}
+.violet .timer i{background:#fff;color:var(--accent)}
+.violet .timer i:after{background:rgba(107,43,238,.2)}
+.timer i.flip{animation:flip .42s ease-in-out}
+@keyframes flip{0%{transform:rotateX(0)}49%{transform:rotateX(-88deg)}
+                51%{transform:rotateX(88deg)}100%{transform:rotateX(0)}}
+@media (prefers-reduced-motion:reduce){.timer i.flip{animation:none}}
+/* автор */
+.who{display:flex;gap:14px;align-items:flex-start;margin-top:14px}
+.avatar{width:86px;height:110px;background:#111;flex:0 0 auto;display:flex;align-items:center;
+        justify-content:center;color:rgba(255,255,255,.4);font-size:10px;text-align:center}
+/* футер */
+.foot{font-size:11px;line-height:1.5;color:var(--muted)}
+.foot b{display:block;color:var(--ink);font-size:12px;margin-top:10px}
+/* липка панель */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--ink);color:#fff;
+        padding:11px 12px calc(11px + env(safe-area-inset-bottom));gap:14px;
+        display:none;align-items:center;border-top:2px solid var(--lime);
+        box-shadow:0 -12px 34px rgba(0,0,0,.45)}
+.sprice{flex:0 0 auto;line-height:1}
+.sprice b{display:block;font-family:var(--display);font-weight:900;font-size:32px;letter-spacing:-.02em}
+.sprice b em{font-style:normal;font-size:15px;margin-left:4px;letter-spacing:0}
+.sprice s{display:block;font-size:11px;color:#8E8E8E;margin-top:4px;font-weight:700}
+.sticky.on{display:flex}
+.stwrap{position:relative;flex:1}
+.sticky .btn{padding:15px 12px;font-size:14px;line-height:1.15;font-weight:800}
+.badge.sm{position:absolute;top:-29px;right:-6px;width:64px;height:64px;z-index:4}
+.badge.sm svg{animation-duration:18s;filter:drop-shadow(0 5px 12px rgba(0,0,0,.5))}
+.badge.sm b{font-family:var(--display);font-weight:900;font-size:17px;color:var(--ink);letter-spacing:-.02em}
+@media (min-width:768px){.sticky{max-width:var(--col);margin:0 auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ХЕДЕР -->
+  <header class="card glass" style="padding:14px var(--pad) 16px">
+    <div class="row" style="justify-content:center;gap:18px">
+      <div class="pill"><i class="dot"></i>старт <span data-start>завтра</span></div>
+      <div class="pill solid">Ai_Sashka</div>
+    </div>
+    <p class="hname">Воркшоп по <span class="acc">AI-мультиках</span></p>
+  </header>
+
+  <!-- БІЖУЧИЙ РЯДОК: формат воркшопу, рух зліва направо -->
+  <div class="marq" aria-label="Новий практичний воркшоп з домашніми завданнями">
+    <div class="track">
+      <span aria-hidden="true"><b class="nw">NEW</b><i class="star"></i>Практичний воркшоп з домашніми завданнями<i class="star"></i><b class="nw">NEW</b><i class="star"></i>Практичний воркшоп з домашніми завданнями<i class="star"></i></span>
+      <span aria-hidden="true"><b class="nw">NEW</b><i class="star"></i>Практичний воркшоп з домашніми завданнями<i class="star"></i><b class="nw">NEW</b><i class="star"></i>Практичний воркшоп з домашніми завданнями<i class="star"></i></span>
+    </div>
+  </div>
+
+  <!-- ГЕРОЙ -->
+  <section class="card hero">
+    <p class="lead">Готова технологія створення мультиків, які залітають на мільйони переглядів, під особисті чи бізнес задачі — від створення персонажа мультика до публікації.</p>
+
+    <h1 class="h h1">Як створити свій перший <span class="acc">якісний мультик</span> через нейромережі?</h1>
+    <p class="sub">з повного нуля</p>
+
+    <div class="media">
+      <video src="hero.mp4" autoplay muted loop playsinline preload="metadata"
+             aria-label="Прев'ю AI-мультика"></video>
+      <a class="badge" href="https://app.zenedu.io/l/gDjSosG9W3vo29wC" target="_blank" rel="noopener" aria-label="Почати — перейти до оплати">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="50" fill="var(--lime)"/>
+          <path id="c" fill="none" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0"/>
+          <text font-family="Manrope,sans-serif" font-size="11" font-weight="800">
+            <textPath href="#c" startOffset="0" textLength="226" lengthAdjust="spacing">ПОЧАТИ · ПОЧАТИ · ПОЧАТИ ·</textPath>
+          </text>
+        </svg>
+        <b><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3.2"
+               stroke-linecap="square" stroke-linejoin="miter"><path d="M7 17 17 7M9.5 7H17v7.5"/></svg></b>
+      </a>
+    </div>
+
+    <div class="chips" style="margin-top:38px">
+      <span class="chip">5 простих змістовних уроків + 1 додатковий</span>
+      <span class="chip">5 стилів мультиків</span>
+      <span class="chip">4 методи генерації мультика</span>
+      <span class="chip">Хронометраж мультика: від 15 сек до ∞</span>
+      <span class="chip">Мультики українською мовою</span>
+      <span class="chip">Seedance 2.5 + 9 нейронок на воркшопі</span>
+    </div>
+
+    <!-- ЦІНА + CTA -->
+    <hr style="margin:22px 0">
+    <div class="price" style="justify-content:center">
+      <b>390</b><span class="cur">грн</span><s>2 113 грн</s><em>−82%</em>
+    </div>
+    <!-- ВІЯЛО БОНУСІВ: замінити плейсхолдери на скріни -->
+    <p class="h3" style="text-align:center;margin-top:20px">+ Великий комплект бонусів,<em
+       style="display:block;margin-top:6px;font:italic 600 13.5px/1.35 'Manrope',sans-serif;
+              text-transform:none;letter-spacing:0;color:var(--accent)">при купівлі воркшопу до кінця таймера</em></p>
+    <div class="fan">
+      <span><svg viewBox="0 0 48 48" fill="none" stroke="#0A0A0A" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"><path d="M5 8h38v25H21l-9 8v-8H5z" fill="#fff"/><path d="M24 13l3 6 6 3-6 3-3 6-3-6-6-3 6-3z" fill="var(--accent)" stroke="none"/></svg>Майстер-промт</span>
+      <span><svg viewBox="0 0 48 48" fill="none" stroke="#0A0A0A" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="18" width="38" height="24" fill="#fff"/><path d="M5 8h38v10H5z" fill="var(--accent)"/><path d="M20 25l11 6-11 6z" fill="var(--lime)" stroke="none"/></svg>Claude Skill</span>
+      <span><svg viewBox="0 0 48 48" fill="none" stroke="#0A0A0A" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"><path d="M9 5h20l10 10v28H9z" fill="#fff"/><path d="M29 5v10h10"/><rect x="15" y="22" width="8" height="8" fill="var(--accent)" stroke="none"/><rect x="25" y="22" width="8" height="8" fill="var(--lime)" stroke="none"/><rect x="15" y="32" width="18" height="8" fill="#0A0A0A" stroke="none"/></svg>PDF зі стилями</span>
+      <span><svg viewBox="0 0 48 48" fill="none" stroke="#0A0A0A" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"><rect x="6" y="6" width="36" height="36" fill="#fff"/><circle cx="24" cy="20" r="6.5" fill="var(--accent)" stroke="none"/><path d="M13 39c2-6 6-9 11-9s9 3 11 9" fill="var(--lime)"/></svg>Ти — герой мультика</span>
+      <span><svg viewBox="0 0 48 48" fill="none" stroke="#0A0A0A" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"><rect x="18" y="6" width="12" height="21" rx="6" fill="var(--accent)"/><path d="M12 22a12 12 0 0 0 24 0"/><path d="M24 34v7M17 41h14"/><path d="M6 15v6M42 15v6" stroke="var(--lime)"/></svg>Мультик голосом</span>
+    </div>
+
+    <!-- ⚠️ ЗАМІНИТИ НА ФІНАЛЬНЕ ПОСИЛАННЯ ZENEDU -->
+    <a class="btn cta" href="https://app.zenedu.io/l/gDjSosG9W3vo29wC" target="_blank" rel="noopener"><span>Записатися на навчання</span><i>−82%</i></a>
+    <hr>
+    <p class="eyebrow" style="text-align:center;margin:0">До кінця спеціальної пропозиції:</p>
+    <div class="timer glass"><i data-t="h">00</i><i data-t="m">10</i><i data-t="s">00</i></div>
+  </section>
+
+
+  <!-- ═══ 4. БОНУСИ ═══ -->
+  <section class="card">
+    <h2 class="h h2">Великий комплект <span class="acc">бонусів:</span></h2>
+    <p class="p" style="font-style:italic;color:var(--accent);font-size:13.5px;margin-top:8px">*кожен бонус сприяє покращенню вашого результату від проходження воркшопу — перевірено на 1000+ студентів.</p>
+
+    <div class="bcard">
+      <span class="add">бонус 1</span>
+      <div class="brow">
+        <div class="bico"><svg viewBox="0 0 48 48" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linejoin="round"><path d="M5 7h38v27H21l-9 8v-8H5z" fill="#fff"/><path d="M24 12l3 6 6 3-6 3-3 6-3-6-6-3 6-3z" fill="var(--accent)" stroke="none"/><circle cx="38" cy="40" r="4" fill="var(--lime)" stroke="none"/></svg></div>
+        <div>
+          <h4>Майстер-промт для власного AI-асистента</h4>
+          <p class="res">Готовий майстер-промт по налаштуванню свого особистого АІ-асистента, який буде допомагати створювати мультики, а також перетворювати ваші ідеї в якісний промт або <span class="uline">накидувати нові ідеї</span>. Підходить під будь-яку нейронку, з якою ви працюєте на постійній основі.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bcard">
+      <span class="add">бонус 2</span>
+      <div class="brow">
+        <div class="bico"><svg viewBox="0 0 48 48" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linejoin="round"><rect x="5" y="18" width="38" height="24" fill="#fff"/><path d="M5 8h38v10H5z" fill="var(--accent)"/><path d="M15 8l-5 10M26 8l-5 10M37 8l-5 10" stroke="#fff" stroke-width="2.4"/><path d="M20 25l11 6-11 6z" fill="var(--lime)" stroke="none"/></svg></div>
+        <div>
+          <h4>Claude Skill для сценаріїв</h4>
+          <p class="res">Готовий авторський /skill для Claude, який самостійно пише креативні сценарії під мультики будь-якого стилю на рівні продакшена.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bcard">
+      <span class="add">бонус 3</span>
+      <div class="brow">
+        <div class="bico"><svg viewBox="0 0 48 48" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linejoin="round"><path d="M9 5h20l10 10v28H9z" fill="#fff"/><path d="M29 5v10h10"/><rect x="15" y="21" width="8" height="8" fill="var(--accent)" stroke="none"/><rect x="25" y="21" width="8" height="8" fill="var(--lime)" stroke="none"/><rect x="15" y="31" width="8" height="8" fill="#0A0A0A" stroke="none"/><rect x="25" y="31" width="8" height="8" fill="#D5D5D5" stroke="none"/></svg></div>
+        <div>
+          <h4>PDF з усіма стилями мультиків</h4>
+          <p class="res">PDF-документ, методичка, у якій прописані усі стилі мультиків з конкретними промтами, які вміють робити нейронки.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══ 4b. ЩО ВИРІШУЄ ВОРКШОП ═══ -->
+  <section class="card">
+    <h2 class="h h2">Одразу скажу: цей воркшоп <span class="acc">вирішує</span> головні проблеми з генерацією мультфільмів</h2>
+    <div class="grp">
+      <div class="ghead"><span class="gn">01</span><h4>Персонаж і світ не «пливуть»</h4></div>
+      <ul class="solves">
+        <li><i></i><span>консистентність персонажа: зовнішність, одяг, вік, кількість рук, ніг і пальців</span></li>
+        <li><i></i><span>артефакти й глюки: зайві написи, частини тіла, що «залишились» у попередньому кадрі</span></li>
+      </ul>
+    </div>
+    <div class="grp">
+      <div class="ghead"><span class="gn">02</span><h4>Мультик виглядає живим</h4></div>
+      <ul class="solves">
+        <li><i></i><span>передача емоцій, рухів і міміки — без пластмаси й «загальмованих» кадрів</span></li>
+        <li><i></i><span>чітка послідовність дій замість набору красивих картинок</span></li>
+      </ul>
+    </div>
+    <div class="grp">
+      <div class="ghead"><span class="gn">03</span><h4>Озвучка українською</h4></div>
+      <ul class="solves">
+        <li><i></i><span>правильність і коректність озвучки, правильні наголоси</span></li>
+        <li><i></i><span>ліпсинк українською — губи збігаються з мовою</span></li>
+      </ul>
+    </div>
+    <div class="grp">
+      <div class="ghead"><span class="gn">04</span><h4>Від ідеї до готового ролика</h4></div>
+      <ul class="solves">
+        <li><i></i><span>де брати ідеї та як писати сюжет, який дивляться до кінця</span></li>
+        <li><i></i><span>написання якісних промтів — і як правити результат, не ламаючи всю сцену</span></li>
+        <li><i></i><span>вибір нейронки під задачу — і як економити кредити на генераціях</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ 5. ПРИКЛАДИ КОНТЕНТУ ═══ -->
+  <section class="card glassy">
+    <h2 class="h h2">Ось такі АІ мультики ти <span class="acc">зможеш робити</span> вже під час воркшопу</h2>
+    <div class="gal">
+      <div class="ph v">
+        <video data-src="mult1.mp4" poster="mult1.jpg" loop playsinline preload="none"></video>
+        <button class="play" type="button" aria-label="Відтворити приклад 1 зі звуком">
+          <svg viewBox="0 0 56 56" aria-hidden="true">
+            <circle cx="28" cy="28" r="25" fill="var(--lime)" stroke="#0A0A0A" stroke-width="3"/>
+            <path d="M23 19 L39 28 L23 37 Z" fill="#0A0A0A"/>
+          </svg>
+        </button>
+      </div>
+      <div class="ph v">
+        <video data-src="mult2.mp4" poster="mult2.jpg" loop playsinline preload="none"></video>
+        <button class="play" type="button" aria-label="Відтворити приклад 2 зі звуком">
+          <svg viewBox="0 0 56 56" aria-hidden="true">
+            <circle cx="28" cy="28" r="25" fill="var(--lime)" stroke="#0A0A0A" stroke-width="3"/>
+            <path d="M23 19 L39 28 L23 37 Z" fill="#0A0A0A"/>
+          </svg>
+        </button>
+      </div>
+      <div class="ph v">
+        <video data-src="mult3.mp4" poster="mult3.jpg" loop playsinline preload="none"></video>
+        <button class="play" type="button" aria-label="Відтворити приклад 3 зі звуком">
+          <svg viewBox="0 0 56 56" aria-hidden="true">
+            <circle cx="28" cy="28" r="25" fill="var(--lime)" stroke="#0A0A0A" stroke-width="3"/>
+            <path d="M23 19 L39 28 L23 37 Z" fill="#0A0A0A"/>
+          </svg>
+        </button>
+      </div>
+      <div class="ph v">
+        <video data-src="mult4.mp4" poster="mult4.jpg" loop playsinline preload="none"></video>
+        <button class="play" type="button" aria-label="Відтворити приклад 4 зі звуком">
+          <svg viewBox="0 0 56 56" aria-hidden="true">
+            <circle cx="28" cy="28" r="25" fill="var(--lime)" stroke="#0A0A0A" stroke-width="3"/>
+            <path d="M23 19 L39 28 L23 37 Z" fill="#0A0A0A"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <p class="p">Я покажу тобі дієвий технічний спосіб створення мультиків через AI <b>від А до Я</b>, далі — ти зможеш створювати все, що захочеш, адже все залежить від твоєї фантазії. Навіть зможеш робити <b>міні-серіали</b>.</p>
+
+    <p class="h3" style="margin-top:20px">Знаєш чому?</p>
+    <p class="res">Тому що на воркшопі я показую <b>4 різні способи</b> генерації мультиків:</p>
+    <div class="ways">
+      <div class="way"><b>01</b><span>Метод сторіборду</span></div>
+      <div class="way"><b>02</b><span>Метод розкадровки</span></div>
+      <div class="way"><b>03</b><span>Зациклені мультики</span></div>
+      <div class="way"><b>04</b><span>Генерація з референсів</span></div>
+    </div>
+
+    <div class="money">
+      <p>Якщо після воркшопу ти захочеш монетизувати навичку створення АІ мультфільмів, май на увазі:</p>
+      <b>$70–150</b>
+      <p style="font-weight:700">замовники готові платити за 1 хвилину мультфільму.</p>
+      <i>залежно від кількості кадрів та динаміки</i>
+      <a class="btn mbtn" href="#program">Дізнатись програму</a>
+    </div>
+  </section>
+
+  <!-- ═══ 5b. СТИЛІ МУЛЬТИКІВ ═══ -->
+  <section class="card">
+    <h2 class="h h2">Ось 5 стилів мультиків, які ти <span class="acc">навчишся створювати</span> за допомогою АІ</h2>
+    <div class="styles">
+      <div class="st"><div class="pic"><img src="style-1.jpg" alt="Стиль Pixar 3D" loading="lazy"></div><b>01</b><h4>Pixar 3D</h4></div>
+      <div class="st"><div class="pic"><img src="style-2.jpg" alt="Стиль Cinematic Anime" loading="lazy"></div><b>02</b><h4>Cinematic Anime</h4></div>
+      <div class="st"><div class="pic"><img src="style-3.jpg" alt="Стиль Spiderverse-Hybrid" loading="lazy"></div><b>03</b><h4>Spiderverse-Hybrid</h4></div>
+      <div class="st"><div class="pic"><img src="style-4.jpg" alt="Стиль DreamWorks" loading="lazy"></div><b>04</b><h4>DreamWorks Style</h4></div>
+      <div class="st"><div class="pic"><img src="style-5.jpg" alt="Стиль Hand-Painted Ghibli" loading="lazy"></div><b>05</b><h4>Hand-Painted Ghibli</h4></div>
+    </div>
+  </section>
+
+  <!-- ═══ 5c. НЕЙРОНКИ ═══ -->
+  <section class="card dark">
+    <h2 class="h h2" style="font-size:clamp(22px,6.4vw,30px)">Нейронки, на яких побудована <span style="color:var(--lime)">програма воркшопу</span></h2>
+    <div class="nets">
+      <span class="hot">Seedance 2.5<b class="new">NEW</b></span>
+      <span>ChatGPT</span>
+      <span>Claude</span>
+      <span>Claude Code</span>
+      <span>Gemini Omni Flash</span>
+      <span>Gemini TTS</span>
+      <span>Grok Imagine</span>
+      <span>Kling</span>
+      <span>Higgsfield AI</span>
+      <span>Google Flow</span>
+    </div>
+    <p class="p" style="font-style:italic;color:rgba(255,255,255,.75);font-size:13.5px">
+      Трендова й нова <span style="color:var(--lime)">Seedance 2.5</span> вийшла зовсім нещодавно — а вона вже є на моєму воркшопі.
+    </p>
+    <hr>
+    <p class="p" style="font-size:13.5px;color:rgba(255,255,255,.8);margin-top:0">
+      У першому уроці воркшопу я показав, як створити перший мультик <b>безкоштовно</b>. Проте якщо
+      займатись цим професійно — потрібно сплачувати підписки на нейронки.
+    </p>
+    <p class="p" style="font-size:13.5px;color:rgba(255,255,255,.8)">
+      До речі, для старту генерації мультиків на цьому воркшопі вам знадобиться
+      <b style="color:var(--lime)">від $40</b> на підписки.
+    </p>
+  </section>
+
+  <!-- ═══ 6. ДЛЯ КОГО ═══ -->
+  <section class="card">
+    <h2 class="h h2">Для кого цей <span class="acc">воркшоп по мультиках</span>?</h2>
+    <div class="segs">
+      <div class="seg"><svg viewBox="0 0 32 32" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><rect x="8" y="2" width="16" height="28" rx="2" fill="#fff"/><path d="M13 12l8 4-8 4z" fill="var(--accent)" stroke="none"/></svg><div><h4>Контент-мейкери та рілсмейкери</h4><p>Втомилися від «розмовної голови» й вигорілих трендів — потрібен формат, який зараз дає дуже багато охоплень.</p></div></div>
+      <div class="seg"><svg viewBox="0 0 32 32" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><rect x="2" y="7" width="28" height="18" rx="3" fill="var(--accent)" stroke="none"/><circle cx="16" cy="16" r="5" fill="#fff" stroke="none"/><path d="M11 16h10" stroke="var(--accent)" stroke-width="2.6"/></svg><div><h4>Власники faceless-каналів</h4><p>Монетизуєте YouTube чи TikTok без обличчя: мультики закривають дитячий контент, казки та історії.</p></div></div>
+      <div class="seg"><svg viewBox="0 0 32 32" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M6 26l3-9 12-12 6 6-12 12z" fill="#fff"/><path d="M19 8l5 5" /><path d="M6 26l5-2" stroke="var(--accent)" stroke-width="3"/></svg><div><h4>Дизайнери, монтажери, моушн-дизайнери</h4><p>Додаєте нову послугу в прайс — анімація більше не вимагає команди й великого бюджету.</p></div></div>
+      <div class="seg"><svg viewBox="0 0 32 32" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><circle cx="16" cy="16" r="13" fill="#fff"/><path d="M16 7l2.6 5.4L24 15l-5.4 2.6L16 23l-2.6-5.4L8 15l5.4-2.6z" fill="var(--accent)" stroke="none"/></svg><div><h4>AI-ентузіасти</h4><p>Постійно дізнаєтеся про АІ щось нове, рухаєтеся в ногу з часом і хочете додати новий інструмент у свій воркфлоу: «мультик однією голосовою командою».</p></div></div>
+      <div class="seg"><svg viewBox="0 0 32 32" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M3 26h26"/><rect x="6" y="16" width="5" height="10" fill="#fff"/><rect x="14" y="10" width="5" height="16" fill="var(--lime)"/><rect x="22" y="4" width="5" height="22" fill="var(--accent)" stroke="none"/></svg><div><h4>Маркетологи та SMM-фахівці</h4><p>Робите анімаційний ролик клієнту без продакшену — швидше за професійну студію.</p></div></div>
+      <div class="seg"><svg viewBox="0 0 32 32" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M5 12h22v16H5z" fill="#fff"/><path d="M5 12l3-8h16l3 8" fill="var(--accent)" stroke="none"/><path d="M5 12h22"/><path d="M13 28v-8h6v8" fill="var(--lime)"/></svg><div><h4>Малий бізнес і власники брендів</h4><p>Потрібен бренд-персонаж, реклама чи пояснення продукту — особливо в дитячих товарах та e-commerce.</p></div></div>
+      <div class="seg"><svg viewBox="0 0 32 32" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><circle cx="11" cy="9" r="5" fill="var(--accent)" stroke="none"/><circle cx="23" cy="14" r="3.5" fill="var(--lime)" stroke="none"/><path d="M3 28c0-5 3.6-8 8-8s8 3 8 8"/><path d="M19 28c0-3.4 1.8-6 4-6s4 2.6 4 6"/></svg><div><h4>Батьки</h4><p>Хочете мультик із власною дитиною, вашою сім'єю або персонажами, які подобаються дитині, у головній ролі — персональну казку, якої більше ні в кого немає.</p></div></div>
+      <div class="seg"><svg viewBox="0 0 32 32" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M16 5l13 6-13 6-13-6z" fill="var(--accent)" stroke="none"/><path d="M8 14v7c0 2.5 3.6 4.5 8 4.5s8-2 8-4.5v-7" fill="#fff"/></svg><div><h4>Педагоги, репетитори, логопеди</h4><p>Хочете робити навчальний контент, який пояснює складні теми у зрозумілому та цікавому для дітей форматі.</p></div></div>
+      <div class="seg"><svg viewBox="0 0 32 32" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M4 6h9c2 0 3 1 3 3v18c0-2-1-3-3-3H4z" fill="#fff"/><path d="M28 6h-9c-2 0-3 1-3 3v18c0-2 1-3 3-3h9z" fill="var(--lime)"/></svg><div><h4>Письменники та автори дитячих книжок</h4><p>Хочете екранізувати власну історію, не наймаючи студію.</p></div></div>
+      <div class="seg"><svg viewBox="0 0 32 32" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><circle cx="16" cy="16" r="12" fill="#fff"/><circle cx="11" cy="12" r="2.2" fill="var(--accent)" stroke="none"/><circle cx="20" cy="11" r="2.2" fill="var(--lime)" stroke="none"/><circle cx="22" cy="19" r="2.2" fill="var(--accent)" stroke="none"/></svg><div><h4>Ілюстратори та аніматори</h4><p>Прискорюєте свою роботу й лишаєтеся в ринку, який змінюється просто зараз.</p></div></div>
+      <div class="seg"><svg viewBox="0 0 32 32" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M5 20v-4a11 11 0 0 1 22 0v4"/><rect x="3" y="19" width="6" height="9" rx="2" fill="var(--accent)" stroke="none"/><rect x="23" y="19" width="6" height="9" rx="2" fill="var(--accent)" stroke="none"/></svg><div><h4>Підлітки та студенти</h4><p>Маєте багато вільного часу, не знаєте чим зайнятися, хочете почати щось своє, а не безкінечно переглядати чуже в стрічках Reels і TikTok.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ═══ 8. ДЛЯ БІЗНЕСУ ═══ -->
+  <section class="card violet">
+    <h2 class="h h2">Чи підходить цей воркшоп по мультиках для власників бізнесу?</h2>
+    <p class="yes">Однозначно так!</p>
+
+    <p class="p">Подивись, хто вже роками використовує мультяшних персонажів у рекламі
+       й інших маркетингових кампаніях:</p>
+    <div class="brands">
+      <div class="brand"><div class="bc"><img src="brand-foxtrot.jpg" width="300" height="300" alt="Фоксі — маскот Фокстрот" loading="lazy"></div><span>Фокстрот</span></div>
+      <div class="brand"><div class="bc"><img src="brand-monobank.jpg" width="300" height="300" alt="mono кіт — маскот monobank" loading="lazy"></div><span>monobank</span></div>
+      <div class="brand"><div class="bc"><img src="brand-obolon.jpg" width="300" height="300" alt="Живчик — персонаж Оболоні" loading="lazy"></div><span>Оболонь</span></div>
+      <div class="brand"><div class="bc"><img src="brand-comfy.jpg" width="300" height="300" alt="Персонаж Comfy" loading="lazy"></div><span>Comfy</span></div>
+      <div class="brand"><div class="bc"><img src="brand-varus.jpg" width="300" height="300" alt="Персонаж Varus" loading="lazy"></div><span>Varus</span></div>
+    </div>
+
+    <hr>
+    <p class="h3" style="color:var(--lime)">Чому вони це роблять?</p>
+    <p class="p">Тому що персонаж — це <b>найдешевший спосіб зробити бренд впізнаваним</b>.</p>
+
+    <p class="h3" style="color:var(--lime);margin-top:20px">То чому персонажа має не кожен бізнес?</p>
+    <p class="p">Бо донедавна це коштувало як окремий бізнес. Студія анімації, аніматори, озвучка,
+       місяці роботи. Хвилина класичної анімації — <b style="color:var(--lime)">від $3 000</b>.
+       Для малого й середнього бізнесу це просто не обговорювалося.</p>
+
+    <div class="now">
+      Тепер це коштує лише підписки на нейронку — і створюється в пару кліків за допомогою АІ.
+    </div>
+  </section>
+
+  <!-- ═══ 7. ПРОБЛЕМА ═══ -->
+  <section class="card dark">
+    <h2 class="h h2">Чому 9 з 10 кидають <span style="color:var(--lime)">створення мультиків?</span></h2>
+
+    <p class="thesis">Не тому, що складно. А тому, що на якомусь етапі
+       <span style="color:var(--lime)">все розвалюється</span>.</p>
+
+    <div class="beats">
+      <div>Персонаж змінюється між кадрами.</div>
+      <div>Озвучка українською звучить жахливо.</div>
+      <div>Кредити закінчились, а мультика немає.</div>
+      <div>Десять красивих кадрів лежать у папці й ніяк не склеюються в історію.</div>
+    </div>
+
+    <p class="p">І людина кидає з думкою:</p>
+    <blockquote class="quote">Ну, для розваги норм. Але щось серйозне на цьому не зробиш.</blockquote>
+
+    <p class="thesis" style="margin-top:22px">Туторіалів тисяча — <span style="color:var(--lime)">результату нуль</span>.</p>
+    <p class="p">Кожен блогер показує свою нейронку й свій «секретний промт», а цілісного процесу
+       від ідеї до готового ролика немає ніде.</p>
+
+    <div class="solve">
+      <p class="h3">Я зібрав цей процес в один воркшоп</p>
+      <p>До якого пропоную тобі доєднатися просто зараз.</p>
+      <a class="btn cta lime" href="https://app.zenedu.io/l/gDjSosG9W3vo29wC" target="_blank" rel="noopener"><span>Створити АІ мультфільм</span><i>−82%</i></a>
+    </div>
+  </section>
+
+  <!-- ═══ 9. ПРОГРАМА ВОРКШОПУ ═══ -->
+  <section class="card" id="program">
+    <div class="floaters" aria-hidden="true">
+      <span class="fl" style="top:4%;left:-4%;font-size:30px;opacity:.055;animation:d1 34s ease-in-out 0s infinite">ChatGPT</span>
+      <span class="fl" style="top:11%;right:4%;font-size:34px;opacity:.07;animation:d2 26s ease-in-out -6s infinite"><svg viewBox="0 0 40 40"><path d="M20 2l4 14 14 4-14 4-4 14-4-14-14-4 14-4z" fill="currentColor"/></svg></span>
+      <span class="fl" style="top:22%;right:-8%;font-size:26px;opacity:.05;animation:d3 41s ease-in-out -12s infinite">Seedance 2.5</span>
+      <span class="fl" style="top:34%;left:2%;font-size:30px;opacity:.06;animation:d1 30s ease-in-out -4s infinite"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="4"/></svg></span>
+      <span class="fl" style="top:45%;left:-2%;font-size:32px;opacity:.055;animation:d2 37s ease-in-out -18s infinite">Claude</span>
+      <span class="fl" style="top:56%;right:6%;font-size:26px;opacity:.07;animation:d3 24s ease-in-out -9s infinite"><svg viewBox="0 0 40 40"><path d="M8 4l26 16L8 36z" fill="currentColor"/></svg></span>
+      <span class="fl" style="top:67%;right:-2%;font-size:30px;opacity:.05;animation:d1 33s ease-in-out -15s infinite">Grok</span>
+      <span class="fl" style="top:76%;left:4%;font-size:46px;opacity:.06;animation:d2 28s ease-in-out -3s infinite"><svg viewBox="0 0 60 40"><path d="M2 20c8-16 16 16 24 0s16-16 24 0" fill="none" stroke="currentColor" stroke-width="4"/></svg></span>
+      <span class="fl" style="top:88%;left:-6%;font-size:24px;opacity:.045;animation:d3 39s ease-in-out -21s infinite">Seedance 2.5</span>
+      <span class="fl" style="top:94%;right:8%;font-size:28px;opacity:.06;animation:d1 31s ease-in-out -11s infinite"><svg viewBox="0 0 40 40"><path d="M20 2l4 14 14 4-14 4-4 14-4-14-14-4 14-4z" fill="currentColor"/></svg></span>
+    </div>
+    <h2 class="h h2">Уроки воркшопу по <span class="acc">АІ мультиках</span></h2>
+    <p class="sm" style="margin-top:10px">5 вечорів + 1 додатковий урок · короткий урок і домашка на вечір · доступ назавжди</p>
+    <div style="margin-top:16px">
+
+      <div class="item"><span class="n">01</span><div style="flex:1">
+        <h4>Налаштування асистентів та 5 стилів мультиків</h4>
+        <div class="shot free"><img src="lesson-1.jpg" alt="Розкадровка мультика з уроку 1" loading="lazy"><span class="tag">У цьому уроці — безкоштовний метод генерації мультика</span></div>
+        <p class="res">Робота з АІ-асистентами, які допомагають створювати АІ-мультики. Розбір 5 популярних стилів АІ-мультиків.</p>
+        <details class="acc"><summary>Що в уроці</summary>
+        <ul class="bul">
+          <li>Дізнаємось, що таке майстер-промт</li>
+          <li>Налаштовуємо асистентів Claude, Gemini, ChatGPT</li>
+          <li>Пишемо свій 1 сценарій</li>
+          <li>Генеруємо сторіборд згідно сценарію</li>
+          <li>Генеруємо свій 1 короткий мультфільм</li>
+        </ul>
+        <div class="lt"><b>Інструменти</b><span>ChatGPT</span><span>Nano Banana 2</span><span>Gemini Omni Flash</span></div>
+        <div class="resbox"><b>Результат</b>У тебе вже є власний AI-асистент, налаштований під мультики, і твій перший згенерований мультфільм — зроблений безкоштовно, ще до того, як ти встиг засумніватися, чи вийде. Зникає найважче — параліч чистого аркуша й питання «з чого взагалі починати». Ти більше не той, хто дивиться чужі мультики й думає «як вони це роблять» — ти вже зробив свій — і знаєш, у яких п'яти стилях їх узагалі можна робити.</div>
+        </details>
+      </div></div>
+
+      <div class="item"><span class="n">02</span><div style="flex:1">
+        <h4>Персонажі мультфільму</h4>
+        <div class="shot"><img src="lesson-2.jpg" alt="Картка персонажа у чотирьох ракурсах — урок 2" loading="lazy"></div>
+        <p class="res">Як правильно створювати АІ-персонажів будь-якого мультфільму. Карточки персонажів мультфільму в різних стилях.</p>
+        <details class="acc"><summary>Що в уроці</summary>
+        <ul class="bul">
+          <li>Створюємо карточку персонажа двома способами — з референсом і без референсу</li>
+          <li>Працюємо з промтами для карточки персонажа</li>
+          <li class="mark"><span>перетворюємо себе в героя мультфільму</span></li>
+          <li>Дізнаємось ТОП-5 стилів мультфільмів</li>
+        </ul>
+        <div class="lt"><b>Інструменти</b><span>ChatGPT Image 2</span></div>
+        <div class="resbox"><b>Результат</b>У тебе є готова картка персонажа — і твій герой більше не змінює обличчя, одяг чи вік від кадру до кадру. А ще ти вмієш перетворити на героя мультфільму будь-яке фото: своє, дитини чи замовника. Зникає найбільше роздратування новачків: коли витрачаєш годину на генерації, а в кожній сцені виходить інша людина. Ти вже не просто генеруєш картинки — ти створюєш персонажа, якого глядач упізнає в будь-якій сцені.</div>
+        </details>
+      </div></div>
+
+      <div class="item"><span class="n">03</span><div style="flex:1">
+        <h4>Сценарій, репліки, кадри</h4>
+        <div class="shot"><img src="lesson-3.jpg" alt="Кадри з персонажами та озвучка — урок 3" loading="lazy"></div>
+        <p class="res">Як правильно писати АІ-сценарії мультиків, які затягують глядача з першої секунди перегляду. Репліки, розстановка референсів при генерації, генерація кадрів.</p>
+        <details class="acc"><summary>Що в уроці</summary>
+        <ul class="bul">
+          <li>показую, як генерувати кадри з персонажами, щоб вони зберігали зовнішність у кожному кадрі</li>
+          <li>оживлюємо статичні зображення у готові відео</li>
+          <li>вчимось генерувати озвучку якісним дикторським голосом</li>
+          <li>вчимось генерувати кадри в Nano Banana 2, використовуючи картку персонажа</li>
+          <li>розберемо формат зациклених мультиків</li>
+          <li>анімуємо кадри в Kling та попрацюємо в Google Flow</li>
+          <li>перше знайомство з Higgsfield AI</li>
+          <li>навчимось створювати кадри для мультика, де персонаж говорить українською мовою</li>
+          <li>розберемо, як правильно прописувати промт, щоб персонаж не плутав репліки, і як виправляти наголоси</li>
+          <li>навчимось створювати персонажа і зберігати голос у кожній генерації</li>
+        </ul>
+        <div class="lt"><b>Інструменти</b><span>Grok Imagine</span><span>Gemini TTS</span><span>Nano Banana 2</span><span>Kling</span><span>Gemini Omni Flash</span></div>
+        <div class="resbox"><b>Результат</b>Ти генеруєш кадри по картці персонажа так, що зовнішність тримається від першої сцени до останньої, оживлюєш їх у відео й накладаєш українську озвучку — з правильними наголосами й без плутанини в діалогах. Зникає ситуація, коли доводиться вимикати звук, бо персонаж говорить чужою мовою або з акцентом. Ти більше не збираєш мультик із того, що вийшло — ти отримуєш саме те, що задумав.</div>
+        </details>
+      </div></div>
+
+      <div class="item"><span class="n">04</span><div style="flex:1">
+        <h4>Монтаж мультика</h4>
+        <div class="shot"><img src="lesson-4.jpg" alt="Монтаж мультика в CapCut — урок 4" loading="lazy"></div>
+        <p class="res">Як легко, швидко та якісно змонтувати згенерований мультик.</p>
+        <details class="acc"><summary>Що в уроці</summary>
+        <ul class="bul">
+          <li>монтаж повного мультика: як з'єднати сцени, накласти озвучку й додати саунд-дизайн, щоб звук не рвався</li>
+          <li>виправлення артефактів: що робити з глюками, зайвими деталями й нерівними переходами вже на монтажі</li>
+          <li>зациклені мультики — окрема техніка монтажу, де кінець непомітно переходить у початок</li>
+          <li>практика на комерційному форматі: історія кохання пари — те, що люди найчастіше замовляють у подарунок</li>
+        </ul>
+        <div class="lt"><b>Інструменти</b><span>CapCut</span></div>
+        <div class="resbox"><b>Результат</b>Ти вмієш прибрати артефакти й згладити переходи вже на монтажі — там, де раніше довелося б перегенеровувати сцену й палити кредити. Зникає відчуття саморобності: мультик перестає розсипатися на окремі шматки й починає виглядати цілісно. Це різниця між «я щось нагенерував» і «я зробив мультик».</div>
+        </details>
+      </div></div>
+
+      <div class="item"><span class="n">05</span><div style="flex:1">
+        <h4>Вірусні мультики через Seedance 2.5</h4>
+        <div class="shot"><img src="lesson-5.jpg" alt="Генерація мультика в Higgsfield AI — урок 5" loading="lazy"></div>
+        <p class="res">Спосіб, як професійно генерувати вірусні мультики — на багато переглядів — через Seedance 2.5.</p>
+        <details class="acc"><summary>Що в уроці</summary>
+        <ul class="bul">
+          <li>навчитесь розуміти, як працювати з нейромережею Seedance 2.5, як прописувати та активовувати референси</li>
+          <li>як писати промти для генерації мультиків у Seedance 2.5</li>
+          <li>який формат мультиків найчастіше набирає багато охоплень</li>
+        </ul>
+        <div class="lt"><b>Інструменти</b><span>Seedance 2.5</span><span>Higgsfield AI</span></div>
+        <div class="resbox"><b>Результат</b>Ти володієш Seedance 2.5 — моделлю, яка вийшла зовсім нещодавно, — і знаєш формат мультиків, що найчастіше набирає перегляди. Зникає відчуття, що ти вічно наздоганяєш тих, хто «в темі раніше». Ти опиняєшся серед перших, хто працює з інструментом, поки більшість про нього тільки читає.</div>
+        </details>
+      </div></div>
+
+
+      <div class="item"><span class="n">+</span><div style="flex:1">
+        <span class="add">додатковий урок</span>
+        <h4>Мультик однією голосовою командою</h4>
+        <div class="shot"><img src="lesson-6.jpg" alt="Мультик однією голосовою командою — додатковий урок" loading="lazy"></div>
+        <p class="res">Як згенерувати мультик за допомогою однієї голосової команди в нейронку.</p>
+        <details class="acc"><summary>Що в уроці</summary>
+        <ul class="bul">
+          <li>як підключити Higgsfield MCP-сервер до Claude Code і перетворити вашу ідею, яку ви просто продиктуєте асистенту в мікрофон, — у готовий мультик</li>
+        </ul>
+        <div class="resbox"><b>Результат</b>Ти можеш робити мультики потоком — коли ідея приходить на ходу, ти просто промовляєш її вголос, а не відкладаєш «на потім, коли буде час сісти». Зникає найчастіша причина, чому люди кидають контент: не бракує ідей, бракує сил щоразу проходити весь ручний шлях. Твоя швидкість перестає залежати від того, скільки годин ти готовий просидіти за генераціями.</div>
+        </details>
+      </div></div>
+
+
+    </div>
+    <div class="note">
+      <span class="nlabel">Важливо</span>
+      <p>Після кожного уроку є <b>домашнє завдання</b>. Виконаєш усі — отримаєш бонус,
+         про який дізнаєшся в процесі проходження воркшопу.</p>
+    </div>
+    <a class="btn shine" style="margin-top:18px" href="https://app.zenedu.io/l/gDjSosG9W3vo29wC" target="_blank" rel="noopener">Приєднатися за 390 грн →</a>
+  </section>
+
+  <!-- ═══ 10. ФОРМАТ НАВЧАННЯ ═══ -->
+  <section class="card">
+    <h2 class="h h2">Як проходить <span class="acc">навчання</span></h2>
+    <div class="tiles">
+      <div class="tile"><em>📱</em><b>Один урок на вечір</b>Короткий урок у Telegram-боті — і одразу застосовуєш.</div>
+      <div class="tile"><em>📋</em><b>Інструкції без води</b>Що натиснути, куди завантажити, який промт скопіювати.</div>
+      <div class="tile"><em>🤖</em><b>Готові AI-інструменти</b>Замість вивчення промт-інженерії — готові асистенти.</div>
+      <div class="tile"><em>💬</em><b>Чат-підтримка куратора</b>Ставиш питання — отримуєш розбір.</div>
+    </div>
+    <hr>
+    <p class="h3">За 5 уроків ти:</p>
+    <div class="list">
+      <div><i>✓</i><span>Налаштуєш власного AI-асистента, який пише сценарії й розкадровки замість тебе</span></div>
+      <div><i>✓</i><span>Створиш картку персонажа — і герой буде однаковим у кожному кадрі</span></div>
+      <div><i>✓</i><span>Оживиш кадри у відео й озвучиш їх українською з правильними наголосами</span></div>
+      <div><i>✓</i><span>Змонтуєш повний мультик: сцени, звук, саунд-дизайн — без артефактів і швів</span></div>
+      <div><i>✓</i><span>Знатимеш формат, який набирає перегляди, і зможеш робити мультики на замовлення</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ 11. AI-АСИСТЕНТИ ═══ -->
+  <section class="card dark">
+    <h2 class="h h2">Авторські <span style="color:var(--lime)">AI-асистенти</span> всередині воркшопу</h2>
+    <div class="tools">
+      <div class="tool"><div class="tico"><svg viewBox="0 0 48 48" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linejoin="round"><path d="M5 7h38v27H21l-9 8v-8H5z" fill="#fff"/><path d="M24 12l3 6 6 3-6 3-3 6-3-6-6-3 6-3z" fill="var(--accent)" stroke="none"/><circle cx="38" cy="40" r="4" fill="var(--lime)" stroke="none"/></svg></div><div><b>Майстер-промт</b><span>налаштовує твого особистого AI-асистента під мультики</span></div></div>
+      <div class="tool"><div class="tico"><svg viewBox="0 0 48 48" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linejoin="round"><rect x="5" y="18" width="38" height="24" fill="#fff"/><path d="M5 8h38v10H5z" fill="var(--accent)"/><path d="M15 8l-5 10M26 8l-5 10M37 8l-5 10" stroke="#fff" stroke-width="2.4"/><path d="M20 25l11 6-11 6z" fill="var(--lime)" stroke="none"/></svg></div><div><b>Claude Skill</b><span>пише якісні креативні сценарії під мультики будь-якого стилю</span></div></div>
+      <div class="tool"><div class="tico"><svg viewBox="0 0 48 48" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linejoin="round"><path d="M9 5h20l10 10v28H9z" fill="#fff"/><path d="M29 5v10h10"/><rect x="15" y="21" width="8" height="8" fill="var(--accent)" stroke="none"/><rect x="25" y="21" width="8" height="8" fill="var(--lime)" stroke="none"/><rect x="15" y="31" width="8" height="8" fill="#0A0A0A" stroke="none"/><rect x="25" y="31" width="8" height="8" fill="#D5D5D5" stroke="none"/></svg></div><div><b>PDF зі стилями</b><span>усі стилі мультиків, які вміють робити нейронки, з готовими промтами</span></div></div>
+    </div>
+    <p class="tlbl">Разом ці інструменти:</p>
+    <div class="list">
+      <div><i style="color:var(--lime)">—</i><span>економлять до <b>2 годин</b> роботи над одним мультиком</span></div>
+      <div><i style="color:var(--lime)">—</i><span>допомагають зберігати однакового персонажа у різних сценах</span></div>
+      <div><i style="color:var(--lime)">—</i><span>зменшують кількість артефактів при нових генераціях</span></div>
+      <div><i style="color:var(--lime)">—</i><span>пропонують нові ідеї для мультиків, коли у вас закінчилося натхнення</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ 12. ГАРАНТІЯ ═══ -->
+  <section class="card">
+    <h2 class="h h2">14 днів на <span class="acc">повернення коштів</span></h2>
+    <div class="guar">
+      <div class="seal">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M50.0,1.0L55.4,5.8L61.7,2.4L65.8,8.4L72.8,6.6L75.3,13.4L82.5,13.3L83.3,20.5L90.3,22.2L89.4,29.3L95.8,32.6L93.2,39.4L98.6,44.1L94.5,50.0L98.6,55.9L93.2,60.6L95.8,67.4L89.4,70.7L90.3,77.8L83.3,79.5L82.5,86.7L75.3,86.6L72.8,93.4L65.8,91.6L61.7,97.6L55.4,94.2L50.0,99.0L44.6,94.2L38.3,97.6L34.2,91.6L27.2,93.4L24.7,86.6L17.5,86.7L16.7,79.5L9.7,77.8L10.6,70.7L4.2,67.4L6.8,60.6L1.4,55.9L5.5,50.0L1.4,44.1L6.8,39.4L4.2,32.6L10.6,29.3L9.7,22.2L16.7,20.5L17.5,13.3L24.7,13.4L27.2,6.6L34.2,8.4L38.3,2.4L44.6,5.8Z" fill="var(--lime)" stroke="#0A0A0A" stroke-width="2.4" stroke-linejoin="round"/>
+          <circle cx="50" cy="50" r="38" fill="none" stroke="#0A0A0A" stroke-width="1.2" stroke-dasharray="3 3"/>
+        </svg>
+        <b><i>14</i><u>днів</u><s>гарантія</s></b>
+      </div>
+      <p>Я впевнений у якості цього воркшопу, тому даю <b>14 днів повної гарантії</b>.</p>
+      <p>Якщо протягом двох тижнів ти пройдеш уроки, створиш свій перший АІ-мультик — але не побачиш
+         цінності або очікуваного результату — я без жодних питань поверну кошти.</p>
+      <p class="last">Жодних ризиків. Або ти створюєш свій АІ-мультфільм — або я повертаю гроші.</p>
+
+      <div class="gsep"></div>
+      <p class="glabel">Додаткова гарантія</p>
+      <div class="rate">
+        <b>4,9</b><em>із 5</em>
+        <div class="stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.5 7L12 17.5 5.8 21.1l1.5-7L2 9.3l7.1-.7z" fill="var(--lime)" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.5 7L12 17.5 5.8 21.1l1.5-7L2 9.3l7.1-.7z" fill="var(--lime)" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.5 7L12 17.5 5.8 21.1l1.5-7L2 9.3l7.1-.7z" fill="var(--lime)" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.5 7L12 17.5 5.8 21.1l1.5-7L2 9.3l7.1-.7z" fill="var(--lime)" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.5 7L12 17.5 5.8 21.1l1.5-7L2 9.3l7.1-.7z" fill="var(--lime)" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+      </div>
+      <p>Середня оцінка моїх інших мінікурсів та воркшопів.</p>
+      <p style="margin-top:12px">Знаєш, коли люди запитують про повернення коштів?</p>
+      <p class="punch">Коли випадково придбали мій мінікурс або воркшоп ще один раз.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 13. АВТОР ═══ -->
+  <section class="card dark auth">
+    <h2 class="h h2">Олександр <span style="color:var(--lime)">Цюцьмаць</span></h2>
+    <div class="ava"><video src="preview.mp4" autoplay muted loop playsinline
+           preload="metadata" aria-label="Мультяшний Олександр"></video></div>
+    <div class="facts">
+      <div><i>✓</i><span>Вивчаю АІ-інструменти <b>кожен день з 2024 року</b></span></div>
+      <div><i>✓</i><span><b>Власник агенції</b> зі створення АІ-контенту під ключ</span></div>
+      <div><i>✓</i><span><b>7 141 учень</b> уже пройшов мої навчальні програми</span></div>
+      <div><i>✓</i><span>Створив десятки авторських AI-асистентів, якими користуються мої клієнти та учні</span></div>
+      <div><i>✓</i><span>Я вірю, що AI — це <b>не про «магію кнопки»</b>, а про системний підхід і авторські інструменти</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ 14. ЩО ОТРИМАЄШ + ЦІНА ═══ -->
+  <section class="card violet offer">
+    <h2 class="h h2">Повний список усього, <span style="color:var(--lime)">що ти отримаєш</span></h2>
+    <ul class="incl">
+      <li><i></i><span>5 практичних уроків + 1 додатковий</span></li>
+      <li><i></i><span>Готові промти, які я використовую щодня</span></li>
+      <li><i></i><span>Покрокова методологія створення мультиків</span></li>
+      <li class="bon"><i></i><span><b>Бонус 1</b> Майстер-промт для власного AI-асистента</span></li>
+      <li class="bon"><i></i><span><b>Бонус 2</b> Claude Skill для сценаріїв</span></li>
+      <li class="bon"><i></i><span><b>Бонус 3</b> PDF з усіма стилями мультиків</span></li>
+      <li><i></i><span>Доступ до воркшопу — назавжди</span></li>
+      <li><i></i><span>Підтримка від куратора</span></li>
+      <li><i></i><span>Гарантія повернення коштів на 14 днів</span></li>
+    </ul>
+
+    <div class="obox">
+      <p class="olbl">спеціальна ціна</p>
+      <div class="price" style="justify-content:center">
+        <b>390</b><span class="cur">грн</span><s>2 113 грн</s><em>−82%</em>
+      </div>
+      <p class="sm" style="margin-top:8px">тільки до кінця таймера</p>
+      <div class="timer"><i data-t="h">00</i><i data-t="m">10</i><i data-t="s">00</i></div>
+      <a class="btn cta" href="https://app.zenedu.io/l/gDjSosG9W3vo29wC" target="_blank" rel="noopener"><span>Створити АІ мультфільм</span><i>−82%</i></a>
+    </div>
+  </section>
+
+  <!-- ═══ 15. СОЦДОКАЗ ═══ -->
+  <section class="card dark">
+    <h2 class="h h2">Хвалюся!</h2>
+    <p class="p">Ось відгуки від моїх студентів інших навчальних програм.</p>
+    <p class="p">До речі, мої курси вже пройшло <b style="color:var(--lime)">7 141 студент</b>.
+       З них <b style="color:var(--lime)">90%</b> доходять до кінця та кажуть:</p>
+    <blockquote class="quote">Сашко, за 390 грн — це ВАУ!</blockquote>
+
+    <div class="revs">
+      <figure class="rev"><img src="rev-1.jpg" width="900" height="471" alt="Відгук студента 1" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-2.jpg" width="900" height="321" alt="Відгук студента 2" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-3.jpg" width="900" height="246" alt="Відгук студента 3" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-4.jpg" width="900" height="289" alt="Відгук студента 4" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-5.jpg" width="900" height="261" alt="Відгук студента 5" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-6.jpg" width="900" height="546" alt="Відгук студента 6" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-7.jpg" width="900" height="240" alt="Відгук студента 7" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-8.jpg" width="511" height="900" alt="Відгук студента 8" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-9.jpg" width="531" height="900" alt="Відгук студента 9" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-10.jpg" width="653" height="900" alt="Відгук студента 10" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-11.jpg" width="900" height="505" alt="Відгук студента 11" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-12.jpg" width="900" height="685" alt="Відгук студента 12" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-13.jpg" width="770" height="900" alt="Відгук студента 13" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-14.jpg" width="900" height="747" alt="Відгук студента 14" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-15.jpg" width="880" height="900" alt="Відгук студента 15" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-16.jpg" width="900" height="707" alt="Відгук студента 16" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-17.jpg" width="900" height="516" alt="Відгук студента 17" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-18.jpg" width="817" height="900" alt="Відгук студента 18" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-19.jpg" width="877" height="900" alt="Відгук студента 19" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-20.jpg" width="900" height="358" alt="Відгук студента 20" loading="lazy"></figure>
+      <figure class="rev"><img src="rev-21.jpg" width="900" height="802" alt="Відгук студента 21" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- ═══ 15b. ФІНАЛЬНИЙ CTA ═══ -->
+  <section class="card dark final">
+    <p class="fkick">Старт <span data-start>завтра</span></p>
+    <h2 class="h h2">Твій перший <span style="color:var(--lime)">АІ-мультик</span> — уже сьогодні</h2>
+    <p class="p">Перший урок приходить у бот одразу після оплати. Далі — 5 вечорів: щовечора один короткий урок і домашнє завдання.</p>
+    <div class="price" style="margin-top:18px">
+      <b>390</b><span class="cur">грн</span><s>2 113 грн</s><em>−82%</em>
+    </div>
+    <a class="btn cta lime" href="https://app.zenedu.io/l/gDjSosG9W3vo29wC" target="_blank" rel="noopener"><span>Створити АІ мультфільм</span><i>−82%</i></a>
+    <p class="sm" style="text-align:center;margin-top:11px">14 днів гарантії повернення коштів</p>
+  </section>
+
+  <!-- ═══ 16. FAQ ═══ -->
+  <section class="card">
+    <h2 class="h h2">Питання — <span class="acc">відповіді</span></h2>
+    <div style="margin-top:14px">
+      <div class="item"><div style="flex:1"><details><summary class="q">Я повний новачок в AI. У мене вийде?</summary><p class="res">Так. Воркшоп побудований від нуля: перший урок починається з того, як налаштувати AI-асистента, а закінчується твоїм першим готовим мультиком. Кожен крок — це конкретна інструкція: що натиснути, куди завантажити, який промт скопіювати. Малювати не треба, монтувати раніше теж не треба було.</p></details></div></div>
+      <div class="item"><div style="flex:1"><details><summary class="q">Скільки часу займе воркшоп?</summary><p class="res">5 вечорів: щовечора в бот приходить один короткий урок і домашнє завдання до нього. Перший мультик можна зробити вже сьогодні, одразу після першого уроку. Доступ лишається назавжди, тож повертатися до матеріалів можна будь-коли.</p></details></div></div>
+      <div class="item"><div style="flex:1"><details><summary class="q">Чи треба платні підписки на нейромережі?</summary><p class="res">У першому уроці я показую спосіб згенерувати мультик безкоштовно — щоб ти переконався, що виходить, ще до будь-яких витрат. Але якщо робити мультики регулярно й на професійному рівні, підписки потрібні. Для старту на цьому воркшопі знадобиться від $40. Я також показую, як економити кредити й отримувати результат із першого-другого разу.</p></details></div></div>
+      <div class="item"><div style="flex:1"><details><summary class="q">Мультики будуть українською?</summary><p class="res">Так, і це окрема частина воркшопу. Розбираємо озвучку якісним дикторським голосом, правильні наголоси, ліпсинк українською й те, як прописати промт, щоб персонажі не плутали репліки між собою. Це саме те, чого немає в англомовних туторіалах.</p></details></div></div>
+      <div class="item"><div style="flex:1"><details><summary class="q">А що з англійською? Я її не знаю.</summary><p class="res">Знати англійську не потрібно. Усі уроки українською, усі промти — готові, їх достатньо скопіювати. Інтерфейси нейронок ми проходимо покроково: що де натиснути.</p></details></div></div>
+      <div class="item"><div style="flex:1"><details><summary class="q">Чим цей воркшоп відрізняється від твоїх попередніх продуктів?</summary><p class="res">Це окремий продукт про одну конкретну навичку — створення мультиків від ідеї до змонтованого ролика. Тут повний цикл в одному місці: персонаж, сценарій, кадри, озвучка, монтаж, віральність. Плюс Seedance 2.5 — модель, яка вийшла зовсім нещодавно.</p></details></div></div>
+      <div class="item"><div style="flex:1"><details><summary class="q">Чи актуальна інформація?</summary><p class="res">Так. У програмі — Seedance 2.5, Nano Banana 2, Gemini Omni Flash, Higgsfield AI: інструменти, які з'явилися буквально нещодавно. Доступ до воркшопу назавжди, тож матеріали лишаються з тобою.</p></details></div></div>
+      <div class="item"><div style="flex:1"><details><summary class="q">Що, якщо не сподобається?</summary><p class="res">14 днів на повернення коштів. Пройди уроки, зроби свій перший мультик — і якщо не побачиш цінності, я поверну гроші без запитань.</p></details></div></div>
+      <div class="item"><div style="flex:1"><details><summary class="q">Чи потрібен потужний комп'ютер?</summary><p class="res">Ні. Уся генерація відбувається на серверах нейромереж, у тебе в браузері. Монтаж — у ⟨CapCut?⟩, який працює навіть на телефоні.</p></details></div></div>
+      <div class="item"><div style="flex:1"><details><summary class="q">Чи зможу я робити мультики на замовлення?</summary><p class="res">Технічно так — на уроці монтажу ми проходимо повний цикл на комерційному форматі: історія кохання пари, те, що люди найчастіше замовляють у подарунок. Замовники платять $70–150 за хвилину мультфільму. Але воркшоп навчає навички, а не пошуку клієнтів — це вже твоя робота.</p></details></div></div>
+    </div>
+    <a class="btn shine" style="margin-top:18px" href="https://app.zenedu.io/l/gDjSosG9W3vo29wC" target="_blank" rel="noopener">Приєднатися за 390 грн →</a>
+  </section>
+
+  <!-- ═══ 17. ФУТЕР ═══ -->
+  <footer class="card">
+    <p class="sm" style="margin-bottom:10px">З будь-яких питань пишіть у підтримку ↓</p>
+    <a class="btn" style="background:var(--ink)" href="https://t.me/Mihail_Zemlianoy">💬 Технічна підтримка</a>
+    <hr>
+    <div class="foot">
+      <b>СТЕПАНЕНКО БОГДАН ОЛЕКСАНДРОВИЧ ФОП</b>ЄДРПОУ 3757902952 · stepanenkob30@gmail.com
+      <b>ЗЕМЛЯНИЙ МИХАЙЛО СЕРГІЙОВИЧ ФОП</b>ЄДРПОУ 3758302175 · +380 98 596 6120
+      <b>БРЖЕСТОВСЬКА ГАННА ЮРІЇВНА ФОП</b>ЄДРПОУ 2877703349
+      <p style="margin-top:12px"><a href="politika.html">Політика конфіденційності</a> · <a href="oferta.html">Договір оферти</a></p>
+      <p style="margin-top:10px"><b style="display:inline">ВАЖЛИВО:</b> не вводьте свою контактну інформацію, доки не прочитаєте legal disclaimer. Ми не даємо жодних гарантій, що ви досягнете якихось результатів за допомогою наших інструментів, стратегій або інформації. Всі продукти і сервіси компанії призначені для освітніх цілей. Ви несете відповідальність за свої дії і результати.</p>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ЛИПКА ПАНЕЛЬ -->
+<div class="sticky" id="sticky">
+  <div class="sprice">
+    <b>390<em>грн</em></b>
+    <s>2 113 грн</s>
+  </div>
+  <div class="stwrap">
+    <a class="btn shine" href="https://app.zenedu.io/l/gDjSosG9W3vo29wC" target="_blank" rel="noopener">Створити АІ мультфільм</a>
+    <div class="badge sm">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M50.0,1.0L54.5,6.2L60.4,3.0L63.5,9.1L70.1,7.4L71.7,14.0L78.5,14.0L78.5,20.8L85.1,22.4L83.4,29.0L89.5,32.1L86.3,38.0L91.5,42.5L87.0,47.7L91.5,52.9L86.3,57.4L89.5,63.3L83.4,66.4L85.1,73.0L78.5,74.6L78.5,81.4L71.7,81.4L70.1,88.0L63.5,86.3L60.4,92.4L54.5,89.2L50.0,94.4L45.5,89.2L39.6,92.4L36.5,86.3L29.9,88.0L28.3,81.4L21.5,81.4L21.5,74.6L14.9,73.0L16.6,66.4L10.5,63.3L13.7,57.4L8.5,52.9L13.0,47.7L8.5,42.5L13.7,38.0L10.5,32.1L16.6,29.0L14.9,22.4L21.5,20.8L21.5,14.0L28.3,14.0L29.9,7.4L36.5,9.1L39.6,3.0L45.5,6.2Z"
+              fill="var(--lime)" stroke="#0A0A0A" stroke-width="2.5" stroke-linejoin="round"/>
+      </svg>
+      <b>−82%</b>
+    </div>
+  </div>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+// відео-галерея прикладів: плей за кліком, зі звуком; пауза, коли пішли зі скролом
+(function(){
+  var cells = [].slice.call(document.querySelectorAll('.gal .ph.v'));
+  if(!cells.length) return;
+
+  function stopOthers(cur){
+    cells.forEach(function(c){
+      var v = c.querySelector('video');
+      if(v !== cur && !v.paused){ v.pause() }
+    });
+  }
+
+  cells.forEach(function(cell){
+    var v = cell.querySelector('video');
+    function toggle(){
+      if(v.paused){
+        stopOthers(v);
+        if(!v.src){ v.src = v.dataset.src }
+        v.muted = false;
+        v.volume = 1;
+        v.play().catch(function(){});
+      } else {
+        v.pause();
+      }
+    }
+    cell.addEventListener('click', toggle);
+    v.addEventListener('play',  function(){ cell.classList.add('on') });
+    v.addEventListener('pause', function(){ cell.classList.remove('on') });
+    v.addEventListener('ended', function(){ cell.classList.remove('on') });
+  });
+
+  // пішли зі скролом — ставимо на паузу
+  var last = 0;
+  function checkVisible(){
+    last = new Date().getTime();
+    cells.forEach(function(c){
+      var v = c.querySelector('video');
+      if(v.paused) return;
+      var r = c.getBoundingClientRect();
+      var seen = Math.min(r.bottom, window.innerHeight || 0) - Math.max(r.top, 0);
+      if(seen < r.height * 0.35){ v.pause() }
+    });
+  }
+  document.addEventListener('scroll', function(){
+    if(new Date().getTime() - last < 120) return;
+    checkVisible();
+  }, {capture:true, passive:true});
+  window.addEventListener('resize', checkVisible, {passive:true});
+
+  // пішли з вкладки — теж пауза
+  document.addEventListener('visibilitychange', function(){
+    if(!document.hidden) return;
+    cells.forEach(function(c){
+      var v = c.querySelector('video');
+      if(!v.paused){ v.pause() }
+    });
+  });
+
+  // підвантажуємо метадані заздалегідь, щоб клік спрацьовував одразу
+  if('IntersectionObserver' in window){
+    var lio = new IntersectionObserver(function(list){
+      list.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var v = e.target.querySelector('video');
+        if(!v.src){ v.preload = 'metadata'; v.src = v.dataset.src }
+        lio.unobserve(e.target);
+      });
+    }, {rootMargin:'300px 0px'});
+    cells.forEach(function(c){ lio.observe(c) });
+  }
+})();
+// сегменти та бонуси — поява по черзі під час скролу
+(function(){
+  var segs = document.querySelectorAll('.seg, .bcard');
+  if(!segs.length) return;
+  if(!('IntersectionObserver' in window)){
+    segs.forEach(function(s){ s.classList.add('in') }); return;
+  }
+  var io = new IntersectionObserver(function(list){
+    list.forEach(function(entry){
+      if(!entry.isIntersecting) return;
+      var el = entry.target;
+      setTimeout(function(){ el.classList.add('in') }, (el.dataset.i % 4) * 110);
+      io.unobserve(el);
+    });
+  }, {threshold:.2, rootMargin:'0px 0px -8% 0px'});
+  segs.forEach(function(s,i){ s.dataset.i = i; io.observe(s) });
+})();
+// дата старту = завтра відносно дня, коли людина відкрила сторінку
+(function(){
+  var d = new Date();
+  d.setDate(d.getDate() + 1);
+  var s = ('0'+d.getDate()).slice(-2) + '.' + ('0'+(d.getMonth()+1)).slice(-2);
+  document.querySelectorAll('[data-start]').forEach(function(n){ n.textContent = s });
+})();
+// таймер спецціни: 10 хвилин від відкриття сторінки, без сховищ
+(function(){
+  var end = Date.now() + 10*60*1000;
+  var el = document.querySelectorAll('[data-t]');
+  function pad(n){return n<10?'0'+n:''+n}
+  function tick(){
+    var l = Math.max(0, end - Date.now()), s = Math.floor(l/1000);
+    var v = {h:pad(Math.floor(s/3600)), m:pad(Math.floor(s%3600/60)), s:pad(s%60)};
+    el.forEach(function(n){
+      var nv = v[n.dataset.t];
+      if(n.textContent === nv) return;           // перекидаємо тільки те, що змінилось
+      n.classList.add('flip');
+      setTimeout(function(){ n.textContent = nv }, 195);   // підміна на середині оберту
+      setTimeout(function(){ n.classList.remove('flip') }, 430);
+    });
+    if(l>0) setTimeout(tick, 1000);
+  }
+  tick();
+})();
+// липка панель — після першого екрана
+(function(){
+  var b = document.getElementById('sticky');
+  addEventListener('scroll', function(){
+    b.classList.toggle('on', scrollY > 700);
+  }, {passive:true});
+})();
+</script>
+</body>
+</html>
