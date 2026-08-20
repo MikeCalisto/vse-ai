@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Концепт 13 · Дошка — Фабрика АІ контенту</title>
+<meta name="theme-color" content="#E9DCC3">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root{
+  --cork:#E3D2B4;
+  --cork2:#D8C49F;
+  --ink:#25201A;
+  --ink2:#4F4638;
+  --mute:#8B7E68;
+  --note-y:#FFE9A8;
+  --note-m:#C8ECD6;
+  --note-p:#FBD3DA;
+  --note-b:#CFE0F7;
+  --card:#FFFDF7;
+  --red:#C7402E;
+  --blue:#28558F;
+  --green:#2A8256;
+  --hand:'Caveat',cursive;
+  --f:'Nunito',-apple-system,Helvetica,Arial,sans-serif;
+  --sh:3px 5px 12px rgba(37,32,26,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--cork);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background-image:
+    radial-gradient(rgba(120,95,60,.16) 1.1px,transparent 1.2px),
+    radial-gradient(rgba(160,130,85,.14) .9px,transparent 1px),
+    linear-gradient(160deg,#E9DCC3,#DCC9A6);
+  background-size:9px 9px,17px 17px,100% 100%;
+  background-position:0 0,5px 8px,0 0}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:520px;margin:0 auto;padding:0 18px}
+
+/* pin */
+.pin{position:absolute;top:-9px;left:50%;transform:translateX(-50%);width:17px;height:17px;
+  border-radius:50%;z-index:5;
+  background:radial-gradient(circle at 33% 30%,#fff6 0 18%,transparent 20%),
+             radial-gradient(circle at 50% 45%,var(--red) 0 60%,#8A2A1D 100%);
+  box-shadow:0 3px 5px rgba(37,32,26,.4)}
+.pin--b{background:radial-gradient(circle at 33% 30%,#fff6 0 18%,transparent 20%),
+             radial-gradient(circle at 50% 45%,var(--blue) 0 60%,#173A63 100%)}
+.pin--g{background:radial-gradient(circle at 33% 30%,#fff6 0 18%,transparent 20%),
+             radial-gradient(circle at 50% 45%,var(--green) 0 60%,#1B5A3B 100%)}
+.tape{position:absolute;width:70px;height:22px;background:rgba(255,255,255,.42);
+  border-left:1px dashed rgba(37,32,26,.18);border-right:1px dashed rgba(37,32,26,.18);
+  box-shadow:0 1px 3px rgba(37,32,26,.14);z-index:4}
+
+/* top */
+.top{padding:20px 0 0;display:flex;justify-content:center}
+.top .p{position:relative;background:var(--note-y);padding:10px 18px;font-size:.74rem;font-weight:700;
+  box-shadow:var(--sh);transform:rotate(-1.2deg);display:inline-flex;align-items:center;gap:9px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pp 2s ease-in-out infinite}
+@keyframes pp{50%{opacity:.3}}
+.sep{width:1px;height:12px;background:rgba(37,32,26,.2)}
+
+/* hero card */
+.head{margin:26px 0 0;position:relative;background:var(--card);padding:28px 22px 24px;
+  box-shadow:var(--sh);transform:rotate(-.6deg);text-align:center}
+.eyebrow{font-family:var(--hand);font-size:1.18rem;color:var(--blue);line-height:1.3;margin-bottom:16px}
+h1{font-size:clamp(2.4rem,10.8vw,3.6rem);font-weight:900;line-height:.92;letter-spacing:-.042em;
+  text-transform:uppercase}
+h1 span{display:block;color:var(--red)}
+.deck{margin:18px 0 0;font-size:1rem;font-weight:700;line-height:1.44;color:var(--ink2)}
+.deck mark{background:linear-gradient(180deg,transparent 52%,var(--note-y) 52%);color:var(--ink);padding:0 4px}
+
+/* photo notes */
+.board{margin:30px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.snap{position:relative;background:var(--card);padding:9px 9px 30px;box-shadow:var(--sh);
+  transition:transform .28s}
+.snap:nth-child(1){grid-column:span 2;transform:rotate(.8deg)}
+.snap:nth-child(2){transform:rotate(-2deg)}
+.snap:nth-child(3){transform:rotate(1.6deg);margin-top:8px}
+.snap:hover{transform:rotate(0) scale(1.02);z-index:6}
+.snap__box{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--cork2)}
+.snap:nth-child(n+2) .snap__box{aspect-ratio:1/1}
+.snap__box img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
+.snap__box img.on,.snap__box img:only-child{opacity:1}
+.snap figcaption{position:absolute;left:9px;right:9px;bottom:6px;text-align:center;font-family:var(--hand);
+  font-size:1.05rem;color:var(--ink2)}
+
+/* sticky note text */
+.sticky{margin:30px 0 0;position:relative;background:var(--note-m);padding:22px 20px;box-shadow:var(--sh);
+  transform:rotate(.7deg);font-size:.92rem;line-height:1.7;color:var(--ink2)}
+.sticky::after{content:'';position:absolute;right:0;bottom:0;border-width:0 0 22px 22px;
+  border-style:solid;border-color:transparent transparent rgba(37,32,26,.14) transparent}
+.sticky b{color:var(--ink);font-weight:800}
+
+/* checklist on a lined card */
+.chk{margin:26px 0 0;position:relative;background:var(--card);padding:20px 18px;box-shadow:var(--sh);
+  transform:rotate(-.5deg)}
+.chk__t{font-family:var(--hand);font-size:1.26rem;color:var(--red);margin-bottom:8px}
+.chk li{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:start;
+  padding:11px 0;border-bottom:1px dashed rgba(37,32,26,.18);font-size:.89rem;font-weight:600;
+  line-height:1.5;color:var(--ink2)}
+.chk li:last-child{border-bottom:0}
+.chk .box{width:22px;height:22px;flex:0 0 22px;border:2px solid var(--ink);border-radius:4px;
+  display:grid;place-items:center;font-size:.78rem;color:var(--green);font-weight:900;background:#fff}
+
+/* price note */
+.deal{margin:30px 0 0;position:relative;background:var(--note-p);padding:26px 20px 22px;box-shadow:var(--sh);
+  transform:rotate(-1.1deg);text-align:center}
+.deal__t{font-family:var(--hand);font-size:1.22rem;color:var(--red);margin-bottom:6px}
+.prow{display:flex;align-items:baseline;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:6px}
+.pold{font-size:1.14rem;font-weight:700;color:var(--mute);position:relative}
+.pold::after{content:'';position:absolute;left:-5px;right:-5px;top:48%;height:3px;background:var(--red);
+  transform:rotate(-7deg);border-radius:2px}
+.pnew{font-size:clamp(3.3rem,13.5vw,4.3rem);font-weight:900;line-height:.88;letter-spacing:-.05em;color:var(--ink)}
+.pnew i{font-style:normal;font-size:.92rem;font-weight:700;color:var(--ink2);margin-left:5px;letter-spacing:0}
+.cd{margin-top:18px;display:flex;justify-content:center;gap:9px}
+.cd__b{background:var(--card);border-radius:5px;padding:9px 12px;min-width:57px;
+  box-shadow:0 2px 5px rgba(37,32,26,.16)}
+.cd__b b{display:block;font-size:1.32rem;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.cd__b i{font-style:normal;font-size:.57rem;color:var(--mute);font-weight:700}
+.cd__l{margin-top:10px;font-family:var(--hand);font-size:1.08rem;color:var(--ink2)}
+.instal{margin-top:16px;padding-top:15px;border-top:2px dashed rgba(37,32,26,.2);font-size:.83rem;
+  font-weight:600;color:var(--ink2)}
+.instal b{color:var(--ink);font-weight:800}
+.gift{margin-top:12px;background:var(--note-b);padding:11px 13px;font-size:.81rem;font-weight:600;
+  line-height:1.5;color:var(--ink2);transform:rotate(.8deg);box-shadow:0 2px 6px rgba(37,32,26,.16)}
+.gift b{font-weight:800;color:var(--blue)}
+
+.cta{margin:28px 0 0;display:grid;gap:12px}
+.b1{position:relative;display:flex;align-items:center;justify-content:center;gap:11px;background:var(--green);
+  color:#fff;padding:20px;font-weight:800;font-size:.96rem;box-shadow:var(--sh);transform:rotate(-.6deg);
+  transition:transform .2s}
+.b1:hover{transform:rotate(0) translateY(-2px)}
+.b1 b{font-weight:900;font-size:1.08rem}
+.b2{text-align:center;background:var(--card);padding:17px;font-weight:700;font-size:.87rem;
+  color:var(--ink2);box-shadow:var(--sh);transform:rotate(.5deg)}
+
+/* string of tools */
+.mq{margin-top:40px;overflow:hidden;padding:14px 0;background:rgba(37,32,26,.08);
+  border-top:2px dashed rgba(37,32,26,.22);border-bottom:2px dashed rgba(37,32,26,.22)}
+.mq__t{display:flex;width:max-content;white-space:nowrap;animation:mar 34s linear infinite}
+.mq__t span{font-family:var(--hand);font-size:1.22rem;color:var(--ink2);padding:0 15px}
+.mq__t span::after{content:'✦';color:var(--red);margin-left:15px;font-size:.72rem;vertical-align:middle}
+@keyframes mar{to{transform:translateX(-50%)}}
+
+/* sections */
+.sec{padding:44px 0}
+.lbl{display:inline-block;background:var(--note-y);padding:6px 14px;font-family:var(--hand);
+  font-size:1.16rem;color:var(--ink);box-shadow:var(--sh);transform:rotate(-1.6deg);margin-bottom:16px}
+h2{font-size:clamp(1.85rem,7.6vw,2.6rem);font-weight:900;line-height:1.05;letter-spacing:-.04em}
+h2 mark{background:linear-gradient(180deg,transparent 54%,var(--note-y) 54%);color:var(--ink);padding:0 4px}
+.xs{margin:26px 0 0;display:grid;gap:15px}
+.xs li{list-style:none;position:relative;display:grid;grid-template-columns:auto 1fr;gap:13px;
+  align-items:start;background:var(--card);padding:15px 17px;font-size:.89rem;font-weight:600;
+  line-height:1.48;color:var(--ink2);box-shadow:var(--sh)}
+.xs li:nth-child(odd){transform:rotate(-.7deg)}
+.xs li:nth-child(even){transform:rotate(.7deg)}
+.xs .x{width:23px;height:23px;flex:0 0 23px;border:2px solid var(--red);border-radius:4px;
+  display:grid;place-items:center;font-size:.74rem;color:var(--red);font-weight:900}
+.callout{margin:26px 0 0;position:relative;background:var(--note-b);padding:26px 22px;box-shadow:var(--sh);
+  transform:rotate(.5deg);display:grid;gap:14px}
+.callout p{font-size:.94rem;font-weight:600;line-height:1.6;color:var(--ink2)}
+.callout p b{color:var(--ink);font-weight:800}
+.callout p:last-child{font-family:var(--hand);font-size:1.26rem;color:var(--red);font-weight:600;
+  line-height:1.34;padding-top:14px;border-top:2px dashed rgba(37,32,26,.2)}
+.foot{padding:22px 0 46px;text-align:center;font-family:var(--hand);font-size:1.1rem;color:var(--mute)}
+/* opacity-only reveal: several cards carry their own rotate() and a transform here would eat it */
+.reveal{opacity:0;transition:opacity .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.vis{opacity:1}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1}.mq__t{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div class="p">
+    <span class="pin" style="top:-8px"></span>
+    <span class="dot"></span><span>Актуальний на <b id="liveDate">сьогодні</b></span>
+    <span class="sep"></span><span>доступ назавжди</span>
+  </div></div>
+
+  <section class="head">
+    <span class="pin pin--b"></span>
+    <p class="eyebrow">Авторська програма Олександра Цюцьмаця<br>по практичному використанню нейромереж</p>
+    <h1>Фабрика<span>АІ контенту</span></h1>
+    <p class="deck">Створи власну Фабрику AI-контенту за <mark>15 практичних блоків</mark>, з повного 0.</p>
+  </section>
+
+  <div class="board reveal">
+    <figure class="snap">
+      <span class="tape" style="top:-11px;left:22px;transform:rotate(-6deg)"></span>
+      <span class="tape" style="top:-11px;right:22px;transform:rotate(5deg)"></span>
+      <span class="snap__box">
+        <img class="on" src="/fabryka-ai-kontentu/images/samples/sample1.jpg" alt="" fetchpriority="high">
+        <img src="/fabryka-ai-kontentu/images/w9.jpg" alt="" loading="lazy">
+        <img src="/fabryka-ai-kontentu/images/w17.jpg" alt="" loading="lazy">
+      </span>
+      <figcaption>AI-фото та відео</figcaption>
+    </figure>
+    <figure class="snap"><span class="pin pin--g"></span><span class="snap__box"><img src="/fabryka-ai-kontentu/images/samples/sample6.jpg" alt="" loading="lazy"></span><figcaption>персонажі</figcaption></figure>
+    <figure class="snap"><span class="pin"></span><span class="snap__box"><img src="/fabryka-ai-kontentu/images/samples/sample3.jpg" alt="" loading="lazy"></span><figcaption>товар</figcaption></figure>
+  </div>
+
+  <div class="sticky reveal">
+    Навчись <b>генерувати</b>: фото, відео, музику, озвучку, АІ-персонажів, предметну зйомку товару, рекламні ролики для товарів а також аватарів з повного 0 — та <b>монетизуй цю навичку</b> прямо під час проходження курсу практикуму.
+  </div>
+
+  <div class="chk reveal">
+    <span class="pin pin--b"></span>
+    <div class="chk__t">що для цього треба:</div>
+    <ul>
+      <li><span class="box">✓</span><span>Без технічної освіти та складних програм</span></li>
+      <li><span class="box">✓</span><span>Навіть якщо вам 18–60 років</span></li>
+      <li><span class="box">✓</span><span>Є можливість отримати перших клієнтів прямо під час проходження курсу</span></li>
+      <li><span class="box">✓</span><span>Покрокова система: повторюй → отримуй результат</span></li>
+    </ul>
+  </div>
+
+  <div class="deal reveal">
+    <span class="pin"></span>
+    <div class="deal__t">знижка діє лише 48 годин</div>
+    <div class="prow"><span class="pold">7400 грн</span><span class="pnew">3499<i>грн</i></span></div>
+    <div class="cd">
+      <span class="cd__b"><b id="cdHours">—</b><i>год</i></span>
+      <span class="cd__b"><b id="cdMin">—</b><i>хв</i></span>
+      <span class="cd__b"><b id="cdSec">—</b><i>сек</i></span>
+    </div>
+    <p class="cd__l">до завершення знижки</p>
+    <p class="instal">або оплата частинами на <b>6 платежів</b> · <b>583 грн</b>/міс</p>
+    <div class="gift">🎁 + <b>клуб VSE AI</b> назавжди у подарунок (зазвичай 490 грн/міс)</div>
+  </div>
+
+  <div class="cta">
+    <a href="https://app.zenedu.io/l/rZH9t1mXisTdgf06" target="_blank" rel="noopener" class="b1"><span class="pin" style="top:-10px"></span>Купити курс <b>3499 грн</b> →</a>
+    <a href="#program" class="b2">↓ Дивитись програму</a>
+  </div>
+</div>
+
+<div class="mq"><div class="mq__t">
+  <span>ChatGPT</span><span>NanoBanana</span><span>Grok</span><span>Veo 3.1</span><span>MetaVibes</span><span>ElevenLabs</span><span>MiniMax</span><span>Suno</span><span>HeyGen</span><span>Claude</span><span>Kling 3.0</span><span>Seedance 2.0</span><span>Higgsfield</span>
+  <span>ChatGPT</span><span>NanoBanana</span><span>Grok</span><span>Veo 3.1</span><span>MetaVibes</span><span>ElevenLabs</span><span>MiniMax</span><span>Suno</span><span>HeyGen</span><span>Claude</span><span>Kling 3.0</span><span>Seedance 2.0</span><span>Higgsfield</span>
+</div></div>
+
+<div class="wrap">
+  <section class="sec">
+    <div class="lbl">а що зазвичай?</div>
+    <h2>Чому навчають інші <mark>в АІ?</mark></h2>
+    <ul class="xs reveal">
+      <li><span class="pin" style="top:-8px"></span><span class="x">✕</span><span>Робити конкретний контент по готовому шаблону</span></li>
+      <li><span class="pin pin--b" style="top:-8px"></span><span class="x">✕</span><span>Копіювати чужі промти слово в слово</span></li>
+      <li><span class="pin pin--g" style="top:-8px"></span><span class="x">✕</span><span>Генерувати одне «вірусне» відео за інструкцією</span></li>
+      <li><span class="pin" style="top:-8px"></span><span class="x">✕</span><span>Повторювати за автором, не розуміючи логіки</span></li>
+    </ul>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="lbl">і що в підсумку…</div>
+    <h2>До чого призводить <mark>таке навчання?</mark></h2>
+    <div class="callout reveal">
+      <span class="pin pin--b"></span>
+      <p>У результаті ви просто <b>відтворюєте чужий алгоритм</b>.</p>
+      <p>Але варто змінити задачу, формат або стиль — і ви губитесь.</p>
+      <p>Замість свободи — <b>залежність від шаблону</b>. Замість творчості — копіювання.</p>
+      <p>І в якийсь момент здається, що «AI — це складно» або «це не для мене».</p>
+    </div>
+  </section>
+</div>
+
+<div class="foot">Концепт 13 · Дошка</div>
+
+<script>
+(function(){
+  var m=['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
+  var d=new Date(),el=document.getElementById('liveDate');
+  if(el) el.textContent=d.getDate()+' '+m[d.getMonth()];
+  var H=document.getElementById('cdHours'),M=document.getElementById('cdMin'),S=document.getElementById('cdSec');
+  function pad(n){return n<10?'0'+n:''+n}
+  function tick(){var c=48*3600*1000,t=Math.floor((c-(Date.now()%c))/1000);
+    if(H)H.textContent=pad(Math.floor(t/3600));if(M)M.textContent=pad(Math.floor(t%3600/60));if(S)S.textContent=pad(t%60)}
+  tick();setInterval(tick,1000);
+  var st=document.querySelectorAll('.snap:first-child .snap__box img'),i=0;
+  if(st.length>1)setInterval(function(){st[i].classList.remove('on');i=(i+1)%st.length;st[i].classList.add('on')},3200);
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>

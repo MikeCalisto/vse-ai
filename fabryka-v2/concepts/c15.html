@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Концепт 15 · Маркерна дошка — Фабрика АІ контенту</title>
+<meta name="theme-color" content="#F4F6F5">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root{
+  --board:#F4F6F5;
+  --board2:#E9EDEC;
+  --ink:#1D2422;
+  --ink2:#4E5754;
+  --mute:#8D9793;
+  --mk-blue:#1F62C8;
+  --mk-red:#D8352A;
+  --mk-green:#1E9A5F;
+  --mk-orange:#E8890F;
+  --line:#D5DCDA;
+  --hand:'Caveat',cursive;
+  --f:'Nunito',-apple-system,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--board);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background-image:linear-gradient(118deg,rgba(255,255,255,.9) 0%,transparent 38%),
+                   linear-gradient(300deg,rgba(255,255,255,.7) 0%,transparent 42%)}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:520px;margin:0 auto;padding:0 20px}
+.hand{font-family:var(--hand)}
+
+/* marker underline helper */
+.mk{position:relative;white-space:nowrap}
+.mk svg{position:absolute;left:-6px;right:-6px;bottom:-8px;width:calc(100% + 12px);height:12px}
+
+/* top tray */
+.tray{padding:16px 0 0;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.tray .t{font-family:var(--hand);font-size:1.14rem;color:var(--ink2)}
+.tray .t b{color:var(--mk-blue)}
+.pens{display:flex;gap:5px}
+.pens i{width:9px;height:30px;border-radius:3px 3px 5px 5px;display:block;
+  box-shadow:0 2px 4px rgba(29,36,34,.18)}
+.pens i:nth-child(1){background:var(--mk-blue)}
+.pens i:nth-child(2){background:var(--mk-red)}
+.pens i:nth-child(3){background:var(--mk-green)}
+.pens i:nth-child(4){background:var(--mk-orange)}
+.pip{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--mk-green);
+  margin-right:7px;animation:pp 2s ease-in-out infinite}
+@keyframes pp{50%{opacity:.3}}
+
+/* hero — drawn on the board */
+.hero{padding:26px 0 0}
+.eyebrow{font-family:var(--hand);font-size:1.2rem;color:var(--mk-blue);line-height:1.32;margin-bottom:16px}
+.eyebrow::before{content:'';display:inline-block;width:16px;height:2px;background:var(--mk-blue);
+  vertical-align:middle;margin-right:9px}
+h1{font-size:clamp(2.6rem,11.4vw,3.9rem);font-weight:900;line-height:.9;letter-spacing:-.045em;
+  text-transform:uppercase}
+h1 span{display:block;color:var(--mk-blue)}
+.h-underline{margin-top:8px;width:78%;height:13px}
+.deck{margin:20px 0 0;font-size:1.02rem;font-weight:700;line-height:1.46;color:var(--ink2)}
+.aside{margin-top:16px;font-family:var(--hand);font-size:1.2rem;color:var(--mk-red);display:inline-block;
+  transform:rotate(-1.4deg)}
+
+/* magnets + photos */
+.mags{margin:28px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mag{position:relative;background:#fff;padding:8px;border-radius:3px;
+  box-shadow:0 6px 16px -6px rgba(29,36,34,.4);transition:transform .28s}
+.mag:nth-child(1){grid-column:span 2;transform:rotate(-.7deg)}
+.mag:nth-child(2){transform:rotate(1.5deg)}
+.mag:nth-child(3){transform:rotate(-1.3deg)}
+.mag:hover{transform:rotate(0) translateY(-3px)}
+.mag__box{position:relative;display:block;width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--board2)}
+.mag:nth-child(n+2) .mag__box{aspect-ratio:1/1}
+.mag__box img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .85s}
+.mag__box img.on,.mag__box img:only-child{opacity:1}
+.mag figcaption{font-family:var(--hand);font-size:1.04rem;color:var(--ink2);text-align:center;padding-top:4px}
+.magnet{position:absolute;width:20px;height:20px;border-radius:50%;z-index:4;
+  box-shadow:0 3px 6px rgba(29,36,34,.35),inset 0 -2px 4px rgba(0,0,0,.2),inset 0 2px 3px rgba(255,255,255,.5)}
+.m-r{background:radial-gradient(circle at 36% 30%,#ff8a80,var(--mk-red))}
+.m-b{background:radial-gradient(circle at 36% 30%,#8ab4ff,var(--mk-blue))}
+.m-g{background:radial-gradient(circle at 36% 30%,#7fe0ac,var(--mk-green))}
+
+/* drawn box */
+.dbox{margin:28px 0 0;position:relative;padding:22px 20px;font-size:.93rem;line-height:1.72;
+  color:var(--ink2);background:rgba(255,255,255,.55)}
+.dbox svg.frame{position:absolute;inset:-4px;width:calc(100% + 8px);height:calc(100% + 8px);pointer-events:none}
+.dbox b{color:var(--ink);font-weight:800}
+.dbox__t{position:absolute;top:-13px;left:18px;background:var(--board);padding:0 9px;font-family:var(--hand);
+  font-size:1.14rem;color:var(--mk-green)}
+
+/* bullets with hand ticks */
+.ticks{margin:24px 0 0;display:grid;gap:14px}
+.ticks li{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  font-size:.9rem;font-weight:700;line-height:1.5;color:var(--ink2)}
+.ticks .tk{width:26px;height:26px;flex:0 0 26px;position:relative}
+.ticks .tk svg{position:absolute;inset:0;width:100%;height:100%}
+
+/* price — drawn frame */
+.deal{margin:32px 0 0;position:relative;padding:26px 20px 22px;text-align:center;
+  background:rgba(255,255,255,.72)}
+.deal svg.frame{position:absolute;inset:-5px;width:calc(100% + 10px);height:calc(100% + 10px);pointer-events:none}
+.deal__t{font-family:var(--hand);font-size:1.24rem;color:var(--mk-red);margin-bottom:6px}
+.prow{display:flex;align-items:baseline;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:6px}
+.pold{font-size:1.15rem;font-weight:700;color:var(--mute);position:relative}
+.pold svg{position:absolute;left:-8px;right:-8px;top:4px;width:calc(100% + 16px);height:20px}
+.pnew{font-size:clamp(3.4rem,14vw,4.4rem);font-weight:900;line-height:.88;letter-spacing:-.05em;
+  color:var(--mk-blue)}
+.pnew i{font-style:normal;font-size:.92rem;font-weight:700;color:var(--ink2);margin-left:5px;letter-spacing:0}
+.cd{margin-top:20px;display:flex;justify-content:center;gap:10px}
+.cd__b{background:#fff;border-radius:4px;padding:9px 13px;min-width:58px;
+  box-shadow:0 3px 8px -3px rgba(29,36,34,.4)}
+.cd__b b{display:block;font-size:1.34rem;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.cd__b i{font-style:normal;font-size:.57rem;color:var(--mute);font-weight:700}
+.cd__l{margin-top:11px;font-family:var(--hand);font-size:1.1rem;color:var(--ink2)}
+.instal{margin-top:18px;padding-top:16px;border-top:2px dashed var(--line);font-size:.84rem;
+  font-weight:600;color:var(--ink2)}
+.instal b{color:var(--ink);font-weight:800}
+.gift{margin-top:12px;font-size:.82rem;font-weight:700;line-height:1.5;color:var(--ink2)}
+.gift b{color:var(--mk-green);font-weight:800}
+
+.cta{margin:26px 0 0;display:grid;gap:12px}
+.b1{display:flex;align-items:center;justify-content:center;gap:11px;background:var(--mk-green);color:#fff;
+  border-radius:6px;padding:20px;font-weight:800;font-size:.96rem;
+  box-shadow:0 5px 0 #146B42;transition:transform .16s,box-shadow .16s}
+.b1:hover{transform:translateY(3px);box-shadow:0 2px 0 #146B42}
+.b1 b{font-weight:900;font-size:1.08rem}
+.b2{position:relative;text-align:center;padding:17px;font-weight:700;font-size:.87rem;color:var(--ink2)}
+.b2 svg.frame{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+
+/* marquee */
+.mq{margin-top:38px;overflow:hidden;padding:13px 0;background:rgba(31,98,200,.08);
+  border-top:2px solid rgba(31,98,200,.25);border-bottom:2px solid rgba(31,98,200,.25)}
+.mq__t{display:flex;width:max-content;white-space:nowrap;animation:mar 34s linear infinite}
+.mq__t span{font-family:var(--hand);font-size:1.24rem;color:var(--mk-blue);padding:0 15px}
+.mq__t span::after{content:'→';color:var(--mute);margin-left:15px;font-size:.9rem}
+@keyframes mar{to{transform:translateX(-50%)}}
+
+/* sections */
+.sec{padding:44px 0}
+.lbl{font-family:var(--hand);font-size:1.24rem;color:var(--mk-orange);display:inline-block;
+  transform:rotate(-1.4deg);margin-bottom:8px}
+h2{font-size:clamp(1.85rem,7.6vw,2.6rem);font-weight:900;line-height:1.05;letter-spacing:-.04em}
+.xs{margin:26px 0 0;display:grid;gap:14px}
+.xs li{list-style:none;position:relative;display:grid;grid-template-columns:auto 1fr;gap:14px;
+  align-items:start;padding:15px 17px;font-size:.9rem;font-weight:700;line-height:1.5;color:var(--ink2);
+  background:rgba(255,255,255,.6)}
+.xs li svg.frame{position:absolute;inset:-3px;width:calc(100% + 6px);height:calc(100% + 6px);pointer-events:none}
+.xs .x{width:22px;height:22px;flex:0 0 22px;display:grid;place-items:center;font-size:.86rem;
+  color:var(--mk-red);font-weight:900}
+.callout{margin:26px 0 0;position:relative;padding:26px 22px;display:grid;gap:14px;
+  background:rgba(255,255,255,.7)}
+.callout svg.frame{position:absolute;inset:-5px;width:calc(100% + 10px);height:calc(100% + 10px);pointer-events:none}
+.callout p{font-size:.95rem;font-weight:700;line-height:1.6;color:var(--ink2)}
+.callout p b{color:var(--ink);font-weight:900}
+.callout p:last-child{font-family:var(--hand);font-size:1.28rem;color:var(--mk-red);font-weight:600;
+  line-height:1.34;padding-top:14px;border-top:2px dashed var(--line)}
+.foot{padding:22px 0 46px;text-align:center;font-family:var(--hand);font-size:1.1rem;color:var(--mute)}
+.reveal{opacity:0;transition:opacity .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.vis{opacity:1}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1}.mq__t{animation:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <path id="uline" d="M3 9 C 60 2, 130 13, 200 6 S 330 11, 397 5" fill="none" stroke-linecap="round"/>
+  <path id="strike" d="M3 12 C 70 4, 150 16, 230 7 S 340 13, 397 8" fill="none" stroke-linecap="round"/>
+  <path id="tick" d="M4 14 L 10 21 L 22 5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path id="rbox" d="M6 3 C 90 -1, 200 2, 294 4 C 297 40, 296 80, 295 117 C 200 121, 90 119, 5 117 C 2 80, 3 40, 6 3 Z" fill="none"/>
+</defs></svg>
+
+<div class="wrap">
+  <div class="tray">
+    <span class="t"><span class="pip"></span>актуальний на <b id="liveDate">сьогодні</b></span>
+    <span class="pens"><i></i><i></i><i></i><i></i></span>
+  </div>
+
+  <section class="hero">
+    <p class="eyebrow">авторська програма Олександра Цюцьмаця<br>по практичному використанню нейромереж</p>
+    <h1>Фабрика<span>АІ контенту</span></h1>
+    <svg class="h-underline" viewBox="0 0 400 13" preserveAspectRatio="none"><use href="#uline" stroke="var(--mk-red)" stroke-width="4"/></svg>
+    <p class="deck">Створи власну Фабрику AI-контенту за <span class="mk">15 практичних блоків<svg viewBox="0 0 400 12" preserveAspectRatio="none"><use href="#uline" stroke="var(--mk-orange)" stroke-width="4.5"/></svg></span>, з повного 0.</p>
+    <div class="aside">↳ і так, справді з нуля</div>
+
+    <div class="mags reveal">
+      <figure class="mag">
+        <span class="magnet m-r" style="top:-9px;left:24px"></span>
+        <span class="magnet m-b" style="top:-9px;right:24px"></span>
+        <span class="mag__box">
+          <img class="on" src="/fabryka-ai-kontentu/images/samples/sample1.jpg" alt="" fetchpriority="high">
+          <img src="/fabryka-ai-kontentu/images/w9.jpg" alt="" loading="lazy">
+          <img src="/fabryka-ai-kontentu/images/w17.jpg" alt="" loading="lazy">
+        </span>
+        <figcaption>AI-фото та відео</figcaption>
+      </figure>
+      <figure class="mag"><span class="magnet m-g" style="top:-9px;left:50%;margin-left:-10px"></span><span class="mag__box"><img src="/fabryka-ai-kontentu/images/samples/sample6.jpg" alt="" loading="lazy"></span><figcaption>персонажі</figcaption></figure>
+      <figure class="mag"><span class="magnet m-r" style="top:-9px;left:50%;margin-left:-10px"></span><span class="mag__box"><img src="/fabryka-ai-kontentu/images/samples/sample3.jpg" alt="" loading="lazy"></span><figcaption>товар</figcaption></figure>
+    </div>
+
+    <div class="dbox reveal">
+      <svg class="frame" viewBox="0 0 300 120" preserveAspectRatio="none"><use href="#rbox" stroke="var(--mk-green)" stroke-width="1.6"/></svg>
+      <span class="dbox__t">що вмітимеш</span>
+      Навчись <b>генерувати</b>: фото, відео, музику, озвучку, АІ-персонажів, предметну зйомку товару, рекламні ролики для товарів а також аватарів з повного 0 — та <b>монетизуй цю навичку</b> прямо під час проходження курсу практикуму.
+    </div>
+
+    <ul class="ticks reveal">
+      <li><span class="tk"><svg viewBox="0 0 26 26"><use href="#tick" stroke="var(--mk-green)" stroke-width="3.4"/></svg></span><span>Без технічної освіти та складних програм</span></li>
+      <li><span class="tk"><svg viewBox="0 0 26 26"><use href="#tick" stroke="var(--mk-green)" stroke-width="3.4"/></svg></span><span>Навіть якщо вам 18–60 років</span></li>
+      <li><span class="tk"><svg viewBox="0 0 26 26"><use href="#tick" stroke="var(--mk-green)" stroke-width="3.4"/></svg></span><span>Є можливість отримати перших клієнтів прямо під час проходження курсу</span></li>
+      <li><span class="tk"><svg viewBox="0 0 26 26"><use href="#tick" stroke="var(--mk-green)" stroke-width="3.4"/></svg></span><span>Покрокова система: повторюй → отримуй результат</span></li>
+    </ul>
+
+    <div class="deal reveal">
+      <svg class="frame" viewBox="0 0 300 120" preserveAspectRatio="none"><use href="#rbox" stroke="var(--mk-blue)" stroke-width="2"/></svg>
+      <div class="deal__t">знижка діє лише 48 годин</div>
+      <div class="prow">
+        <span class="pold">7400 грн<svg viewBox="0 0 400 20" preserveAspectRatio="none"><use href="#strike" stroke="var(--mk-red)" stroke-width="5"/></svg></span>
+        <span class="pnew">3499<i>грн</i></span>
+      </div>
+      <div class="cd">
+        <span class="cd__b"><b id="cdHours">—</b><i>год</i></span>
+        <span class="cd__b"><b id="cdMin">—</b><i>хв</i></span>
+        <span class="cd__b"><b id="cdSec">—</b><i>сек</i></span>
+      </div>
+      <p class="cd__l">до завершення знижки</p>
+      <p class="instal">або оплата частинами на <b>6 платежів</b> · <b>583 грн</b>/міс</p>
+      <p class="gift">🎁 + <b>клуб VSE AI</b> назавжди у подарунок <i>(зазвичай 490 грн/міс)</i></p>
+    </div>
+
+    <div class="cta">
+      <a href="https://app.zenedu.io/l/rZH9t1mXisTdgf06" target="_blank" rel="noopener" class="b1">Купити курс <b>3499 грн</b> →</a>
+      <a href="#program" class="b2"><svg class="frame" viewBox="0 0 300 60" preserveAspectRatio="none"><use href="#rbox" stroke="var(--ink2)" stroke-width="2"/></svg>↓ Дивитись програму</a>
+    </div>
+  </section>
+</div>
+
+<div class="mq"><div class="mq__t">
+  <span>ChatGPT</span><span>NanoBanana</span><span>Grok</span><span>Veo 3.1</span><span>MetaVibes</span><span>ElevenLabs</span><span>MiniMax</span><span>Suno</span><span>HeyGen</span><span>Claude</span><span>Kling 3.0</span><span>Seedance 2.0</span><span>Higgsfield</span>
+  <span>ChatGPT</span><span>NanoBanana</span><span>Grok</span><span>Veo 3.1</span><span>MetaVibes</span><span>ElevenLabs</span><span>MiniMax</span><span>Suno</span><span>HeyGen</span><span>Claude</span><span>Kling 3.0</span><span>Seedance 2.0</span><span>Higgsfield</span>
+</div></div>
+
+<div class="wrap">
+  <section class="sec">
+    <div class="lbl">а що зазвичай?</div>
+    <h2>Чому навчають інші <span class="mk">в АІ?<svg viewBox="0 0 400 12" preserveAspectRatio="none"><use href="#uline" stroke="var(--mk-orange)" stroke-width="5"/></svg></span></h2>
+    <ul class="xs reveal">
+      <li><svg class="frame" viewBox="0 0 300 60" preserveAspectRatio="none"><use href="#rbox" stroke="var(--mk-red)" stroke-width="2"/></svg><span class="x">✕</span><span>Робити конкретний контент по готовому шаблону</span></li>
+      <li><svg class="frame" viewBox="0 0 300 60" preserveAspectRatio="none"><use href="#rbox" stroke="var(--mk-red)" stroke-width="2"/></svg><span class="x">✕</span><span>Копіювати чужі промти слово в слово</span></li>
+      <li><svg class="frame" viewBox="0 0 300 60" preserveAspectRatio="none"><use href="#rbox" stroke="var(--mk-red)" stroke-width="2"/></svg><span class="x">✕</span><span>Генерувати одне «вірусне» відео за інструкцією</span></li>
+      <li><svg class="frame" viewBox="0 0 300 60" preserveAspectRatio="none"><use href="#rbox" stroke="var(--mk-red)" stroke-width="2"/></svg><span class="x">✕</span><span>Повторювати за автором, не розуміючи логіки</span></li>
+    </ul>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="lbl">і що в підсумку…</div>
+    <h2>До чого призводить <span class="mk">таке навчання?<svg viewBox="0 0 400 12" preserveAspectRatio="none"><use href="#uline" stroke="var(--mk-blue)" stroke-width="5"/></svg></span></h2>
+    <div class="callout reveal">
+      <svg class="frame" viewBox="0 0 300 120" preserveAspectRatio="none"><use href="#rbox" stroke="var(--mk-blue)" stroke-width="2"/></svg>
+      <p>У результаті ви просто <b>відтворюєте чужий алгоритм</b>.</p>
+      <p>Але варто змінити задачу, формат або стиль — і ви губитесь.</p>
+      <p>Замість свободи — <b>залежність від шаблону</b>. Замість творчості — копіювання.</p>
+      <p>І в якийсь момент здається, що «AI — це складно» або «це не для мене».</p>
+    </div>
+  </section>
+</div>
+
+<div class="foot">Концепт 15 · Маркерна дошка</div>
+
+<script>
+(function(){
+  var m=['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
+  var d=new Date(),el=document.getElementById('liveDate');
+  if(el) el.textContent=d.getDate()+' '+m[d.getMonth()];
+  var H=document.getElementById('cdHours'),M=document.getElementById('cdMin'),S=document.getElementById('cdSec');
+  function pad(n){return n<10?'0'+n:''+n}
+  function tick(){var c=48*3600*1000,t=Math.floor((c-(Date.now()%c))/1000);
+    if(H)H.textContent=pad(Math.floor(t/3600));if(M)M.textContent=pad(Math.floor(t%3600/60));if(S)S.textContent=pad(t%60)}
+  tick();setInterval(tick,1000);
+  var st=document.querySelectorAll('.mag:first-child .mag__box img'),i=0;
+  if(st.length>1)setInterval(function(){st[i].classList.remove('on');i=(i+1)%st.length;st[i].classList.add('on')},3300);
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>
