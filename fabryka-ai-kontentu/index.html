@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Unbounded:wght@600;700;800;900&display=swap&subset=cyrillic" rel="stylesheet">
 
-<link rel="preload" as="image" href="images/samples/sample1.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="/product-ai-content/IMG_8002.jpg" fetchpriority="high">
 
 <!-- Vercel Web Analytics -->
 <script defer src="/_vercel/insights/script.js"></script>
@@ -296,6 +296,7 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
   isolation:isolate;
 }
 .hero-poster__gallery{position:absolute;inset:0;z-index:1;overflow:hidden}
+.hero-poster__gallery video.g-slide{background:#0a0414}
 .hero-poster__gallery .g-slide{
   position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;display:block;
@@ -1573,6 +1574,21 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
   display:grid;grid-template-columns:repeat(2,1fr);gap:8px;
   margin-top:14px;
 }
+/* gallery is grouped by source course */
+.smp-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  margin:26px 0 2px;padding-bottom:8px;
+  border-bottom:1px solid rgba(124,58,237,.28);
+}
+.smp-head:first-of-type{margin-top:16px}
+.smp-head b{
+  font-family:var(--font-stamp);font-size:.82rem;font-weight:800;
+  letter-spacing:.01em;color:var(--accent3);
+}
+.smp-head span{
+  font-family:var(--font-mono);font-size:.66rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gray-2);white-space:nowrap;
+}
 .samples .item{
   position:relative;border-radius:14px;overflow:hidden;
   aspect-ratio:3/4;background:#0a0806;contain:layout paint style;
@@ -2001,23 +2017,21 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
 
     <figure class="hero-poster reveal">
       <div class="hero-poster__gallery" aria-hidden="true">
-        <img src="images/samples/sample1.jpg" class="g-slide is-active" alt="" fetchpriority="high">
-        <img src="images/samples/sample2.jpg" class="g-slide" alt="" loading="lazy">
-        <img src="images/samples/sample3.jpg" class="g-slide" alt="" loading="lazy">
-        <img src="images/samples/sample4.jpg" class="g-slide" alt="" loading="lazy">
-        <img src="images/samples/sample5.jpg" class="g-slide" alt="" loading="lazy">
-        <img src="images/samples/sample6.jpg" class="g-slide" alt="" loading="lazy">
-        <img src="images/w1.jpg"  class="g-slide" alt="" loading="lazy">
-        <img src="images/w3.jpg"  class="g-slide" alt="" loading="lazy">
-        <img src="images/w5.jpg"  class="g-slide" alt="" loading="lazy">
-        <img src="images/w7.jpg"  class="g-slide" alt="" loading="lazy">
-        <img src="images/w9.jpg"  class="g-slide" alt="" loading="lazy">
+        <img src="/product-ai-content/IMG_8002.jpg" class="g-slide is-active" alt="" fetchpriority="high">
+        <video src="/ai-lyudyna/media/ai-1.mp4" poster="/ai-lyudyna/media/ai-1.jpg" class="g-slide" muted loop playsinline preload="none"></video>
         <img src="images/w11.jpg" class="g-slide" alt="" loading="lazy">
-        <img src="images/w13.jpg" class="g-slide" alt="" loading="lazy">
-        <img src="images/w15.jpg" class="g-slide" alt="" loading="lazy">
+        <video src="/ai-multfilm/mult4.mp4" poster="/ai-multfilm/mult4.jpg" class="g-slide" muted loop playsinline preload="none"></video>
+        <img src="/product-ai-content/hf_20260416_165343_60a4cd98-1795-41e5-af67-d66d1e901d6d.jpg" class="g-slide" alt="" loading="lazy">
+        <img src="images/samples/sample6.jpg" class="g-slide" alt="" loading="lazy">
+        <video src="/ai-lyudyna/media/ai-5.mp4" poster="/ai-lyudyna/media/ai-5.jpg" class="g-slide" muted loop playsinline preload="none"></video>
+        <img src="/product-ai-content/IMG_7066.jpg" class="g-slide" alt="" loading="lazy">
+        <img src="images/samples/sample1.jpg" class="g-slide" alt="" loading="lazy">
         <img src="images/w17.jpg" class="g-slide" alt="" loading="lazy">
-        <img src="images/w19.jpg" class="g-slide" alt="" loading="lazy">
-        <img src="images/w21.jpg" class="g-slide" alt="" loading="lazy">
+        <img src="/ai-multfilm/style-3.jpg" class="g-slide" alt="" loading="lazy">
+        <img src="images/samples/sample3.jpg" class="g-slide" alt="" loading="lazy">
+        <img src="images/w5.jpg" class="g-slide" alt="" loading="lazy">
+        <img src="/product-ai-content/clipsy-image-3596.png" class="g-slide" alt="" loading="lazy">
+        <img src="images/w9.jpg" class="g-slide" alt="" loading="lazy">
       </div>
       <div class="hero-poster__vignette" aria-hidden="true"></div>
 
@@ -2945,33 +2959,81 @@ h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.
     
     <div class="bg-fx waves" aria-hidden="true"></div><h2 class="h-section">ОСЬ, що ви зможете створювати <span class="hl-strong">після курсу</span> «ФАБРИКА АІ контенту з 0»</h2>
 
-    <div class="samples reveal">
-      <div class="item item--video" data-tag="01 · Reels"><video src="images/portfolio1.mp4" muted loop playsinline preload="metadata" poster="images/samples/sample1.jpg"></video></div>
-      <div class="item item--video" data-tag="02 · Reels"><video src="images/portfolio2.mp4" muted loop playsinline preload="metadata" poster="images/samples/sample4.jpg"></video></div>
-      <div class="item item--video" data-tag="03 · Reels"><video src="images/portfolio3.mp4" muted loop playsinline preload="metadata" poster="images/samples/sample6.jpg"></video>
+      <div class="smp-head"><b>Фабрика АІ контенту</b><span>20 робіт</span></div>
+      <div class="samples reveal">
+        <div class="item item--video" data-tag="01 · Reels"><video src="images/portfolio1.mp4" muted loop playsinline preload="none" poster="images/poster-portfolio1.jpg"></video>
           <button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук">
             <svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg>
             <svg class="ico-on"  viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg>
           </button>
-</div>
-      <div class="item item--video" data-tag="04 · Reels"><video src="images/portfolio4.mp4" muted loop playsinline preload="metadata" poster="images/samples/sample2.jpg"></video></div>
-      <div class="item" data-tag="05 · Portrait"><img src="images/samples/sample1.jpg" alt="AI портрет" loading="lazy" decoding="async"></div>
-      <div class="item" data-tag="06 · Pop-art"><img src="images/samples/sample2.jpg" alt="AI pop-art" loading="lazy" decoding="async"></div>
-      <div class="item" data-tag="07 · Product"><img src="images/samples/sample3.jpg" alt="AI предметка" loading="lazy" decoding="async"></div>
-      <div class="item" data-tag="08 · Creature"><img src="images/samples/sample4.jpg" alt="AI істота" loading="lazy" decoding="async"></div>
-      <div class="item" data-tag="09 · Beauty"><img src="images/samples/sample5.jpg" alt="AI б’юті" loading="lazy" decoding="async"></div>
-      <div class="item" data-tag="10 · Cartoon"><img src="images/samples/sample6.jpg" alt="AI мульт" loading="lazy" decoding="async"></div>
-      <div class="item" data-tag="11 · Sport"><img src="images/w1.jpg" alt="AI спорт" loading="lazy" decoding="async"></div>
-      <div class="item" data-tag="12 · Ice"><img src="images/w3.jpg" alt="AI лід" loading="lazy" decoding="async"></div>
-      <div class="item" data-tag="13 · Tech"><img src="images/w5.jpg" alt="AI техно" loading="lazy" decoding="async"></div>
-      <div class="item" data-tag="14 · Knit"><img src="images/w7.jpg" alt="AI ремесло" loading="lazy" decoding="async"></div>
-      <div class="item" data-tag="15 · Audio"><img src="images/w9.jpg" alt="AI звук" loading="lazy" decoding="async"></div>
-      <div class="item" data-tag="16 · Fire"><img src="images/w11.jpg" alt="AI вогонь" loading="lazy" decoding="async"></div>
-      <div class="item" data-tag="17 · Toy"><img src="images/w13.jpg" alt="AI 3D" loading="lazy" decoding="async"></div>
-      <div class="item" data-tag="18 · Tag"><img src="images/w15.jpg" alt="AI портрет" loading="lazy" decoding="async"></div>
-      <div class="item" data-tag="19 · Roses"><img src="images/w17.jpg" alt="AI квіти" loading="lazy" decoding="async"></div>
-      <div class="item item--video" data-tag="20 · Person"><video src="images/ai-person.mp4" muted loop playsinline preload="metadata" poster="images/samples/sample5.jpg"></video></div>
-    </div>
+        </div>
+        <div class="item item--video" data-tag="02 · Beauty"><video src="images/portfolio2.mp4" muted loop playsinline preload="none" poster="images/poster-portfolio2.jpg"></video></div>
+        <div class="item item--video" data-tag="03 · Sport"><video src="images/portfolio3.mp4" muted loop playsinline preload="none" poster="images/poster-portfolio3.jpg"></video></div>
+        <div class="item item--video" data-tag="04 · Product"><video src="images/portfolio4.mp4" muted loop playsinline preload="none" poster="images/poster-portfolio4.jpg"></video></div>
+        <div class="item item--video" data-tag="05 · UGC"><video src="images/ai-person.mp4" muted loop playsinline preload="none" poster="images/poster-ai-person.jpg"></video></div>
+        <div class="item" data-tag="06 · Portrait"><img src="images/samples/sample1.jpg" alt="AI Portrait" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="07 · Pop-art"><img src="images/samples/sample2.jpg" alt="AI Pop-art" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="08 · Product"><img src="images/samples/sample3.jpg" alt="AI Product" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="09 · Creature"><img src="images/samples/sample4.jpg" alt="AI Creature" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="10 · Beauty"><img src="images/samples/sample5.jpg" alt="AI Beauty" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="11 · Cartoon"><img src="images/samples/sample6.jpg" alt="AI Cartoon" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="12 · Sport"><img src="images/w1.jpg" alt="AI Sport" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="13 · Ice"><img src="images/w3.jpg" alt="AI Ice" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="14 · Tech"><img src="images/w5.jpg" alt="AI Tech" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="15 · Knit"><img src="images/w7.jpg" alt="AI Knit" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="16 · Audio"><img src="images/w9.jpg" alt="AI Audio" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="17 · Fire"><img src="images/w11.jpg" alt="AI Fire" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="18 · Toy"><img src="images/w13.jpg" alt="AI Toy" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="19 · Portrait"><img src="images/w15.jpg" alt="AI Portrait" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="20 · Roses"><img src="images/w17.jpg" alt="AI Roses" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="smp-head"><b>AI-людина</b><span>8 робіт</span></div>
+      <div class="samples reveal">
+        <div class="item item--video" data-tag="21 · UGC-ad"><video src="/ai-lyudyna/media/ai-1.mp4" muted loop playsinline preload="none" poster="/ai-lyudyna/media/ai-1.jpg"></video></div>
+        <div class="item item--video" data-tag="22 · Gadget"><video src="/ai-lyudyna/media/ai-2.mp4" muted loop playsinline preload="none" poster="/ai-lyudyna/media/ai-2.jpg"></video></div>
+        <div class="item item--video" data-tag="23 · Sneakers"><video src="/ai-lyudyna/media/ai-3.mp4" muted loop playsinline preload="none" poster="/ai-lyudyna/media/ai-3.jpg"></video></div>
+        <div class="item item--video" data-tag="24 · Neon"><video src="/ai-lyudyna/media/ai-4.mp4" muted loop playsinline preload="none" poster="/ai-lyudyna/media/ai-4.jpg"></video></div>
+        <div class="item item--video" data-tag="25 · Food"><video src="/ai-lyudyna/media/ai-5.mp4" muted loop playsinline preload="none" poster="/ai-lyudyna/media/ai-5.jpg"></video></div>
+        <div class="item item--video" data-tag="26 · Street"><video src="/ai-lyudyna/media/ai-6.mp4" muted loop playsinline preload="none" poster="/ai-lyudyna/media/ai-6.jpg"></video></div>
+        <div class="item item--video" data-tag="27 · Audio"><video src="/ai-lyudyna/media/ai-7.mp4" muted loop playsinline preload="none" poster="/ai-lyudyna/media/ai-7.jpg"></video></div>
+        <div class="item item--video" data-tag="28 · Kitchen"><video src="/ai-lyudyna/media/ai-8.mp4" muted loop playsinline preload="none" poster="/ai-lyudyna/media/ai-8.jpg"></video></div>
+      </div>
+      <div class="smp-head"><b>AI-мультики</b><span>14 робіт</span></div>
+      <div class="samples reveal">
+        <div class="item item--video" data-tag="29 · Scene"><video src="/ai-multfilm/mult1.mp4" muted loop playsinline preload="none" poster="/ai-multfilm/mult1.jpg"></video></div>
+        <div class="item item--video" data-tag="30 · Scene"><video src="/ai-multfilm/mult2.mp4" muted loop playsinline preload="none" poster="/ai-multfilm/mult2.jpg"></video></div>
+        <div class="item item--video" data-tag="31 · Scene"><video src="/ai-multfilm/mult3.mp4" muted loop playsinline preload="none" poster="/ai-multfilm/mult3.jpg"></video></div>
+        <div class="item item--video" data-tag="32 · Scene"><video src="/ai-multfilm/mult4.mp4" muted loop playsinline preload="none" poster="/ai-multfilm/mult4.jpg"></video></div>
+        <div class="item" data-tag="33 · Style"><img src="/ai-multfilm/style-1.jpg" alt="AI Style" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="34 · Style"><img src="/ai-multfilm/style-2.jpg" alt="AI Style" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="35 · Style"><img src="/ai-multfilm/style-3.jpg" alt="AI Style" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="36 · Style"><img src="/ai-multfilm/style-4.jpg" alt="AI Style" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="37 · Style"><img src="/ai-multfilm/style-5.jpg" alt="AI Style" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="38 · Brand"><img src="/ai-multfilm/brand-comfy.jpg" alt="AI Brand" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="39 · Brand"><img src="/ai-multfilm/brand-foxtrot.jpg" alt="AI Brand" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="40 · Brand"><img src="/ai-multfilm/brand-monobank.jpg" alt="AI Brand" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="41 · Brand"><img src="/ai-multfilm/brand-obolon.jpg" alt="AI Brand" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="42 · Brand"><img src="/ai-multfilm/brand-varus.jpg" alt="AI Brand" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="smp-head"><b>Предметна зйомка</b><span>16 робіт</span></div>
+      <div class="samples reveal">
+        <div class="item item--video" data-tag="43 · Product"><video src="/product-ai-content/hf_20260415_212233_2814713c-43c9-4a32-b0ff-cc24ed1c32b1.mp4" muted loop playsinline preload="none" poster="images/poster-product-1.jpg"></video></div>
+        <div class="item" data-tag="44 · Phone"><img src="/product-ai-content/2026-04-21%2023.18.07.jpg" alt="AI Phone" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="45 · Lipstick"><img src="/product-ai-content/IMAGE_2026-04-19_150936.jpg" alt="AI Lipstick" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="46 · Projector"><img src="/product-ai-content/IMAGE_2026-04-19_151104.jpg" alt="AI Projector" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="47 · Camera"><img src="/product-ai-content/IMG_7066.jpg" alt="AI Camera" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="48 · Cosmetics"><img src="/product-ai-content/IMG_7073.jpg" alt="AI Cosmetics" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="49 · Apparel"><img src="/product-ai-content/IMG_7074.jpg" alt="AI Apparel" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="50 · Caviar"><img src="/product-ai-content/IMG_8002.jpg" alt="AI Caviar" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="51 · Projector"><img src="/product-ai-content/IMG_8076.jpg" alt="AI Projector" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="52 · Eyewear"><img src="/product-ai-content/IMG_8260.PNG" alt="AI Eyewear" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="53 · Package"><img src="/product-ai-content/clipsy-image-3596.png" alt="AI Package" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="54 · Appliance"><img src="/product-ai-content/clipsy-image-3667.jpg" alt="AI Appliance" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="55 · Gum"><img src="/product-ai-content/hf_20260224_195521_2b1b6ec2-7233-418e-9fb7-ab88bd10fb30.jpg" alt="AI Gum" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="56 · Paste"><img src="/product-ai-content/hf_20260415_192113_7baaba4d-f248-4ae7-9ef7-d6e7b9f5500f%20%281%29.jpg" alt="AI Paste" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="57 · Beauty"><img src="/product-ai-content/hf_20260416_165343_60a4cd98-1795-41e5-af67-d66d1e901d6d.jpg" alt="AI Beauty" loading="lazy" decoding="async"></div>
+        <div class="item" data-tag="58 · Apparel"><img src="/product-ai-content/hf_20260421_191021_8a57117b-9955-44c2-96a2-1ea936b70468.jpg" alt="AI Apparel" loading="lazy" decoding="async"></div>
+      </div>
   </section>
 
   <!-- ============== ЯК ВИГЛЯДАЄ КУРС / УРОКИ ============== -->
@@ -3180,12 +3242,21 @@ window.addEventListener('scroll', () => {
 (function(){
   const slides = document.querySelectorAll('.hero-poster__gallery .g-slide');
   if(slides.length < 2) return;
+  function show(el){
+    el.classList.add('is-active');
+    if(el.tagName === 'VIDEO'){ el.currentTime = 0; el.play().catch(()=>{}); }
+  }
+  function hide(el){
+    el.classList.remove('is-active');
+    if(el.tagName === 'VIDEO') el.pause();
+  }
   let i = 0;
+  show(slides[0]);
   setInterval(() => {
-    slides[i].classList.remove('is-active');
+    hide(slides[i]);
     i = (i + 1) % slides.length;
-    slides[i].classList.add('is-active');
-  }, 3200);
+    show(slides[i]);
+  }, 3600);
 })();
 
 // "Читати далі" toggle
