@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Концепт 9 · Зошит — Фабрика АІ контенту</title>
+<meta name="theme-color" content="#FCFAF2">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root{
+  --paper:#FCFAF2;
+  --paper2:#F4F0E2;
+  --card:#FFFFFF;
+  --ink:#1F2430;
+  --ink2:#4E5566;
+  --mute:#8E95A6;
+  --blue:#23407A;
+  --blue-l:#E3EAF7;
+  --marker:#FFE45C;
+  --red:#E04B3C;
+  --green:#2E9E6B;
+  --line:#DCD6C4;
+  --hand:'Caveat',cursive;
+  --f:'Nunito',-apple-system,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background-image:linear-gradient(rgba(35,64,122,.055) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(35,64,122,.055) 1px,transparent 1px);
+  background-size:26px 26px}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:520px;margin:0 auto;padding:0 20px}
+.hand{font-family:var(--hand);font-weight:600}
+
+/* top */
+.top{padding:18px 0 0;display:flex;justify-content:center}
+.top .p{display:inline-flex;align-items:center;gap:9px;background:var(--card);
+  border:2px solid var(--ink);border-radius:999px;padding:7px 15px;font-size:.72rem;font-weight:600;
+  box-shadow:0 2px 0 var(--ink)}
+.pip{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pp 2s ease-in-out infinite}
+@keyframes pp{50%{opacity:.3}}
+.sep{width:1px;height:12px;background:var(--line)}
+
+/* hero sheet */
+.sheet{margin:22px 0 0;background:var(--card);border:2px solid var(--ink);border-radius:16px;
+  padding:26px 20px 24px;position:relative;box-shadow:0 3px 0 var(--ink)}
+.sheet::before{content:'';position:absolute;left:26px;top:0;bottom:0;width:2px;background:rgba(224,75,60,.35)}
+.clip{position:absolute;top:-14px;right:22px;width:26px;height:46px;border:3px solid #9AA3B5;
+  border-radius:13px;border-bottom-color:transparent;transform:rotate(9deg)}
+.tape{position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(-2deg);width:78px;height:22px;
+  background:rgba(255,228,92,.62);border:1px dashed rgba(31,36,48,.28)}
+.eyebrow{font-family:var(--hand);font-size:1.08rem;color:var(--blue);line-height:1.3;margin-bottom:14px;
+  padding-left:22px}
+h1{font-size:clamp(2.4rem,10.6vw,3.6rem);font-weight:900;line-height:.94;letter-spacing:-.038em;
+  text-transform:uppercase;padding-left:22px}
+h1 span{display:block;color:var(--blue)}
+.deck{margin:16px 0 0;padding-left:22px;font-size:1rem;font-weight:600;line-height:1.42;color:var(--ink2)}
+.deck mark{background:linear-gradient(180deg,transparent 54%,var(--marker) 54%);color:var(--ink);padding:0 3px}
+.scrawl{position:absolute;right:14px;bottom:10px;font-family:var(--hand);font-size:1.05rem;color:var(--red);
+  transform:rotate(-6deg)}
+
+/* photos as pinned cards */
+.pins{margin:26px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pin{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:7px 7px 26px;
+  position:relative;box-shadow:0 3px 0 var(--ink);transition:transform .25s}
+.pin:nth-child(1){grid-column:span 2;transform:rotate(-.8deg)}
+.pin:nth-child(2){transform:rotate(1.2deg)}
+.pin:nth-child(3){transform:rotate(-1.4deg)}
+.pin:hover{transform:rotate(0) translateY(-3px)}
+.pin img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:7px}
+.pin:nth-child(n+2) img{aspect-ratio:1/1}
+.pin figcaption{position:absolute;left:9px;right:9px;bottom:5px;text-align:center;font-family:var(--hand);
+  font-size:.95rem;color:var(--ink2)}
+.pin .dot{position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:14px;height:14px;
+  border-radius:50%;background:var(--red);border:2px solid var(--ink);z-index:3}
+.ph{position:relative;display:block;width:100%;aspect-ratio:4/3;border-radius:7px;overflow:hidden}
+.ph img.g{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;
+  opacity:0;transition:opacity .8s;border-radius:0}
+.ph img.g.on{opacity:1}
+
+/* note */
+.note{margin:26px 0 0;background:var(--blue-l);border:2px solid var(--ink);border-radius:14px;
+  padding:18px 17px;font-size:.9rem;line-height:1.65;color:var(--ink2);box-shadow:0 3px 0 var(--ink);
+  position:relative}
+.note__t{position:absolute;top:-11px;left:16px;background:var(--blue);color:#fff;font-size:.62rem;
+  font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:6px}
+.note b{color:var(--ink);font-weight:800;background:linear-gradient(180deg,transparent 54%,var(--marker) 54%);padding:0 3px}
+
+/* checklist */
+.chk{margin:20px 0 0;display:grid;gap:10px}
+.chk li{list-style:none;display:flex;gap:12px;align-items:flex-start;background:var(--card);
+  border:2px solid var(--ink);border-radius:12px;padding:13px 15px;font-size:.87rem;font-weight:600;
+  line-height:1.42;color:var(--ink2);box-shadow:0 3px 0 var(--ink)}
+.chk .box{width:22px;height:22px;flex:0 0 22px;border:2px solid var(--ink);border-radius:5px;
+  display:grid;place-items:center;font-size:.8rem;color:var(--green);font-weight:900;background:var(--card)}
+
+/* price sheet */
+.bill{margin:28px 0 0;background:var(--card);border:2px solid var(--ink);border-radius:16px;
+  padding:24px 20px;box-shadow:0 3px 0 var(--ink);position:relative;text-align:center}
+.bill__tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-1.5deg);
+  background:var(--red);color:#fff;font-size:.68rem;font-weight:800;padding:6px 14px;border-radius:8px;
+  border:2px solid var(--ink);white-space:nowrap}
+.prow{display:flex;align-items:baseline;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:10px}
+.pold{font-size:1.15rem;font-weight:700;color:var(--mute);position:relative}
+.pold::after{content:'';position:absolute;left:-4px;right:-4px;top:50%;height:3px;background:var(--red);
+  transform:rotate(-6deg);border-radius:2px}
+.pnew{font-size:clamp(3.2rem,13vw,4.2rem);font-weight:900;line-height:.9;letter-spacing:-.05em;color:var(--blue)}
+.pnew i{font-style:normal;font-size:.9rem;font-weight:700;color:var(--ink2);margin-left:5px;letter-spacing:0}
+.cd{margin-top:20px;display:flex;justify-content:center;gap:9px}
+.cd__b{background:var(--paper2);border:2px solid var(--ink);border-radius:11px;padding:9px 12px;min-width:58px}
+.cd__b b{display:block;font-size:1.35rem;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.cd__b i{font-style:normal;font-size:.58rem;color:var(--mute);font-weight:700}
+.cd__l{margin-top:11px;font-family:var(--hand);font-size:1rem;color:var(--ink2)}
+.instal{margin-top:18px;padding-top:16px;border-top:2px dashed var(--line);font-size:.83rem;
+  font-weight:600;color:var(--ink2)}
+.instal b{color:var(--ink);font-weight:800}
+.gift{margin-top:13px;background:var(--marker);border:2px solid var(--ink);border-radius:12px;padding:12px;
+  font-size:.8rem;font-weight:600;line-height:1.45;transform:rotate(-.6deg)}
+.gift b{font-weight:800}
+
+.cta{margin:24px 0 0;display:grid;gap:11px}
+.b1{display:flex;align-items:center;justify-content:center;gap:11px;background:var(--green);color:#fff;
+  border:2px solid var(--ink);border-radius:14px;padding:19px;font-weight:800;font-size:.95rem;
+  box-shadow:0 4px 0 var(--ink);transition:transform .16s,box-shadow .16s}
+.b1:hover{transform:translateY(3px);box-shadow:0 1px 0 var(--ink)}
+.b1 b{font-weight:900;font-size:1.06rem}
+.b2{text-align:center;background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:16px;
+  font-weight:700;font-size:.86rem;color:var(--ink2);box-shadow:0 3px 0 var(--ink)}
+
+/* marquee */
+.mq{margin-top:38px;overflow:hidden;padding:12px 0;background:var(--blue);border-top:2px solid var(--ink);
+  border-bottom:2px solid var(--ink)}
+.mq__t{display:flex;width:max-content;white-space:nowrap;animation:mar 32s linear infinite}
+.mq__t span{font-family:var(--hand);font-size:1.15rem;color:#fff;padding:0 14px}
+.mq__t span::after{content:'✎';color:var(--marker);margin-left:14px;font-size:.9rem}
+@keyframes mar{to{transform:translateX(-50%)}}
+
+/* sections */
+.sec{padding:46px 0}
+.lbl{display:inline-block;font-family:var(--hand);font-size:1.15rem;color:var(--red);
+  transform:rotate(-2deg);margin-bottom:10px}
+h2{font-size:clamp(1.85rem,7.6vw,2.6rem);font-weight:900;line-height:1.04;letter-spacing:-.04em}
+h2 mark{background:linear-gradient(180deg,transparent 56%,var(--marker) 56%);color:var(--ink);padding:0 4px}
+.xs{margin:24px 0 0;display:grid;gap:11px}
+.xs li{list-style:none;display:flex;gap:12px;align-items:flex-start;background:var(--card);
+  border:2px solid var(--ink);border-radius:12px;padding:14px 16px;font-size:.87rem;font-weight:600;
+  line-height:1.42;color:var(--ink2);box-shadow:0 3px 0 var(--ink)}
+.xs .x{width:22px;height:22px;flex:0 0 22px;border:2px solid var(--ink);border-radius:5px;
+  display:grid;place-items:center;font-size:.76rem;color:var(--red);font-weight:900}
+.callout{margin:24px 0 0;background:var(--card);border:2px solid var(--ink);border-radius:16px;
+  padding:24px 20px;display:grid;gap:14px;box-shadow:0 3px 0 var(--ink);position:relative}
+.callout::before{content:'';position:absolute;left:22px;top:0;bottom:0;width:2px;background:rgba(224,75,60,.3)}
+.callout p{font-size:.95rem;font-weight:600;line-height:1.55;color:var(--ink2);padding-left:14px}
+.callout p b{color:var(--ink);font-weight:900;background:linear-gradient(180deg,transparent 56%,var(--marker) 56%);padding:0 3px}
+.callout p:last-child{font-family:var(--hand);font-size:1.15rem;color:var(--red);font-weight:600;
+  padding-top:14px;border-top:2px dashed var(--line)}
+.foot{padding:22px 0 46px;text-align:center;font-family:var(--hand);font-size:1.05rem;color:var(--mute)}
+.reveal{opacity:0;transform:translateY(16px)}
+.reveal.vis{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.mq__t{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div class="p">
+    <span class="pip"></span><span>Актуальний на <b id="liveDate">сьогодні</b></span>
+    <span class="sep"></span><span>Доступ назавжди</span>
+  </div></div>
+
+  <section class="sheet">
+    <span class="tape"></span><span class="clip"></span>
+    <p class="eyebrow">Авторська програма Олександра Цюцьмаця<br>по практичному використанню нейромереж</p>
+    <h1>Фабрика<span>АІ контенту</span></h1>
+    <p class="deck">Створи власну Фабрику AI-контенту за <mark>15 практичних блоків</mark>, з повного 0.</p>
+    <span class="scrawl">з нуля!</span>
+  </section>
+
+  <div class="pins reveal">
+    <figure class="pin">
+      <span class="dot"></span>
+      <span class="ph">
+        <img class="g on" src="/fabryka-ai-kontentu/images/samples/sample1.jpg" alt="" fetchpriority="high">
+        <img class="g" src="/fabryka-ai-kontentu/images/w9.jpg" alt="" loading="lazy">
+        <img class="g" src="/fabryka-ai-kontentu/images/w17.jpg" alt="" loading="lazy">
+      </span>
+      <figcaption>AI-фото та відео</figcaption>
+    </figure>
+    <figure class="pin"><span class="dot"></span><img src="/fabryka-ai-kontentu/images/samples/sample6.jpg" alt="" loading="lazy"><figcaption>персонажі</figcaption></figure>
+    <figure class="pin"><span class="dot"></span><img src="/fabryka-ai-kontentu/images/samples/sample3.jpg" alt="" loading="lazy"><figcaption>товар</figcaption></figure>
+  </div>
+
+  <div class="note reveal">
+    <span class="note__t">Що вмітимеш</span>
+    Навчись <b>генерувати</b>: фото, відео, музику, озвучку, АІ-персонажів, предметну зйомку товару, рекламні ролики для товарів а також аватарів з повного 0 — та <b>монетизуй цю навичку</b> прямо під час проходження курсу практикуму.
+  </div>
+
+  <ul class="chk reveal">
+    <li><span class="box">✓</span><span>Без технічної освіти та складних програм</span></li>
+    <li><span class="box">✓</span><span>Навіть якщо вам 18–60 років</span></li>
+    <li><span class="box">✓</span><span>Є можливість отримати перших клієнтів прямо під час проходження курсу</span></li>
+    <li><span class="box">✓</span><span>Покрокова система: повторюй → отримуй результат</span></li>
+  </ul>
+
+  <div class="bill reveal">
+    <span class="bill__tag">Знижка діє лише 48 годин</span>
+    <div class="prow"><span class="pold">7400 грн</span><span class="pnew">3499<i>грн</i></span></div>
+    <div class="cd">
+      <span class="cd__b"><b id="cdHours">—</b><i>год</i></span>
+      <span class="cd__b"><b id="cdMin">—</b><i>хв</i></span>
+      <span class="cd__b"><b id="cdSec">—</b><i>сек</i></span>
+    </div>
+    <p class="cd__l">до завершення знижки</p>
+    <p class="instal">або оплата частинами на <b>6 платежів</b> · <b>583 грн</b>/міс</p>
+    <div class="gift">🎁 + <b>клуб VSE AI</b> назавжди у подарунок (зазвичай 490 грн/міс)</div>
+  </div>
+
+  <div class="cta">
+    <a href="https://app.zenedu.io/l/rZH9t1mXisTdgf06" target="_blank" rel="noopener" class="b1">Купити курс <b>3499 грн</b> →</a>
+    <a href="#program" class="b2">↓ Дивитись програму</a>
+  </div>
+</div>
+
+<div class="mq"><div class="mq__t">
+  <span>ChatGPT</span><span>NanoBanana</span><span>Grok</span><span>Veo 3.1</span><span>MetaVibes</span><span>ElevenLabs</span><span>MiniMax</span><span>Suno</span><span>HeyGen</span><span>Claude</span><span>Kling 3.0</span><span>Seedance 2.0</span><span>Higgsfield</span>
+  <span>ChatGPT</span><span>NanoBanana</span><span>Grok</span><span>Veo 3.1</span><span>MetaVibes</span><span>ElevenLabs</span><span>MiniMax</span><span>Suno</span><span>HeyGen</span><span>Claude</span><span>Kling 3.0</span><span>Seedance 2.0</span><span>Higgsfield</span>
+</div></div>
+
+<div class="wrap">
+  <section class="sec">
+    <div class="lbl">а що зазвичай?</div>
+    <h2>Чому навчають інші <mark>в АІ?</mark></h2>
+    <ul class="xs reveal">
+      <li><span class="x">✕</span><span>Робити конкретний контент по готовому шаблону</span></li>
+      <li><span class="x">✕</span><span>Копіювати чужі промти слово в слово</span></li>
+      <li><span class="x">✕</span><span>Генерувати одне «вірусне» відео за інструкцією</span></li>
+      <li><span class="x">✕</span><span>Повторювати за автором, не розуміючи логіки</span></li>
+    </ul>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="lbl">і що в підсумку…</div>
+    <h2>До чого призводить <mark>таке навчання?</mark></h2>
+    <div class="callout reveal">
+      <p>У результаті ви просто <b>відтворюєте чужий алгоритм</b>.</p>
+      <p>Але варто змінити задачу, формат або стиль — і ви губитесь.</p>
+      <p>Замість свободи — <b>залежність від шаблону</b>. Замість творчості — копіювання.</p>
+      <p>І в якийсь момент здається, що «AI — це складно» або «це не для мене».</p>
+    </div>
+  </section>
+</div>
+
+<div class="foot">Концепт 9 · Зошит</div>
+
+<script>
+(function(){
+  var m=['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
+  var d=new Date(),el=document.getElementById('liveDate');
+  if(el) el.textContent=d.getDate()+' '+m[d.getMonth()];
+  var H=document.getElementById('cdHours'),M=document.getElementById('cdMin'),S=document.getElementById('cdSec');
+  function pad(n){return n<10?'0'+n:''+n}
+  function tick(){var c=48*3600*1000,t=Math.floor((c-(Date.now()%c))/1000);
+    if(H)H.textContent=pad(Math.floor(t/3600));if(M)M.textContent=pad(Math.floor(t%3600/60));if(S)S.textContent=pad(t%60)}
+  tick();setInterval(tick,1000);
+  var g=document.querySelectorAll('.ph img.g'),i=0;
+  if(g.length>1)setInterval(function(){g[i].classList.remove('on');i=(i+1)%g.length;g[i].classList.add('on')},3200);
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>

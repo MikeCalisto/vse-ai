@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Концепт 6 · Бенто — Фабрика АІ контенту</title>
+<meta name="theme-color" content="#F6F6F4">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F6F4;
+  --tile:#FFFFFF;
+  --tile2:#EFEFEC;
+  --ink:#101014;
+  --ink2:#43434D;
+  --mute:#8A8A94;
+  --line:#E2E2DD;
+  --indigo:#4338CA;
+  --indigo-l:#EEEBFF;
+  --lime:#B9F227;
+  --coral:#FF5A3C;
+  --f:'Inter',-apple-system,'SF Pro Display',Helvetica,Arial,sans-serif;
+  --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;letter-spacing:-.011em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.t{background:var(--tile);border:1px solid var(--line);border-radius:var(--r);padding:18px;
+  position:relative;overflow:hidden}
+.sp6{grid-column:span 6}.sp3{grid-column:span 3}.sp2{grid-column:span 2}.sp4{grid-column:span 4}
+
+/* status tile */
+.t-status{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;
+  background:var(--ink);border-color:var(--ink);color:#fff;font-size:.74rem;font-weight:500}
+.t-status .g{color:var(--lime);font-weight:600}
+.pip{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--lime);margin-right:8px;
+  animation:pp 2s ease-in-out infinite}
+@keyframes pp{50%{opacity:.35}}
+
+/* title tile */
+.t-title{padding:26px 20px 24px}
+.chip{display:inline-flex;align-items:center;gap:7px;background:var(--indigo-l);color:var(--indigo);
+  font-size:.68rem;font-weight:600;padding:6px 11px;border-radius:999px;margin-bottom:16px;letter-spacing:0}
+h1{font-size:clamp(2.4rem,10.4vw,3.5rem);font-weight:800;letter-spacing:-.052em;line-height:.94}
+h1 span{display:block;color:var(--indigo)}
+.eyebrow{margin-top:14px;font-size:.82rem;line-height:1.5;color:var(--mute);max-width:34ch}
+.deck{margin-top:18px;font-size:1.02rem;font-weight:500;line-height:1.42;color:var(--ink2)}
+.deck b{color:var(--ink);font-weight:700;box-shadow:inset 0 -.52em 0 rgba(185,242,39,.6)}
+.arrow{position:absolute;right:18px;bottom:16px;width:34px;height:34px;border-radius:50%;
+  background:var(--lime);display:grid;place-items:center;font-size:.9rem;color:var(--ink)}
+
+/* photo tiles */
+.t-ph{padding:0;aspect-ratio:1/1;border:1px solid var(--line)}
+.t-ph img{width:100%;height:100%;object-fit:cover}
+.t-ph--tall{aspect-ratio:3/4}
+.t-ph--wide{aspect-ratio:2/1}
+.t-lab{position:absolute;left:10px;bottom:10px;background:rgba(255,255,255,.94);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  font-size:.62rem;font-weight:600;padding:5px 10px;border-radius:999px;color:var(--ink)}
+.stack{position:relative}
+.stack img{position:absolute;inset:0;opacity:0;transition:opacity .8s}
+.stack img.on{opacity:1}
+
+/* stat tiles */
+.t-stat{display:flex;flex-direction:column;justify-content:center;gap:2px;min-height:96px}
+.t-stat b{font-size:1.9rem;font-weight:800;letter-spacing:-.045em;line-height:1}
+.t-stat span{font-size:.72rem;color:var(--mute);font-weight:500;line-height:1.35}
+.t-stat--ink{background:var(--indigo);border-color:var(--indigo);color:#fff}
+.t-stat--ink span{color:rgba(255,255,255,.72)}
+.t-stat--lime{background:var(--lime);border-color:var(--lime)}
+.t-stat--lime span{color:rgba(16,16,20,.62)}
+
+/* text tile */
+.t-text{font-size:.9rem;line-height:1.62;color:var(--ink2)}
+.t-text b{color:var(--ink);font-weight:700}
+
+/* list tile */
+.t-list{padding:8px 18px}
+.t-list li{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:start;
+  padding:14px 0;border-bottom:1px solid var(--line);font-size:.87rem;line-height:1.45;color:var(--ink2)}
+.t-list li:last-child{border-bottom:0}
+.t-list .n{width:22px;height:22px;border-radius:7px;background:var(--tile2);display:grid;place-items:center;
+  font-size:.66rem;font-weight:700;color:var(--ink)}
+
+/* price tile */
+.t-price{padding:22px 20px}
+.t-price__hd{display:flex;align-items:center;gap:8px;font-size:.72rem;font-weight:600;color:var(--coral);
+  margin-bottom:16px}
+.t-price__hd .pip{background:var(--coral)}
+.prow{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.pold{font-size:1rem;color:var(--mute);text-decoration:line-through;font-weight:500}
+.pnew{font-size:clamp(3rem,12.5vw,3.8rem);font-weight:800;letter-spacing:-.055em;line-height:.92}
+.pnew i{font-style:normal;font-size:.92rem;font-weight:600;color:var(--ink2);margin-left:5px;letter-spacing:-.01em}
+.cd{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.cd__b{background:var(--tile2);border-radius:14px;padding:11px 6px;text-align:center}
+.cd__b b{display:block;font-size:1.3rem;font-weight:800;letter-spacing:-.04em;line-height:1;
+  font-variant-numeric:tabular-nums}
+.cd__b i{font-style:normal;font-size:.6rem;color:var(--mute);font-weight:500}
+.cd__l{font-size:.72rem;color:var(--mute);margin-top:12px;font-weight:500}
+.instal{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);font-size:.82rem;color:var(--ink2)}
+.instal b{color:var(--ink);font-weight:700}
+.gift{margin-top:12px;background:var(--indigo-l);border-radius:14px;padding:12px 13px;
+  font-size:.79rem;line-height:1.45;color:var(--ink2)}
+.gift b{color:var(--indigo);font-weight:700}
+
+/* CTA */
+.t-cta{padding:0;border:0;background:transparent}
+.b1{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--ink);
+  color:#fff;border-radius:var(--r);padding:20px 22px;font-weight:600;font-size:.94rem;
+  transition:transform .22s,background .22s}
+.b1:hover{transform:translateY(-2px);background:var(--indigo)}
+.b1 b{font-weight:800;letter-spacing:-.03em;font-size:1.06rem}
+.b2{margin-top:10px;display:block;text-align:center;background:var(--tile);border:1px solid var(--line);
+  border-radius:var(--r);padding:17px;font-size:.88rem;font-weight:600;color:var(--ink2);
+  transition:border-color .22s,color .22s}
+.b2:hover{border-color:var(--ink);color:var(--ink)}
+
+/* marquee */
+.mq{margin:34px 0;overflow:hidden;padding:0}
+.mq__t{display:flex;width:max-content;white-space:nowrap;animation:mar 34s linear infinite;gap:8px}
+.mq__t span{background:var(--tile);border:1px solid var(--line);border-radius:999px;padding:9px 16px;
+  font-size:.78rem;font-weight:600;color:var(--ink2)}
+@keyframes mar{to{transform:translateX(-50%)}}
+
+/* sections */
+.sec{padding:16px 0 0}
+.sec-hd{padding:6px 4px 16px}
+.sec-lbl{display:inline-block;font-size:.68rem;font-weight:700;color:var(--mute);
+  text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+h2{font-size:clamp(1.7rem,7vw,2.4rem);font-weight:800;letter-spacing:-.048em;line-height:1.05}
+h2 span{color:var(--coral)}
+.t-x{display:flex;gap:12px;align-items:flex-start;font-size:.88rem;line-height:1.45;color:var(--ink2);
+  min-height:0;transition:border-color .22s,transform .22s}
+.t-x:hover{border-color:var(--coral);transform:translateY(-2px)}
+.t-x .x{width:22px;height:22px;flex:0 0 22px;border-radius:50%;background:#FFECE8;color:var(--coral);
+  display:grid;place-items:center;font-size:.7rem;font-weight:700}
+.t-q{background:var(--ink);border-color:var(--ink);color:#fff;padding:24px 20px}
+.t-q p{font-size:.98rem;line-height:1.55;margin-bottom:14px;color:rgba(255,255,255,.82)}
+.t-q p b{color:var(--lime);font-weight:700}
+.t-q p:last-child{margin-bottom:0;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);
+  font-size:.85rem;color:rgba(255,255,255,.55)}
+.foot{padding:34px 0 46px;text-align:center;font-size:.74rem;color:var(--mute)}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.vis{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.mq__t{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap" style="padding-top:14px">
+  <div class="bento">
+    <div class="t t-status sp6">
+      <span><span class="pip"></span>Актуальний на <b id="liveDate">сьогодні</b></span>
+      <span class="g">Доступ назавжди</span>
+    </div>
+
+    <div class="t t-title sp6">
+      <span class="chip">✦ 15 практичних блоків</span>
+      <h1>ФАБРИКА<span>АІ КОНТЕНТУ</span></h1>
+      <p class="eyebrow">Авторська програма Олександра Цюцьмаця по практичному використанню нейромереж</p>
+      <p class="deck">Створи власну Фабрику AI-контенту <b>з повного 0</b>.</p>
+    </div>
+
+    <div class="t t-ph t-ph--tall sp3 stack reveal">
+      <img class="on" src="/fabryka-ai-kontentu/images/samples/sample1.jpg" alt="" fetchpriority="high">
+      <img src="/fabryka-ai-kontentu/images/w9.jpg" alt="" loading="lazy">
+      <img src="/fabryka-ai-kontentu/images/w17.jpg" alt="" loading="lazy">
+      <span class="t-lab">AI-фото</span>
+    </div>
+    <div class="t t-stat t-stat--ink sp3"><b>15</b><span>практичних блоків від нуля до результату</span></div>
+    <div class="t t-stat t-stat--lime sp3"><b>14+</b><span>нейромереж у роботі</span></div>
+
+    <div class="t t-ph sp3 reveal"><img src="/fabryka-ai-kontentu/images/samples/sample6.jpg" alt="" loading="lazy"><span class="t-lab">Персонажі</span></div>
+    <div class="t t-ph t-ph--wide sp6 reveal"><img src="/fabryka-ai-kontentu/images/samples/sample3.jpg" alt="" loading="lazy"><span class="t-lab">Предметна зйомка</span></div>
+
+    <div class="t t-text sp6 reveal">Навчись <b>генерувати</b>: фото, відео, музику, озвучку, АІ-персонажів, предметну зйомку товару, рекламні ролики для товарів а також аватарів з повного 0 — та <b>монетизуй цю навичку</b> прямо під час проходження курсу практикуму.</div>
+
+    <ul class="t t-list sp6 reveal">
+      <li><span class="n">1</span><span>Без технічної освіти та складних програм</span></li>
+      <li><span class="n">2</span><span>Навіть якщо вам 18–60 років</span></li>
+      <li><span class="n">3</span><span>Є можливість отримати перших клієнтів прямо під час проходження курсу</span></li>
+      <li><span class="n">4</span><span>Покрокова система: повторюй → отримуй результат</span></li>
+    </ul>
+
+    <div class="t t-price sp6 reveal">
+      <div class="t-price__hd"><span class="pip"></span>Знижка діє лише 48 годин</div>
+      <div class="prow"><span class="pold">7400 грн</span><span class="pnew">3499<i>грн</i></span></div>
+      <div class="cd">
+        <span class="cd__b"><b id="cdHours">—</b><i>год</i></span>
+        <span class="cd__b"><b id="cdMin">—</b><i>хв</i></span>
+        <span class="cd__b"><b id="cdSec">—</b><i>сек</i></span>
+      </div>
+      <p class="cd__l">До завершення знижки</p>
+      <p class="instal">або оплата частинами на <b>6 платежів</b> · <b>583 грн</b>/міс</p>
+      <div class="gift">🎁 + <b>клуб VSE AI</b> назавжди у подарунок <i>(зазвичай 490 грн/міс)</i></div>
+    </div>
+
+    <div class="t t-cta sp6">
+      <a href="https://app.zenedu.io/l/rZH9t1mXisTdgf06" target="_blank" rel="noopener" class="b1">
+        <span>Купити курс</span><b>3499 грн →</b>
+      </a>
+      <a href="#program" class="b2">↓ Дивитись програму</a>
+    </div>
+  </div>
+
+  <div class="mq"><div class="mq__t">
+    <span>ChatGPT</span><span>NanoBanana</span><span>Grok</span><span>Veo 3.1</span><span>MetaVibes</span><span>ElevenLabs</span><span>MiniMax</span><span>Suno</span><span>HeyGen</span><span>Claude</span><span>Kling 3.0</span><span>Seedance 2.0</span><span>Higgsfield</span>
+    <span>ChatGPT</span><span>NanoBanana</span><span>Grok</span><span>Veo 3.1</span><span>MetaVibes</span><span>ElevenLabs</span><span>MiniMax</span><span>Suno</span><span>HeyGen</span><span>Claude</span><span>Kling 3.0</span><span>Seedance 2.0</span><span>Higgsfield</span>
+  </div></div>
+
+  <section class="sec">
+    <div class="sec-hd">
+      <div class="sec-lbl">Проблема</div>
+      <h2>Чому навчають інші <span>в АІ?</span></h2>
+    </div>
+    <div class="bento reveal">
+      <div class="t t-x sp6"><span class="x">✕</span><span>Робити конкретний контент по готовому шаблону</span></div>
+      <div class="t t-x sp6"><span class="x">✕</span><span>Копіювати чужі промти слово в слово</span></div>
+      <div class="t t-x sp6"><span class="x">✕</span><span>Генерувати одне «вірусне» відео за інструкцією</span></div>
+      <div class="t t-x sp6"><span class="x">✕</span><span>Повторювати за автором, не розуміючи логіки</span></div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:42px">
+    <div class="sec-hd">
+      <div class="sec-lbl">Наслідок</div>
+      <h2>До чого призводить <span>таке навчання?</span></h2>
+    </div>
+    <div class="bento reveal">
+      <div class="t t-q sp6">
+        <p>У результаті ви просто <b>відтворюєте чужий алгоритм</b>.</p>
+        <p>Але варто змінити задачу, формат або стиль — і ви губитесь.</p>
+        <p>Замість свободи — <b>залежність від шаблону</b>. Замість творчості — копіювання.</p>
+        <p>І в якийсь момент здається, що «AI — це складно» або «це не для мене».</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="foot">Концепт 6 · Бенто</div>
+</div>
+
+<script>
+(function(){
+  var m=['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
+  var d=new Date(),el=document.getElementById('liveDate');
+  if(el) el.textContent=d.getDate()+' '+m[d.getMonth()];
+  var H=document.getElementById('cdHours'),M=document.getElementById('cdMin'),S=document.getElementById('cdSec');
+  function pad(n){return n<10?'0'+n:''+n}
+  function tick(){var c=48*3600*1000,t=Math.floor((c-(Date.now()%c))/1000);
+    if(H)H.textContent=pad(Math.floor(t/3600));if(M)M.textContent=pad(Math.floor(t%3600/60));if(S)S.textContent=pad(t%60)}
+  tick();setInterval(tick,1000);
+  var g=document.querySelectorAll('.stack img'),i=0;
+  if(g.length>1)setInterval(function(){g[i].classList.remove('on');i=(i+1)%g.length;g[i].classList.add('on')},3200);
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>
