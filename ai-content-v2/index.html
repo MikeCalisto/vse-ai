@@ -8,11 +8,11 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#1668E3">
-<title>AI КОНТЕНТ З ПОВНОГО НУЛЯ — для діджитал-спеціалістів</title>
-<meta name="description" content="Опануй 8 топових нейромереж для генерації фото, відео, музики та озвучки всього за 6 коротких уроків. Для SMM, таргетологів, дизайнерів і монтажерів." />
+<title>AI КОНТЕНТ З ПОВНОГО НУЛЯ — воркшоп для діджитал-спеціалістів</title>
+<meta name="description" content="6-денний воркшоп для діджитал-спеціалістів. Навчіться за 6 коротких уроків самостійно створювати фото, відео, озвучку та музику через AI — на безкоштовних нейронках. Для SMM, таргетологів, дизайнерів, монтажерів і копірайтерів." />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="AI КОНТЕНТ З ПОВНОГО НУЛЯ — для діджитал-спеціалістів" />
-<meta property="og:description" content="Опануй 8 топових нейромереж для генерації фото, відео, музики та озвучки всього за 6 коротких уроків." />
+<meta property="og:title" content="AI КОНТЕНТ З ПОВНОГО НУЛЯ — воркшоп для діджитал-спеціалістів" />
+<meta property="og:description" content="Підвищіть середній чек за проєкт і закривайте весь цикл створення контенту самостійно. 6 уроків, безкоштовні нейронки, довічний доступ." />
 <meta name="robots" content="index, follow" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -739,6 +739,170 @@ img.miss{display:none}
   .marquee__row{animation:none}
   html{scroll-behavior:auto}
 }
+
+/* ============================================================
+   OFFER CARD (hero) — «як результат»
+   ============================================================ */
+.offer{
+  background:var(--blue-soft);
+  border:1px solid var(--blue-line);
+  border-radius:var(--r-md);
+  padding:17px 18px;
+  margin-bottom:20px;
+}
+.offer p{font-size:14.5px;line-height:1.46;font-weight:500;color:var(--ink-2)}
+.offer p b{font-weight:800;color:var(--blue-dk)}
+.offer p + p{
+  margin-top:12px;padding-top:12px;
+  border-top:1px solid var(--blue-line);
+}
+
+/* стрілка замість іконки в hero-картках */
+.fcard__arrow{
+  flex:0 0 auto;width:26px;height:26px;
+  display:grid;place-items:center;
+  color:var(--blue);
+}
+.fcard__arrow svg{width:26px;height:26px;stroke:currentColor}
+
+/* ============================================================
+   RATING
+   ============================================================ */
+.rating{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  margin:18px auto 0;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:999px;
+  padding:9px 16px;
+  width:fit-content;
+}
+.rating__num{font-weight:900;font-size:20px;color:#fff;line-height:1}
+.rating__stars{color:#FFC531;font-size:13px;letter-spacing:1px;line-height:1}
+.rating__lab{font-size:12.5px;line-height:1.25;color:rgba(255,255,255,.8);text-align:left;font-weight:500}
+
+/* ============================================================
+   FREE BADGE — наскрізний аргумент «безкоштовні нейронки»
+   ============================================================ */
+.free{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--blue-soft);
+  border:1px solid var(--blue-line);
+  border-radius:999px;
+  padding:7px 13px 7px 9px;
+  font-size:12.5px;font-weight:700;color:var(--blue-dk);
+  line-height:1.15;
+}
+.free svg{flex:0 0 auto;width:15px;height:15px;stroke:var(--blue)}
+.free--center{display:flex;margin:16px auto 0;width:fit-content;max-width:100%;text-align:center}
+.free--dark{background:rgba(59,135,242,.18);border-color:rgba(120,175,255,.35);color:#CFE2FF}
+.free--dark svg{stroke:#8FC0FF}
+
+/* ============================================================
+   USE-CASES — «під кожну задачу свій інструмент»
+   ============================================================ */
+.uses{display:flex;flex-direction:column;gap:9px;margin:20px var(--pad) 0}
+.use{
+  display:flex;gap:11px;align-items:flex-start;
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:12px 14px;
+  font-size:14px;line-height:1.35;color:var(--navy);
+  box-shadow:0 2px 8px rgba(16,24,40,.045);
+}
+.use b{font-weight:800;color:var(--ink)}
+.use__dot{
+  flex:0 0 auto;width:7px;height:7px;border-radius:50%;
+  background:var(--blue);margin-top:6px;
+}
+
+/* ============================================================
+   CHAIN — предметний ланцюжок через усю програму
+   ============================================================ */
+.chain{
+  background:var(--paper-2);
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  padding:24px 20px;
+  margin-top:28px;
+}
+.chain__head{
+  font-weight:900;font-size:19px;line-height:1.2;text-transform:uppercase;
+  text-align:center;margin-bottom:6px;
+}
+.chain__sub{
+  font-size:13.5px;line-height:1.4;color:var(--grey);font-weight:500;
+  text-align:center;margin-bottom:20px;
+}
+.chain__list{list-style:none;display:flex;flex-direction:column;gap:0}
+.chain__item{display:flex;gap:13px;align-items:flex-start;position:relative;padding-bottom:16px}
+.chain__item:last-child{padding-bottom:0}
+.chain__item::before{
+  content:'';position:absolute;left:15px;top:32px;bottom:0;
+  width:2px;background:var(--blue-line);
+}
+.chain__item:last-child::before{display:none}
+.chain__n{
+  flex:0 0 auto;width:32px;height:32px;border-radius:10px;
+  background:var(--blue);color:#fff;
+  display:grid;place-items:center;
+  font-weight:800;font-size:13px;line-height:1;
+  position:relative;z-index:1;
+  box-shadow:0 4px 12px rgba(22,104,227,.3);
+}
+.chain__txt{font-size:14px;line-height:1.4;color:var(--navy);padding-top:6px}
+.chain__txt b{font-weight:800;color:var(--ink)}
+.chain__res{
+  margin-top:18px;padding-top:16px;border-top:1px dashed var(--blue-line);
+  font-size:14.5px;line-height:1.45;font-weight:600;color:var(--ink);
+}
+.chain__res b{color:var(--blue-dk);font-weight:800}
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.final{
+  position:relative;
+  background:linear-gradient(165deg,#123A7E 0%,#0E2A5C 55%,#0B1F45 100%);
+  color:#fff;
+  padding:38px var(--pad) 40px;
+  overflow:hidden;
+}
+.final__deco{
+  position:absolute;top:-70px;right:-90px;width:210px;
+  filter:blur(2px);opacity:.55;pointer-events:none;
+}
+.final > *:not(.final__deco){position:relative;z-index:1}
+.final .h2{margin-bottom:16px}
+.final__lead{
+  font-size:15.5px;line-height:1.5;text-align:center;
+  color:rgba(255,255,255,.9);margin-bottom:22px;font-weight:500;
+}
+.final__ul{
+  list-style:none;display:flex;flex-direction:column;gap:12px;
+  margin-bottom:24px;
+}
+.final__ul li{
+  display:flex;gap:11px;align-items:flex-start;
+  font-size:14.5px;line-height:1.4;font-weight:500;color:rgba(255,255,255,.92);
+}
+.final__ul svg{flex:0 0 auto;width:19px;height:19px;stroke:#7FB4FF;margin-top:1px}
+.final .price{margin-bottom:20px}
+.final .price__new{color:#fff}
+.final .price__old{color:rgba(255,255,255,.5)}
+.final .price__off{background:#fff;color:var(--blue-dk)}
+.final .btn{
+  background:linear-gradient(180deg,#5BA0FF 0%,var(--blue) 45%,var(--blue-dk) 100%);
+  box-shadow:0 12px 30px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.28);
+}
+.final__note{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin:16px auto 0;max-width:330px;
+  font-size:12.5px;line-height:1.35;color:rgba(255,255,255,.72);text-align:center;
+}
+.final__note svg{flex:0 0 auto;width:16px;height:16px;stroke:rgba(255,255,255,.6)}
+
+/* більше сегментів у стрічці — тримаємо ту саму швидкість руху */
+.marquee__row{animation-duration:42s}
 </style>
 </head>
 
@@ -753,8 +917,8 @@ img.miss{display:none}
   <div class="badges">
     <div class="badge">
       <span class="badge__ico">🕐</span>
-      <b>6-денний марафон</b>
-      <span>для діджитал-спеціаліста</span>
+      <b>6-денний воркшоп</b>
+      <span>для діджитал-спеціалістів</span>
     </div>
     <div class="badge">
       <span class="badge__ico">📅</span>
@@ -763,7 +927,7 @@ img.miss{display:none}
     </div>
   </div>
 
-  <div class="marquee" aria-label="Для кого курс">
+  <div class="marquee" aria-label="Для кого воркшоп">
     <div class="marquee__row">
       <div class="marquee__group">
         <span class="tag">SMM</span>
@@ -771,9 +935,15 @@ img.miss{display:none}
         <span class="tag">дизайнер</span>
         <span class="tag">монтажер</span>
         <span class="tag">motion designer</span>
+        <span class="tag">копірайтер</span>
+        <span class="tag">веб-дизайнер</span>
+        <span class="tag">UI/UX</span>
+        <span class="tag">фрілансер</span>
+        <span class="tag">продюсер</span>
         <span class="tag">маркетолог</span>
         <span class="tag">контент-мейкер</span>
         <span class="tag">відеограф</span>
+        <span class="tag">e-commerce</span>
       </div>
       <div class="marquee__group" aria-hidden="true">
         <span class="tag">SMM</span>
@@ -781,9 +951,15 @@ img.miss{display:none}
         <span class="tag">дизайнер</span>
         <span class="tag">монтажер</span>
         <span class="tag">motion designer</span>
+        <span class="tag">копірайтер</span>
+        <span class="tag">веб-дизайнер</span>
+        <span class="tag">UI/UX</span>
+        <span class="tag">фрілансер</span>
+        <span class="tag">продюсер</span>
         <span class="tag">маркетолог</span>
         <span class="tag">контент-мейкер</span>
         <span class="tag">відеограф</span>
+        <span class="tag">e-commerce</span>
       </div>
     </div>
   </div>
@@ -791,14 +967,19 @@ img.miss{display:none}
   <h1 class="h1 hero__title">AI контент<br>з повного <span class="acc">нуля</span></h1>
 
   <p class="lead hero__lead">
-    Опануй <span class="mark">8 топових нейромереж</span> для генерації фото, відео, музики та озвучки усього за 6 коротких уроків
+    Навчіться за 6 коротких уроків самостійно створювати фото, відео, озвучку та музику через AI — <span class="mark">навіть якщо ніколи не працювали з нейромережами</span>
   </p>
 
   <div class="hero__photowrap">
     <div class="hero__photo ph">
-      <img width="457" height="820" src="images/lesson-6.jpg" alt="До і після: діджитал-спеціаліст до курсу та після — з AI-контентом">
+      <img width="457" height="820" src="images/lesson-6.jpg" alt="До і після: діджитал-спеціаліст до воркшопу та після — з AI-контентом">
     </div>
     <img class="hero__deco hero__deco--2" src="images/deco-ai.png" alt="" onerror="this.classList.add('miss')">
+  </div>
+
+  <div class="offer">
+    <p><b>Як результат</b> — підвищите свій середній чек за проєкт і закриватимете весь цикл створення контенту під свою послугу самостійно. Без підрядників, які все одно роблять ваше ТЗ на 3/10.</p>
+    <p>Цей воркшоп про те, як <b>побудувати процес один раз</b> — і повторювати його на кожному своєму проєкті.</p>
   </div>
 
   <div class="fcards">
@@ -807,21 +988,21 @@ img.miss{display:none}
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12l1-8.5Z"/></svg>
       </span>
       <span class="fcard__bar"></span>
-      <span class="fcard__txt"><b>Закривай задачі клієнтів швидше</b><i>те, що займало день, робиш за годину</i></span>
+      <span class="fcard__txt"><b>Закривайте задачі за годину, а не за день</b><i>те, що раніше йшло на зйомку й узгодження з підрядником, робите самостійно за вечір</i></span>
     </div>
     <div class="fcard">
       <span class="fcard__ico">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.7a1 1 0 0 0 .83-.45l1-1.5A1 1 0 0 1 9.86 3.6h4.28a1 1 0 0 1 .83.45l1 1.5a1 1 0 0 0 .83.45h1.7A2.5 2.5 0 0 1 21 8.5v8A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5v-8Z"/><circle cx="12" cy="12.5" r="3.4"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8v18.4"/><path d="M16.6 6.4H9.7a2.9 2.9 0 0 0 0 5.8h4.6a2.9 2.9 0 0 1 0 5.8H6.8"/></svg>
       </span>
       <span class="fcard__bar"></span>
-      <span class="fcard__txt"><b>Створюй контент самостійно</b><i>без фотографа та відеографа</i></span>
+      <span class="fcard__txt"><b>Забирайте гроші за задачі, які раніше віддавали</b><i>відео, предметка, озвучка — тепер це ваш чек, а не фотографа й відеографа</i></span>
     </div>
     <div class="fcard">
       <span class="fcard__ico">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2 14.1 9l5.9 2.1-5.9 2.1L12 19l-2.1-5.8L4 11.1 9.9 9 12 3.2Z"/><path d="M19 3.5v3M17.5 5h3"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12.4a8.5 8.5 0 1 1-3.6-6.9"/><path d="m8.6 11.6 3 3 8.2-8.6"/></svg>
       </span>
       <span class="fcard__bar"></span>
-      <span class="fcard__txt"><b>Давай клієнту сильніший результат</b><i>за рахунок якіснішого візуалу</i></span>
+      <span class="fcard__txt"><b>Працюйте на безкоштовних інструментах</b><i>усі 6 уроків побудовані так, що підписки не потрібні</i></span>
     </div>
   </div>
 
@@ -838,7 +1019,7 @@ img.miss{display:none}
 
   <p class="note">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="2.5"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/></svg>
-    Після оплати одразу отримаєш доступ у Telegram-боті
+    Після оплати одразу отримаєте доступ у Telegram-боті
   </p>
 </header>
 
@@ -868,23 +1049,23 @@ img.miss{display:none}
 
   <article class="bonus">
     <div class="bonus__head">
-      <div class="bonus__ico"><img src="images/deco-gift.png" alt="" onerror="this.classList.add('miss')"></div>
+      <div class="bonus__ico"><img width="480" height="480" src="images/deco-gift.png" alt="" onerror="this.classList.add('miss')"></div>
       <h3 class="bonus__title">Бонус №2: 10 готових ролей для ChatGPT</h3>
     </div>
     <p class="bonus__body">
-      <img class="bonus__side" src="images/logo-chatgpt.png" alt="ChatGPT" onerror="this.classList.add('miss')">
-      Зробиш зі свого ChatGPT персонального <b>бізнес-аналітика, маркетолога, копірайтера, коуча, юриста та ще 5 ролей.</b>
+      <img class="bonus__side" width="380" height="380" src="images/logo-chatgpt.png" alt="ChatGPT" onerror="this.classList.add('miss')">
+      Зробите зі свого ChatGPT персонального <b>бізнес-аналітика, маркетолога, копірайтера, коуча, юриста та ще 5 ролей.</b>
     </p>
     <div class="bonus__pic"><img width="1600" height="363" src="images/bonus-roles.jpg" alt="10 готових ролей для ChatGPT" loading="lazy" onerror="this.classList.add('miss')"></div>
   </article>
 
   <article class="bonus">
     <div class="bonus__head">
-      <div class="bonus__ico"><img src="images/deco-gift.png" alt="" onerror="this.classList.add('miss')"></div>
+      <div class="bonus__ico"><img width="480" height="480" src="images/deco-gift.png" alt="" onerror="this.classList.add('miss')"></div>
       <h3 class="bonus__title">Бонус №3: Авторські AI-застосунки безкоштовно</h3>
     </div>
     <p class="bonus__body">
-      <img class="bonus__side" src="images/deco-gear.png" alt="" onerror="this.classList.add('miss')">
+      <img class="bonus__side" width="152" height="152" src="images/deco-gear.png" alt="" onerror="this.classList.add('miss')">
       Безкоштовний доступ до застосунків, які я створив: <b>генерація озвучок, фотосесій живих людей та фото товарів у будь-яких стилях.</b> Все в одному місці, без складних інтерфейсів, за пару кліків.
     </p>
   </article>
@@ -892,7 +1073,7 @@ img.miss{display:none}
 
 <!-- ============================ ДЛЯ КОГО ============================ -->
 <section class="section section--soft rv">
-  <h2 class="h2">Цей курс для<br>тебе, <span class="acc">якщо ти:</span></h2>
+  <h2 class="h2">Цей воркшоп<br>для вас, <span class="acc">якщо ви:</span></h2>
 
   <div class="who">
     <div class="whocard">
@@ -902,7 +1083,7 @@ img.miss{display:none}
         </span>
         <div class="whocard__name">SMM-спеціаліст</div>
       </div>
-      <p class="whocard__txt">Ведеш клієнтів, а контент-план щоразу впирається в те, що немає з чого робити візуал. Стоки набридли, зйомку клієнт не оплачує.</p>
+      <p class="whocard__txt">Ведете клієнтів, а контент-план щоразу впирається в те, що немає з чого робити візуал. Стоки набридли, зйомку клієнт не оплачує.</p>
     </div>
 
     <div class="whocard">
@@ -912,7 +1093,7 @@ img.miss{display:none}
         </span>
         <div class="whocard__name">Таргетолог</div>
       </div>
-      <p class="whocard__txt">Хочеш робити креативи швидше і не чекати на дизайнера. І тестувати не два банери на тиждень, а десять за вечір.</p>
+      <p class="whocard__txt">Хочете робити креативи швидше і не чекати на дизайнера. І тестувати не два банери на тиждень, а десять за вечір.</p>
     </div>
 
     <div class="whocard">
@@ -922,7 +1103,7 @@ img.miss{display:none}
         </span>
         <div class="whocard__name">Дизайнер</div>
       </div>
-      <p class="whocard__txt">Треба картинка, якої не існує в природі. Зараз ти її малюєш або збираєш з кількох стоків — а можна згенерувати за пару хвилин.</p>
+      <p class="whocard__txt">Треба картинка, якої не існує в природі. Зараз ви її малюєте або збираєте з кількох стоків — а можна згенерувати за пару хвилин.</p>
     </div>
 
     <div class="whocard">
@@ -934,194 +1115,76 @@ img.miss{display:none}
       </div>
       <p class="whocard__txt">Не вистачає відзнятого матеріалу під сценарій. Або потрібна озвучка, а диктора немає.</p>
     </div>
+
+    <div class="whocard">
+      <div class="whocard__top">
+        <span class="whocard__ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12.6v6.2a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5.2a2 2 0 0 1 2-2h5.6"/><path d="M8.8 8.4h4.4M8.8 12h3"/><path d="m17.6 2.8 3.6 3.6-6 6-4.1.5.5-4.1 6-6Z"/></svg>
+        </span>
+        <div class="whocard__name">Копірайтер або контент-редактор</div>
+      </div>
+      <p class="whocard__txt">Текст готовий, але пост без візуалу не віддати. Зараз просите дизайнера або берете сток — а можна продавати «текст + візуал» пакетом і одразу підняти чек.</p>
+    </div>
+
+    <div class="whocard">
+      <div class="whocard__top">
+        <span class="whocard__ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.4"/><path d="M3 9h18M9 9v11"/></svg>
+        </span>
+        <div class="whocard__name">Веб-дизайнер, UI/UX</div>
+      </div>
+      <p class="whocard__txt">Під макет потрібні герої, ілюстрації, аватари, мокапи. Зараз це стоки або заглушки, які клієнт просить замінити.</p>
+    </div>
+
+    <div class="whocard">
+      <div class="whocard__top">
+        <span class="whocard__ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/><path d="M12 3.4a13 13 0 0 1 0 17.2 13 13 0 0 1 0-17.2"/></svg>
+        </span>
+        <div class="whocard__name">Фрілансер на Upwork чи Fiverr</div>
+      </div>
+      <p class="whocard__txt">Хочете розширити перелік послуг у профілі, щоб брати більше замовлень. Це пряма монетизація навички, без зміни ніші.</p>
+    </div>
+
+    <div class="whocard">
+      <div class="whocard__top">
+        <span class="whocard__ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 4 9.5 4.6L12 13.2 2.5 8.6 12 4Z"/><path d="M6.6 10.7v4.6c0 1.6 2.4 2.9 5.4 2.9s5.4-1.3 5.4-2.9v-4.6"/></svg>
+        </span>
+        <div class="whocard__name">Продюсер або онлайн-школа</div>
+      </div>
+      <p class="whocard__txt">Промо-відео, обкладинки уроків, озвучка модулів, музика під інтро. Контенту треба багато й постійно, а бюджет на підрядників великий.</p>
+    </div>
+
+    <div class="whocard">
+      <div class="whocard__top">
+        <span class="whocard__ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5.4 7.6h13.2l-1 12.2a1.6 1.6 0 0 1-1.6 1.5H8a1.6 1.6 0 0 1-1.6-1.5L5.4 7.6Z"/><path d="M8.8 7.6V6a3.2 3.2 0 0 1 6.4 0v1.6"/></svg>
+        </span>
+        <div class="whocard__name">Власник малого бізнесу чи e-commerce</div>
+      </div>
+      <p class="whocard__txt">Товар є, а фотосесія коштує грошей щоразу при оновленні асортименту. Предметку можна закривати самому — за пару кліків.</p>
+    </div>
   </div>
 </section>
 
-<!-- ============================ У ТЕБЕ ВИЙДЕ ============================ -->
+<!-- ============================ У ВАС ВИЙДЕ ============================ -->
 <section class="section rv">
-  <h2 class="h2">У тебе вийде,<br>навіть якщо <span class="acc">ти ще<br>не працював з AI</span></h2>
+  <h2 class="h2">У вас вийде,<br>навіть якщо <span class="acc">ви ще<br>не працювали з AI</span></h2>
 
   <div class="steps">
     <div class="step">
       <img class="step__num" src="images/num-1.png" alt="1" onerror="this.outerHTML='&lt;div class=\'step__num step__num--fallback\'&gt;1&lt;/div&gt;'">
-      <p class="step__txt">Уроки побудовані у форматі:<br><span class="mark mark--sq">«натисни → повтори → отримай результат»</span></p>
+      <p class="step__txt">Уроки побудовані у форматі:<br><span class="mark mark--sq">«натисніть → повторіть → отримайте результат»</span></p>
     </div>
     <div class="step">
       <img class="step__num" src="images/num-2.png" alt="2" onerror="this.outerHTML='&lt;div class=\'step__num step__num--fallback\'&gt;2&lt;/div&gt;'">
-      <p class="step__txt">Для роботи <span class="mark mark--sq">не потрібні платні підписки</span> на сервіси та платформи. Усі уроки побудовані на базі безкоштовних нейронок</p>
+      <p class="step__txt">Для роботи <span class="mark mark--sq">не потрібні платні підписки</span> на сервіси та платформи. Усі 6 уроків побудовані на базі безкоштовних нейронок</p>
     </div>
     <div class="step">
       <img class="step__num" src="images/num-3.png" alt="3" onerror="this.outerHTML='&lt;div class=\'step__num step__num--fallback\'&gt;3&lt;/div&gt;'">
-      <p class="step__txt"><span class="mark mark--sq">Курс уже пройшов 7 141 учень</span> — від повних новачків до тих, хто вже працює з контентом. Усі змогли створити свої перші фото, відео, озвучку та навіть музику через AI</p>
+      <p class="step__txt"><span class="mark mark--sq">Воркшоп уже пройшли 7149 людей</span> — від повних новачків до тих, хто вже працює з контентом. Середня оцінка — 4,9 з 5</p>
     </div>
-  </div>
-</section>
-
-<!-- ============================ ПРОГРАМА ============================ -->
-<section class="section rv">
-  <h2 class="h2">Програма практичного<br><span class="acc">курсу по AI контенту</span></h2>
-  <p class="sub">6 уроків · домашка після кожного · практика з першого дня</p>
-
-  <div class="lessons">
-
-    <article class="lesson">
-      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
-      <div class="lesson__head">
-        <div class="lesson__no">Урок <span class="acc">№1</span></div>
-        <div class="lesson__name">Як спілкуватися з ChatGPT так, щоб отримувати ідеальний результат</div>
-      </div>
-      <div class="lesson__body">
-        <div class="lesson__media"><img width="458" height="820" src="images/lesson-1.jpg" alt="Урок 1 — ChatGPT" loading="lazy" onerror="this.classList.add('miss')"></div>
-        <div>
-          <ul class="lesson__ul">
-            <li>розбір інтерфейсу ChatGPT</li>
-            <li>чим ChatGPT відрізняється від Google</li>
-            <li>що таке промт простими словами</li>
-            <li>що таке роль у ChatGPT</li>
-            <li>формула сильного промта</li>
-          </ul>
-          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> ти перестанеш витрачати генерації на спроби навмання і почнеш отримувати саме той результат, який задумав.</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="lesson">
-      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
-      <div class="lesson__head">
-        <div class="lesson__no">Урок <span class="acc">№2</span></div>
-        <div class="lesson__name">Перша генерація фото через нейромережі</div>
-      </div>
-      <div class="lesson__body">
-        <div class="lesson__media"><img width="457" height="820" src="images/lesson-2.jpg" alt="Урок 2 — генерація фото" loading="lazy" onerror="this.classList.add('miss')"></div>
-        <div>
-          <ul class="lesson__ul">
-            <li>де безкоштовно генерувати AI-картинки</li>
-            <li>як писати промти для генерації</li>
-            <li>як створювати різні стилі зображень</li>
-            <li>як зробити AI-фотосесію</li>
-          </ul>
-          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> зможеш зробити візуал під будь-яку задачу клієнта — без стоків, без зйомки, без пошуку референсів.</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="lesson">
-      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
-      <div class="lesson__head">
-        <div class="lesson__no">Урок <span class="acc">№3</span></div>
-        <div class="lesson__name">Як безкоштовно генерувати відео через AI — 3 способи</div>
-      </div>
-      <div class="lesson__body">
-        <button type="button" class="lesson__media ytf" data-yt="qtTvqEtS-es" aria-label="Дивитись відео уроку №3">
-          <img width="405" height="720" src="images/lesson-3.jpg" alt="Урок 3 — генерація відео" loading="lazy" onerror="this.classList.add('miss')">
-          <span class="ytf__play"></span>
-        </button>
-        <div>
-          <ul class="lesson__ul">
-            <li>генерація відео з тексту</li>
-            <li>генерація відео з картинки</li>
-            <li>генерація відео з ідеї</li>
-          </ul>
-          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> зможеш закривати відео-задачі сам — не віддавати на сторону і не відмовляти клієнту.</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="lesson">
-      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
-      <div class="lesson__head">
-        <div class="lesson__no">Урок <span class="acc">№4</span></div>
-        <div class="lesson__name">Озвучка для відео без мікрофону та професійного обладнання</div>
-      </div>
-      <div class="lesson__body">
-        <button type="button" class="lesson__media ytf" data-yt="aBfSLpMRzAQ" aria-label="Дивитись відео уроку №4">
-          <img width="405" height="720" src="images/lesson-4.jpg" alt="Урок 4 — AI-озвучка" loading="lazy" onerror="this.classList.add('miss')">
-          <span class="ytf__play"></span>
-        </button>
-        <div>
-          <ul class="lesson__ul">
-            <li>генерація голосу з тексту</li>
-            <li>як зробити голос живим</li>
-            <li>клонування свого голосу</li>
-          </ul>
-          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> озвучиш будь-яке відео без диктора і без студії. Клон власного голосу — щоб не перезаписувати щоразу.</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="lesson">
-      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
-      <div class="lesson__head">
-        <div class="lesson__no">Урок <span class="acc">№5</span></div>
-        <div class="lesson__name">Як генерувати музику через AI</div>
-      </div>
-      <div class="lesson__body">
-        <button type="button" class="lesson__media ytf" data-yt="GY-67pDR_j0" aria-label="Дивитись відео уроку №5">
-          <img width="405" height="720" src="images/lesson-5.jpg" alt="Урок 5 — AI-музика" loading="lazy" onerror="this.classList.add('miss')">
-          <span class="ytf__play"></span>
-        </button>
-        <div>
-          <ul class="lesson__ul">
-            <li>в яких нейронках безкоштовно генерувати музику</li>
-            <li>розбір інтерфейсу топових нейронок</li>
-            <li>створення фонової музики для твого відео</li>
-          </ul>
-          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> фонова музика під ролик за кілька хвилин, замість пошуку по стоках.</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="lesson">
-      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
-      <div class="lesson__head">
-        <div class="lesson__no">Урок <span class="acc">№6</span></div>
-        <div class="lesson__name">Як за 5 кроків зібрати повноцінне відео?</div>
-      </div>
-      <div class="lesson__body">
-        <div class="lesson__media"><img width="558" height="1000" src="images/hero.jpg" alt="Урок 6 — повноцінне AI-відео за 5 кроків" loading="lazy" onerror="this.classList.add('miss')"></div>
-        <div>
-          <p class="lesson__res" style="margin:0 0 12px;font-weight:700">Фінальний урок, де ти збереш усі навички воєдино:</p>
-          <ul class="lesson__ul">
-            <li>як поєднувати всі нейронки між собою</li>
-            <li>як створювати повноцінний AI-ролик — для кого і під які задачі</li>
-            <li>як застосовувати отримані навички в комерційних задачах</li>
-          </ul>
-          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> повний цикл у твоїх руках — від ідеї до готового ролика з озвучкою і музикою.</p>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<!-- ============================ BANNER ============================ -->
-<section class="section section--tight rv">
-  <a class="banner" href="https://app.zenedu.io/l/wOwQbPxU9UIGiRkB" target="_blank" rel="noopener">
-    Додай AI до того, що вже вмієш →
-  </a>
-</section>
-
-<!-- ============================ 8 НЕЙРОМЕРЕЖ ============================ -->
-<section class="section section--flush rv">
-  <div style="padding:0 var(--pad)">
-    <h2 class="h2" style="margin-bottom:10px">На цьому курсі<br>ти <span class="acc">опануєш 8<br>нейромереж</span></h2>
-    <p class="sub" style="margin-bottom:24px">Під кожну задачу — свій інструмент. Ти будеш знати, який відкривати і коли.</p>
-  </div>
-  <div class="carousel" data-carousel>
-    <button class="nav nav--prev" data-prev aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
-    <div class="track" data-track>
-      <div class="slide slide--neuro"><img width="1024" height="683" src="images/neuro-1.jpg" alt="ChatGPT" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">ChatGPT</span></div>
-      <div class="slide slide--neuro"><img width="1024" height="683" src="images/neuro-2.jpg" alt="Claude" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Claude</span></div>
-      <div class="slide slide--neuro"><img width="1024" height="683" src="images/neuro-3.jpg" alt="Google Gemini" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Google Gemini</span></div>
-      <div class="slide slide--neuro"><img width="944" height="628" src="images/neuro-4.jpg" alt="Nano Banana" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Nano Banana</span></div>
-      <div class="slide slide--neuro"><img width="1200" height="476" src="images/neuro-5.jpg" alt="Google Veo 3" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Google Veo 3</span></div>
-      <div class="slide slide--neuro"><img width="1024" height="683" src="images/neuro-6.jpg" alt="Grok" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Grok</span></div>
-      <div class="slide slide--neuro"><img width="1200" height="630" src="images/neuro-7.jpg" alt="Suno" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Suno</span></div>
-      <div class="slide slide--neuro"><img width="481" height="518" src="images/neuro-8.jpg" alt="MiniMax" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">MiniMax</span></div>
-    </div>
-    <button class="nav nav--next" data-next aria-label="Вперед"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
-    <div class="swipe">← гортай →</div>
-    <div class="dots" data-dots></div>
   </div>
 </section>
 
@@ -1132,8 +1195,8 @@ img.miss{display:none}
     <img class="dark__deco dark__deco--tl" src="images/deco-laptop-flip.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
     <img class="dark__deco dark__deco--br" src="images/deco-laptop.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
     <h2 class="h2">Авторські<br><span class="acc">застосунки</span></h2>
-    <p>Я створив власні AI-застосунки, у яких <b>логіка правильної генерації вже налаштована всередині.</b> Ти не обираєш модель, не підбираєш промт і не розбираєшся в інтерфейсі — відкриваєш і отримуєш результат.</p>
-    <p><span class="mark mark--blue">Три застосунки,</span> доступ до яких отримують усі учасники курсу:</p>
+    <p>Я створив власні AI-застосунки, у яких <b>логіка правильної генерації вже налаштована всередині.</b> Ви не обираєте нейронку, не підбираєте промт і не розбираєтесь в інтерфейсі нейронки — відкриваєте і одразу отримуєте готовий результат: портрет, фото товару або озвучку під відео.</p>
+    <p><span class="mark mark--blue">Три застосунки.</span> Доступ безкоштовний для всіх учасників воркшопу — окремо доплачувати не треба.</p>
 
     <div class="apps">
       <div class="appcard">
@@ -1156,7 +1219,223 @@ img.miss{display:none}
       </div>
     </div>
 
-    <p>Це три задачі, які в роботі зустрічаються найчастіше і забирають найбільше часу. Тому вони винесені в окремі застосунки — <b>щоб ти закривав їх за пару кліків,</b> а не збирав щоразу з нуля.</p>
+    <p>Це три задачі, які в роботі зустрічаються найчастіше і забирають найбільше часу. Тому вони винесені в окремі застосунки — <b>щоб ви закривали їх за пару кліків,</b> а не збирали щоразу з нуля.</p>
+
+    <span class="free free--dark free--center">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12.4a8.5 8.5 0 1 1-3.6-6.9"/><path d="m8.6 11.6 3 3 8.2-8.6"/></svg>
+      Безкоштовно для всіх учасників воркшопу
+    </span>
+  </div>
+</section>
+
+<!-- ============================ ПРОГРАМА ============================ -->
+<section class="section rv">
+  <h2 class="h2">Програма<br><span class="acc">воркшопу по<br>AI контенту</span></h2>
+  <p class="sub">6 уроків · домашка після кожного · можна пройти за один вечір або у своєму темпі</p>
+  <span class="free free--center">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12.4a8.5 8.5 0 1 1-3.6-6.9"/><path d="m8.6 11.6 3 3 8.2-8.6"/></svg>
+    Усі 6 уроків — на безкоштовних нейронках
+  </span>
+
+  <div class="lessons">
+
+    <article class="lesson">
+      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
+      <div class="lesson__head">
+        <div class="lesson__no">Урок <span class="acc">№1</span></div>
+        <div class="lesson__name">Як спілкуватися з ChatGPT так, щоб отримувати ідеальний результат</div>
+      </div>
+      <div class="lesson__body">
+        <div class="lesson__media"><img width="458" height="820" src="images/lesson-1.jpg" alt="Урок 1 — ChatGPT" loading="lazy" onerror="this.classList.add('miss')"></div>
+        <div>
+          <ul class="lesson__ul">
+            <li>розбір інтерфейсу ChatGPT</li>
+            <li>чим ChatGPT відрізняється від Google</li>
+            <li>що таке промт простими словами</li>
+            <li>що таке роль у ChatGPT</li>
+            <li>формула сильного промта</li>
+          </ul>
+          <p class="lesson__res"><span class="mark mark--sq">Результат:</span> перестанете зливати безкоштовні кредити на генерації навмання і почнете отримувати саме той результат, який задумали — або переносити свою фантазію в реальність такою, якою ви її бачите.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="lesson">
+      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
+      <div class="lesson__head">
+        <div class="lesson__no">Урок <span class="acc">№2</span></div>
+        <div class="lesson__name">Перша генерація фото через нейромережі</div>
+      </div>
+      <div class="lesson__body">
+        <div class="lesson__media"><img width="457" height="820" src="images/lesson-2.jpg" alt="Урок 2 — генерація фото" loading="lazy" onerror="this.classList.add('miss')"></div>
+        <div>
+          <ul class="lesson__ul">
+            <li>де безкоштовно генерувати AI-картинки</li>
+            <li>як писати промти для генерації</li>
+            <li>як створювати різні стилі зображень</li>
+            <li>як зробити AI-фотосесію</li>
+          </ul>
+          <p class="lesson__res"><span class="mark mark--sq">Для SMM і дизайнера:</span> зробите візуал під будь-яку задачу клієнта — без стоків, без зйомки, без пошуку референсів. Пост і банер більше не стоять через те, що «немає з чого робити».</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="lesson">
+      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
+      <div class="lesson__head">
+        <div class="lesson__no">Урок <span class="acc">№3</span></div>
+        <div class="lesson__name">Як безкоштовно генерувати відео через AI — 3 способи</div>
+      </div>
+      <div class="lesson__body">
+        <button type="button" class="lesson__media ytf" data-yt="qtTvqEtS-es" aria-label="Дивитись відео уроку №3">
+          <img width="405" height="720" src="images/lesson-3.jpg" alt="Урок 3 — генерація відео" loading="lazy" onerror="this.classList.add('miss')">
+          <span class="ytf__play"></span>
+        </button>
+        <div>
+          <ul class="lesson__ul">
+            <li>генерація відео з тексту</li>
+            <li>генерація відео з картинки</li>
+            <li>генерація відео з ідеї</li>
+          </ul>
+          <p class="lesson__res"><span class="mark mark--sq">Для таргетолога:</span> зробите відео-креативи під рекламу самі — не віддаєте на сторону, не чекаєте на монтажера і не відмовляєте клієнту.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="lesson">
+      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
+      <div class="lesson__head">
+        <div class="lesson__no">Урок <span class="acc">№4</span></div>
+        <div class="lesson__name">Озвучка для відео без мікрофону та професійного обладнання</div>
+      </div>
+      <div class="lesson__body">
+        <button type="button" class="lesson__media ytf" data-yt="aBfSLpMRzAQ" aria-label="Дивитись відео уроку №4">
+          <img width="405" height="720" src="images/lesson-4.jpg" alt="Урок 4 — AI-озвучка" loading="lazy" onerror="this.classList.add('miss')">
+          <span class="ytf__play"></span>
+        </button>
+        <div>
+          <ul class="lesson__ul">
+            <li>генерація голосу з тексту</li>
+            <li>як зробити голос живим</li>
+            <li>клонування свого голосу</li>
+          </ul>
+          <p class="lesson__res"><span class="mark mark--sq">Для монтажера і продюсера:</span> озвучите будь-яке відео без диктора і без студії. Клон власного голосу — щоб не перезаписувати щоразу, коли клієнт править текст.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="lesson">
+      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
+      <div class="lesson__head">
+        <div class="lesson__no">Урок <span class="acc">№5</span></div>
+        <div class="lesson__name">Як генерувати музику через AI</div>
+      </div>
+      <div class="lesson__body">
+        <button type="button" class="lesson__media ytf" data-yt="GY-67pDR_j0" aria-label="Дивитись відео уроку №5">
+          <img width="405" height="720" src="images/lesson-5.jpg" alt="Урок 5 — AI-музика" loading="lazy" onerror="this.classList.add('miss')">
+          <span class="ytf__play"></span>
+        </button>
+        <div>
+          <ul class="lesson__ul">
+            <li>в яких нейронках безкоштовно генерувати музику</li>
+            <li>розбір інтерфейсу топових нейронок</li>
+            <li>створення фонової музики для вашого відео</li>
+          </ul>
+          <p class="lesson__res"><span class="mark mark--sq">Для motion-дизайнера:</span> фонова музика під ролик за кілька хвилин, замість години пошуку по стоках.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="lesson">
+      <img class="lesson__play" src="images/deco-play.png" alt="" onerror="this.classList.add('miss')">
+      <div class="lesson__head">
+        <div class="lesson__no">Урок <span class="acc">№6</span></div>
+        <div class="lesson__name">Як за 5 кроків зібрати повноцінне відео?</div>
+      </div>
+      <div class="lesson__body">
+        <div class="lesson__media"><img width="558" height="1000" src="images/hero.jpg" alt="Урок 6 — повноцінне AI-відео за 5 кроків" loading="lazy" onerror="this.classList.add('miss')"></div>
+        <div>
+          <p class="lesson__res" style="margin:0 0 12px;font-weight:700">Фінальний урок, де ви збираєте всі навички воєдино:</p>
+          <ul class="lesson__ul">
+            <li>як поєднувати всі нейронки між собою</li>
+            <li>як створювати повноцінний AI-ролик — для кого і під які задачі</li>
+            <li>як застосовувати отримані навички в комерційних задачах</li>
+          </ul>
+          <p class="lesson__res"><span class="mark mark--sq">Для фрілансера:</span> повний цикл у ваших руках — від ідеї до готового ролика з озвучкою і музикою. Це вже окрема позиція у вашому прайсі, а не безкоштовний додаток до неї.</p>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="chain">
+    <div class="chain__head">Як це виглядає<br>на практиці</div>
+    <p class="chain__sub">Один сегмент — наскрізь через усю програму. Припустимо, ви таргетолог і вам треба креатив під запуск.</p>
+    <ul class="chain__list">
+      <li class="chain__item">
+        <span class="chain__n">У1</span>
+        <span class="chain__txt">Пишете в ChatGPT <b>сценарій креативу</b> під конкретну аудиторію — за формулою промта з уроку, а не навмання</span>
+      </li>
+      <li class="chain__item">
+        <span class="chain__n">У2</span>
+        <span class="chain__txt">Генеруєте <b>5 варіантів картинки</b> під банер — різні стилі, один товар, жодного стоку</span>
+      </li>
+      <li class="chain__item">
+        <span class="chain__n">У3</span>
+        <span class="chain__txt">Найкращий кадр <b>оживляєте у відео</b> — статичний банер стає рухомим креативом</span>
+      </li>
+      <li class="chain__item">
+        <span class="chain__n">У4</span>
+        <span class="chain__txt">Накладаєте <b>озвучку</b> — голосом, який клонували зі свого, без диктора і мікрофона</span>
+      </li>
+      <li class="chain__item">
+        <span class="chain__n">У5</span>
+        <span class="chain__txt">Підкладаєте <b>фонову музику</b> під хронометраж ролика</span>
+      </li>
+      <li class="chain__item">
+        <span class="chain__n">У6</span>
+        <span class="chain__txt">Збираєте все в <b>готовий рекламний ролик</b> і віддаєте клієнту</span>
+      </li>
+    </ul>
+    <p class="chain__res">Замість двох банерів на тиждень — <b>десять готових креативів за вечір.</b> Без дизайнера, без монтажера, без диктора. Той самий ланцюжок працює для будь-якого сегмента — просто підставте свою задачу.</p>
+  </div>
+</section>
+
+<!-- ============================ BANNER ============================ -->
+<section class="section section--tight rv">
+  <a class="banner" href="https://app.zenedu.io/l/wOwQbPxU9UIGiRkB" target="_blank" rel="noopener">
+    Додайте AI до того, що вже вмієте →
+  </a>
+</section>
+
+<!-- ============================ 8 НЕЙРОМЕРЕЖ ============================ -->
+<section class="section section--flush rv">
+  <div style="padding:0 var(--pad)">
+    <h2 class="h2" style="margin-bottom:10px">На цьому воркшопі<br>ви <span class="acc">опануєте 8<br>нейромереж</span><br>з повного нуля</h2>
+    <p class="sub" style="margin-bottom:0">Під кожну задачу — свій інструмент. Ви знатимете, який відкривати і коли. Усі вісім — на безкоштовних тарифах.</p>
+  </div>
+
+  <div class="uses">
+    <div class="use"><span class="use__dot"></span><span><b>Таргетолог</b> — креативи під рекламу: картинка, відео, озвучка з одного вечора</span></div>
+    <div class="use"><span class="use__dot"></span><span><b>Дизайнер</b> — зображення, якого немає в жодному стоці, під конкретний макет</span></div>
+    <div class="use"><span class="use__dot"></span><span><b>Монтажер</b> — озвучка й музика під ролик, коли відзнятого матеріалу не вистачає</span></div>
+  </div>
+
+  <div class="carousel" data-carousel style="margin-top:24px">
+    <button class="nav nav--prev" data-prev aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+    <div class="track" data-track>
+      <div class="slide slide--neuro"><img width="1024" height="683" src="images/neuro-1.jpg" alt="ChatGPT" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">ChatGPT</span></div>
+      <div class="slide slide--neuro"><img width="1024" height="683" src="images/neuro-2.jpg" alt="Claude" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Claude</span></div>
+      <div class="slide slide--neuro"><img width="1024" height="683" src="images/neuro-3.jpg" alt="Google Gemini" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Google Gemini</span></div>
+      <div class="slide slide--neuro"><img width="944" height="628" src="images/neuro-4.jpg" alt="Nano Banana" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Nano Banana</span></div>
+      <div class="slide slide--neuro"><img width="1200" height="476" src="images/neuro-5.jpg" alt="Google Veo 3" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Google Veo 3</span></div>
+      <div class="slide slide--neuro"><img width="1024" height="683" src="images/neuro-6.jpg" alt="Grok" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Grok</span></div>
+      <div class="slide slide--neuro"><img width="1200" height="630" src="images/neuro-7.jpg" alt="Suno" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">Suno</span></div>
+      <div class="slide slide--neuro"><img width="481" height="518" src="images/neuro-8.jpg" alt="MiniMax" loading="lazy" onerror="this.classList.add('miss')"><span class="slide__cap">MiniMax</span></div>
+    </div>
+    <button class="nav nav--next" data-next aria-label="Вперед"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+    <div class="swipe">← гортайте →</div>
+    <div class="dots" data-dots></div>
   </div>
 </section>
 
@@ -1167,15 +1446,15 @@ img.miss{display:none}
   <div class="how">
     <div class="howcard">
       <span class="howcard__ico">💻</span>
-      <p class="howcard__txt"><b>Доступ до уроків у Telegram-боті</b><br>дивишся у будь-який час і одразу застосовуєш у роботі</p>
+      <p class="howcard__txt"><b>Доступ до уроків у Telegram-боті</b><br>дивитесь у будь-який час і одразу застосовуєте в роботі</p>
     </div>
     <div class="howcard">
       <span class="howcard__ico">❗</span>
-      <p class="howcard__txt"><b>Домашнє завдання після кожного уроку</b><br>виконуєш одразу — без відкладання «на потім»</p>
+      <p class="howcard__txt"><b>Домашнє завдання після кожного уроку</b><br>виконуєте одразу — без відкладання «на потім»</p>
     </div>
     <div class="howcard">
       <span class="howcard__ico">📝</span>
-      <p class="howcard__txt"><b>Особливий бонус за всі домашні</b><br>виконаєш усі завдання — отримаєш додатковий бонус від автора</p>
+      <p class="howcard__txt"><b>Особливий бонус за всі домашні</b><br>виконаєте всі завдання — отримаєте додатковий бонус від автора</p>
     </div>
     <div class="howcard">
       <span class="howcard__ico">🤖</span>
@@ -1186,27 +1465,31 @@ img.miss{display:none}
       <p class="howcard__txt"><b>Покрокові інструкції без води</b><br>що натиснути, куди завантажити, як отримати результат</p>
     </div>
     <div class="howcard">
+      <span class="howcard__ico">🔄</span>
+      <p class="howcard__txt"><b>Довічний доступ і всі оновлення</b><br>нейронки розвиваються дуже швидко — коли виходить оновлення, я перезаписую урок. Купуєте один раз, оновлення отримуєте назавжди</p>
+    </div>
+    <div class="howcard">
       <span class="howcard__ico">✍️</span>
-      <p class="howcard__txt"><b>Чат-підтримка</b><br>ставиш питання — отримуєш розбір, а не шукаєш відповідь самостійно</p>
+      <p class="howcard__txt"><b>Чат-підтримка</b><br>ставите питання — отримуєте розбір, а не шукаєте відповідь самостійно</p>
     </div>
   </div>
 
   <div class="result">
     <div class="result__intro">
       <span class="ico">👌</span>
-      <span>Як результат, за 6 коротких, але дуже змістовних уроків ти:</span>
+      <span>Як результат, за 6 коротких, але дуже змістовних уроків ви:</span>
     </div>
     <ul class="result__ul">
-      <li>закриватимеш задачі клієнтів, які раніше віддавав на сторону</li>
-      <li>створюватимеш фото, відео, озвучку та музику під конкретну задачу</li>
-      <li>зрозумієш просту систему створення AI-контенту</li>
-      <li>працюватимеш швидше — без стоків, зйомки та підрядників</li>
-      <li>матимеш готовий процес, який можна повторювати на кожному проєкті</li>
+      <li>закриватимете задачі клієнтів, які раніше делегували підрядникам — і на цьому недозаробляли</li>
+      <li>піднімете середній чек за проєкт, бо продаєте більше послуг з одного профілю</li>
+      <li>створюватимете фото, відео, озвучку та музику під конкретну задачу</li>
+      <li>працюватимете швидше — без стоків, зйомки та узгоджень із підрядником</li>
+      <li>матимете готовий процес, який можна повторювати на кожному проєкті</li>
     </ul>
   </div>
 
   <a class="btn" style="margin-top:28px" href="https://app.zenedu.io/l/wOwQbPxU9UIGiRkB" target="_blank" rel="noopener">
-    Приєднатись до курсу
+    Приєднатись до воркшопу
     <span class="btn__ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="m12.5 6 6 6-6 6"/></svg></span>
   </a>
 </section>
@@ -1217,22 +1500,31 @@ img.miss{display:none}
     <img width="470" height="900" class="dark__bg" src="images/guarantee-bg.jpg" alt="" loading="lazy" onerror="this.classList.add('miss')">
     <img class="dark__deco dark__deco--tr" src="images/deco-ai.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
     <img class="dark__deco dark__deco--l" src="images/deco-ai.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
-    <h2 class="h2">Розширена<br><span class="acc">гарантія від<br>автора курсу</span></h2>
-    <p>Я впевнений у якості курсу. <b>Чому?</b></p>
-    <p>Тому що <b>мої програми з AI-контенту вже пройшов 7 141 учень</b>, і тисячі робіт учнів доводять, що ця система працює. Саме тому я даю гарантію <span class="mark mark--blue">повернення коштів — 14 днів.</span></p>
-    <p><b>Якщо ти:</b><br>· пройдеш усі уроки курсу<br>· застосуєш те, що я показую в уроках<br>· повториш технологію, яку я демонструю</p>
-    <p>і в тебе не вийде безкоштовно створювати AI-контент, а саме:<br>— зображення<br>— відео<br>— озвучку<br>— музику</p>
-    <p><b>я просто поверну тобі гроші.</b></p>
-    <p><span class="mark mark--blue">Головна задача цього курсу</span> — щоб ти вийшов з нього з готовим процесом, який можна одразу застосовувати в роботі 🚀</p>
+    <h2 class="h2">Розширена<br><span class="acc">гарантія від<br>автора воркшопу</span></h2>
+    <p>Я впевнений у якості воркшопу. <b>Чому?</b></p>
+    <p>Тому що <b>мої програми з AI-контенту вже пройшли 7149 людей</b>, і тисячі робіт учнів доводять, що <b>система, яку я викладаю на воркшопі, працює.</b> Саме тому я даю гарантію <span class="mark mark--blue">повернення коштів — 14 днів.</span></p>
+
+    <div class="rating">
+      <span class="rating__num">4,9</span>
+      <span>
+        <span class="rating__stars">★★★★★</span>
+        <span class="rating__lab">середня оцінка<br>від 7149 учнів</span>
+      </span>
+    </div>
+
+    <p style="margin-top:20px"><b>Якщо ви:</b><br>· пройдете всі уроки воркшопу<br>· застосуєте те, що я показую в уроках<br>· повторите технологію, яку я демонструю</p>
+    <p>і у вас не вийде безкоштовно створювати AI-контент, а саме:<br>— зображення<br>— відео<br>— озвучку<br>— музику</p>
+    <p><b>я просто поверну вам гроші.</b></p>
+    <p><span class="mark mark--blue">Головна задача цього воркшопу</span> — щоб ви вийшли з нього з готовим процесом, який можна одразу застосовувати в роботі 🚀</p>
   </div>
 </section>
 
 <!-- ============================ АВТОР ============================ -->
 <section class="section rv">
-  <h2 class="h2">Автор курсу</h2>
+  <h2 class="h2">Автор воркшопу</h2>
 
   <div class="author__pics">
-    <div class="author__pic ph"><img width="747" height="1000" src="images/author.jpg" alt="Олександр Цюцьмаць — автор курсу" loading="lazy" onerror="this.classList.add('miss')"></div>
+    <div class="author__pic ph"><img width="747" height="1000" src="images/author.jpg" alt="Олександр Цюцьмаць — автор воркшопу" loading="lazy" onerror="this.classList.add('miss')"></div>
   </div>
 
   <div class="author__name">Олександр<br>Цюцьмаць</div>
@@ -1248,28 +1540,29 @@ img.miss{display:none}
     </li>
     <li>
       <img class="ck" src="images/check.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
-      <span><b>7 141 учень</b> вже пройшов мої навчальні програми та використовує AI для заробітку, контенту й особистого бренду</span>
+      <span><b>7149 учнів</b> вже пройшли мої навчальні програми та використовують AI для заробітку, контенту й особистого бренду</span>
     </li>
     <li>
       <img class="ck" src="images/check.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
-      <span>Я вірю, що <b>AI — це не про «магію кнопки», а про системний підхід,</b> правильні промти та розуміння, як отримувати саме той результат, який ти хочеш бачити</span>
+      <span>Я вірю, що <b>AI — це не про «магію кнопки», а про системний підхід,</b> правильні промти та розуміння, як отримувати саме той результат, який ви хочете бачити</span>
     </li>
   </ul>
 </section>
 
 <!-- ============================ ПОВНИЙ СПИСОК ============================ -->
 <section class="section section--soft rv">
-  <h2 class="h2">Повний список<br>того, <span class="acc">що ти<br>отримаєш на курсі</span></h2>
+  <h2 class="h2">Повний список<br>того, <span class="acc">що ви<br>отримаєте</span></h2>
 
   <div class="pack">
     <ul class="pack__ul">
-      <li><span class="ico">📘</span><span><b>6 практичних уроків</b> без води</span></li>
+      <li><span class="ico">📘</span><span><b>6 практичних уроків</b> без води — можна пройти за один вечір</span></li>
       <li><span class="ico">🎓</span><span><b>Домашні завдання,</b> щоб одразу відпрацьовувати навички</span></li>
       <li><span class="ico">🧩</span><span><b>Готові промти та інструкції,</b> які я використовую для генерації AI-контенту</span></li>
       <li><span class="ico">📸</span><span><b>БОНУС:</b> безкоштовний доступ до 3 авторських застосунків для генерації фото та озвучки</span></li>
       <li><span class="ico">🎁</span><span><b>БОНУС:</b> як отримати платні AI-інструменти безкоштовно</span></li>
       <li><span class="ico">🎁</span><span><b>БОНУС:</b> 10 готових ролей для ChatGPT</span></li>
-      <li><span class="ico">🔓</span><span><b>Доступ до курсу</b> — 3 тижні</span></li>
+      <li><span class="ico">🔓</span><span><b>Довічний доступ</b> до воркшопу — разом з усіма оновленнями уроків</span></li>
+      <li><span class="ico">💸</span><span><b>Жодних платних підписок:</b> усі 6 уроків побудовані на безкоштовних нейронках</span></li>
       <li><span class="ico">🤝</span><span><b>Підтримка</b> протягом навчання</span></li>
       <li><span class="ico">🛡</span><span><b>Гарантія повернення</b> коштів на 14 днів</span></li>
       <li><span class="ico">🚀</span><span>Унікальні умови для <b>участі у «Фабриці АІ контенту»</b></span></li>
@@ -1291,7 +1584,7 @@ img.miss{display:none}
 <!-- ============================ ВІДГУКИ ============================ -->
 <section class="section section--flush rv">
   <div style="padding:0 var(--pad)">
-    <h2 class="h2" style="margin-bottom:26px">Вже 7 141 учень<br>пройшов мої курси,<br>і ось <span class="acc">їхні відгуки</span></h2>
+    <h2 class="h2" style="margin-bottom:26px">Вже 7149 учнів<br>пройшли мої програми,<br>і ось <span class="acc">їх відгуки</span></h2>
   </div>
   <div class="carousel" data-carousel>
     <button class="nav nav--prev" data-prev aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
@@ -1309,7 +1602,7 @@ img.miss{display:none}
       <div class="slide slide--rev"><img width="796" height="218" src="images/review-11.jpg" alt="Відгук 11" loading="lazy" onerror="this.classList.add('miss')"></div>
     </div>
     <button class="nav nav--next" data-next aria-label="Вперед"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
-    <div class="swipe">← гортай →</div>
+    <div class="swipe">← гортайте →</div>
     <div class="dots" data-dots></div>
   </div>
 </section>
@@ -1320,38 +1613,42 @@ img.miss{display:none}
 
   <div class="faq">
     <div class="faq__item">
-      <button class="faq__q" type="button">Я вже пробував працювати з нейронками, але виходило не те. Чим цей курс відрізняється?<span class="faq__plus"></span></button>
+      <button class="faq__q" type="button">Я вже пробував працювати з нейронками, але виходило не те. Чим цей воркшоп відрізняється?<span class="faq__plus"></span></button>
       <div class="faq__a"><p>Більшість проблем із генерацією — це не про нейронку, а про те, який інструмент узятий під задачу і як сформульований запит.
 
-На курсі ти отримуєш готові промти й чітку послідовність: який сервіс відкрити під конкретну задачу, що написати, що натиснути.
+На воркшопі ви отримуєте готові промти й чітку послідовність: який сервіс відкрити під конкретну задачу, що написати, що натиснути.
 
 Плюс три авторські застосунки, де логіка генерації вже налаштована всередині.</p></div>
     </div>
     <div class="faq__item">
       <button class="faq__q" type="button">Скільки часу займе проходження?<span class="faq__plus"></span></button>
-      <div class="faq__a"><p>Уроки короткі й практичні. Один день — один урок, повне проходження займе 6 днів.
+      <div class="faq__a"><p>Уроки короткі й практичні — при бажанні можна пройти весь воркшоп за один вечір.
 
-Але ти можеш проходити у своєму темпі протягом 3 тижнів.</p></div>
+Або йти у своєму темпі: один день — один урок, тоді це 6 днів. Доступ довічний, тож дедлайну немає.</p></div>
     </div>
     <div class="faq__item">
       <button class="faq__q" type="button">Чи вистачить цих навичок для клієнтських задач?<span class="faq__plus"></span></button>
-      <div class="faq__a"><p>Курс дає базу під чотири напрямки: зображення, відео, озвучка, музика.
+      <div class="faq__a"><p>Воркшоп дає базу під чотири напрямки: зображення, відео, озвучка, музика.
 
-Цього достатньо, щоб закривати типові задачі — креативи, предметка, короткі ролики, озвучення.
+Цього достатньо, щоб закривати типові задачі — креативи, предметка, короткі ролики, озвучення. Тобто те, що ви зараз віддаєте підрядникам.
 
 Для складніших проєктів знадобиться глибше занурення, і для цього є «Фабрика АІ контенту».</p></div>
     </div>
     <div class="faq__item">
       <button class="faq__q" type="button">Чи не застаріє інформація через пару місяців?<span class="faq__plus"></span></button>
-      <div class="faq__a"><p>Інформація актуальна на серпень 2026 року. Коли виходить оновлення для нейронок — я записую новий урок або викладаю опис, що змінилося і як з цим працювати.
+      <div class="faq__a"><p>Нейронки розвиваються дуже швидко, і уроки змінюються слідом за ними. Коли виходить оновлення — я перезаписую урок або викладаю опис, що змінилося і як з цим працювати.
 
-Але головне: на курсі ти вчиш принцип роботи з промтами, а не набір кнопок у конкретному інтерфейсі.</p></div>
+Ви купуєте один раз і отримуєте довічний доступ до всіх оновлень.
+
+Плюс головне: на воркшопі ви вчите принцип роботи з промтами, а не набір кнопок у конкретному інтерфейсі.</p></div>
     </div>
     <div class="faq__item">
       <button class="faq__q" type="button">Чи потрібні платні підписки?<span class="faq__plus"></span></button>
-      <div class="faq__a"><p>Ні. Усі уроки побудовані на базі безкоштовних нейронок.
+      <div class="faq__a"><p>Ні. Усі 6 уроків побудовані на базі безкоштовних нейронок — щоб ви спокійно потренувалися і отримали результат, не витративши жодної гривні на сервіси.
 
-Плюс окремий бонус про те, як користуватися платними інструментами без покупки підписки.</p></div>
+Плюс окремий бонус про те, як користуватися платними інструментами без покупки підписки.
+
+Чесно: коли ви захочете більших обсягів і максимальної якості на потоці — платні тарифи стануть зручнішими. Але для проходження воркшопу і перших клієнтських задач вони не потрібні.</p></div>
     </div>
     <div class="faq__item">
       <button class="faq__q" type="button">Чи обов'язково мати комп'ютер? Чи можна з телефону?<span class="faq__plus"></span></button>
@@ -1361,20 +1658,67 @@ img.miss{display:none}
     </div>
     <div class="faq__item">
       <button class="faq__q" type="button">Якщо в мене не вийде — мені хтось допоможе?<span class="faq__plus"></span></button>
-      <div class="faq__a"><p>На курсі є куратор, який відповідає на запитання в чат-боті.</p></div>
+      <div class="faq__a"><p>На воркшопі є куратор, який відповідає на запитання в чат-боті.</p></div>
     </div>
     <div class="faq__item">
       <button class="faq__q" type="button">Чому так дешево?<span class="faq__plus"></span></button>
-      <div class="faq__a"><p>Це вхідний продукт. Моя задача — щоб ти отримав перший результат і побачив, як це працює.
+      <div class="faq__a"><p>Це вхідний продукт. Моя задача — щоб ви отримали перший результат і побачили, як це працює.
 
 Далі є повна програма «Фабрика АІ контенту» для тих, хто захоче йти глибше.</p></div>
     </div>
   </div>
 </section>
 
+<!-- ============================ ФІНАЛЬНИЙ CTA ============================ -->
+<section class="final rv">
+  <img class="final__deco" src="images/deco-ai.png" alt="" loading="lazy" onerror="this.classList.add('miss')">
+  <h2 class="h2">Додайте AI<br>до того, що<br><span class="acc" style="color:#7FB4FF">ви вже вмієте</span></h2>
+  <p class="final__lead">
+    6 уроків. Один вечір. І весь цикл створення контенту — фото, відео, озвучка, музика — закривається без підрядників.
+  </p>
+  <ul class="final__ul">
+    <li>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.6 4.6 4.6L19 7.4"/></svg>
+      <span>Вищий середній чек за проєкт — продаєте більше послуг з одного профілю</span>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.6 4.6 4.6L19 7.4"/></svg>
+      <span>Довічний доступ і всі оновлення уроків</span>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.6 4.6 4.6L19 7.4"/></svg>
+      <span>3 авторські застосунки безкоштовно</span>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.6 4.6 4.6L19 7.4"/></svg>
+      <span>Жодних платних підписок на нейронки</span>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.6 4.6 4.6L19 7.4"/></svg>
+      <span>Гарантія повернення коштів — 14 днів</span>
+    </li>
+  </ul>
+
+  <div class="price">
+    <span class="price__new">390 грн</span>
+    <span class="price__old">2400 грн</span>
+    <span class="price__off">−75%</span>
+  </div>
+
+  <a class="btn" href="https://app.zenedu.io/l/wOwQbPxU9UIGiRkB" target="_blank" rel="noopener">
+    <span class="btn__ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="m12.5 6 6 6-6 6"/></svg></span>
+    Приєднатись −75%
+  </a>
+
+  <p class="final__note">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="2.5"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/></svg>
+    Після оплати одразу отримаєте доступ у Telegram-боті
+  </p>
+</section>
+
 <!-- ============================ ПІДТРИМКА ============================ -->
 <section class="support">
-  <h2 class="h2">З будь-яких питань<br>пиши в підтримку<br>за посиланням<br>нижче 👇</h2>
+  <h2 class="h2">З будь-яких питань<br>пишіть в підтримку<br>за посиланням<br>нижче 👇</h2>
   <a class="btn btn--ghost" href="https://t.me/ai_sashka_support" target="_blank" rel="noopener">Технічна підтримка</a>
 </section>
 
@@ -1403,11 +1747,6 @@ img.miss{display:none}
     ЄДРПОУ 3757902952<br>
     stepanenkob30@gmail.com
   </div>
-
-  <a class="btn" style="margin-top:28px" href="https://app.zenedu.io/l/wOwQbPxU9UIGiRkB" target="_blank" rel="noopener">
-    <span class="btn__ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="m12.5 6 6 6-6 6"/></svg></span>
-    Приєднатися за спеціальною ціною −75%
-  </a>
 
   <div class="footer__legal">
     <p>ВАЖЛИВО: не вводьте свою контактну інформацію, доки не прочитаєте legal disclaimer. Ми не даємо жодних гарантій, що ви досягнете якихось результатів за допомогою наших інструментів, стратегій або інформації. Всі продукти і сервіси компанії призначені для освітніх цілей. Жодна інформація на цьому сайті або будь-яких інших сайтах компанії не гарантує і не обіцяє отримання результатів. Ви несете відповідальність за свої дії і результати. Реєструючись на даному сайті, ви знімаєте з нас відповідальність за ваші дії та результати.</p>
