@@ -418,7 +418,8 @@ a{color:inherit;text-decoration:none}
   aspect-ratio:141/252;
   position:relative;
 }
-.lesson__media img,.lesson__media video{width:100%;height:100%;object-fit:cover}
+.lesson__media img,.lesson__media video{width:100%;height:100%;object-fit:cover;display:block}
+.lesson__media video{background:#0B0D12}
 
 /* фасад YouTube — постер + кнопка play, iframe грузиться лише по кліку */
 .ytf{display:block;border:0;padding:0;cursor:pointer;font:inherit;color:inherit}
@@ -1287,10 +1288,11 @@ img.miss{display:none}
         <div class="lesson__name">Як безкоштовно генерувати відео через AI — 3 способи</div>
       </div>
       <div class="lesson__body">
-        <button type="button" class="lesson__media ytf" data-yt="qtTvqEtS-es" aria-label="Дивитись відео уроку №3">
-          <img width="405" height="720" src="images/lesson-3.jpg" alt="Урок 3 — генерація відео" loading="lazy" onerror="this.classList.add('miss')">
-          <span class="ytf__play"></span>
-        </button>
+        <div class="lesson__media">
+          <video class="vid" playsinline muted loop preload="none" poster="images/lesson-3.jpg" aria-label="Урок 3 — генерація відео через AI">
+            <source src="video/lesson-3.mp4" type="video/mp4">
+          </video>
+        </div>
         <div>
           <ul class="lesson__ul">
             <li>генерація відео з тексту</li>
@@ -1309,10 +1311,11 @@ img.miss{display:none}
         <div class="lesson__name">Озвучка для відео без мікрофону та професійного обладнання</div>
       </div>
       <div class="lesson__body">
-        <button type="button" class="lesson__media ytf" data-yt="aBfSLpMRzAQ" aria-label="Дивитись відео уроку №4">
-          <img width="405" height="720" src="images/lesson-4.jpg" alt="Урок 4 — AI-озвучка" loading="lazy" onerror="this.classList.add('miss')">
-          <span class="ytf__play"></span>
-        </button>
+        <div class="lesson__media">
+          <video class="vid" playsinline muted loop preload="none" poster="images/lesson-4.jpg" aria-label="Урок 4 — AI-озвучка">
+            <source src="video/lesson-4.mp4" type="video/mp4">
+          </video>
+        </div>
         <div>
           <ul class="lesson__ul">
             <li>генерація голосу з тексту</li>
@@ -1331,10 +1334,11 @@ img.miss{display:none}
         <div class="lesson__name">Як генерувати музику через AI</div>
       </div>
       <div class="lesson__body">
-        <button type="button" class="lesson__media ytf" data-yt="GY-67pDR_j0" aria-label="Дивитись відео уроку №5">
-          <img width="405" height="720" src="images/lesson-5.jpg" alt="Урок 5 — AI-музика" loading="lazy" onerror="this.classList.add('miss')">
-          <span class="ytf__play"></span>
-        </button>
+        <div class="lesson__media">
+          <video class="vid" playsinline muted loop preload="none" poster="images/lesson-5.jpg" aria-label="Урок 5 — AI-музика">
+            <source src="video/lesson-5.mp4" type="video/mp4">
+          </video>
+        </div>
         <div>
           <ul class="lesson__ul">
             <li>в яких нейронках безкоштовно генерувати музику</li>
@@ -1836,6 +1840,43 @@ img.miss{display:none}
       box.appendChild(f);
     });
   });
+
+  /* ---------- Локальні відео уроків: автоплей без звуку, коли блок у кадрі ---------- */
+  var vids = document.querySelectorAll('video.vid');
+  if (vids.length) {
+    /* muted обовʼязково як властивість — інакше iOS не дозволить автоплей */
+    vids.forEach(function(v){ v.muted = true; v.defaultMuted = true; });
+
+    function playVid(v){
+      if (v.getAttribute('preload') === 'none') {
+        v.setAttribute('preload', 'auto');
+        v.load();
+      }
+      var pr = v.play();
+      if (pr && pr.catch) pr.catch(function(){ /* Low Power Mode — лишається постер */ });
+    }
+
+    if ('IntersectionObserver' in window) {
+      var vio = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) playVid(e.target);
+          else if (!e.target.paused) e.target.pause();
+        });
+      }, {rootMargin:'200px 0px', threshold:0.2});
+      vids.forEach(function(v){ vio.observe(v); });
+    } else {
+      vids.forEach(playVid);
+    }
+
+    /* якщо сторінку відкрили у фоновій вкладці — доганяємо, коли на неї перемкнулись */
+    document.addEventListener('visibilitychange', function(){
+      if (document.hidden) return;
+      vids.forEach(function(v){
+        var r = v.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0 && v.paused) playVid(v);
+      });
+    });
+  }
 
   /* ---------- Carousels ---------- */
   document.querySelectorAll('[data-carousel]').forEach(function(root){
