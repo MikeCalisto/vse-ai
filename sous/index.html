@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Закритий урок: відео з собою через Seedance 2.5 — Ai_Sashka</title>
+<meta name="description" content="Стиль зйомки, карточка персонажа і Seedance 2.5 — закритий урок для тих, хто вже генерує.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700;900&family=Manrope:wght@400;500;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E9E9E9;          /* фон сторінки / поля по боках на десктопі */
+  --card:#FFFFFF;
+  --ink:#0A0A0A;
+  --muted:#6E6E6E;
+  --line:#E4E4E4;
+  --accent:#6B2BEE;      /* фіолетовий акцент */
+  --lime:#C6F432;        /* лаймовий стикер */
+  --pad:20px;            /* внутрішній відступ картки */
+  --gap:10px;            /* відстань між картками */
+  --col:460px;           /* ширина колонки на десктопі */
+  /* шрифт УСІХ заголовків — міняється тільки тут */
+  --display:'Roboto Condensed',Impact,Haettenschweiler,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Manrope',system-ui,-apple-system,sans-serif;
+  font-size:15px;line-height:1.45;
+  overflow-x:hidden;
+}
+/* ── КОЛОНКА: mobile-first, на десктопі центрована ─────────── */
+.wrap{
+  width:100%;max-width:var(--col);margin:0 auto;
+  padding:var(--gap) var(--gap) calc(var(--gap) + env(safe-area-inset-bottom));
+  display:flex;flex-direction:column;gap:var(--gap);
+}
+@media (min-width:768px){
+  .wrap{
+    min-height:100vh;
+    box-shadow:0 0 0 1px rgba(0,0,0,.06), 0 30px 80px rgba(0,0,0,.10);
+    background:var(--bg);
+  }
+}
+/* ── УТИЛІТИ ───────────────────────────────────────────────── */
+.card{background:var(--card);padding:var(--pad)}
+.h{font-family:var(--display);font-weight:900;
+   text-transform:uppercase;line-height:.88;letter-spacing:-.01em}
+/* H1 і H2 — один розмір, зафіксовано одним правилом: міняти тільки тут */
+.h1,.h2{font-size:clamp(23px,6.4vw,30px);line-height:1.02;letter-spacing:-.005em}
+.acc{color:var(--accent)}
+.sm{font-size:13px;color:var(--muted);line-height:1.4}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);
+      border-radius:100px;padding:5px 11px;font-size:11px;font-weight:700;
+      text-transform:uppercase;letter-spacing:.06em}
+/* плашки-факти з галочкою */
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);
+      border-radius:100px;padding:7px 14px;font-size:13px;font-weight:700;line-height:1.25}
+.chip:before{content:'✓';color:var(--accent);font-weight:900;flex:0 0 auto}
+/* ледь помітне «розбите скло» на шапці */
+.glass{position:relative;overflow:hidden}
+.glass>*{position:relative;z-index:1}
+.glass:before{content:'';position:absolute;inset:0;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 440 60' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23000' stroke-opacity='.16' stroke-width='.9'%3E%3Cpath d='M330 26 L246 0'/%3E%3Cpath d='M330 26 L214 60'/%3E%3Cpath d='M330 26 L118 9'/%3E%3Cpath d='M330 26 L60 60'/%3E%3Cpath d='M330 26 L440 47'/%3E%3Cpath d='M330 26 L404 0'/%3E%3Cpath d='M330 26 L352 60'/%3E%3Cpath d='M298 17 L286 41'/%3E%3Cpath d='M262 12 L238 47'/%3E%3Cpath d='M186 6 L154 52'/%3E%3Cpath d='M368 12 L392 38'/%3E%3C/g%3E%3C/svg%3E") center/100% 100% no-repeat}
+/* розбите скло в шапці — власний малюнок, не той, що на таймері */
+.crack{position:relative;overflow:hidden}
+.crack>*{position:relative;z-index:1}
+.crack:before{content:'';position:absolute;inset:0;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20440%2096'%20preserveAspectRatio='none'%3E%3Cg%20fill='none'%20stroke='%23000'%20stroke-opacity='.16'%20stroke-width='.9'%3E%3Cpath%20d='M96%2064%20L0%2030'/%3E%3Cpath%20d='M96%2064%20L0%2092'/%3E%3Cpath%20d='M96%2064%20L44%200'/%3E%3Cpath%20d='M96%2064%20L142%200'/%3E%3Cpath%20d='M96%2064%20L238%200'/%3E%3Cpath%20d='M96%2064%20L370%200'/%3E%3Cpath%20d='M96%2064%20L440%2044'/%3E%3Cpath%20d='M96%2064%20L440%2096'/%3E%3Cpath%20d='M96%2064%20L268%2096'/%3E%3Cpath%20d='M96%2064%20L150%2096'/%3E%3Cpath%20d='M96%2064%20L62%2096'/%3E%3Cpath%20d='M75%2051%20L79%2032'/%3E%3Cpath%20d='M79%2032%20L112%2040'/%3E%3Cpath%20d='M112%2040%20L146%2030'/%3E%3Cpath%20d='M146%2030%20L190%2044'/%3E%3Cpath%20d='M190%2044%20L232%2054'/%3E%3Cpath%20d='M232%2054%20L268%2062'/%3E%3Cpath%20d='M52%2058%20L48%2078'/%3E%3Cpath%20d='M48%2078%20L86%2084'/%3E%3Cpath%20d='M86%2084%20L120%2078'/%3E%3C/g%3E%3C/svg%3E") center/100% 100% no-repeat}
+/* розбите скло на високому блоці */
+.glassy{position:relative;overflow:hidden}
+.glassy>*{position:relative;z-index:1}
+.glassy:before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20440%20800%27%20preserveAspectRatio%3D%27none%27%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-opacity%3D%27.15%27%20stroke-width%3D%27.9%27%3E%3Cpath%20d%3D%27M330%20110%20L440%2040%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L440%20250%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L410%20800%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L250%20800%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L60%20690%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L0%20400%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L0%20130%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L120%200%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L300%200%27%2F%3E%3Cpath%20d%3D%27M330%20110%20L440%20690%27%2F%3E%3Cpath%20d%3D%27M296%2092%20L246%20186%27%2F%3E%3Cpath%20d%3D%27M362%20168%20L300%20300%27%2F%3E%3Cpath%20d%3D%27M182%2052%20L120%20214%27%2F%3E%3Cpath%20d%3D%27M386%20402%20L300%20512%27%2F%3E%3Cpath%20d%3D%27M152%20528%20L92%20648%27%2F%3E%3Cpath%20d%3D%27M270%20300%20L210%20470%27%2F%3E%3Cpath%20d%3D%27M350%20470%20L300%20640%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") center/100% 100% no-repeat}
+/* міні-блоки бонусів */
+.bcard{border:1px solid var(--line);padding:14px;margin-top:10px}
+.brow{display:flex;gap:12px;align-items:flex-start;margin-top:9px}
+.bico{width:64px;height:64px;flex:0 0 auto;background:#F4F4F4;border:1px solid var(--line);
+      display:flex;align-items:center;justify-content:center;padding:9px;overflow:hidden}
+.bico img,.bico svg{width:100%;height:100%;display:block}
+.bcard h4{font-family:var(--display);font-weight:900;text-transform:uppercase;
+          font-size:18px;line-height:1.02;letter-spacing:-.01em}
+/* віяло бонусів */
+.fan{display:flex;justify-content:center;align-items:flex-end;margin:14px 0 18px;padding:10px 0}
+.fan span{width:clamp(62px,18vw,84px);aspect-ratio:3/4;background:#F1F1F1;
+          border:1px solid var(--line);box-shadow:0 8px 20px rgba(0,0,0,.12);
+          display:flex;flex-direction:column;align-items:center;justify-content:center;
+          gap:7px;text-align:center;padding:7px 5px;
+          font-size:9px;font-weight:800;line-height:1.2;text-transform:uppercase;
+          letter-spacing:.03em;color:var(--muted)}
+.fan span+span{margin-left:-15px}
+.fan svg{width:clamp(26px,7.6vw,34px);height:auto;flex:0 0 auto}
+.fan span:nth-child(1){transform:rotate(-9deg);z-index:1}
+.fan span:nth-child(2){transform:rotate(-4.5deg);z-index:2}
+.fan span:nth-child(3){z-index:3}
+.fan span:nth-child(4){transform:rotate(4.5deg);z-index:2}
+.fan span:nth-child(5){transform:rotate(9deg);z-index:1}
+/* плашка-«бренд»: інверсна, з лаймовим відблиском */
+.pill.solid{background:var(--ink);color:#fff;border-color:var(--ink);
+            position:relative;overflow:hidden}
+.pill.solid:after{content:'';position:absolute;top:0;left:-60%;width:38%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(198,244,50,.6),transparent);
+  animation:sheen 5s ease-in-out infinite}
+@keyframes sheen{0%,62%{transform:translateX(0)}100%{transform:translateX(460%)}}
+/* пульсуюча крапка «скоро старт» */
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;
+     animation:pulse 2.2s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(107,43,238,.7)}
+                 70%{box-shadow:0 0 0 7px rgba(107,43,238,0)}
+                 100%{box-shadow:0 0 0 0 rgba(107,43,238,0)}}
+@media (prefers-reduced-motion:reduce){.dot,.pill.solid:after{animation:none}}
+.btn{display:block;background:var(--accent);color:#fff;text-decoration:none;
+     text-align:center;font-weight:800;font-size:17px;padding:17px 18px;
+     border-radius:2px;letter-spacing:.01em}
+.btn:active{transform:translateY(1px)}
+/* відблиск, що пробігає по кнопці */
+.btn.shine{position:relative;overflow:hidden}
+.btn.shine:after{content:'';position:absolute;top:0;left:-45%;width:32%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
+  animation:shine 3.8s ease-in-out infinite}
+@keyframes shine{0%,58%{transform:translateX(0)}100%{transform:translateX(460%)}}
+@media (prefers-reduced-motion:reduce){.btn.shine:after{animation:none}}
+/* CTA з чипом знижки: напис ліворуч, відсоток у білому чипі праворуч */
+.btn.cta{display:flex;align-items:center;justify-content:space-between;gap:10px;
+         font-family:var(--display);font-weight:900;text-transform:uppercase;
+         font-size:clamp(16px,5.2vw,21px);letter-spacing:.01em;line-height:1.05;
+         padding:12px 12px 12px 18px}
+.btn.cta i{font-style:normal;background:#fff;color:var(--accent);flex:0 0 auto;
+           padding:10px 12px;font-size:19px;border-radius:2px}
+/* ── ХЕДЕР ─────────────────────────────────────────────────── */
+.star{width:16px;height:16px;background:var(--accent);display:inline-block;flex:0 0 auto;
+      clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);font-style:normal}
+.hname{font-family:var(--display);font-weight:900;text-transform:uppercase;text-align:center;
+       font-size:clamp(20px,5.8vw,25px);line-height:1;letter-spacing:-.01em;margin-top:13px}
+/* замочок у назві — масштабується разом зі шрифтом */
+.lock{width:.74em;height:.92em;display:inline-block;vertical-align:-.1em;margin-right:.3em}
+/* ── БІЖУЧИЙ РЯДОК ─────────────────────────────────────────── */
+.marq{background:var(--ink);overflow:hidden;padding:6px 0}
+.marq .track{display:flex;width:max-content;animation:marq 22s linear infinite}
+.marq span{font-family:var(--display);font-weight:900;font-size:15px;color:#fff;
+           text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center;
+           gap:16px;padding-right:16px;white-space:nowrap}
+.marq .star{width:9px;height:9px;background:var(--lime)}
+.marq .nw{color:var(--lime)}
+@keyframes marq{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media (prefers-reduced-motion:reduce){.marq .track{animation:none}}
+/* ── ГЕРОЙ ─────────────────────────────────────────────────── */
+.hero{position:relative}
+.hero .lead{font-size:14px;line-height:1.4;font-weight:500;max-width:230px;margin-bottom:14px}
+.media{position:relative;margin:22px 0 0;aspect-ratio:16/9;background:#111;
+       display:flex;align-items:center;justify-content:center;
+       /* оправа: тонка чорна рамка з відступом + неонове розсіювання */
+       outline:2px dashed var(--accent);outline-offset:7px}
+.media img,.media video{width:100%;height:100%;object-fit:cover;display:block}
+.media span{color:#fff;opacity:.45;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+/* лаймовий стикер */
+.badge{position:absolute;right:12px;bottom:12px;width:clamp(84px,24vw,104px);aspect-ratio:1;
+       z-index:3;display:block;cursor:pointer;
+       filter:drop-shadow(0 8px 18px rgba(0,0,0,.45));transition:transform .18s ease}
+.badge:active{transform:scale(.94)}
+.badge svg{width:100%;height:100%;animation:spin 14s linear infinite}
+.badge b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.badge b svg{width:30px;height:30px;animation:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* стикер як самостійний CTA замість кнопки: у потоці, по центру, крупний */
+.badge.solo{position:static;width:clamp(150px,44vw,190px);margin:22px auto 4px;
+            filter:drop-shadow(0 12px 26px rgba(0,0,0,.18))}
+.badge.solo b svg{width:clamp(52px,15vw,66px);height:auto}
+@media (prefers-reduced-motion:reduce){.badge svg{animation:none}}
+.sub{font-style:italic;font-weight:700;font-size:clamp(19px,5.6vw,26px);
+     line-height:1.1;color:var(--accent);margin-top:11px}
+/* ── ЦІНА ──────────────────────────────────────────────────── */
+.price{display:flex;align-items:baseline;gap:10px}
+.price b{font-family:var(--display);font-weight:900;font-size:56px;line-height:.9}
+.price s{color:var(--muted);font-size:17px;font-weight:700}
+.price em{background:var(--lime);font-style:normal;font-weight:800;font-size:13px;padding:3px 8px}
+.cur{font-family:var(--display);font-weight:900;font-size:22px}
+.ticks{display:flex;flex-direction:column;gap:7px;margin:14px 0 16px}
+.ticks div{display:flex;gap:9px;font-size:14px;font-weight:500;align-items:flex-start}
+.ticks i{color:var(--accent);font-style:normal;font-weight:900}
+/* ── ВАРІАНТИ КАРТОК ───────────────────────────────────────── */
+.dark{background:var(--ink);color:#fff}
+.dark .sm{color:#9A9A9A}
+.violet{background:var(--accent);color:#fff}
+.violet .sm{color:rgba(255,255,255,.72)}
+.eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;
+         color:var(--muted);margin-bottom:9px}
+.dark .eyebrow{color:#8E8E8E}.violet .eyebrow{color:rgba(255,255,255,.6)}
+.h3{font-family:var(--display);font-weight:900;text-transform:uppercase;
+    font-size:19px;line-height:1;letter-spacing:-.01em}
+.p{font-size:14px;line-height:1.5;margin-top:12px}
+hr{border:0;border-top:1px solid var(--line);margin:16px 0}
+.dark hr,.violet hr{border-color:rgba(255,255,255,.2)}
+/* нумерований список — головний прийом макета */
+.item{display:flex;gap:12px;padding:15px 0;border-top:1px solid var(--line)}
+.dark .item,.violet .item{border-color:rgba(255,255,255,.2)}
+.item .n{font-family:var(--display);font-weight:900;font-size:21px;color:#BDBDBD;
+          min-width:26px;padding-top:2px;letter-spacing:-.02em}
+/* фонові знаки, що дрейфують */
+#program{position:relative;overflow:hidden}
+#program>*{position:relative;z-index:1}
+.floaters{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.fl{position:absolute;font-family:var(--display);font-weight:900;text-transform:uppercase;
+    letter-spacing:-.01em;color:var(--ink);white-space:nowrap;will-change:transform}
+.fl svg{width:1em;height:1em;display:block}
+@keyframes d1{0%,100%{transform:translate(0,0) rotate(-9deg)}
+              50%{transform:translate(26px,-30px) rotate(3deg)}}
+@keyframes d2{0%,100%{transform:translate(0,0) rotate(7deg)}
+              50%{transform:translate(-30px,24px) rotate(-5deg)}}
+@keyframes d3{0%,100%{transform:translate(0,0) rotate(-3deg)}
+              50%{transform:translate(18px,34px) rotate(9deg)}}
+@media (prefers-reduced-motion:reduce){.fl{animation:none !important}}
+/* врізка «Важливо» */
+.note{position:relative;background:var(--ink);color:#fff;padding:20px 16px 17px;
+      margin-top:18px;overflow:hidden}
+/* попереджувальна стрічка згори */
+.note:before{content:'';position:absolute;top:0;left:0;right:0;height:7px;
+  background:repeating-linear-gradient(135deg,var(--lime) 0 9px,#0A0A0A 9px 18px)}
+.nlabel{display:inline-block;background:var(--lime);color:var(--ink);font-size:10px;font-weight:800;
+        letter-spacing:.16em;text-transform:uppercase;padding:5px 9px;margin-bottom:11px}
+.note p{font-size:14px;line-height:1.5;color:rgba(255,255,255,.88)}
+.note b{color:var(--lime)}
+/* розкривна кнопка «Що в уроці» */
+.acc{margin-top:13px}
+.acc>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  border:1.5px solid var(--ink);padding:9px 12px;cursor:pointer;
+  font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:14px;
+  letter-spacing:.02em;color:var(--ink)}
+.acc>summary:after{content:'+';font-family:var(--display);font-size:19px;line-height:1;transform:none}
+.acc[open]>summary{background:var(--ink);color:#fff}
+.acc[open]>summary:after{content:'–';transform:none}
+.acc .bul{margin-top:12px}
+.item h4{font-family:var(--display);font-weight:900;text-transform:uppercase;
+         font-size:clamp(22px,6.6vw,28px);line-height:.95;letter-spacing:-.01em}
+/* кнопка всередині блока монетизації */
+.money .mbtn{position:relative;z-index:1;margin-top:16px;background:var(--lime);color:var(--ink);
+  font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:17px;
+  letter-spacing:.02em;padding:14px 16px}
+html{scroll-behavior:smooth}
+#program{scroll-margin-top:12px}
+/* 4 способи генерації */
+.ways{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.way{position:relative;border:1.5px solid var(--ink);padding:26px 11px 12px;min-height:88px;
+     display:flex;align-items:flex-end}
+.way b{position:absolute;top:9px;left:11px;font-size:10px;font-weight:800;
+       letter-spacing:.09em;color:var(--muted)}
+.way:after{content:'';position:absolute;top:0;right:0;width:0;height:0;
+           border-top:12px solid var(--accent);border-left:12px solid transparent}
+.way span{font-family:var(--display);font-weight:900;text-transform:uppercase;
+          font-size:16px;line-height:1.02;letter-spacing:-.01em}
+/* міні-блок монетизації */
+.money{background:var(--accent);color:#fff;padding:18px;margin-top:16px;position:relative;overflow:hidden}
+.money:before{content:'$';position:absolute;right:-14px;bottom:-34px;
+              font-family:var(--display);font-weight:900;font-size:132px;line-height:1;
+              color:rgba(255,255,255,.12)}
+.money p{font-size:13.5px;line-height:1.45;position:relative;z-index:1}
+.money b{display:block;position:relative;z-index:1;font-family:var(--display);font-weight:900;
+         font-size:clamp(40px,12vw,56px);line-height:.9;letter-spacing:-.02em;
+         color:var(--lime);margin:10px 0 2px}
+.money i{font-style:normal;font-size:12.5px;color:rgba(255,255,255,.75);position:relative;z-index:1}
+/* додаткова гарантія */
+.gsep{height:1px;background:repeating-linear-gradient(90deg,var(--ink) 0 6px,transparent 6px 12px);
+      margin:20px 0 16px;position:relative}
+.glabel{position:relative;font-family:var(--display);font-weight:900;text-transform:uppercase;
+        font-size:15px;letter-spacing:.04em;margin-bottom:10px}
+.rate{position:relative;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.rate b{font-family:var(--display);font-weight:900;font-size:clamp(38px,11vw,48px);line-height:.9;
+        letter-spacing:-.02em}
+.rate em{font-style:normal;font-size:14px;font-weight:700;color:var(--muted)}
+.stars{display:flex;gap:3px;margin-left:2px;align-self:center}
+.stars svg{width:17px;height:17px;display:block}
+.punch{position:relative;background:var(--lime);display:inline-block;margin-top:10px;padding:11px 13px;
+       font-family:var(--display);font-weight:900;text-transform:uppercase;
+       font-size:clamp(15px,4.4vw,18px);line-height:1.08;letter-spacing:-.01em}
+/* бренди з персонажами */
+.brands{display:flex;gap:7px;margin-top:16px}
+.brand{flex:1;min-width:0;text-align:center}
+.brand .bc{width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;
+           background:rgba(255,255,255,.14);border:2px solid rgba(255,255,255,.55);
+           display:flex;align-items:center;justify-content:center;
+           font-size:7.5px;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.brand .bc img{width:100%;height:100%;object-fit:cover;display:block}
+.brand span{display:block;margin-top:8px;font-size:10px;font-weight:800;line-height:1.2;
+            letter-spacing:.01em;overflow-wrap:anywhere}
+/* підсумок «тепер» */
+.now{border:2px solid var(--lime);padding:15px;margin-top:22px;font-size:15px;line-height:1.45;
+     font-weight:600}
+/* велика відповідь «так» */
+.yes{font-family:var(--display);font-weight:900;text-transform:uppercase;color:var(--lime);
+     font-size:clamp(30px,9vw,42px);line-height:.98;letter-spacing:-.01em;margin-top:12px}
+/* підкреслення лаймом */
+.uline{text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:3px;
+       text-underline-offset:3px;font-weight:800}
+/* що вирішує воркшоп — по групах */
+.grp{margin-top:22px}
+.ghead{display:flex;gap:10px;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:8px}
+.gn{font-family:var(--display);font-weight:900;font-size:13px;color:var(--muted);flex:0 0 auto}
+.ghead h4{font-family:var(--display);font-weight:900;text-transform:uppercase;
+          font-size:clamp(16px,4.8vw,19px);line-height:1.05;letter-spacing:-.01em}
+.solves{list-style:none;margin:4px 0 0;padding:0}
+.solves li{display:flex;gap:11px;align-items:flex-start;padding:11px 0;
+           border-bottom:1px solid var(--line);font-size:14px;line-height:1.4}
+.solves li:last-child{border-bottom:0}
+.solves li i{width:19px;height:19px;flex:0 0 auto;background:var(--accent);margin-top:1px;
+             display:flex;align-items:center;justify-content:center}
+.solves li i:before{content:'✓';color:#fff;font-size:12px;font-weight:900;line-height:1}
+/* інструменти воркшопу */
+.tools{margin-top:18px}
+.tool{display:flex;gap:14px;align-items:flex-start;padding:15px 0;
+      border-top:1px solid rgba(255,255,255,.16)}
+.tico{width:54px;height:54px;flex:0 0 auto;background:#161616;
+      border:1.5px solid rgba(255,255,255,.28);padding:9px;
+      display:flex;align-items:center;justify-content:center}
+.tico svg{width:100%;height:100%;display:block}
+.tool b{display:block;font-family:var(--display);font-weight:900;text-transform:uppercase;
+        font-size:17px;line-height:1.05;letter-spacing:-.01em;margin-bottom:5px}
+.tool span{display:block;font-size:13.5px;line-height:1.45;color:rgba(255,255,255,.72)}
+.tlbl{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:15px;
+      letter-spacing:.03em;color:var(--lime);margin-top:20px}
+/* блок проблеми */
+.thesis{font-family:var(--display);font-weight:900;text-transform:uppercase;
+        font-size:clamp(19px,5.6vw,25px);line-height:1.06;letter-spacing:-.01em;margin-top:16px}
+.beats{margin-top:18px}
+.beats div{position:relative;padding:12px 0 12px 26px;font-size:14.5px;line-height:1.4;
+           border-top:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.86)}
+.beats div:before{content:'';position:absolute;left:0;top:20px;width:13px;height:2px;background:var(--lime)}
+.quote{position:relative;margin-top:12px;padding:16px 16px 16px 20px;
+       border-left:3px solid var(--lime);background:rgba(255,255,255,.06);
+       font-size:15.5px;line-height:1.4;font-style:italic;font-weight:600}
+.quote:before,.quote:after{content:'«'}
+.quote:after{content:'»'}
+/* перехід до рішення */
+.solve{border:1.5px solid var(--lime);padding:16px;margin-top:20px}
+.solve .h3{color:var(--lime);margin-bottom:8px}
+.solve p{font-size:14px;line-height:1.5}
+/* фінальний CTA */
+.final .price s{color:#8E8E8E}
+.fkick{display:inline-block;background:var(--lime);color:var(--ink);font-family:var(--display);
+       font-weight:900;text-transform:uppercase;font-size:13px;letter-spacing:.08em;
+       padding:5px 10px;margin-bottom:12px}
+.btn.cta.lime{background:var(--lime);color:var(--ink);margin-top:16px}
+.btn.cta.lime i{background:var(--ink);color:var(--lime)}
+/* фінальний оффер */
+.incl{list-style:none;margin:18px 0 0;padding:0}
+.incl li{display:flex;gap:11px;align-items:flex-start;padding:11px 0;
+         border-top:1px solid rgba(255,255,255,.24);font-size:14px;line-height:1.4}
+.incl li i{width:20px;height:20px;flex:0 0 auto;background:var(--lime);margin-top:1px;
+           display:flex;align-items:center;justify-content:center}
+.incl li i:before{content:'✓';color:var(--ink);font-size:13px;font-weight:900;line-height:1}
+.incl li.bon i{background:#fff}
+.incl li.bon b{display:inline-block;background:var(--lime);color:var(--ink);font-size:10px;
+               font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 6px;
+               margin-right:7px;vertical-align:1px}
+.obox{background:#fff;color:var(--ink);padding:18px 16px 16px;margin-top:20px;text-align:center}
+.olbl{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:13px;
+      letter-spacing:.14em;color:var(--muted);margin-bottom:10px}
+.obox .price s{color:var(--muted)}
+.obox .timer i{background:var(--ink);color:#fff}
+.obox .timer i:after{background:rgba(255,255,255,.22)}
+.obox .btn.cta{margin-top:14px;text-align:left}
+/* автор */
+.auth{position:relative}
+.ava{width:clamp(160px,50vw,200px);aspect-ratio:1;margin:18px auto;background:#191919;
+     border:2px solid var(--accent);position:relative;overflow:hidden;
+     display:flex;align-items:center;justify-content:center;
+     color:rgba(255,255,255,.38);font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+.ava img,.ava video{width:100%;height:100%;object-fit:cover;display:block}
+.facts div{display:flex;gap:11px;align-items:flex-start;padding:11px 0;
+           border-top:1px solid rgba(255,255,255,.15)}
+.facts i{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:rgba(107,43,238,.4);
+         color:var(--lime);font-style:normal;font-size:12px;font-weight:900;margin-top:1px;
+         display:flex;align-items:center;justify-content:center}
+.facts span{font-size:14px;line-height:1.45}
+/* сертифікат гарантії */
+.guar{position:relative;border:2px solid var(--ink);background:#FBFBFB;padding:20px 16px 18px;margin-top:16px}
+.guar:before{content:'';position:absolute;inset:6px;border:1px dashed rgba(0,0,0,.22);pointer-events:none}
+.guar p{position:relative;font-size:14px;line-height:1.5;margin-top:10px}
+.guar p:first-of-type{margin-top:0}
+.guar .last{font-family:var(--display);font-weight:900;text-transform:uppercase;
+            font-size:clamp(17px,5vw,21px);line-height:1.05;margin-top:16px;letter-spacing:-.01em}
+.seal{position:relative;width:118px;height:118px;margin:0 auto 16px;transform:rotate(-7deg)}
+.seal svg{width:100%;height:100%;display:block;filter:drop-shadow(0 6px 14px rgba(0,0,0,.2))}
+.seal b{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+        justify-content:center;font-family:var(--display);font-weight:900;line-height:.82;color:var(--ink)}
+.seal i{font-style:normal;font-size:40px;letter-spacing:-.03em}
+.seal u{text-decoration:none;font-size:16px;text-transform:uppercase;letter-spacing:.02em}
+.seal s{text-decoration:none;font-family:'Manrope',sans-serif;font-weight:800;font-size:8.5px;
+        letter-spacing:.16em;text-transform:uppercase;margin-top:6px}
+/* сегменти «для кого» */
+.segs{margin-top:16px}
+.seg{display:flex;gap:13px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--line)}
+.seg svg{width:32px;height:32px;flex:0 0 auto;margin-top:2px}
+.seg h4{font-family:var(--display);font-weight:900;text-transform:uppercase;
+        font-size:17px;line-height:1.03;letter-spacing:-.01em}
+.seg p{font-size:13.5px;line-height:1.42;color:var(--muted);margin-top:5px}
+/* сегменти з'являються по черзі під час скролу */
+.js .seg,.js .bcard{opacity:0;transform:translateY(16px);
+         transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.3,1)}
+.js .seg.in,.js .bcard.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .seg,.js .bcard{opacity:1;transform:none;transition:none}}
+/* нейронки воркшопу */
+.nets{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.nets span{position:relative;min-height:62px;padding:14px 10px;
+           border:1px solid rgba(255,255,255,.24);
+           display:flex;align-items:center;justify-content:center;text-align:center;
+           font-family:var(--display);font-weight:900;text-transform:uppercase;
+           font-size:clamp(15px,4.4vw,19px);letter-spacing:-.01em;color:#fff}
+.nets span:before{content:'';position:absolute;top:-1px;left:-1px;width:7px;height:7px;
+                  background:var(--lime)}
+/* найсвіжіша модель: пульсує і має мітку NEW */
+.nets span.hot{border-color:var(--lime);z-index:2;animation:breathe 2.8s ease-in-out infinite}
+.nets span.hot:before{display:none}
+.nets .new{position:absolute;top:-8px;right:-7px;background:var(--lime);color:var(--ink);
+           font-family:'Manrope',sans-serif;font-size:9px;font-weight:800;letter-spacing:.09em;
+           padding:3px 6px;line-height:1}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+@media (prefers-reduced-motion:reduce){.nets span.hot{animation:none}}
+/* сітка стилів мультиків */
+.styles{display:grid;grid-template-columns:1fr 1fr;gap:16px 14px;margin:22px 0 8px}
+.st{background:#FCFCFC;border:1px solid var(--line);padding:8px 8px 10px;position:relative;
+    box-shadow:0 7px 18px rgba(0,0,0,.13)}
+/* смужка скотчу згори */
+.st:before{content:'';position:absolute;top:-8px;left:50%;width:44px;height:15px;
+           background:rgba(198,244,50,.9);border:1px solid rgba(0,0,0,.07);
+           transform:translateX(-50%) rotate(-4deg)}
+/* висять несиметрично */
+.st:nth-child(1){transform:rotate(-2.2deg)}
+.st:nth-child(2){transform:rotate(1.7deg)}
+.st:nth-child(3){transform:rotate(1.2deg)}
+.st:nth-child(4){transform:rotate(-1.6deg)}
+.st:nth-child(5){transform:rotate(.7deg)}
+.st:nth-child(2):before{transform:translateX(-50%) rotate(5deg);width:38px}
+.st:nth-child(3):before{transform:translateX(-50%) rotate(-2deg);width:50px}
+.st:nth-child(4):before{transform:translateX(-50%) rotate(6deg);width:41px}
+.st:nth-child(5):before{transform:translateX(-50%) rotate(-3deg);width:56px}
+.st .pic{aspect-ratio:1/1;background:#111;overflow:hidden;display:flex;
+         align-items:center;justify-content:center;color:rgba(255,255,255,.4);
+         font-size:9px;text-transform:uppercase;letter-spacing:.08em;text-align:center;padding:6px}
+.st .pic img,.st .pic video{width:100%;height:100%;object-fit:cover;display:block}
+.st b{display:block;font-size:10px;font-weight:800;color:var(--muted);margin:9px 0 3px;letter-spacing:.06em}
+.st h4{font-family:var(--display);font-weight:900;text-transform:uppercase;
+       font-size:15px;line-height:1.03;letter-spacing:-.01em}
+.st:last-child{grid-column:1/-1}
+.st:last-child .pic{aspect-ratio:16/9}
+/* презентація великого продукту всередині програми */
+.promo{background:#F4F0FE;border:1px solid #DED2FB;padding:14px;margin-top:2px}
+.promo .add{background:var(--accent);color:#fff}
+/* буллети всередині уроку */
+.bul{list-style:none;margin:13px 0 0;padding:0}
+.bul li{position:relative;padding-left:19px;font-size:13.5px;line-height:1.45;
+        margin-bottom:9px;color:#3C3C3C}
+.bul li:before{content:'';position:absolute;left:0;top:7px;width:8px;height:8px;background:var(--accent)}
+/* виділений буллет — маркером */
+.bul li.mark{font-weight:800;color:var(--ink)}
+.bul li.mark:before{background:var(--lime)}
+.dark .bul li,.violet .bul li{color:#C9C9C9}
+.dark .bul li.mark,.violet .bul li.mark{color:#fff}
+.bul li.mark span{background:linear-gradient(transparent 58%,var(--lime) 58%);
+                  box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:0 2px}
+/* інструменти уроку */
+.lt{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:14px}
+.lt b{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:11px;
+      letter-spacing:.12em;color:var(--muted);margin-right:3px}
+.lt span{border:1px solid var(--line);background:#F7F7F7;border-radius:100px;
+         padding:5px 10px;font-size:11.5px;font-weight:700;line-height:1;white-space:nowrap}
+/* рукописна приписка після плашок нейронок */
+.lt .ltn{flex:1 1 100%;border:0;background:none;border-radius:0;padding:0;white-space:normal;
+         font-family:var(--hand);font-weight:600;font-size:17.5px;line-height:1.22;
+         letter-spacing:0;color:var(--muted);margin-top:4px}
+.lt .ltn em{font-style:normal;color:var(--accent);font-weight:700}
+.lt .ltas{border:0;background:none;border-radius:0;padding:0;white-space:nowrap;
+          font-family:var(--hand);font-weight:700;font-size:19px;line-height:1;
+          letter-spacing:0;color:var(--accent);transform:rotate(-3deg);margin-left:2px}
+/* файли, які людина забирає разом з уроком */
+.files{margin-top:16px;border-top:1px solid var(--line)}
+.frow{display:flex;gap:13px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line)}
+.frow:last-child{border-bottom:0}
+.pshot{margin-top:10px;aspect-ratio:16/9;background:#F4F4F4;
+       border:2px dashed var(--accent);display:flex;align-items:center;justify-content:center;
+       text-align:center;padding:8px;font-size:10px;font-weight:800;letter-spacing:.09em;
+       text-transform:uppercase;color:var(--muted);overflow:hidden}
+.pshot img,.pshot video{width:100%;height:100%;object-fit:cover;display:block}
+.ftag{display:inline-block;background:var(--lime);color:var(--ink);font-family:var(--display);
+      font-weight:900;text-transform:uppercase;font-size:10px;letter-spacing:.11em;
+      padding:3px 7px;margin-bottom:6px}
+.frow b{display:block;font-size:14px;line-height:1.3;font-weight:800}
+.frow em{display:block;font-family:var(--hand);font-style:normal;font-weight:600;
+         font-size:19.5px;line-height:1.15;color:var(--muted);margin-top:6px}
+
+
+/* ── КОНТЕКСТНЕ ВІКНО НЕЙРОМЕРЕЖІ ──────────────────────────── */
+.pbox{margin:24px 0 36px;border:1.5px solid var(--line);background:#fff;border-radius:12px;
+      padding:13px 14px 11px;box-shadow:0 10px 28px rgba(0,0,0,.07)}
+.pbox .phead{display:flex;align-items:center;gap:7px;margin-bottom:9px}
+.pbox .phead b{font-family:var(--display);font-weight:900;text-transform:uppercase;
+               font-size:11px;letter-spacing:.13em;color:var(--muted)}
+.pbox .pdot{width:7px;height:7px;border-radius:50%;background:var(--lime);flex:0 0 auto;
+            box-shadow:0 0 0 3px rgba(198,244,50,.28)}
+.pbox p{font-family:var(--mono);font-size:12.5px;line-height:1.55;color:var(--ink)}
+.pbox p em{font-style:normal;color:var(--accent);font-weight:700}
+.caret{display:inline-block;width:7px;height:14px;background:var(--accent);
+       vertical-align:-2px;margin-left:3px;animation:blink 1.1s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.caret{animation:none}}
+.pbox .pbar{display:flex;align-items:center;justify-content:space-between;gap:10px;
+            margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
+.pbox .pbar span{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.psend{width:28px;height:28px;border-radius:50%;background:var(--ink);flex:0 0 auto;
+       display:flex;align-items:center;justify-content:center}
+.psend svg{width:14px;height:14px}
+/* результат уроку */
+.resbox{background:#F4F4F4;border-left:3px solid var(--accent);padding:13px 14px;margin-top:14px;
+        font-size:13.5px;line-height:1.5;color:#2A2A2A}
+.resbox b{display:block;font-family:var(--display);font-weight:900;text-transform:uppercase;
+          font-size:12px;letter-spacing:.14em;color:var(--accent);margin-bottom:6px}
+/* слот під скрін з уроку */
+.shot{position:relative;aspect-ratio:16/9;background:#111;border:1px solid var(--line);margin:5px 0 15px;
+      display:flex;align-items:center;justify-content:center;overflow:hidden;
+      color:rgba(255,255,255,.42);font-size:10px;text-transform:uppercase;letter-spacing:.09em;
+      /* те саме неонове розсіювання, що під прев'ю в першому екрані */
+      box-shadow:0 18px 42px -18px rgba(107,43,238,.6),
+                 0 -8px 30px -20px rgba(198,244,50,.7)}
+.shot img,.shot video{width:100%;height:100%;object-fit:contain;display:block}
+/* урок із безкоштовним методом — виділений */
+.shot.free{border-color:var(--lime);border-width:2px;
+           box-shadow:0 18px 42px -18px rgba(198,244,50,.9), 0 -8px 30px -20px rgba(107,43,238,.6)}
+.shot .tag{position:absolute;top:0;left:0;right:0;z-index:2;background:var(--lime);color:var(--ink);
+           font-size:11px;font-weight:800;line-height:1.3;letter-spacing:.01em;
+           padding:7px 10px;text-align:center;text-transform:none}
+/* аккордеони на <details> — без JS */
+details{margin-top:9px}
+summary{list-style:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;
+        letter-spacing:.07em;color:var(--accent);display:flex;gap:5px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary:after{content:'▾';font-size:13px;transition:transform .2s}
+details[open] summary:after{transform:rotate(180deg)}
+.dark summary,.violet summary{color:var(--lime)}
+details ul{margin:10px 0 0;padding-left:17px}
+details li{font-size:14px;margin-bottom:6px;line-height:1.4}
+.res{font-size:13.5px;line-height:1.45;margin-top:9px}
+.res b{font-weight:800}
+/* плитки */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.tile{background:#F4F4F4;padding:14px;font-size:13.5px;line-height:1.4}
+.dark .tile{background:#191919}.violet .tile{background:rgba(255,255,255,.13)}
+.tile b{display:block;font-family:var(--display);font-weight:900;text-transform:uppercase;
+        font-size:17px;line-height:1.02;letter-spacing:-.01em;margin-bottom:6px}
+/* питання FAQ — теж заголовки */
+.q{font-family:var(--display);font-weight:900;font-size:19px;line-height:1.05;
+   letter-spacing:-.01em;text-transform:uppercase;color:var(--ink)}
+.tile em{font-style:normal;font-size:21px;display:block;margin-bottom:7px}
+.wide{grid-column:1/-1}
+.add{background:var(--lime);color:var(--ink);font-size:10px;font-weight:800;text-transform:uppercase;
+     letter-spacing:.06em;padding:3px 7px;display:inline-block;margin-bottom:7px}
+/* галерея прикладів */
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.ph{background:#111;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;
+    color:rgba(255,255,255,.45);font-size:10px;text-transform:uppercase;letter-spacing:.09em;text-align:center;padding:8px}
+/* прайс-рядки */
+.pr{display:flex;justify-content:space-between;align-items:center;gap:10px;
+    padding:10px 0;border-top:1px solid var(--line);font-size:14px}
+.violet .pr{border-color:rgba(255,255,255,.22)}
+.pr b{font-family:var(--display);font-weight:900;font-size:19px;white-space:nowrap}
+/* статистика — блок «FIGURES THAT DEFINE US» */
+.stats{display:flex;flex-direction:column;gap:16px;margin-top:18px}
+.stat b{font-family:var(--display);font-weight:900;font-size:clamp(38px,12vw,52px);
+        line-height:.85;display:block;letter-spacing:-.02em}
+.stat span{font-size:13px;color:var(--muted);display:block;margin-top:5px;max-width:210px}
+.dark .stat span{color:#8E8E8E}
+.stat:nth-child(2){padding-left:14%}.stat:nth-child(3){padding-left:28%}
+/* чек-лист */
+.list div{display:flex;gap:9px;font-size:14px;line-height:1.4;padding:9px 0;border-top:1px solid var(--line)}
+.dark .list div,.violet .list div{border-color:rgba(255,255,255,.2)}
+.list i{font-style:normal;flex:0 0 auto}
+/* таймер */
+.timer{display:flex;gap:5px;justify-content:center;margin:12px 0;perspective:420px}
+.timer i{font-style:normal;font-family:var(--display);font-weight:900;font-size:26px;
+         background:var(--ink);color:#fff;padding:5px 9px;min-width:44px;text-align:center;
+         position:relative;will-change:transform}
+/* лінія-згин, як на перекидному календарі */
+.timer.glass:before{opacity:.85}
+.timer i:after{content:'';position:absolute;left:0;right:0;top:50%;height:1px;
+               background:rgba(255,255,255,.22)}
+.violet .timer i{background:#fff;color:var(--accent)}
+.violet .timer i:after{background:rgba(107,43,238,.2)}
+.timer i.flip{animation:flip .42s ease-in-out}
+@keyframes flip{0%{transform:rotateX(0)}49%{transform:rotateX(-88deg)}
+                51%{transform:rotateX(88deg)}100%{transform:rotateX(0)}}
+@media (prefers-reduced-motion:reduce){.timer i.flip{animation:none}}
+/* автор */
+.who{display:flex;gap:14px;align-items:flex-start;margin-top:14px}
+.avatar{width:86px;height:110px;background:#111;flex:0 0 auto;display:flex;align-items:center;
+        justify-content:center;color:rgba(255,255,255,.4);font-size:10px;text-align:center}
+/* футер */
+.foot{font-size:11px;line-height:1.5;color:var(--muted)}
+.foot b{display:block;color:var(--ink);font-size:12px;margin-top:10px}
+/* липка панель */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--ink);color:#fff;
+        padding:11px 12px calc(11px + env(safe-area-inset-bottom));gap:14px;
+        display:none;align-items:center;border-top:2px solid var(--lime);
+        box-shadow:0 -12px 34px rgba(0,0,0,.45)}
+.sprice{flex:0 0 auto;line-height:1}
+.sprice b{display:block;font-family:var(--display);font-weight:900;font-size:32px;letter-spacing:-.02em}
+.sprice b em{font-style:normal;font-size:15px;margin-left:4px;letter-spacing:0}
+.sprice s{display:block;font-size:11px;color:#8E8E8E;margin-top:4px;font-weight:700}
+.sticky.on{display:flex}
+.stwrap{position:relative;flex:1}
+.sticky .btn{padding:15px 12px;font-size:14px;line-height:1.15;font-weight:800}
+.badge.sm{position:absolute;top:-29px;right:-6px;width:64px;height:64px;z-index:4}
+.badge.sm svg{animation-duration:18s;filter:drop-shadow(0 5px 12px rgba(0,0,0,.5))}
+.badge.sm b{font-family:var(--display);font-weight:900;font-size:17px;color:var(--ink);letter-spacing:-.02em}
+@media (min-width:768px){.sticky{max-width:var(--col);margin:0 auto}}
+
+/* ══════════════════════════════════════════════════════════════
+   РУКОПИСНИЙ ШАР — Caveat. Працює як «помітки на полях»:
+   ярлики, підписи, обведені та підкреслені слова. Не заголовки.
+   ══════════════════════════════════════════════════════════════ */
+:root{
+  --hand:'Caveat','Manrope',cursive;
+  --mono:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;
+  /* хвиляста лінія-маркер під рукописним словом */
+  --u:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 10' preserveAspectRatio='none'%3E%3Cpath d='M3 7.2C30 2.8 64 8.2 117 3.2' stroke='%236B2BEE' stroke-width='2.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  --u-l:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 10' preserveAspectRatio='none'%3E%3Cpath d='M3 7.2C30 2.8 64 8.2 117 3.2' stroke='%23C6F432' stroke-width='2.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+/* рукописне слово всередині рядка */
+.hand{font-family:var(--hand);font-weight:700;line-height:.95}
+/* акцентне слово рукописним усередині звичайного рядка */
+.hacc{font-family:var(--hand);font-weight:700;font-size:1.38em;line-height:1;
+      color:var(--accent);letter-spacing:0}
+/* рукописний акцент із підкресленням від руки */
+.mk{font-family:var(--hand);font-weight:700;color:var(--accent);font-size:1.3em;
+    line-height:.92;padding:0 .06em .1em;
+    background-image:var(--u);background-repeat:repeat-x;
+    background-size:120px .3em;background-position:0 100%;
+    -webkit-box-decoration-break:clone;box-decoration-break:clone}
+.dark .mk,.violet .mk{color:var(--lime);background-image:var(--u-l)}
+.violet .mk{color:#fff}
+/* ярлик над блоком — замість сухого eyebrow */
+.hlab{font-family:var(--hand);font-weight:700;font-size:21px;line-height:1;
+      color:var(--accent);margin-bottom:6px}
+.dark .hlab{color:var(--lime)}
+.violet .hlab{color:rgba(255,255,255,.9)}
+/* підпис під картинкою / під блоком */
+.hnote{font-family:var(--hand);font-weight:600;font-size:19px;line-height:1.15;
+       color:var(--muted);text-align:center;margin-top:10px}
+.dark .hnote{color:#A6A6A6}
+/* обведене колом слово */
+.circled{position:relative;display:inline-block;padding:.02em .34em}
+.circled:before{content:'';position:absolute;inset:-26% -12%;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 70' preserveAspectRatio='none'%3E%3Cpath d='M100 4C42 4 6 18 6 35s38 31 96 31 92-15 92-31S158 4 100 4' stroke='%236B2BEE' stroke-width='3.4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M104 8C46 6 12 20 13 37' stroke='%236B2BEE' stroke-width='2.4' fill='none' stroke-linecap='round' opacity='.5'/%3E%3C/svg%3E") no-repeat center/100% 100%}
+.dark .circled:before,.violet .circled:before{filter:hue-rotate(60deg) saturate(2) brightness(1.8)}
+/* закреслене «старе» — рукою */
+.crossed{position:relative;display:inline-block;color:var(--muted)}
+.crossed:after{content:'';position:absolute;left:-4%;right:-4%;top:50%;height:9px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 9' preserveAspectRatio='none'%3E%3Cpath d='M2 6.4C25 2.6 52 7.4 98 2.8' stroke='%236B2BEE' stroke-width='2.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/100% 100%}
+/* намальована стрілка-вказівник */
+.arw{display:block;margin:14px auto 4px;width:46px;height:50px;overflow:visible}
+.arw path{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linecap:round;
+          stroke-linejoin:round;opacity:.8}
+.dark .arw path{stroke:var(--lime)}
+/* стрілка з рукописною підписою збоку */
+.arwline{display:flex;align-items:center;justify-content:center;gap:13px;margin-top:14px}
+.arwline .arw{margin:0}
+.arwline b{font-family:var(--hand);font-weight:700;font-size:23px;line-height:1;
+           color:var(--accent);transform:rotate(-4deg);white-space:nowrap}
+/* номер у намальованому колі */
+.hnum{position:relative;width:46px;height:46px;flex:0 0 46px;display:flex;
+      align-items:center;justify-content:center}
+.hnum svg{position:absolute;inset:0;width:100%;height:100%;fill:none;
+          stroke:var(--accent);stroke-width:2.2;stroke-linecap:round}
+.hnum b{position:relative;font-family:var(--hand);font-size:26px;font-weight:700;
+        color:var(--accent);line-height:1;margin-top:2px}
+.dark .hnum svg{stroke:var(--lime)}.dark .hnum b{color:var(--lime)}
+/* рукописна галочка */
+.htick{width:24px;height:24px;flex:0 0 24px;margin-top:1px}
+.htick svg{width:100%;height:100%;fill:none;stroke:var(--accent);stroke-width:2.8;
+           stroke-linecap:round;stroke-linejoin:round}
+.dark .htick svg{stroke:var(--lime)}
+/* штамп-наліпка від руки */
+.hstamp{position:absolute;top:-16px;right:-6px;width:86px;height:86px;z-index:5;
+        display:flex;align-items:center;justify-content:center;
+        transform:rotate(-12deg);pointer-events:none}
+.hstamp svg{position:absolute;inset:0;width:100%;height:100%}
+.hstamp b{position:relative;font-family:var(--hand);font-weight:700;font-size:25px;
+          line-height:.9;color:var(--accent);text-align:center}
+/* два стовпці «було / стало» */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:16px;
+     border:1px solid var(--line)}
+.cmp>div{padding:14px 13px}
+.cmp>div+div{border-left:1px solid var(--line)}
+.cmp h5{font-family:var(--hand);font-weight:700;font-size:21px;line-height:1;
+        margin-bottom:9px;color:var(--muted)}
+.cmp>div+div h5{color:var(--accent)}
+.cmp li{list-style:none;font-size:13.5px;line-height:1.4;padding:7px 0;
+        border-top:1px solid var(--line)}
+.cmp li:first-child{border-top:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ═══ 01. ШАПКА ═══ -->
+  <header class="card crack" style="padding:14px var(--pad) 16px">
+    <div class="row" style="justify-content:center;gap:18px">
+      <div class="pill"><i class="dot"></i>закритий доступ</div>
+      <div class="pill solid">Ai_Sashka</div>
+    </div>
+    <p class="hname"><svg class="lock" viewBox="0 0 24 30" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 12.5V8.5a5 5 0 0 1 10 0v4"/><rect x="2.5" y="12.5" width="19" height="15" fill="var(--lime)"/><circle cx="12" cy="18.5" r="1.9" fill="var(--ink)" stroke="none"/><path d="M12 20v3.2" stroke-width="2.6"/></svg>Закритий урок</p>
+  </header>
+
+  <!-- ═══ 02. БІЖУЧИЙ РЯДОК ═══ -->
+  <div class="marq" aria-label="Обмеження: тільки для учнів міні-курсів">
+    <div class="track">
+      <span aria-hidden="true"><b class="nw">Обмеження:</b>тільки для учнів міні-курсів<i class="star"></i><b class="nw">Обмеження:</b>тільки для учнів міні-курсів<i class="star"></i></span>
+      <span aria-hidden="true"><b class="nw">Обмеження:</b>тільки для учнів міні-курсів<i class="star"></i><b class="nw">Обмеження:</b>тільки для учнів міні-курсів<i class="star"></i></span>
+    </div>
+  </div>
+
+  <!-- ═══ 03. ПЕРШИЙ ЕКРАН ═══ -->
+  <section class="card hero">
+    <h1 class="h h1"><span class="acc">Секретний соус</span> для ваших генерацій, або авторський <span class="acc">промт</span>, за допомогою якого ви зможете створювати ультрареалістичні відео</h1>
+
+    <!-- мальована стрілка з підписом: вказує на прев'ю нижче -->
+    <div class="arwline">
+      <svg class="arw" style="width:46px;height:54px" viewBox="0 0 54 62" aria-hidden="true">
+        <path d="M14 3c-9 13-5 24 6 30 12 7 17 13 14 22"/>
+        <path d="M34 55l-11-8M34 55l4-13"/>
+      </svg>
+      <b>в Seedance 2.5</b>
+    </div>
+
+    <div class="media">
+      <video src="hero.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Прев'ю: згенероване відео з собою"></video>
+    </div>
+    <p class="hnote" style="color:var(--ink);margin-top:20px">*перший раз я вам даю промт, який ви зможете <span class="uline">скопіювати собі</span> та використовувати при кожній генерації. І відкрито говорю: встановлюйте та копіюйте собі, щоб ваші AI-відео неможливо було відрізнити від реальної зйомки.</p>
+
+    <!-- мальована стрілка: веде до переліку того, що в уроці -->
+    <svg class="arw" style="width:46px;height:54px;margin:14px auto 0" viewBox="0 0 54 62" aria-hidden="true">
+      <path d="M14 3c-9 13-5 24 6 30 12 7 17 13 14 22"/>
+      <path d="M34 55l-11-8M34 55l4-13"/>
+    </svg>
+
+    <h2 class="h h2" style="margin-top:26px">Ось що <span class="acc">реально</span> вас чекає в уроці?</h2>
+
+    <p class="lt"><b>НЕЙРОНКИ</b> <span>ChatGPT</span><span>Seedance 2.5</span><span class="ltas">як основа</span><span class="ltn">*урок та <em>СЕКРЕТНИЙ СОУС ПРОМТ</em> в ньому універсальні та будуть підходити під нові версії нейронок.</span></p>
+
+    <div class="files">
+      <div class="frow">
+        <div class="hnum"><svg viewBox="0 0 46 46"><path d="M23 3C34 3 43 12 43 23S34 43 23 43 3 34 3 23 12 3 23 3"/></svg><b>1</b></div>
+        <div>
+          <span class="ftag">файл</span>
+          <b>Майстер-промт для ChatGPT</b>
+          <em>Налаштовуєш асистента один раз — далі надиктовуєш свою ідею відео, а асистент пише ДУЖЕ якісні промти сам для майбутнього відео.</em>
+        </div>
+      </div>
+
+      <div class="frow">
+        <div class="hnum"><svg viewBox="0 0 46 46"><path d="M23 3C34 3 43 12 43 23S34 43 23 43 3 34 3 23 12 3 23 3"/></svg><b>2</b></div>
+        <div>
+          <span class="ftag">файл</span>
+          <b>Стиль зйомки <span class="hacc">СЕКРЕТНИЙ СОУС ПРОМТ</span> та промт на карточку персонажа</b>
+          <em>4 секретні рядки СОУС промту, з налаштуваннями камери, як знімалося відео, об'єктив і т. д.</em>
+        </div>
+      </div>
+
+      <div class="frow">
+        <div class="hnum"><svg viewBox="0 0 46 46"><path d="M23 3C34 3 43 12 43 23S34 43 23 43 3 34 3 23 12 3 23 3"/></svg><b>3</b></div>
+        <div>
+          <span class="ftag">файл</span>
+          <b>Навичка ChatGPT для написання промтів під Seedance 2.5</b>
+          <em>Встановлюєш один раз мій архів — завжди отримуєш якісні промти для відео в Seedance 2.5. Цей файл є підсиленням першого файлу.</em>
+        </div>
+      </div>
+
+      <div class="frow">
+        <div class="hnum"><svg viewBox="0 0 46 46"><path d="M23 3C34 3 43 12 43 23S34 43 23 43 3 34 3 23 12 3 23 3"/></svg><b>4</b></div>
+        <div>
+          <span class="ftag">урок</span>
+          <b>Налаштування авторського асистента ChatGPT</b>
+          <div class="pshot"><img src="shot-4.jpg" alt="Налаштування авторського асистента ChatGPT"></div>
+        </div>
+      </div>
+
+      <div class="frow">
+        <div class="hnum"><svg viewBox="0 0 46 46"><path d="M23 3C34 3 43 12 43 23S34 43 23 43 3 34 3 23 12 3 23 3"/></svg><b>5</b></div>
+        <div>
+          <span class="ftag">урок</span>
+          <b>Як створювати свою карточку-референс, щоб кожного разу себе не фоткати</b>
+          <div class="pshot"><img src="shot-5.jpg" alt="Карточка-референс персонажа"></div>
+        </div>
+      </div>
+
+      <div class="frow">
+        <div class="hnum"><svg viewBox="0 0 46 46"><path d="M23 3C34 3 43 12 43 23S34 43 23 43 3 34 3 23 12 3 23 3"/></svg><b>6</b></div>
+        <div>
+          <span class="ftag">урок</span>
+          <b>Як генерувати ультрареалістичні відео з «СОУС ПРОМТОМ» в найпотужнішій нейромережі для генерації відео Seedance 2.5</b>
+          <div class="pshot"><video src="shot-6.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Приклад згенерованого відео"></video></div>
+        </div>
+      </div>
+    </div>
+
+
+    <p class="thesis" style="text-align:center;margin:34px 0 32px">Води в цьому 11-хвилинному уроці не буде <span class="acc">— одразу практика та конкретні дії</span></p>
+
+    <div class="pbox">
+      <div class="phead"><i class="pdot"></i><b>результат</b></div>
+      <p>Після цього уроку у вас буде повністю зібрана особиста система створення AI-відео: налаштований асистент, який уже знає ваш стиль зйомки і формат промтів, збережена карточка персонажа, яку ви створюєте один раз і використовуєте нескінченно, і чіткий маршрут від голосової ідеї до готового ролика в Seedance 2.5. Ви більше не витрачаєте години на переписування промтів наосліп і не отримуєте на виході чергове «пластикове» AI-відео, яке соромно показати, — замість цього ви за кілька хвилин знімаєте себе в будь-якій локації, у будь-якому одязі й у будь-якому сценарії, не встаючи з крісла і не тримаючи в руках камеру. Зникає та сама розгубленість, коли бачиш чужі круті генерації й не розумієш, чого тобі бракує: ви точно знаєте, які саме <em>чотири рядки СОУС ПРОМТУ</em> роблять картинку кінематографічною, і контролюєте кадр так, як це робить оператор, а не як людина, що просто «щось попросила в нейронки». І головне — ви переходите з рівня новачка, який експериментує, на рівень AI-креатора, який стабільно видає впізнаваний, професійний контент зі своїм обличчям і не тільки, може робити це для себе, для свого проєкту або на замовлення.<i class="caret"></i></p>
+      <div class="pbar">
+        <span>ChatGPT · Seedance 2.5</span>
+        <span class="psend"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"
+              stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
+      </div>
+    </div>
+
+
+
+    <div class="price" style="justify-content:center">
+      <b>390</b><span class="cur">грн</span><s>990 грн</s><em>−61%</em>
+    </div>
+
+    <a class="badge solo" href="#REPLACE_ME_PAY" aria-label="Купити урок — перейти до оплати">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="50" fill="var(--lime)"/>
+        <path id="c" fill="none" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0"/>
+        <text font-family="Manrope,sans-serif" font-size="11" font-weight="800">
+          <textPath href="#c" startOffset="0" textLength="226" lengthAdjust="spacing">КУПИТИ УРОК · КУПИТИ УРОК ·</textPath>
+        </text>
+      </svg>
+      <b><svg viewBox="0 0 40 48" fill="none" stroke="var(--ink)" stroke-width="2.6"
+             stroke-linecap="round" aria-hidden="true">
+        <path d="M2 43V22a18 18 0 0 1 36 0v21"/>
+        <path d="M6.5 46V22a13.5 13.5 0 0 1 27 0v24"/>
+        <path d="M11 41.5V22a9 9 0 0 1 18 0v19.5"/>
+        <path d="M15.5 45V22a4.5 4.5 0 0 1 9 0v23" stroke="var(--accent)"/>
+      </svg></b>
+    </a>
+    <p class="hnote">*для того, щоб купити урок — натискай на зелену кнопку вище.</p>
+    <hr>
+    <p class="eyebrow" style="text-align:center;margin:0">До кінця спеціальної пропозиції:</p>
+    <div class="timer glass"><i data-t="h">00</i><i data-t="m">10</i><i data-t="s">00</i></div>
+  </section>
+
+  <!-- ═══ 04. ЯК ВИГЛЯДАЄ УРОК ЗСЕРЕДИНИ ═══ -->
+  <section class="card">
+    <p class="hlab">чесно, без прелюдій</p>
+    <h2 class="h h2">Ось як виглядає урок <span class="acc">зсередини</span>:</h2>
+    <div class="pshot" style="margin-top:16px">⟨GIF: що буде в уроці⟩</div>
+    <p class="hnote" style="color:var(--ink);margin-top:18px">*чесно — чому я вирішив зробити цей додатковий урок: ⟨твоя відповідь⟩</p>
+  </section>
+
+  <!-- ═══ 05. ГАРАНТІЯ ═══ -->
+  <section class="card">
+    <h2 class="h h2">14 днів на <span class="acc">повернення коштів</span></h2>
+    <div class="guar">
+      <div class="seal">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M50.0,1.0L55.4,5.8L61.7,2.4L65.8,8.4L72.8,6.6L75.3,13.4L82.5,13.3L83.3,20.5L90.3,22.2L89.4,29.3L95.8,32.6L93.2,39.4L98.6,44.1L94.5,50.0L98.6,55.9L93.2,60.6L95.8,67.4L89.4,70.7L90.3,77.8L83.3,79.5L82.5,86.7L75.3,86.6L72.8,93.4L65.8,91.6L61.7,97.6L55.4,94.2L50.0,99.0L44.6,94.2L38.3,97.6L34.2,91.6L27.2,93.4L24.7,86.6L17.5,86.7L16.7,79.5L9.7,77.8L10.6,70.7L4.2,67.4L6.8,60.6L1.4,55.9L5.5,50.0L1.4,44.1L6.8,39.4L4.2,32.6L10.6,29.3L9.7,22.2L16.7,20.5L17.5,13.3L24.7,13.4L27.2,6.6L34.2,8.4L38.3,2.4L44.6,5.8Z" fill="var(--lime)" stroke="#0A0A0A" stroke-width="2.4" stroke-linejoin="round"/>
+          <circle cx="50" cy="50" r="38" fill="none" stroke="#0A0A0A" stroke-width="1.2" stroke-dasharray="3 3"/>
+        </svg>
+        <b><i>14</i><u>днів</u><s>гарантія</s></b>
+      </div>
+      <p>Я впевнений у якості цього уроку й додаткових файлів та «СОУС ПРОМТУ»,
+         тому даю <b>14 днів повної гарантії</b>.</p>
+      <p>Якщо протягом двох тижнів ти пройдеш урок, налаштуєш асистента і згенеруєш своє
+         перше відео з собою або з іншим персонажем — але не побачиш цінності або
+         очікуваного результату (ультрареалізму) — я без жодних питань поверну кошти.</p>
+      <p class="last">Жодних ризиків. Або твої відео виглядають ультрареалістично, як реальна зйомка — або я повертаю гроші.</p>
+
+      <div class="gsep"></div>
+      <p class="glabel">Додаткова гарантія</p>
+      <div class="rate">
+        <b>4,9</b><em>із 5</em>
+        <div class="stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.5 7L12 17.5 5.8 21.1l1.5-7L2 9.3l7.1-.7z" fill="var(--lime)" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.5 7L12 17.5 5.8 21.1l1.5-7L2 9.3l7.1-.7z" fill="var(--lime)" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.5 7L12 17.5 5.8 21.1l1.5-7L2 9.3l7.1-.7z" fill="var(--lime)" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.5 7L12 17.5 5.8 21.1l1.5-7L2 9.3l7.1-.7z" fill="var(--lime)" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.5 7L12 17.5 5.8 21.1l1.5-7L2 9.3l7.1-.7z" fill="var(--lime)" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+      </div>
+      <p>Середня оцінка моїх інших мінікурсів та воркшопів.</p>
+      <p style="margin-top:12px">Знаєш, коли люди запитують про повернення коштів?</p>
+      <p class="punch">Коли випадково придбали мій мінікурс або воркшоп ще один раз.</p>
+    </div>
+    <p class="hnote" style="margin-top:16px">Я зробив цей урок спеціально лише для тих, хто проходив мої мінікурси, адже лише ви знаєте, як якісно працюють мої майстер-промти та матеріали, які я додаю до кожного продукту.</p>
+  </section>
+
+  <!-- ═══ 06. ФІНАЛЬНИЙ CTA ═══ -->
+  <section class="card dark final">
+    <p class="fkick">закритий доступ</p>
+    <h2 class="h h2">Кожне наступне відео з тобою або іншим персонажем, згенероване тобою, має бути <span style="color:var(--lime)">ультрареалістичним</span></h2>
+    <p class="p">Доступ до уроку і всіх файлів відкривається одразу після оплати.</p>
+    <div class="price" style="margin-top:18px">
+      <b>390</b><span class="cur">грн</span><s>990 грн</s><em>−61%</em>
+    </div>
+    <a class="btn cta lime" href="#REPLACE_ME_PAY"><span>Забрати урок</span><i>−61%</i></a>
+    <p class="sm" style="text-align:center;margin-top:11px">14 днів гарантії повернення коштів</p>
+  </section>
+
+  <!-- ═══ 07. ФУТЕР ═══ -->
+  <footer class="card">
+    <p class="sm" style="margin-bottom:10px">З будь-яких питань пишіть у підтримку ↓</p>
+    <a class="btn" style="background:var(--ink)" href="https://t.me/Mihail_Zemlianoy">Технічна підтримка</a>
+    <hr>
+    <div class="foot">
+      <b>СТЕПАНЕНКО БОГДАН ОЛЕКСАНДРОВИЧ ФОП</b>ЄДРПОУ 3757902952 · stepanenkob30@gmail.com
+      <b>ЗЕМЛЯНИЙ МИХАЙЛО СЕРГІЙОВИЧ ФОП</b>ЄДРПОУ 3758302175 · +380 98 596 6120
+      <b>БРЖЕСТОВСЬКА ГАННА ЮРІЇВНА ФОП</b>ЄДРПОУ 2877703349
+      <p style="margin-top:12px"><a href="#">Політика конфіденційності</a> · <a href="#">Договір оферти</a></p>
+      <p style="margin-top:10px"><b style="display:inline">ВАЖЛИВО:</b> не вводьте свою контактну інформацію, доки не прочитаєте legal disclaimer. Ми не даємо жодних гарантій, що ви досягнете якихось результатів за допомогою наших інструментів, стратегій або інформації. Всі продукти і сервіси компанії призначені для освітніх цілей. Ви несете відповідальність за свої дії і результати.</p>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ЛИПКА ПАНЕЛЬ -->
+<div class="sticky" id="sticky">
+  <div class="sprice">
+    <b>390<em>грн</em></b>
+    <s>990 грн</s>
+  </div>
+  <div class="stwrap">
+    <a class="btn shine" href="#REPLACE_ME_PAY">Забрати урок</a>
+    <div class="badge sm">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M50.0,1.0L54.5,6.2L60.4,3.0L63.5,9.1L70.1,7.4L71.7,14.0L78.5,14.0L78.5,20.8L85.1,22.4L83.4,29.0L89.5,32.1L86.3,38.0L91.5,42.5L87.0,47.7L91.5,52.9L86.3,57.4L89.5,63.3L83.4,66.4L85.1,73.0L78.5,74.6L78.5,81.4L71.7,81.4L70.1,88.0L63.5,86.3L60.4,92.4L54.5,89.2L50.0,94.4L45.5,89.2L39.6,92.4L36.5,86.3L29.9,88.0L28.3,81.4L21.5,81.4L21.5,74.6L14.9,73.0L16.6,66.4L10.5,63.3L13.7,57.4L8.5,52.9L13.0,47.7L8.5,42.5L13.7,38.0L10.5,32.1L16.6,29.0L14.9,22.4L21.5,20.8L21.5,14.0L28.3,14.0L29.9,7.4L36.5,9.1L39.6,3.0L45.5,6.2Z"
+              fill="var(--lime)" stroke="#0A0A0A" stroke-width="2.5" stroke-linejoin="round"/>
+      </svg>
+      <b>−61%</b>
+    </div>
+  </div>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+// поява блоків при скролі
+(function(){
+  var segs = document.querySelectorAll('.seg, .bcard');
+  if(!segs.length) return;
+  if(!('IntersectionObserver' in window)){ segs.forEach(function(s){s.classList.add('in')}); return; }
+  var io = new IntersectionObserver(function(list){
+    list.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target;
+      setTimeout(function(){ el.classList.add('in') }, (el.dataset.i % 4) * 110);
+      io.unobserve(el);
+    });
+  }, {threshold:.2, rootMargin:'0px 0px -8% 0px'});
+  segs.forEach(function(s,i){ s.dataset.i = i; io.observe(s) });
+})();
+// таймер спецціни: 10 хвилин від відкриття сторінки
+(function(){
+  var end = Date.now() + 10*60*1000;
+  var el = document.querySelectorAll('[data-t]');
+  function pad(n){return n<10?'0'+n:''+n}
+  function tick(){
+    var l = Math.max(0, end - Date.now()), s = Math.floor(l/1000);
+    var v = {h:pad(Math.floor(s/3600)), m:pad(Math.floor(s%3600/60)), s:pad(s%60)};
+    el.forEach(function(n){
+      var nv = v[n.dataset.t];
+      if(n.textContent === nv) return;
+      n.classList.add('flip');
+      setTimeout(function(){ n.textContent = nv }, 195);
+      setTimeout(function(){ n.classList.remove('flip') }, 430);
+    });
+    if(l>0) setTimeout(tick, 1000);
+  }
+  tick();
+})();
+// липка панель — після першого екрана
+(function(){
+  var b = document.getElementById('sticky');
+  addEventListener('scroll', function(){ b.classList.toggle('on', scrollY > 700) }, {passive:true});
+})();
+</script>
+</body>
+</html>
