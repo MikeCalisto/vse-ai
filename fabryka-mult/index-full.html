@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#F6F1E7">
+<title>Мультики як ПРО — новий блок у «Фабриці АІ контенту»</title>
+<meta name="description" content="Весь воркшоп по AI-мультиках всередині курсу. 4 методи, 5 стилів, українська озвучка. До 31.08 — 2999 грн замість 3499 грн." />
+<meta property="og:title" content="Мультики як ПРО — новий блок у «Фабриці АІ контенту»" />
+<meta property="og:description" content="18 блоків · 14+ нейромереж · 8 бонусів. Від «я тільки знайомлюся з AI» до власної системи створення контенту." />
+<meta property="og:type" content="website" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap&subset=cyrillic" rel="stylesheet">
+<link rel="preload" as="image" href="/ai-multfilm/mult3.jpg" fetchpriority="high">
+<script defer src="/_vercel/insights/script.js"></script>
+<style>
+:root{
+  --paper:#F6F1E7; --paper2:#EFE8DA; --paper3:#E7DECC;
+  --card:#FCF9F3;
+  --graph:#2E2A24; --ink2:#554E43; --pencil:#6B6459; --mute:#968D7E;
+  --orange:#E2622C; --orange-d:#C24E1D; --orange-l:#FAE3D6;
+  --teal:#2E7D74; --teal-l:#DDEDEA;
+  --marker:#FBE08A;
+  --line:#D9CFBB;
+  --hand:'Caveat',cursive;
+  --f:'Nunito',-apple-system,'SF Pro Display',Helvetica,Arial,sans-serif;
+  --wob:255px 15px 225px 15px/15px 225px 15px 255px;
+  --wob2:15px 225px 15px 255px/225px 15px 255px 15px;
+  --wob3:200px 25px 180px 30px/25px 190px 30px 200px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+/* root scale drives every rem on the page — phone reading size */
+html{font-size:120%;-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--paper);color:var(--graph);font-family:var(--f);font-size:1rem;line-height:1.62;
+  font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px}
+.hand{font-family:var(--hand)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- section rhythm ---------- */
+.sec{padding:56px 0;position:relative}
+.sec--tint{background:var(--paper2);border-top:3px solid var(--graph);border-bottom:3px solid var(--graph)}
+.sec--deep{background:var(--paper3);border-top:3px solid var(--graph);border-bottom:3px solid var(--graph)}
+.kick{font-family:var(--hand);font-size:1.24rem;color:var(--orange);display:inline-block;
+  transform:rotate(-1.8deg);margin-bottom:8px}
+h2{font-size:clamp(1.8rem,7.4vw,2.55rem);font-weight:900;line-height:1.06;letter-spacing:-.04em}
+h2 u{text-decoration:none;color:var(--orange)}
+h2 .mk{position:relative;white-space:nowrap}
+h2 .mk svg{position:absolute;left:-5px;right:-5px;bottom:-7px;width:calc(100% + 10px);height:12px}
+.lead{margin:18px 0 0;font-size:.94rem;line-height:1.72;color:var(--ink2)}
+.lead b{color:var(--graph);font-weight:800}
+
+/* ---------- hand-drawn boxes ---------- */
+.box{position:relative;background:var(--card);border:3px solid var(--graph);padding:22px 20px}
+.box--a{border-radius:var(--wob)}
+.box--b{border-radius:var(--wob2)}
+.box--c{border-radius:var(--wob3)}
+.box__t{position:absolute;top:-14px;left:20px;background:var(--paper);padding:0 10px;
+  font-family:var(--hand);font-size:1.16rem;color:var(--teal)}
+.sec--tint .box__t{background:var(--paper2)}
+.sec--deep .box__t{background:var(--paper3)}
+
+/* ---------- top bar ---------- */
+.top{padding:18px 0 0;display:flex;justify-content:space-between;align-items:center;gap:10px;
+  font-family:var(--hand);font-size:1.08rem;color:var(--pencil)}
+.top .o{color:var(--orange)}
+.pip{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:7px;
+  animation:pp 2s ease-in-out infinite}
+@keyframes pp{50%{opacity:.28}}
+
+/* ---------- hero ---------- */
+.hero{padding:20px 0 0;text-align:center}
+.eyebrow{font-family:var(--hand);font-size:1.2rem;color:var(--pencil);line-height:1.2;
+  max-width:none;text-wrap:balance;margin:0 auto 14px}
+h1{font-size:clamp(2.5rem,11.2vw,3.8rem);font-weight:900;line-height:.92;letter-spacing:-.045em;
+  text-transform:uppercase;position:relative;display:inline-block;padding:2px 6px}
+h1 span{display:block;color:var(--orange)}
+.lasso{position:absolute;inset:-15px -20px;border:3px solid var(--graph);border-radius:var(--wob);
+  opacity:.45;pointer-events:none}
+.deck{margin:22px auto 0;font-size:1.06rem;font-weight:700;line-height:1.32;color:var(--ink2);
+  max-width:none;text-wrap:balance}
+.deck .mk{position:relative;white-space:nowrap;color:var(--graph)}
+.deck .mk svg{position:absolute;left:-4px;right:-4px;bottom:-9px;width:calc(100% + 8px);height:11px}
+.aside{margin-top:16px;display:inline-block;font-family:var(--hand);font-size:1.16rem;color:var(--orange);
+  transform:rotate(-1.6deg)}
+
+/* photo frames */
+.frames{margin:28px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fr{position:relative;background:var(--card);border:3px solid var(--graph);padding:8px;transition:transform .28s}
+.fr:nth-child(1){grid-column:span 2;border-radius:var(--wob)}
+.fr:nth-child(2){border-radius:var(--wob2);transform:rotate(-1.6deg)}
+.fr:nth-child(3){border-radius:var(--wob);transform:rotate(1.4deg)}
+.fr:hover{transform:rotate(0) translateY(-3px)}
+.fr__box{position:relative;display:block;width:100%;aspect-ratio:3/4;overflow:hidden;
+  border-radius:inherit;background:var(--paper2)}
+.fr:nth-child(n+2) .fr__box{aspect-ratio:1/1}
+.fr__box img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
+.fr__box img.on,.fr__box img:only-child{opacity:1}
+.fr__box video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.fr .mute-btn{bottom:38px}
+.fr figcaption{font-family:var(--hand);font-size:1.04rem;color:var(--pencil);text-align:center;padding-top:5px}
+
+/* hand list */
+.hlist{margin:22px 0 0;display:grid;gap:13px;text-align:left}
+.hlist li{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  font-size:.91rem;font-weight:600;line-height:1.5;color:var(--ink2)}
+.hlist .tick{width:26px;height:26px;flex:0 0 26px;border:3px solid var(--teal);border-radius:var(--wob);
+  display:grid;place-items:center;font-size:.8rem;color:var(--teal);font-weight:900;line-height:1}
+.hlist .tick--o{border-color:var(--orange);color:var(--orange)}
+.hlist .n{width:28px;height:28px;flex:0 0 28px;border:3px solid var(--graph);border-radius:var(--wob2);
+  display:grid;place-items:center;font-family:var(--hand);font-size:1.06rem;font-weight:700;line-height:1}
+
+/* cross list */
+.xs{margin:24px 0 0;display:grid;gap:13px}
+.xs li{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  background:var(--card);border:3px solid var(--graph);padding:14px 16px;font-size:.9rem;font-weight:600;
+  line-height:1.48;color:var(--ink2)}
+.xs li:nth-child(odd){border-radius:var(--wob)}
+.xs li:nth-child(even){border-radius:var(--wob2)}
+.xs .x{width:24px;height:24px;flex:0 0 24px;border:3px solid var(--orange);border-radius:var(--wob2);
+  display:grid;place-items:center;font-size:.74rem;color:var(--orange);font-weight:900}
+
+/* pull quote */
+.pull{margin:30px 0 0;position:relative;padding:26px 22px;text-align:center;
+  background:var(--card);border:3px solid var(--graph);border-radius:var(--wob3)}
+.pull p{font-family:var(--hand);font-size:1.5rem;line-height:1.28;color:var(--graph)}
+.pull::before{content:'“';position:absolute;left:14px;top:-6px;font-family:var(--hand);font-size:3.4rem;
+  color:var(--orange);opacity:.5;line-height:1}
+
+/* price / CTA */
+.price{margin:30px 0 0;background:var(--card);border:3px solid var(--graph);border-radius:var(--wob);
+  padding:26px 20px 22px;text-align:center;position:relative}
+.price__tag{position:absolute;top:-16px;left:50%;transform:translateX(-50%) rotate(-2deg);
+  background:var(--orange);color:#fff;font-family:var(--hand);font-size:1.16rem;padding:3px 17px;
+  border-radius:var(--wob2);white-space:nowrap}
+.prow{display:flex;align-items:baseline;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:10px}
+.pold{font-size:1.15rem;font-weight:700;color:var(--mute);position:relative}
+.pold svg{position:absolute;left:-6px;right:-6px;top:5px;width:calc(100% + 12px);height:18px}
+.pnew{font-size:clamp(3.3rem,13.5vw,4.3rem);font-weight:900;line-height:.88;letter-spacing:-.05em;color:var(--orange)}
+.pnew i{font-style:normal;font-size:.92rem;font-weight:700;color:var(--ink2);margin-left:5px;letter-spacing:0}
+.cd{margin-top:20px;display:flex;justify-content:center;gap:10px}
+.cd__b{border:3px solid var(--graph);border-radius:var(--wob2);padding:8px 12px;min-width:58px;background:var(--paper)}
+.cd__b b{display:block;font-size:1.35rem;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.cd__b i{font-style:normal;font-size:.58rem;color:var(--mute);font-weight:700}
+.cd__l{margin-top:11px;font-family:var(--hand);font-size:1.1rem;color:var(--pencil)}
+.instal{margin-top:18px;padding-top:16px;border-top:3px dotted var(--line);font-size:.84rem;
+  font-weight:600;color:var(--ink2)}
+.instal b{color:var(--graph);font-weight:800}
+.gift{margin-top:12px;background:var(--orange-l);border-radius:var(--wob);padding:12px 14px;
+  font-size:.87rem;font-weight:600;line-height:1.5;color:var(--ink2)}
+.gift b{color:var(--orange-d);font-weight:800}
+
+.cta{margin:26px 0 0;display:grid;gap:12px}
+.b1{display:flex;align-items:center;justify-content:center;gap:11px;background:var(--orange);color:#fff;
+  border:3px solid var(--graph);border-radius:var(--wob);padding:19px;font-weight:800;font-size:.96rem;
+  transition:transform .2s,background .2s;text-align:center}
+.b1:hover{transform:translateY(-3px) rotate(-.6deg);background:var(--orange-d)}
+.b1 b{font-weight:900;font-size:1.08rem}
+.b2{text-align:center;border:3px solid var(--graph);border-radius:var(--wob2);padding:16px;
+  font-weight:700;font-size:.87rem;color:var(--ink2);transition:background .2s,color .2s}
+.b2:hover{background:var(--graph);color:var(--paper)}
+.cta-hint{display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--hand);
+  font-size:1.1rem;color:var(--pencil)}
+.cta-hint b{color:var(--orange);font-weight:700}
+.small{font-size:.84rem;color:var(--mute);text-align:center;line-height:1.6}
+.small a,.tg{color:var(--teal);font-weight:700;border-bottom:2px solid var(--teal-l)}
+
+/* marquee */
+.mq{overflow:hidden;padding:12px 0;border-top:3px solid var(--graph);border-bottom:3px solid var(--graph);
+  background:var(--paper2)}
+.mq__t{display:flex;width:max-content;white-space:nowrap;animation:mar 34s linear infinite}
+.mq__t span{font-family:var(--hand);font-size:1.25rem;color:var(--pencil);padding:0 15px}
+.mq__t span::after{content:'\270E';color:var(--orange);margin-left:15px;font-size:.85rem}
+@keyframes mar{to{transform:translateX(-50%)}}
+
+/* carousels */
+.swipe{font-family:var(--hand);font-size:1.06rem;color:var(--mute);text-align:right;margin-bottom:6px}
+.track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;padding:14px 20px 18px;margin:0 -20px}
+.track::-webkit-scrollbar{display:none}
+.dots{display:flex;justify-content:center;gap:6px;margin-top:4px}
+.dots i{width:7px;height:7px;border-radius:50%;background:var(--line);transition:width .25s,background .25s}
+.dots i.on{width:20px;border-radius:4px;background:var(--orange)}
+
+/* audience cards */
+.aud{min-width:255px;max-width:275px;flex:0 0 auto;scroll-snap-align:center;background:var(--card);
+  border:3px solid var(--graph);padding:20px 18px;position:relative;
+  content-visibility:auto;contain-intrinsic-size:265px 300px}
+.aud:nth-child(odd){border-radius:var(--wob)}
+.aud:nth-child(even){border-radius:var(--wob2)}
+.aud__n{position:absolute;right:14px;top:8px;font-family:var(--hand);font-size:1.5rem;color:var(--line)}
+.aud__e{font-size:1.9rem;line-height:1;margin-bottom:10px}
+.aud__t{font-size:1rem;font-weight:900;line-height:1.22;letter-spacing:-.02em;margin-bottom:8px}
+.aud__p{font-size:.89rem;line-height:1.55;color:var(--ink2);font-weight:600}
+
+/* format steps */
+.fmt{margin:26px 0 0;display:grid;gap:0;position:relative}
+.fmt::before{content:'';position:absolute;left:17px;top:14px;bottom:20px;width:3px;
+  background:repeating-linear-gradient(180deg,var(--line) 0 7px,transparent 7px 14px)}
+.fmt__s{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:0 0 22px;position:relative}
+.fmt__n{width:37px;height:37px;flex:0 0 37px;border:3px solid var(--graph);border-radius:var(--wob2);
+  display:grid;place-items:center;font-family:var(--hand);font-size:1.2rem;font-weight:700;
+  background:var(--card);position:relative;z-index:2;line-height:1}
+.fmt__t{font-size:.96rem;font-weight:900;letter-spacing:-.02em;line-height:1.25;margin-bottom:4px}
+.fmt__p{font-size:.89rem;line-height:1.56;color:var(--ink2);font-weight:600}
+.fmt__r{margin-top:6px;background:var(--teal-l);border:3px solid var(--teal);border-radius:var(--wob);
+  padding:18px 18px}
+.fmt__r h4{font-family:var(--hand);font-size:1.3rem;color:var(--teal);font-weight:700;margin-bottom:6px}
+.fmt__r p{font-size:.88rem;line-height:1.6;color:var(--ink2);font-weight:600}
+
+/* number cards (fb block) */
+.nums{margin:26px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.num{background:var(--card);border:3px solid var(--graph);padding:18px 13px 16px;text-align:center}
+.num:nth-child(4n+1){border-radius:var(--wob);transform:rotate(-1.1deg)}
+.num:nth-child(4n+2){border-radius:var(--wob2);transform:rotate(.9deg)}
+.num:nth-child(4n+3){border-radius:var(--wob2);transform:rotate(1.2deg)}
+.num:nth-child(4n){border-radius:var(--wob);transform:rotate(-.8deg)}
+.num b{display:block;font-size:clamp(1.85rem,8.2vw,2.4rem);font-weight:900;letter-spacing:-.05em;
+  line-height:1;color:var(--orange)}
+.num i{display:block;font-style:normal;margin-top:9px;font-size:.82rem;font-weight:700;line-height:1.4;
+  color:var(--ink2)}
+.numcap{margin:24px 0 0;background:var(--marker);border:3px solid var(--graph);border-radius:var(--wob2);
+  padding:15px 16px;font-size:.87rem;line-height:1.6;font-weight:600;color:var(--graph)}
+.numcap b{font-weight:900}
+.disc{margin:16px 0 0;font-size:.79rem;line-height:1.6;font-weight:600;color:var(--mute)}
+
+/* club bonus */
+.club__eye{display:inline-flex;align-items:center;gap:9px;background:var(--marker);
+  border:3px solid var(--graph);border-radius:var(--wob2);padding:7px 15px;font-weight:800;font-size:.86rem;
+  transform:rotate(-1.4deg);margin-bottom:14px}
+.club__val{margin-top:18px;border-top:3px dotted var(--line);padding-top:16px;display:grid;gap:9px}
+.club__row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.9rem;
+  font-weight:600;color:var(--ink2)}
+.club__row b{font-size:1.15rem;font-weight:900;color:var(--graph)}
+.club__row--you b{color:var(--teal);font-size:1.5rem}
+.club__note{margin-top:14px;font-family:var(--hand);font-size:1.16rem;color:var(--orange);line-height:1.34}
+
+/* program cards */
+.prog{min-width:280px;max-width:300px;flex:0 0 auto;scroll-snap-align:center;background:var(--card);
+  border:3px solid var(--graph);padding:16px;position:relative;
+  content-visibility:auto;contain-intrinsic-size:290px 470px}
+.prog:nth-child(odd){border-radius:var(--wob)}
+.prog:nth-child(even){border-radius:var(--wob2)}
+.prog__h{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;margin-bottom:12px}
+.prog__n{width:38px;height:38px;flex:0 0 38px;border:3px solid var(--orange);border-radius:var(--wob2);
+  display:grid;place-items:center;font-family:var(--hand);font-size:1.25rem;font-weight:700;color:var(--orange);
+  line-height:1}
+.prog__t{font-size:.94rem;font-weight:900;line-height:1.22;letter-spacing:-.02em}
+.prog__m{position:relative;display:block;width:100%;aspect-ratio:3/4;overflow:hidden;
+  border-radius:var(--wob2);border:3px solid var(--graph);background:var(--paper2)}
+.prog__m img,.prog__m video{width:100%;height:100%;object-fit:cover;display:block}
+.prog__tag{position:absolute;left:8px;bottom:8px;background:var(--card);border:2px solid var(--graph);
+  border-radius:999px;padding:3px 10px;font-size:.66rem;font-weight:800;letter-spacing:.04em}
+.mute-btn{position:absolute;right:8px;bottom:8px;width:34px;height:34px;border-radius:50%;
+  background:rgba(46,42,36,.82);color:#fff;display:grid;place-items:center;border:2px solid var(--card)}
+.mute-btn svg{width:17px;height:17px}
+.mute-btn .ico-on{display:none}
+.mute-btn[aria-pressed="true"] .ico-on{display:block}
+.mute-btn[aria-pressed="true"] .ico-off{display:none}
+details.acc{margin-top:12px;border:3px solid var(--graph);border-radius:var(--wob);background:var(--paper)}
+details.acc summary{list-style:none;cursor:pointer;padding:11px 14px;display:flex;justify-content:space-between;
+  align-items:center;gap:10px;font-family:var(--hand);font-size:1.12rem;color:var(--graph)}
+details.acc summary::-webkit-details-marker{display:none}
+details.acc .chev{width:22px;height:22px;border:2px solid var(--orange);border-radius:50%;display:grid;
+  place-items:center;color:var(--orange);font-weight:900;font-size:.85rem;line-height:1;transition:transform .25s}
+details.acc[open] .chev{transform:rotate(45deg)}
+.acc__b{padding:0 14px 14px}
+.acc__b li{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:9px;font-size:.88rem;
+  line-height:1.5;color:var(--ink2);font-weight:600;padding:5px 0}
+.acc__b li::before{content:'—';color:var(--orange)}
+.acc__b li.tool{background:var(--orange-l);border-radius:8px;padding:7px 9px;margin-top:6px;font-weight:800;
+  color:var(--orange-d)}
+.acc__b li.tool::before{content:'\1F6E0'}
+.prog__res{margin-top:10px;background:var(--teal-l);border-radius:10px;padding:10px 11px;font-size:.87rem;
+  line-height:1.5;font-weight:700;color:#215E57}
+.prog__note{margin-top:10px;font-family:var(--hand);font-size:1.06rem;line-height:1.32;color:var(--orange)}
+
+.prog--new{border-color:var(--orange)}
+.prog__new{position:absolute;right:8px;top:8px;background:var(--orange);color:#fff;
+  border:2px solid var(--graph);border-radius:999px;padding:3px 11px;font-size:.66rem;font-weight:800;
+  letter-spacing:.04em;line-height:1.5;z-index:2}
+.prog__m--fb{display:grid;place-items:center;background:var(--orange-l);padding:18px}
+.fbstat{text-align:center}
+.fbstat b{display:block;font-size:2.6rem;font-weight:900;letter-spacing:-.05em;line-height:1;color:var(--orange-d)}
+.fbstat i{display:block;margin-top:10px;font-style:normal;font-size:.85rem;font-weight:800;line-height:1.4;
+  color:var(--graph)}
+
+/* subs / instal cards */
+.dcard{margin:22px 0 0;background:var(--card);border:3px solid var(--graph);border-radius:var(--wob);padding:22px 20px}
+.dcard__h{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.chip{background:var(--marker);border:2px solid var(--graph);border-radius:999px;padding:5px 13px;
+  font-size:.78rem;font-weight:800}
+.dcard__sub{font-family:var(--hand);font-size:1.08rem;color:var(--pencil)}
+.dcard__p{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.dcard__num{font-size:3.2rem;font-weight:900;letter-spacing:-.05em;line-height:.9;color:var(--orange)}
+.dcard__cur{font-size:1.3rem;font-weight:900;color:var(--orange)}
+.dcard__meta{font-size:.87rem;font-weight:700;color:var(--ink2);line-height:1.3}
+.dcard__meta b{display:block;font-weight:900;color:var(--graph);font-size:.92rem}
+.dcard ul{margin-top:16px;display:grid;gap:10px}
+.dcard ul li{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:.86rem;
+  line-height:1.55;font-weight:600;color:var(--ink2)}
+.dcard ul li::before{content:'\2022';color:var(--orange);font-weight:900}
+.dcard ul li b{color:var(--graph);font-weight:800}
+.dcard__note{margin-top:16px;background:var(--teal-l);border-radius:var(--wob2);padding:13px 14px;
+  display:grid;grid-template-columns:auto 1fr;gap:11px;font-size:.84rem;line-height:1.55;font-weight:600;
+  color:#22564F}
+.dcard__note b{font-weight:900}
+
+/* materials */
+.mat{margin:24px 0 0;display:grid;gap:11px}
+.mat div{display:grid;grid-template-columns:auto 1fr;gap:12px;background:var(--card);
+  border:3px solid var(--graph);border-radius:var(--wob2);padding:13px 15px;font-size:.87rem;
+  line-height:1.5;font-weight:600;color:var(--ink2)}
+.mat div:nth-child(even){border-radius:var(--wob)}
+.mat b{color:var(--graph);font-weight:800}
+
+/* tools grid */
+.tools{margin:24px 0 0;display:flex;flex-wrap:wrap;gap:9px}
+.tool{background:var(--card);border:3px solid var(--graph);border-radius:var(--wob2);padding:9px 14px;
+  font-size:.85rem;font-weight:800;display:flex;align-items:center;gap:7px}
+.tool:nth-child(3n){border-radius:var(--wob)}
+.tool:nth-child(odd){transform:rotate(-.8deg)}
+.tool:nth-child(even){transform:rotate(.8deg)}
+
+/* path */
+.path{margin:20px 0 0;background:var(--marker);border:3px solid var(--graph);border-radius:var(--wob2);
+  padding:16px 18px;font-size:.86rem;line-height:1.7;font-weight:600}
+.path b{display:block;font-family:var(--hand);font-size:1.2rem;font-weight:700;margin-bottom:6px}
+
+/* bonuses */
+.bons{margin:24px 0 0;display:grid;gap:13px;counter-reset:b}
+.bon{position:relative;background:var(--card);border:3px solid var(--graph);padding:16px 16px 15px;
+  font-size:.87rem;line-height:1.55;font-weight:600;color:var(--ink2)}
+.bon:nth-child(odd){border-radius:var(--wob)}
+.bon:nth-child(even){border-radius:var(--wob2)}
+.bon::before{counter-increment:b;content:'\1F381 ' counter(b);position:absolute;top:-14px;left:16px;
+  background:var(--orange);color:#fff;font-size:.74rem;font-weight:800;padding:3px 11px;
+  border-radius:var(--wob2);border:2px solid var(--graph)}
+.bon b{display:block;color:var(--graph);font-weight:900;margin-bottom:5px;font-size:.93rem;line-height:1.3}
+.bon ul{margin-top:8px;display:grid;gap:6px}
+.bon ul li{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:8px;font-size:.87rem;line-height:1.45}
+.bon ul li::before{content:'\2192';color:var(--orange);font-weight:800}
+
+/* samples */
+.gr{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:30px 0 -8px;
+  padding-bottom:8px;border-bottom:3px dotted var(--line)}
+.gr:first-of-type{margin-top:24px}
+.gr__t{font-family:var(--hand);font-size:1.32rem;color:var(--orange)}
+.gr__n{font-size:.76rem;font-weight:800;color:var(--mute);white-space:nowrap}
+/* rotated cards poke past the column, so give them room and clip the rest */
+.samples{margin:24px -6px 0;padding:6px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.item{position:relative;background:var(--card);border:3px solid var(--graph);padding:7px 7px 24px;
+  content-visibility:auto;contain-intrinsic-size:160px 210px}
+.item:nth-child(4n+1){border-radius:var(--wob);transform:rotate(-1.2deg)}
+.item:nth-child(4n+2){border-radius:var(--wob2);transform:rotate(1deg)}
+.item:nth-child(4n+3){border-radius:var(--wob2);transform:rotate(1.4deg)}
+.item:nth-child(4n){border-radius:var(--wob);transform:rotate(-.8deg)}
+.item__b{position:relative;display:block;width:100%;aspect-ratio:3/4;overflow:hidden;background:var(--paper2)}
+.item__b img,.item__b video{width:100%;height:100%;object-fit:cover;display:block}
+.item__c{position:absolute;left:8px;right:8px;bottom:4px;font-family:var(--hand);font-size:.95rem;
+  color:var(--pencil);text-align:center}
+.item .play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.item .play i{width:40px;height:40px;border-radius:50%;background:rgba(46,42,36,.7);border:3px solid var(--card);
+  display:grid;place-items:center;transition:opacity .25s}
+.item .play i::before{content:'';border-style:solid;border-width:8px 0 8px 13px;
+  border-color:transparent transparent transparent #fff;margin-left:3px}
+.item.is-playing .play i{opacity:0}
+
+/* lite youtube */
+.yt{position:relative;display:block;width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--graph);
+  border:3px solid var(--graph);border-radius:var(--wob2);cursor:pointer}
+.yt img{width:100%;height:100%;object-fit:cover;opacity:.9;transition:opacity .3s}
+.yt:hover img{opacity:1}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt__p{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:62px;height:44px;
+  border-radius:12px;background:#E2231A;display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.4);
+  transition:transform .25s}
+.yt:hover .yt__p{transform:translate(-50%,-50%) scale(1.08)}
+.yt__p::before{content:'';border-style:solid;border-width:9px 0 9px 15px;
+  border-color:transparent transparent transparent #fff;margin-left:3px}
+.ytrow{margin:22px 0 0;display:grid;gap:14px}
+.prev__h{font-family:var(--hand);font-size:1.16rem;color:var(--pencil);margin-bottom:8px}
+.prev__n{margin-top:10px;font-family:var(--hand);font-size:1.08rem;color:var(--pencil);line-height:1.35}
+
+/* reviews */
+/* review shots range from 900x240 to 511x900, so centre them instead of
+   letting the tallest one leave a hole under the short ones */
+.revs{display:flex;align-items:center;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;
+  scrollbar-width:none;padding:14px 20px 18px;margin:0 -20px}
+.revs::-webkit-scrollbar{display:none}
+.rev{min-width:278px;max-width:292px;flex:0 0 auto;scroll-snap-align:center;background:var(--card);
+  border:3px solid var(--graph);padding:14px 10px 10px;position:relative}
+.rev__b{display:grid;place-items:center;height:330px;overflow:hidden;background:var(--paper2);
+  border-radius:3px}
+.rev__b img{width:100%;height:100%;object-fit:contain;border-radius:0}
+.rev__tape{position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(-2deg);width:64px;
+  height:20px;background:rgba(251,224,138,.62);border-left:1px dashed rgba(46,42,36,.22);
+  border-right:1px dashed rgba(46,42,36,.22);z-index:3}
+.rev:nth-child(odd){border-radius:var(--wob);transform:rotate(-1deg)}
+.rev:nth-child(even){border-radius:var(--wob2);transform:rotate(1deg)}
+
+/* author */
+.auth{margin:24px 0 0;background:var(--card);border:3px solid var(--graph);border-radius:var(--wob);
+  padding:24px 20px;text-align:center}
+.auth__ph{width:150px;height:150px;margin:0 auto 14px;border-radius:var(--wob2);overflow:hidden;
+  border:3px solid var(--graph);background:var(--paper2)}
+.auth__ph img{width:100%;height:100%;object-fit:cover}
+.auth__n{font-size:1.35rem;font-weight:900;letter-spacing:-.03em;margin-bottom:12px}
+.auth ul{display:grid;gap:10px;text-align:left;margin-bottom:16px}
+.auth ul li{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:11px;font-size:.87rem;
+  line-height:1.5;font-weight:600;color:var(--ink2)}
+.auth ul li::before{content:'\2713';color:var(--teal);font-weight:900}
+.auth__q{font-family:var(--hand);font-size:1.24rem;line-height:1.36;color:var(--graph);
+  border-top:3px dotted var(--line);padding-top:14px}
+.auth__q b{color:var(--orange);font-weight:700}
+
+/* footer */
+.footer{background:var(--graph);color:var(--paper2);padding:40px 0 90px;margin-top:0;
+  border-top:3px solid var(--graph)}
+.footer .wrap{display:grid;gap:20px}
+.ft b{display:block;color:#fff;font-weight:800;font-size:.88rem;margin-bottom:4px;letter-spacing:.01em}
+.ft{font-size:.84rem;line-height:1.6;color:rgba(246,241,231,.66)}
+.ft a{color:var(--marker);border-bottom:1px solid rgba(251,224,138,.4)}
+.legal{font-size:.75rem;line-height:1.55;color:rgba(246,241,231,.4);border-top:1px solid rgba(246,241,231,.15);
+  padding-top:16px}
+.legal b{color:rgba(255,255,255,.72)}
+
+/* sticky bar */
+.stick{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--card);
+  border-top:3px solid var(--graph);padding:10px 16px;display:flex;align-items:center;
+  justify-content:space-between;gap:12px;transform:translateY(120%);transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  box-shadow:0 -6px 20px rgba(46,42,36,.16)}
+.stick.show{transform:none}
+.stick__l{display:grid;gap:1px}
+.stick__w{font-family:var(--hand);font-size:.98rem;color:var(--pencil);line-height:1.1}
+.stick__p{font-size:1.25rem;font-weight:900;letter-spacing:-.04em;line-height:1}
+.stick__p s{font-size:.8rem;font-weight:700;color:var(--mute);margin-right:6px}
+.stick__c{background:var(--orange);color:#fff;border:3px solid var(--graph);border-radius:var(--wob2);
+  padding:11px 18px;font-weight:800;font-size:.86rem;white-space:nowrap}
+
+/* ---------- page overrides (нижче базових правил, щоб перебивали їх) ---------- */
+/* виділений кікер «новий блок у курсі …» */
+.newmark{display:inline-flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+  background:var(--marker);border:3px solid var(--graph);border-radius:var(--wob2);
+  padding:8px 16px;margin:0 auto 18px;max-width:100%;
+  font-size:.85rem;font-weight:700;line-height:1.35;transform:rotate(-1.3deg)}
+.newmark span{background:var(--orange);color:#fff;border-radius:999px;padding:3px 12px;
+  font-size:.74rem;font-weight:800;letter-spacing:.04em;line-height:1.6;white-space:nowrap}
+
+/* hero-медіа цієї сторінки: одне вертикальне відео + смужка з трьох кадрів */
+.frames--mult{grid-template-columns:1fr 1fr 1fr;align-items:start;gap:10px;margin-top:24px;
+  width:min(100%,285px);margin-left:auto;margin-right:auto}
+.frames--mult .fr{padding:5px}
+.frames--mult .fr--main{grid-column:span 3;width:100%;
+  border-radius:var(--wob);transform:rotate(-1.3deg);padding:8px}
+.frames--mult .fr--main .fr__box{aspect-ratio:9/16}
+.frames--mult .fr:nth-child(2){border-radius:var(--wob2);transform:rotate(1.2deg)}
+.frames--mult .fr:nth-child(3){border-radius:var(--wob);transform:rotate(-1deg)}
+.frames--mult .fr:nth-child(4){border-radius:var(--wob2);transform:rotate(1deg)}
+.frames--mult .fr:nth-child(n+2) .fr__box{aspect-ratio:9/16}
+.frames--mult .fr--main figcaption{font-size:1.04rem;line-height:1.25;padding-top:5px}
+.frames--mult .mute-btn{bottom:8px;right:8px;width:30px;height:30px}
+.frames--mult .mute-btn svg{width:15px;height:15px}
+
+/* плитка «чому це важко»: заголовок замість великої цифри */
+.nums--prob .num{text-align:left;padding:16px 15px 15px}
+.nums--prob .num b{font-size:.99rem;line-height:1.22;letter-spacing:-.03em;color:var(--graph)}
+.nums--prob .num i{margin-top:8px;font-size:.81rem;line-height:1.45}
+
+/* галерея стилів: кадри 16:9, по одному в ряд, підпис під кадром */
+.samples--styles{grid-template-columns:1fr;gap:14px}
+.samples--styles .item{padding:7px 7px 6px}
+.samples--styles .item__b{aspect-ratio:16/9}
+.samples--styles .item__c{position:static;left:auto;right:auto;bottom:auto;padding-top:5px;font-size:1.02rem}
+
+/* дрібний рядок під ціною — дедлайн і стара ціна */
+.pnote{margin-top:11px;font-size:.79rem;font-weight:700;line-height:1.4;color:var(--mute)}
+
+/* компактні кадри-тизери в секції «А що ще всередині…» */
+.frames--mini{grid-template-columns:1fr 1fr 1fr;gap:10px;align-items:start;margin-top:26px}
+.frames--mini .fr{padding:5px}
+.frames--mini .fr:nth-child(1){grid-column:auto;border-radius:var(--wob);transform:rotate(-1.4deg)}
+.frames--mini .fr:nth-child(2){border-radius:var(--wob2);transform:rotate(1.2deg)}
+.frames--mini .fr:nth-child(3){border-radius:var(--wob);transform:rotate(-1deg)}
+.frames--mini .fr__box,.frames--mini .fr:nth-child(n+2) .fr__box{aspect-ratio:3/4}
+.frames--mini figcaption{font-size:.82rem;line-height:1.22;padding-top:4px}
+.frames--mini .mute-btn{display:none}
+
+/* hero тепер закінчується списком, а не блоком ціни — потрібен відступ до наступної секції */
+.hero{padding-bottom:46px}
+
+/* довгі підписи кнопок («Потрапити на курс…», «Оформити частинами…») ламались
+   посеред фрази — трохи щільніший набір + перенос між частинами, а не всередині */
+.b1{flex-wrap:wrap;row-gap:2px;padding-left:14px;padding-right:14px;font-size:.92rem}
+.b1 b{font-size:1.03rem}
+
+
+/* ---------- desktop: phone-wrap, як на посадках міні-курсів ---------- */
+@media (min-width:768px){
+  html{
+    background:
+      radial-gradient(ellipse 60% 40% at 18% 12%, rgba(226,98,44,.10), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 84% 62%, rgba(46,125,116,.09), transparent 60%),
+      #E4D9C3;
+  }
+  body{
+    max-width:500px;margin:0 auto;min-height:100vh;
+    box-shadow:0 0 0 1px rgba(46,42,36,.08), 0 30px 80px rgba(46,42,36,.18);
+  }
+  .stick{max-width:500px;margin:0 auto}
+  /* clamp() рахує vw від вікна, а колонка вузька — фіксуємо кегль під колонку */
+  h1{font-size:2.85rem}
+  h2{font-size:1.95rem}
+  .pnew{font-size:3.5rem}
+}
+
+.reveal{opacity:0;transform:translateY(16px)}
+.reveal.vis{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal-r{opacity:0;transition:opacity .8s cubic-bezier(.2,.8,.2,1)}
+.reveal-r.vis{opacity:1}
+@media(prefers-reduced-motion:reduce){
+  .reveal,.reveal-r{opacity:1;transform:none}
+  .mq__t{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <path id="squig" d="M2 8 C 40 1, 90 13, 140 5 S 250 12, 300 6" fill="none" stroke-linecap="round"/>
+  <path id="strike" d="M3 12 C 70 4, 150 16, 230 7 S 340 13, 397 8" fill="none" stroke-linecap="round"/>
+</defs></svg>
+
+<div class="wrap">
+  <div class="top">
+    <span><span class="pip"></span>актуальний на <b id="liveDate">сьогодні</b></span>
+    <span class="o">доступ назавжди</span>
+  </div>
+
+  <section class="hero">
+    <div class="newmark"><span>новий блок</span>у курсі «Фабрика АІ контенту»</div>
+    <h1>Мультики<span>як ПРО</span><i class="lasso"></i></h1>
+    <p class="deck">Весь мій воркшоп по AI-мультиках — тепер <span class="mk">цілком всередині курсу<svg viewBox="0 0 400 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><use href="#squig" stroke="var(--orange)" stroke-width="4.5"/></svg></span>.</p>
+
+    <div class="frames frames--mult reveal">
+      <figure class="fr fr--main">
+        <span class="fr__box">
+          <video src="/ai-multfilm/mult3.mp4" poster="/ai-multfilm/mult3.jpg"
+                 muted loop playsinline preload="metadata"></video>
+          <button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button>
+        </span>
+        <figcaption>зроблено на воркшопі</figcaption>
+      </figure>
+      <figure class="fr">
+        <span class="fr__box">
+          <video src="/ai-multfilm/mult1.mp4#t=0.1" poster="/ai-multfilm/mult1.jpg"
+                 muted loop playsinline preload="none"></video>
+        </span>
+      </figure>
+      <figure class="fr">
+        <span class="fr__box">
+          <video src="/ai-multfilm/mult2.mp4#t=0.1" poster="/ai-multfilm/mult2.jpg"
+                 muted loop playsinline preload="none"></video>
+        </span>
+      </figure>
+      <figure class="fr">
+        <span class="fr__box">
+          <video src="/ai-multfilm/mult4.mp4#t=0.1" poster="/ai-multfilm/mult4.jpg"
+                 muted loop playsinline preload="none"></video>
+        </span>
+      </figure>
+    </div>
+
+    <ul class="hlist reveal">
+      <li><span class="tick">&#10003;</span><span>4 методи генерації мультиків</span></li>
+      <li><span class="tick">&#10003;</span><span>5 стилів: від Pixar 3D до Ghibli</span></li>
+      <li><span class="tick">&#10003;</span><span>Українська озвучка з правильними наголосами</span></li>
+      <li><span class="tick">&#10003;</span><span>Персонаж не змінюється між кадрами</span></li>
+    </ul>
+
+    <div class="cta"><a href="#course" class="b1">Приєднатися до курсу &darr;</a></div>
+
+  </section>
+</div>
+
+<section class="sec sec--deep">
+  <div class="wrap">
+    <div class="kick">чому це важко без системи</div>
+    <h2>Чому 9 з 10 <u>кидають створення мультиків</u></h2>
+    <div class="nums nums--prob reveal">
+      <div class="num"><b>Персонаж «пливе»</b><i>Змінює обличчя, одяг і вік від кадру до кадру</i></div>
+      <div class="num"><b>Озвучка українською</b><i>Звучить жахливо, наголоси не ті, губи не збігаються</i></div>
+      <div class="num"><b>Кредити закінчились</b><i>Гроші витрачені, мультика немає</i></div>
+      <div class="num"><b>Кадри не склеюються</b><i>Десять красивих картинок, які не стають історією</i></div>
+    </div>
+    <p class="numcap reveal">Туторіалів тисяча — а цілісного процесу від ідеї до готового ролика немає ніде. <b>Я зібрав його в один блок.</b></p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="kick">5 кроків</div>
+    <h2>Шлях від ідеї <u>до готового мультика</u></h2>
+    <div class="fmt">
+      <div class="fmt__s reveal"><span class="fmt__n">01</span><div><div class="fmt__t">Асистент і стиль</div><p class="fmt__p">Налаштовуєш AI-асистента під мультики, обираєш один з 5 стилів, пишеш перший сценарій.</p></div></div>
+      <div class="fmt__s reveal"><span class="fmt__n">02</span><div><div class="fmt__t">Картка персонажа</div><p class="fmt__p">Створюєш героя, який не змінює обличчя, одяг і вік у жодному кадрі. Можеш перетворити на персонажа будь-яке фото — своє, дитини або замовника.</p></div></div>
+      <div class="fmt__s reveal"><span class="fmt__n">03</span><div><div class="fmt__t">Кадри й озвучка</div><p class="fmt__p">Генеруєш кадри по картці персонажа, оживлюєш у відео, накладаєш українську озвучку з правильними наголосами й ліпсинком.</p></div></div>
+      <div class="fmt__s reveal"><span class="fmt__n">04</span><div><div class="fmt__t">Монтаж</div><p class="fmt__p">З&rsquo;єднуєш сцени, прибираєш артефакти, додаєш саунд-дизайн. Без перегенерацій і злитих кредитів.</p></div></div>
+      <div class="fmt__s reveal"><span class="fmt__n">05</span><div><div class="fmt__t">Seedance 2.5</div><p class="fmt__p">Професійний метод: генерація з референсів і Extend Video — мультик будь-якої довжини, від 15 секунд до нескінченності.</p></div></div>
+    </div>
+    <div class="fmt__r reveal"><h4>&#128161; результат</h4><p>Ти проходиш повний цикл: персонаж, сценарій, кадри, озвучка, монтаж, віральність. Далі — тільки твоя фантазія.</p></div>
+  </div>
+</section>
+
+<section class="sec sec--tint">
+  <div class="wrap">
+    <div class="kick">розбираємо покроково</div>
+    <h2>Що всередині блоку <u>«Мультики як ПРО»</u></h2>
+    <ul class="hlist reveal" style="margin-top:24px">
+      <li><span class="tick">&#10003;</span><span><b>4 методи генерації:</b> сторіборд, розкадровка, зациклені мультики, генерація з референсів</span></li>
+      <li><span class="tick">&#10003;</span><span><b>5 стилів з готовими промтами:</b> Pixar 3D, Cinematic Anime, Spiderverse-Hybrid, DreamWorks, Ghibli</span></li>
+      <li><span class="tick">&#10003;</span><span>картка персонажа двома способами — з референсом і без</span></li>
+      <li><span class="tick">&#10003;</span><span>українська озвучка: наголоси, ліпсинк, щоб персонажі не плутали репліки</span></li>
+      <li><span class="tick">&#10003;</span><span>монтаж: артефакти, переходи, саунд-дизайн, зациклені мультики</span></li>
+      <li><span class="tick">&#10003;</span><span>Seedance 2.5, Nano Banana 2, Gemini Omni Flash, Kling, Higgsfield, Google Flow, Grok Imagine</span></li>
+      <li><span class="tick tick--o">&#127873;</span><span><b>бонус:</b> мультик однією голосовою командою — Higgsfield MCP + Claude Code</span></li>
+    </ul>
+    <div class="fmt__r reveal" style="margin-top:28px"><h4>&#127919; результат</h4><p>Замовники платять $70&ndash;150 за хвилину мультфільму. Найчастіше замовляють історії в подарунок — весілля, річниці, дні народження.</p></div>
+    <p class="disc">Блок навчає навички, а не пошуку клієнтів — це вже твоя робота.</p>
+  </div>
+</section>
+
+<section class="sec sec--deep">
+  <div class="wrap">
+    <div class="kick">5 стилів</div>
+    <h2>Що саме ти <u>зможеш робити</u></h2>
+    <div class="samples samples--styles reveal-r">
+      <figure class="item"><span class="item__b"><img src="/ai-multfilm/style-1.jpg" alt="Стиль Pixar 3D" loading="lazy" decoding="async"></span><figcaption class="item__c">01 &middot; Pixar 3D</figcaption></figure>
+      <figure class="item"><span class="item__b"><img src="/ai-multfilm/style-2.jpg" alt="Стиль Cinematic Anime" loading="lazy" decoding="async"></span><figcaption class="item__c">02 &middot; Cinematic Anime</figcaption></figure>
+      <figure class="item"><span class="item__b"><img src="/ai-multfilm/style-3.jpg" alt="Стиль Spiderverse-Hybrid" loading="lazy" decoding="async"></span><figcaption class="item__c">03 &middot; Spiderverse-Hybrid</figcaption></figure>
+      <figure class="item"><span class="item__b"><img src="/ai-multfilm/style-4.jpg" alt="Стиль DreamWorks" loading="lazy" decoding="async"></span><figcaption class="item__c">04 &middot; DreamWorks Style</figcaption></figure>
+      <figure class="item"><span class="item__b"><img src="/ai-multfilm/style-5.jpg" alt="Стиль Hand-Painted Ghibli" loading="lazy" decoding="async"></span><figcaption class="item__c">05 &middot; Hand-Painted Ghibli</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="course">
+  <div class="wrap">
+    <div class="kick">це один блок із 18</div>
+    <h2>А що ще всередині <u>«Фабрики АІ контенту»</u></h2>
+    <p class="lead">«Мультики як ПРО» — це <b>весь воркшоп цілком</b>. Окремо він коштує 390 грн. Але сам курс значно ширший: фото, відео, озвучка, музика, AI-моделі, предметна зйомка товару, цифрові аватари, монетизація Facebook, відео з собою.</p>
+    <p class="lead">Нижче — вся програма, бонуси і те, що ти отримуєш разом з курсом.</p>
+    <div class="frames frames--mini reveal">
+      <figure class="fr">
+        <span class="fr__box">
+          <video src="/ai-lyudyna/media/ai-1.mp4" poster="/ai-lyudyna/media/ai-1.jpg"
+                 muted loop playsinline preload="metadata"></video>
+        </span>
+        <button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button>
+        <figcaption>AI-людина без камери</figcaption>
+      </figure>
+      <figure class="fr">
+        <span class="fr__box">
+          <img src="media/fb-payout.jpg" alt="Виплата від Meta Platforms Ireland на картку — 335,49 $" loading="lazy" decoding="async">
+        </span>
+        <figcaption>монетизація Facebook</figcaption>
+      </figure>
+      <figure class="fr">
+        <span class="fr__box" id="heroStack">
+          <img class="on" src="/product-ai-content/IMG_8002.jpg" alt="Предметна зйомка через AI" loading="lazy" decoding="async">
+          <img src="/fabryka-ai-kontentu/images/w11.jpg" alt="" loading="lazy" decoding="async">
+          <img src="/product-ai-content/hf_20260416_165343_60a4cd98-1795-41e5-af67-d66d1e901d6d.jpg" alt="" loading="lazy" decoding="async">
+          <img src="/fabryka-ai-kontentu/images/samples/sample6.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+        <figcaption>товар і предметка</figcaption>
+      </figure>
+    </div>
+    <div class="price reveal" style="margin-top:32px">
+      <span class="price__tag">спецпропозиція до 31.08</span>
+      <div class="prow">
+        <span class="pold">3499 грн<svg viewBox="0 0 400 18" preserveAspectRatio="none" fill="none" aria-hidden="true"><use href="#strike" stroke="var(--orange)" stroke-width="4"/></svg></span>
+        <span class="pnew">2999<i>грн</i></span>
+      </div>
+      <p class="pnote">спецпропозиція діє до 31.08, 23:59</p>
+      <div class="cd">
+        <span class="cd__b"><b data-cd="h">&mdash;</b><i>год</i></span>
+        <span class="cd__b"><b data-cd="m">&mdash;</b><i>хв</i></span>
+        <span class="cd__b"><b data-cd="s">&mdash;</b><i>сек</i></span>
+      </div>
+      <p class="cd__l">до завершення знижки</p>
+      <p class="instal">або оплата частинами на <b>6 платежів</b> &middot; <b>500 грн</b>/міс</p>
+      <a href="#club-bonus" class="gift" style="display:block">&#127873; + <b>клуб VSE AI</b> назавжди у подарунок <i>(зазвичай 490 грн/міс)</i></a>
+    </div>
+
+    <div class="cta"><a href="https://app.zenedu.io/l/CAoVvGhlUcgSuYQU" target="_blank" rel="noopener" class="b1">Купити курс <b>2999&nbsp;грн</b> &rarr;</a><a href="#program" class="b2">&darr; Дивитись програму</a></div>
+  </div>
+</section>
+<div class="mq"><div class="mq__t"><span>ChatGPT</span><span>NanoBanana</span><span>Grok</span><span>Veo 3.1</span><span>MetaVibes</span><span>ElevenLabs</span><span>MiniMax</span><span>Suno</span><span>HeyGen</span><span>Claude</span><span>Kling 3.0</span><span>Seedance 2.0</span><span>Higgsfield</span><span>ChatGPT</span><span>NanoBanana</span><span>Grok</span><span>Veo 3.1</span><span>MetaVibes</span><span>ElevenLabs</span><span>MiniMax</span><span>Suno</span><span>HeyGen</span><span>Claude</span><span>Kling 3.0</span><span>Seedance 2.0</span><span>Higgsfield</span></div></div>
+
+<section class="sec sec--tint">
+  <div class="wrap">
+    <div class="kick">а що зазвичай?</div>
+    <h2>Чому навчають інші <u>в АІ?</u></h2>
+    <ul class="xs reveal">
+      <li><span class="x">&#10005;</span><span>Робити конкретний контент по готовому шаблону</span></li>
+      <li><span class="x">&#10005;</span><span>Копіювати чужі промти слово в слово</span></li>
+      <li><span class="x">&#10005;</span><span>Генерувати одне «вірусне» відео за інструкцією</span></li>
+      <li><span class="x">&#10005;</span><span>Повторювати за автором, не розуміючи логіки</span></li>
+    </ul>
+
+    <div class="kick" style="margin-top:44px">і що в підсумку…</div>
+    <h2>До чого призводить <u>таке навчання?</u></h2>
+    <div class="box box--a reveal" style="margin-top:24px;display:grid;gap:14px">
+      <p style="font-size:.95rem;font-weight:600;line-height:1.6;color:var(--ink2)">У результаті ви просто <b style="color:var(--graph);font-weight:800">відтворюєте чужий алгоритм</b>.</p>
+      <p style="font-size:.95rem;font-weight:600;line-height:1.6;color:var(--ink2)">Але варто змінити задачу, формат або стиль — і ви губитесь.</p>
+      <p style="font-size:.95rem;font-weight:600;line-height:1.6;color:var(--ink2)">Замість свободи — <b style="color:var(--graph);font-weight:800">залежність від шаблону</b>. Замість творчості — копіювання.</p>
+      <p style="font-family:var(--hand);font-size:1.28rem;color:var(--orange);line-height:1.34;padding-top:14px;border-top:3px dotted var(--line)">І в якийсь момент здається, що «AI — це складно» або «це не для мене».</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="kick">інший підхід</div>
+    <h2>Чому я навчаю на <u>Фабриці АІ контенту?</u></h2>
+    <ul class="hlist reveal" style="margin-top:24px">
+      <li><span class="tick">&#10003;</span><span>Пояснюю простою, зрозумілою мовою без складних термінів</span></li>
+      <li><span class="tick">&#10003;</span><span>Навчаю розуміти принцип роботи нейромереж</span></li>
+      <li><span class="tick">&#10003;</span><span>Показую, як керувати AI під будь-яку вашу задачу</span></li>
+      <li><span class="tick">&#10003;</span><span>Даю широкий інструментарій замість одного шаблону</span></li>
+    </ul>
+    <p class="lead">Ви <b>не повторюєте</b>. Ви починаєте генерувати самостійно, тому що розумієте принципи та систему. Ви починаєте реалізовувати свою фантазію.</p>
+    <div class="pull reveal">
+      <p>«Магія АІ не в тому, що воно вміє,<br>а в тому як ви вмієте цим управляти»</p>
+    </div>
+  </div>
+</section>
+<section class="sec sec--tint"><div class="wrap"><div class="kick">кому це підійде</div><h2>Для кого <u>цей курс?</u></h2><p class="swipe" style="margin-top:14px">свайп &rarr;</p></div><div class="wrap"><div class="track" id="audTrack"><div class="aud"><span class="aud__n">01</span><div class="aud__e">&#128105;&#8205;&#128187;</div><div class="aud__t">Експерти та онлайн-фахівці</div><p class="aud__p">Психологи, коучі, наставники, консультанти, інфобізнесмени — якщо вам потрібен системний контент без команди та великих витрат.</p></div><div class="aud"><span class="aud__n">02</span><div class="aud__e">&#128717;</div><div class="aud__t">Власники бізнесу та брендів</div><p class="aud__p">Магазини, Instagram бренди, e-commerce, локальний бізнес — якщо ви хочете створювати рекламні фото, відео та UGC-креативи без продакшену.</p></div><div class="aud"><span class="aud__n">03</span><div class="aud__e">&#128241;</div><div class="aud__t">Блогери та креатори</div><p class="aud__p">Reels, TikTok, Shorts — якщо ви хочете масштабуватись контентом швидко та оптимізовано (не витрачаючи багато часу), створити AI-модель або цифрового аватара.</p></div><div class="aud"><span class="aud__n">04</span><div class="aud__e">&#127912;</div><div class="aud__t">SMM-спеціалісти та маркетологи</div><p class="aud__p">Якщо ви хочете закривати більше та швидше задач клієнтів та збільшити чек завдяки зрозумілим AI-інструментам.</p></div><div class="aud"><span class="aud__n">05</span><div class="aud__e">&#128640;</div><div class="aud__t">Початківці без досвіду</div><p class="aud__p">Якщо ви хочете освоїти сучасну AI-навичку з повного 0 та почати заробляти на створенні контенту, прямо під час курсу «Фабрика АІ контенту».</p></div><div class="aud"><span class="aud__n">06</span><div class="aud__e">&#128188;</div><div class="aud__t">Фрилансери</div><p class="aud__p">Дизайнери, монтажери, контент-менеджери — якщо хочете прискорити роботу в 3–5 разів і підвищити дохід.</p></div><div class="aud"><span class="aud__n">07</span><div class="aud__e">&#127757;</div><div class="aud__t">Люди, які хочуть нову навичку 2026 року</div><p class="aud__p">Якщо ви розумієте, що AI — це майбутнє, і хочете бути попереду ринку.</p></div></div><div class="dots" id="audDots"></div></div></section><section class="sec"><div class="wrap"><div class="kick">крок за кроком</div><h2>Формат мого <u>практичного курсу</u></h2><div class="fmt"><div class="fmt__s reveal"><span class="fmt__n">01</span><div><div class="fmt__t">Закладаємо фундамент</div><p class="fmt__p">Освоюєте ChatGPT, ролі та принцип роботи з промтами — щоб керувати AI, а не просто «щось у нього питати».</p></div></div><div class="fmt__s reveal"><span class="fmt__n">02</span><div><div class="fmt__t">Створюєте перші AI-зображення</div><p class="fmt__p">Вчитеся генерувати фото будь-якої складності та стилю — під соцмережі, рекламу або бізнес.</p></div></div><div class="fmt__s reveal"><span class="fmt__n">03</span><div><div class="fmt__t">Переходите до AI-відео</div><p class="fmt__p">Створюєте перші живі відео з налаштуванням камери та динаміки.</p></div></div><div class="fmt__s reveal"><span class="fmt__n">04</span><div><div class="fmt__t">Додаєте голос і звук</div><p class="fmt__p">Генеруєте професійну озвучку та звукові ефекти без студії та обладнання.</p></div></div><div class="fmt__s reveal"><span class="fmt__n">05</span><div><div class="fmt__t">Створюєте власну музику</div><p class="fmt__p">Підбираєте жанр, ритм і настрій — та створюєте перший музичний трек.</p></div></div><div class="fmt__s reveal"><span class="fmt__n">06</span><div><div class="fmt__t">Збираєте перший повноцінний продукт</div><p class="fmt__p">Створюєте свій перший AI-мультфільм — об’єднуючи фото, відео, звук і музику в одну систему.</p></div></div><div class="fmt__s reveal"><span class="fmt__n">07</span><div><div class="fmt__t">Освоюєте AI-фотосесії</div><p class="fmt__p">Створюєте професійні фотосесії людей без фотографа та студії.</p></div></div><div class="fmt__s reveal"><span class="fmt__n">08</span><div><div class="fmt__t">Створюєте живу AI-модель / AI-персонажа</div><p class="fmt__p">Генеруєте блогера, який може зніматися в Reels, Shorts та рекламі.</p></div></div><div class="fmt__s reveal"><span class="fmt__n">09</span><div><div class="fmt__t">Робите предметну зйомку товарів</div><p class="fmt__p">Перетворюєте одне фото на повноцінну рекламну серію та відео.</p></div></div><div class="fmt__s reveal"><span class="fmt__n">10</span><div><div class="fmt__t">Створюєте власного AI-аватара</div><p class="fmt__p">Клон себе, який знімається замість вас, говорить різними мовами та створює UGC-контент.</p></div></div></div><div class="fmt__r reveal"><h4>&#128161; результат формату</h4><p>Ви проходите шлях від «я тільки знайомлюся з AI» до «я маю власну систему створення контенту та можу це монетизувати».</p></div></div></section><section class="sec sec--tint"><div class="wrap"><div class="kick">по пунктах</div><h2>Що конкретно <u>ви отримаєте</u> на практичному курсі?</h2><ul class="hlist reveal" style="margin-top:24px"><li><span class="n">1</span><span><b>18 структурованих навчальних блоків</b>, та домашні завдання після кожного блоку</span></li><li><span class="tick tick--o">&#127873;</span><span><b>ПОЖИТТЄВИЙ доступ до закритого клубу VSE&nbsp;AI</b> (зазвичай 490&nbsp;грн/міс) — окрема Telegram-спільнота з 1&nbsp;400+ учасниками, кураторами 24/7 та клієнтськими замовленнями</span></li><li><span class="tick tick--o">&#127873;</span><span><b>Доступ до бази промптів клубу</b> — окрема група, у якій щодня зʼявляються 500+ перевірених промптів для фото/відео/GPT</span></li><li><span class="n">2</span><span>Короткі, концентровані <b>уроки по 5–10 хвилин</b>, без води</span></li><li><span class="n">3</span><span>Можливість навчатися в будь-яких умовах — уроки доступні для перегляду <b>навіть без світла та стабільного інтернету</b></span></li><li><span class="n">4</span><span><b>6 додаткових матеріалів</b> та баз промтів, сайти де черпати натхнення</span></li><li><span class="n">5</span><span>Авторські фішки Олександра</span></li><li><span class="n">6</span><span>Авторські додатки Олександра, в яких ви зможете <b>генерувати безкоштовно</b> прямо під час проходження курсу</span></li><li><span class="n">7</span><span>Знайомство з <b>14+ AI-інструментами</b> під різні задачі</span></li><li><span class="n">8</span><span><b>2 роки практичного досвіду</b> роботи з AI від Олександра, зібрані в одне місце</span></li><li><span class="n">9</span><span>Доступ до оновлень курсу — <b>НАЗАВЖДИ</b> (тому що нейронки з якими ми працюємо на курсі постійно змініються)</span></li><li><span class="n">10</span><span>Загальний чат учасників, зворотній зв’язок від Олександра в чаті</span></li><li><span class="n">11</span><span>Можливість отримати перших клієнтів та замовлення прямо під час курсу</span></li></ul></div></section><section class="sec" id="club-bonus"><div class="wrap"><span class="club__eye">&#127873; бонус на 5&nbsp;880&nbsp;грн</span><h2>А ще ти отримуєш <u>ПОЖИТТЄВИЙ доступ до закритого клубу VSE&nbsp;AI</u></h2><p class="lead">Поки інші платять <b>490 грн/міс</b> за підписку — у тебе доступ <b>назавжди</b>, з першого дня після оплати курсу.</p><div class="box box--c reveal" style="margin-top:26px"><ul class="hlist" style="margin-top:0"><li><span class="tick tick--o">&#128101;</span><span><b>1&nbsp;400+ учасників</b> у живому чаті, 450+ повідомлень щодня</span></li><li><span class="tick tick--o">&#128225;</span><span><b>Щотижневий AI-Радар</b> — живий ефір зі мною: розбираю твої роботи, відповідаю на питання</span></li><li><span class="tick tick--o">&#128736;</span><span><b>Підтримка 24/7</b> від 6 адмінів-кураторів — будь-яке питання не залишається без відповіді</span></li><li><span class="tick tick--o">&#128221;</span><span><b>500+ промптів</b> для фото / відео / GPT в окремій групі — нова порція щодня</span></li><li><span class="tick tick--o">&#127942;</span><span><b>Щотижневі челенджі</b> для портфоліо + розіграші підписок на платні нейронки</span></li><li><span class="tick tick--o">&#127897;</span><span><b>Стріми з запрошеними експертами</b> — теми обираєш сам через голосування</span></li><li><span class="tick tick--o">&#128188;</span><span><b>Реальні клієнтські замовлення</b> від моєї агенції — передаються найактивнішим учасникам клубу</span></li></ul><div class="club__val"><div class="club__row"><span>Окремо клуб коштує</span><b>490&nbsp;грн/міс</b></div><div class="club__row club__row--you"><span>Для тебе — назавжди</span><b>0&nbsp;грн</b></div></div><p class="club__note">&#128737; у річному перерахунку це <b>+5&nbsp;880 грн цінності</b> у комплекті з курсом</p></div></div></section><section class="sec sec--deep" id="program"><div class="wrap"><div class="kick">зміст</div><h2>Програма практичного курсу <u>«Фабрика АІ контенту»</u></h2><p class="swipe" style="margin-top:14px">свайп &rarr;</p></div><div class="wrap"><div class="track" id="progTrack"><div class="prog"><div class="prog__h"><span class="prog__n">01</span><div class="prog__t">ChatGPT по-простому</div></div><span class="prog__m"><img src="/fabryka-ai-kontentu/images/lesson1-gpt.jpg" alt="Блок 01" loading="lazy" decoding="async"><span class="prog__tag">01 · GPT</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li><span>розбираємо інтерфейс ChatGPT</span></li><li><span>розбираємо ролі в ChatGPT</span></li><li><span>розбираємо, що таке промт</span></li><li><span>показую можливості ChatGPT поза простим спілкуванням</span></li></ul><div class="prog__res">Ви почнете використовувати ChatGPT як інструмент, а не як пошуковик «як Google».</div></div></details><p class="prog__note">Навчитеся делегувати рутинні задачі ChatGPT та скоротите 5–6 годин роботи до 10–15 хв.</p></div><div class="prog"><div class="prog__h"><span class="prog__n">02</span><div class="prog__t">Генерація АІ зображень, будь якої складності</div></div><span class="prog__m"><img src="/fabryka-ai-kontentu/images/lesson2-image.jpg" alt="Блок 02" loading="lazy" decoding="async"><span class="prog__tag">02 · IMAGE</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li><span>навчитесь генерувати зображення у 3 різних стилях</span></li><li><span>зрозумієте, що таке співвідношення сторін і як воно впливає на результат</span></li><li class="tool"><span>Знайомство з AI-інструментами: nanobanana, grok</span></li></ul><div class="prog__res">Ви зможете створювати зображення будь-якої складності у 3 стилях та з різним співвідношенням сторін.</div></div></details><p class="prog__note">Освоїте нові AI-інструменти та навчитеся генерувати професійний візуал абсолютно БЕЗКОШТОВНО.</p></div><div class="prog"><div class="prog__h"><span class="prog__n">03</span><div class="prog__t">Генерація Ai-відео</div></div><span class="prog__m"><video src="/fabryka-ai-kontentu/images/lesson3-video.mp4" muted loop playsinline preload="metadata" poster="/fabryka-ai-kontentu/images/lesson3-video-poster.jpg"></video><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button><span class="prog__tag">03 · VIDEO</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li><span>дізнаєтесь, як отримати платну підписку на нейромережу для генерації відео безкоштовно (909 грн / місяць)</span></li><li><span>покажу, як правильно задавати параметри у промті під генерацію відео для якісного результату</span></li><li class="tool"><span>Розберемо 3 нейромережі для створення AI-відео: Veo 3.1 (Flow), Grok, MetaVibes</span></li></ul><div class="prog__res">Це практичний урок: у вас уже є база — тепер ви просто берете й робите.</div></div></details><p class="prog__note">Ви навчитеся створювати живі AI-відео до 10 секунд, у гарній якості, з налаштуванням камери під свої цілі та задачі.</p></div><div class="prog"><div class="prog__h"><span class="prog__n">04</span><div class="prog__t">Генерація звуків та озвучки в ElevenLabs</div></div><span class="prog__m"><video src="/fabryka-ai-kontentu/images/lesson4-voice.mp4" muted loop playsinline preload="metadata" poster="/fabryka-ai-kontentu/images/samples/sample5.jpg"></video><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button><span class="prog__tag">04 · VOICE</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li class="tool"><span>Знайомство з 2 AI-інструментами: ElevenLabs / MiniMax</span></li><li><span>розбір інтерфейсів і можливостей кожної платформи</span></li><li><span>генерація професійної озвучки з готового тексту</span></li><li><span>створення звукових ефектів для відео</span></li></ul><div class="prog__res">Ви навчитеся створювати професійну озвучку та звуки для свого відеоконтенту за допомогою AI.</div></div></details><p class="prog__note">Зможете записувати якісний голос без студії та дорогого мікрофона — швидко, просто й під свої задачі.</p></div><div class="prog"><div class="prog__h"><span class="prog__n">05</span><div class="prog__t">Генерація музики в Suno</div></div><span class="prog__m"><video src="/fabryka-ai-kontentu/images/lesson5-music.mp4" muted loop playsinline preload="metadata" poster="/fabryka-ai-kontentu/images/w11.jpg"></video><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button><span class="prog__tag">05 · MUSIC</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li><span>поглиблена теорія: жанри, ритм, темп та настрій музики</span></li><li><span>створення музики під конкретну задачу</span></li><li class="tool"><span>Розбір AI-інструментів: MiniMax / Suno</span></li></ul><div class="prog__res">Це практичний урок: у вас вже є база й теорія — тепер час діяти.</div></div></details><p class="prog__note">Ви зможете згенерувати свою першу пісню для бізнесу або для себе — під будь-яку ціль, формат і настрій.</p></div><div class="prog"><div class="prog__h"><span class="prog__n">06</span><div class="prog__t">Методи створювання АІ мультиків</div></div><span class="prog__m"><video src="/fabryka-ai-kontentu/images/lesson6-cartoon.mp4" muted loop playsinline preload="metadata" poster="/fabryka-ai-kontentu/images/lesson6-cartoon-poster.jpg"></video><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button><span class="prog__tag">06 · CARTOON</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li><span>розбір 2 методів створення мультфільму: безкоштовний та платний</span></li><li><span>універсальний принцип «розкадровка» для побудови відео</span></li><li><span>легкий монтаж у CapCut</span></li></ul><div class="prog__res">Ви навчитеся створювати власні AI-мультфільми за принципом розкадровки.</div></div></details><p class="prog__note">Об’єднаєте генерацію зображень, відео та звуків з попередніх блоків у єдину систему та створите повноцінний відео-продукт.</p></div><div class="prog"><div class="prog__h"><span class="prog__n">07</span><div class="prog__t">Як створювати AI фотосессії людей?</div></div><span class="prog__m"><img src="/fabryka-ai-kontentu/images/w19.jpg" alt="Блок 07" loading="lazy" decoding="async"><span class="prog__tag">07 · PHOTO</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li><span>розбір 9 професійних ракурсів для створення фотосесій</span></li></ul><div class="prog__res">Ви позбудетесь шаблонного мислення та почнете бачити кадр як професійний фотограф.</div></div></details><p class="prog__note">Отримаєте авторський застосунок і велику базу готових промтів: скопіював(ла) → вставив(ла) → завантажив(ла) своє фото → отримав(ла) професійний результат.</p></div><div class="prog"><div class="prog__h"><span class="prog__n">08</span><div class="prog__t">Як створити живу АІ модель?</div></div><span class="prog__m"><img src="/fabryka-ai-kontentu/images/lesson8-face.jpg" alt="Блок 08" loading="lazy" decoding="async"><span class="prog__tag">08 · AI-MODEL</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li><span>створення реалістичної АІ-людини з нуля: обличчя, фігура, стиль — та збереження її консистентності на кожному кадрі завдяки карточкам персонажа</span></li><li><span>генерація фото, які неможливо відрізнити від справжніх: лайфстайл, fashion, beauty — у будь-якій локації зі світлом та атмосферою</span></li><li><span>створення Reels, Stories та UGC-відео, де АІ-людина рухається, взаємодіє з товаром і навіть говорить реалістичним голосом</span></li></ul><div class="prog__res">Ви зможете створити реалістичну АІ-людину, яка виглядає однаково на кожному фото та відео — і використовувати її як повноцінного блогера: знімати Reels, записувати Stories, робити UGC-огляди та рекламувати будь-які товари.</div></div></details><p class="prog__note">А 4 🎁 AI-асистенти зроблять 80% рутинної роботи з промтами за вас.</p></div><div class="prog"><div class="prog__h"><span class="prog__n">09</span><div class="prog__t">Предметна зйомка товару</div></div><span class="prog__m"><img src="/fabryka-ai-kontentu/images/lesson9-product.jpg" alt="Блок 09" loading="lazy" decoding="async"><span class="prog__tag">09 · PRODUCT</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li><span>як з одного фото товару створити повноцінну зйомку з 10 нових кадрів</span></li><li><span>створення якісних відео на основі предметних фото</span></li><li><span>поєднання: модель + товар + локація в одному кадрі</span></li></ul><div class="prog__res">Ви навчитеся створювати AI-предметну зйомку на рівні професійного фотографа.</div></div></details><p class="prog__note">Зможете поєднувати модель, товар і локацію в одному кадрі та на основі фото створювати ефектні відео для продажів.</p></div><div class="prog"><div class="prog__h"><span class="prog__n">10</span><div class="prog__t">Аі-аватар</div></div><span class="prog__m"><img src="/fabryka-ai-kontentu/images/samples/sample1.jpg" alt="Блок 10" loading="lazy" decoding="async"><span class="prog__tag">10 · AVATAR</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li><span>Робота з нейромережею HeyGen та її інтерфейсом</span></li><li><span>створення цифрової копії себе (клонування)</span></li><li><span>створення «говорючої голови» для Reels, TikTok, Shorts та рекламних креативів</span></li><li><span>переклад відео на інші мови з AI-аватаром</span></li><li><span>створення UGC-контенту з цифровим аватаром</span></li></ul><div class="prog__res">Ви зможете створити власну цифрову копію, яка замість вас буде зніматися в рекламних креативах та відео будь-якого формату.</div></div></details><p class="prog__note">Зможете перекладати відео на будь-яку мову та створювати UGC-контент, який набирає мільйони переглядів.</p></div><div class="prog"><div class="prog__h"><span class="prog__n">11</span><div class="prog__t">Легкий старт в АІ</div></div><span class="prog__m"><img src="/fabryka-ai-kontentu/images/lesson1-gpt.jpg" alt="Блок 11" loading="lazy" decoding="async"><span class="prog__tag">11 · START</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li><span>покроковий вхід для новачків — без термінів і складних понять</span></li><li><span>ChatGPT з нуля: як ставити запити, щоб отримувати потрібний результат</span></li><li><span>перші AI-зображення, відео, музика та озвучка — без оплат і складних програм</span></li><li><span>зрозумієш логіку всіх інструментів за 1 вечір</span></li></ul><div class="prog__res">Ти комфортно увійдеш в AI з повного 0, навіть якщо раніше боявся «технічного».</div></div></details><p class="prog__note">Все, щоб новачок зайшов у AI без стресу — і за один вечір зробив свої перші AI-фото, відео, музику та озвучку.</p></div><div class="prog"><div class="prog__h"><span class="prog__n">12</span><div class="prog__t">Реалістичні AI-відео у Gemini Omni Flash</div></div><span class="prog__m"><video src="/fabryka-ai-kontentu/images/lesson12-gemini.mp4" muted loop playsinline preload="metadata" poster="/fabryka-ai-kontentu/images/samples/sample4.jpg"></video><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button><span class="prog__tag">12 · GEMINI</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li><span>робота з <b>Gemini Omni Flash</b> — нова нейромережа з максимальною реалістичністю</span></li><li><span>генерація відео у будь-яких локаціях — кафе, вулиця, студія, природа</span></li><li><span>робота з будь-яким сценарієм: реклама, лайфстайл, влог, mood-кліп</span></li><li><span>як отримувати кіношний результат за лічені хвилини</span></li></ul><div class="prog__res">Ти зможеш генерувати відео, які важко відрізнити від реального продакшену — без камер, акторів і виїздів.</div></div></details><p class="prog__note">Освоїш найреалістичнішу AI-нейромережу для відео — і будеш на крок попереду 90% людей в Україні.</p></div><div class="prog"><div class="prog__h"><span class="prog__n">13</span><div class="prog__t">Як знімати себе вдома — світло, фон, ракурс</div></div><span class="prog__m"><img src="/fabryka-ai-kontentu/images/lesson13-shoot.jpg" alt="Блок 13" loading="lazy" decoding="async"><span class="prog__tag">13 · SHOOT</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li><span>як виставити <b>світло</b> вдома, щоб відео виглядало дорого</span></li><li><span>як обрати <b>фон</b>, який не «вбиває» картинку</span></li><li><span>правильні ракурси, відстань до камери, налаштування телефону</span></li><li><span>лайфхаки для запису без посторонього шуму</span></li></ul><div class="prog__res">Твої домашні зйомки виглядатимуть як у топових блогерів — без студії та операторів.</div></div></details><p class="prog__note">Без штатива за 100$ і кільцевого світла. Лише те, що вже є вдома — і твої відео сяятимуть як професійні.</p></div><div class="prog"><div class="prog__h"><span class="prog__n">14</span><div class="prog__t">Монтаж відео через АІ — швидко та просто</div></div><span class="prog__m"><video src="/fabryka-ai-kontentu/images/lesson14-edit.mp4" muted loop playsinline preload="metadata" poster="/fabryka-ai-kontentu/images/lesson14-edit-poster.jpg"></video><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button><span class="prog__tag">14 · EDIT</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li><span>AI-інструменти, які монтують за тебе</span></li><li><span>як зробити Reels / Shorts за 5 хвилин замість 2 годин</span></li><li><span>авто-субтитри, переходи, музика, ефекти — все одним кліком</span></li><li><span>як з 30-хвилинного запису витягнути 5 готових короткометражок</span></li></ul><div class="prog__res">Прискориш монтаж в 5–10 разів і зможеш постити контент щодня без вигорання.</div></div></details><p class="prog__note">Більше жодних годин у CapCut — AI зробить нудну роботу за тебе, ти лише обираєш кращий варіант.</p></div><div class="prog"><div class="prog__h"><span class="prog__n">15</span><div class="prog__t">Claude — універсальна нейромережа №1</div></div><span class="prog__m"><img src="/fabryka-ai-kontentu/images/lesson15-claude.jpg" alt="Блок 15" loading="lazy" decoding="async"><span class="prog__tag">15 · CLAUDE</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li><span>створення <b>повноцінних сайтів без знань коду</b></span></li><li><span>презентації <b>без навичок дизайну</b></span></li><li><span>аналіз ринку та конкурентів за лічені хвилини</span></li><li><span>маркетингові тексти <b>без знань маркетингу</b></span></li><li><span>написання промтів для інших AI</span></li><li><span>і ще десятки задач, де Claude економить тобі години</span></li></ul><div class="prog__res">Отримаєш «другий мозок», який вирішує задачі дизайнера, копірайтера, маркетолога та програміста — все в одному вікні.</div></div></details><p class="prog__note">Зараз про Claude говорять усі топові підприємці світу. Освоїш його раніше за 95% свого ринку.</p></div><div class="prog prog--new"><div class="prog__h"><span class="prog__n">16</span><div class="prog__t">Мультики як ПРО</div></div><span class="prog__m"><span class="prog__new">новий</span><video src="/ai-multfilm/mult3.mp4" muted loop playsinline preload="metadata" poster="/ai-multfilm/mult3.jpg"></video><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button><span class="prog__tag">16 · PRO</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li><span><b>4 методи генерації:</b> сторіборд, розкадровка, зациклені мультики, генерація з референсів</span></li><li><span><b>5 стилів з готовими промтами:</b> Pixar 3D, Cinematic Anime, Spiderverse-Hybrid, DreamWorks, Ghibli</span></li><li><span>картка персонажа двома способами — з референсом і без</span></li><li><span>українська озвучка: наголоси, ліпсинк, щоб персонажі не плутали репліки</span></li><li><span>монтаж: артефакти, переходи, саунд-дизайн, зациклені мультики</span></li><li><span>Seedance 2.5, Extend Video — мультик будь-якої довжини</span></li><li class="tool"><span>Nano Banana 2, Gemini Omni Flash, Kling, Higgsfield, Google Flow, Grok Imagine</span></li><li><span><b>бонус:</b> мультик однією голосовою командою — Higgsfield MCP + Claude Code</span></li></ul><div class="prog__res">Пройдеш повний цикл від ідеї до готового мультика: персонаж, кадри, українська озвучка, монтаж — і зможеш робити серії та ролики під замовлення.</div></div></details><p class="prog__note">Весь мій воркшоп по AI-мультиках — цілком всередині курсу.</p></div><div class="prog"><div class="prog__h"><span class="prog__n">17</span><div class="prog__t">Монетизація Facebook</div></div><span class="prog__m prog__m--fb"><span class="fbstat"><b>$340</b><i>виплата від Facebook<br>за один місяць</i></span><span class="prog__tag">17 · FB</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li><span>як створювати трендові AI-відео, які набирають охоплення</span></li><li><span>шлях до 5000 підписників і подача на монетизацію</span></li><li><span>сумування підписників Instagram + Facebook</span></li><li><span>автопостинг і систематична заливка контенту</span></li><li><span>розбір реальної статистики виплат</span></li><li><span>досвід учасника клубу в іншому жанрі</span></li></ul><div class="prog__res">Ти зрозумієш механіку монетизації AI-контенту на Facebook: що генерувати, як часто заливати і як довести акаунт до виплат.</div></div></details><p class="prog__note">Канал заробітку, де не треба шукати клієнтів — платить сама платформа, за перегляди.</p></div><div class="prog"><div class="prog__h"><span class="prog__n">18</span><div class="prog__t">Генерація відео з собою через Seedance 2.5</div></div><span class="prog__m"><video src="/fabryka-ai-kontentu/images/lesson18-seedance.mp4" muted loop playsinline preload="metadata" poster="/fabryka-ai-kontentu/images/lesson18-seedance.jpg"></video><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button><span class="prog__tag">18 · SEEDANCE</span></span><details class="acc"><summary><span>що всередині блоку?</span><span class="chev">+</span></summary><div class="acc__b"><ul><li><span>як підготувати власне фото як стартовий кадр</span></li><li><span>промти під Seedance 2.5: рух, камера, тривалість, формат</span></li><li><span>як зберегти схожість обличчя від ролика до ролика</span></li><li><span>відео з собою в будь-якій локації та образі — без зйомки</span></li></ul><div class="prog__res">Зможеш знімати відео з собою у головній ролі, не вмикаючи камеру й не виходячи з дому.</div></div></details><p class="prog__note">Найновіша модель для відео з реальною людиною — і ти в кадрі без жодної зйомки.</p></div></div><div class="dots" id="progDots"></div><div class="cta"><a href="https://app.zenedu.io/l/CAoVvGhlUcgSuYQU" target="_blank" rel="noopener" class="b1">Купити курс <b>2999&nbsp;грн</b> &rarr;</a><div class="cta-hint"><span class="pip" style="background:var(--orange)"></span>доступна оплата частинами <b>на 6 платежів</b></div></div><p class="small" style="margin-top:12px">*ТГ підтримка, якщо щось не виходить: <a href="https://t.me/ai_sashka_support" target="_blank" rel="noopener">@ai_sashka_support</a></p></div></section><section class="sec"><div class="wrap"><div class="kick">скільки це коштує на практиці</div><h2>Які <u>підписки потрібні</u> для проходження курсу?</h2><p class="lead">Чесно — за весь курс тобі вистачить <b>однієї підписки на місяць</b>. І то — не з першого дня.</p><div class="dcard reveal"><div class="dcard__h"><span class="chip">максимум витрат</span><span class="dcard__sub">і то — не обовʼязково</span></div><div class="dcard__p"><span class="dcard__cur">$</span><span class="dcard__num">49</span><span class="dcard__meta"><b>Higgsfield</b>на 1 місяць</span></div><ul><li><span><b>Починаємо з безкоштовних нейромереж</b> — перші тижні платити взагалі не потрібно</span></li><li><span>Плавно переходиш до платних, тільки коли реально готовий — без поспіху</span></li><li><span>Достатньо <b>1 місяця підписки</b>, продовжувати на місяці вперед не треба</span></li><li><span>Я показую <b>лайфхаки для безкоштовної генерації</b>: створення нових акаунтів, бонусні токени, тимчасові тригери</span></li><li><span>Маємо <b>авторські застосунки Олександра</b> — генерують безкоштовно прямо під час курсу</span></li></ul><div class="dcard__note"><span>&#128737;</span><span>Я подбав про те, щоб <b>49$ підписки тобі точно вистачило</b> на весь курс. Більше витрачати не доведеться.</span></div></div></div></section><section class="sec sec--tint"><div class="wrap"><div class="kick">бонус-пак</div><h2>Матеріали, які ви <u>отримаєте на курсі</u></h2><div class="mat reveal"><div><span>&#128206;</span><span>Формула ідеального промту <b>ChatGPT</b>.</span></div><div><span>&#128206;</span><span>Формула ідеального промту для <b>генерації зображення</b>.</span></div><div><span>&#128206;</span><span>Формула ідеального промту для <b>генерації відео</b>.</span></div><div><span>&#128206;</span><span>Формула ідеального промту для <b>створення музики</b>.</span></div><div><span>&#128206;</span><span>Майстер-промт для налаштування <b>ассистента ChatGPT</b>.</span></div><div><span>&#128206;</span><span>Авторська фішка: <b>«Уяви фотографа»</b>.</span></div><div><span>&#128206;</span><span>Авторські налаштовані <b>асистенти GPT</b> які доступні тільки учням (вони пишуть промти, пишуть сценарії, генерують контент).</span></div><div><span>&#128206;</span><span>Авторські <b>скіли для Claude</b> для написання промтів під нейронку <b>Seedance 2</b> та для написання промтів для генерації карточок товару.</span></div></div><div class="pull reveal" style="margin-top:32px"><p>«ВИ ТОЧНО ВІДКРИЄТЕ СВІТ АІ<br>ДЛЯ СЕБЕ З НАЙКРАЩОЇ СТОРОНИ»</p></div></div></section><section class="sec"><div class="wrap"><div class="kick">14+ нейромереж</div><h2>Нейронки з якими ви <u>навчитесь працювати</u>, під час курсу</h2><div class="tools reveal"><span class="tool"><span>&#128736;</span>ChatGpt</span><span class="tool"><span>&#128736;</span>NanoBanana</span><span class="tool"><span>&#128736;</span>Grok</span><span class="tool"><span>&#128736;</span>Veo 3.1</span><span class="tool"><span>&#128736;</span>MetaVibes</span><span class="tool"><span>&#128736;</span>ElevenLabs</span><span class="tool"><span>&#128736;</span>MiniMax</span><span class="tool"><span>&#128736;</span>Suno</span><span class="tool"><span>&#128736;</span>HeyGen</span><span class="tool"><span>&#128736;</span>Claude</span><span class="tool"><span>&#128736;</span>Kling 3.0</span><span class="tool"><span>&#128736;</span>Seedance 2.0</span><span class="tool"><span>&#128736;</span>Higgsfield</span></div></div></section><section class="sec sec--deep" id="order"><div class="wrap"><div class="kick">скільки</div><h2>Вартість участі на практичному курсі <u>«ФАБРИКА АІ контенту»</u></h2><div class="price reveal" style="margin-top:26px"><span class="price__tag">спецпропозиція до 31.08</span><div class="prow"><span class="pold">3499 грн<svg viewBox="0 0 400 18" preserveAspectRatio="none" fill="none" aria-hidden="true"><use href="#strike" stroke="var(--orange)" stroke-width="4"/></svg></span><span class="pnew">2999<i>грн</i></span></div><p class="pnote">спецпропозиція діє до 31.08, 23:59</p><div class="cd"><span class="cd__b"><b data-cd="h">—</b><i>год</i></span><span class="cd__b"><b data-cd="m">—</b><i>хв</i></span><span class="cd__b"><b data-cd="s">—</b><i>сек</i></span></div><p class="cd__l">до завершення знижки</p><p class="instal">І це <b>не знижка</b>, це спеціальна ціна, лише для моїх учнів, які купували мої міні-продукти, дивились уроки та здавали домашні завдання.</p></div><div class="cta"><a href="https://app.zenedu.io/l/CAoVvGhlUcgSuYQU" target="_blank" rel="noopener" class="b1">Потрапити на курс <b>2999&nbsp;грн</b> &rarr;</a><div class="cta-hint"><span class="pip" style="background:var(--orange)"></span>доступна оплата частинами <b>на 6 платежів</b></div></div><p class="small" style="margin-top:12px">* після оплати ви одразу отримаєте доступ до курсу «ФАБРИКА АІ контенту з 0»</p><div class="path"><b>Шлях, який ви пройдете при покупці:</b>&rarr; Сторінка оплати (вкажіть пошту)<br>&rarr; Оплатіть курс<br>&rarr; Зачекайте<br>&rarr; Перейдіть в ТГ-Бота<br>&rarr; Додатково отримайте доступ до курсу на пошту, яку вказували раніше.</div><p class="small" style="margin-top:12px">*ТГ підтримка, якщо щось не виходить: <a href="https://t.me/ai_sashka_support" target="_blank" rel="noopener">@ai_sashka_support</a></p></div></section><section class="sec"><div class="wrap"><div class="kick">якщо не всю суму одразу</div><h2>Можна <u>оплатити частинами</u></h2><div class="dcard reveal"><div class="dcard__h"><span class="chip">6 платежів</span><span class="dcard__sub">без переплат</span></div><div class="dcard__p"><span class="dcard__num">500</span><span class="dcard__meta"><b>грн</b>на місяць</span></div><ul><li><span>оформляєш на сторінці оплати — обираєш «частинами»</span></li><li><span>підтримуються <b>Monobank</b>, <b>ПриватБанк</b>, <b>OTP&nbsp;Банк</b>, <b>Глобус&nbsp;Банк</b></span></li><li><span>отримуєш <b>повний доступ до курсу одразу</b> після першого платежу</span></li><li><span>наступні 5 платежів автоматично знімаються з картки кожні 30 днів</span></li></ul><div class="cta"><a href="https://app.zenedu.io/l/CAoVvGhlUcgSuYQU" target="_blank" rel="noopener" class="b1">Оформити частинами <b>6&nbsp;&times;&nbsp;500&nbsp;грн</b> &rarr;</a></div></div></div></section><section class="sec sec--tint"><div class="wrap"><div class="kick">що ще в комплекті</div><h2>Додаткові <u>8 бонусів</u> при купівлі курсу зараз</h2><div class="bons reveal"><div class="bon"><b>БОНУСНИЙ УРОК: «Як скопіювати будь-який голос?»</b></div><div class="bon"><b>БОНУС: СХЕМА — «Як безкоштовно генерувати багато відео?»</b></div><div class="bon"><b>СПОСІБ безкоштовного доступу до платної нейронки для генерації відео</b>Та зекономити 909 грн / місяць.</div><div class="bon"><b>АВТОРСЬКИЙ застосунок Олександра</b>для БЕЗКОШТОВНОЇ генерації зображень під час проходження практичного курсу.</div><div class="bon"><b>4 ВЕЛИКІ бази промтів</b>для генерації зображень, 1000+ промтів для АІ фотосессій.</div><div class="bon"><b>СПОСІБ: Як отримувати перших клієнтів</b>на послуги з генерації АІ контенту, вже після курсу.</div><div class="bon"><b>БОНУСНИЙ МАТЕРІАЛ: 4 Авторські асистенти GPT для прискорення роботи х10</b><ul><li>АСИСТЕНТ, який допомагає писати промти для SEEDANCE 2.0</li><li>АСИСТЕНТ, який допомагає писати промти для оживлення фото АІ-моделей</li><li>АСИСТЕНТ, який перетворює будь-яке фото в промт</li><li>АСИСТЕНТ, який допомагає писати промти для генрації трендових відео з говорящими овочами, предметами в мультяшному стилі</li></ul></div><div class="bon"><b>БОНУСНИЙ МАТЕРІАЛ: + 2 Авторські скіли для Claude</b>Які допоможуть з контентом: скіл — для написання промтів для генерації карточок товару, скіл — для написання промтів під нейронку Seedance 2, щоб створювати якісний конент і економити кридити на невдалих генераціях.</div></div><div class="cta"><a href="https://app.zenedu.io/l/CAoVvGhlUcgSuYQU" target="_blank" rel="noopener" class="b1">Купити курс <b>2999&nbsp;грн</b> &rarr;</a><div class="cta-hint"><span class="pip" style="background:var(--orange)"></span>доступна оплата частинами <b>на 6 платежів</b></div></div><p class="small" style="margin-top:12px">*ТГ підтримка, якщо щось не виходить: <a href="https://t.me/ai_sashka_support" target="_blank" rel="noopener">@ai_sashka_support</a></p></div></section><section class="sec"><div class="wrap"><div class="kick">роботи учнів і мої</div><h2>ОСЬ, що ви зможете створювати <u>після курсу</u></h2><p class="lead">Нижче — реальні генерації з усіх моїх програм. Тапни по відео, щоб подивитись.</p><div class="gr"><span class="gr__t">з курсу «Фабрика АІ контенту»</span><span class="gr__n">20 робіт</span></div><div class="samples reveal-r"><figure class="item item--video"><span class="item__b"><video src="/fabryka-ai-kontentu/images/portfolio1.mp4" muted loop playsinline preload="none" poster="media/poster-portfolio1.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">01 · Reels</figcaption></figure><figure class="item item--video"><span class="item__b"><video src="/fabryka-ai-kontentu/images/portfolio2.mp4" muted loop playsinline preload="none" poster="media/poster-portfolio2.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">02 · бʼюті</figcaption></figure><figure class="item item--video"><span class="item__b"><video src="/fabryka-ai-kontentu/images/portfolio3.mp4" muted loop playsinline preload="none" poster="media/poster-portfolio3.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">03 · спорт</figcaption></figure><figure class="item item--video"><span class="item__b"><video src="/fabryka-ai-kontentu/images/portfolio4.mp4" muted loop playsinline preload="none" poster="media/poster-portfolio4.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">04 · предметка</figcaption></figure><figure class="item item--video"><span class="item__b"><video src="/fabryka-ai-kontentu/images/ai-person.mp4" muted loop playsinline preload="none" poster="media/poster-ai-person.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">05 · товар у руках</figcaption></figure><figure class="item"><span class="item__b"><img src="/fabryka-ai-kontentu/images/samples/sample1.jpg" alt="AI портрет" loading="lazy" decoding="async"></span><figcaption class="item__c">06 · портрет</figcaption></figure><figure class="item"><span class="item__b"><img src="/fabryka-ai-kontentu/images/samples/sample2.jpg" alt="AI поп-арт" loading="lazy" decoding="async"></span><figcaption class="item__c">07 · поп-арт</figcaption></figure><figure class="item"><span class="item__b"><img src="/fabryka-ai-kontentu/images/samples/sample3.jpg" alt="AI предметка" loading="lazy" decoding="async"></span><figcaption class="item__c">08 · предметка</figcaption></figure><figure class="item"><span class="item__b"><img src="/fabryka-ai-kontentu/images/samples/sample4.jpg" alt="AI істота" loading="lazy" decoding="async"></span><figcaption class="item__c">09 · істота</figcaption></figure><figure class="item"><span class="item__b"><img src="/fabryka-ai-kontentu/images/samples/sample5.jpg" alt="AI бʼюті" loading="lazy" decoding="async"></span><figcaption class="item__c">10 · бʼюті</figcaption></figure><figure class="item"><span class="item__b"><img src="/fabryka-ai-kontentu/images/samples/sample6.jpg" alt="AI персонажі" loading="lazy" decoding="async"></span><figcaption class="item__c">11 · персонажі</figcaption></figure><figure class="item"><span class="item__b"><img src="/fabryka-ai-kontentu/images/w1.jpg" alt="AI спорт" loading="lazy" decoding="async"></span><figcaption class="item__c">12 · спорт</figcaption></figure><figure class="item"><span class="item__b"><img src="/fabryka-ai-kontentu/images/w3.jpg" alt="AI лід" loading="lazy" decoding="async"></span><figcaption class="item__c">13 · лід</figcaption></figure><figure class="item"><span class="item__b"><img src="/fabryka-ai-kontentu/images/w5.jpg" alt="AI техно" loading="lazy" decoding="async"></span><figcaption class="item__c">14 · техно</figcaption></figure><figure class="item"><span class="item__b"><img src="/fabryka-ai-kontentu/images/w7.jpg" alt="AI ремесло" loading="lazy" decoding="async"></span><figcaption class="item__c">15 · ремесло</figcaption></figure><figure class="item"><span class="item__b"><img src="/fabryka-ai-kontentu/images/w9.jpg" alt="AI звук" loading="lazy" decoding="async"></span><figcaption class="item__c">16 · звук</figcaption></figure><figure class="item"><span class="item__b"><img src="/fabryka-ai-kontentu/images/w11.jpg" alt="AI вогонь" loading="lazy" decoding="async"></span><figcaption class="item__c">17 · вогонь</figcaption></figure><figure class="item"><span class="item__b"><img src="/fabryka-ai-kontentu/images/w13.jpg" alt="AI 3D" loading="lazy" decoding="async"></span><figcaption class="item__c">18 · 3D</figcaption></figure><figure class="item"><span class="item__b"><img src="/fabryka-ai-kontentu/images/w15.jpg" alt="AI портрет" loading="lazy" decoding="async"></span><figcaption class="item__c">19 · портрет</figcaption></figure><figure class="item"><span class="item__b"><img src="/fabryka-ai-kontentu/images/w17.jpg" alt="AI квіти" loading="lazy" decoding="async"></span><figcaption class="item__c">20 · квіти</figcaption></figure></div><div class="gr"><span class="gr__t">AI-людина</span><span class="gr__n">8 робіт</span></div><div class="samples reveal-r"><figure class="item item--video"><span class="item__b"><video src="/ai-lyudyna/media/ai-1.mp4" muted loop playsinline preload="none" poster="/ai-lyudyna/media/ai-1.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">21 · UGC-реклама</figcaption></figure><figure class="item item--video"><span class="item__b"><video src="/ai-lyudyna/media/ai-2.mp4" muted loop playsinline preload="none" poster="/ai-lyudyna/media/ai-2.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">22 · огляд гаджета</figcaption></figure><figure class="item item--video"><span class="item__b"><video src="/ai-lyudyna/media/ai-3.mp4" muted loop playsinline preload="none" poster="/ai-lyudyna/media/ai-3.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">23 · кросівки</figcaption></figure><figure class="item item--video"><span class="item__b"><video src="/ai-lyudyna/media/ai-4.mp4" muted loop playsinline preload="none" poster="/ai-lyudyna/media/ai-4.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">24 · неон-портрет</figcaption></figure><figure class="item item--video"><span class="item__b"><video src="/ai-lyudyna/media/ai-5.mp4" muted loop playsinline preload="none" poster="/ai-lyudyna/media/ai-5.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">25 · фуд-контент</figcaption></figure><figure class="item item--video"><span class="item__b"><video src="/ai-lyudyna/media/ai-6.mp4" muted loop playsinline preload="none" poster="/ai-lyudyna/media/ai-6.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">26 · street-style</figcaption></figure><figure class="item item--video"><span class="item__b"><video src="/ai-lyudyna/media/ai-7.mp4" muted loop playsinline preload="none" poster="/ai-lyudyna/media/ai-7.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">27 · навушники</figcaption></figure><figure class="item item--video"><span class="item__b"><video src="/ai-lyudyna/media/ai-8.mp4" muted loop playsinline preload="none" poster="/ai-lyudyna/media/ai-8.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">28 · кухня</figcaption></figure></div><div class="gr"><span class="gr__t">AI-мультики</span><span class="gr__n">9 робіт</span></div><div class="samples reveal-r"><figure class="item item--video"><span class="item__b"><video src="/ai-multfilm/mult1.mp4" muted loop playsinline preload="none" poster="/ai-multfilm/mult1.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">29 · мульт-сцена</figcaption></figure><figure class="item item--video"><span class="item__b"><video src="/ai-multfilm/mult2.mp4" muted loop playsinline preload="none" poster="/ai-multfilm/mult2.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">30 · мульт-сцена</figcaption></figure><figure class="item item--video"><span class="item__b"><video src="/ai-multfilm/mult3.mp4" muted loop playsinline preload="none" poster="/ai-multfilm/mult3.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">31 · мульт-сцена</figcaption></figure><figure class="item item--video"><span class="item__b"><video src="/ai-multfilm/mult4.mp4" muted loop playsinline preload="none" poster="/ai-multfilm/mult4.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">32 · мульт-сцена</figcaption></figure><figure class="item"><span class="item__b"><img src="/ai-multfilm/style-1.jpg" alt="AI стиль 1" loading="lazy" decoding="async"></span><figcaption class="item__c">33 · стиль 1</figcaption></figure><figure class="item"><span class="item__b"><img src="/ai-multfilm/style-2.jpg" alt="AI стиль 2" loading="lazy" decoding="async"></span><figcaption class="item__c">34 · стиль 2</figcaption></figure><figure class="item"><span class="item__b"><img src="/ai-multfilm/style-3.jpg" alt="AI стиль 3" loading="lazy" decoding="async"></span><figcaption class="item__c">35 · стиль 3</figcaption></figure><figure class="item"><span class="item__b"><img src="/ai-multfilm/style-4.jpg" alt="AI стиль 4" loading="lazy" decoding="async"></span><figcaption class="item__c">36 · стиль 4</figcaption></figure><figure class="item"><span class="item__b"><img src="/ai-multfilm/style-5.jpg" alt="AI стиль 5" loading="lazy" decoding="async"></span><figcaption class="item__c">37 · стиль 5</figcaption></figure></div><div class="gr"><span class="gr__t">Предметна зйомка</span><span class="gr__n">16 робіт</span></div><div class="samples reveal-r"><figure class="item item--video"><span class="item__b"><video src="/product-ai-content/hf_20260415_212233_2814713c-43c9-4a32-b0ff-cc24ed1c32b1.mp4" muted loop playsinline preload="none" poster="media/poster-product-1.jpg"></video><span class="play"><i></i></span><button type="button" class="mute-btn" aria-pressed="false" aria-label="Увімкнути звук"><svg class="ico-off" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8zM4.3 3L3 4.3 7.7 9H3v6h4l5 5v-6.7l4.2 4.2c-.6.5-1.4.9-2.2 1.1v2.1c1.4-.3 2.6-.9 3.6-1.8L19.7 21l1.3-1.3L4.3 3z"/></svg><svg class="ico-on" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-1 7-4.5 7-8.8s-3-7.8-7-8.8z"/></svg></button></span><figcaption class="item__c">38 · відео товару</figcaption></figure><figure class="item"><span class="item__b"><img src="/product-ai-content/2026-04-21%2023.18.07.jpg" alt="AI смартфон" loading="lazy" decoding="async"></span><figcaption class="item__c">39 · смартфон</figcaption></figure><figure class="item"><span class="item__b"><img src="/product-ai-content/IMAGE_2026-04-19_150936.jpg" alt="AI помада" loading="lazy" decoding="async"></span><figcaption class="item__c">40 · помада</figcaption></figure><figure class="item"><span class="item__b"><img src="/product-ai-content/IMAGE_2026-04-19_151104.jpg" alt="AI проєктор" loading="lazy" decoding="async"></span><figcaption class="item__c">41 · проєктор</figcaption></figure><figure class="item"><span class="item__b"><img src="/product-ai-content/IMG_7066.jpg" alt="AI камера" loading="lazy" decoding="async"></span><figcaption class="item__c">42 · камера</figcaption></figure><figure class="item"><span class="item__b"><img src="/product-ai-content/IMG_7073.jpg" alt="AI косметика" loading="lazy" decoding="async"></span><figcaption class="item__c">43 · косметика</figcaption></figure><figure class="item"><span class="item__b"><img src="/product-ai-content/IMG_7074.jpg" alt="AI одяг" loading="lazy" decoding="async"></span><figcaption class="item__c">44 · одяг</figcaption></figure><figure class="item"><span class="item__b"><img src="/product-ai-content/IMG_8002.jpg" alt="AI ікра" loading="lazy" decoding="async"></span><figcaption class="item__c">45 · ікра</figcaption></figure><figure class="item"><span class="item__b"><img src="/product-ai-content/IMG_8076.jpg" alt="AI проєктор" loading="lazy" decoding="async"></span><figcaption class="item__c">46 · проєктор</figcaption></figure><figure class="item"><span class="item__b"><img src="/product-ai-content/IMG_8260.PNG" alt="AI окуляри" loading="lazy" decoding="async"></span><figcaption class="item__c">47 · окуляри</figcaption></figure><figure class="item"><span class="item__b"><img src="/product-ai-content/clipsy-image-3596.png" alt="AI упаковка" loading="lazy" decoding="async"></span><figcaption class="item__c">48 · упаковка</figcaption></figure><figure class="item"><span class="item__b"><img src="/product-ai-content/clipsy-image-3667.jpg" alt="AI техніка" loading="lazy" decoding="async"></span><figcaption class="item__c">49 · техніка</figcaption></figure><figure class="item"><span class="item__b"><img src="/product-ai-content/hf_20260224_195521_2b1b6ec2-7233-418e-9fb7-ab88bd10fb30.jpg" alt="AI жуйка" loading="lazy" decoding="async"></span><figcaption class="item__c">50 · жуйка</figcaption></figure><figure class="item"><span class="item__b"><img src="/product-ai-content/hf_20260415_192113_7baaba4d-f248-4ae7-9ef7-d6e7b9f5500f%20%281%29.jpg" alt="AI паста" loading="lazy" decoding="async"></span><figcaption class="item__c">51 · паста</figcaption></figure><figure class="item"><span class="item__b"><img src="/product-ai-content/hf_20260416_165343_60a4cd98-1795-41e5-af67-d66d1e901d6d.jpg" alt="AI бʼюті" loading="lazy" decoding="async"></span><figcaption class="item__c">52 · бʼюті</figcaption></figure><figure class="item"><span class="item__b"><img src="/product-ai-content/hf_20260421_191021_8a57117b-9955-44c2-96a2-1ea936b70468.jpg" alt="AI одяг" loading="lazy" decoding="async"></span><figcaption class="item__c">53 · одяг</figcaption></figure></div></div></section><section class="sec sec--deep"><div class="wrap"><div class="kick">зазирни всередину</div><h2>ОСЬ, як виглядає <u>«ФАБРИКА АІ контенту з 0»</u></h2><div class="box box--a reveal" style="margin-top:26px;padding:16px"><p class="prev__h">превʼю платформи · 18 блоків</p><div class="yt" data-yt="6t9Z_X7JumQ" role="button" tabindex="0" aria-label="Огляд курсу «Фабрика АІ контенту з 0»"><img src="https://i.ytimg.com/vi/6t9Z_X7JumQ/maxresdefault.jpg" data-fallback="https://i.ytimg.com/vi/6t9Z_X7JumQ/hqdefault.jpg" alt="Огляд курсу «Фабрика АІ контенту з 0»" loading="lazy" decoding="async"><span class="yt__p" aria-hidden="true"></span></div><p class="prev__n">&uarr; так виглядає платформа курсу зсередини · 18 блоків з покроковими відео-уроками 5–10 хв</p></div><div class="cta"><a href="https://app.zenedu.io/l/CAoVvGhlUcgSuYQU" target="_blank" rel="noopener" class="b1">Купити курс <b>2999&nbsp;грн</b> &rarr;</a><div class="cta-hint"><span class="pip" style="background:var(--orange)"></span>доступна оплата частинами <b>на 6 платежів</b></div></div></div></section><section class="sec"><div class="wrap"><div class="kick">що кажуть учні</div><h2>ОСЬ, що говорять про <u>«ФАБРИКУ АІ контенту з 0»</u></h2><p class="lead">Спочатку, покажу вам <b>ВІДЕО-ВІДГУКИ</b>, від студентів курсу, яким <b>47 та 65 років</b>.</p><div class="ytrow reveal"><div class="yt" data-yt="mHLOf5mSNhY" role="button" tabindex="0" aria-label="Відео-відгук студента"><img src="https://i.ytimg.com/vi/mHLOf5mSNhY/maxresdefault.jpg" data-fallback="https://i.ytimg.com/vi/mHLOf5mSNhY/hqdefault.jpg" alt="Відео-відгук студента" loading="lazy" decoding="async"><span class="yt__p" aria-hidden="true"></span></div><div class="yt" data-yt="k9vOQn0XDq8" role="button" tabindex="0" aria-label="Відео-відгук студента"><img src="https://i.ytimg.com/vi/k9vOQn0XDq8/maxresdefault.jpg" data-fallback="https://i.ytimg.com/vi/k9vOQn0XDq8/hqdefault.jpg" alt="Відео-відгук студента" loading="lazy" decoding="async"><span class="yt__p" aria-hidden="true"></span></div><div class="yt" data-yt="x3syIXrAFgk" role="button" tabindex="0" aria-label="Відео-відгук студента"><img src="https://i.ytimg.com/vi/x3syIXrAFgk/maxresdefault.jpg" data-fallback="https://i.ytimg.com/vi/x3syIXrAFgk/hqdefault.jpg" alt="Відео-відгук студента" loading="lazy" decoding="async"><span class="yt__p" aria-hidden="true"></span></div></div><p class="lead" style="margin-top:26px">А зараз — покажу вам декілька <b>ТЕКСТОВИХ ВІДГУКІВ</b> від студентів:</p><p class="swipe" style="margin-top:10px">свайп &rarr;</p></div><div class="wrap"><div class="revs reveal-r"><div class="rev"><span class="rev__tape"></span><span class="rev__b"><img src="/fabryka-ai-kontentu/images/reviews/r39.jpg" alt="відгук студента" loading="lazy" decoding="async"></span></div><div class="rev"><span class="rev__tape"></span><span class="rev__b"><img src="/fabryka-ai-kontentu/images/reviews/r41.jpg" alt="відгук студента" loading="lazy" decoding="async"></span></div><div class="rev"><span class="rev__tape"></span><span class="rev__b"><img src="/fabryka-ai-kontentu/images/reviews/r42.jpg" alt="відгук студента" loading="lazy" decoding="async"></span></div><div class="rev"><span class="rev__tape"></span><span class="rev__b"><img src="/fabryka-ai-kontentu/images/reviews/r43.jpg" alt="відгук студента" loading="lazy" decoding="async"></span></div><div class="rev"><span class="rev__tape"></span><span class="rev__b"><img src="/fabryka-ai-kontentu/images/reviews/r45.jpg" alt="відгук студента" loading="lazy" decoding="async"></span></div><div class="rev"><span class="rev__tape"></span><span class="rev__b"><img src="/fabryka-ai-kontentu/images/reviews/r47.jpg" alt="відгук студента" loading="lazy" decoding="async"></span></div><div class="rev"><span class="rev__tape"></span><span class="rev__b"><img src="/fabryka-ai-kontentu/images/reviews/r49.jpg" alt="відгук студента" loading="lazy" decoding="async"></span></div><div class="rev"><span class="rev__tape"></span><span class="rev__b"><img src="/fabryka-ai-kontentu/images/reviews/r40.jpg" alt="відгук студента" loading="lazy" decoding="async"></span></div><div class="rev"><span class="rev__tape"></span><span class="rev__b"><img src="/fabryka-ai-kontentu/images/reviews/r44.jpg" alt="відгук студента" loading="lazy" decoding="async"></span></div><div class="rev"><span class="rev__tape"></span><span class="rev__b"><img src="/fabryka-ai-kontentu/images/reviews/r46.jpg" alt="відгук студента" loading="lazy" decoding="async"></span></div><div class="rev"><span class="rev__tape"></span><span class="rev__b"><img src="/fabryka-ai-kontentu/images/reviews/r48.jpg" alt="відгук студента" loading="lazy" decoding="async"></span></div></div><div class="cta"><a href="https://app.zenedu.io/l/CAoVvGhlUcgSuYQU" target="_blank" rel="noopener" class="b1">Купити курс <b>2999&nbsp;грн</b> &rarr;</a><div class="cta-hint"><span class="pip" style="background:var(--orange)"></span>доступна оплата частинами <b>на 6 платежів</b></div></div></div></section><section class="sec sec--tint"><div class="wrap"><div class="kick">знайомимось</div><h2>ХТО Я <u>ТАКИЙ?</u></h2><div class="auth reveal"><div class="auth__ph"><img src="/fabryka-ai-kontentu/images/author/sasha_new.jpg" alt="Олександр Цюцьмаць" loading="lazy" decoding="async"></div><div class="auth__n">Олександр Цюцьмаць</div><ul><li>Вивчаю АІ інструменти кожен день з 2024 року</li><li>Власник агенції зі створення АІ контенту під ключ</li><li>7 141 учень вже пройшов мої навчальні програми та використовує AI для заробітку, контенту й особистого бренду</li></ul><p class="auth__q">Я вірю, що AI — це не про «магію кнопки», а про <b>системний підхід</b>, правильні промти та розуміння, як отримувати саме той результат, який ти хочеш бачити.</p></div><div class="cta"><a href="https://app.zenedu.io/l/CAoVvGhlUcgSuYQU" target="_blank" rel="noopener" class="b1">Потрапити на курс <b>2999&nbsp;грн</b> &rarr;</a><div class="cta-hint"><span class="pip" style="background:var(--orange)"></span>доступна оплата частинами <b>на 6 платежів</b></div></div><div class="path"><b>Шлях, який ви пройдете при покупці:</b>&rarr; Сторінка оплати (вкажіть пошту)<br>&rarr; Оплатіть курс<br>&rarr; Зачекайте<br>&rarr; Перейдіть в ТГ-Бота<br>&rarr; Додатково отримайте доступ до курсу на пошту, яку вказували раніше.</div><p class="small" style="margin-top:12px">*ТГ підтримка, якщо щось не виходить: <a href="https://t.me/ai_sashka_support" target="_blank" rel="noopener">@ai_sashka_support</a></p></div></section><footer class="footer"><div class="wrap"><div class="ft"><b>З БУДЬ-ЯКИХ ПИТАНЬ ПИШІТЬ В ПІДТРИМКУ &darr;</b><a href="https://t.me/ai_sashka_support" target="_blank" rel="noopener">Технічна підтримка</a></div><div class="ft"><b>СТЕПАНЕНКО БОГДАН ОЛЕКСАНДРОВИЧ ФОП</b>ЄДРПОУ 3757902952<br>stepanenkob30@gmail.com</div><div class="ft"><b>ЗЕМЛЯНИЙ МИХАЙЛО СЕРГІЙОВИЧ ФОП</b>ЄДРПОУ 3758302175<br>+380985966120<br><a href="politika.html">Політика конфіденційності</a> &nbsp;·&nbsp; <a href="oferta.html">Договір оферти</a></div><div class="ft"><b>БРЖЕСТОВСЬКА ГАННА ЮРІЇВНА ФОП</b>ЄДРПОУ 2877703349</div><p class="legal"><b>ВАЖЛИВО:</b> не вводьте свою контактну інформацію, доки не прочитаєте legal disclaimer. Ми не даємо жодних гарантій, що ви досягнете якихось результатів за допомогою наших інструментів, стратегій або інформації. Всі продукти і сервіси компанії призначені для освітніх цілей. Ви несете відповідальність за свої дії і результати.</p></div></footer><div class="stick" id="stick"><div class="stick__l"><span class="stick__w">&#8599; оплата частинами на 6 платежів</span><span class="stick__p"><s>3499</s>2999 грн</span></div><a href="https://app.zenedu.io/l/CAoVvGhlUcgSuYQU" target="_blank" rel="noopener" class="stick__c">Купити &rarr;</a></div><script>
+(function(){
+  'use strict';
+
+  /* live date */
+  var months=['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
+  var d=new Date(), ld=document.getElementById('liveDate');
+  if(ld) ld.textContent=d.getDate()+' '+months[d.getMonth()];
+
+  /* фіксований дедлайн: 31.08.2026, 23:59 за Києвом (влітку UTC+3) */
+  (function(){
+    var target=Date.UTC(2026,7,31,20,59,59);
+    var h=[document.getElementById('cdHours')].concat([].slice.call(document.querySelectorAll('[data-cd="h"]'))),
+        m=[document.getElementById('cdMin')].concat([].slice.call(document.querySelectorAll('[data-cd="m"]'))),
+        s=[document.getElementById('cdSec')].concat([].slice.call(document.querySelectorAll('[data-cd="s"]')));
+    function pad(n){return n<10?'0'+n:''+n}
+    function put(list,val){for(var i=0;i<list.length;i++){ if(list[i]) list[i].textContent=val; }}
+    function tick(){
+      var diff=target-Date.now(); if(diff<0) diff=0;
+      put(h,pad(Math.floor(diff/3600000)));
+      put(m,pad(Math.floor((diff%3600000)/60000)));
+      put(s,pad(Math.floor((diff%60000)/1000)));
+    }
+    tick(); setInterval(tick,1000);
+  })();
+
+  /* hero crossfade */
+  (function(){
+    var g=document.querySelectorAll('#heroStack img');
+    if(g.length<2) return;
+    var i=0;
+    setInterval(function(){
+      g[i].classList.remove('on'); i=(i+1)%g.length; g[i].classList.add('on');
+    },3400);
+  })();
+
+  /* reveal */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } });
+  },{threshold:.1});
+  document.querySelectorAll('.reveal,.reveal-r').forEach(function(el){ io.observe(el); });
+
+  /* carousel dots */
+  function dots(trackId, dotsId, sel){
+    var track=document.getElementById(trackId), wrap=document.getElementById(dotsId);
+    if(!track||!wrap) return;
+    var cards=track.querySelectorAll(sel);
+    if(cards.length<2) return;
+    for(var i=0;i<cards.length;i++){ wrap.appendChild(document.createElement('i')); }
+    var ds=wrap.querySelectorAll('i');
+    ds[0].classList.add('on');
+    var raf=0;
+    track.addEventListener('scroll', function(){
+      if(raf) return;
+      raf=requestAnimationFrame(function(){
+        raf=0;
+        var mid=track.scrollLeft+track.clientWidth/2, best=0, bd=1e9;
+        for(var k=0;k<cards.length;k++){
+          var c=cards[k], cc=c.offsetLeft+c.offsetWidth/2, dd=Math.abs(cc-mid);
+          if(dd<bd){ bd=dd; best=k; }
+        }
+        for(var j=0;j<ds.length;j++){ ds[j].classList.toggle('on', j===best); }
+      });
+    },{passive:true});
+  }
+  dots('audTrack','audDots','.aud');
+  dots('progTrack','progDots','.prog');
+
+  /* program videos: play while on screen */
+  (function(){
+    var vids=document.querySelectorAll('.prog__m video, .fr__box video');
+    if(!vids.length) return;
+    var pio=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){ e.target.play().catch(function(){}); }
+        else { e.target.pause(); }
+      });
+    },{threshold:.35});
+    vids.forEach(function(v){ pio.observe(v); });
+  })();
+
+  /* sample videos: tap to play */
+  document.querySelectorAll('.item--video').forEach(function(item){
+    var vid=item.querySelector('video');
+    if(!vid) return;
+    item.addEventListener('click', function(e){
+      if(e.target.closest('.mute-btn')) return;
+      if(vid.paused){ vid.play().catch(function(){}); item.classList.add('is-playing'); }
+      else { vid.pause(); item.classList.remove('is-playing'); }
+    });
+    var pio=new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(!en.isIntersecting){ vid.pause(); item.classList.remove('is-playing'); }
+      });
+    },{threshold:.1});
+    pio.observe(item);
+  });
+
+  /* mute toggles */
+  document.querySelectorAll('.mute-btn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var box=btn.parentElement, vid=box.querySelector('video');
+      if(!vid) return;
+      vid.muted=!vid.muted;
+      btn.setAttribute('aria-pressed', vid.muted?'false':'true');
+      btn.setAttribute('aria-label', vid.muted?'Увімкнути звук':'Вимкнути звук');
+      if(!vid.muted) vid.play().catch(function(){});
+    });
+  });
+
+  /* youtube posters: maxres is missing for some videos, fall back quietly */
+  document.querySelectorAll('.yt img[data-fallback]').forEach(function(im){
+    im.addEventListener('error', function(){
+      if(im.dataset.fellBack) return;
+      im.dataset.fellBack='1';
+      im.src=im.dataset.fallback;
+    });
+    if(im.complete && im.naturalWidth===0){ im.dataset.fellBack='1'; im.src=im.dataset.fallback; }
+  });
+
+  /* lite youtube — real iframe only after a click */
+  document.querySelectorAll('.yt').forEach(function(el){
+    function load(){
+      if(el.dataset.loaded) return;
+      el.dataset.loaded='1';
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+el.dataset.yt+
+            '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      f.setAttribute('allowfullscreen','');
+      f.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+      f.title='Відео';
+      el.innerHTML='';
+      el.appendChild(f);
+    }
+    el.addEventListener('click', load);
+    el.addEventListener('keydown', function(e){
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); load(); }
+    });
+  });
+
+  /* sticky bar */
+  (function(){
+    var stick=document.getElementById('stick');
+    if(!stick) return;
+    /* до секції «А що ще всередині» ціну не показуємо */
+    var gate=document.getElementById('course');
+    var shown=false;
+    window.addEventListener('scroll', function(){
+      var top=gate?gate.getBoundingClientRect().top:(700-window.scrollY);
+      if(!shown && top<120){ stick.classList.add('show'); shown=true; }
+      else if(shown && top>320){ stick.classList.remove('show'); shown=false; }
+    },{passive:true});
+  })();
+})();
+</script>
+</body>
+</html>
