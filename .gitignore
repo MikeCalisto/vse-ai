@@ -10,3 +10,7 @@ fabryka-ai-kontentu/Блоки фабрики/
 
 # рабочий контекст-документ лендинга мультиков (в деплой не нужен)
 ai-multfilm/CONTEXT.md
+
+# лендинг «відео з собою»: исходники и рабочие превью в деплой не нужны
+ai-video-zsoboyu/_orig/
+ai-video-zsoboyu/preview/

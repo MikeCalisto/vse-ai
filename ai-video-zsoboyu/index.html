@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1454724509580252');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1454724509580252&ev=PageView&noscript=1" alt=""></noscript>
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#00B140">
+
+<title>Відео з собою через АІ — мінікурс від Ai_Sashka</title>
+<meta name="description" content="Як створювати відео, фото, каруселі та мультики з собою в кадрі, не вмикаючи камеру. 5 уроків, доступ назавжди. 390 грн замість 2 113.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vse-ai.vercel.app/ai-video-zsoboyu/">
+<meta property="og:title" content="Відео з собою через АІ — мінікурс від Ai_Sashka">
+<meta property="og:description" content="Картка персонажа, реалістичне відео, каруселі голосом, мультик і цифровий двійник. 5 уроків. 390 грн замість 2 113.">
+<meta property="og:image" content="https://vse-ai.vercel.app/ai-video-zsoboyu/img/card.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/sasha-360-poster.jpg" fetchpriority="high">
+
+<style>
+:root{
+  --bg:#E7E3DA; --card:#FFFFFF; --ink:#14170F; --muted:#6E7266;
+  --line:#DCD7CB; --accent:#00B140; --accent-d:#04702A; --dark:#0B0F0A;
+  --soft:#FCFBF8;
+  --pad:20px; --gap:9px; --col:460px; --r:14px;
+  --display:'Unbounded',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);
+  font-family:'Manrope',system-ui,-apple-system,sans-serif;
+  font-size:15px;line-height:1.45;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.wrap{width:100%;max-width:var(--col);margin:0 auto;
+  padding:var(--gap) var(--gap) calc(84px + env(safe-area-inset-bottom));
+  display:flex;flex-direction:column;gap:var(--gap)}
+@media (min-width:768px){.wrap{min-height:100vh;
+  box-shadow:0 0 0 1px rgba(0,0,0,.06),0 30px 80px rgba(0,0,0,.10)}}
+
+.card{background:var(--card);padding:var(--pad);border-radius:var(--r);
+  position:relative;overflow:hidden}
+.card.dark{background:var(--dark);color:#fff}
+.card.dark .sm{color:rgba(255,255,255,.62)}
+.card.dark hr{border-color:rgba(255,255,255,.16)}
+
+.h{font-family:var(--display);font-weight:900;letter-spacing:-.035em;line-height:1.02;
+  text-wrap:balance}
+.h1{font-size:clamp(27px,7.6vw,34px)}
+.h2{font-size:clamp(23px,6.5vw,30px)}
+.h3{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.12;
+  letter-spacing:-.03em}
+.acc{color:var(--accent)}
+.sm{font-size:12.5px;color:var(--muted);line-height:1.45}
+.p{font-size:14px;line-height:1.55;margin-top:12px}
+.card.dark .p{color:rgba(255,255,255,.86)}
+.lead-it{font-style:italic;font-size:13px;color:var(--muted);margin-top:9px;line-height:1.45}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+hr{border:0;border-top:1px solid var(--line);margin:16px 0}
+.mk{background:linear-gradient(180deg,transparent 58%,rgba(0,177,64,.34) 58%);
+  padding:0 3px;margin:0 -3px;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone}
+.card.dark .mk{background:linear-gradient(180deg,transparent 58%,rgba(0,177,64,.55) 58%)}
+
+/* ── шапка ─────────────────────────────────────────────── */
+.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);
+  border-radius:100px;padding:5px 11px;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.06em}
+.pill.solid{background:var(--accent);color:#fff;border-color:var(--accent)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;
+  animation:pulse 2.2s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(0,177,64,.7)}
+  70%{box-shadow:0 0 0 7px rgba(0,177,64,0)}100%{box-shadow:0 0 0 0 rgba(0,177,64,0)}}
+
+.marq{background:var(--dark);overflow:hidden;padding:7px 0;border-radius:100px}
+.marq .track{display:flex;width:max-content;animation:marq 24s linear infinite}
+.marq span{font-family:var(--display);font-weight:700;font-size:11.5px;color:#fff;
+  text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;
+  gap:13px;padding-right:13px;white-space:nowrap}
+.marq .nw{color:var(--accent)}
+.star{width:7px;height:7px;background:var(--accent);display:inline-block;flex:0 0 auto;
+  clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── герой ─────────────────────────────────────────────── */
+.hero .lead{font-size:13.5px;line-height:1.5;color:var(--muted);max-width:290px}
+.hero h1{margin-top:13px}
+.hero .sub{font-style:italic;font-weight:700;font-size:14px;color:var(--accent);margin-top:10px}
+.duo{display:flex;align-items:stretch;gap:14px;margin:22px calc(var(--pad)*-1) 0 -14px}
+/* фигура полноростовая (420×1334) — задаём высоту, ширину ролик считает сам */
+.duo .art{flex:0 0 auto;position:relative;z-index:2;display:flex;align-items:flex-end}
+.duo .art video{height:clamp(330px,88vw,430px);width:auto;max-width:none;
+  display:block;pointer-events:none}
+/* факты справа от фигуры: строки тянутся на всю её высоту, иначе сверху остаётся дыра */
+.facts{flex:1;min-width:0;list-style:none;display:flex;flex-direction:column;
+  padding:0 var(--pad) 6px 0}
+.facts li{flex:1;display:flex;gap:9px;align-items:center;font-size:12.5px;line-height:1.35;
+  font-weight:700;padding:7px 0;border-top:1px solid var(--line)}
+.facts li:first-child{border-top:0}
+.facts li:before{content:'✓';color:var(--accent);font-weight:900;flex:0 0 auto;font-size:13px}
+.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.94);
+  display:flex;align-items:center;justify-content:center;z-index:2;
+  box-shadow:0 8px 22px rgba(0,0,0,.4);transition:transform .18s}
+.play:active{transform:translate(-50%,-50%) scale(.92)}
+.play:after{content:'';border-left:15px solid var(--dark);
+  border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.play.sm{width:40px;height:40px}
+.play.sm:after{border-left-width:12px;border-top-width:7px;border-bottom-width:7px}
+
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
+.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);
+  border-radius:100px;padding:7px 13px;font-size:12.5px;font-weight:700;line-height:1.25}
+.chip:before{content:'✓';color:var(--accent);font-weight:900;flex:0 0 auto}
+.card.dark .chip{border-color:rgba(255,255,255,.22);color:#fff}
+
+/* ── ціна, кнопка, таймер ──────────────────────────────── */
+.price{display:flex;align-items:baseline;gap:8px;justify-content:center;flex-wrap:wrap}
+.price b{font-family:var(--display);font-weight:900;font-size:clamp(44px,12.6vw,54px);
+  line-height:.86;letter-spacing:-.055em}
+.price s{color:var(--muted);font-size:15px;font-weight:700}
+.price em{background:var(--accent);color:#fff;font-style:normal;font-weight:800;
+  font-size:12.5px;padding:4px 8px;border-radius:100px}
+.cur{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.03em}
+.card.dark .price b,.card.dark .cur{color:#fff}
+.card.dark .price s{color:rgba(255,255,255,.5)}
+
+.btn{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:var(--accent);color:#fff;padding:14px 14px 14px 19px;border-radius:100px;
+  font-family:var(--display);font-weight:700;font-size:clamp(13.5px,4vw,16px);
+  letter-spacing:-.02em;line-height:1.15;position:relative;overflow:hidden}
+.btn i{font-style:normal;background:#fff;color:var(--accent);padding:9px 12px;
+  border-radius:100px;font-size:15px;flex:0 0 auto;line-height:1}
+.btn:after{content:'';position:absolute;top:0;left:-45%;width:32%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);
+  animation:shine 3.8s ease-in-out infinite}
+@keyframes shine{0%,58%{transform:translateX(0)}100%{transform:translateX(460%)}}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.ghost:after{display:none}
+.btn.ghost i{background:var(--ink);color:#fff}
+
+.tlabel{text-align:center;margin-top:15px;letter-spacing:.1em;text-transform:uppercase;
+  font-size:10.5px;font-weight:700;color:var(--muted)}
+.card.dark .tlabel{color:rgba(255,255,255,.55)}
+.timer{display:flex;gap:6px;justify-content:center;margin-top:10px}
+.timer i{font-style:normal;font-family:var(--display);font-weight:900;font-size:24px;
+  letter-spacing:-.04em;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
+  color:#fff;padding:7px 10px;border-radius:10px;min-width:50px;text-align:center;
+  font-variant-numeric:tabular-nums}
+.card:not(.dark) .timer i{background:var(--soft);border-color:var(--line);color:var(--ink)}
+
+/* ── бонуси ────────────────────────────────────────────── */
+.fan{display:flex;justify-content:center;align-items:flex-end;margin:16px 0 20px}
+.fan span{width:clamp(72px,21vw,94px);aspect-ratio:3/4;background:var(--soft);
+  border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 24px rgba(20,23,15,.16);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  text-align:center;padding:9px 7px;font-size:9px;font-weight:800;line-height:1.2;
+  text-transform:uppercase;letter-spacing:.03em;color:var(--muted)}
+.fan span+span{margin-left:-16px}
+.fan svg{width:clamp(26px,7.4vw,32px);height:auto;flex:0 0 auto}
+.fan span:nth-child(1){transform:rotate(-8deg);z-index:1}
+.fan span:nth-child(2){z-index:3}
+.fan span:nth-child(3){transform:rotate(8deg);z-index:2}
+
+.bon{border:1px solid var(--line);border-radius:12px;padding:15px;margin-top:16px;
+  position:relative;background:var(--soft)}
+.bon .tag{position:absolute;top:-9px;left:14px;background:var(--accent);color:#fff;
+  font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  padding:4px 9px;border-radius:100px}
+.bon h4{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.12;
+  letter-spacing:-.03em;margin:6px 0 9px}
+.goal{font-size:13.5px;line-height:1.5}
+.goal b{color:var(--accent);font-weight:800}
+.ins{font-size:12.5px;line-height:1.5;color:var(--muted);margin-top:9px;
+  padding-top:9px;border-top:1px dashed var(--line)}
+.ins b{color:var(--ink);font-weight:800}
+
+.warn{background:var(--dark);color:#fff;border-radius:12px;padding:14px 16px;margin-top:16px}
+.warn p{font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.82)}
+.warn b{color:var(--accent)}
+
+/* ── нумеровані проблеми ───────────────────────────────── */
+.prob{margin-top:18px}
+.prob>div{padding:16px 0;border-top:1px solid rgba(255,255,255,.16)}
+.prob>div:first-child{border-top:0;padding-top:4px}
+.prob .n{font-family:var(--display);font-weight:900;font-size:12px;letter-spacing:.04em;
+  color:var(--accent)}
+.prob h4{font-family:var(--display);font-weight:700;font-size:18px;line-height:1.12;
+  letter-spacing:-.03em;margin:7px 0 10px}
+.prob ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.prob li{display:flex;gap:9px;font-size:13px;line-height:1.45;color:rgba(255,255,255,.78)}
+.prob li:before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);
+  flex:0 0 auto;margin-top:7px}
+.bridge{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.16);
+  font-size:14px;line-height:1.5;font-weight:700}
+
+/* фігура на тлі темного блока */
+.stand{position:absolute;pointer-events:none;z-index:0}
+.stand img{width:100%;max-width:none;height:auto;
+  -webkit-mask-image:linear-gradient(200deg,#000 0 42%,rgba(0,0,0,.35) 70%,transparent 92%);
+          mask-image:linear-gradient(200deg,#000 0 42%,rgba(0,0,0,.35) 70%,transparent 92%)}
+.card.dark>*:not(.stand){position:relative;z-index:1}
+
+/* ── формати ───────────────────────────────────────────── */
+.fmts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:18px}
+.fmt{position:relative;border-radius:12px;overflow:hidden;background:var(--dark);
+  aspect-ratio:9/14;display:flex;align-items:flex-end}
+.fmt video,.fmt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.fmt .cap{position:relative;z-index:2;padding:11px 11px 12px;width:100%;
+  background:linear-gradient(180deg,transparent,rgba(6,10,6,.86) 46%)}
+.fmt .no{font-family:var(--display);font-weight:900;font-size:11px;color:var(--accent);
+  letter-spacing:.04em}
+.fmt h4{font-family:var(--display);font-weight:700;font-size:13px;line-height:1.15;
+  letter-spacing:-.02em;color:#fff;margin-top:4px}
+.fmt p{font-size:11px;line-height:1.4;color:rgba(255,255,255,.7);margin-top:5px}
+.fmt .slot{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);z-index:1}
+
+/* ── кроки автоворонки ─────────────────────────────────── */
+.steps{margin-top:18px;display:flex;flex-direction:column;gap:0}
+.steps>div{display:flex;gap:13px;padding:13px 0;border-top:1px solid rgba(255,255,255,.16)}
+.steps>div:first-child{border-top:0}
+.steps .n{font-family:var(--display);font-weight:900;font-size:16px;letter-spacing:-.03em;
+  color:var(--accent);flex:0 0 26px;line-height:1.3}
+.steps p{font-size:13.5px;line-height:1.45;color:rgba(255,255,255,.86)}
+.callout{margin-top:18px;background:rgba(0,177,64,.14);border:1px solid rgba(0,177,64,.4);
+  border-radius:12px;padding:14px 15px;font-size:13.5px;line-height:1.5}
+.callout b{color:var(--accent);font-weight:800}
+.card:not(.dark) .callout{background:rgba(0,177,64,.09);border-color:rgba(0,177,64,.3)}
+
+/* ── для кого ──────────────────────────────────────────── */
+/* к каждому пункту — свой знак: 52×52 плитка со штриховой иконкой */
+.who{margin-top:16px}
+.who>div{display:flex;gap:13px;align-items:flex-start;
+  padding:14px 0;border-top:1px solid var(--line)}
+.who>div:first-child{border-top:0;padding-top:2px}
+.wico{flex:0 0 52px;width:52px;height:52px;border-radius:15px;background:var(--soft);
+  border:1px solid var(--line);display:grid;place-items:center}
+.wico svg{width:26px;height:26px;display:block}
+.who .wtx{flex:1;min-width:0}
+.who h4{font-family:var(--display);font-weight:700;font-size:15.5px;line-height:1.15;
+  letter-spacing:-.025em;margin-bottom:6px}
+.who p{font-size:13px;line-height:1.5;color:var(--muted)}
+
+/* ── картка персонажа ──────────────────────────────────── */
+.cardbox{margin:18px 0 0;border:1px solid var(--ink);border-radius:12px;overflow:hidden;
+  background:#fff}
+.cardbox img{width:100%;height:auto}
+.cardbox .meta{display:flex;justify-content:space-between;gap:8px;padding:10px 12px;
+  border-top:1px solid var(--line)}
+.cardbox .meta span{font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);line-height:1.35}
+.cardbox .meta b{display:block;color:var(--ink);font-weight:800;font-size:10.5px;
+  letter-spacing:.03em;margin-top:2px}
+.quote{margin-top:16px;padding:14px 16px;background:var(--soft);border-left:3px solid var(--accent);
+  border-radius:0 10px 10px 0;font-size:14px;line-height:1.5;font-style:italic;font-weight:600}
+
+/* ── уроки ─────────────────────────────────────────────── */
+.lesson{border-top:1px solid var(--line);padding:18px 0}
+.lesson:first-of-type{border-top:0}
+.lhead{display:flex;gap:12px;align-items:baseline}
+.lhead .n{font-family:var(--display);font-weight:900;font-size:19px;letter-spacing:-.04em;
+  color:var(--accent);flex:0 0 auto}
+.lhead h4{font-family:var(--display);font-weight:700;font-size:18px;line-height:1.12;
+  letter-spacing:-.03em}
+/* превью урока: у первого — готовая картка персонажа, у остальных слот под ролик */
+.lprev{margin-top:12px;border-radius:12px;overflow:hidden;background:var(--dark);
+  aspect-ratio:16/9;position:relative;display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--line)}
+.lprev img,.lprev video{width:100%;height:100%;object-fit:cover}
+.lprev .slot{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.34);text-align:center;padding:0 12px;line-height:1.6}
+
+/* ряд «крупный объект слева — текст справа»: объект шире своей колонки и уходит за край */
+.obj-row{display:flex;align-items:flex-end;gap:14px;margin:18px 0 0 calc(var(--pad)*-1)}
+.obj-art{flex:0 0 42%;min-width:0}
+.obj-art img{display:block;width:142%;max-width:none;height:auto;margin-left:-34%}
+/* низ фигуры растворяем, иначе она выглядит обрезанной по краю карточки */
+.obj-art.fade img{-webkit-mask-image:linear-gradient(180deg,#000 0 62%,rgba(0,0,0,.45) 84%,transparent 100%);
+          mask-image:linear-gradient(180deg,#000 0 62%,rgba(0,0,0,.45) 84%,transparent 100%)}
+.obj-col{flex:1;min-width:0;display:flex;flex-direction:column;gap:12px;padding-bottom:8px}
+.obj-col p{font-size:13px;line-height:1.5;margin:0}
+/* зеркальный вариант: фигура справа, текст слева и распределён на всю её высоту */
+.obj-row.flip{flex-direction:row-reverse;align-items:stretch;
+  margin:18px calc(var(--pad)*-1) 0 0}
+.obj-row.flip .obj-art{flex:0 0 38%;align-self:stretch;position:relative}
+/* фигура подстраивается под высоту списка: тянем по высоте, ширина уходит за край карточки */
+/* фигура заходит на колонку слева на 20px — палец «дотягивается» до списка;
+   отступ у текста больше на столько же, чтобы буквы под руку не попадали */
+.obj-row.flip .obj-art img{position:absolute;left:-20px;bottom:0;height:100%;width:auto;
+  max-width:none;margin:0}
+.obj-row.flip .obj-col{justify-content:space-between;padding-bottom:2px;padding-right:26px}
+/* уже 400px колонка вытягивается так, что фигура при подгонке по высоте
+   раздувается и голова уходит за край карточки — там кладём её под список */
+@media (max-width:399px){
+  .obj-row.flip{display:block;margin:18px calc(var(--pad)*-1) 0 0}
+  .obj-row.flip .obj-col{padding-right:0}
+  .obj-row.flip .obj-art{display:block;position:relative;height:300px;margin-top:18px}
+  .obj-row.flip .obj-art img{left:auto;right:-6%;height:100%}
+}
+
+/* реплика автора: не плашка, а голос — отбивается акцентной линией слева */
+.pitch{margin-top:22px;padding:2px 0 2px 16px;border-left:3px solid var(--accent)}
+.pitch p{font-size:15px;line-height:1.5;font-weight:700}
+.pitch p+p{margin-top:10px;font-size:13.5px;font-weight:500}
+.card.dark .pitch p+p{color:rgba(255,255,255,.78)}
+.pitch b{color:var(--accent)}
+.card.dark .obj-col p{color:rgba(255,255,255,.84)}
+
+.tools-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+.tool{font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+  border:1px solid var(--line);border-radius:100px;padding:4px 9px;color:var(--muted)}
+details.acc{margin-top:12px}
+details.acc>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  border:1.5px solid var(--ink);border-radius:100px;padding:8px 14px;cursor:pointer;
+  font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:-.01em;
+  list-style:none}
+details.acc>summary::-webkit-details-marker{display:none}
+details.acc>summary:after{content:'+';font-family:var(--display);font-size:17px;line-height:1}
+details.acc[open]>summary{background:var(--ink);color:#fff}
+details.acc[open]>summary:after{content:'–'}
+details.acc .bul{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+details.acc .bul div{display:flex;gap:9px;font-size:13px;line-height:1.45}
+details.acc .bul div:before{content:'';width:5px;height:5px;border-radius:50%;
+  background:var(--accent);flex:0 0 auto;margin-top:7px}
+.result{margin-top:12px;background:var(--soft);border:1px solid var(--line);
+  border-radius:12px;padding:13px 14px;font-size:13px;line-height:1.5}
+.result b{color:var(--accent);font-weight:800}
+
+/* ── витрати ───────────────────────────────────────────── */
+.bul-i{display:flex;flex-direction:column;gap:12px;margin-top:16px}
+.bul-i div{display:flex;gap:11px;font-size:13.5px;line-height:1.5;align-items:flex-start}
+.bul-i .ic{flex:0 0 auto;font-size:16px;line-height:1.3}
+.bul-i b{font-weight:800}
+.money{margin-top:20px;background:var(--accent);border-radius:12px;padding:18px;
+  position:relative;overflow:hidden}
+.money:before{content:'$';position:absolute;right:-10px;bottom:-40px;
+  font-family:var(--display);font-weight:900;font-size:128px;line-height:1;
+  color:rgba(255,255,255,.16)}
+.money b{display:block;position:relative;font-family:var(--display);font-weight:900;
+  font-size:clamp(38px,11vw,50px);line-height:.9;letter-spacing:-.05em;color:#fff}
+.money p{position:relative;font-size:13px;line-height:1.45;color:rgba(255,255,255,.9);
+  margin-top:10px;max-width:82%}
+
+/* ── як проходить навчання ─────────────────────────────── */
+.how{display:flex;flex-direction:column;gap:0;margin-top:16px}
+.how>div{display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--line);
+  align-items:flex-start}
+.how>div:first-child{border-top:0;padding-top:2px}
+.how .ic{flex:0 0 auto;font-size:19px;line-height:1.2}
+.how h4{font-family:var(--display);font-weight:700;font-size:14.5px;line-height:1.15;
+  letter-spacing:-.025em;margin-bottom:5px}
+.how p{font-size:12.5px;line-height:1.5;color:var(--muted)}
+
+/* ── чек-листи ─────────────────────────────────────────── */
+.checks{display:flex;flex-direction:column;margin-top:16px}
+.checks div{display:flex;gap:10px;font-size:13.5px;line-height:1.45;padding:11px 0;
+  border-top:1px solid var(--line);align-items:flex-start}
+.checks div:first-child{border-top:0}
+.checks .tk{color:var(--accent);font-weight:900;flex:0 0 auto;line-height:1.3}
+.card.dark .checks div{border-color:rgba(255,255,255,.16)}
+
+/* ── авторські інструменти ─────────────────────────────── */
+.tl{display:flex;flex-direction:column;margin-top:16px}
+.tl div{padding:13px 0;border-top:1px solid var(--line);font-size:13.5px;line-height:1.5}
+.tl-tight div{padding:9px 0;display:flex;gap:10px;align-items:flex-start}
+.tl-tight b{font-size:13px}
+.tl-tight span{font-size:11.5px;line-height:1.4}
+.tico{flex:0 0 34px;width:34px;height:34px;border-radius:11px;background:var(--soft);
+  border:1px solid var(--line);display:grid;place-items:center;margin-top:1px}
+.tico svg{width:18px;height:18px;display:block}
+.tl div:first-child{border-top:0}
+.tl b{font-family:var(--display);font-weight:700;font-size:14.5px;letter-spacing:-.025em;
+  display:block;margin-bottom:4px}
+.tl span{color:var(--muted);font-size:13px}
+
+/* ── гарантія ──────────────────────────────────────────── */
+/* гарантия как печать: круглый штамп со штриховым кольцом + строка рядом */
+.guar{display:flex;align-items:center;gap:16px;margin-top:18px}
+.stamp{flex:0 0 auto;width:clamp(104px,29vw,124px);aspect-ratio:1;border-radius:50%;
+  background:var(--accent);color:#fff;position:relative;display:grid;place-items:center;
+  transform:rotate(-7deg);box-shadow:0 14px 30px -12px rgba(0,177,64,.6)}
+.stamp:before{content:'';position:absolute;inset:7px;border-radius:50%;
+  border:1.5px dashed rgba(255,255,255,.62)}
+.stamp i{font-style:normal;position:relative;text-align:center;line-height:.86}
+.stamp .n{display:block;font-family:var(--display);font-weight:900;
+  font-size:clamp(40px,11.5vw,48px);letter-spacing:-.06em}
+.stamp .u{display:block;font-size:11px;font-weight:800;letter-spacing:.18em;
+  text-transform:uppercase;margin-top:5px}
+.gtx b{display:block;font-family:var(--display);font-weight:700;font-size:clamp(17px,5vw,20px);
+  line-height:1.12;letter-spacing:-.03em}
+.gtx span{display:block;font-size:12.5px;line-height:1.45;color:var(--muted);margin-top:8px}
+.gsep{height:1px;background:repeating-linear-gradient(90deg,var(--line) 0 6px,transparent 6px 12px);
+  margin:22px 0 16px}
+.rate{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.rate b{font-family:var(--display);font-weight:900;font-size:clamp(36px,10vw,44px);
+  line-height:.9;letter-spacing:-.04em}
+.rate em{font-style:normal;font-size:13px;font-weight:700;color:var(--muted)}
+.stars{display:flex;gap:3px;align-self:center}
+.stars .star{width:14px;height:14px}
+.punch{display:inline-block;margin-top:14px;background:var(--accent);color:#fff;
+  padding:11px 14px;border-radius:10px;font-family:var(--display);font-weight:700;
+  font-size:clamp(14px,4.2vw,17px);line-height:1.15;letter-spacing:-.025em}
+
+/* ── автор ─────────────────────────────────────────────── */
+.avid{margin:16px 0 0;border-radius:12px;overflow:hidden;aspect-ratio:4/3;
+  background:#000;position:relative}
+/* снимок вертикальный, в 4:3 обрезается — держим окно на лице */
+.avid img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+
+/* ── відгуки ───────────────────────────────────────────── */
+.revs{display:flex;align-items:flex-start;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+  margin:18px calc(var(--pad)*-1) 0;padding:0 var(--pad) 6px}
+.revs::-webkit-scrollbar{display:none}
+/* без content-visibility: он резал скрины по contain-intrinsic-size.
+   Ленивую загрузку держит loading="lazy" на самих картинках. */
+.revs figure{min-width:272px;max-width:272px;flex-shrink:0;scroll-snap-align:start;
+  border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--soft)}
+.revs img{width:100%;height:auto}
+.hint{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;
+  margin-top:10px;text-align:center}
+
+/* ── FAQ ───────────────────────────────────────────────── */
+details.q{border-top:1px solid var(--line)}
+details.q:first-of-type{border-top:0}
+details.q>summary{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+  padding:14px 0;cursor:pointer;font-weight:800;font-size:14px;line-height:1.35;
+  list-style:none}
+details.q>summary::-webkit-details-marker{display:none}
+details.q>summary:after{content:'+';font-family:var(--display);font-size:19px;line-height:1;
+  color:var(--accent);flex:0 0 auto;transition:transform .2s}
+details.q[open]>summary:after{transform:rotate(45deg)}
+details.q p{font-size:13.5px;line-height:1.55;color:var(--muted);padding-bottom:15px}
+
+/* ── футер ─────────────────────────────────────────────── */
+.foot{font-size:11px;line-height:1.55;color:var(--muted)}
+.foot b{display:block;color:var(--ink);font-size:11.5px;margin-top:9px;font-weight:700}
+.foot a{text-decoration:underline}
+.sup{display:flex;align-items:center;gap:9px;background:var(--soft);border:1px solid var(--line);
+  border-radius:100px;padding:11px 16px;font-weight:800;font-size:13.5px;margin-top:12px}
+
+/* ── липка панель ──────────────────────────────────────── */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--dark);color:#fff;
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:12px;
+  display:none;align-items:center;border-top:2px solid var(--accent);
+  box-shadow:0 -12px 34px rgba(0,0,0,.4)}
+.sticky.on{display:flex}
+.sprice{flex:0 0 auto;line-height:1}
+.sprice b{display:block;font-family:var(--display);font-weight:900;font-size:27px;
+  letter-spacing:-.05em}
+.sprice b em{font-style:normal;font-size:13px;margin-left:3px;letter-spacing:0}
+.sprice s{display:block;font-size:10.5px;color:#8B9086;margin-top:3px;font-weight:700}
+.sticky .btn{flex:1;padding:11px 9px 11px 14px;font-size:12px;line-height:1.15}
+.sticky .btn i{padding:7px 9px;font-size:12.5px}
+@media (min-width:768px){.sticky{max-width:var(--col);margin:0 auto}}
+
+/* ── поява героя ───────────────────────────────────────── */
+.rise{animation:rise .7s cubic-bezier(.2,.8,.2,1) backwards}
+.rise-1{animation-delay:.05s}.rise-2{animation-delay:.14s}
+.rise-3{animation-delay:.23s}.rise-4{animation-delay:.32s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion:reduce){
+  .marq .track,.btn:after,.dot,.rise{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ХЕДЕР -->
+  <div class="card" style="padding:13px var(--pad)">
+    <div class="row">
+      <span class="pill"><i class="dot"></i>старт <span data-start>завтра</span></span>
+      <span class="pill solid">Ai_Sashka</span>
+    </div>
+  </div>
+
+  <div class="marq" aria-label="Практичний мінікурс з домашніми завданнями">
+    <div class="track">
+      <span aria-hidden="true"><b class="nw">NEW</b><i class="star"></i>Практичний мінікурс з домашніми завданнями<i class="star"></i><b class="nw">NEW</b><i class="star"></i>Практичний мінікурс з домашніми завданнями<i class="star"></i></span>
+      <span aria-hidden="true"><b class="nw">NEW</b><i class="star"></i>Практичний мінікурс з домашніми завданнями<i class="star"></i><b class="nw">NEW</b><i class="star"></i>Практичний мінікурс з домашніми завданнями<i class="star"></i></span>
+    </div>
+  </div>
+
+  <!-- ═══ 1 · ГЕРОЙ ═══ -->
+  <section class="card hero">
+    <p class="lead rise rise-1">Готова технологія створення контенту, де в кадрі ти — без камери, світла й знімальної групи. Від картки свого АІ-двійника до вірусного відео, каруселі та мультика з собою в головній ролі.</p>
+    <h1 class="h h1 rise rise-2">Як генерувати АІ-відео з собою <span class="mk">з повного нуля</span> та без досвіду в нейронках?</h1>
+    <p class="sub rise rise-3">навіть якщо ти ніколи не працював з АІ</p>
+
+    <div class="duo rise rise-4">
+      <div class="art">
+        <video src="sasha-360.mp4" poster="img/sasha-360-poster.jpg" width="420" height="1334"
+               autoplay muted loop playsinline preload="metadata" disablepictureinpicture
+               aria-label="Олександр обертається на 360° — жодного кадру не знято камерою"></video>
+      </div>
+      <ul class="facts">
+        <li>5 практичних уроків</li>
+        <li>6 форматів контенту з собою</li>
+        <li>Картка персонажа = твоя точна копія</li>
+        <li>Карусель однією голосовою командою</li>
+        <li>Майже всі нейронки — за однією підпискою</li>
+        <li>Мультики з собою українською мовою</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ 2 · ОФЕР І ТАЙМЕР ═══ -->
+  <section class="card dark" id="offer">
+    <div class="price"><b>390</b><span class="cur">грн</span><s>2 113 грн</s><em>−82%</em></div>
+    <p class="sm" style="text-align:center;font-style:italic;color:var(--accent);margin-top:11px">
+      + комплект бонусів, при купівлі мінікурсу до кінця таймера</p>
+    <hr>
+    <a class="btn" href="ZENEDU_LINK" target="_blank" rel="noopener"><span>Почати генерувати</span><i>−82%</i></a>
+    <p class="tlabel">До кінця спеціальної пропозиції</p>
+    <div class="timer"><i data-t="h">00</i><i data-t="m">10</i><i data-t="s">00</i></div>
+  </section>
+
+  <!-- ═══ 3 · БОНУСИ ═══ -->
+  <section class="card">
+    <h2 class="h h2">Забери мінікурс до кінця таймера — і отримай <span class="acc">3 бонуси</span></h2>
+    <p class="lead-it">кожен бонус прибирає окрему причину, через яку люди зупиняються на першому тижні</p>
+
+    <div class="fan" aria-hidden="true">
+      <span><svg viewBox="0 0 48 48" fill="none" stroke="#14170F" stroke-width="3" stroke-linejoin="round"><path d="M5 7h38v27H21l-9 8v-8H5z" fill="#fff"/><path d="M24 12l3 6 6 3-6 3-3 6-3-6-6-3 6-3z" fill="#00B140" stroke="none"/></svg>Асистент</span>
+      <span><svg viewBox="0 0 48 48" fill="none" stroke="#14170F" stroke-width="3" stroke-linejoin="round"><rect x="14" y="4" width="20" height="40" rx="4" fill="#fff"/><rect x="18" y="10" width="12" height="20" fill="#00B140" stroke="none"/><circle cx="24" cy="37" r="2.2" fill="#14170F" stroke="none"/></svg>З телефону</span>
+      <span><svg viewBox="0 0 48 48" fill="none" stroke="#14170F" stroke-width="3" stroke-linejoin="round"><circle cx="24" cy="24" r="18" fill="#fff"/><path d="M24 13v22M18 18h9a4 4 0 0 1 0 8h-6a4 4 0 0 0 0 8h9" stroke="#00B140"/></svg>+10% кредитів</span>
+    </div>
+
+    <div class="bon">
+      <span class="tag">Бонус 1 · промт + PDF</span>
+      <h4>Асистент, який пише промти замість тебе</h4>
+      <p class="goal"><b>🎯 Результат:</b> ти описуєш ідею звичайними словами — асистент перетворює її на готовий промт під відео чи зображення. Усередині майстер-промт для налаштування і база знань до нього: структура промтів, як задавати стиль, як підключати референси й що робити, коли результат пішов не туди. Працює з будь-якою нейронкою, з якою ти сидиш постійно.</p>
+    </div>
+
+    <div class="bon">
+      <span class="tag">Бонус 2 · інструкція</span>
+      <h4>Інструкція, як генерувати відео з собою навіть з телефону</h4>
+      <p class="goal"><b>🎯 Результат:</b> покрокове налаштування ChatGPT під мобільний — генерація запускається прямо з телефону, у черзі й у дорозі. Компʼютер перестає бути умовою: бонус саме для тих, у кого ноутбука немає взагалі або він завжди зайнятий.</p>
+    </div>
+
+    <div class="bon">
+      <span class="tag">Бонус 3 · +10% кредитів</span>
+      <h4>Унікальне посилання на нейронки від Ai_Sashka: +10% токенів за кожне поповнення</h4>
+      <p class="goal"><b>🎯 Результат:</b> кредити падають на баланс із надбавкою — поповнив і одразу маєш на 10% більше генерацій. Майже всі нейронки мінікурсу працюють з цього балансу, оплата йде українською карткою без VPN, кредити не згорають. На дистанції ця надбавка — десятки додаткових відео.</p>
+    </div>
+
+    <div class="warn"><p>Бонуси зникають разом із таймером. Далі мінікурс продається <b>без них</b>.</p></div>
+
+    <a class="btn" style="margin-top:16px" href="ZENEDU_LINK" target="_blank" rel="noopener"><span>Забрати мінікурс і 3 бонуси</span><i>→</i></a>
+  </section>
+
+  <!-- ═══ 4 · ПРОБЛЕМАТИКА ═══ -->
+  <section class="card dark">
+    <div class="stand" style="top:-14px;right:-17%;width:55%">
+      <picture>
+        <source srcset="img/facepalm.avif" type="image/avif">
+        <img src="img/facepalm.jpg" width="454" height="620" loading="lazy" decoding="async" alt="">
+      </picture>
+    </div>
+    <h2 class="h h2" style="max-width:66%">Одразу скажу: цей мінікурс вирішує головні проблеми з генерацією відео з собою</h2>
+
+    <div class="prob">
+      <div>
+        <span class="n">01</span>
+        <h4>Обличчя перестає бути твоїм</h4>
+        <ul>
+          <li>у кожній новій генерації виходить схожа людина, але не ти</li>
+          <li>вік, зачіска й статура «пливуть» від ролика до ролика</li>
+          <li>знайомі бачать підробку раніше, ніж дивляться, про що відео</li>
+        </ul>
+      </div>
+      <div>
+        <span class="n">02</span>
+        <h4>Відео виглядає штучно</h4>
+        <ul>
+          <li>пластикова шкіра, скляні очі, рухи як у манекена</li>
+          <li>міміка не збігається з тим, що людина говорить</li>
+          <li>глядач розуміє, що це АІ, за першу секунду</li>
+        </ul>
+      </div>
+      <div>
+        <span class="n">03</span>
+        <h4>У кадрі тільки ти, і більше нічого</h4>
+        <ul>
+          <li>не виходить додати в кадр товар, який треба показати</li>
+          <li>локацію не поставиш: людина є, а місця немає</li>
+          <li>усе зводиться до портрета, з якого не зробиш ані рекламу, ані сторітелінг</li>
+        </ul>
+      </div>
+      <div>
+        <span class="n">04</span>
+        <h4>Персонаж говорить не українською</h4>
+        <ul>
+          <li>генерації йдуть з акцентом або зі збитими наголосами</li>
+          <li>ліпсинк розсинхронізований: губи живуть окремо від слів</li>
+          <li>англомовні туторіали цю проблему навіть не згадують</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="bridge">Кожна з цих проблем має конкретне рішення. Я показую всі чотири на <span class="mk">пʼяти уроках</span>.</p>
+  </section>
+
+  <!-- ═══ 5 · ФОРМАТИ ═══ -->
+  <section class="card">
+    <h2 class="h h2">Ось такий контент із собою ти зможеш робити вже під час мінікурсу</h2>
+
+    <div class="fmts">
+      <article class="fmt">
+        <video src="format-1.mp4" poster="img/format-1.jpg" muted loop playsinline
+               preload="none" aria-label="Олександр на вулиці — згенерований кадр у локації"></video>
+        <span class="play sm" role="button" tabindex="0" aria-label="Відтворити"></span>
+        <div class="cap"><span class="no">01</span><h4>Фото з собою будь-де</h4>
+          <p>Ти в студії, в іншому місті, в іншому одязі. Фотосесія без фотографа й без виходу з дому.</p></div>
+      </article>
+      <article class="fmt">
+        <span class="slot">format-2.mp4</span>
+        <div class="cap"><span class="no">02</span><h4>Карусель однією голосовою командою</h4>
+          <p>Називаєш ідею вголос — нейронка пише текст, збирає дизайн і верстає слайди.</p></div>
+      </article>
+      <article class="fmt">
+        <video src="format-3.mp4" poster="img/format-3.jpg" muted loop playsinline
+               preload="none" aria-label="Двоє Олександрів у кадрі — реалістичне відео"></video>
+        <span class="play sm" role="button" tabindex="0" aria-label="Відтворити"></span>
+        <div class="cap"><span class="no">03</span><h4>Реалістичне відео з собою</h4>
+          <p>Ти в кадрі, рухаєшся й говориш. Плюс товар у руках і локація на твій вибір.</p></div>
+      </article>
+      <article class="fmt">
+        <span class="slot">format-4.mp4</span>
+        <div class="cap"><span class="no">04</span><h4>Трендове відео</h4>
+          <p>Формат, який зараз збирає охоплення, з тобою в головній ролі.</p></div>
+      </article>
+      <article class="fmt">
+        <video src="format-5.mp4" poster="img/format-5.jpg" muted loop playsinline
+               preload="none" aria-label="Мультяшний герой у футболці Ai_Sashka"></video>
+        <span class="play sm" role="button" tabindex="0" aria-label="Відтворити"></span>
+        <div class="cap"><span class="no">05</span><h4>Мультик, де головний герой — ти</h4>
+          <p>Твій персонаж говорить українською, з правильними наголосами.</p></div>
+      </article>
+      <article class="fmt">
+        <span class="slot">format-6.mp4</span>
+        <div class="cap"><span class="no">06</span><h4>Цифровий двійник</h4>
+          <p>Аватар, який говорить твоїм голосом і жестикулює як ти. Рілси будь-якою мовою.</p></div>
+      </article>
+    </div>
+
+    <p class="p">Далі все залежить від того, що тобі потрібно: контент для блогу, реклама товару чи ролики на замовлення.</p>
+    <a class="btn ghost" style="margin-top:16px" href="#program"><span>Дізнатись програму</span><i>→</i></a>
+  </section>
+
+
+  <!-- ═══ 7 · ДЛЯ КОГО ═══ -->
+  <section class="card">
+    <h2 class="h h2">Кому цей мінікурс закриє реальну задачу</h2>
+    <div class="who">
+      <div><span class="wico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5h11a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H3.5a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2Z"/><path d="m16 12.5 5.5-3v9l-5.5-3"/><path d="M2 21 21 3" stroke="#00B140"/></svg></span><div class="wtx"><h4>Не любиш зніматися</h4><p>Соцмережі є, ідеї є, а перед камерою все зникає. Тепер твоє обличчя в кадрі без камери взагалі.</p></div></div>
+      <div><span class="wico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12.5" r="9"/><path d="M12 7v6l4 2.2" stroke="#00B140"/></svg></span><div class="wtx"><h4>Немає часу на зйомку</h4><p>Світло, дублі, макіяж, монтаж — на один ролик іде півдня. Генерація займає хвилини.</p></div></div>
+      <div><span class="wico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.5" cy="8" r="3.4"/><path d="M3 20c0-3.6 2.9-6.2 6.5-6.2 1.3 0 2.5.3 3.5.9"/><path d="M16.5 14.5h5M19 12v5" stroke="#00B140"/></svg></span><div class="wtx"><h4>Немає SMM-ника</h4><p>Наймати дорого, вести самому ніколи. АІ закриває візуал і тексти, тобі лишається рішення.</p></div></div>
+      <div><span class="wico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9.5h17V20a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1V9.5Z"/><path d="M3 9.5 5 4h14l2 5.5"/><path d="M9.5 21v-5.5h5V21" stroke="#00B140"/></svg></span><div class="wtx"><h4>Просуваєш бізнес</h4><p>Реклама з живою людиною в кадрі, без знімальної групи, моделей і оренди локації.</p></div></div>
+      <div><span class="wico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="10.5" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0" stroke="#00B140"/><path d="M12 18v3.5M8.5 21.5h7"/></svg></span><div class="wtx"><h4>Ти експерт і продаєш собою</h4><p>Обличчя в контенті потрібне постійно, а знімати щотижня не виходить. Двійник знімає це питання.</p></div></div>
+      <div><span class="wico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18" stroke="#00B140"/><path d="M12 3c2.6 2.6 3.9 5.6 3.9 9s-1.3 6.4-3.9 9c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3Z"/></svg></span><div class="wtx"><h4>Виходиш на іноземну аудиторію</h4><p>Твій рілс говорить іншою мовою твоїм же голосом і з твоєю манерою.</p></div></div>
+      <div><span class="wico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7.5" width="19" height="13" rx="2"/><path d="M8.5 7.5V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"/><path d="M12 11v6M10 12.5h3a1.5 1.5 0 0 1 0 3h-2a1.5 1.5 0 0 0 0 3h3" stroke="#00B140"/></svg></span><div class="wtx"><h4>Хочеш робити це на замовлення</h4><p>Ти опановуєш формат, який зараз мало хто вміє робити якісно.</p></div></div>
+      <div><span class="wico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10.5" r="2.8" stroke="#00B140"/></svg></span><div class="wtx"><h4>Хочеш побачити себе там, де не був</h4><p>Це теж причина. І вона нормальна.</p></div></div>
+    </div>
+    <p class="lead-it" style="margin-top:16px">Якщо впізнав себе хоча б в одному пункті — цей мінікурс тобі підійде.</p>
+  </section>
+
+
+  <!-- ═══ 9 · УРОКИ ═══ -->
+  <section class="card" id="program">
+    <h2 class="h h2">Пʼять уроків: від картки персонажа до <span class="acc">цифрового двійника</span></h2>
+    <p class="lead-it">5 вечорів · короткий урок і домашка на вечір · доступ назавжди</p>
+
+    <div class="lesson">
+      <div class="lhead"><span class="n">01</span><h4>Картка персонажа: твоя точна копія</h4></div>
+      <div class="lprev">
+        <picture>
+          <source srcset="img/card.avif" type="image/avif">
+          <img src="img/card.jpg" width="1400" height="788" loading="lazy" decoding="async"
+               alt="Картка персонажа: фігура спереду й ззаду плюс портрет">
+        </picture>
+      </div>
+      <div class="tools-row"><span class="tool">ChatGPT</span><span class="tool">GPT Image 2</span></div>
+      <details class="acc"><summary>Що в уроці</summary>
+        <div class="bul">
+          <div>обираємо мовну модель, яка стане твоїм помічником у роботі</div>
+          <div>налаштовуємо асистента в ChatGPT під генерацію контенту з собою</div>
+          <div>працюємо з майстер-промтом і базою знань до асистента</div>
+          <div>створюємо картку персонажа: твою точну копію в усіх ракурсах</div>
+          <div>зберігаємо картку так, щоб підставляти її в будь-яку генерацію</div>
+        </div>
+      </details>
+      <p class="result"><b>🎯 Результат:</b> у тебе є твоя цифрова копія, яка не змінюється від генерації до генерації, і асистент, налаштований під роботу з нею. Зникає найбільша причина розчарувань: більше не буває так, що з десяти роликів на тебе схожі два. Далі кожен урок працює з цією карткою, тому все, що ти згенеруєш, буде саме тобою.</p>
+    </div>
+
+    <div class="lesson">
+      <div class="lhead"><span class="n">02</span><h4>Каруселі однією голосовою командою + автоворонка в директі</h4></div>
+      <div class="lprev"><span class="slot">lesson-02.mp4</span></div>
+      <div class="tools-row"><span class="tool">ChatGPT у режимі Work</span><span class="tool">ManyChat</span></div>
+      <details class="acc"><summary>Що в уроці</summary>
+        <div class="bul">
+          <div>як згенерувати повну карусель однією голосовою командою: ти вголос кажеш ідею й даєш референс, нейронка робить решту</div>
+          <div>текст на слайдах, дизайн і послідовність нейронка збирає сама, вручну верстати нічого не треба</div>
+          <div>де шукати ідеї візуалу для каруселей</div>
+          <div>як вбудувати заклик до дії, який веде людину в директ</div>
+          <div>як налаштувати ManyChat так, щоб він за кодовим словом сам видавав матеріали, відповідав на питання й продавав твої продукти</div>
+        </div>
+      </details>
+      <p class="result"><b>🎯 Результат:</b> ти збираєш карусель за час, поки закипає чайник, і кожен такий пост приводить людей у директ, де з ними працює бот. Зникає найдовша частина роботи над постом і найпровальніша частина після нього: коли пост зібрав збереження, а далі нічого не сталося. Твій контент перестає бути просто контентом і починає приводити заявки, поки ти спиш.</p>
+    </div>
+
+    <div class="lesson">
+      <div class="lhead"><span class="n">03</span><h4>Реалістичне відео з собою в Seedance 2.5</h4></div>
+      <div class="lprev"><span class="slot">lesson-03.mp4</span></div>
+      <div class="tools-row"><span class="tool">Seedance 2.5</span></div>
+      <details class="acc"><summary>Що в уроці</summary>
+        <div class="bul">
+          <div>як отримати справді реалістичне відео, а не пластикову ляльку з твоїм обличчям</div>
+          <div>як додати в кадр не тільки себе: товар, предмет, конкретну локацію</div>
+          <div>як працювати з кількома референсами одночасно</div>
+          <div>як писати промти під Seedance 2.5 і як правити результат, не ламаючи всю сцену</div>
+          <div>як економити кредити й отримувати потрібний кадр з першого-другого разу</div>
+        </div>
+      </details>
+      <p class="result"><b>🎯 Результат:</b> ти генеруєш відео, де ти виглядаєш як ти, рухаєшся природно й тримаєш у руках те, що потрібно показати. Зникає ситуація, коли ролик доводиться викидати, бо глядач одразу бачить підробку. Це вже той рівень, який можна ставити в рекламу й показувати замовнику.</p>
+    </div>
+
+    <div class="lesson">
+      <div class="lhead"><span class="n">04</span><h4>Мультик, де головний герой — ти</h4></div>
+      <div class="lprev"><span class="slot">lesson-04.mp4</span></div>
+      <div class="tools-row"><span class="tool">Wan 3.0</span></div>
+      <details class="acc"><summary>Що в уроці</summary>
+        <div class="bul">
+          <div>як перетворити свою картку персонажа на мультяшного героя</div>
+          <div>як зробити, щоб персонаж говорив українською з правильними наголосами</div>
+        </div>
+      </details>
+      <p class="result"><b>🎯 Результат:</b> ти робиш мультики, де в головній ролі ти сам, і твій персонаж говорить українською без акценту й без плутанини в наголосах. Зникає обмеження, через яке більшість українських авторів або мовчки монтують субтитри, або озвучують вручну. Формат підходить і для блогу, і для бізнесу, і для замовлень.</p>
+    </div>
+
+    <div class="lesson">
+      <div class="lhead"><span class="n">05</span><h4>Цифровий двійник</h4></div>
+      <div class="lprev"><span class="slot">lesson-05.mp4</span></div>
+      <div class="tools-row"><span class="tool">HeyGen</span></div>
+      <details class="acc"><summary>Що в уроці</summary>
+        <div class="bul">
+          <div>як зробити двійника, який говорить твоїм голосом і жестикулює як ти</div>
+          <div>як генерувати рілси з двійником на будь-яку тему під будь-яку нішу</div>
+          <div>як перекласти свій рілс іншою мовою, зберігши власний голос і манеру</div>
+          <div>як вести соцмережі, знімаючи себе один раз замість щотижневих зйомок</div>
+        </div>
+      </details>
+      <p class="result"><b>🎯 Результат:</b> у тебе є двійник, який може говорити те, що ти напишеш, будь-якою мовою й твоїм голосом. Зникає щотижнева зйомка: контент виходить рівно тоді, коли в тебе є що сказати, а не тоді, коли ти встиг зібрати світло. Іноземна аудиторія чує тебе своєю мовою й не розуміє, що ролик знімався українською.</p>
+    </div>
+
+    <div class="warn"><p><b>Важливо.</b> Після кожного уроку є домашнє завдання. Виконаєш усі — отримаєш бонус, про який дізнаєшся в процесі.</p></div>
+
+    <a class="btn" style="margin-top:16px" href="ZENEDU_LINK" target="_blank" rel="noopener"><span>Приєднатися за 390 грн</span><i>→</i></a>
+  </section>
+
+  <!-- ═══ 6 · КУДИ ВЕДЕ ЦЕЙ КОНТЕНТ ═══ -->
+  <section class="card dark">
+    <h2 class="h h2">Контент із собою — це половина справи</h2>
+
+    <div class="obj-row flip">
+      <div class="obj-art">
+        <picture>
+          <source srcset="img/point.avif" type="image/avif">
+          <img src="img/point.jpg" width="459" height="620" loading="lazy" decoding="async" alt="">
+        </picture>
+      </div>
+      <div class="obj-col">
+        <div class="steps">
+          <div><span class="n">01</span><p>У карусель вшивається кодове слово: «Напиши слово “гайд” у директ — і я надішлю тобі бонус»</p></div>
+          <div><span class="n">02</span><p>ManyChat ловить це слово й починає діалог автоматично</p></div>
+          <div><span class="n">03</span><p>Бот видає матеріал, відповідає на питання й пропонує твій продукт</p></div>
+          <div><span class="n">04</span><p>У результаті ти маєш не просто підписника, а потенційного клієнта або навіть продаж. Без твоєї участі, навіть коли ти спиш</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chips" style="margin-top:16px">
+      <span class="chip">експерту — віддати лід-магніт</span>
+      <span class="chip">бізнесу — прийняти замовлення</span>
+      <span class="chip">тобі — продати послуги з АІ-контенту</span>
+    </div>
+
+    <div class="pitch">
+      <p>Як зібрати таку штуку, я показую <b>у другому уроці</b> — з нуля, покроково.</p>
+      <p>Це вже більше, ніж просто мінікурс про відео з собою, погодься. Я хочу дати тобі реальну користь, а не просто інструкцію.</p>
+    </div>
+  </section>
+
+
+  <!-- ═══ 11 · ЯК ПРОХОДИТЬ НАВЧАННЯ ═══ -->
+  <section class="card">
+    <h2 class="h h2">Як проходить навчання</h2>
+    <div class="how">
+      <div><span class="ic">📱</span><div><h4>Один урок на вечір</h4><p>Після оплати ти одразу потрапляєш у Telegram-бот. Далі щовечора приходить один короткий урок.</p></div></div>
+      <div><span class="ic">📋</span><div><h4>Інструкції без води</h4><p>Що натиснути, куди завантажити, який промт скопіювати. Без теорії про те, як влаштовані нейромережі.</p></div></div>
+      <div><span class="ic">🤖</span><div><h4>Готові промти й асистент</h4><p>Промт-інженерію вчити не треба. Ти отримуєш налаштованого асистента, який пише промти замість тебе.</p></div></div>
+      <div><span class="ic">🔑</span><div><h4>Одна платформа замість кількох підписок</h4><p>Майже всі нейронки мінікурсу зібрані в одному кабінеті. Оплата українською карткою, без VPN, кредити не згорають. Доступ і персональна умова +10% приходять після оплати.</p></div></div>
+      <div><span class="ic">📝</span><div><h4>Домашнє завдання після кожного уроку</h4><p>Не виходить — пишеш куратору й отримуєш розбір.</p></div></div>
+      <div><span class="ic">💻</span><div><h4>Потрібен лише телефон</h4><p>Уся генерація відбувається на серверах нейромереж. Потужний компʼютер не потрібен, а в бонусі є налаштування під роботу з телефону.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ═══ 12 · ЗА 5 УРОКІВ ТИ ═══ -->
+  <section class="card dark">
+    <h2 class="h h2">За пʼять уроків ти:</h2>
+    <div class="checks">
+      <div><span class="tk">✓</span><span>Створиш свою картку персонажа — точну копію, яка не змінюється від генерації до генерації</span></div>
+      <div><span class="tk">✓</span><span>Налаштуєш власного AI-асистента, який пише промти замість тебе</span></div>
+      <div><span class="tk">✓</span><span>Згенеруєш фото з собою в будь-якій локації, одязі й обстановці</span></div>
+      <div><span class="tk">✓</span><span>Згенеруєш готову карусель однією голосовою командою: текст, дизайн і слайди зробить нейронка</span></div>
+      <div><span class="tk">✓</span><span>Налаштуєш ManyChat, який за кодовим словом видає матеріали, відповідає й продає замість тебе</span></div>
+      <div><span class="tk">✓</span><span>Навчишся генерувати реалістичне відео з собою в Seedance 2.5 — з товаром у руках і потрібною локацією</span></div>
+      <div><span class="tk">✓</span><span>Зрозумієш, як економити кредити й отримувати кадр з першого-другого разу</span></div>
+      <div><span class="tk">✓</span><span>Зробиш мультик, де головний герой ти, і персонаж говорить українською з правильними наголосами</span></div>
+      <div><span class="tk">✓</span><span>Створиш цифрового двійника, який говорить твоїм голосом і перекладає твої рілси іншими мовами</span></div>
+      <div><span class="tk">✓</span><span>Зможеш вести соцмережі, не вмикаючи камеру жодного разу</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ 13 · АВТОРСЬКІ ІНСТРУМЕНТИ ═══ -->
+  <section class="card">
+    <h2 class="h h2">Авторські інструменти всередині мінікурсу</h2>
+
+    <div class="obj-row">
+      <div class="obj-art fade">
+        <picture>
+          <source srcset="img/laptop.avif" type="image/avif">
+          <img src="img/laptop.jpg" width="461" height="620" loading="lazy" decoding="async" alt="">
+        </picture>
+      </div>
+      <div class="obj-col">
+        <div class="tl tl-tight">
+          <div><span class="tico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5h18v12H10l-5 4v-4H3z"/><path d="M12 8.5l1.4 2.9 2.9 1.4-2.9 1.4L12 17l-1.4-2.8-2.9-1.4 2.9-1.4z" fill="#00B140" stroke="none"/></svg></span><span class="ttx"><b>Майстер-промт</b><span>налаштовує твого AI-асистента під контент із собою</span></span></div>
+          <div><span class="tico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5h6.5a2.5 2.5 0 0 1 2.5 2.5v13a2 2 0 0 0-2-2H4z"/><path d="M20 4.5h-6.5A2.5 2.5 0 0 0 11 7v13a2 2 0 0 1 2-2h7z" stroke="#00B140"/></svg></span><span class="ttx"><b>База знань до асистента</b><span>структура промтів, стиль, референси, що робити з невдалим результатом</span></span></div>
+          <div><span class="tico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><circle cx="9" cy="11" r="2.4" stroke="#00B140"/><path d="M5.5 16.5c.7-1.9 2-2.9 3.5-2.9s2.8 1 3.5 2.9" stroke="#00B140"/><path d="M15.5 10h4M15.5 13.5h4"/></svg></span><span class="ttx"><b>Шаблон картки персонажа</b><span>готовий промт, який робить твою точну копію з першого разу</span></span></div>
+          <div><span class="tico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><circle cx="12" cy="11" r="2.6" stroke="#00B140"/><path d="M12 6.6v1.4M12 14v1.4M16.4 11H15M9 11H7.6" stroke="#00B140"/></svg></span><span class="ttx"><b>Налаштування під телефон</b><span>конфігурація ChatGPT для генерації з мобільного</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="p">Разом ці інструменти:</p>
+    <div class="checks" style="margin-top:10px">
+      <div><span class="tk">—</span><span>прибирають етап, на якому людина сидить і формулює промт словами</span></div>
+      <div><span class="tk">—</span><span>тримають твою зовнішність однаковою в кожній новій генерації</span></div>
+      <div><span class="tk">—</span><span>зменшують кількість невдалих генерацій, а разом із ними й витрати кредитів</span></div>
+      <div><span class="tk">—</span><span>підказують ідеї, коли треба зробити контент, а в голові порожньо</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ 14 · ГАРАНТІЯ ═══ -->
+  <section class="card">
+    <h2 class="h h2">14 днів на повернення коштів</h2>
+    <div class="guar">
+      <div class="stamp" aria-hidden="true"><i><span class="n">14</span><span class="u">днів</span></i></div>
+      <div class="gtx">
+        <b>Повна гарантія<br>повернення коштів</b>
+        <span>Не побачиш цінності — поверну гроші без жодного питання</span>
+      </div>
+    </div>
+
+    <p class="p">Я впевнений у якості цього мінікурсу, тому даю <b>14 днів повної гарантії</b>.</p>
+    <p class="p">Якщо протягом двох тижнів ти пройдеш уроки, створиш свою картку персонажа й згенеруєш перше відео з собою — але не побачиш цінності або очікуваного результату — я без жодних питань поверну кошти.</p>
+    <p class="p">Жодних ризиків. Або в тебе зʼявляється контент із собою в кадрі, або я повертаю гроші.</p>
+
+    <div class="gsep"></div>
+
+    <h3 class="h3">Додаткова гарантія</h3>
+    <div class="rate" style="margin-top:12px">
+      <b>4,9</b><em>із 5</em>
+      <span class="stars" aria-hidden="true">
+        <i class="star"></i><i class="star"></i><i class="star"></i><i class="star"></i><i class="star"></i>
+      </span>
+    </div>
+    <p class="sm" style="margin-top:6px">середня оцінка моїх мінікурсів та воркшопів</p>
+
+    <p class="p">Знаєш, коли люди справді просять повернення?</p>
+    <p class="punch">Коли випадково придбали мій мінікурс удруге.</p>
+  </section>
+
+  <!-- ═══ 15 · АВТОР ═══ -->
+  <section class="card dark">
+    <h2 class="h h2">Олександр Цюцьмаць</h2>
+    <figure class="avid">
+      <picture>
+        <source srcset="img/author.avif" type="image/avif">
+        <img src="img/author.jpg" width="900" height="1206" loading="lazy" decoding="async"
+             alt="Олександр Цюцьмаць">
+      </picture>
+    </figure>
+
+    <div class="checks" style="margin-top:16px">
+      <div><span class="tk">✓</span><span>Вивчаю АІ-інструменти <b>кожен день з 2024 року</b></span></div>
+      <div><span class="tk">✓</span><span><b>Власник агенції</b> зі створення АІ-контенту під ключ</span></div>
+      <div><span class="tk">✓</span><span><b>8 600 учнів</b> уже пройшли мої навчальні програми</span></div>
+      <div><span class="tk">✓</span><span>Створив десятки авторських AI-асистентів, якими користуються мої клієнти та учні</span></div>
+      <div><span class="tk">✓</span><span>Сам веду соцмережі контентом, у якому я в кадрі, а камеру не вмикаю</span></div>
+    </div>
+
+    <p class="p">Мене про це питають частіше за все інше: «Це справді ти?». Так, це я. І ні, я не стояв перед камерою. Усе, що ви бачите в моїх роликах, зроблено з однієї картки персонажа, яку я створив один раз. Саме її створення й займає перший урок цього мінікурсу.</p>
+  </section>
+
+  <!-- ═══ 10 · ВИТРАТИ НА НЕЙРОНКИ ═══ -->
+  <section class="card">
+    <h2 class="h h2">Скільки коштують нейронки</h2>
+    <p class="p">Я домовився з платформою, яка зібрала майже всі потрібні нейронки в одному кабінеті — і всі генерації мінікурсу йдуть через неї.</p>
+
+    <div class="bul-i">
+      <div><span class="ic">💳</span><span><b>Один баланс замість кількох підписок.</b> Практично всі нейронки курсу працюють з нього</span></div>
+      <div><span class="ic">🔋</span><span><b>Платиш за генерацію, а не за місяць.</b> Кредити не згорають і чекають, поки ти ними скористаєшся</span></div>
+      <div><span class="ic">🇺🇦</span><span><b>Оплата українською карткою.</b> Без VPN та іноземних платіжних систем</span></div>
+      <div><span class="ic">🎁</span><span><b>+10% кредитів на кожне поповнення.</b> Умова, яку я домовився персонально для своїх учнів</span></div>
+    </div>
+
+    <div class="money">
+      <b>від $30</b>
+      <p>стільки потрібно на нейронки, щоб пройти весь мінікурс</p>
+    </div>
+
+  </section>
+
+  <!-- ═══ 16 · ПОВНИЙ СПИСОК І ЦІНА ═══ -->
+  <section class="card">
+    <h2 class="h h2">Повний список усього, що ти отримаєш</h2>
+    <div class="checks">
+      <div><span class="tk">✓</span><span>5 практичних уроків із генерації контенту з собою</span></div>
+      <div><span class="tk">✓</span><span>Твоя картка персонажа: точна копія, яка працює в будь-якій генерації</span></div>
+      <div><span class="tk">✓</span><span>Готові промти, які я використовую щодня</span></div>
+      <div><span class="tk">✓</span><span>Налаштована автоворонка в директі: бот видає матеріали й продає за тебе</span></div>
+      <div><span class="tk">✓</span><span>Домашнє завдання після кожного уроку</span></div>
+      <div><span class="tk">🎁</span><span><b>БОНУС 1</b> Асистент, який генерує замість тебе, і база знань до нього</span></div>
+      <div><span class="tk">🎁</span><span><b>БОНУС 2</b> Налаштування генерації з телефону</span></div>
+      <div><span class="tk">🎁</span><span><b>БОНУС 3</b> +10% кредитів на баланс нейронок</span></div>
+      <div><span class="tk">✓</span><span>Підтримка від куратора</span></div>
+      <div><span class="tk">✓</span><span>Доступ до уроків назавжди</span></div>
+      <div><span class="tk">✓</span><span>Гарантія повернення коштів на 14 днів</span></div>
+    </div>
+
+    <hr>
+    <p class="tlabel" style="margin-top:0">спеціальна ціна</p>
+    <div class="price" style="margin-top:12px"><b>390</b><span class="cur">грн</span><s>2 113 грн</s><em>−82%</em></div>
+    <p class="lead-it" style="text-align:center">тільки до кінця таймера</p>
+    <div class="timer"><i data-t="h">00</i><i data-t="m">10</i><i data-t="s">00</i></div>
+
+    <a class="btn" style="margin-top:18px" href="ZENEDU_LINK" target="_blank" rel="noopener"><span>Забрати мінікурс і 3 бонуси</span><i>→</i></a>
+    <p class="sm" style="text-align:center;margin-top:12px">Після оплати ти одразу потрапляєш у Telegram-бот. Перший урок приходить завтра.</p>
+    <div class="warn"><p>Бонуси зникають разом із таймером. Далі мінікурс продається <b>без них</b>.</p></div>
+  </section>
+
+  <!-- ═══ 17 · ВІДГУКИ ═══ -->
+  <section class="card">
+    <h2 class="h h2">Хвалюся!</h2>
+    <p class="p">Ось відгуки від моїх студентів з інших навчальних програм. До речі, мої курси вже пройшло <b>8 600 студентів</b>. З них <b>90%</b> доходять до кінця та кажуть:</p>
+
+    <div class="revs" id="revs"></div>
+    <p class="hint">← гортай →</p>
+  </section>
+
+  <!-- ═══ 18 · ФІНАЛЬНИЙ CTA ═══ -->
+  <section class="card dark">
+    <div class="stand" style="top:-10px;right:-13%;width:47%">
+      <picture>
+        <source srcset="img/camera.avif" type="image/avif">
+        <img src="img/camera.jpg" width="396" height="620" loading="lazy" decoding="async" alt="">
+      </picture>
+    </div>
+    <p class="tlabel" style="text-align:left;margin-top:0">Старт завтра</p>
+    <h2 class="h h2" style="max-width:62%;margin-top:10px">Твоє перше відео з собою — уже <span class="mk">цього тижня</span></h2>
+    <p class="p" style="max-width:60%">Перший урок приходить у бот завтра. Далі — пʼять вечорів: щовечора один короткий урок і домашнє завдання.</p>
+
+    <div class="price" style="justify-content:flex-start;margin-top:20px">
+      <b>390</b><span class="cur">грн</span><s>2 113 грн</s><em>−82%</em>
+    </div>
+    <a class="btn" style="margin-top:18px" href="ZENEDU_LINK" target="_blank" rel="noopener"><span>Створити відео з собою</span><i>−82%</i></a>
+    <p class="sm" style="text-align:center;margin-top:12px">14 днів гарантії повернення коштів</p>
+  </section>
+
+  <!-- ═══ 19 · FAQ ═══ -->
+  <section class="card">
+    <h2 class="h h2">Питання — відповіді</h2>
+    <div style="margin-top:8px">
+      <details class="q"><summary>Я повний новачок в АІ. У мене вийде?</summary>
+        <p>Так. Перший урок починається з того, як налаштувати асистента, і закінчується твоєю готовою карткою персонажа. Кожен крок — конкретна інструкція: що натиснути, куди завантажити, який промт скопіювати. Промти вже написані, їх достатньо скопіювати.</p></details>
+      <details class="q"><summary>А обличчя буде справді схоже на мене?</summary>
+        <p>Саме заради цього перший урок повністю присвячений картці персонажа. Ти один раз створюєш свою точну копію й далі підставляєш її в кожну генерацію. Без картки нейронка щоразу вигадує тебе заново, і виходить схожа людина. З карткою виходиш ти.</p></details>
+      <details class="q"><summary>Скільки часу займе мінікурс?</summary>
+        <p>Пʼять вечорів: щовечора в бот приходить один короткий урок і домашнє завдання. Доступ до уроків лишається назавжди, тож повертатися до матеріалів можна будь-коли.</p></details>
+      <details class="q"><summary>Скільки коштують нейронки?</summary>
+        <p>Від $30 на весь мінікурс. Практично всі моделі, які ми використовуємо, зібрані на одній платформі: один баланс замість трьох окремих підписок, оплата українською карткою, без VPN, кредити не згорають. Посилання й персональну умову +10% на поповнення ти отримаєш після оплати. Окремо може знадобитися HeyGen для пʼятого уроку, якщо цифровий двійник потрібен під твої задачі.</p></details>
+      <details class="q"><summary>А що таке ManyChat і навіщо він мені?</summary>
+        <p>Це сервіс, який автоматично працює з людьми в директі. Людина пише кодове слово під твоїм постом — бот сам відповідає, видає матеріали, відповідає на питання й пропонує твої продукти. У другому уроці ми налаштовуємо його з нуля, окремих знань не потрібно.</p></details>
+      <details class="q"><summary>Чи можна це використовувати в рекламі й на замовлення?</summary>
+        <p>Так. Це твоє власне обличчя й твій власний голос, ти розпоряджаєшся ними як завгодно. Обмеження стосуються чужих облич, а не твого.</p></details>
+      <details class="q"><summary>Чи зрозуміють підписники, що це не зйомка?</summary>
+        <p>Якщо зробити абияк — зрозуміють одразу. Тому третій урок присвячений саме реалістичності: як прибрати пластикову шкіру, неприродні рухи й розсинхрон між губами й словами. Багато хто взагалі не приховує, що працює через АІ, і це стає окремою причиною підписатися.</p></details>
+      <details class="q"><summary>А мій голос? Він буде звучати як мій?</summary>
+        <p>У пʼятому уроці ми клонуємо саме твій голос. Двійник говорить тобою, зберігаючи манеру й інтонації, і може говорити іншими мовами, залишаючись упізнаваним.</p></details>
+      <details class="q"><summary>Чи потрібна англійська?</summary>
+        <p>Ні. Уроки українською, промти готові. Інтерфейси проходимо покроково.</p></details>
+      <details class="q"><summary>Чи потрібен потужний компʼютер?</summary>
+        <p>Ні. Генерація відбувається на серверах нейромереж, у тебе в браузері. Другий бонус — це налаштування, з яким генерація запускається просто з телефону.</p></details>
+      <details class="q"><summary>Чим це відрізняється від твоїх попередніх продуктів?</summary>
+        <p>Це окремий продукт про одну навичку: контент, у якому в кадрі ти. Тут повний цикл в одному місці — картка персонажа, фото, каруселі, реалістичне відео, мультик і цифровий двійник. Раніше цієї теми в такому обсязі в мене не було.</p></details>
+      <details class="q"><summary>Що, якщо не сподобається?</summary>
+        <p>14 днів на повернення коштів. Пройди уроки, зроби перше відео з собою — якщо не побачиш цінності, поверну гроші без запитань.</p></details>
+    </div>
+  </section>
+
+  <!-- ═══ ПІДТРИМКА І ФУТЕР ═══ -->
+  <footer class="card">
+    <p class="sm">З будь-яких питань пишіть у підтримку ↓</p>
+    <a class="sup" href="https://t.me/Mihail_Zemlianoy" target="_blank" rel="noopener">
+      <span aria-hidden="true">💬</span><span>Технічна підтримка</span></a>
+
+    <hr>
+    <div class="foot">
+      <b>СТЕПАНЕНКО БОГДАН ОЛЕКСАНДРОВИЧ ФОП</b>
+      ЄДРПОУ 3757902952 · stepanenkob30@gmail.com
+      <b>ЗЕМЛЯНИЙ МИХАЙЛО СЕРГІЙОВИЧ ФОП</b>
+      ЄДРПОУ 3758302175 · +380 98 596 6120
+      <b>БРЖЕСТОВСЬКА ГАННА ЮРІЇВНА ФОП</b>
+      ЄДРПОУ 2877703349
+      <p style="margin-top:14px">
+        <a href="politika.html">Політика конфіденційності</a> ·
+        <a href="oferta.html">Договір оферти</a>
+      </p>
+      <p style="margin-top:10px">Цей сайт не є частиною сайту Facebook або Facebook Inc. Крім того, цей сайт не схвалений Facebook. Facebook є торговою маркою Facebook, Inc.</p>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ЛИПКА ПАНЕЛЬ -->
+<div class="sticky" id="sticky">
+  <div class="sprice"><b>390<em>грн</em></b><s>2 113</s></div>
+  <a class="btn" href="ZENEDU_LINK" target="_blank" rel="noopener"><span>Створити відео з собою</span><i>−82%</i></a>
+</div>
+
+<script>
+// дата старту = завтра відносно дня, коли людина відкрила сторінку
+(function(){
+  var d = new Date(); d.setDate(d.getDate()+1);
+  var s = ('0'+d.getDate()).slice(-2)+'.'+('0'+(d.getMonth()+1)).slice(-2);
+  document.querySelectorAll('[data-start]').forEach(function(n){ n.textContent = s });
+})();
+
+// таймер спецціни: 10 хвилин від відкриття сторінки, без сховищ
+(function(){
+  var end = Date.now() + 10*60*1000, el = document.querySelectorAll('[data-t]');
+  function pad(n){ return n<10 ? '0'+n : ''+n }
+  (function tick(){
+    var l = Math.max(0, end-Date.now()), s = Math.floor(l/1000);
+    var v = {h:pad(Math.floor(s/3600)), m:pad(Math.floor(s%3600/60)), s:pad(s%60)};
+    el.forEach(function(n){ var nv = v[n.dataset.t]; if(n.textContent !== nv) n.textContent = nv });
+    if(l>0) setTimeout(tick, 1000);
+  })();
+})();
+
+// обертання 360°: якщо система просить менше руху — лишаємо постер
+(function(){
+  var v = document.querySelector('.duo .art video');
+  if(v && matchMedia('(prefers-reduced-motion: reduce)').matches){
+    v.removeAttribute('autoplay'); v.pause(); v.currentTime = 0;
+  }
+})();
+
+// липка панель — після першого екрана
+(function(){
+  var b = document.getElementById('sticky');
+  addEventListener('scroll', function(){ b.classList.toggle('on', scrollY > 700) }, {passive:true});
+})();
+
+// відгуки: розмітка будується тут, щоб 21 скрін не роздував HTML
+(function(){
+  var box = document.getElementById('revs');
+  if(!box) return;
+  var html = '';
+  for(var i=1; i<=21; i++){
+    html += '<figure><picture>'
+          + '<source srcset="img/rev-'+i+'.avif" type="image/avif">'
+          + '<img src="img/rev-'+i+'.jpg" loading="lazy" decoding="async" alt="Відгук студента">'
+          + '</picture></figure>';
+  }
+  box.innerHTML = html;
+})();
+
+// відео: вантажимо й вмикаємо тільки за кліком, зі звуком
+(function(){
+  document.querySelectorAll('.play').forEach(function(btn){
+    var host = btn.parentNode, v = host.querySelector('video');
+    function go(){
+      if(!v) return;                       // порожній слот — файлу ще немає
+      if(v.paused){ v.play(); btn.style.display = 'none' }
+    }
+    btn.addEventListener('click', go);
+    btn.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); go() }
+    });
+    if(v) v.addEventListener('pause', function(){ btn.style.display = '' });
+  });
+})();
+</script>
+</body>
+</html>
