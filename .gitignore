@@ -14,3 +14,6 @@ ai-multfilm/CONTEXT.md
 # лендинг «відео з собою»: исходники и рабочие превью в деплой не нужны
 ai-video-zsoboyu/_orig/
 ai-video-zsoboyu/preview/
+
+# локальный конфиг дизайн-хука, в деплой не нужен
+.impeccable/
