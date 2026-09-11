@@ -257,7 +257,7 @@ hr{border:0;border-top:1px solid var(--line);margin:16px 0}
 .dots{position:absolute;left:0;right:0;bottom:10px;z-index:3;display:flex;
   justify-content:center;gap:6px;pointer-events:none}
 .dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.45);
-  box-shadow:0 1px 3px rgba(0,0,0,.5);transition:background .2s,width .2s}
+  box-shadow:0 1px 3px rgba(0,0,0,.5);transition:background .2s}
 .dots i.on{background:#fff;width:18px;border-radius:100px}
 
 /* ── кроки автоворонки ─────────────────────────────────── */
@@ -308,18 +308,24 @@ hr{border:0;border-top:1px solid var(--line);margin:16px 0}
           mask-image:linear-gradient(180deg,#000 0 62%,rgba(0,0,0,.45) 84%,transparent 100%)}
 .obj-col{flex:1;min-width:0;display:flex;flex-direction:column;gap:12px;padding-bottom:8px}
 .obj-col p{font-size:14.5px;line-height:1.5;margin:0}
-/* Фигура слева, текст справа, параллельно. Фигуру НЕ тянем по высоте
-   колонки: именно это раньше раздувало её до 368px и срезало голову.
-   Размер задаём долей ширины, низ растворяем — поза поясная. */
-.obj-row.side{align-items:flex-start;margin:20px 0 0 calc(var(--pad)*-1)}
-.obj-row.side .obj-art{flex:0 0 41%;align-self:flex-start;position:relative}
-/* фигура шире своей колонки и уходит за левый край карточки: так она
-   выше и под ней остаётся меньше пустого места, а колонка текста не жмётся */
-.obj-row.side .obj-art img{position:static;width:162%;max-width:none;height:auto;
-  margin:0 0 0 -56%;
-  -webkit-mask-image:linear-gradient(180deg,#000 0 66%,rgba(0,0,0,.4) 86%,transparent 100%);
-          mask-image:linear-gradient(180deg,#000 0 66%,rgba(0,0,0,.4) 86%,transparent 100%)}
-.obj-row.side .obj-col{padding:0 var(--pad) 2px 0;gap:0}
+/* Фигура справа, текст слева. Колонка с фигурой тянется на всю высоту
+   ряда, кадр заполняет её по высоте и обрезается по ширине — так он
+   «достаёт» до низа списка без растяжения пропорций. Правый край уходит
+   за границу карточки, поэтому обрезка читается как выход за поле. */
+.obj-row.side{flex-direction:row-reverse;align-items:stretch;
+  margin:20px calc(var(--pad)*-1) 0 0}
+.obj-row.side .obj-art{flex:0 0 46%;align-self:stretch;position:relative;overflow:hidden}
+.obj-row.side .obj-art img{position:absolute;inset:0;width:100%;height:100%;max-width:none;
+  margin:0;object-fit:cover;object-position:31% center;
+  /* последние проценты растворяем: ровный срез по бедрам читался бы как обрыв */
+  -webkit-mask-image:linear-gradient(180deg,#000 0 88%,transparent 100%);
+          mask-image:linear-gradient(180deg,#000 0 88%,transparent 100%)}
+.obj-row.side .obj-col{padding:0 0 2px;gap:0}
+/* Чем уже экран, тем выше колонка и тем сильнее зум кадра при обрезке.
+   Без поправки лицо уезжает за правый край — двигаем окно кадрирования. */
+@media (max-width:400px){
+  .obj-row.side .obj-art img{object-position:46% center}
+}
 
 /* реплика автора: не плашка, а голос — отбивается акцентной линией слева */
 .pitch{margin-top:22px;padding:2px 0 2px 16px;border-left:3px solid var(--accent)}
