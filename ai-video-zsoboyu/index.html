@@ -390,6 +390,16 @@ details.acc .bul div:before{content:'';width:5px;height:5px;border-radius:50%;
 .tl-tight div{padding:9px 0;display:flex;gap:10px;align-items:flex-start}
 .tl-tight b{font-size:14.5px}
 .tl-tight span{font-size:13px;line-height:1.4}
+/* Ряд «ноутбук + перші два інструменти»: колонка з фігурою тягнеться на висоту
+   ряду, кадр заповнює її по висоті — над головою не лишається порожнього поля.
+   Інструменти 3–4 йдуть під рядом на всю ширину. */
+.obj-row.tools{align-items:stretch}
+.obj-row.tools .obj-art{align-self:stretch;position:relative;overflow:hidden}
+.obj-row.tools .obj-art img{position:absolute;inset:0;width:100%;height:100%;max-width:none;
+  margin:0;object-fit:cover;object-position:62% 10%}
+.obj-row.tools .obj-col{padding-bottom:0}
+.tl-rest{margin-top:0}
+.tl-rest > div:first-child{border-top:1px solid var(--line)}
 .tico{flex:0 0 34px;width:34px;height:34px;border-radius:11px;background:var(--soft);
   border:1px solid var(--line);display:grid;place-items:center;margin-top:1px}
 .tico svg{width:18px;height:18px;display:block}
@@ -922,7 +932,7 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
   <section class="card">
     <h2 class="h h2">Авторські інструменти всередині мінікурсу</h2>
 
-    <div class="obj-row">
+    <div class="obj-row tools">
       <div class="obj-art fade">
         <picture>
           <source srcset="img/laptop.avif" type="image/avif">
@@ -933,10 +943,12 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
         <div class="tl tl-tight">
           <div><span class="tico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5h18v12H10l-5 4v-4H3z"/><path d="M12 8.5l1.4 2.9 2.9 1.4-2.9 1.4L12 17l-1.4-2.8-2.9-1.4 2.9-1.4z" fill="#00B140" stroke="none"/></svg></span><span class="ttx"><b>Майстер-промт</b><span>налаштовує твого AI-асистента під контент із собою</span></span></div>
           <div><span class="tico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5h6.5a2.5 2.5 0 0 1 2.5 2.5v13a2 2 0 0 0-2-2H4z"/><path d="M20 4.5h-6.5A2.5 2.5 0 0 0 11 7v13a2 2 0 0 1 2-2h7z" stroke="#00B140"/></svg></span><span class="ttx"><b>База знань до асистента</b><span>структура промтів, стиль, референси, що робити з невдалим результатом</span></span></div>
-          <div><span class="tico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><circle cx="9" cy="11" r="2.4" stroke="#00B140"/><path d="M5.5 16.5c.7-1.9 2-2.9 3.5-2.9s2.8 1 3.5 2.9" stroke="#00B140"/><path d="M15.5 10h4M15.5 13.5h4"/></svg></span><span class="ttx"><b>Шаблон картки персонажа</b><span>готовий промт, який робить твою точну копію з першого разу</span></span></div>
-          <div><span class="tico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><circle cx="12" cy="11" r="2.6" stroke="#00B140"/><path d="M12 6.6v1.4M12 14v1.4M16.4 11H15M9 11H7.6" stroke="#00B140"/></svg></span><span class="ttx"><b>Налаштування під телефон</b><span>конфігурація ChatGPT для генерації з мобільного</span></span></div>
         </div>
       </div>
+    </div>
+    <div class="tl tl-tight tl-rest">
+      <div><span class="tico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><circle cx="9" cy="11" r="2.4" stroke="#00B140"/><path d="M5.5 16.5c.7-1.9 2-2.9 3.5-2.9s2.8 1 3.5 2.9" stroke="#00B140"/><path d="M15.5 10h4M15.5 13.5h4"/></svg></span><span class="ttx"><b>Шаблон картки персонажа</b><span>готовий промт, який робить твою точну копію з першого разу</span></span></div>
+      <div><span class="tico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><circle cx="12" cy="11" r="2.6" stroke="#00B140"/><path d="M12 6.6v1.4M12 14v1.4M16.4 11H15M9 11H7.6" stroke="#00B140"/></svg></span><span class="ttx"><b>Налаштування під телефон</b><span>конфігурація ChatGPT для генерації з мобільного</span></span></div>
     </div>
 
     <p class="p">Разом ці інструменти:</p>
