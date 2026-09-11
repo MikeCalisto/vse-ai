@@ -437,10 +437,9 @@ details.acc .bul div:before{content:'';width:5px;height:5px;border-radius:50%;
   font-size:clamp(15px,4.5vw,18px);line-height:1.15;letter-spacing:-.025em}
 
 /* ── автор ─────────────────────────────────────────────── */
-.avid{margin:16px 0 0;border-radius:12px;overflow:hidden;aspect-ratio:4/3;
-  background:#000;position:relative}
-/* снимок вертикальный, в 4:3 обрезается — держим окно на лице */
-.avid img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+/* фото автора йде цілком, у власній пропорції 3:4 — без кадрування */
+.avid{margin:16px 0 0;border-radius:12px;overflow:hidden;background:#000}
+.avid img{width:100%;height:auto;display:block}
 
 /* ── відгуки ───────────────────────────────────────────── */
 .revs{display:flex;align-items:flex-start;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;
