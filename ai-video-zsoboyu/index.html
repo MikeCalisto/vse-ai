@@ -72,7 +72,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .card.dark hr{border-color:rgba(255,255,255,.16)}
 
 .h{font-family:var(--display);font-weight:900;letter-spacing:-.035em;line-height:1.02;
-  text-wrap:balance}
+  text-wrap:pretty}
+.h1{text-wrap:balance}
+/* довгі слова: «інструменти», «всередині» — при повному кеглі не влазять по два
+   в рядок, і заголовок стає вузьким стовпчиком з порожнечею праворуч */
+.h2.h2-fit{font-size:clamp(21px,5.9vw,27px)}   /* дві класи — щоб перебити .h2, оголошений нижче */
 .h1{font-size:clamp(29px,8vw,36px)}
 .h2{font-size:clamp(25px,7vw,32px)}
 .h3{font-family:var(--display);font-weight:700;font-size:18.5px;line-height:1.12;
@@ -111,7 +115,7 @@ hr{border:0;border-top:1px solid var(--line);margin:16px 0}
 
 /* ── герой ─────────────────────────────────────────────── */
 .hero .lead{font-size:15px;line-height:1.5;color:var(--muted);max-width:290px}
-.hero h1{margin-top:13px}
+.hero .lead{margin-top:14px}
 .hero .sub{font-style:italic;font-weight:700;font-size:15.5px;color:var(--accent);margin-top:10px}
 .duo{display:flex;align-items:stretch;gap:14px;margin:22px calc(var(--pad)*-1) 0 -14px}
 /* фигура полноростовая (420×1334) — задаём высоту, ширину ролик считает сам */
@@ -506,7 +510,7 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
   <!-- ХЕДЕР -->
   <div class="card" style="padding:13px var(--pad)">
     <div class="row">
-      <span class="pill"><i class="dot"></i>старт <span data-start>завтра</span></span>
+      <span class="pill"><i class="dot"></i>старт курсу <span data-start>завтра</span></span>
       <span class="pill solid">Ai_Sashka</span>
     </div>
   </div>
@@ -520,9 +524,8 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
 
   <!-- ═══ 1 · ГЕРОЙ ═══ -->
   <section class="card hero">
-    <p class="lead rise rise-1">Готова технологія створення контенту, де в кадрі ти — без камери, світла й знімальної групи. Від картки свого АІ-двійника до вірусного відео, каруселі та мультика з собою в головній ролі.</p>
-    <h1 class="h h1 rise rise-2">Як генерувати АІ-відео з собою <span class="mk">з повного нуля</span> та без досвіду в нейронках?</h1>
-    <p class="sub rise rise-3">навіть якщо ти ніколи не працював з АІ</p>
+    <h1 class="h h1 rise rise-1">Як генерувати АІ-контент з собою <span class="mk">з повного нуля</span> та без досвіду в нейронках?</h1>
+    <p class="lead rise rise-2">Готова технологія створення контенту, де в кадрі саме ти — без камери, світла й знімальної групи. Від картки свого АІ-двійника до вірусного відео, каруселі та мультика з собою в головній ролі.</p>
 
     <div class="duo rise rise-4">
       <div class="art">
@@ -566,7 +569,7 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
     <div class="bon">
       <span class="tag">Бонус 1 · промт + PDF</span>
       <h4>Асистент, який пише промти замість тебе</h4>
-      <p class="goal"><b>🎯 Результат:</b> ти описуєш ідею звичайними словами — асистент перетворює її на готовий промт під відео чи зображення. Усередині майстер-промт для налаштування і база знань до нього: структура промтів, як задавати стиль, як підключати референси й що робити, коли результат пішов не туди. Працює з будь-якою нейронкою, з якою ти сидиш постійно.</p>
+      <p class="goal"><b>🎯 Результат:</b> усередині майстер-промт для налаштування і база знань до нього: структура промтів, як задавати стиль, як підключати референси й що робити, коли результат пішов не туди. Працює з будь-якою нейронкою, з якою ти сидиш постійно.</p>
     </div>
 
     <div class="bon">
@@ -645,16 +648,38 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
     <div class="fmts">
       <article class="fmt">
         <div class="media">
-        <picture>
-          <source srcset="img/format-1.avif" type="image/avif">
-          <img src="img/format-1.jpg" width="514" height="900" loading="lazy" decoding="async"
-               alt="Олександр у пустелі на заході сонця — згенероване фото в локації">
-        </picture>
+        <video data-lazy="format-3.mp4" poster="img/format-3.jpg" muted loop playsinline
+               preload="none" disablepictureinpicture aria-label="Реалістичне відео з Олександром"></video>
+        <span class="play sm" role="button" tabindex="0" aria-label="Відтворити"></span>
         </div>
         <div class="cap">
           <span class="no">01</span>
-          <h4>Фото з собою будь-де</h4>
-          <p>Ти в студії, в іншому місті, в іншому одязі. Фотосесія без фотографа й без виходу з дому.</p>
+          <h4>Реалістичне відео з собою</h4>
+          <p>Ти в кадрі, рухаєшся й говориш. Плюс товар у руках і локація на твій вибір.</p>
+        </div>
+      </article>
+      <article class="fmt">
+        <div class="media">
+        <video data-lazy="format-4.mp4" poster="img/format-4.jpg" muted loop playsinline
+               preload="none" disablepictureinpicture aria-label="Трендове відео з Олександром"></video>
+        <span class="play sm" role="button" tabindex="0" aria-label="Відтворити"></span>
+        </div>
+        <div class="cap">
+          <span class="no">02</span>
+          <h4>Трендове відео</h4>
+          <p>Формат, який зараз збирає охоплення, з тобою в головній ролі.</p>
+        </div>
+      </article>
+      <article class="fmt">
+        <div class="media">
+        <video data-lazy="format-5.mp4" poster="img/format-5.jpg" muted loop playsinline
+               preload="none" disablepictureinpicture aria-label="Мультик з Олександром у головній ролі"></video>
+        <span class="play sm" role="button" tabindex="0" aria-label="Відтворити"></span>
+        </div>
+        <div class="cap">
+          <span class="no">03</span>
+          <h4>Мультик, де головний герой — це ти</h4>
+          <p>Твій персонаж говорить українською, з правильними наголосами.</p>
         </div>
       </article>
       <article class="fmt">
@@ -694,55 +719,23 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
         <div class="dots" data-dots aria-hidden="true"></div>
         </div>
         <div class="cap">
-          <span class="no">02</span>
+          <span class="no">04</span>
           <h4>Карусель однією голосовою командою</h4>
           <p>Називаєш ідею вголос — нейронка пише текст, збирає дизайн і верстає слайди.</p>
         </div>
       </article>
       <article class="fmt">
         <div class="media">
-        <video data-lazy="format-3.mp4" poster="img/format-3.jpg" muted loop playsinline
-               preload="none" disablepictureinpicture aria-label="Реалістичне відео з Олександром"></video>
-        <span class="play sm" role="button" tabindex="0" aria-label="Відтворити"></span>
-        </div>
-        <div class="cap">
-          <span class="no">03</span>
-          <h4>Реалістичне відео з собою</h4>
-          <p>Ти в кадрі, рухаєшся й говориш. Плюс товар у руках і локація на твій вибір.</p>
-        </div>
-      </article>
-      <article class="fmt">
-        <div class="media">
-        <video data-lazy="format-4.mp4" poster="img/format-4.jpg" muted loop playsinline
-               preload="none" disablepictureinpicture aria-label="Трендове відео з Олександром"></video>
-        <span class="play sm" role="button" tabindex="0" aria-label="Відтворити"></span>
-        </div>
-        <div class="cap">
-          <span class="no">04</span>
-          <h4>Трендове відео</h4>
-          <p>Формат, який зараз збирає охоплення, з тобою в головній ролі.</p>
-        </div>
-      </article>
-      <article class="fmt">
-        <div class="media">
-        <video data-lazy="format-5.mp4" poster="img/format-5.jpg" muted loop playsinline
-               preload="none" disablepictureinpicture aria-label="Мультик з Олександром у головній ролі"></video>
-        <span class="play sm" role="button" tabindex="0" aria-label="Відтворити"></span>
+        <picture>
+          <source srcset="img/format-1.avif" type="image/avif">
+          <img src="img/format-1.jpg" width="514" height="900" loading="lazy" decoding="async"
+               alt="Олександр у пустелі на заході сонця — згенероване фото в локації">
+        </picture>
         </div>
         <div class="cap">
           <span class="no">05</span>
-          <h4>Мультик, де головний герой — ти</h4>
-          <p>Твій персонаж говорить українською, з правильними наголосами.</p>
-        </div>
-      </article>
-      <article class="fmt">
-        <div class="media">
-        <span class="slot">format-06.mp4</span>
-        </div>
-        <div class="cap">
-          <span class="no">06</span>
-          <h4>Цифровий двійник</h4>
-          <p>Аватар, який говорить твоїм голосом і жестикулює як ти. Рілси будь-якою мовою.</p>
+          <h4>Фото з собою будь-де</h4>
+          <p>Ти в студії, в іншому місті, в іншому одязі. Фотосесія без фотографа й без виходу з дому.</p>
         </div>
       </article>
     </div>
@@ -754,7 +747,7 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
 
   <!-- ═══ 7 · ДЛЯ КОГО ═══ -->
   <section class="card">
-    <h2 class="h h2">Кому цей мінікурс закриє реальну задачу</h2>
+    <h2 class="h h2">Для кого я створив цей мінікурс?</h2>
     <div class="who">
       <div><span class="wico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5h11a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H3.5a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2Z"/><path d="m16 12.5 5.5-3v9l-5.5-3"/><path d="M2 21 21 3" stroke="#00B140"/></svg></span><div class="wtx"><h4>Не любиш зніматися</h4><p>Соцмережі є, ідеї є, а перед камерою все зникає. Тепер твоє обличчя в кадрі без камери взагалі.</p></div></div>
       <div><span class="wico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12.5" r="9"/><path d="M12 7v6l4 2.2" stroke="#00B140"/></svg></span><div class="wtx"><h4>Немає часу на зйомку</h4><p>Світло, дублі, макіяж, монтаж — на один ролик іде півдня. Генерація займає хвилини.</p></div></div>
@@ -763,7 +756,6 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
       <div><span class="wico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="10.5" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0" stroke="#00B140"/><path d="M12 18v3.5M8.5 21.5h7"/></svg></span><div class="wtx"><h4>Ти експерт і продаєш собою</h4><p>Обличчя в контенті потрібне постійно, а знімати щотижня не виходить. Двійник знімає це питання.</p></div></div>
       <div><span class="wico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18" stroke="#00B140"/><path d="M12 3c2.6 2.6 3.9 5.6 3.9 9s-1.3 6.4-3.9 9c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3Z"/></svg></span><div class="wtx"><h4>Виходиш на іноземну аудиторію</h4><p>Твій рілс говорить іншою мовою твоїм же голосом і з твоєю манерою.</p></div></div>
       <div><span class="wico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7.5" width="19" height="13" rx="2"/><path d="M8.5 7.5V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"/><path d="M12 11v6M10 12.5h3a1.5 1.5 0 0 1 0 3h-2a1.5 1.5 0 0 0 0 3h3" stroke="#00B140"/></svg></span><div class="wtx"><h4>Хочеш робити це на замовлення</h4><p>Ти опановуєш формат, який зараз мало хто вміє робити якісно.</p></div></div>
-      <div><span class="wico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14170F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10.5" r="2.8" stroke="#00B140"/></svg></span><div class="wtx"><h4>Хочеш побачити себе там, де не був</h4><p>Це теж причина. І вона нормальна.</p></div></div>
     </div>
     <p class="lead-it" style="margin-top:16px">Якщо впізнав себе хоча б в одному пункті — цей мінікурс тобі підійде.</p>
   </section>
@@ -772,7 +764,6 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
   <!-- ═══ 9 · УРОКИ ═══ -->
   <section class="card" id="program">
     <h2 class="h h2">Пʼять уроків: від картки персонажа до <span class="acc">цифрового двійника</span></h2>
-    <p class="lead-it">5 вечорів · короткий урок і домашка на вечір · доступ назавжди</p>
 
     <div class="lesson">
       <div class="lhead"><span class="n">01</span><h4>Картка персонажа: твоя точна копія</h4></div>
@@ -797,7 +788,7 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
     </div>
 
     <div class="lesson">
-      <div class="lhead"><span class="n">02</span><h4>Каруселі однією голосовою командою + автоворонка в директі</h4></div>
+      <div class="lhead"><span class="n">02</span><h4>Каруселі однією голосовою командою + автоворонка в діректі</h4></div>
       <div class="lprev"><span class="slot">lesson-02.mp4</span></div>
       <div class="tools-row"><span class="tool">ChatGPT у режимі Work</span><span class="tool">ManyChat</span></div>
       <details class="acc"><summary>Що в уроці</summary>
@@ -805,11 +796,11 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
           <div>як згенерувати повну карусель однією голосовою командою: ти вголос кажеш ідею й даєш референс, нейронка робить решту</div>
           <div>текст на слайдах, дизайн і послідовність нейронка збирає сама, вручну верстати нічого не треба</div>
           <div>де шукати ідеї візуалу для каруселей</div>
-          <div>як вбудувати заклик до дії, який веде людину в директ</div>
+          <div>як вбудувати заклик до дії, який веде людину в дірект</div>
           <div>як налаштувати ManyChat так, щоб він за кодовим словом сам видавав матеріали, відповідав на питання й продавав твої продукти</div>
         </div>
       </details>
-      <p class="result"><b>🎯 Результат:</b> ти збираєш карусель за час, поки закипає чайник, і кожен такий пост приводить людей у директ, де з ними працює бот. Зникає найдовша частина роботи над постом і найпровальніша частина після нього: коли пост зібрав збереження, а далі нічого не сталося. Твій контент перестає бути просто контентом і починає приводити заявки, поки ти спиш.</p>
+      <p class="result"><b>🎯 Результат:</b> ти збираєш карусель за час, поки закипає чайник, і кожен такий пост приводить людей у дірект, де з ними працює бот. Зникає найдовша частина роботи над постом і найпровальніша частина після нього: коли пост зібрав збереження, а далі нічого не сталося. Твій контент перестає бути просто контентом і починає приводити заявки, поки ти спиш.</p>
     </div>
 
     <div class="lesson">
@@ -825,11 +816,11 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
           <div>як економити кредити й отримувати потрібний кадр з першого-другого разу</div>
         </div>
       </details>
-      <p class="result"><b>🎯 Результат:</b> ти генеруєш відео, де ти виглядаєш як ти, рухаєшся природно й тримаєш у руках те, що потрібно показати. Зникає ситуація, коли ролик доводиться викидати, бо глядач одразу бачить підробку. Це вже той рівень, який можна ставити в рекламу й показувати замовнику.</p>
+      <p class="result"><b>🎯 Результат:</b> ти генеруєш відео, де ти повністю схожий на себе, рухаєшся природно й тримаєш у руках те, що потрібно показати. Зникає ситуація, коли ролик доводиться викидати, бо глядач одразу бачить підробку. Це вже той рівень, який можна ставити в рекламу й показувати замовнику.</p>
     </div>
 
     <div class="lesson">
-      <div class="lhead"><span class="n">04</span><h4>Мультик, де головний герой — ти</h4></div>
+      <div class="lhead"><span class="n">04</span><h4>Мультик, де головний герой — це ти</h4></div>
       <div class="lprev"><span class="slot">lesson-04.mp4</span></div>
       <div class="tools-row"><span class="tool">Wan 3.0</span></div>
       <details class="acc"><summary>Що в уроці</summary>
@@ -842,7 +833,7 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
     </div>
 
     <div class="lesson">
-      <div class="lhead"><span class="n">05</span><h4>Цифровий двійник</h4></div>
+      <div class="lhead"><span class="n">05</span><h4>Цифровий двійник для зйомки Reels та TikTok</h4></div>
       <div class="lprev"><span class="slot">lesson-05.mp4</span></div>
       <div class="tools-row"><span class="tool">HeyGen</span></div>
       <details class="acc"><summary>Що в уроці</summary>
@@ -853,17 +844,17 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
           <div>як вести соцмережі, знімаючи себе один раз замість щотижневих зйомок</div>
         </div>
       </details>
-      <p class="result"><b>🎯 Результат:</b> у тебе є двійник, який може говорити те, що ти напишеш, будь-якою мовою й твоїм голосом. Зникає щотижнева зйомка: контент виходить рівно тоді, коли в тебе є що сказати, а не тоді, коли ти встиг зібрати світло. Іноземна аудиторія чує тебе своєю мовою й не розуміє, що ролик знімався українською.</p>
+      <p class="result"><b>🎯 Результат:</b> у тебе є двійник, який може говорити те, що ти напишеш, будь-якою мовою й твоїм голосом. Зникає щотижнева зйомка: контент виходить рівно тоді, коли в тебе є що сказати, а не тоді, коли ти встиг зібрати світло.</p>
     </div>
 
-    <div class="warn"><p><b>Важливо.</b> Після кожного уроку є домашнє завдання. Виконаєш усі — отримаєш бонус, про який дізнаєшся в процесі.</p></div>
+    <div class="warn"><p><b>Важливо.</b> Після кожного уроку є домашнє завдання. Виконаєш усі — отримаєш приємний бонус, який помножить твої навички в АІ ×10.</p></div>
 
     <a class="btn" style="margin-top:16px" href="ZENEDU_LINK" target="_blank" rel="noopener"><span>Приєднатися за 390 грн</span><i>→</i></a>
   </section>
 
   <!-- ═══ 6 · КУДИ ВЕДЕ ЦЕЙ КОНТЕНТ ═══ -->
   <section class="card dark">
-    <h2 class="h h2">Контент із собою — це половина справи</h2>
+    <h2 class="h h2">Хочеш не просто отримувати перегляди, а ще й використовувати їх на свою користь? Дивись, що можна зробити:</h2>
 
     <div class="obj-row side">
       <div class="obj-art">
@@ -874,7 +865,7 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
       </div>
       <div class="obj-col">
         <div class="steps">
-          <div><span class="n">01</span><p>У карусель вшивається кодове слово: «Напиши слово “гайд” у директ — і я надішлю тобі бонус»</p></div>
+          <div><span class="n">01</span><p>У карусель вшивається кодове слово: «Напиши слово “гайд” у дірект — і я надішлю тобі бонус»</p></div>
           <div><span class="n">02</span><p>ManyChat ловить це слово й починає діалог автоматично</p></div>
         </div>
       </div>
@@ -904,7 +895,7 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
       <div><span class="ic">📱</span><div><h4>Один урок на вечір</h4><p>Після оплати ти одразу потрапляєш у Telegram-бот. Далі щовечора приходить один короткий урок.</p></div></div>
       <div><span class="ic">📋</span><div><h4>Інструкції без води</h4><p>Що натиснути, куди завантажити, який промт скопіювати. Без теорії про те, як влаштовані нейромережі.</p></div></div>
       <div><span class="ic">🤖</span><div><h4>Готові промти й асистент</h4><p>Промт-інженерію вчити не треба. Ти отримуєш налаштованого асистента, який пише промти замість тебе.</p></div></div>
-      <div><span class="ic">🔑</span><div><h4>Одна платформа замість кількох підписок</h4><p>Майже всі нейронки мінікурсу зібрані в одному кабінеті. Оплата українською карткою, без VPN, кредити не згорають. Доступ і персональна умова +10% приходять після оплати.</p></div></div>
+      <div><span class="ic">🔑</span><div><h4>Одна платформа замість кількох підписок</h4><p>Майже всі нейронки мінікурсу зібрані в одному кабінеті. Оплата українською карткою, без VPN, кредити не згорають. Доступ і персональна умова +10% до кредитів приходять після оплати.</p></div></div>
       <div><span class="ic">📝</span><div><h4>Домашнє завдання після кожного уроку</h4><p>Не виходить — пишеш куратору й отримуєш розбір.</p></div></div>
       <div><span class="ic">💻</span><div><h4>Потрібен лише телефон</h4><p>Уся генерація відбувається на серверах нейромереж. Потужний компʼютер не потрібен, а в бонусі є налаштування під роботу з телефону.</p></div></div>
     </div>
@@ -921,7 +912,7 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
       <div><span class="tk">✓</span><span>Налаштуєш ManyChat, який за кодовим словом видає матеріали, відповідає й продає замість тебе</span></div>
       <div><span class="tk">✓</span><span>Навчишся генерувати реалістичне відео з собою в Seedance 2.5 — з товаром у руках і потрібною локацією</span></div>
       <div><span class="tk">✓</span><span>Зрозумієш, як економити кредити й отримувати кадр з першого-другого разу</span></div>
-      <div><span class="tk">✓</span><span>Зробиш мультик, де головний герой ти, і персонаж говорить українською з правильними наголосами</span></div>
+      <div><span class="tk">✓</span><span>Зробиш мультик, де головний герой — саме ти, і персонаж говорить українською з правильними наголосами</span></div>
       <div><span class="tk">✓</span><span>Створиш цифрового двійника, який говорить твоїм голосом і перекладає твої рілси іншими мовами</span></div>
       <div><span class="tk">✓</span><span>Зможеш вести соцмережі, не вмикаючи камеру жодного разу</span></div>
     </div>
@@ -929,7 +920,7 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
 
   <!-- ═══ 13 · АВТОРСЬКІ ІНСТРУМЕНТИ ═══ -->
   <section class="card">
-    <h2 class="h h2">Авторські інструменти всередині мінікурсу</h2>
+    <h2 class="h h2 h2-fit">Авторські інструменти всередині мінікурсу</h2>
 
     <div class="obj-row tools">
       <div class="obj-art fade">
@@ -1008,7 +999,6 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
       <div><span class="tk">✓</span><span>Сам веду соцмережі контентом, у якому я в кадрі, а камеру не вмикаю</span></div>
     </div>
 
-    <p class="p">Мене про це питають частіше за все інше: «Це справді ти?». Так, це я. І ні, я не стояв перед камерою. Усе, що ви бачите в моїх роликах, зроблено з однієї картки персонажа, яку я створив один раз. Саме її створення й займає перший урок цього мінікурсу.</p>
   </section>
 
   <!-- ═══ 10 · ВИТРАТИ НА НЕЙРОНКИ ═══ -->
@@ -1037,7 +1027,7 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
       <div><span class="tk">✓</span><span>5 практичних уроків із генерації контенту з собою</span></div>
       <div><span class="tk">✓</span><span>Твоя картка персонажа: точна копія, яка працює в будь-якій генерації</span></div>
       <div><span class="tk">✓</span><span>Готові промти, які я використовую щодня</span></div>
-      <div><span class="tk">✓</span><span>Налаштована автоворонка в директі: бот видає матеріали й продає за тебе</span></div>
+      <div><span class="tk">✓</span><span>Налаштована автоворонка в діректі: бот видає матеріали й продає за тебе</span></div>
       <div><span class="tk">✓</span><span>Домашнє завдання після кожного уроку</span></div>
       <div><span class="tk">🎁</span><span><b>БОНУС 1</b> Асистент, який генерує замість тебе, і база знань до нього</span></div>
       <div><span class="tk">🎁</span><span><b>БОНУС 2</b> Налаштування генерації з телефону</span></div>
@@ -1099,7 +1089,7 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
       <details class="q"><summary>Скільки коштують нейронки?</summary>
         <p>Від $30 на весь мінікурс. Практично всі моделі, які ми використовуємо, зібрані на одній платформі: один баланс замість трьох окремих підписок, оплата українською карткою, без VPN, кредити не згорають. Посилання й персональну умову +10% на поповнення ти отримаєш після оплати. Окремо може знадобитися HeyGen для пʼятого уроку, якщо цифровий двійник потрібен під твої задачі.</p></details>
       <details class="q"><summary>А що таке ManyChat і навіщо він мені?</summary>
-        <p>Це сервіс, який автоматично працює з людьми в директі. Людина пише кодове слово під твоїм постом — бот сам відповідає, видає матеріали, відповідає на питання й пропонує твої продукти. У другому уроці ми налаштовуємо його з нуля, окремих знань не потрібно.</p></details>
+        <p>Це сервіс, який автоматично працює з людьми в діректі. Людина пише кодове слово під твоїм постом — бот сам відповідає, видає матеріали, відповідає на питання й пропонує твої продукти. У другому уроці ми налаштовуємо його з нуля, окремих знань не потрібно.</p></details>
       <details class="q"><summary>Чи можна це використовувати в рекламі й на замовлення?</summary>
         <p>Так. Це твоє власне обличчя й твій власний голос, ти розпоряджаєшся ними як завгодно. Обмеження стосуються чужих облич, а не твого.</p></details>
       <details class="q"><summary>Чи зрозуміють підписники, що це не зйомка?</summary>
