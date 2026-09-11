@@ -308,24 +308,20 @@ hr{border:0;border-top:1px solid var(--line);margin:16px 0}
           mask-image:linear-gradient(180deg,#000 0 62%,rgba(0,0,0,.45) 84%,transparent 100%)}
 .obj-col{flex:1;min-width:0;display:flex;flex-direction:column;gap:12px;padding-bottom:8px}
 .obj-col p{font-size:14.5px;line-height:1.5;margin:0}
-/* Фигура справа, текст слева. Колонка с фигурой тянется на всю высоту
-   ряда, кадр заполняет её по высоте и обрезается по ширине — так он
-   «достаёт» до низа списка без растяжения пропорций. Правый край уходит
-   за границу карточки, поэтому обрезка читается как выход за поле. */
+/* Фигура справа напротив перших двох кроків, кроки 03–04 — під нею на всю
+   ширину. Ряд заввишки у два кроки, тому кадр майже в натуральну величину:
+   і палець, і обличчя в кадрі, а порожнього поля під фігурою немає. */
 .obj-row.side{flex-direction:row-reverse;align-items:stretch;
   margin:20px calc(var(--pad)*-1) 0 0}
-.obj-row.side .obj-art{flex:0 0 46%;align-self:stretch;position:relative;overflow:hidden}
+.obj-row.side .obj-art{flex:0 0 47%;align-self:stretch;position:relative;overflow:hidden}
 .obj-row.side .obj-art img{position:absolute;inset:0;width:100%;height:100%;max-width:none;
-  margin:0;object-fit:cover;object-position:31% center;
-  /* последние проценты растворяем: ровный срез по бедрам читался бы как обрыв */
-  -webkit-mask-image:linear-gradient(180deg,#000 0 88%,transparent 100%);
-          mask-image:linear-gradient(180deg,#000 0 88%,transparent 100%)}
+  margin:0;object-fit:cover;object-position:8% 18%;
+  -webkit-mask-image:linear-gradient(180deg,#000 0 84%,transparent 100%);
+          mask-image:linear-gradient(180deg,#000 0 84%,transparent 100%)}
 .obj-row.side .obj-col{padding:0 0 2px;gap:0}
-/* Чем уже экран, тем выше колонка и тем сильнее зум кадра при обрезке.
-   Без поправки лицо уезжает за правый край — двигаем окно кадрирования. */
-@media (max-width:400px){
-  .obj-row.side .obj-art img{object-position:46% center}
-}
+.obj-row.side .steps{margin-top:0}
+.steps-rest{margin-top:0}
+.steps-rest > div:first-child{border-top:1px solid rgba(255,255,255,.16)}
 
 /* реплика автора: не плашка, а голос — отбивается акцентной линией слева */
 .pitch{margin-top:22px;padding:2px 0 2px 16px;border-left:3px solid var(--accent)}
@@ -871,10 +867,12 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
         <div class="steps">
           <div><span class="n">01</span><p>У карусель вшивається кодове слово: «Напиши слово “гайд” у директ — і я надішлю тобі бонус»</p></div>
           <div><span class="n">02</span><p>ManyChat ловить це слово й починає діалог автоматично</p></div>
-          <div><span class="n">03</span><p>Бот видає матеріал, відповідає на питання й пропонує твій продукт</p></div>
-          <div><span class="n">04</span><p>У результаті ти маєш не просто підписника, а потенційного клієнта або навіть продаж. Без твоєї участі, навіть коли ти спиш</p></div>
         </div>
       </div>
+    </div>
+    <div class="steps steps-rest">
+      <div><span class="n">03</span><p>Бот видає матеріал, відповідає на питання й пропонує твій продукт</p></div>
+      <div><span class="n">04</span><p>У результаті ти маєш не просто підписника, а потенційного клієнта або навіть продаж. Без твоєї участі, навіть коли ти спиш</p></div>
     </div>
 
     <div class="chips" style="margin-top:16px">
