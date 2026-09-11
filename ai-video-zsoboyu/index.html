@@ -308,33 +308,18 @@ hr{border:0;border-top:1px solid var(--line);margin:16px 0}
           mask-image:linear-gradient(180deg,#000 0 62%,rgba(0,0,0,.45) 84%,transparent 100%)}
 .obj-col{flex:1;min-width:0;display:flex;flex-direction:column;gap:12px;padding-bottom:8px}
 .obj-col p{font-size:14.5px;line-height:1.5;margin:0}
-/* зеркальный вариант: фигура справа, текст слева и распределён на всю её высоту */
-.obj-row.flip{flex-direction:row-reverse;align-items:stretch;
-  margin:18px calc(var(--pad)*-1) 0 0}
-.obj-row.flip .obj-art{flex:0 0 38%;align-self:stretch;position:relative}
-/* фигура подстраивается под высоту списка: тянем по высоте, ширина уходит за край карточки */
-/* фигура заходит на колонку слева на 20px — палец «дотягивается» до списка;
-   отступ у текста больше на столько же, чтобы буквы под руку не попадали */
-.obj-row.flip .obj-art img{position:absolute;left:-20px;bottom:0;height:100%;width:auto;
-  max-width:none;margin:0}
-.obj-row.flip .obj-col{justify-content:space-between;padding-bottom:2px;padding-right:26px}
-/* После укрупнения шрифта колонка со списком стала ~500px, и фигура при
-   подгонке по высоте раздувалась до 368px ширины — голова уезжала за край.
-   В колонке 460px две колонки больше не сходятся, поэтому фигура идёт
-   над списком, целиком, а список — на всю ширину. */
-@media (max-width:519px){
-  .obj-row.flip{display:block;margin:18px calc(var(--pad)*-1) 0 calc(var(--pad)*-1)}
-  .obj-row.flip .obj-col{padding:0 var(--pad)}
-  /* Фигура идёт лентой во всю ширину карточки: иначе справа стоял силуэт,
-     а слева оставалась пустая чёрная половина. Кадр поясной, поэтому низ
-     растворяем — обрезанный торс читался бы как поломка. */
-  .obj-row.flip .obj-art{display:block;position:relative;height:clamp(250px,62vw,320px);
-    margin:0 0 18px;overflow:hidden}
-  .obj-row.flip .obj-art img{position:absolute;inset:0;left:0;right:auto;bottom:auto;
-    width:100%;height:100%;object-fit:cover;object-position:center 2%;
-    -webkit-mask-image:linear-gradient(180deg,#000 0 60%,rgba(0,0,0,.42) 84%,transparent 100%);
-            mask-image:linear-gradient(180deg,#000 0 60%,rgba(0,0,0,.42) 84%,transparent 100%)}
-}
+/* Фигура слева, текст справа, параллельно. Фигуру НЕ тянем по высоте
+   колонки: именно это раньше раздувало её до 368px и срезало голову.
+   Размер задаём долей ширины, низ растворяем — поза поясная. */
+.obj-row.side{align-items:flex-start;margin:20px 0 0 calc(var(--pad)*-1)}
+.obj-row.side .obj-art{flex:0 0 41%;align-self:flex-start;position:relative}
+/* фигура шире своей колонки и уходит за левый край карточки: так она
+   выше и под ней остаётся меньше пустого места, а колонка текста не жмётся */
+.obj-row.side .obj-art img{position:static;width:162%;max-width:none;height:auto;
+  margin:0 0 0 -56%;
+  -webkit-mask-image:linear-gradient(180deg,#000 0 66%,rgba(0,0,0,.4) 86%,transparent 100%);
+          mask-image:linear-gradient(180deg,#000 0 66%,rgba(0,0,0,.4) 86%,transparent 100%)}
+.obj-row.side .obj-col{padding:0 var(--pad) 2px 0;gap:0}
 
 /* реплика автора: не плашка, а голос — отбивается акцентной линией слева */
 .pitch{margin-top:22px;padding:2px 0 2px 16px;border-left:3px solid var(--accent)}
@@ -869,7 +854,7 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
   <section class="card dark">
     <h2 class="h h2">Контент із собою — це половина справи</h2>
 
-    <div class="obj-row flip">
+    <div class="obj-row side">
       <div class="obj-art">
         <picture>
           <source srcset="img/point.avif" type="image/avif">
