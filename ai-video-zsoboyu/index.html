@@ -323,10 +323,17 @@ hr{border:0;border-top:1px solid var(--line);margin:16px 0}
    В колонке 460px две колонки больше не сходятся, поэтому фигура идёт
    над списком, целиком, а список — на всю ширину. */
 @media (max-width:519px){
-  .obj-row.flip{display:block;margin:18px calc(var(--pad)*-1) 0 0}
-  .obj-row.flip .obj-col{padding-right:0}
-  .obj-row.flip .obj-art{display:block;position:relative;height:300px;margin-top:18px}
-  .obj-row.flip .obj-art img{left:auto;right:-6%;height:100%}
+  .obj-row.flip{display:block;margin:18px calc(var(--pad)*-1) 0 calc(var(--pad)*-1)}
+  .obj-row.flip .obj-col{padding:0 var(--pad)}
+  /* Фигура идёт лентой во всю ширину карточки: иначе справа стоял силуэт,
+     а слева оставалась пустая чёрная половина. Кадр поясной, поэтому низ
+     растворяем — обрезанный торс читался бы как поломка. */
+  .obj-row.flip .obj-art{display:block;position:relative;height:clamp(250px,62vw,320px);
+    margin:0 0 18px;overflow:hidden}
+  .obj-row.flip .obj-art img{position:absolute;inset:0;left:0;right:auto;bottom:auto;
+    width:100%;height:100%;object-fit:cover;object-position:center 2%;
+    -webkit-mask-image:linear-gradient(180deg,#000 0 60%,rgba(0,0,0,.42) 84%,transparent 100%);
+            mask-image:linear-gradient(180deg,#000 0 60%,rgba(0,0,0,.42) 84%,transparent 100%)}
 }
 
 /* реплика автора: не плашка, а голос — отбивается акцентной линией слева */
