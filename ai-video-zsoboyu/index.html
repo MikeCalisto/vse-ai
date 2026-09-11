@@ -229,28 +229,35 @@ hr{border:0;border-top:1px solid var(--line);margin:16px 0}
           mask-image:linear-gradient(200deg,#000 0 42%,rgba(0,0,0,.35) 70%,transparent 92%)}
 .card.dark>*:not(.stand){position:relative;z-index:1}
 
-/* ── формати ───────────────────────────────────────────── */
-.fmts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:18px}
-.fmt{position:relative;border-radius:12px;overflow:hidden;background:var(--dark);
-  aspect-ratio:9/14;display:flex;align-items:flex-end}
-.fmt video,.fmt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.fmt .cap{position:relative;z-index:2;padding:11px 11px 12px;width:100%;
-  background:linear-gradient(180deg,transparent,rgba(6,10,6,.86) 46%)}
+/* ── формати: один великий кадр на рядок, підпис під ним ───── */
+.fmts{display:flex;flex-direction:column;gap:16px;margin-top:20px}
+.fmt{border-radius:14px;overflow:hidden;background:var(--soft);border:1px solid var(--line)}
+.fmt .media{position:relative;aspect-ratio:4/5;background:var(--dark);overflow:hidden}
+.fmt video,.fmt .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fmt .slot{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.fmt .cap{padding:14px 16px 16px}
 .fmt .no{font-family:var(--display);font-weight:900;font-size:12.5px;color:var(--accent);
   letter-spacing:.04em}
-.fmt h4{font-family:var(--display);font-weight:700;font-size:14.5px;line-height:1.15;
-  letter-spacing:-.02em;color:#fff;margin-top:4px}
-.fmt p{font-size:12.5px;line-height:1.4;color:rgba(255,255,255,.7);margin-top:5px}
-.fmt .slot{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);z-index:1}
-/* карусель у картці: слайди лежать стосом, видно верхній, тап гортає далі */
-.carou{position:absolute;inset:0;z-index:0;cursor:pointer}
-.carou picture{position:absolute;inset:0;opacity:0;transition:opacity .28s ease}
-.carou picture.on{opacity:1}
-.carou img{width:100%;height:100%;object-fit:cover}
-.cdot{position:absolute;top:9px;right:9px;z-index:3;background:rgba(6,10,6,.72);
-  color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.06em;padding:4px 8px;
-  border-radius:100px;pointer-events:none}
+.fmt h4{font-family:var(--display);font-weight:700;font-size:18px;line-height:1.14;
+  letter-spacing:-.03em;margin-top:6px}
+.fmt p{font-size:14.5px;line-height:1.5;color:var(--muted);margin-top:8px}
+/* кнопку показуємо лише там, де автоплей не спрацював */
+.fmt .play{display:none}
+.fmt .play.show{display:flex}
+
+/* карусель усередині картки: справжній горизонтальний свайп зі снепом */
+.slides{position:absolute;inset:0;display:flex;overflow-x:auto;overflow-y:hidden;
+  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+  overscroll-behavior-x:contain}
+.slides::-webkit-scrollbar{display:none}
+.slides picture{flex:0 0 100%;scroll-snap-align:center;position:relative}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dots{position:absolute;left:0;right:0;bottom:10px;z-index:3;display:flex;
+  justify-content:center;gap:6px;pointer-events:none}
+.dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.45);
+  box-shadow:0 1px 3px rgba(0,0,0,.5);transition:background .2s,width .2s}
+.dots i.on{background:#fff;width:18px;border-radius:100px}
 
 /* ── кроки автоворонки ─────────────────────────────────── */
 .steps{margin-top:18px;display:flex;flex-direction:column;gap:0}
@@ -633,74 +640,104 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
 
     <div class="fmts">
       <article class="fmt">
-        <video src="format-1.mp4" poster="img/format-1.jpg" muted loop playsinline
-               preload="none" aria-label="Олександр на вулиці — згенерований кадр у локації"></video>
+        <div class="media">
+        <video data-lazy="format-1.mp4" poster="img/format-1.jpg" muted loop playsinline
+               preload="none" disablepictureinpicture aria-label="Олександр на вулиці — згенерований кадр у локації"></video>
         <span class="play sm" role="button" tabindex="0" aria-label="Відтворити"></span>
-        <div class="cap"><span class="no">01</span><h4>Фото з собою будь-де</h4>
-          <p>Ти в студії, в іншому місті, в іншому одязі. Фотосесія без фотографа й без виходу з дому.</p></div>
-      </article>
-      <article class="fmt">
-        <div class="carou" data-carou>
-          <picture class="on">
-            <source srcset="img/car-1.avif" type="image/avif">
-            <img src="img/car-1.jpg" loading="lazy" decoding="async"
-                 alt="Слайд 1 каруселі «Топ-5 помилок у генерації відео»">
-          </picture>
-          <picture>
-            <source srcset="img/car-2.avif" type="image/avif">
-            <img src="img/car-2.jpg" loading="lazy" decoding="async"
-                 alt="Слайд 2 каруселі «Топ-5 помилок у генерації відео»">
-          </picture>
-          <picture>
-            <source srcset="img/car-3.avif" type="image/avif">
-            <img src="img/car-3.jpg" loading="lazy" decoding="async"
-                 alt="Слайд 3 каруселі «Топ-5 помилок у генерації відео»">
-          </picture>
-          <picture>
-            <source srcset="img/car-4.avif" type="image/avif">
-            <img src="img/car-4.jpg" loading="lazy" decoding="async"
-                 alt="Слайд 4 каруселі «Топ-5 помилок у генерації відео»">
-          </picture>
-          <picture>
-            <source srcset="img/car-5.avif" type="image/avif">
-            <img src="img/car-5.jpg" loading="lazy" decoding="async"
-                 alt="Слайд 5 каруселі «Топ-5 помилок у генерації відео»">
-          </picture>
-          <picture>
-            <source srcset="img/car-6.avif" type="image/avif">
-            <img src="img/car-6.jpg" loading="lazy" decoding="async"
-                 alt="Слайд 6 каруселі «Топ-5 помилок у генерації відео»">
-          </picture>
         </div>
-        <span class="cdot" data-cdot>1/6</span>
-        <div class="cap"><span class="no">02</span><h4>Карусель однією голосовою командою</h4>
-          <p>Називаєш ідею вголос — нейронка пише текст, збирає дизайн і верстає слайди.</p></div>
+        <div class="cap">
+          <span class="no">01</span>
+          <h4>Фото з собою будь-де</h4>
+          <p>Ти в студії, в іншому місті, в іншому одязі. Фотосесія без фотографа й без виходу з дому.</p>
+        </div>
       </article>
       <article class="fmt">
-        <video src="format-3.mp4" poster="img/format-3.jpg" muted loop playsinline
-               preload="none" aria-label="Двоє Олександрів у кадрі — реалістичне відео"></video>
+        <div class="media">
+        <div class="slides" data-slides>
+            <picture>
+              <source srcset="img/car-1.avif" type="image/avif">
+              <img src="img/car-1.jpg" loading="lazy" decoding="async"
+                   alt="Слайд 1 каруселі «Топ-5 помилок у генерації відео»">
+            </picture>
+            <picture>
+              <source srcset="img/car-2.avif" type="image/avif">
+              <img src="img/car-2.jpg" loading="lazy" decoding="async"
+                   alt="Слайд 2 каруселі «Топ-5 помилок у генерації відео»">
+            </picture>
+            <picture>
+              <source srcset="img/car-3.avif" type="image/avif">
+              <img src="img/car-3.jpg" loading="lazy" decoding="async"
+                   alt="Слайд 3 каруселі «Топ-5 помилок у генерації відео»">
+            </picture>
+            <picture>
+              <source srcset="img/car-4.avif" type="image/avif">
+              <img src="img/car-4.jpg" loading="lazy" decoding="async"
+                   alt="Слайд 4 каруселі «Топ-5 помилок у генерації відео»">
+            </picture>
+            <picture>
+              <source srcset="img/car-5.avif" type="image/avif">
+              <img src="img/car-5.jpg" loading="lazy" decoding="async"
+                   alt="Слайд 5 каруселі «Топ-5 помилок у генерації відео»">
+            </picture>
+            <picture>
+              <source srcset="img/car-6.avif" type="image/avif">
+              <img src="img/car-6.jpg" loading="lazy" decoding="async"
+                   alt="Слайд 6 каруселі «Топ-5 помилок у генерації відео»">
+            </picture>
+        </div>
+        <div class="dots" data-dots aria-hidden="true"></div>
+        </div>
+        <div class="cap">
+          <span class="no">02</span>
+          <h4>Карусель однією голосовою командою</h4>
+          <p>Називаєш ідею вголос — нейронка пише текст, збирає дизайн і верстає слайди.</p>
+        </div>
+      </article>
+      <article class="fmt">
+        <div class="media">
+        <video data-lazy="format-3.mp4" poster="img/format-3.jpg" muted loop playsinline
+               preload="none" disablepictureinpicture aria-label="Реалістичне відео з Олександром"></video>
         <span class="play sm" role="button" tabindex="0" aria-label="Відтворити"></span>
-        <div class="cap"><span class="no">03</span><h4>Реалістичне відео з собою</h4>
-          <p>Ти в кадрі, рухаєшся й говориш. Плюс товар у руках і локація на твій вибір.</p></div>
+        </div>
+        <div class="cap">
+          <span class="no">03</span>
+          <h4>Реалістичне відео з собою</h4>
+          <p>Ти в кадрі, рухаєшся й говориш. Плюс товар у руках і локація на твій вибір.</p>
+        </div>
       </article>
       <article class="fmt">
-        <video src="format-4.mp4" poster="img/format-4.jpg" muted loop playsinline
-               preload="none" aria-label="Трендове відео з Олександром"></video>
+        <div class="media">
+        <video data-lazy="format-4.mp4" poster="img/format-4.jpg" muted loop playsinline
+               preload="none" disablepictureinpicture aria-label="Трендове відео з Олександром"></video>
         <span class="play sm" role="button" tabindex="0" aria-label="Відтворити"></span>
-        <div class="cap"><span class="no">04</span><h4>Трендове відео</h4>
-          <p>Формат, який зараз збирає охоплення, з тобою в головній ролі.</p></div>
+        </div>
+        <div class="cap">
+          <span class="no">04</span>
+          <h4>Трендове відео</h4>
+          <p>Формат, який зараз збирає охоплення, з тобою в головній ролі.</p>
+        </div>
       </article>
       <article class="fmt">
-        <video src="format-5.mp4" poster="img/format-5.jpg" muted loop playsinline
-               preload="none" aria-label="Мультяшний герой у футболці Ai_Sashka"></video>
+        <div class="media">
+        <video data-lazy="format-5.mp4" poster="img/format-5.jpg" muted loop playsinline
+               preload="none" disablepictureinpicture aria-label="Мультик з Олександром у головній ролі"></video>
         <span class="play sm" role="button" tabindex="0" aria-label="Відтворити"></span>
-        <div class="cap"><span class="no">05</span><h4>Мультик, де головний герой — ти</h4>
-          <p>Твій персонаж говорить українською, з правильними наголосами.</p></div>
+        </div>
+        <div class="cap">
+          <span class="no">05</span>
+          <h4>Мультик, де головний герой — ти</h4>
+          <p>Твій персонаж говорить українською, з правильними наголосами.</p>
+        </div>
       </article>
       <article class="fmt">
-        <span class="slot">format-6.mp4</span>
-        <div class="cap"><span class="no">06</span><h4>Цифровий двійник</h4>
-          <p>Аватар, який говорить твоїм голосом і жестикулює як ти. Рілси будь-якою мовою.</p></div>
+        <div class="media">
+        <span class="slot">format-06.mp4</span>
+        </div>
+        <div class="cap">
+          <span class="no">06</span>
+          <h4>Цифровий двійник</h4>
+          <p>Аватар, який говорить твоїм голосом і жестикулює як ти. Рілси будь-якою мовою.</p>
+        </div>
       </article>
     </div>
 
@@ -1148,37 +1185,92 @@ details.q p{font-size:15px;line-height:1.55;color:var(--muted);padding-bottom:15
   box.innerHTML = html;
 })();
 
-// карусель у картці формату: тап гортає слайди по колу
+// Формати: відео вмикаються самі, без звуку, і тільки коли картка на екрані.
+// Джерело підставляється в останню мить — інакше чотири ролики поїхали б
+// качатися одразу на відкритті сторінки.
 (function(){
-  document.querySelectorAll('[data-carou]').forEach(function(box){
-    var slides = box.querySelectorAll('picture');
-    var dot = box.parentNode.querySelector('[data-cdot]');
-    var i = 0;
-    function show(n){
-      slides[i].classList.remove('on');
-      i = (n + slides.length) % slides.length;
-      slides[i].classList.add('on');
-      if(dot) dot.textContent = (i+1) + '/' + slides.length;
-    }
-    box.addEventListener('click', function(){ show(i+1) });
-  });
-})();
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var vids = [].slice.call(document.querySelectorAll('.fmt video[data-lazy]'));
+  if(!vids.length) return;
 
-// відео: вантажимо й вмикаємо тільки за кліком, зі звуком
-(function(){
-  document.querySelectorAll('.play').forEach(function(btn){
-    var host = btn.parentNode, v = host.querySelector('video');
-    function go(){
-      if(!v) return;                       // порожній слот — файлу ще немає
-      if(v.paused){ v.play(); btn.style.display = 'none' }
-    }
+  function arm(v){
+    if(v.dataset.armed) return;
+    v.dataset.armed = '1';
+    v.src = v.dataset.lazy;
+  }
+  function showBtn(v){
+    var b = v.parentNode.querySelector('.play');
+    if(b) b.classList.add('show');
+  }
+
+  if(reduce){ vids.forEach(showBtn); }
+  else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var v = e.target;
+        if(e.isIntersecting){
+          arm(v);
+          var pr = v.play();
+          if(pr && pr.catch) pr.catch(function(){ showBtn(v) });   // автоплей заборонено — лишаємо кнопку
+        } else if(!v.paused){ v.pause() }
+      });
+    }, {threshold:.45});
+    vids.forEach(function(v){ io.observe(v) });
+
+    // Підстраховка: у частині браузерів IntersectionObserver не спрацьовує,
+    // поки вкладка не отримала фокус. Тоді вмикаємо те, що вже у в'юпорті,
+    // руками — на завантаженні та на першому скролі.
+    var kick = function(){
+      vids.forEach(function(v){
+        var r = v.getBoundingClientRect();
+        if(r.top < innerHeight * .8 && r.bottom > innerHeight * .2){
+          arm(v);
+          if(v.paused){ var pr = v.play(); if(pr && pr.catch) pr.catch(function(){ showBtn(v) }) }
+        }
+      });
+    };
+    var onScroll = function(){
+      kick();
+      if(vids.every(function(v){ return v.dataset.armed })) removeEventListener('scroll', onScroll);
+    };
+    addEventListener('load', kick);
+    addEventListener('scroll', onScroll, {passive:true});
+    setTimeout(kick, 1200);
+  }
+
+  // кнопка — запасний шлях: і для reduced-motion, і якщо браузер не дав автоплей
+  document.querySelectorAll('.fmt .play').forEach(function(btn){
+    var v = btn.parentNode.querySelector('video');
+    function go(){ if(!v) return; arm(v); v.play(); btn.classList.remove('show') }
     btn.addEventListener('click', go);
     btn.addEventListener('keydown', function(e){
       if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); go() }
     });
-    if(v) v.addEventListener('pause', function(){ btn.style.display = '' });
   });
 })();
+
+// Карусель у картці: звичайний горизонтальний свайп, крапки показують позицію
+(function(){
+  document.querySelectorAll('[data-slides]').forEach(function(box){
+    var slides = box.querySelectorAll('picture');
+    var dots = box.parentNode.querySelector('[data-dots]');
+    if(!dots) return;
+    for(var i=0;i<slides.length;i++) dots.appendChild(document.createElement('i'));
+    var marks = dots.querySelectorAll('i');
+    marks[0].classList.add('on');
+    var tick;
+    box.addEventListener('scroll', function(){
+      clearTimeout(tick);
+      tick = setTimeout(function(){
+        var n = Math.round(box.scrollLeft / box.clientWidth);
+        n = Math.max(0, Math.min(marks.length - 1, n));   // край списку не має вибивати лічильник
+        marks.forEach(function(m,j){ m.classList.toggle('on', j === n) });
+      }, 60);
+    }, {passive:true});
+  });
+})();
+
+// автор: прев'ю більше не відео, окремий обробник не потрібен
 </script>
 </body>
 </html>
