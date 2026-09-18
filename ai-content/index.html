@@ -213,7 +213,7 @@ a{color:inherit;text-decoration:none}
 }
 .badge b{display:block;font-weight:800;font-size:16px}
 .badge span{display:block;font-weight:500;font-size:15px;color:var(--ink-2)}
-.badge span.up{text-transform:uppercase;color:var(--navy);font-weight:600}
+.badge span.up{text-transform:uppercase;color:var(--navy);font-weight:600;white-space:nowrap;font-size:clamp(13px,3.7vw,15px)}
 
 .hero__title{margin-bottom:14px}
 .hero__lead{margin-bottom:24px}
@@ -685,7 +685,7 @@ img.miss{display:none}
     <div class="badge">
       <span class="badge__ico">📅</span>
       <b>дата старту</b>
-      <span class="up">4 серпня</span>
+      <span class="up" id="start-date">завтра</span>
     </div>
   </div>
 
@@ -1272,6 +1272,29 @@ img.miss{display:none}
   } else {
     rv.forEach(function(el){ el.classList.add('in'); });
   }
+
+  /* ---------- Дата старту — завжди завтра (за київським часом) ---------- */
+  (function(){
+    var el = document.getElementById('start-date');
+    if (!el) return;
+    var MONTHS = ['січня','лютого','березня','квітня','травня','червня',
+                  'липня','серпня','вересня','жовтня','листопада','грудня'];
+    var d;
+    try {
+      // поточна дата саме в Києві, а не в таймзоні відвідувача
+      var kyiv = new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'Europe/Kyiv', year: 'numeric', month: '2-digit', day: '2-digit'
+      }).format(new Date());
+      d = new Date(kyiv + 'T12:00:00Z');       // полудень — щоб перехід на літній час не зсував добу
+      if (isNaN(d)) throw 0;
+    } catch (e) {
+      d = new Date();                          // запасний варіант: локальна дата
+      d.setHours(12, 0, 0, 0);
+      d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), 12));
+    }
+    d.setUTCDate(d.getUTCDate() + 1);
+    el.textContent = d.getUTCDate() + ' ' + MONTHS[d.getUTCMonth()];
+  })();
 
   /* ---------- Countdown (60 хв, зберігається в localStorage) ---------- */
   var LEN = 60*60*1000, KEY = 'aicontent_timer_end';
