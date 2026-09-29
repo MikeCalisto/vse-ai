@@ -4,7 +4,7 @@
   "installCommand": null,
   "rewrites": [
     { "source": "/", "destination": "/zakrytyi-klub/index.html" },
-    { "source": "/((?!product-ai-content|fabryka-fb|fabryka-mult|fabryka-2999|fabryka-v2|ai-multfilm|ai-multfilm-ubt|ai-multfilm-m|content-tovar|zakrytyi-klub|ai-content|ai-content-v2|ai-content-m|ai-lyudyna|links|fabryka-ai-kontentu|fabryka-spec|fabryka-spec-claude|claude-block|ai-video|ai-video2|ai-video-zsoboyu|ai-video-webinar|webinar|pershyi-dzvinok|oblozhky-modul-2|prezentaciya-kursu|sous|favicon|apple-touch-icon|robots\\.txt|sitemap).*)", "destination": "/zakrytyi-klub/$1" }
+    { "source": "/((?!product-ai-content|fabryka-fb|fabryka-mult|fabryka-2999|fabryka-v2-spec|fabryka-v2|ai-multfilm|ai-multfilm-ubt|ai-multfilm-m|content-tovar|zakrytyi-klub|ai-content|ai-content-v2|ai-content-m|ai-lyudyna|links|fabryka-ai-kontentu|fabryka-spec|fabryka-spec-claude|claude-block|ai-video|ai-video2|ai-video-zsoboyu|ai-video-webinar|webinar|pershyi-dzvinok|oblozhky-modul-2|prezentaciya-kursu|sous|favicon|apple-touch-icon|robots\\.txt|sitemap).*)", "destination": "/zakrytyi-klub/$1" }
   ],
   "redirects": [
     { "source": "/product-ai-content", "destination": "/product-ai-content/index.html", "permanent": false },
@@ -37,6 +37,8 @@
     { "source": "/fabryka-v2/", "destination": "/fabryka-v2/index.html", "permanent": false },
     { "source": "/fabryka-v2/concepts", "destination": "/fabryka-v2/concepts/index.html", "permanent": false },
     { "source": "/fabryka-v2/concepts/", "destination": "/fabryka-v2/concepts/index.html", "permanent": false },
+    { "source": "/fabryka-v2-spec", "destination": "/fabryka-v2-spec/index.html", "permanent": false },
+    { "source": "/fabryka-v2-spec/", "destination": "/fabryka-v2-spec/index.html", "permanent": false },
     { "source": "/fabryka-spec", "destination": "/fabryka-spec/index.html", "permanent": false },
     { "source": "/fabryka-spec/", "destination": "/fabryka-spec/index.html", "permanent": false },
     { "source": "/claude-block", "destination": "/claude-block/index.html", "permanent": false },
@@ -157,6 +159,12 @@
     },
     {
       "source": "/fabryka-2999/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/fabryka-v2-spec/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
