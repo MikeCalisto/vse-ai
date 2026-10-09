@@ -241,8 +241,8 @@ img,svg{display:block}
 .clip-h .f{display:flex;align-items:center;gap:6px}
 .clip-h .f i{width:6px;height:6px;border-radius:50%;background:var(--red);animation:blink 1.2s steps(2) infinite}
 .clip-pb{height:2px;background:var(--line)}
-.clip-pb i{display:block;height:100%;width:0;background:var(--lime);box-shadow:0 0 6px var(--lime);transition:width 1.6s cubic-bezier(.4,0,.2,1) .2s}
-.clip.vis .clip-pb i{width:100%}
+.clip-pb i{display:block;height:100%;transform:scaleX(0);transform-origin:left;background:var(--lime);box-shadow:0 0 6px var(--lime);transition:transform 1.6s cubic-bezier(.4,0,.2,1) .2s}
+.clip.vis .clip-pb i{transform:none}
 .clip-b{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:16px 14px 18px}
 .ico{width:52px;height:52px;border:1px solid var(--line-l);background:var(--lime-dim);display:grid;place-items:center}
 .ico svg{width:28px;height:28px}
