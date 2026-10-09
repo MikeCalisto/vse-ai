@@ -243,10 +243,10 @@ img{max-width:100%;height:auto}
 .toolbar a{flex:0 0 auto;display:flex;align-items:center;gap:5px;padding:7px 11px;border:2px solid var(--ink);border-radius:999px;font:800 11.5px/1 var(--display);background:var(--paper);white-space:nowrap;transition:background .2s,color .2s,transform .2s}
 .toolbar a.act{background:var(--or);color:#fff;transform:rotate(-2deg)}
 .feat{position:relative;margin-top:18px;background:var(--paper);border:2.5px solid var(--ink);border-radius:18px;box-shadow:5px 5px 0 var(--ink);padding:16px 16px 16px;scroll-margin-top:80px}
-.feat-h{display:flex;align-items:center;gap:12px}
-.fi{flex:0 0 48px;width:48px;height:48px;border-radius:14px;background:var(--or-soft);border:2px solid var(--ink);display:grid;place-items:center;font-size:24px;transform:rotate(-6deg)}
-.feat.vis .fi{animation:fipop .5s cubic-bezier(.3,1.6,.5,1)}
-@keyframes fipop{0%{transform:rotate(-30deg) scale(.4)}100%{transform:rotate(-6deg) scale(1)}}
+.feat-h{display:flex;align-items:center;gap:14px}
+.fi{flex:0 0 72px;width:72px;height:72px;border-radius:16px;background:var(--or-soft);border:2px solid var(--ink);display:grid;place-items:center;transform:rotate(-4deg);overflow:hidden}
+.feat:nth-of-type(even) .fi{transform:rotate(4deg)}
+.fi svg{width:62px;height:62px;overflow:visible}
 .feat h3{font:900 18px/1.2 var(--display)}
 .feat p{font-size:15px;line-height:1.55;color:#3E3832;margin-top:10px}
 .resb{margin-top:12px!important;background:var(--or-soft);border:2px dashed var(--or);border-radius:12px;padding:9px 12px;font-style:italic;color:var(--ink)!important}
@@ -527,9 +527,33 @@ details.acc[open] summary i{transform:rotate(45deg)}
 .pvc .eq i:nth-child(2){animation-delay:-.2s}.pvc .eq i:nth-child(3){animation-delay:-.5s}.pvc .eq i:nth-child(4){animation-delay:-.1s}
 @keyframes eqb{0%,100%{height:4px}50%{height:16px}}
 
+/* що вміє: анімовані іконки */
+.fx-cut{transform-box:fill-box;transform-origin:left;animation:fxCut 3s cubic-bezier(.7,0,.3,1) infinite}
+@keyframes fxCut{0%,30%{transform:scaleX(1);opacity:1}55%,85%{transform:scaleX(0);opacity:0}100%{transform:scaleX(1);opacity:1}}
+.fx-tail{animation:fxTail 3s cubic-bezier(.7,0,.3,1) infinite}
+@keyframes fxTail{0%,30%{transform:translateX(0)}55%,85%{transform:translateX(-20px)}100%{transform:translateX(0)}}
+.fx-w{animation:fxW 2.8s steps(1) infinite;opacity:0}.fx-w.w2{animation-delay:.35s}.fx-w.w3{animation-delay:.7s}
+@keyframes fxW{0%{opacity:0}10%,80%{opacity:1}90%{opacity:0}}
+.fx-ring{stroke-dasharray:150;stroke-dashoffset:150;animation:fxRing 3s ease-in-out infinite}
+@keyframes fxRing{0%{stroke-dashoffset:150}45%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:-150}}
+.fx-tw{transform-box:fill-box;transform-origin:center;animation:agPulse 1.6s ease-in-out infinite}
+.fx-stk{transform-box:fill-box;transform-origin:center;animation:paStk 3s ease-in-out infinite}
+.fx-eq{transform-box:fill-box;transform-origin:bottom;animation:fxEq .9s ease-in-out infinite}.fx-eq.e2{animation-delay:-.3s}.fx-eq.e3{animation-delay:-.6s}
+@keyframes fxEq{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
+.fx-click{animation:fxClick 2.2s ease-in-out infinite}
+@keyframes fxClick{0%,100%{transform:translate(6px,6px)}40%,60%{transform:translate(0,0)}}
+.fx-ripple{transform-box:fill-box;transform-origin:center;animation:fxRip 2.2s ease-out infinite;opacity:0}
+@keyframes fxRip{0%,45%{opacity:0;transform:scale(.5)}50%{opacity:1}80%,100%{opacity:0;transform:scale(2.6)}}
+.fx-safe{animation:fxSafe 1.8s ease-in-out infinite}
+@keyframes fxSafe{50%{opacity:.35}}
+.fx-bulb{animation:fxBulb 2s ease-in-out infinite}
+@keyframes fxBulb{50%{fill:#FFD23A}}
+.fx-wv{animation:paW 1.2s ease-in-out infinite}.fx-wv.v2{animation-delay:-.6s}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .rv,.bcard,.facts li{opacity:1;transform:none}
+  .fx-w{opacity:1!important}.fx-ring{stroke-dashoffset:0!important}
 }
 </style>
 </head>
@@ -709,28 +733,28 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <a href="#f5">🎵 Звук</a><a href="#f6">🖼 Обкладинка</a><a href="#f7">📱 Сейф-зони</a><a href="#f8">🎙 Відео з ідеї</a>
     </nav>
 
-    <article class="feat" id="f1"><div class="feat-h"><span class="fi">✂️</span><h3>Чистка запису</h3></div>
+    <article class="feat" id="f1"><div class="feat-h"><span class="fi" aria-hidden="true"><svg viewBox="0 0 72 72"><g fill="#15120F"><rect x="6" y="32" width="3" height="10" rx="1"/><rect x="11" y="26" width="3" height="22" rx="1"/><rect x="16" y="30" width="3" height="14" rx="1"/><rect x="21" y="24" width="3" height="26" rx="1"/></g><g class="fx-cut"><rect x="26" y="22" width="18" height="30" rx="3" fill="rgba(229,52,30,.14)" stroke="#E5341E" stroke-width="1.8" stroke-dasharray="3 2"/><rect x="30" y="34" width="3" height="6" rx="1" fill="#E5341E"/><rect x="35" y="32" width="3" height="10" rx="1" fill="#E5341E"/></g><g class="fx-tail" fill="#15120F"><rect x="47" y="28" width="3" height="18" rx="1"/><rect x="52" y="23" width="3" height="28" rx="1"/><rect x="57" y="30" width="3" height="14" rx="1"/><rect x="62" y="33" width="3" height="8" rx="1"/></g><text x="35" y="64" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900" font-size="7" fill="#E5341E">Е-Е-М</text></svg></span><h3>Чистка запису</h3></div>
       <p>Вирізає паузи, «е-е-м», повтори й невдалі дублі.</p>
       <p class="resb"><b>Результат:</b> динамічне відео без жодного зайвого слова.</p></article>
-    <article class="feat" id="f2"><div class="feat-h"><span class="fi">💬</span><h3>Субтитри</h3></div>
+    <article class="feat" id="f2"><div class="feat-h"><span class="fi" aria-hidden="true"><svg viewBox="0 0 72 72"><rect x="14" y="6" width="44" height="60" rx="8" fill="#F2B591" stroke="#15120F" stroke-width="2.4"/><circle cx="36" cy="26" r="8" fill="#15120F"/><path d="M22 66c2-14 8-19 14-19s12 5 14 19z" fill="#15120F"/><rect class="fx-w w1" x="8" y="44" width="18" height="10" rx="3" fill="#fff" stroke="#15120F" stroke-width="1.8"/><rect class="fx-w w2" x="28" y="44" width="20" height="10" rx="3" fill="#FF5A1A" stroke="#15120F" stroke-width="1.8"/><rect class="fx-w w3" x="50" y="44" width="15" height="10" rx="3" fill="#fff" stroke="#15120F" stroke-width="1.8"/></svg></span><h3>Субтитри</h3></div>
       <p>Кожне слово зʼявляється в момент, коли ти його вимовляєш. Ключові слова виділені кольором, назви сервісів написані правильно.</p>
       <p class="resb"><b>Результат:</b> відео зрозуміле навіть без звуку.</p></article>
-    <article class="feat" id="f3"><div class="feat-h"><span class="fi">✨</span><h3>Графіка й анімації</h3></div>
+    <article class="feat" id="f3"><div class="feat-h"><span class="fi" aria-hidden="true"><svg viewBox="0 0 72 72"><rect x="16" y="28" width="40" height="16" rx="4" fill="#fff" stroke="#15120F" stroke-width="2"/><rect x="21" y="34" width="22" height="4" rx="2" fill="#15120F"/><path class="fx-ring" d="M52 26C44 18 18 18 10 30c-6 10 8 20 28 20 22 0 30-10 22-20-3-4-9-6-16-7" fill="none" stroke="#FF5A1A" stroke-width="3" stroke-linecap="round"/><path class="fx-arrow" d="M58 64c-2-6-5-10-9-12M49 52l1 6M49 52l6 1" fill="none" stroke="#15120F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 10l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#FF5A1A" class="fx-tw"/></svg></span><h3>Графіка й анімації</h3></div>
       <p>Підставляє анімовані елементи на ключових словах, обводить і підкреслює те, що ти показуєш на екрані.</p>
       <p class="resb"><b>Результат:</b> «говоряча голова» перетворюється на динамічний ролик.</p></article>
-    <article class="feat" id="f4"><div class="feat-h"><span class="fi">🎨</span><h3>Твої стікери</h3></div>
+    <article class="feat" id="f4"><div class="feat-h"><span class="fi" aria-hidden="true"><svg viewBox="0 0 72 72"><g class="fx-stk"><path d="M36 8a28 28 0 1 0 28 28H48a12 12 0 0 1-12-12z" fill="#fff" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round"/><path d="M36 8v16a12 12 0 0 0 12 12h16z" fill="#FFE1D2" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round"/><path d="M18 30c0-8 6-12 12-12 5 0 9 3 10 7-5-3-12-2-16 1-3 2-5 3-6 4z" fill="#3A2A20"/><circle cx="27" cy="38" r="2.6" fill="#15120F"/><circle cx="39" cy="38" r="2.6" fill="#15120F"/><path d="M25 46q8 7 16 0" fill="none" stroke="#FF5A1A" stroke-width="3" stroke-linecap="round"/></g></svg></span><h3>Твої стікери</h3></div>
       <p>Додає в кадр стікери з тобою у твоєму фірмовому стилі.</p>
       <p class="resb"><b>Результат:</b> тебе впізнають у стрічці з першої секунди.</p></article>
-    <article class="feat" id="f5"><div class="feat-h"><span class="fi">🎵</span><h3>Звук</h3></div>
+    <article class="feat" id="f5"><div class="feat-h"><span class="fi" aria-hidden="true"><svg viewBox="0 0 72 72"><path d="M22 12v28" stroke="#15120F" stroke-width="3"/><path d="M22 12l16-4v8l-16 4z" fill="#15120F"/><ellipse cx="16" cy="42" rx="7" ry="5.5" fill="#FF5A1A" stroke="#15120F" stroke-width="2.2"/><g fill="#FF5A1A" stroke="#15120F" stroke-width="1.8"><rect class="fx-eq e1" x="38" y="34" width="6" height="28" rx="2"/><rect class="fx-eq e2" x="47" y="34" width="6" height="28" rx="2"/><rect class="fx-eq e3" x="56" y="34" width="6" height="28" rx="2"/></g><path d="M36 64h28" stroke="#15120F" stroke-width="2.4" stroke-linecap="round"/></svg></span><h3>Звук</h3></div>
       <p>Ставить звукові ефекти й фонову музику, вирівнює гучність під стандарт соцмереж.</p>
       <p class="resb"><b>Результат:</b> звук звучить професійно, а голос чути чітко.</p></article>
-    <article class="feat" id="f6"><div class="feat-h"><span class="fi">🖼</span><h3>Обкладинка</h3></div>
+    <article class="feat" id="f6"><div class="feat-h"><span class="fi" aria-hidden="true"><svg viewBox="0 0 72 72"><rect x="14" y="6" width="40" height="56" rx="6" fill="#FF5A1A" stroke="#15120F" stroke-width="2.4"/><rect x="19" y="13" width="30" height="7" rx="2" fill="#fff"/><rect x="19" y="23" width="20" height="7" rx="2" fill="#15120F"/><circle cx="34" cy="46" r="8" fill="#fff" stroke="#15120F" stroke-width="2"/><path d="M31.5 42l7 4-7 4z" fill="#15120F"/><g class="fx-click"><path d="M52 50l12 6-5 2-2 5z" fill="#fff" stroke="#15120F" stroke-width="2" stroke-linejoin="round"/></g><circle class="fx-ripple" cx="52" cy="50" r="4" fill="none" stroke="#15120F" stroke-width="2"/></svg></span><h3>Обкладинка</h3></div>
       <p>Робить клікабельну обкладинку на перших кадрах і окремою картинкою.</p>
       <p class="resb"><b>Результат:</b> обкладинка готова разом із роликом.</p></article>
-    <article class="feat" id="f7"><div class="feat-h"><span class="fi">📱</span><h3>Сейф-зони</h3></div>
+    <article class="feat" id="f7"><div class="feat-h"><span class="fi" aria-hidden="true"><svg viewBox="0 0 72 72"><rect x="18" y="4" width="36" height="64" rx="8" fill="#15120F"/><rect x="21" y="8" width="30" height="56" rx="5" fill="#F2B591"/><rect class="fx-safe" x="24" y="14" width="19" height="36" rx="3" fill="rgba(255,255,255,.35)" stroke="#fff" stroke-width="2" stroke-dasharray="3 2"/><g fill="#fff"><circle cx="47" cy="34" r="2.4"/><circle cx="47" cy="41" r="2.4"/><circle cx="47" cy="48" r="2.4"/></g><rect x="25" y="55" width="16" height="3" rx="1.5" fill="#fff"/><rect x="26" y="26" width="15" height="6" rx="2" fill="#FF5A1A"/></svg></span><h3>Сейф-зони</h3></div>
       <p>Розставляє текст і графіку так, щоб нічого не залазило під кнопки Reels і TikTok.</p>
       <p class="resb"><b>Результат:</b> усе важливе видно на будь-якому телефоні.</p></article>
-    <article class="feat" id="f8"><div class="feat-h"><span class="fi">🎙</span><h3>Відео з ідеї</h3></div>
+    <article class="feat" id="f8"><div class="feat-h"><span class="fi" aria-hidden="true"><svg viewBox="0 0 72 72"><path d="M36 10a16 16 0 0 0-9 29c2 2 3 4 3 7h12c0-3 1-5 3-7a16 16 0 0 0-9-29z" fill="#FF5A1A" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round" class="fx-bulb"/><path d="M30 52h12M31 58h10" stroke="#15120F" stroke-width="2.6" stroke-linecap="round"/><path d="M32 30l4 4 4-4" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path class="fx-wv" d="M58 20a14 14 0 0 1 0 20" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linecap="round"/><path class="fx-wv v2" d="M64 15a21 21 0 0 1 0 30" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linecap="round"/><path class="fx-wv" d="M14 20a14 14 0 0 0 0 20" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linecap="round"/><path class="fx-wv v2" d="M8 15a21 21 0 0 0 0 30" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linecap="round"/></svg></span><h3>Відео з ідеї</h3></div>
       <p>Ти описуєш ідею голосом, монтажер створює ролик без зйомки.</p>
       <p class="resb"><b>Результат:</b> контент є навіть у дні, коли немає часу й настрою знімати.</p></article>
   </section>
