@@ -430,7 +430,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
 .quote b{color:var(--or)}
 .revs{display:flex;align-items:flex-start;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:28px calc(-1*var(--pad)) 0;padding:4px var(--pad) 14px}
 .revs::-webkit-scrollbar{display:none}
-.rev{flex:0 0 82%;scroll-snap-align:center;background:#fff;border-radius:14px;overflow:hidden;border:2px solid rgba(255,255,255,.2);content-visibility:auto;contain-intrinsic-size:320px 300px}
+.rev{flex:0 0 82%;scroll-snap-align:center;background:#fff;border-radius:14px;overflow:hidden;border:2px solid rgba(255,255,255,.2)}
 .rev img{width:100%;height:auto}
 .dots{display:flex;justify-content:center;gap:5px;margin-top:6px;flex-wrap:wrap}
 .dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .2s}
@@ -583,6 +583,56 @@ details.acc[open] summary i{transform:rotate(45deg)}
 @media(min-width:420px){.hgrid{gap:10px}.hgrid .facts{gap:6px}.hgrid .facts li{font-size:14px;line-height:1.2;padding:7px 9px;gap:7px}.hgrid .facts .chk{flex-basis:22px;width:22px;height:22px}.hgrid .facts .chk svg{width:11px;height:11px}}
 @media(min-width:470px){.hgrid .facts{gap:7px}.hgrid .facts li{font-size:16px;line-height:1.22;padding:8px 10px;gap:8px}.hgrid .facts .chk{flex-basis:24px;width:24px;height:24px}.hgrid .facts .chk svg{width:12px;height:12px}}
 
+/* hero: для чого */
+.for{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:16px}
+.for span{font:800 12px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}
+.for b{font:800 12.5px/1 var(--display);background:var(--ink);color:#fff;border-radius:999px;padding:7px 11px}
+.for b:nth-of-type(2){background:var(--or)}
+.sub2{margin-top:10px;font:500 15px/1.5 var(--body);color:var(--mute)}
+.sub2 b{color:var(--ink);background:linear-gradient(transparent 58%,rgba(255,90,26,.38) 58%);padding:0 2px}
+
+/* економія часу: два процеси */
+.flow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.fl{border-radius:18px;padding:14px 12px}
+.fl.old{background:var(--ink2);border:1.5px solid rgba(255,255,255,.14)}
+.fl.new{background:var(--or);color:#fff;border:2.5px solid #fff;box-shadow:5px 5px 0 rgba(255,255,255,.18);align-self:start}
+.fl-h{display:block;font:900 12px/1.2 var(--display);text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px}
+.fl.old .fl-h{color:rgba(255,255,255,.6)}
+.fl ol{list-style:none;display:grid;gap:6px;counter-reset:st}
+.fl li{position:relative;counter-increment:st;font:600 13.5px/1.3 var(--body);padding:8px 10px 8px 30px;border-radius:10px}
+.fl li::before{content:counter(st);position:absolute;left:8px;top:8px;width:16px;height:16px;border-radius:50%;font:900 10px/16px var(--display);text-align:center}
+.fl.old li{background:rgba(255,255,255,.06);color:rgba(255,255,255,.82)}
+.fl.old li::before{background:rgba(255,255,255,.18);color:#fff}
+.fl.old li.w{color:rgba(255,255,255,.5);font-style:italic}
+.fl.old li::after{content:'';position:absolute;left:6px;right:6px;top:50%;height:2px;background:var(--or);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.7,0,.3,1)}
+.flow.vis .fl.old li::after{transform:scaleX(1)}
+.flow.vis .fl.old li:nth-child(1)::after{transition-delay:.2s}.flow.vis .fl.old li:nth-child(2)::after{transition-delay:.4s}.flow.vis .fl.old li:nth-child(3)::after{transition-delay:.6s}
+.flow.vis .fl.old li:nth-child(4)::after{transition-delay:.8s}.flow.vis .fl.old li:nth-child(5)::after{transition-delay:1s}.flow.vis .fl.old li:nth-child(6)::after{transition-delay:1.2s}
+.fl.new li{background:#fff;color:var(--ink);font-weight:700;font-size:14.5px}
+.fl.new li::before{background:var(--or);color:#fff}
+
+/* урок 5 → тизер */
+.tease{display:inline-block;margin-top:10px;font:800 12.5px/1.3 var(--display);color:var(--or);border-bottom:2px dashed var(--or);padding-bottom:2px}
+
+/* тизер: компактна сітка */
+.nl{grid-template-columns:1fr 1fr;gap:8px}
+.nl li{display:flex;flex-direction:column;gap:6px;padding:12px 11px;font-size:13.5px;line-height:1.3}
+.nl li .e{font-size:22px;line-height:1}
+.nl li b{color:#fff;font-weight:700}
+
+/* каруселі: стрілки */
+.cnav{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:10px}
+.cnav button{width:44px;height:44px;border-radius:50%;border:2.5px solid #fff;background:var(--or);color:#fff;font:900 18px/1 var(--display);cursor:pointer;display:grid;place-items:center;transition:transform .15s,opacity .2s}
+.cnav button:hover{transform:scale(1.08)}
+.cnav button:disabled{opacity:.35;cursor:default;transform:none}
+.cnav button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.reels,.revs{cursor:grab}
+.reels.drag,.revs.drag{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.revs{transition:height .35s ease;overflow-y:hidden}
+.reels,.revs{position:relative}
+.fl.old li:last-child::after{display:none}
+.sub2 b{white-space:nowrap}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .rv,.bcard,.facts li{opacity:1;transform:none}
@@ -614,13 +664,15 @@ details.acc[open] summary i{transform:rotate(45deg)}
   <!-- ═══ 1. HERO ═══ -->
   <section class="sec" id="hero" style="padding-top:14px">
     <div class="krow">
-      <p class="sticker"><b>NEW</b>Практикум «АІ монтажер»</p>
+      <p class="sticker"><b>NEW</b>від Ai_Sashka</p>
       <span class="start"><small><i></i>старт сьогодні</small><b data-today>09.10</b></span>
     </div>
     <p class="lead">Готова система професійного монтажу відео через нейромережі</p>
 
     <h1 class="h1 kar" id="h1">Збери свого <span class="k">АІ монтажера</span> усього за <span class="circ" id="circ">один вечір<svg viewBox="0 0 200 70" preserveAspectRatio="none" aria-hidden="true"><path d="M150 8C110 -2 30 2 12 22 -4 40 30 64 100 64 168 64 200 46 192 26 186 12 160 4 120 5"/></svg></span></h1>
-    <p class="sub">і більше не потрібно сидіти <span class="scrib" id="scrib">годинами<svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path d="M2 18 12 10 20 22 30 8 40 22 50 9 60 21 70 8 80 21 90 9 98 16"/></svg></span> над одним відео</p>
+    <p class="for"><span>для</span><b>Reels</b><b>рекламних креативів</b><b>горизонтальних роликів для YouTube</b></p>
+    <p class="sub">і більше не потрібно сидіти <span class="scrib" id="scrib">годинами<svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path d="M2 18 12 10 20 22 30 8 40 22 50 9 60 21 70 8 80 21 90 9 98 16"/></svg></span> над одним відео або платити монтажеру $20 за хвилину ролика</p>
+    <p class="sub2">Система, яку ти збереш на практикумі, монтуватиме відео на рівні професійного монтажера, а один ролик коштуватиме <b>≈ 7–12 грн</b>.</p>
 
     <div class="hgrid">
     <div class="stage" >
@@ -650,12 +702,12 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <div class="bon">
         <h3>+ Великий комплект бонусів<em>при купівлі практикуму до кінця таймера</em></h3>
         <div class="fan">
-          <span><svg viewBox="0 0 40 40" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linecap="round"><rect x="14" y="4" width="12" height="20" rx="6" fill="#FF5A1A"/><path d="M8 19a12 12 0 0 0 24 0M20 31v5M14 36h12"/></svg>Озвучка через API</span>
+          <span><svg viewBox="0 0 40 40" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linecap="round"><rect x="14" y="4" width="12" height="20" rx="6" fill="#FF5A1A"/><path d="M8 19a12 12 0 0 0 24 0M20 31v5M14 36h12"/></svg>АІ-озвучка роликів</span>
           <span><svg viewBox="0 0 40 40" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round"><path d="M20 5l15 7.5-15 7.5-15-7.5z" fill="#FF5A1A"/><path d="M5 20l15 7.5L35 20M5 27.5 20 35l15-7.5"/></svg>Референс-пак анімацій і фонів</span>
           <span><svg viewBox="0 0 40 40" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h28v20H18l-8 7v-7H6z" fill="#fff"/><path d="M12 14h16M12 20h10" stroke="#FF5A1A"/></svg>Промти для моушн-графіки</span>
         </div>
       </div>
-      <a class="btn" href="#pay">Зібрати монтажера<span class="bad">−82%</span></a>
+      <a class="btn" href="#pay">Зібрати свого АІ монтажера<span class="bad">−82%</span></a>
       <div class="guar">
         <svg style="color:var(--or)"><use href="#sh"/></svg>
         <div><b><span>14 днів</span> гарантії повернення коштів</b>Якщо практикум тобі не підійде, я поверну гроші без зайвих питань.</div>
@@ -671,18 +723,18 @@ details.acc[open] summary i{transform:rotate(45deg)}
 
     <article class="bcard">
       <span class="bnum">1</span><span class="blab">бонус 1</span>
-      <h3>Урок: озвучка через API-ключ</h3>
-      <p>Монтажер сам озвучує скрінкасти, пояснення й відео без твого голосу в кадрі. Покажу, де взяти API-ключ і як підключити його за кілька хвилин. Озвучка звучить живо: твоїм голосом або голосом із бібліотеки. Є <span class="mark">безкоштовний спосіб</span> через Google AI Studio.</p>
+      <h3>Урок: АІ монтажер сам озвучує ролики</h3>
+      <p>Для скрінкастів, пояснень і рекламних роликів, коли записувати голос немає часу чи бажання. АІ монтажер сам начитає текст твоїм голосом або голосом із бібліотеки. Покажу, де взяти API-ключ і як підключити його за кілька хвилин. Є <span class="mark">безкоштовний спосіб</span> через Google AI Studio.</p>
     </article>
     <article class="bcard">
       <span class="bnum">2</span><span class="blab">бонус 2</span>
       <h3>Референс-пак: 10 анімацій і 10 фонів</h3>
-      <p>Готові зразки анімацій і фонів, які ти даєш монтажеру як приклад, і він <span class="mark">повторює їх у твоїх роликах</span>.</p>
+      <p>Готові зразки анімацій і фонів, які ти даєш АІ монтажеру як приклад, і він <span class="mark">повторює їх у твоїх роликах</span>.</p>
     </article>
     <article class="bcard">
       <span class="bnum">3</span><span class="blab">бонус 3</span>
       <h3>Промти для моушн-графіки</h3>
-      <p>Готовий список промтів для анімованої графіки, <span class="mark">як у трендових рілсах</span>. Копіюєш, і монтажер додає такі ж елементи у твоє відео.</p>
+      <p>Готовий список промтів для анімованої графіки, <span class="mark">як у трендових рілсах</span>. Копіюєш, і АІ монтажер додає такі ж елементи у твоє відео.</p>
     </article>
   </section>
 
@@ -700,8 +752,9 @@ details.acc[open] summary i{transform:rotate(45deg)}
     <article class="pcard">
       <div class="ph"><span class="pn">02</span><h3>Твоє розмовне відео тепер будуть дивитися до кінця</h3><span class="pva" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="8" y="10" width="48" height="32" rx="6" fill="#FF5A1A" stroke="#15120F" stroke-width="2.6"/><path d="M28 19l11 7-11 7z" fill="#fff"/><rect x="8" y="49" width="48" height="7" rx="3.5" fill="#fff" stroke="#15120F" stroke-width="2"/><rect class="pa-bar" x="9" y="50" width="46" height="5" rx="2.5" fill="#FF5A1A"/></svg></span></div>
       <ul class="sl">
+        <li><svg><use href="#sc"/></svg><span>сильний хук з перших секунд, тож твої відео не гортатимуть</span></li>
         <li><svg><use href="#sc"/></svg><span>графіка, анімації й стікери на ключових словах оживляють «говорячу голову»</span></li>
-        <li><svg><use href="#sc"/></svg><span>складні теми, які неможливо зняти на камеру, монтажер візуалізує сам</span></li>
+        <li><svg><use href="#sc"/></svg><span>складні теми, які неможливо зняти на камеру, АІ монтажер візуалізує сам</span></li>
         <li><svg><use href="#sc"/></svg><span>звукові ефекти й фонова музика звучать тихо й не перекривають голос</span></li>
       </ul>
     </article>
@@ -709,7 +762,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <div class="ph"><span class="pn">03</span><h3>Без складних програм і без монтажера</h3><span class="pva" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="25" y="8" width="14" height="26" rx="7" fill="#FF5A1A" stroke="#15120F" stroke-width="2.6"/><path d="M18 30a14 14 0 0 0 28 0M32 44v10M24 56h16" fill="none" stroke="#15120F" stroke-width="2.6" stroke-linecap="round"/><path class="pa-w" d="M50 16a14 14 0 0 1 0 20" fill="none" stroke="#FF5A1A" stroke-width="2.6" stroke-linecap="round"/><path class="pa-w w2" d="M14 16a14 14 0 0 0 0 20" fill="none" stroke="#FF5A1A" stroke-width="2.6" stroke-linecap="round"/></svg></span></div>
       <ul class="sl">
         <li><svg><use href="#sc"/></svg><span>жодного таймлайна, десятків кнопок і окремого курсу з монтажу</span></li>
-        <li><svg><use href="#sc"/></svg><span>правки голосом: кажеш, що змінити, і монтажер переробляє</span></li>
+        <li><svg><use href="#sc"/></svg><span>правки голосом: кажеш, що змінити, і АІ монтажер переробляє</span></li>
         <li><svg><use href="#sc"/></svg><span>не потрібно платити монтажеру за кожен ролик</span></li>
       </ul>
     </article>
@@ -723,12 +776,26 @@ details.acc[open] summary i{transform:rotate(45deg)}
     </article>
   </section>
 
-  <!-- ═══ 4. ЩО ВМІЄ МОНТАЖЕР ═══ -->
-  <section class="sec" id="skills" style="padding-top:10px">
-    <h2 class="h2 kar">Ось що вміє твій <span class="k">АІ монтажер</span></h2>
-    <p class="p">Ти записуєш відео й кажеш голосом, що потрібно. Далі монтажер робить усе сам:</p>
+  <!-- ═══ 3b. ЕКОНОМІЯ ЧАСУ ═══ -->
+  <section class="sec dark" id="time">
+    <h2 class="h2 kar">Але найголовніше: <span class="k">АІ монтажер</span> економить твій час</h2>
+    <p class="p">Тобі не потрібно спочатку писати ТЗ монтажеру, чекати ролик, надсилати правки, знову чекати, погоджувати й лише після цього публікувати.</p>
+    <div class="flow" id="flow">
+      <div class="fl old"><span class="fl-h">Із монтажером</span>
+        <ol><li>Пишеш ТЗ</li><li class="w">Чекаєш ролик</li><li>Надсилаєш правки</li><li class="w">Чекаєш, поки внесуть</li><li>Погоджуєш</li><li>Публікуєш</li></ol>
+      </div>
+      <div class="fl new"><span class="fl-h">З АІ монтажером</span>
+        <ol><li>Кажеш голосом, що потрібно</li><li>Публікуєш</li></ol>
+      </div>
+    </div>
+  </section>
 
-    <nav class="toolbar" id="toolbar" aria-label="Можливості монтажера">
+  <!-- ═══ 4. ЩО ВМІЄ МОНТАЖЕР ═══ -->
+  <section class="sec" id="skills">
+    <h2 class="h2 kar">Ось що вміє твій <span class="k">АІ монтажер</span></h2>
+    <p class="p">Ти записуєш відео й кажеш голосом, що потрібно. Далі АІ монтажер робить усе сам:</p>
+
+    <nav class="toolbar" id="toolbar" aria-label="Можливості АІ монтажера">
       <a href="#f1">✂️ Чистка</a><a href="#f2">💬 Субтитри</a><a href="#f3">✨ Графіка</a><a href="#f4">🎨 Стікери</a>
       <a href="#f5">🎵 Звук</a><a href="#f6">🖼 Обкладинка</a><a href="#f7">📱 Сейф-зони</a><a href="#f8">🎙 Відео з ідеї</a>
     </nav>
@@ -737,7 +804,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <p>Вирізає паузи, «е-е-м», повтори й невдалі дублі.</p>
       <p class="resb"><b>Результат:</b> динамічне відео без жодного зайвого слова.</p></article>
     <article class="feat" id="f2"><div class="feat-h"><span class="fi" aria-hidden="true"><svg viewBox="0 0 72 72"><rect x="14" y="6" width="44" height="60" rx="8" fill="#F2B591" stroke="#15120F" stroke-width="2.4"/><circle cx="36" cy="26" r="8" fill="#15120F"/><path d="M22 66c2-14 8-19 14-19s12 5 14 19z" fill="#15120F"/><rect class="fx-w w1" x="8" y="44" width="18" height="10" rx="3" fill="#fff" stroke="#15120F" stroke-width="1.8"/><rect class="fx-w w2" x="28" y="44" width="20" height="10" rx="3" fill="#FF5A1A" stroke="#15120F" stroke-width="1.8"/><rect class="fx-w w3" x="50" y="44" width="15" height="10" rx="3" fill="#fff" stroke="#15120F" stroke-width="1.8"/></svg></span><h3>Субтитри</h3></div>
-      <p>Кожне слово зʼявляється в момент, коли ти його вимовляєш. Ключові слова виділені кольором, назви сервісів написані правильно.</p>
+      <p>Кожне слово зʼявляється в момент, коли ти його вимовляєш. Ключові слова виділені кольором, назви сервісів написані правильно. Стиль обираєш сам: шрифт, колір, розмір і анімацію.</p>
       <p class="resb"><b>Результат:</b> відео зрозуміле навіть без звуку.</p></article>
     <article class="feat" id="f3"><div class="feat-h"><span class="fi" aria-hidden="true"><svg viewBox="0 0 72 72"><rect x="16" y="28" width="40" height="16" rx="4" fill="#fff" stroke="#15120F" stroke-width="2"/><rect x="21" y="34" width="22" height="4" rx="2" fill="#15120F"/><path class="fx-ring" d="M52 26C44 18 18 18 10 30c-6 10 8 20 28 20 22 0 30-10 22-20-3-4-9-6-16-7" fill="none" stroke="#FF5A1A" stroke-width="3" stroke-linecap="round"/><path class="fx-arrow" d="M58 64c-2-6-5-10-9-12M49 52l1 6M49 52l6 1" fill="none" stroke="#15120F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 10l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#FF5A1A" class="fx-tw"/></svg></span><h3>Графіка й анімації</h3></div>
       <p>Підставляє анімовані елементи на ключових словах, обводить і підкреслює те, що ти показуєш на екрані.</p>
@@ -755,7 +822,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <p>Розставляє текст і графіку так, щоб нічого не залазило під кнопки Reels і TikTok.</p>
       <p class="resb"><b>Результат:</b> усе важливе видно на будь-якому телефоні.</p></article>
     <article class="feat" id="f8"><div class="feat-h"><span class="fi" aria-hidden="true"><svg viewBox="0 0 72 72"><path d="M36 10a16 16 0 0 0-9 29c2 2 3 4 3 7h12c0-3 1-5 3-7a16 16 0 0 0-9-29z" fill="#FF5A1A" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round" class="fx-bulb"/><path d="M30 52h12M31 58h10" stroke="#15120F" stroke-width="2.6" stroke-linecap="round"/><path d="M32 30l4 4 4-4" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path class="fx-wv" d="M58 20a14 14 0 0 1 0 20" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linecap="round"/><path class="fx-wv v2" d="M64 15a21 21 0 0 1 0 30" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linecap="round"/><path class="fx-wv" d="M14 20a14 14 0 0 0 0 20" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linecap="round"/><path class="fx-wv v2" d="M8 15a21 21 0 0 0 0 30" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linecap="round"/></svg></span><h3>Відео з ідеї</h3></div>
-      <p>Ти описуєш ідею голосом, монтажер створює ролик без зйомки.</p>
+      <p>Ти описуєш ідею голосом, АІ монтажер створює ролик без зйомки.</p>
       <p class="resb"><b>Результат:</b> контент є навіть у дні, коли немає часу й настрою знімати.</p></article>
   </section>
 
@@ -771,7 +838,8 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <div class="reel vid"><video src="media/ex-6.mp4" poster="media/ex-6.jpg" preload="none" playsinline loop aria-label="Приклад монтажу: Чистий звук"></video><button type="button" class="play" aria-label="Відтворити ролик «Чистий звук» зі звуком"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#fff"/></svg></button></div>
       <div class="reel vid"><video src="media/ex-7.mp4" poster="media/ex-7.jpg" preload="none" playsinline loop aria-label="Приклад монтажу: Фіра замість джипа"></video><button type="button" class="play" aria-label="Відтворити ролик «Фіра замість джипа» зі звуком"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#fff"/></svg></button></div>
     </div>
-    <p class="swipe">гортай → · натисни, щоб увімкнути зі звуком</p>
+    <div class="cnav" data-for="reels"><button type="button" class="cp" aria-label="Попередній ролик">←</button><button type="button" class="cn" aria-label="Наступний ролик">→</button></div>
+    <p class="swipe" style="text-align:center;margin-top:8px">натисни на ролик, щоб увімкнути зі звуком</p>
     <div class="fmts" style="margin-top:18px"><span>Reels</span><span>TikTok</span><span>YouTube Shorts</span><span>горизонтальні відео для YouTube</span></div>
   </section>
 
@@ -783,13 +851,13 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <div class="perf"></div>
       <p class="p" style="text-align:left">Для порівняння: монтажер бере в середньому <b>$20 за хвилину</b> відео. А самостійно ти витрачаєш на один ролик години.</p>
       <p class="foot-note">*орієнтовно, залежить від тривалості ролика й тарифу твоєї підписки. Довгі горизонтальні відео витрачають більше лімітів.</p>
-      <a class="btn" href="#pay">Зібрати монтажера<span class="bad">−82%</span></a>
+      <a class="btn" href="#pay">Зібрати свого АІ монтажера<span class="bad">−82%</span></a>
     </div>
   </section>
 
   <!-- ═══ 5. ПЛАТФОРМИ ═══ -->
   <section class="sec dark" id="platforms">
-    <h2 class="h2 kar">На чому працює твій <span class="k">АІ монтажер</span></h2>
+    <h2 class="h2 kar">На чому ми зберемо твого першого <span class="k">АІ монтажера?</span></h2>
     <div class="logos">
       <span><svg viewBox="0 0 24 24" fill="#FF5A1A"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg>Claude Code</span>
       <span><svg viewBox="0 0 24 24" fill="none" stroke="#FF5A1A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-5 4 5 4M16 8l5 4-5 4"/></svg>ChatGPT Codex</span>
@@ -797,16 +865,16 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <span><svg viewBox="0 0 24 24" fill="#FF5A1A"><path d="M12 3l9 16H3z"/></svg>Google AI Studio</span>
       <span><svg viewBox="0 0 24 24" fill="#FF5A1A"><rect x="7" y="4" width="3.5" height="16" rx="1"/><rect x="13.5" y="4" width="3.5" height="16" rx="1"/></svg>ElevenLabs</span>
     </div>
-    <p class="p" style="margin-top:22px;font-weight:600">Монтажер працює на тій підписці, яка в тебе <b class="now">вже є</b>.</p>
+    <p class="p" style="margin-top:22px;font-weight:600">Працює на підписці, яка в тебе <b class="now">вже є</b>:</p>
     <div class="route">
-      <div><b>Користуєшся Claude?</b><i>→</i><span>Встановлюєш монтажера на Claude Code.</span></div>
-      <div><b>Користуєшся ChatGPT?</b><i>→</i><span>Встановлюєш на ChatGPT Codex.</span></div>
+      <div><b>Користуєшся Claude?</b><i>→</i><span>Ставимо на Claude Code.</span></div>
+      <div><b>Користуєшся ChatGPT?</b><i>→</i><span>Ставимо на ChatGPT Codex.</span></div>
     </div>
-    <p class="p">У першому уроці я покажу обидва шляхи, тож обираєш той, що тобі зручніший.</p>
-    <p class="p">Якщо підписки ще немає, знадобиться лише одна: Claude або ChatGPT, <b>≈ $24 на місяць</b>. Окремі програми для монтажу, сервіси для субтитрів і платні пакети анімацій тобі не знадобляться.</p>
-    <div class="addon"><span class="e">🎙</span><span><b>Озвучка</b> безкоштовно через Google AI Studio. Якщо хочеш, щоб монтажер говорив твоїм клонованим голосом, підключаєш ElevenLabs за ≈ $6 на місяць.</span></div>
-    <div class="addon"><span class="e">🎨</span><span><b>Стікери</b> створюємо в ChatGPT. Якщо твій монтажер працює на Claude, для цього уроку вистачить безкоштовної версії ChatGPT.</span></div>
-    <div class="addon"><span class="e">💻</span><span>Для роботи потрібен <b>компʼютер на Windows або Mac</b>.</span></div>
+    <p class="p">Обидва шляхи покажу в першому уроці.</p>
+    <p class="p">Немає підписки? Вистачить однієї: Claude або ChatGPT, <b>≈ $24 на місяць</b>. Програми для монтажу й платні сервіси не потрібні.</p>
+    <div class="addon"><span class="e">🎙</span><span><b>Озвучка:</b> безкоштовно в Google AI Studio або твоїм голосом через ElevenLabs, ≈ $6 на місяць.</span></div>
+    <div class="addon"><span class="e">🎨</span><span><b>Стікери:</b> у ChatGPT, вистачить безкоштовної версії.</span></div>
+    <div class="addon"><span class="e">💻</span><span><b>Компʼютер:</b> Windows або Mac.</span></div>
   </section>
 
   <!-- ═══ 6. ДЛЯ КОГО ═══ -->
@@ -814,11 +882,11 @@ details.acc[open] summary i{transform:rotate(45deg)}
     <h2 class="h2 kar">Для кого цей <span class="k">практикум?</span></h2>
     <div class="who">
       <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="16" y="4" width="32" height="56" rx="7" fill="#15120F"/><rect x="19" y="8" width="26" height="48" rx="4" fill="#F2B591"/><circle cx="32" cy="27" r="7" fill="#15120F"/><path d="M21 56c2-11 6-15 11-15s9 4 11 15z" fill="#15120F"/><circle cx="24" cy="14" r="2.6" fill="#E5341E" class="wx-blink"/><path class="wx-heart" d="M50 22c-3-4-9-2-8 3 1 4 8 8 8 8s7-4 8-8c1-5-5-7-8-3z" fill="#FF5A1A" stroke="#15120F" stroke-width="1.8"/></svg></span><h3>Блогери й контент-мейкери</h3></div><p>Знімаєш багато, а монтаж стає вузьким місцем. З АІ-монтажером ролики виходять регулярно, і кожен виглядає динамічно.</p></div>
-      <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M8 10h48v32H30l-12 10V42H8z" fill="#fff" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round"/><g fill="#FF5A1A" stroke="#15120F" stroke-width="1.6"><rect class="wx-bar" x="16" y="24" width="7" height="12" rx="1.5"/><rect class="wx-bar b2" x="28" y="18" width="7" height="18" rx="1.5"/><rect class="wx-bar b3" x="40" y="14" width="7" height="22" rx="1.5"/></g></svg></span><h3>Експерти й діджитал-спеціалісти, які мають свій блог</h3></div><p>Коучі, психологи, лікарі, юристи, фінансисти. У складних нішах на камеру майже нічого не покажеш, а монтажер візуалізує те, про що ти говориш.</p></div>
+      <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M8 10h48v32H30l-12 10V42H8z" fill="#fff" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round"/><g fill="#FF5A1A" stroke="#15120F" stroke-width="1.6"><rect class="wx-bar" x="16" y="24" width="7" height="12" rx="1.5"/><rect class="wx-bar b2" x="28" y="18" width="7" height="18" rx="1.5"/><rect class="wx-bar b3" x="40" y="14" width="7" height="22" rx="1.5"/></g></svg></span><h3>Експерти й діджитал-спеціалісти, які мають свій блог</h3></div><p>Коучі, психологи, лікарі, юристи, фінансисти. У складних нішах на камеру майже нічого не покажеш, а АІ монтажер візуалізує те, про що ти говориш.</p></div>
       <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="10" y="26" width="44" height="32" rx="3" fill="#fff" stroke="#15120F" stroke-width="2.4"/><path d="M6 26l6-14h40l6 14z" fill="#FF5A1A" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round"/><path d="M17 12l-3 14M27 12l-1 14M37 12l1 14M47 12l3 14" stroke="#15120F" stroke-width="1.8"/><rect x="16" y="34" width="14" height="24" rx="2" fill="#FFE1D2" stroke="#15120F" stroke-width="2"/><rect x="36" y="34" width="12" height="10" rx="2" fill="#FFD23A" stroke="#15120F" stroke-width="2" class="wx-win"/></svg></span><h3>Власники бізнесу</h3></div><p>Потрібні повноцінні відео про продукт, послуги чи команду. Тепер їх можна робити самостійно, без агенції й без окремої людини на монтаж.</p></div>
-      <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="8" y="10" width="48" height="46" rx="5" fill="#fff" stroke="#15120F" stroke-width="2.4"/><path d="M8 20h48" stroke="#15120F" stroke-width="2.4"/><path d="M20 6v8M44 6v8" stroke="#15120F" stroke-width="2.6" stroke-linecap="round"/><g fill="#FFE1D2" stroke="#15120F" stroke-width="1.6"><rect x="13" y="25" width="10" height="10" rx="2"/><rect x="27" y="25" width="10" height="10" rx="2"/><rect x="41" y="25" width="10" height="10" rx="2"/><rect x="13" y="40" width="10" height="10" rx="2"/><rect x="27" y="40" width="10" height="10" rx="2"/><rect x="41" y="40" width="10" height="10" rx="2"/></g><g fill="none" stroke="#FF5A1A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path class="wx-tick" d="M15 30l3 3 4-6"/><path class="wx-tick t2" d="M29 30l3 3 4-6"/><path class="wx-tick t3" d="M43 30l3 3 4-6"/><path class="wx-tick t4" d="M15 45l3 3 4-6"/></g></svg></span><h3>SMM-фахівці й маркетологи</h3></div><p>Ведеш кілька проєктів і щотижня монтуєш десятки роликів. Монтажер бере цю рутину на себе, а ти встигаєш більше за той самий час.</p></div>
-      <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="6" y="10" width="52" height="34" rx="4" fill="#fff" stroke="#15120F" stroke-width="2.4"/><path d="M2 50h60l-4 6H6z" fill="#15120F"/><rect x="12" y="17" width="22" height="4" rx="2" fill="#15120F"/><rect x="12" y="25" width="30" height="4" rx="2" fill="#E1D8C8"/><rect x="12" y="33" width="18" height="4" rx="2" fill="#E1D8C8"/><ellipse class="wx-hl" cx="27" cy="27" rx="19" ry="6" fill="none" stroke="#FF5A1A" stroke-width="2.4"/><path class="wx-cur" d="M46 30l9 4-4 1.5-1.5 4z" fill="#15120F"/></svg></span><h3>Викладачі й автори курсів</h3></div><p>Записуєш уроки або розбори з екрана. Монтажер прибирає зайве, додає субтитри, підсвічує важливе на екрані й озвучує скрінкасти.</p></div>
-      <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="8" y="28" width="48" height="28" rx="3" fill="#15120F"/><g class="wx-clap"><path d="M8 18l46-10 3 10-46 10z" fill="#fff" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round"/><path d="M17 16l5 8M28 14l5 8M39 11l5 8" stroke="#15120F" stroke-width="3"/></g><rect x="14" y="36" width="20" height="4" rx="2" fill="#FF5A1A"/><rect x="14" y="44" width="30" height="4" rx="2" fill="#fff" opacity=".7"/></svg></span><h3>Монтажери й відеографи</h3></div><p>Рутинні задачі забирають більшу частину робочого дня. Монтажер закриває чистку, субтитри й графіку, а ти береш більше замовлень.</p></div>
+      <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="8" y="10" width="48" height="46" rx="5" fill="#fff" stroke="#15120F" stroke-width="2.4"/><path d="M8 20h48" stroke="#15120F" stroke-width="2.4"/><path d="M20 6v8M44 6v8" stroke="#15120F" stroke-width="2.6" stroke-linecap="round"/><g fill="#FFE1D2" stroke="#15120F" stroke-width="1.6"><rect x="13" y="25" width="10" height="10" rx="2"/><rect x="27" y="25" width="10" height="10" rx="2"/><rect x="41" y="25" width="10" height="10" rx="2"/><rect x="13" y="40" width="10" height="10" rx="2"/><rect x="27" y="40" width="10" height="10" rx="2"/><rect x="41" y="40" width="10" height="10" rx="2"/></g><g fill="none" stroke="#FF5A1A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path class="wx-tick" d="M15 30l3 3 4-6"/><path class="wx-tick t2" d="M29 30l3 3 4-6"/><path class="wx-tick t3" d="M43 30l3 3 4-6"/><path class="wx-tick t4" d="M15 45l3 3 4-6"/></g></svg></span><h3>SMM-фахівці й маркетологи</h3></div><p>Ведеш кілька проєктів і щотижня монтуєш десятки роликів. АІ монтажер бере цю рутину на себе, а ти встигаєш більше за той самий час.</p></div>
+      <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="6" y="10" width="52" height="34" rx="4" fill="#fff" stroke="#15120F" stroke-width="2.4"/><path d="M2 50h60l-4 6H6z" fill="#15120F"/><rect x="12" y="17" width="22" height="4" rx="2" fill="#15120F"/><rect x="12" y="25" width="30" height="4" rx="2" fill="#E1D8C8"/><rect x="12" y="33" width="18" height="4" rx="2" fill="#E1D8C8"/><ellipse class="wx-hl" cx="27" cy="27" rx="19" ry="6" fill="none" stroke="#FF5A1A" stroke-width="2.4"/><path class="wx-cur" d="M46 30l9 4-4 1.5-1.5 4z" fill="#15120F"/></svg></span><h3>Викладачі й автори курсів</h3></div><p>Записуєш уроки або розбори з екрана. АІ монтажер прибирає зайве, додає субтитри, підсвічує важливе на екрані й озвучує скрінкасти.</p></div>
+      <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="8" y="28" width="48" height="28" rx="3" fill="#15120F"/><g class="wx-clap"><path d="M8 18l46-10 3 10-46 10z" fill="#fff" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round"/><path d="M17 16l5 8M28 14l5 8M39 11l5 8" stroke="#15120F" stroke-width="3"/></g><rect x="14" y="36" width="20" height="4" rx="2" fill="#FF5A1A"/><rect x="14" y="44" width="30" height="4" rx="2" fill="#fff" opacity=".7"/></svg></span><h3>Монтажери й відеографи</h3></div><p>Рутинні задачі забирають більшу частину робочого дня. АІ монтажер закриває чистку, субтитри й графіку, а ти береш більше замовлень.</p></div>
       <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="10" y="20" width="44" height="36" rx="5" fill="#FFE1D2" stroke="#15120F" stroke-width="2.4"/><path d="M10 26V16a3 3 0 0 1 3-3h12l5 5h21a3 3 0 0 1 3 3v5" fill="#FF5A1A" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round"/><g class="wx-up"><path d="M32 50V32" stroke="#15120F" stroke-width="3" stroke-linecap="round"/><path d="M25 38l7-7 7 7" fill="none" stroke="#15120F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg></span><h3>Ті, хто давно хоче вести блог</h3></div><p>Відео записуються, а до публікації так і не доходять, бо на монтаж немає сил і часу. Тепер на шляху до публікації стоїть одна голосова команда.</p></div>
       <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="6" y="12" width="52" height="40" rx="5" fill="#15120F"/><circle cx="13" cy="19" r="2" fill="#FF5A1A"/><circle cx="19" cy="19" r="2" fill="#fff" opacity=".5"/><text x="12" y="40" font-family="Montserrat,sans-serif" font-weight="900" font-size="14" fill="#FF5A1A">&gt;</text><rect class="wx-caret" x="24" y="30" width="10" height="12" fill="#fff"/><path class="wx-spark" d="M52 2l2.4 5.6L60 10l-5.6 2.4L52 18l-2.4-5.6L44 10l5.6-2.4z" fill="#FFD23A" stroke="#15120F" stroke-width="1.6" stroke-linejoin="round"/></svg></span><h3>AI-ентузіасти</h3></div><p>Хочеш спробувати Claude Code або ChatGPT Codex на реальній задачі. Практикум дає готову систему, яку ти встановлюєш і одразу використовуєш у роботі.</p></div>
     </div>
@@ -840,7 +908,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
     </div>
     <div class="drafts rv" aria-hidden="true"><i data-d="0:42"></i><i data-d="1:15"></i><i data-d="0:58"></i><i data-d="2:03"></i><i data-d="0:37"></i><i data-d="1:21"></i><i data-d="0:49"></i><i data-d="3:10"></i><i data-d="0:55"></i><i data-d="1:02"></i></div>
     <p class="p">Час так і не зʼявляється, а відео лежать на телефоні.</p>
-    <a class="btn" href="#pay">Зібрати монтажера<span class="bad">−82%</span></a>
+    <a class="btn" href="#pay">Зібрати свого АІ монтажера<span class="bad">−82%</span></a>
   </section>
 
   <!-- ═══ 8. ПРОГРАМА ═══ -->
@@ -859,7 +927,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
             <li>розбираємо, чим Claude Code і ChatGPT Codex відрізняються від звичайного чату</li>
             <li>встановлюємо на Windows або Mac під твою підписку</li>
             <li>підключаємо Remotion, інструмент, який монтує відео кодом</li>
-            <li>завантажуємо систему монтажу й даємо монтажеру перше завдання</li>
+            <li>завантажуємо систему монтажу й даємо АІ монтажеру перше завдання</li>
           </ul>
           <div class="tools"><b>Інструменти</b><span>Claude Code</span><span>ChatGPT Codex</span><span>Remotion</span></div>
           <div class="resbox"><b>Результат</b>На твоєму компʼютері вже працює АІ монтажер, який виконує команди. Зникає відчуття, що Claude Code і Codex існують лише для програмістів. Установка займає один урок, а далі ти тільки користуєшся.</div>
@@ -918,7 +986,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
             <li>перетворюємо картку в будь-який стиль</li>
             <li>генеруємо власний стікерпак</li>
             <li>шукаємо референси для дизайн-системи й анімацій</li>
-            <li>передаємо монтажеру твій стиль: шрифти, кольори, стікери</li>
+            <li>передаємо АІ монтажеру твій стиль: шрифти, кольори, стікери</li>
           </ul>
           <div class="tools"><b>Інструменти</b><span>ChatGPT</span><span>Claude Code або ChatGPT Codex</span></div>
           <div class="resbox"><b>Результат</b>У тебе є власний брендлук і стікерпак, а кожне наступне відео виходить у тому ж стилі. Зникає хаос, коли всі ролики виглядають по-різному. Твої відео впізнають ще до того, як прочитають імʼя акаунта.</div>
@@ -932,10 +1000,11 @@ details.acc[open] summary i{transform:rotate(45deg)}
         <span class="ln">Урок 05</span>
         <h3>Відео з ідеї голосом</h3>
         <p class="ld">Як отримати готовий ролик без зйомки, просто продиктувавши ідею.</p>
+        <a class="tease" href="#full">+ огляд повної версії моєї системи монтажу ↓</a>
         <details class="acc"><summary>Що в уроці <i>+</i></summary>
           <ul class="bul">
             <li>перетворюємо ідею, продиктовану в мікрофон, на сценарій</li>
-            <li>монтажер підбирає візуал і збирає відео без жодного кадру зйомки</li>
+            <li>АІ монтажер підбирає візуал і збирає відео без жодного кадру зйомки</li>
             <li>показую, на що здатна повна версія моєї системи монтажу</li>
           </ul>
           <div class="tools"><b>Інструменти</b><span>Claude Code або ChatGPT Codex</span></div>
@@ -950,7 +1019,29 @@ details.acc[open] summary i{transform:rotate(45deg)}
     <a class="btn sm" href="#pay">Приєднатися за 390 грн →</a>
     <div class="guar">
       <svg style="color:var(--or)"><use href="#sh"/></svg>
-      <div><b><span>14 днів</span> гарантії</b>Пройди уроки, встанови монтажера, змонтуй перший ролик. Якщо не побачиш цінності, я поверну кошти.</div>
+      <div><b><span>14 днів</span> гарантії</b>Пройди уроки, встанови АІ монтажера, змонтуй перший ролик. Якщо не побачиш цінності, я поверну кошти.</div>
+    </div>
+  </section>
+
+  <!-- ═══ 10. ТИЗЕР ПОВНОЇ СИСТЕМИ (одразу під програмою) ═══ -->
+  <section class="sec dark" id="full">
+    <div class="next">
+      <span class="lvl">у 5 уроці</span>
+      <h2 class="h2 kar">А ось що вміє <span class="k">повна версія</span> моєї системи монтажу</h2>
+      <p class="p">У пʼятому уроці покажу систему, на якій монтую свої ролики. Це команда АІ-агентів: сценаристи пишуть, АІ монтажер збирає відео, а критик відправляє його на доопрацювання.</p>
+      <ul class="nl">
+        <li><span class="e">🎞</span><b>400 референсів монтажу</b></li>
+        <li><span class="e">🔁</span><b>Монтаж за будь-яким референсом</b></li>
+        <li><span class="e">🎨</span><b>Відео з нуля в будь-якому стилі</b></li>
+        <li><span class="e">🧩</span><b>Кілька відео в одне</b></li>
+        <li><span class="e">📣</span><b>Рекламні креативи</b></li>
+        <li><span class="e">🏢</span><b>Візуалізація процесів компанії</b></li>
+        <li><span class="e">🔎</span><b>Дослідження у форматі відео</b></li>
+        <li><span class="e">🎬</span><b>Мультики й серіали з персонажами</b></li>
+        <li><span class="e">🧑‍💻</span><b>Твій АІ-аватар у кадрі</b></li>
+        <li><span class="e">📺</span><b>Довгі відео для YouTube</b></li>
+      </ul>
+      <p class="p" style="margin-top:20px;font-weight:700">Як отримати повну систему, розповім у пʼятому уроці.</p>
     </div>
   </section>
 
@@ -959,7 +1050,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
     <h2 class="h2 kar">Як проходить <span class="k">навчання</span></h2>
     <div class="how">
       <div class="rv"><span class="e">📱</span><b>Уроки в Telegram-боті</b><p>Короткі уроки приходять у бот, і ти одразу повторюєш кроки на своєму компʼютері.</p></div>
-      <div class="rv"><span class="e">📋</span><b>Інструкції без води</b><p>Що встановити, яку команду дати монтажеру, куди завантажити відео.</p></div>
+      <div class="rv"><span class="e">📋</span><b>Інструкції без води</b><p>Що встановити, яку команду дати АІ монтажеру, куди завантажити відео.</p></div>
       <div class="rv"><span class="e">🤖</span><b>Готова система монтажу</b><p>Ти не вивчаєш монтаж з нуля. Встановлюєш систему, яку я вже зібрав і навчив на своїх роликах.</p></div>
       <div class="rv"><span class="e">💬</span><b>Чат-підтримка куратора</b><p>Якщо щось не встановлюється або не виходить, ставиш питання й отримуєш розбір.</p></div>
     </div>
@@ -974,29 +1065,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
         <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Отримаєш ролик з ідеї однією голосовою командою, без зйомки</span></li>
       </ul>
     </div>
-    <a class="btn" href="#pay">Зібрати монтажера<span class="bad">−82%</span></a>
-  </section>
-
-  <!-- ═══ 10. ТИЗЕР ПОВНОЇ СИСТЕМИ ═══ -->
-  <section class="sec dark" id="full">
-    <div class="next">
-      <span class="lvl">у 5 уроці</span>
-      <h2 class="h2 kar">А ось що вміє <span class="k">повна версія</span> моєї системи монтажу</h2>
-      <p class="p">У пʼятому уроці я покажу систему, на якій монтую власні ролики. Це ціла команда АІ-агентів: сценаристи пишуть, монтажер збирає відео, а критик розбирає перший варіант і відправляє його на доопрацювання.</p>
-      <ul class="nl">
-        <li class="rv"><span class="e">🎞</span><span><b>400 готових референсів монтажу.</b> Обираєш стиль із бібліотеки, і монтажер повторює його на твоєму відео.</span></li>
-        <li class="rv"><span class="e">🔁</span><span><b>Монтаж за будь-яким референсом.</b> Скидаєш ролик, який сподобався, і отримуєш свій у такій самій манері.</span></li>
-        <li class="rv"><span class="e">🎨</span><span><b>Відео з нуля в будь-якому стилі:</b> 2D і 3D-анімація, мальована графіка, динамічний монтаж.</span></li>
-        <li class="rv"><span class="e">🧩</span><span><b>Кілька відео в одне.</b> Монтажер склеює окремі записи в цілісний ролик.</span></li>
-        <li class="rv"><span class="e">📣</span><span><b>Рекламні креативи</b> під будь-який бізнес і нішу.</span></li>
-        <li class="rv"><span class="e">🏢</span><span><b>Візуалізація робочих процесів.</b> Монтажер сам знаходить в інтернеті логотипи й інформацію про компанію та показує процес у відео.</span></li>
-        <li class="rv"><span class="e">🔎</span><span><b>Дослідження у форматі відео.</b> Збирає факти з інтернету, перевіряє їх і візуалізує.</span></li>
-        <li class="rv"><span class="e">🎬</span><span><b>Мультики, серіали й ситкоми</b> з постійними персонажами.</span></li>
-        <li class="rv"><span class="e">🧑‍💻</span><span><b>Твій АІ-аватар у кадрі.</b> Озвучка в ElevenLabs, аватар у HeyGen, а монтажер робить з цього повноцінний ролик.</span></li>
-        <li class="rv"><span class="e">📺</span><span><b>Довгі горизонтальні відео для YouTube.</b></span></li>
-      </ul>
-      <p class="p" style="margin-top:20px;font-weight:700">Як отримати повну систему, розповім у пʼятому уроці.</p>
-    </div>
+    <a class="btn" href="#pay">Зібрати свого АІ монтажера<span class="bad">−82%</span></a>
   </section>
 
   <!-- ═══ 11. ГАРАНТІЯ ═══ -->
@@ -1010,7 +1079,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
     </div>
     <div class="gtx">
       <p>Я впевнений у якості цього практикуму, тому даю <b>14 днів повної гарантії</b>.</p>
-      <p>Якщо протягом двох тижнів ти пройдеш уроки, встановиш монтажера й змонтуєш свій перший ролик, але не побачиш цінності, я без жодних питань поверну кошти.</p>
+      <p>Якщо протягом двох тижнів ти пройдеш уроки, встановиш АІ монтажера й змонтуєш свій перший ролик, але не побачиш цінності, я без жодних питань поверну кошти.</p>
       <p class="last">Жодних ризиків: або в тебе працює власний АІ монтажер, або я повертаю гроші.</p>
       <div class="gsep"></div>
       <span class="glabel">Додаткова гарантія</span>
@@ -1032,7 +1101,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <li><span class="chk"><svg><use href="#ck"/></svg></span><span><b>7 141 учень</b> уже пройшов мої навчальні програми</span></li>
       <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Веду власний блог і <b>монтую свої ролики через систему</b>, яку покажу на практикумі</span></li>
       <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Створив десятки авторських AI-асистентів, якими користуються мої клієнти та учні</span></li>
-      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Я вірю в <b>системний підхід і авторські інструменти</b>. Саме так зібраний і цей монтажер</span></li>
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Я вірю в <b>системний підхід і авторські інструменти</b>. Саме так зібраний і цей АІ монтажер</span></li>
     </ul>
   </section>
 
@@ -1044,7 +1113,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <li><span>Готова система монтажу, яку ти встановлюєш на Claude Code або ChatGPT Codex</span></li>
       <li><span>Покрокові інструкції встановлення для Windows і Mac</span></li>
       <li><span>Готові команди, якими я користуюся щодня</span></li>
-      <li class="b"><span><b>Бонус 1</b>Урок: озвучка через API-ключ</span></li>
+      <li class="b"><span><b>Бонус 1</b>Урок: АІ монтажер сам озвучує ролики</span></li>
       <li class="b"><span><b>Бонус 2</b>Референс-пак: 10 анімацій і 10 фонів</span></li>
       <li class="b"><span><b>Бонус 3</b>Промти для моушн-графіки</span></li>
       <li><span>Бонус за виконання всіх домашніх завдань</span></li>
@@ -1059,7 +1128,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <span class="old">2 199 грн<svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path d="M2 20C30 14 60 10 98 8M4 26C34 20 66 16 96 14"/></svg></span>
       <p class="tlab">тільки до кінця таймера</p>
       <div class="timer"><i data-t="h">00</i><u>:</u><i data-t="m">10</i><u>:</u><i data-t="s">00</i></div>
-      <a class="btn" href="#pay">Зібрати монтажера<span class="bad">−82%</span></a>
+      <a class="btn" href="#pay">Зібрати свого АІ монтажера<span class="bad">−82%</span></a>
       <div class="guar one"><svg style="color:var(--or)"><use href="#sh"/></svg><div><b><span>14 днів</span> гарантії повернення коштів</b></div></div>
     </div>
   </section>
@@ -1095,19 +1164,20 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <figure class="rev"><img src="rev/rev-21.jpg" width="900" height="802" alt="Відгук студента 21" loading="lazy" decoding="async"></figure>
     </div>
     <div class="dots" id="dots" aria-hidden="true"></div>
-    <a class="btn" href="#pay">Зібрати монтажера<span class="bad">−82%</span></a>
+    <div class="cnav" data-for="revs"><button type="button" class="cp" aria-label="Попередній відгук">←</button><button type="button" class="cn" aria-label="Наступний відгук">→</button></div>
+    <a class="btn" href="#pay">Зібрати свого АІ монтажера<span class="bad">−82%</span></a>
   </section>
 
   <!-- ═══ 15. ФІНАЛЬНИЙ CTA ═══ -->
   <section class="sec orange" id="final">
-    <h2 class="h2 kar">Твій АІ монтажер запрацює <span class="k">вже сьогодні</span></h2>
-    <p class="p">Перший урок приходить у бот одразу після оплати. Уже ввечері монтажер працюватиме на твоєму компʼютері, а далі ти тільки прокачуєш його під свій стиль.</p>
+    <h2 class="h2 kar">Перший ролик з АІ монтажером змонтуєш <span class="k">уже сьогодні</span></h2>
+    <p class="p">Перший урок приходить у Telegram-бот одразу після оплати. Встановлюєш АІ монтажера, даєш першу команду голосом і отримуєш готовий рілс. Далі він монтує у твоєму стилі.</p>
     <div class="ticket rv" style="box-shadow:6px 6px 0 var(--ink)">
       <div class="price"><b>390</b><span class="cur">грн</span></div>
       <span class="old">2 199 грн<svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path d="M2 20C30 14 60 10 98 8M4 26C34 20 66 16 96 14"/></svg></span>
       <span class="olbl" style="display:block;width:max-content;margin:12px auto 0;background:var(--or)">−82%</span>
     </div>
-    <a class="btn ink" href="#pay">Зібрати монтажера<span class="bad">−82%</span></a>
+    <a class="btn ink" href="#pay">Зібрати свого АІ монтажера<span class="bad">−82%</span></a>
     <div class="guar one"><svg style="color:var(--ink)"><use href="#sh"/></svg><div><b><span>14 днів</span> гарантії повернення коштів</b></div></div>
   </section>
 
@@ -1116,16 +1186,16 @@ details.acc[open] summary i{transform:rotate(45deg)}
     <h2 class="h2 kar">Питання — <span class="k">відповіді</span></h2>
     <div class="faq">
       <details><summary>Досвіду з монтажем і AI немає. У мене вийде?<i>+</i></summary><p>Так. Практикум побудований покроково: що встановити, яку команду дати, куди завантажити відео. Усі команди готові, їх достатньо скопіювати або промовити. Якщо щось не виходить, допоможе куратор у чаті підтримки.</p></details>
-      <details><summary>Claude Code і Codex звучать як щось для програмістів. Це складно?<i>+</i></summary><p>Ні. Писати код не потрібно. Ти спілкуєшся з монтажером звичайною мовою, текстом або голосом, а всю технічну частину він бере на себе. Установку проходимо разом у першому уроці.</p></details>
-      <details><summary>Яка підписка потрібна?<i>+</i></summary><p>Одна: Claude або ChatGPT, ≈ $24 на місяць. Якщо підписка вже є, монтажер працюватиме на ній. Озвучку можна робити безкоштовно через Google AI Studio, а для клону свого голосу підключити ElevenLabs за ≈ $6 на місяць. Стікери створюємо в ChatGPT, і для цього вистачить безкоштовної версії.</p></details>
-      <details><summary>Можна працювати з телефона?<i>+</i></summary><p>Ні, потрібен компʼютер на Windows або Mac. Монтажер встановлюється на компʼютер і монтує відео там.</p></details>
+      <details><summary>Claude Code і Codex звучать як щось для програмістів. Це складно?<i>+</i></summary><p>Ні. Писати код не потрібно. Ти спілкуєшся з АІ монтажером звичайною мовою, текстом або голосом, а всю технічну частину він бере на себе. Установку проходимо разом у першому уроці.</p></details>
+      <details><summary>Яка підписка потрібна?<i>+</i></summary><p>Одна: Claude або ChatGPT, ≈ $24 на місяць. Якщо підписка вже є, АІ монтажер працюватиме на ній. Озвучку можна робити безкоштовно через Google AI Studio, а для клону свого голосу підключити ElevenLabs за ≈ $6 на місяць. Стікери створюємо в ChatGPT, і для цього вистачить безкоштовної версії.</p></details>
+      <details><summary>Можна працювати з телефона?<i>+</i></summary><p>Ні, потрібен компʼютер на Windows або Mac. АІ монтажер встановлюється на компʼютер і монтує відео там.</p></details>
       <!-- ⟨НУЖНО: вопрос-ответ про минимальные требования к компьютеру (от Саши)⟩ -->
       <details><summary>Скільки часу займе практикум?<i>+</i></summary><p>Перший ролик можна змонтувати вже в перший вечір. Доступ до уроків лишається назавжди, тож повертатися до них можна будь-коли.</p></details>
       <details><summary>Скільки коштує монтаж одного ролика?<i>+</i></summary><p>Приблизно 7–12 грн у межах лімітів твоєї підписки. Точна сума залежить від тривалості ролика й тарифу.</p></details>
       <details><summary>Які відео можна монтувати?<i>+</i></summary><p>Розмовні відео, записи з екрана, уроки, розбори. Формати: Reels, TikTok, YouTube Shorts і горизонтальні відео. Довгі ролики теж можна монтувати, але вони витрачають більше лімітів підписки.</p></details>
-      <details><summary>Монтажер усе робить ідеально з першого разу?<i>+</i></summary><p>Він видає готовий варіант, а ти кажеш, що змінити. Правки вносиш голосом або текстом, без таймлайна й ручної роботи. Як формулювати правки, щоб монтажер розумів з першого разу, є в шпаргалці голосових команд.</p></details>
-      <details><summary>А що з англійською?<i>+</i></summary><p>Знати англійську не потрібно. Уроки українською, і монтажеру можна давати команди українською.</p></details>
-      <details><summary>Чим практикум відрізняється від повної системи монтажу?<i>+</i></summary><p>На практикумі ти збираєш монтажера, який монтує твої відео, додає графіку, звук, обкладинку, твій стиль і робить ролики з ідеї. Повна система вміє більше: 400 референсів монтажу, анімація в будь-якому стилі, рекламні креативи, АІ-аватар у кадрі. Про неї розповім у пʼятому уроці.</p></details>
+      <details><summary>АІ монтажер усе робить ідеально з першого разу?<i>+</i></summary><p>Він видає готовий варіант, а ти кажеш, що змінити. Правки вносиш голосом або текстом, без таймлайна й ручної роботи. Як формулювати правки, щоб АІ монтажер розумів з першого разу, є в шпаргалці голосових команд.</p></details>
+      <details><summary>А що з англійською?<i>+</i></summary><p>Знати англійську не потрібно. Уроки українською, і АІ монтажеру можна давати команди українською.</p></details>
+      <details><summary>Чим практикум відрізняється від повної системи монтажу?<i>+</i></summary><p>На практикумі ти збираєш АІ монтажера, який монтує твої відео, додає графіку, звук, обкладинку, твій стиль і робить ролики з ідеї. Повна система вміє більше: 400 референсів монтажу, анімація в будь-якому стилі, рекламні креативи, АІ-аватар у кадрі. Про неї розповім у пʼятому уроці.</p></details>
       <details><summary>Що, якщо не сподобається?<i>+</i></summary><p>14 днів на повернення коштів. Пройди уроки, змонтуй свій перший ролик, і якщо не побачиш цінності, я поверну гроші без питань.</p></details>
     </div>
     <a class="btn sm" href="#pay">Приєднатися за 390 грн →</a>
@@ -1147,7 +1217,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
 
 <div class="sticky" id="sticky">
   <div class="sp"><b>390</b> <small>грн</small><s>2 199 грн</s></div>
-  <a class="sb" href="#pay">Зібрати монтажера <em>−82%</em></a>
+  <a class="sb" href="#pay">Зібрати АІ монтажера <em>−82%</em></a>
 </div>
 
 <script>
@@ -1194,7 +1264,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
       io.unobserve(t);
     });
   }, {threshold:.2});
-  document.querySelectorAll('.kar:not(#h1),.rv,.facts,.bcard,.pcard,.feat,#ylist').forEach(function(el){ io.observe(el) });
+  document.querySelectorAll('.kar:not(#h1),.rv,.facts,.bcard,.pcard,.feat,#ylist,#flow').forEach(function(el){ io.observe(el) });
   setTimeout(function(){ karaoke(document.getElementById('h1'), function(){
     document.getElementById('circ').classList.add('drawn');
     setTimeout(function(){ document.getElementById('scrib').classList.add('drawn') }, 500);
@@ -1215,6 +1285,35 @@ details.acc[open] summary i{transform:rotate(45deg)}
     v.addEventListener('pause', function(){ c.classList.remove('playing') });
     vio.observe(c);
   });
+
+  /* каруселі: стрілки, перетягування мишею, висота відгуків під активний */
+  function carousel(track){
+    var items = track.children, nav = document.querySelector('.cnav[data-for="' + track.id + '"]');
+    function step(){ return items[0] ? items[0].getBoundingClientRect().width + 12 : track.clientWidth * .8 }
+    function upd(){
+      if(nav){ nav.querySelector('.cp').disabled = track.scrollLeft < 4; nav.querySelector('.cn').disabled = track.scrollLeft > track.scrollWidth - track.clientWidth - 4 }
+      if(track.id === 'revs'){
+        var mid = track.scrollLeft + track.clientWidth/2, best = items[0], bd = 1e9;
+        [].forEach.call(items, function(it){ var d = Math.abs(it.offsetLeft + it.offsetWidth/2 - mid); if(d < bd){ bd = d; best = it } });
+        track.style.height = (best.offsetHeight + 18) + 'px';
+      }
+    }
+    if(nav){
+      nav.querySelector('.cp').addEventListener('click', function(){ track.scrollBy({left: -step(), behavior: RM ? 'auto' : 'smooth'}) });
+      nav.querySelector('.cn').addEventListener('click', function(){ track.scrollBy({left: step(), behavior: RM ? 'auto' : 'smooth'}) });
+    }
+    var down = false, moved = 0, x0 = 0, s0 = 0;
+    track.addEventListener('pointerdown', function(e){ if(e.pointerType !== 'mouse') return; down = true; moved = 0; x0 = e.clientX; s0 = track.scrollLeft });
+    addEventListener('pointermove', function(e){ if(!down) return; var dx = e.clientX - x0; if(Math.abs(dx) > 4){ track.classList.add('drag'); moved = Math.abs(dx) } track.scrollLeft = s0 - dx });
+    addEventListener('pointerup', function(){ if(!down) return; down = false;
+      if(track.classList.contains('drag')){ track.classList.remove('drag'); var w = step(); track.scrollTo({left: Math.round(track.scrollLeft / w) * w, behavior: 'smooth'}) } });
+    track.addEventListener('click', function(e){ if(moved > 6){ e.stopPropagation(); e.preventDefault(); moved = 0 } }, true);
+    track.addEventListener('dragstart', function(e){ e.preventDefault() });
+    track.addEventListener('scroll', upd, {passive:true}); addEventListener('resize', upd);
+    track.querySelectorAll('img').forEach(function(im){ im.addEventListener('load', upd) });
+    upd();
+  }
+  carousel(document.getElementById('reels')); carousel(document.getElementById('revs'));
 
   /* дата старту — завжди сьогоднішня */
   (function(){ var d = new Date(), t = ('0'+d.getDate()).slice(-2) + '.' + ('0'+(d.getMonth()+1)).slice(-2);
