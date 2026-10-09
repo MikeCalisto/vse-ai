@@ -570,21 +570,18 @@ details.acc[open] summary i{transform:rotate(45deg)}
 .reel.vid .play:focus-visible{outline:3px solid #fff;outline-offset:3px}
 .reel.vid.playing .play{opacity:0;transform:scale(.6);pointer-events:none}
 
-/* hero: телефон і факти поруч */
-.hgrid{display:grid;grid-template-columns:49% 1fr;gap:10px;align-items:center;margin-top:28px}
-.hgrid .stage{margin:0;padding:0;display:block}
+/* hero: телефон і факти поруч — пункти тягнуться на всю висоту відео */
+.hgrid{display:grid;grid-template-columns:52% 1fr;gap:8px;align-items:stretch;margin-top:28px}
+.hgrid .stage{margin:0;padding:0;display:block;align-self:center}
 .hgrid .phone{width:100%;border-radius:28px;padding:6px}
 .hgrid .screen{border-radius:22px}
 .hgrid .notch{top:6px;height:14px;width:36%;margin-left:-18%}
-.hgrid .chip{font-size:10px;padding:5px 7px;border-radius:9px;box-shadow:2px 2px 0 var(--ink);gap:4px}
-.hgrid .chip.c1{left:-10px;top:10%}
-.hgrid .chip.c2{display:none}
-.hgrid .chip.c3{left:-10px;bottom:6%}
-.hgrid .facts{margin:0;gap:6px;min-width:0}
-.hgrid .facts li{padding:7px 8px;gap:7px;border-radius:11px;border-width:1.8px;font:600 12px/1.25 var(--body)}
+.hgrid .facts{margin:0;gap:5px;min-width:0;display:flex;flex-direction:column}
+.hgrid .facts li{flex:1 1 0;padding:6px 7px;gap:6px;border-radius:12px;border-width:1.8px;font:700 12.5px/1.18 var(--body)}
 .hgrid .facts .chk{flex:0 0 18px;width:18px;height:18px;border-width:1.5px}
 .hgrid .facts .chk svg{width:9px;height:9px}
-@media(min-width:440px){.hgrid .facts li{font-size:13px;padding:9px 10px}}
+@media(min-width:420px){.hgrid{gap:10px}.hgrid .facts{gap:6px}.hgrid .facts li{font-size:14px;line-height:1.2;padding:7px 9px;gap:7px}.hgrid .facts .chk{flex-basis:22px;width:22px;height:22px}.hgrid .facts .chk svg{width:11px;height:11px}}
+@media(min-width:470px){.hgrid .facts{gap:7px}.hgrid .facts li{font-size:16px;line-height:1.22;padding:8px 10px;gap:8px}.hgrid .facts .chk{flex-basis:24px;width:24px;height:24px}.hgrid .facts .chk svg{width:12px;height:12px}}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
