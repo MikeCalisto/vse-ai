@@ -570,18 +570,15 @@ details.acc[open] summary i{transform:rotate(45deg)}
 .reel.vid .play:focus-visible{outline:3px solid #fff;outline-offset:3px}
 .reel.vid.playing .play{opacity:0;transform:scale(.6);pointer-events:none}
 
-/* hero: телефон і факти поруч — пункти тягнуться на всю висоту відео */
-.hgrid{display:grid;grid-template-columns:52% 1fr;gap:8px;align-items:stretch;margin-top:28px}
-.hgrid .stage{margin:0;padding:0;display:block;align-self:center}
-.hgrid .phone{width:100%;border-radius:28px;padding:6px}
-.hgrid .screen{border-radius:22px}
-.hgrid .notch{top:6px;height:14px;width:36%;margin-left:-18%}
-.hgrid .facts{margin:0;gap:5px;min-width:0;display:flex;flex-direction:column}
-.hgrid .facts li{flex:1 1 0;padding:6px 7px;gap:6px;border-radius:12px;border-width:1.8px;font:700 12.5px/1.18 var(--body)}
-.hgrid .facts .chk{flex:0 0 18px;width:18px;height:18px;border-width:1.5px}
-.hgrid .facts .chk svg{width:9px;height:9px}
-@media(min-width:420px){.hgrid{gap:10px}.hgrid .facts{gap:6px}.hgrid .facts li{font-size:14px;line-height:1.2;padding:7px 9px;gap:7px}.hgrid .facts .chk{flex-basis:22px;width:22px;height:22px}.hgrid .facts .chk svg{width:11px;height:11px}}
-@media(min-width:470px){.hgrid .facts{gap:7px}.hgrid .facts li{font-size:16px;line-height:1.22;padding:8px 10px;gap:8px}.hgrid .facts .chk{flex-basis:24px;width:24px;height:24px}.hgrid .facts .chk svg{width:12px;height:12px}}
+/* hero: горизонтальне відео + факти під ним */
+.hvid{position:relative;margin-top:26px;border-radius:18px;overflow:hidden;border:2.5px solid var(--ink);box-shadow:6px 6px 0 var(--ink);background:var(--ink)}
+.hv-bar{display:flex;align-items:center;gap:5px;padding:7px 10px;background:var(--ink);color:rgba(255,255,255,.55);font:700 10px/1 var(--display);letter-spacing:.06em;text-transform:uppercase}
+.hv-bar i{width:8px;height:8px;border-radius:50%;background:#3a3532}.hv-bar i:first-child{background:var(--or)}
+.hv-bar span{margin-left:8px}
+.hv2{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#0b0a0a}
+.snd{position:absolute;right:10px;bottom:10px;display:flex;align-items:center;gap:6px;border:2px solid #fff;background:rgba(21,18,15,.72);color:#fff;border-radius:999px;padding:6px 11px 6px 8px;font:800 11px/1 var(--display);text-transform:uppercase;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.snd svg{width:18px;height:18px}.snd .on{display:none}.snd[aria-pressed="true"] .on{display:inline}.snd[aria-pressed="true"] .off{display:none}
+.snd:focus-visible{outline:3px solid var(--or);outline-offset:2px}
 
 /* hero: для чого */
 .for{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:16px}
@@ -684,16 +681,11 @@ details.acc[open] summary i{transform:rotate(45deg)}
     <p class="for"><span>для</span><b>Reels</b><b>рекламних креативів</b><b>горизонтальних роликів для YouTube</b></p>
     <p class="sub">і більше не потрібно сидіти <span class="scrib" id="scrib">годинами<svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path d="M2 18 12 10 20 22 30 8 40 22 50 9 60 21 70 8 80 21 90 9 98 16"/></svg></span> над одним відео або платити монтажеру $20 за хвилину ролика</p>
 
-    <div class="hgrid">
-    <div class="stage" >
-      <div class="phone">
-        <div class="screen">
-          <div class="notch"></div>
-          <video class="hv" src="media/hero.mp4" poster="media/hero.jpg" autoplay muted loop playsinline preload="auto" aria-label="Приклад ролика, змонтованого АІ монтажером"></video>
-        </div>
-      </div>
+    <div class="hvid">
+      <div class="hv-bar"><i></i><i></i><i></i><span>AI_SASHKA · АІ монтажер</span></div>
+      <video class="hv2" src="media/main.mp4" poster="media/main.jpg" autoplay muted loop playsinline preload="auto" aria-label="Ролик про АІ монтажера"></video>
+      <button type="button" class="snd" id="snd" aria-label="Увімкнути звук" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="on" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path class="off" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>звук</span></button>
     </div>
-
 
     <ul class="facts" id="facts">
       <li><span class="chk"><svg><use href="#ck"/></svg></span><span>5 практичних уроків</span></li>
@@ -702,7 +694,6 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Reels, TikTok, Shorts і горизонтальні відео</span></li>
       <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Вносиш правки голосом</span></li>
     </ul>
-    </div>
     <p class="vnote">*Це відео повністю змонтував АІ монтажер</p>
     <p class="sub2">Система, яку ти збереш на практикумі, монтуватиме відео на рівні професійного монтажера, а один ролик коштуватиме <b>≈ 7–12 грн</b>.</p>
 
@@ -1300,6 +1291,11 @@ details.acc[open] summary i{transform:rotate(45deg)}
     upd();
   }
   carousel(document.getElementById('reels')); carousel(document.getElementById('revs'));
+
+  /* hero: звук по кнопці */
+  (function(){ var v = document.querySelector('.hv2'), b = document.getElementById('snd'); if(!v || !b) return;
+    b.addEventListener('click', function(){ v.muted = !v.muted; if(!v.muted){ v.currentTime = 0; v.play().catch(function(){}) } b.setAttribute('aria-pressed', String(!v.muted)); b.setAttribute('aria-label', v.muted ? 'Увімкнути звук' : 'Вимкнути звук') });
+  })();
 
   /* дата старту — завжди сьогоднішня */
   (function(){ var d = new Date(), t = ('0'+d.getDate()).slice(-2) + '.' + ('0'+(d.getMonth()+1)).slice(-2);
