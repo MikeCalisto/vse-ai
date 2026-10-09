@@ -570,6 +570,22 @@ details.acc[open] summary i{transform:rotate(45deg)}
 .reel.vid .play:focus-visible{outline:3px solid #fff;outline-offset:3px}
 .reel.vid.playing .play{opacity:0;transform:scale(.6);pointer-events:none}
 
+/* hero: телефон і факти поруч */
+.hgrid{display:grid;grid-template-columns:49% 1fr;gap:10px;align-items:center;margin-top:28px}
+.hgrid .stage{margin:0;padding:0;display:block}
+.hgrid .phone{width:100%;border-radius:28px;padding:6px}
+.hgrid .screen{border-radius:22px}
+.hgrid .notch{top:6px;height:14px;width:36%;margin-left:-18%}
+.hgrid .chip{font-size:10px;padding:5px 7px;border-radius:9px;box-shadow:2px 2px 0 var(--ink);gap:4px}
+.hgrid .chip.c1{left:-10px;top:10%}
+.hgrid .chip.c2{display:none}
+.hgrid .chip.c3{left:-10px;bottom:6%}
+.hgrid .facts{margin:0;gap:6px;min-width:0}
+.hgrid .facts li{padding:7px 8px;gap:7px;border-radius:11px;border-width:1.8px;font:600 12px/1.25 var(--body)}
+.hgrid .facts .chk{flex:0 0 18px;width:18px;height:18px;border-width:1.5px}
+.hgrid .facts .chk svg{width:9px;height:9px}
+@media(min-width:440px){.hgrid .facts li{font-size:13px;padding:9px 10px}}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .rv,.bcard,.facts li{opacity:1;transform:none}
@@ -609,6 +625,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
     <h1 class="h1 kar" id="h1">Збери свого <span class="k">АІ монтажера</span> усього за <span class="circ" id="circ">один вечір<svg viewBox="0 0 200 70" preserveAspectRatio="none" aria-hidden="true"><path d="M150 8C110 -2 30 2 12 22 -4 40 30 64 100 64 168 64 200 46 192 26 186 12 160 4 120 5"/></svg></span></h1>
     <p class="sub">і більше не потрібно сидіти <span class="scrib" id="scrib">годинами<svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path d="M2 18 12 10 20 22 30 8 40 22 50 9 60 21 70 8 80 21 90 9 98 16"/></svg></span> над одним відео</p>
 
+    <div class="hgrid">
     <div class="stage" >
       <span class="chip c1">✂ <span>паузи <b>−16 с</b></span></span>
       <span class="chip c2">💬 <span>субтитри <b>✓</b></span></span>
@@ -629,6 +646,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Reels, TikTok, Shorts і горизонтальні відео</span></li>
       <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Вносиш правки голосом</span></li>
     </ul>
+    </div>
 
     <div class="ticket notch2 rv" id="ticket">
       <div class="burst"><svg viewBox="0 0 100 100"><polygon fill="#FF5A1A" stroke="#15120F" stroke-width="2.5" stroke-linejoin="round" points="50,2 57,17 72,7 73,24 90,20 84,36 99,42 86,52 97,65 80,68 84,85 67,80 62,97 50,85 38,97 33,80 16,85 20,68 3,65 14,52 1,42 16,36 10,20 27,24 28,7 43,17"/></svg><b>−82%</b></div>
