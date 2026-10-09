@@ -407,6 +407,8 @@ details.acc[open] summary i{transform:rotate(45deg)}
 .punch{display:inline-block;margin-top:10px;font:900 italic 19px/1.25 var(--display);background:var(--or);color:#fff;border-radius:12px;padding:10px 14px;transform:rotate(-1.5deg)}
 
 /* автор */
+.auth-ph{position:relative;margin:24px auto 0;width:min(78%,320px);border-radius:22px;overflow:hidden;border:3px solid #fff;box-shadow:7px 7px 0 var(--or);transform:rotate(-2deg)}
+.auth-ph img{display:block;width:100%;height:auto;aspect-ratio:747/1000;object-fit:cover}
 .auth-v{display:flex;justify-content:center;margin-top:22px}
 .auth-v .phone{width:min(62%,250px)}
 .auth-cap{text-align:center;margin-top:14px;font:italic 500 14px/1.4 var(--body);color:rgba(255,255,255,.7)}
@@ -503,12 +505,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
 @keyframes agSwipe{0%,30%{transform:translateY(6px);opacity:0}45%{opacity:1}70%{transform:translateY(-6px);opacity:0}100%{opacity:0}}
 
 /* проблеми: три варіанти оформлення (тимчасовий перемикач) */
-.vsw{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:16px;padding:10px;border:2px dashed var(--or);border-radius:14px;background:var(--paper)}
-.vsw span{width:100%;font:800 11px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}
-.vsw button{font:800 12px/1 var(--display);border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:8px 11px;cursor:pointer}
-.vsw button.on{background:var(--or);color:#fff}
-.vsw button:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
-.pva,.pvb,.pvc{display:none}
+.pva{display:none}
 .v-a .ph{grid-template-columns:auto 1fr 64px}
 .v-a .pva{display:grid;place-items:center;width:64px;height:64px;border-radius:14px;background:var(--or-soft);border:2px solid var(--ink);transform:rotate(4deg)}
 .pva svg{width:54px;height:54px}
@@ -518,14 +515,6 @@ details.acc[open] summary i{transform:rotate(45deg)}
 @keyframes paW{50%{opacity:.15}}
 .pa-stk{transform-box:fill-box;transform-origin:center;animation:paStk 3s ease-in-out infinite}
 @keyframes paStk{50%{transform:rotate(14deg) scale(1.08)}}
-.v-b .pcard{margin-top:30px}
-.v-b .pvb{display:grid;place-items:center;position:absolute;right:-8px;top:-22px;width:58px;height:58px;border-radius:50%;background:#fff;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--or);font-size:28px;line-height:1;transform:rotate(10deg);animation:wig 3s ease-in-out infinite}
-.v-b .pcard h3{padding-right:34px}
-.v-c .pvc{display:flex;align-items:center;gap:10px;margin:14px 0 2px;background:var(--ink);color:#fff;border-radius:16px 16px 16px 4px;padding:10px 13px;font:700 14px/1.3 var(--body);width:max-content;max-width:100%}
-.pvc .eq{display:flex;align-items:center;gap:2px;height:16px;flex:0 0 auto}
-.pvc .eq i{width:3px;border-radius:2px;background:var(--or);animation:eqb .8s ease-in-out infinite}
-.pvc .eq i:nth-child(2){animation-delay:-.2s}.pvc .eq i:nth-child(3){animation-delay:-.5s}.pvc .eq i:nth-child(4){animation-delay:-.1s}
-@keyframes eqb{0%,100%{height:4px}50%{height:16px}}
 
 /* що вміє: анімовані іконки */
 .fx-cut{transform-box:fill-box;transform-origin:left;animation:fxCut 3s cubic-bezier(.7,0,.3,1) infinite}
@@ -550,10 +539,31 @@ details.acc[open] summary i{transform:rotate(45deg)}
 @keyframes fxBulb{50%{fill:#FFD23A}}
 .fx-wv{animation:paW 1.2s ease-in-out infinite}.fx-wv.v2{animation-delay:-.6s}
 
+/* для кого: ілюстрації сегментів */
+.wh{display:flex;align-items:center;gap:14px}
+.wi{flex:0 0 64px;width:64px;height:64px;border-radius:16px;background:var(--or-soft);border:2px solid var(--ink);display:grid;place-items:center;transform:rotate(-4deg)}
+.wc:nth-child(even) .wi{transform:rotate(4deg)}
+.wi svg{width:54px;height:54px;overflow:visible}
+.wc p{margin-top:10px}
+.wx-blink{animation:blink 1s steps(2) infinite}
+.wx-heart{transform-box:fill-box;transform-origin:center;animation:agPulse 1.1s ease-in-out infinite}
+.wx-bar{transform-box:fill-box;transform-origin:bottom;animation:fxEq 1.6s ease-in-out infinite}.wx-bar.b2{animation-delay:-.4s}.wx-bar.b3{animation-delay:-.8s}
+.wx-win{animation:fxBulb 2s ease-in-out infinite}
+.wx-tick{stroke-dasharray:14;stroke-dashoffset:14;animation:wxTick 3.2s ease infinite}.wx-tick.t2{animation-delay:.4s}.wx-tick.t3{animation-delay:.8s}.wx-tick.t4{animation-delay:1.2s}
+@keyframes wxTick{0%{stroke-dashoffset:14}20%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:14}}
+.wx-hl{stroke-dasharray:90;stroke-dashoffset:90;animation:fxRing 3s ease-in-out infinite}
+.wx-cur{animation:fxClick 2.2s ease-in-out infinite}
+.wx-clap{transform-box:view-box;transform-origin:10px 26px;animation:wxClap 1.6s ease-in-out infinite}
+@keyframes wxClap{0%,60%,100%{transform:rotate(0)}30%{transform:rotate(-16deg)}}
+.wx-up{animation:wxUp 1.4s ease-in-out infinite}
+@keyframes wxUp{50%{transform:translateY(-4px)}}
+.wx-caret{animation:blink .9s steps(2) infinite}
+.wx-spark{transform-box:fill-box;transform-origin:center;animation:paStk 2.4s ease-in-out infinite}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .rv,.bcard,.facts li{opacity:1;transform:none}
-  .fx-w{opacity:1!important}.fx-ring{stroke-dashoffset:0!important}
+  .fx-w{opacity:1!important}.fx-ring,.wx-tick,.wx-hl{stroke-dashoffset:0!important}
 }
 </style>
 </head>
@@ -641,8 +651,8 @@ details.acc[open] summary i{transform:rotate(45deg)}
         <h3>+ Великий комплект бонусів<em>при купівлі практикуму до кінця таймера</em></h3>
         <div class="fan">
           <span><svg viewBox="0 0 40 40" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linecap="round"><rect x="14" y="4" width="12" height="20" rx="6" fill="#FF5A1A"/><path d="M8 19a12 12 0 0 0 24 0M20 31v5M14 36h12"/></svg>Озвучка через API</span>
-          <span><svg viewBox="0 0 40 40" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round"><path d="M20 5l15 7.5-15 7.5-15-7.5z" fill="#FF5A1A"/><path d="M5 20l15 7.5L35 20M5 27.5 20 35l15-7.5"/></svg>Пак анімацій і фонів</span>
-          <span><svg viewBox="0 0 40 40" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h28v20H18l-8 7v-7H6z" fill="#fff"/><path d="M12 14h16M12 20h10" stroke="#FF5A1A"/></svg>Шпаргалка голосових команд</span>
+          <span><svg viewBox="0 0 40 40" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round"><path d="M20 5l15 7.5-15 7.5-15-7.5z" fill="#FF5A1A"/><path d="M5 20l15 7.5L35 20M5 27.5 20 35l15-7.5"/></svg>Референс-пак анімацій і фонів</span>
+          <span><svg viewBox="0 0 40 40" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h28v20H18l-8 7v-7H6z" fill="#fff"/><path d="M12 14h16M12 20h10" stroke="#FF5A1A"/></svg>Промти для моушн-графіки</span>
         </div>
       </div>
       <a class="btn" href="#pay">Зібрати монтажера<span class="bad">−82%</span></a>
@@ -662,30 +672,26 @@ details.acc[open] summary i{transform:rotate(45deg)}
     <article class="bcard">
       <span class="bnum">1</span><span class="blab">бонус 1</span>
       <h3>Урок: озвучка через API-ключ</h3>
-      <p>Твій монтажер зможе сам озвучувати ролики: скрінкасти, пояснення, відео без твого голосу в кадрі. Покажу, що таке API-ключ, де його взяти й як підключити за кілька хвилин. Розберемо, як отримати живу озвучку без роботизованого звучання: твоїм власним голосом або голосом із бібліотеки. Є <span class="mark">безкоштовний спосіб</span> через Google AI Studio.</p>
+      <p>Монтажер сам озвучує скрінкасти, пояснення й відео без твого голосу в кадрі. Покажу, де взяти API-ключ і як підключити його за кілька хвилин. Озвучка звучить живо: твоїм голосом або голосом із бібліотеки. Є <span class="mark">безкоштовний спосіб</span> через Google AI Studio.</p>
     </article>
     <article class="bcard">
       <span class="bnum">2</span><span class="blab">бонус 2</span>
-      <h3>Пак анімацій і фонів</h3>
-      <p><span class="mark">10 готових анімацій і 10 фонів</span>, які твій монтажер одразу підставляє в ролики. Перші відео виглядають доробленими ще до того, як ти збереш власну бібліотеку.</p>
+      <h3>Референс-пак: 10 анімацій і 10 фонів</h3>
+      <p>Готові зразки анімацій і фонів, які ти даєш монтажеру як приклад, і він <span class="mark">повторює їх у твоїх роликах</span>.</p>
     </article>
     <article class="bcard">
       <span class="bnum">3</span><span class="blab">бонус 3</span>
-      <h3>Шпаргалка голосових команд</h3>
-      <p>Готові формулювання для монтажера на кожну задачу: вирізати паузи, змінити стиль субтитрів, додати графіку, переробити фрагмент. Копіюєш або промовляєш і отримуєш результат <span class="mark">з першого разу</span>.</p>
+      <h3>Промти для моушн-графіки</h3>
+      <p>Готовий список промтів для анімованої графіки, <span class="mark">як у трендових рілсах</span>. Копіюєш, і монтажер додає такі ж елементи у твоє відео.</p>
     </article>
   </section>
 
   <!-- ═══ 3. ПРОБЛЕМИ ═══ -->
   <section class="sec v-a" id="pain">
     <h2 class="h2 kar">Одразу скажу: цей практикум вирішує <span class="k">головні проблеми</span> з монтажем</h2>
-    <!-- ТИМЧАСОВО: перемикач варіантів оформлення карток, прибрати після вибору -->
-    <div class="vsw" id="vsw"><span>Варіант оформлення:</span><button type="button" data-v="a" class="on">A · Ілюстрації</button><button type="button" data-v="b">B · Стікери</button><button type="button" data-v="c">C · Голосові команди</button></div>
 
     <article class="pcard">
       <div class="ph"><span class="pn">01</span><h3>Монтаж одного відео більше не забирає цілий вечір</h3><span class="pva" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="27" y="6" width="10" height="7" rx="2" fill="#15120F"/><circle cx="32" cy="36" r="20" fill="#fff" stroke="#15120F" stroke-width="3"/><path d="M32 36V20a16 16 0 0 1 14 8z" fill="#FFE1D2"/><line class="pa-hand" x1="32" y1="36" x2="32" y2="22" stroke="#FF5A1A" stroke-width="3.2" stroke-linecap="round"/><circle cx="32" cy="36" r="3" fill="#15120F"/></svg></span></div>
-      <span class="pvb" aria-hidden="true">⏱</span>
-      <div class="pvc" aria-hidden="true"><span class="eq"><i></i><i></i><i></i><i></i></span><span>«Виріж паузи й додай субтитри»</span></div>
       <ul class="sl">
         <li><svg><use href="#sc"/></svg><span>паузи, «е-е-м», невдалі дублі й повтори вирізаються автоматично за розпізнаним текстом</span></li>
         <li><svg><use href="#sc"/></svg><span>субтитри зʼявляються саме тоді, коли слово вимовлено, з потрібним шрифтом, кольором і анімацією</span></li>
@@ -693,8 +699,6 @@ details.acc[open] summary i{transform:rotate(45deg)}
     </article>
     <article class="pcard">
       <div class="ph"><span class="pn">02</span><h3>Твоє розмовне відео тепер будуть дивитися до кінця</h3><span class="pva" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="8" y="10" width="48" height="32" rx="6" fill="#FF5A1A" stroke="#15120F" stroke-width="2.6"/><path d="M28 19l11 7-11 7z" fill="#fff"/><rect x="8" y="49" width="48" height="7" rx="3.5" fill="#fff" stroke="#15120F" stroke-width="2"/><rect class="pa-bar" x="9" y="50" width="46" height="5" rx="2.5" fill="#FF5A1A"/></svg></span></div>
-      <span class="pvb" aria-hidden="true">👀</span>
-      <div class="pvc" aria-hidden="true"><span class="eq"><i></i><i></i><i></i><i></i></span><span>«Додай графіку на ключових словах»</span></div>
       <ul class="sl">
         <li><svg><use href="#sc"/></svg><span>графіка, анімації й стікери на ключових словах оживляють «говорячу голову»</span></li>
         <li><svg><use href="#sc"/></svg><span>складні теми, які неможливо зняти на камеру, монтажер візуалізує сам</span></li>
@@ -703,8 +707,6 @@ details.acc[open] summary i{transform:rotate(45deg)}
     </article>
     <article class="pcard">
       <div class="ph"><span class="pn">03</span><h3>Без складних програм і без монтажера</h3><span class="pva" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="25" y="8" width="14" height="26" rx="7" fill="#FF5A1A" stroke="#15120F" stroke-width="2.6"/><path d="M18 30a14 14 0 0 0 28 0M32 44v10M24 56h16" fill="none" stroke="#15120F" stroke-width="2.6" stroke-linecap="round"/><path class="pa-w" d="M50 16a14 14 0 0 1 0 20" fill="none" stroke="#FF5A1A" stroke-width="2.6" stroke-linecap="round"/><path class="pa-w w2" d="M14 16a14 14 0 0 0 0 20" fill="none" stroke="#FF5A1A" stroke-width="2.6" stroke-linecap="round"/></svg></span></div>
-      <span class="pvb" aria-hidden="true">🎙</span>
-      <div class="pvc" aria-hidden="true"><span class="eq"><i></i><i></i><i></i><i></i></span><span>«Перероби цей фрагмент»</span></div>
       <ul class="sl">
         <li><svg><use href="#sc"/></svg><span>жодного таймлайна, десятків кнопок і окремого курсу з монтажу</span></li>
         <li><svg><use href="#sc"/></svg><span>правки голосом: кажеш, що змінити, і монтажер переробляє</span></li>
@@ -713,8 +715,6 @@ details.acc[open] summary i{transform:rotate(45deg)}
     </article>
     <article class="pcard">
       <div class="ph"><span class="pn">04</span><h3>Кожен ролик у твоєму стилі</h3><span class="pva" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="16" cy="18" r="8" fill="#FF5A1A" stroke="#15120F" stroke-width="2.2"/><circle cx="32" cy="14" r="8" fill="#15120F"/><circle cx="48" cy="18" r="8" fill="#fff" stroke="#15120F" stroke-width="2.2"/><text x="20" y="52" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900" font-size="20" fill="#15120F">Aa</text><g class="pa-stk"><circle cx="46" cy="45" r="12" fill="#fff" stroke="#15120F" stroke-width="2.2"/><circle cx="42" cy="43" r="1.8" fill="#15120F"/><circle cx="50" cy="43" r="1.8" fill="#15120F"/><path d="M41 48q5 4 10 0" fill="none" stroke="#FF5A1A" stroke-width="2.2" stroke-linecap="round"/></g></svg></span></div>
-      <span class="pvb" aria-hidden="true">🎨</span>
-      <div class="pvc" aria-hidden="true"><span class="eq"><i></i><i></i><i></i><i></i></span><span>«Зроби в моєму стилі»</span></div>
       <ul class="sl">
         <li><svg><use href="#sc"/></svg><span>власний брендлук: шрифти, кольори й стікери з тобою</span></li>
         <li><svg><use href="#sc"/></svg><span>наступне відео виходить у тому ж стилі, що й попереднє</span></li>
@@ -806,21 +806,21 @@ details.acc[open] summary i{transform:rotate(45deg)}
     <p class="p">Якщо підписки ще немає, знадобиться лише одна: Claude або ChatGPT, <b>≈ $24 на місяць</b>. Окремі програми для монтажу, сервіси для субтитрів і платні пакети анімацій тобі не знадобляться.</p>
     <div class="addon"><span class="e">🎙</span><span><b>Озвучка</b> безкоштовно через Google AI Studio. Якщо хочеш, щоб монтажер говорив твоїм клонованим голосом, підключаєш ElevenLabs за ≈ $6 на місяць.</span></div>
     <div class="addon"><span class="e">🎨</span><span><b>Стікери</b> створюємо в ChatGPT. Якщо твій монтажер працює на Claude, для цього уроку вистачить безкоштовної версії ChatGPT.</span></div>
-    <p class="sm" style="margin-top:16px">*Для роботи потрібен компʼютер на Windows або Mac.</p>
+    <div class="addon"><span class="e">💻</span><span>Для роботи потрібен <b>компʼютер на Windows або Mac</b>.</span></div>
   </section>
 
   <!-- ═══ 6. ДЛЯ КОГО ═══ -->
   <section class="sec" id="who">
     <h2 class="h2 kar">Для кого цей <span class="k">практикум?</span></h2>
     <div class="who">
-      <div class="wc rv"><span class="hash">#блогери</span><h3>Блогери й контент-мейкери</h3><p>Знімаєш багато, а монтаж стає вузьким місцем. З АІ-монтажером ролики виходять регулярно, і кожен виглядає динамічно.</p></div>
-      <div class="wc rv"><span class="hash">#експерти</span><h3>Експерти й діджитал-спеціалісти, які мають свій блог</h3><p>Коучі, психологи, лікарі, юристи, фінансисти. У складних нішах на камеру майже нічого не покажеш, а монтажер візуалізує те, про що ти говориш.</p></div>
-      <div class="wc rv"><span class="hash">#бізнес</span><h3>Власники бізнесу</h3><p>Потрібні повноцінні відео про продукт, послуги чи команду. Тепер їх можна робити самостійно, без агенції й без окремої людини на монтаж.</p></div>
-      <div class="wc rv"><span class="hash">#smm</span><h3>SMM-фахівці й маркетологи</h3><p>Ведеш кілька проєктів і щотижня монтуєш десятки роликів. Монтажер бере цю рутину на себе, а ти встигаєш більше за той самий час.</p></div>
-      <div class="wc rv"><span class="hash">#викладачі</span><h3>Викладачі й автори курсів</h3><p>Записуєш уроки або розбори з екрана. Монтажер прибирає зайве, додає субтитри, підсвічує важливе на екрані й озвучує скрінкасти.</p></div>
-      <div class="wc rv"><span class="hash">#монтажери</span><h3>Монтажери й відеографи</h3><p>Рутинні задачі забирають більшу частину робочого дня. Монтажер закриває чистку, субтитри й графіку, а ти береш більше замовлень.</p></div>
-      <div class="wc rv"><span class="hash">#блог_з_нуля</span><h3>Ті, хто давно хоче вести блог</h3><p>Відео записуються, а до публікації так і не доходять, бо на монтаж немає сил і часу. Тепер на шляху до публікації стоїть одна голосова команда.</p></div>
-      <div class="wc rv"><span class="hash">#ai</span><h3>AI-ентузіасти</h3><p>Хочеш спробувати Claude Code або ChatGPT Codex на реальній задачі. Практикум дає готову систему, яку ти встановлюєш і одразу використовуєш у роботі.</p></div>
+      <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="16" y="4" width="32" height="56" rx="7" fill="#15120F"/><rect x="19" y="8" width="26" height="48" rx="4" fill="#F2B591"/><circle cx="32" cy="27" r="7" fill="#15120F"/><path d="M21 56c2-11 6-15 11-15s9 4 11 15z" fill="#15120F"/><circle cx="24" cy="14" r="2.6" fill="#E5341E" class="wx-blink"/><path class="wx-heart" d="M50 22c-3-4-9-2-8 3 1 4 8 8 8 8s7-4 8-8c1-5-5-7-8-3z" fill="#FF5A1A" stroke="#15120F" stroke-width="1.8"/></svg></span><h3>Блогери й контент-мейкери</h3></div><p>Знімаєш багато, а монтаж стає вузьким місцем. З АІ-монтажером ролики виходять регулярно, і кожен виглядає динамічно.</p></div>
+      <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M8 10h48v32H30l-12 10V42H8z" fill="#fff" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round"/><g fill="#FF5A1A" stroke="#15120F" stroke-width="1.6"><rect class="wx-bar" x="16" y="24" width="7" height="12" rx="1.5"/><rect class="wx-bar b2" x="28" y="18" width="7" height="18" rx="1.5"/><rect class="wx-bar b3" x="40" y="14" width="7" height="22" rx="1.5"/></g></svg></span><h3>Експерти й діджитал-спеціалісти, які мають свій блог</h3></div><p>Коучі, психологи, лікарі, юристи, фінансисти. У складних нішах на камеру майже нічого не покажеш, а монтажер візуалізує те, про що ти говориш.</p></div>
+      <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="10" y="26" width="44" height="32" rx="3" fill="#fff" stroke="#15120F" stroke-width="2.4"/><path d="M6 26l6-14h40l6 14z" fill="#FF5A1A" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round"/><path d="M17 12l-3 14M27 12l-1 14M37 12l1 14M47 12l3 14" stroke="#15120F" stroke-width="1.8"/><rect x="16" y="34" width="14" height="24" rx="2" fill="#FFE1D2" stroke="#15120F" stroke-width="2"/><rect x="36" y="34" width="12" height="10" rx="2" fill="#FFD23A" stroke="#15120F" stroke-width="2" class="wx-win"/></svg></span><h3>Власники бізнесу</h3></div><p>Потрібні повноцінні відео про продукт, послуги чи команду. Тепер їх можна робити самостійно, без агенції й без окремої людини на монтаж.</p></div>
+      <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="8" y="10" width="48" height="46" rx="5" fill="#fff" stroke="#15120F" stroke-width="2.4"/><path d="M8 20h48" stroke="#15120F" stroke-width="2.4"/><path d="M20 6v8M44 6v8" stroke="#15120F" stroke-width="2.6" stroke-linecap="round"/><g fill="#FFE1D2" stroke="#15120F" stroke-width="1.6"><rect x="13" y="25" width="10" height="10" rx="2"/><rect x="27" y="25" width="10" height="10" rx="2"/><rect x="41" y="25" width="10" height="10" rx="2"/><rect x="13" y="40" width="10" height="10" rx="2"/><rect x="27" y="40" width="10" height="10" rx="2"/><rect x="41" y="40" width="10" height="10" rx="2"/></g><g fill="none" stroke="#FF5A1A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path class="wx-tick" d="M15 30l3 3 4-6"/><path class="wx-tick t2" d="M29 30l3 3 4-6"/><path class="wx-tick t3" d="M43 30l3 3 4-6"/><path class="wx-tick t4" d="M15 45l3 3 4-6"/></g></svg></span><h3>SMM-фахівці й маркетологи</h3></div><p>Ведеш кілька проєктів і щотижня монтуєш десятки роликів. Монтажер бере цю рутину на себе, а ти встигаєш більше за той самий час.</p></div>
+      <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="6" y="10" width="52" height="34" rx="4" fill="#fff" stroke="#15120F" stroke-width="2.4"/><path d="M2 50h60l-4 6H6z" fill="#15120F"/><rect x="12" y="17" width="22" height="4" rx="2" fill="#15120F"/><rect x="12" y="25" width="30" height="4" rx="2" fill="#E1D8C8"/><rect x="12" y="33" width="18" height="4" rx="2" fill="#E1D8C8"/><ellipse class="wx-hl" cx="27" cy="27" rx="19" ry="6" fill="none" stroke="#FF5A1A" stroke-width="2.4"/><path class="wx-cur" d="M46 30l9 4-4 1.5-1.5 4z" fill="#15120F"/></svg></span><h3>Викладачі й автори курсів</h3></div><p>Записуєш уроки або розбори з екрана. Монтажер прибирає зайве, додає субтитри, підсвічує важливе на екрані й озвучує скрінкасти.</p></div>
+      <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="8" y="28" width="48" height="28" rx="3" fill="#15120F"/><g class="wx-clap"><path d="M8 18l46-10 3 10-46 10z" fill="#fff" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round"/><path d="M17 16l5 8M28 14l5 8M39 11l5 8" stroke="#15120F" stroke-width="3"/></g><rect x="14" y="36" width="20" height="4" rx="2" fill="#FF5A1A"/><rect x="14" y="44" width="30" height="4" rx="2" fill="#fff" opacity=".7"/></svg></span><h3>Монтажери й відеографи</h3></div><p>Рутинні задачі забирають більшу частину робочого дня. Монтажер закриває чистку, субтитри й графіку, а ти береш більше замовлень.</p></div>
+      <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="10" y="20" width="44" height="36" rx="5" fill="#FFE1D2" stroke="#15120F" stroke-width="2.4"/><path d="M10 26V16a3 3 0 0 1 3-3h12l5 5h21a3 3 0 0 1 3 3v5" fill="#FF5A1A" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round"/><g class="wx-up"><path d="M32 50V32" stroke="#15120F" stroke-width="3" stroke-linecap="round"/><path d="M25 38l7-7 7 7" fill="none" stroke="#15120F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg></span><h3>Ті, хто давно хоче вести блог</h3></div><p>Відео записуються, а до публікації так і не доходять, бо на монтаж немає сил і часу. Тепер на шляху до публікації стоїть одна голосова команда.</p></div>
+      <div class="wc rv"><div class="wh"><span class="wi" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="6" y="12" width="52" height="40" rx="5" fill="#15120F"/><circle cx="13" cy="19" r="2" fill="#FF5A1A"/><circle cx="19" cy="19" r="2" fill="#fff" opacity=".5"/><text x="12" y="40" font-family="Montserrat,sans-serif" font-weight="900" font-size="14" fill="#FF5A1A">&gt;</text><rect class="wx-caret" x="24" y="30" width="10" height="12" fill="#fff"/><path class="wx-spark" d="M52 2l2.4 5.6L60 10l-5.6 2.4L52 18l-2.4-5.6L44 10l5.6-2.4z" fill="#FFD23A" stroke="#15120F" stroke-width="1.6" stroke-linejoin="round"/></svg></span><h3>AI-ентузіасти</h3></div><p>Хочеш спробувати Claude Code або ChatGPT Codex на реальній задачі. Практикум дає готову систему, яку ти встановлюєш і одразу використовуєш у роботі.</p></div>
     </div>
   </section>
 
@@ -835,21 +835,17 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <div class="agc"><span class="il" aria-hidden="true"><svg viewBox="0 0 72 72"><defs><clipPath id="agph"><rect x="22" y="9" width="28" height="52" rx="5"/></clipPath></defs><rect x="20" y="7" width="32" height="56" rx="7" fill="#15120F"/><g clip-path="url(#agph)"><g class="ag-feed"><rect x="22" y="9" width="28" height="52" fill="#F2B591"/><circle cx="36" cy="30" r="7" fill="#15120F"/><path d="M24 61c2-12 7-16 12-16s10 4 12 16z" fill="#15120F"/><rect x="22" y="61" width="28" height="52" fill="#FFE1D2"/><circle cx="36" cy="82" r="7" fill="#15120F"/><path d="M24 113c2-12 7-16 12-16s10 4 12 16z" fill="#15120F"/></g></g><g class="ag-swipe"><path d="M61 50V30" stroke="#FF5A1A" stroke-width="3" stroke-linecap="round"/><path d="M55 36l6-7 6 7" fill="none" stroke="#FF5A1A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg></span><p>Готове відео виглядає як ще одна «говоряча голова», і його гортають за секунду.</p></div>
     </div>
     <div class="thought rv">
-      <p class="p">І людина відкладає з думкою:</p>
+      <p class="p">І ти відкладаєш публікацію з думкою:</p>
       <blockquote class="bub">Повернусь до цього, коли буде час.</blockquote>
     </div>
     <div class="drafts rv" aria-hidden="true"><i data-d="0:42"></i><i data-d="1:15"></i><i data-d="0:58"></i><i data-d="2:03"></i><i data-d="0:37"></i><i data-d="1:21"></i><i data-d="0:49"></i><i data-d="3:10"></i><i data-d="0:55"></i><i data-d="1:02"></i></div>
     <p class="p">Час так і не зʼявляється, а відео лежать на телефоні.</p>
-    <p class="p">Туторіалів з монтажу тисячі. Кожен пояснює окрему кнопку в окремій програмі, і на один ролик усе одно йде вечір.</p>
-    <p class="p"><b>Я пішов іншим шляхом.</b> Зібрав систему, яка монтує за мене, і навчив її на своїх роликах і своєму підході до блогу. Тепер я покажу, як зібрати таку ж у себе.</p>
-    <p class="p">До практикуму пропоную тобі доєднатися <span class="acc-or" style="font-weight:700">просто зараз</span>.</p>
     <a class="btn" href="#pay">Зібрати монтажера<span class="bad">−82%</span></a>
   </section>
 
   <!-- ═══ 8. ПРОГРАМА ═══ -->
   <section class="sec" id="program">
     <h2 class="h2 kar">Уроки практикуму <span class="k">«АІ монтажер»</span></h2>
-    <div class="meta-l"><span>5 практичних уроків</span><span>короткі інструкції без води</span><span>домашнє завдання після кожного уроку</span><span>доступ назавжди</span></div>
 
     <!-- ⟨НУЖНО: превью к урокам 1–5⟩ — поки в кожному .prev кодова заставка; картинку класти як <img src="lesson-N.jpg"> всередину .prev -->
     <article class="les rv">
@@ -895,7 +891,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <div class="les-b">
         <span class="ln">Урок 03</span>
         <h3>Графіка, звук і обкладинка</h3>
-        <p class="ld">Як зробити так, щоб ролик виглядав роботою студії.</p>
+        <p class="ld">Як зробити так, щоб твій ролик виглядав як робота професійної студії монтажу.</p>
         <details class="acc"><summary>Що в уроці <i>+</i></summary>
           <ul class="bul">
             <li>додаємо графіку й анімації на ключових словах</li>
@@ -1029,12 +1025,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
   <section class="sec dark" id="author">
     <h2 class="h2 kar">Олександр <span class="k">Цюцьмаць</span></h2>
     <!-- ⟨НУЖНО: видео-ролик Саши, смонтированный его системой⟩ → замінити .screen вміст на <video src="author.mp4" poster="author.jpg" autoplay muted loop playsinline> -->
-    <div class="auth-v">
-      <div class="phone"><div class="screen"><div class="notch"></div>
-        <div class="reel r1" style="position:absolute;inset:0;border:0;border-radius:0"><svg class="fig" viewBox="0 0 200 240" aria-hidden="true"><use href="#fig"/></svg><div class="rcap" data-l="я *монтую;через *систему"></div></div>
-      </div></div>
-    </div>
-    <p class="auth-cap">Цей ролик змонтував мій АІ монтажер</p>
+    <figure class="auth-ph"><img src="author.jpg" width="747" height="1000" alt="Олександр Цюцьмаць" loading="lazy" decoding="async"></figure>
     <ul class="alist">
       <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Вивчаю АІ-інструменти <b>кожен день з 2024 року</b></span></li>
       <li><span class="chk"><svg><use href="#ck"/></svg></span><span><b>Власник агенції</b> зі створення АІ-контенту під ключ</span></li>
@@ -1054,8 +1045,8 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <li><span>Покрокові інструкції встановлення для Windows і Mac</span></li>
       <li><span>Готові команди, якими я користуюся щодня</span></li>
       <li class="b"><span><b>Бонус 1</b>Урок: озвучка через API-ключ</span></li>
-      <li class="b"><span><b>Бонус 2</b>Пак анімацій і фонів</span></li>
-      <li class="b"><span><b>Бонус 3</b>Шпаргалка голосових команд</span></li>
+      <li class="b"><span><b>Бонус 2</b>Референс-пак: 10 анімацій і 10 фонів</span></li>
+      <li class="b"><span><b>Бонус 3</b>Промти для моушн-графіки</span></li>
       <li><span>Бонус за виконання всіх домашніх завдань</span></li>
       <li><span>Доступ до практикуму назавжди</span></li>
       <li><span>Підтримка від куратора</span></li>
@@ -1077,7 +1068,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
   <!-- ⟨НУЖНО: 3–4 кейса — имя, ниша, видео до/после, короткая цитата⟩ — кейсів поки немає, тож за спекою підблок з кейсами не виводимо -->
   <section class="sec dark" id="reviews">
     <h2 class="h2 kar"><span class="k">Хвалюся!</span></h2>
-    <p class="p">А ось відгуки моїх студентів з інших навчальних програм.</p>
+    <p class="p">А ось відгуки моїх студентів з моїх навчальних програм.</p>
     <p class="p">Мої курси вже пройшли <b class="acc-or">7 141 студент</b>, і найчастіше я чую:</p>
     <blockquote class="quote">Сашко, за 390 грн — це <b>ВАУ!</b></blockquote>
     <div class="revs" id="revs">
@@ -1233,14 +1224,6 @@ details.acc[open] summary i{transform:rotate(45deg)}
   (function(){ var d = new Date(), t = ('0'+d.getDate()).slice(-2) + '.' + ('0'+(d.getMonth()+1)).slice(-2);
     document.querySelectorAll('[data-today]').forEach(function(n){ n.textContent = t }) })();
 
-  /* ТИМЧАСОВО: перемикач варіантів карток проблем */
-  var pain = document.getElementById('pain');
-  document.querySelectorAll('#vsw button').forEach(function(b){
-    b.addEventListener('click', function(){
-      pain.classList.remove('v-a','v-b','v-c'); pain.classList.add('v-' + b.dataset.v);
-      document.querySelectorAll('#vsw button').forEach(function(x){ x.classList.toggle('on', x === b) });
-    });
-  });
 
   /* демо-ролики: субтитри з data-l («;» — нова фраза, «*» — ключове слово); крутяться лише на екрані */
   document.querySelectorAll('.rcap[data-l]').forEach(function(cap){
