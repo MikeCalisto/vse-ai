@@ -41,6 +41,8 @@
     { "source": "/fabryka-v2/concepts/", "destination": "/fabryka-v2/concepts/index.html", "permanent": false },
     { "source": "/ai-montazher", "destination": "/ai-montazher/index.html", "permanent": false },
     { "source": "/ai-montazher/", "destination": "/ai-montazher/index.html", "permanent": false },
+    { "source": "/ai-montazher/v2", "destination": "/ai-montazher/v2/index.html", "permanent": false },
+    { "source": "/ai-montazher/v2/", "destination": "/ai-montazher/v2/index.html", "permanent": false },
     { "source": "/ai-montazher/concepts", "destination": "/ai-montazher/concepts/index.html", "permanent": false },
     { "source": "/ai-montazher/concepts/", "destination": "/ai-montazher/concepts/index.html", "permanent": false },
     { "source": "/fabryka-v2-spec", "destination": "/fabryka-v2-spec/index.html", "permanent": false },
