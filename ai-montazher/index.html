@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Збери свого АІ монтажера за один вечір — Ai_Sashka</title>
+<meta name="description" content="Практикум з монтажу відео через нейромережі. Встанови АІ монтажера на Claude Code або ChatGPT Codex і монтуй рілси голосовими командами. 390 грн замість 2 199.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Практикум «АІ монтажер» — Ai_Sashka">
+<meta property="og:description" content="5 практичних уроків. Паузи, субтитри, графіка, звук, обкладинка й твій фірмовий стиль за голосовою командою. 390 грн замість 2 199.">
+<!-- ⟨НУЖНО: обложка OG 1200×630⟩ → <meta property="og:image" content="https://vse-ai.vercel.app/ai-montazher/og.jpg"> -->
+<!-- ⟨НУЖНО: ссылка оплаты ZenEdu⟩ → замінити всі href="#pay" -->
+<meta name="theme-color" content="#F3EEE4">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;0,900;1,900&family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* АІ монтажер · помаранчева версія: субтитри-караоке, стікери, ножиці, таймлайн */
+:root{
+  --bg:#F3EEE4;--paper:#FFFCF6;--ink:#15120F;--ink2:#221E1A;--or:#FF5A1A;--or-soft:#FFE1D2;--mute:#6C645A;--line:#E1D8C8;--red:#E5341E;--yel:#FFD23A;
+  --display:'Montserrat',system-ui,sans-serif;--body:'Onest',system-ui,sans-serif;--pad:20px;--col:480px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:#E6DFD2;color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+svg,img,video{display:block}
+img{max-width:100%;height:auto}
+.wrap{max-width:var(--col);margin:0 auto;background:var(--bg);position:relative;overflow-x:clip;min-height:100vh}
+@media(min-width:520px){.wrap{box-shadow:0 0 60px rgba(0,0,0,.08);border-left:1px solid var(--line);border-right:1px solid var(--line)}}
+.sec{position:relative;padding:44px var(--pad) 52px}
+.p{font-size:16px;line-height:1.6;margin-top:14px}
+.p b,.p strong{font-weight:700}
+.sm{font-size:13px;line-height:1.5;color:var(--mute)}
+.dark{background:var(--ink);color:#fff}
+.dark::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:18px 18px;pointer-events:none}
+.dark>*{position:relative}
+.dark .sm{color:rgba(255,255,255,.62)}
+.orange{background:var(--or);color:var(--ink)}
+.orange .sm{color:rgba(21,18,15,.72)}
+
+/* стрічки-скотч */
+.tape{position:relative;height:78px;overflow:hidden}
+.tape .t{position:absolute;left:-10%;right:-10%;top:16px;background:var(--ink);color:#fff;transform:rotate(-2.2deg);padding:9px 0;
+  font:900 13px/1 var(--display);text-transform:uppercase;letter-spacing:.04em;overflow:hidden}
+.tape .t.b{background:var(--or);top:22px;transform:rotate(3deg)}
+.tape .tr{display:flex;width:max-content;animation:mq 20s linear infinite}
+.tape .t.b .tr{animation-direction:reverse;animation-duration:26s}
+.tape .tr span{white-space:nowrap}
+.tape .tr i{font-style:normal;color:var(--or);margin:0 10px}
+.tape .t.b .tr i{color:var(--ink)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+.sticker{display:inline-flex;align-items:center;gap:8px;background:var(--or);color:#fff;border:3px solid #fff;border-radius:12px;padding:7px 12px;
+  font:900 13px/1.1 var(--display);text-transform:uppercase;letter-spacing:.01em;box-shadow:0 6px 16px rgba(21,18,15,.18);transform:rotate(-3deg)}
+.sticker b{background:var(--ink);color:#fff;border-radius:6px;padding:3px 6px;font-size:11px}
+.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.brand{font:900 18px/1 var(--display);letter-spacing:-.02em}
+.brand span{color:var(--or)}
+.live{display:flex;align-items:center;gap:7px;font:800 11px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--or);box-shadow:0 0 0 4px rgba(255,90,26,.18);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(255,90,26,0)}}
+.lead{margin:20px 0 12px;font:500 15px/1.5 var(--body);color:var(--mute);max-width:34ch}
+
+/* заголовки-субтитри з караоке */
+.h1{font:900 clamp(31px,9.2vw,44px)/1.04 var(--display);text-transform:uppercase;letter-spacing:-.025em}
+.h2{font:900 clamp(25px,7.2vw,33px)/1.1 var(--display);text-transform:uppercase;letter-spacing:-.02em}
+.h3{font:900 18px/1.2 var(--display)}
+.kar .w{display:inline-block;position:relative;padding:0 .08em;margin:0 -.04em;border-radius:.14em;transition:background .14s,color .14s,transform .18s cubic-bezier(.3,1.6,.5,1)}
+.kar .w.on{background:var(--or);color:#fff;transform:rotate(-2deg) scale(1.07)}
+.kar .w.k.done{background:var(--or);color:#fff;transform:rotate(-1.5deg)}
+.orange .kar .w.on,.orange .kar .w.k.done{background:var(--ink);color:#fff}
+.circ{position:relative;white-space:nowrap}
+.circ svg{position:absolute;left:-9%;top:-16%;width:118%;height:132%;overflow:visible;pointer-events:none}
+.circ path{fill:none;stroke:var(--or);stroke-width:3.4;stroke-linecap:round;stroke-dasharray:640;stroke-dashoffset:640}
+.circ.drawn path{transition:stroke-dashoffset .9s cubic-bezier(.6,0,.3,1);stroke-dashoffset:0}
+.sub{margin-top:16px;font:500 18px/1.45 var(--body)}
+.scrib{position:relative;white-space:nowrap;color:var(--mute)}
+.scrib svg{position:absolute;left:-4%;top:12%;width:108%;height:80%;overflow:visible}
+.scrib path{fill:none;stroke:var(--or);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:300;stroke-dashoffset:300}
+.scrib.drawn path{transition:stroke-dashoffset .7s ease;stroke-dashoffset:0}
+
+/* сцена з телефоном (hero) */
+.stage{position:relative;margin:30px 0 0;display:flex;justify-content:center;padding:6px 0 0}
+.phone{position:relative;width:min(64%,268px);aspect-ratio:9/17.5;border-radius:38px;background:var(--ink);padding:8px;box-shadow:0 30px 50px rgba(21,18,15,.25),0 0 0 2px #2c2824 inset;z-index:2}
+.screen{position:relative;width:100%;height:100%;border-radius:30px;overflow:hidden;background:#D9C9B3}
+.notch{position:absolute;top:8px;left:50%;width:34%;height:20px;margin-left:-17%;background:var(--ink);border-radius:20px;z-index:6}
+.cam{position:absolute;inset:0;transition:transform .22s cubic-bezier(.2,.9,.3,1.2);background:radial-gradient(90% 60% at 50% 30%,#FFB48A 0%,#F28B5C 40%,#C9603C 100%)}
+.cam.z{transform:scale(1.12)}
+.cam .room{position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 22px,transparent 22px 44px)}
+.person{position:absolute;left:50%;bottom:-2%;width:78%;transform:translateX(-50%)}
+.caps{position:absolute;left:6%;right:20%;top:56%;text-align:center;font:900 italic clamp(19px,5.6vw,25px)/1.08 var(--display);text-transform:uppercase;color:#fff;z-index:4;
+  text-shadow:0 3px 0 var(--ink),2px 2px 0 var(--ink),-2px -2px 0 var(--ink),2px -2px 0 var(--ink),-2px 2px 0 var(--ink),0 -2px 0 var(--ink),3px 0 0 var(--ink),-3px 0 0 var(--ink)}
+.caps .cw{display:inline-block;margin:0 .1em;animation:pop .32s cubic-bezier(.3,1.7,.5,1) both}
+.caps .cw.act{color:var(--yel)}
+@keyframes pop{0%{transform:scale(.4);opacity:0}100%{transform:scale(1);opacity:1}}
+.emo{position:absolute;font-size:34px;z-index:5;opacity:0;transform:scale(.2) rotate(-20deg);transition:all .35s cubic-bezier(.3,1.7,.5,1)}
+.emo.on{opacity:1;transform:scale(1) rotate(var(--r,8deg))}
+.emo.e1{left:10%;top:30%}.emo.e2{right:22%;top:20%;--r:-10deg}
+.rui{position:absolute;right:8px;bottom:18%;display:flex;flex-direction:column;gap:16px;z-index:5}
+.rui svg{width:24px;height:24px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))}
+.ruser{position:absolute;left:12px;bottom:6%;right:56px;z-index:5;color:#fff;font:700 11px/1.3 var(--body);text-shadow:0 1px 2px rgba(0,0,0,.4)}
+.ruser i{display:block;height:5px;border-radius:3px;background:rgba(255,255,255,.75);margin-top:6px;width:80%}
+.ruser i+i{width:55%}
+.safe{position:absolute;left:5%;right:19%;top:11%;bottom:21%;border:2px dashed #fff;border-radius:10px;z-index:4;opacity:0;transition:opacity .3s}
+.safe.on{opacity:.9}
+.safe span{position:absolute;top:-1px;left:-1px;background:#fff;color:var(--or);font:900 8.5px/1 var(--display);padding:3px 5px;border-radius:8px 0 6px 0;letter-spacing:.06em}
+.chip{position:absolute;z-index:3;display:flex;align-items:center;gap:6px;background:var(--paper);border:2px solid var(--ink);border-radius:12px;padding:7px 10px;
+  font:800 11.5px/1.1 var(--display);box-shadow:3px 3px 0 var(--ink);transform:rotate(var(--r));animation:fl 5s ease-in-out infinite;animation-delay:var(--d)}
+.chip b{color:var(--or)}
+@keyframes fl{50%{translate:0 -7px}}
+.chip.c1{left:0;top:16%;--r:-6deg;--d:0s}.chip.c2{right:0;top:42%;--r:5deg;--d:-1.6s}.chip.c3{left:2%;bottom:16%;--r:-3deg;--d:-3.1s}
+
+/* таймлайн */
+.tl{margin-top:22px;background:var(--paper);border:2px solid var(--ink);border-radius:16px;box-shadow:5px 5px 0 var(--ink);padding:12px 12px 14px;position:relative}
+.tl-h{display:flex;justify-content:space-between;align-items:center;font:800 11px/1 var(--display);text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px}
+.tl-h span:last-child{font-variant-numeric:tabular-nums;color:var(--mute)}
+.tracks{position:relative;display:grid;gap:5px}
+.trow{display:flex;gap:2px;height:26px;align-items:stretch}
+.trow .lb{flex:0 0 24px;font:900 9px/26px var(--display);color:var(--mute)}
+.trow .sg{flex:0 0 auto;border-radius:5px;transition:width .5s cubic-bezier(.7,0,.3,1),margin .5s,opacity .3s;overflow:hidden;position:relative}
+.trow.v .sg{background:repeating-linear-gradient(90deg,#F28B5C 0 18px,#E9774A 18px 20px);border:1.5px solid var(--ink)}
+.trow.t .sg{background:var(--ink);color:#fff;font:800 8.5px/23px var(--display);text-align:center;white-space:nowrap;text-transform:uppercase}
+.trow.a .sg{background:var(--or-soft);border:1.5px solid #F0B597;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='20'><path d='M0 10h2v-4h2v8h2v-10h2v12h2v-7h2v3h2v-9h2v14h2v-6h2v2h2v-8h2v10h2v-5h2v3h2v-11h2v13h2v-6h2v4h2' stroke='%23FF5A1A' stroke-width='1.3' fill='none'/></svg>");background-size:40px 100%}
+.trow .sg.x{background:repeating-linear-gradient(-45deg,rgba(229,52,30,.22) 0 5px,transparent 5px 10px)!important;border:1.5px dashed var(--red)!important;color:var(--red);
+  font:900 8.5px/23px var(--display);text-align:center;text-transform:uppercase}
+.trow .sg.gone{width:0!important;margin:0 -1px;opacity:0;border-width:0!important}
+.phd{position:absolute;top:-6px;bottom:-6px;width:2px;background:var(--or);left:26px;z-index:3}
+.phd::before{content:'';position:absolute;top:-6px;left:-5px;border:6px solid transparent;border-top:8px solid var(--or)}
+.sciss{position:absolute;top:-24px;width:26px;height:26px;z-index:4;opacity:0;transform:translateX(-50%) rotate(-90deg) scale(.5);transition:opacity .2s,transform .3s cubic-bezier(.3,1.6,.5,1)}
+.sciss.on{opacity:1;transform:translateX(-50%) rotate(-90deg) scale(1)}
+.sciss.snip svg{animation:snip .3s 2}
+@keyframes snip{50%{transform:scaleX(.6)}}
+.tl-f{display:flex;justify-content:space-between;margin-top:10px;font:700 11px/1 var(--body);color:var(--mute)}
+.tl-f b{color:var(--or)}
+
+/* кнопки */
+.btn{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:30px;min-height:66px;padding:12px 18px;border-radius:16px;
+  background:var(--or);color:#fff;border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink);font:900 16px/1.1 var(--display);text-transform:uppercase;letter-spacing:.01em;text-align:center;
+  transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.btn:active{transform:translate(4px,4px);box-shadow:1px 1px 0 var(--ink)}
+.btn .bad{position:absolute;right:-8px;top:-16px;background:var(--paper);color:var(--or);border:2.5px solid var(--ink);border-radius:10px;padding:5px 8px;
+  font:900 13px/1 var(--display);transform:rotate(8deg);animation:wig 2.4s ease-in-out infinite}
+@keyframes wig{0%,80%,100%{transform:rotate(8deg)}86%{transform:rotate(-4deg) scale(1.1)}93%{transform:rotate(12deg)}}
+.btn.ink{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:5px 5px 0 #fff}
+.btn.ink:hover{box-shadow:7px 7px 0 #fff}
+.btn.ink .bad{color:var(--ink)}
+.dark .btn{box-shadow:5px 5px 0 var(--or);border-color:#fff}
+.dark .btn:hover{box-shadow:7px 7px 0 var(--or)}
+.btn.sm{min-height:56px;font-size:14.5px;text-transform:none;letter-spacing:0}
+
+/* гарантія-рядок */
+.guar{display:flex;gap:10px;align-items:flex-start;justify-content:center;margin-top:16px;text-align:left;font:400 12.5px/1.45 var(--body);color:var(--mute)}
+.guar svg{flex:0 0 18px;width:18px;height:18px;margin-top:1px}
+.guar b{display:block;color:var(--ink);font-weight:700;font-size:13px}
+.guar b span{color:var(--or)}
+.guar.one{align-items:center}
+.dark .guar{color:rgba(255,255,255,.65)}.dark .guar b{color:#fff}
+.orange .guar{color:rgba(21,18,15,.75)}.orange .guar b{color:var(--ink)}.orange .guar b span{color:#fff;background:var(--ink);padding:0 4px;border-radius:4px}
+
+/* факти hero */
+.facts{list-style:none;display:grid;gap:10px;margin-top:30px}
+.facts li{display:flex;gap:12px;align-items:center;background:var(--paper);border:2px solid var(--ink);border-radius:14px;padding:12px 14px;font:600 15px/1.35 var(--body);
+  transform:rotate(var(--r));opacity:0;translate:0 14px;transition:opacity .4s,translate .5s cubic-bezier(.3,1.5,.5,1)}
+.facts.vis li{opacity:1;translate:0 0}
+.facts li:nth-child(odd){--r:-.7deg}.facts li:nth-child(even){--r:.6deg}
+.facts li:nth-child(2){transition-delay:.08s}.facts li:nth-child(3){transition-delay:.16s}.facts li:nth-child(4){transition-delay:.24s}.facts li:nth-child(5){transition-delay:.32s}
+.chk{flex:0 0 28px;width:28px;height:28px;border-radius:50%;background:var(--or);display:grid;place-items:center;border:2px solid var(--ink)}
+.chk svg{width:14px;height:14px}
+.chk path{stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .4s .4s}
+.vis .chk path{stroke-dashoffset:0}
+
+/* квиток-ціна */
+.ticket{position:relative;margin-top:36px;background:var(--paper);color:var(--ink);border:2.5px solid var(--ink);border-radius:20px;box-shadow:6px 6px 0 var(--or);padding:26px 18px 22px;text-align:center}
+.ticket.notch2::before,.ticket.notch2::after{content:'';position:absolute;top:122px;width:22px;height:22px;border-radius:50%;background:var(--bg);border:2.5px solid var(--ink)}
+.ticket.notch2::before{left:-13px;clip-path:inset(0 0 0 50%)}.ticket.notch2::after{right:-13px;clip-path:inset(0 50% 0 0)}
+.perf{border-top:2.5px dashed var(--line);margin:20px -18px 0}
+.price{display:flex;align-items:baseline;justify-content:center;gap:8px}
+.price b{font:900 82px/.9 var(--display);letter-spacing:-.05em}
+.price .cur{font:900 24px/1 var(--display)}
+.old{display:inline-block;position:relative;margin-top:10px;font:700 18px/1 var(--body);color:var(--mute)}
+.old svg{position:absolute;left:-8%;top:-10%;width:116%;height:120%;overflow:visible}
+.old path{fill:none;stroke:var(--red);stroke-width:2.6;stroke-linecap:round;stroke-dasharray:260;stroke-dashoffset:260}
+.vis .old path,.old.vis path{transition:stroke-dashoffset .6s .3s;stroke-dashoffset:0}
+.burst{position:absolute;right:-14px;top:-30px;width:92px;height:92px}
+.burst svg{width:100%;height:100%;animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.burst b{position:absolute;inset:0;display:grid;place-items:center;font:900 italic 20px/1 var(--display);color:#fff;transform:rotate(-10deg)}
+.bon{margin-top:22px}
+.bon h3{font:900 16px/1.25 var(--display);text-transform:uppercase}
+.bon em{display:block;margin-top:6px;font:italic 500 13.5px/1.35 var(--body);color:var(--or)}
+.bon .bl{margin-top:10px;font:600 13.5px/1.45 var(--body);color:var(--mute)}
+.fan{display:flex;justify-content:center;margin-top:18px;padding:0 6px}
+.fan span{width:33.3%;max-width:120px;aspect-ratio:1/1.08;background:#fff;border:2px solid var(--ink);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  padding:8px 6px;font:800 10.5px/1.15 var(--display);text-align:center;box-shadow:0 8px 16px rgba(21,18,15,.12);transition:transform .3s cubic-bezier(.3,1.5,.5,1)}
+.fan span:nth-child(1){transform:rotate(-9deg) translateY(6px);margin-right:-8px}
+.fan span:nth-child(2){transform:rotate(0) translateY(-6px);z-index:2;background:var(--or-soft)}
+.fan span:nth-child(3){transform:rotate(9deg) translateY(6px);margin-left:-8px}
+.fan span:hover{transform:rotate(0) translateY(-12px) scale(1.05);z-index:3}
+.fan svg{width:34px;height:34px}
+.tlab{margin-top:24px;font:800 11px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}
+.timer{display:flex;gap:6px;justify-content:center;align-items:center;margin-top:12px;perspective:420px}
+.timer i{font-style:normal;position:relative;display:grid;place-items:center;width:62px;height:66px;border-radius:12px;background:var(--ink);color:#fff;font:900 32px/1 var(--display);font-variant-numeric:tabular-nums}
+.timer i::after{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(255,255,255,.2)}
+.timer u{text-decoration:none;font:900 26px/1 var(--display);color:var(--or)}
+.timer i.flip{animation:flip .42s ease-in-out}
+@keyframes flip{50%{transform:rotateX(90deg)}}
+
+/* бонуси */
+.bcard{position:relative;margin-top:34px;background:var(--paper);color:var(--ink);border-radius:8px;padding:30px 18px 20px;transform:rotate(var(--r));box-shadow:0 18px 30px rgba(0,0,0,.35);opacity:0}
+.bcard.vis{animation:slap .55s cubic-bezier(.3,1.5,.5,1) forwards}
+@keyframes slap{0%{opacity:0;transform:rotate(calc(var(--r) + 10deg)) scale(1.3)}100%{opacity:1;transform:rotate(var(--r)) scale(1)}}
+.bcard:nth-of-type(1){--r:-1.6deg}.bcard:nth-of-type(2){--r:1.4deg}.bcard:nth-of-type(3){--r:-.8deg}
+.bcard::before{content:'';position:absolute;top:-12px;left:50%;width:96px;height:26px;margin-left:-48px;background:rgba(255,90,26,.78);transform:rotate(-4deg)}
+.bnum{position:absolute;right:14px;top:6px;font:900 italic 64px/1 var(--display);color:transparent;-webkit-text-stroke:2px var(--or);opacity:.9}
+.blab{display:inline-block;background:var(--ink);color:#fff;font:900 11px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;padding:6px 9px;border-radius:7px;transform:rotate(-2deg)}
+.bcard h3{font:900 20px/1.15 var(--display);margin:14px 0 8px;max-width:80%}
+.bcard p{font-size:15px;line-height:1.55;color:#3E3832}
+.mark{background:linear-gradient(transparent 58%,rgba(255,90,26,.38) 58%);padding:0 2px}
+
+/* проблеми */
+.pcard{position:relative;margin-top:22px;background:var(--paper);border:2.5px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink);padding:18px 16px 18px}
+.ph{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center}
+.pn{width:46px;height:46px;border-radius:50%;background:var(--or);color:#fff;border:2.5px solid var(--ink);display:grid;place-items:center;font:900 16px/1 var(--display);transform:rotate(-8deg)}
+.pcard h3{font:900 18.5px/1.18 var(--display)}
+.mini{display:flex;gap:3px;height:22px;margin:16px 0 4px}
+.mini i{flex:1 1 0;border-radius:4px;background:repeating-linear-gradient(90deg,#F28B5C 0 10px,#E9774A 10px 12px);border:1.5px solid var(--ink);transition:flex .55s cubic-bezier(.7,0,.3,1) .5s,opacity .3s .5s,margin .55s .5s}
+.mini i.x{flex:0 0 52px;background:repeating-linear-gradient(-45deg,rgba(229,52,30,.2) 0 4px,transparent 4px 8px);border:1.5px dashed var(--red);font:900 8px/19px var(--display);color:var(--red);text-align:center;font-style:normal;text-transform:uppercase}
+.pcard.vis .mini i.x{flex:0 0 0;opacity:0;margin:0 -2px}
+.sl{list-style:none;margin-top:12px;display:grid;gap:10px}
+.sl li{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:15px;line-height:1.5;color:#3E3832}
+.sl li svg{width:18px;height:18px;margin-top:3px}
+
+/* що вміє: панель інструментів + картки */
+.toolbar{position:sticky;top:0;z-index:20;margin:20px calc(-1*var(--pad)) 0;padding:10px var(--pad);background:rgba(243,238,228,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.toolbar::-webkit-scrollbar{display:none}
+.toolbar a{flex:0 0 auto;display:flex;align-items:center;gap:5px;padding:7px 11px;border:2px solid var(--ink);border-radius:999px;font:800 11.5px/1 var(--display);background:var(--paper);white-space:nowrap;transition:background .2s,color .2s,transform .2s}
+.toolbar a.act{background:var(--or);color:#fff;transform:rotate(-2deg)}
+.feat{position:relative;margin-top:18px;background:var(--paper);border:2.5px solid var(--ink);border-radius:18px;box-shadow:5px 5px 0 var(--ink);padding:16px 16px 16px;scroll-margin-top:80px}
+.feat-h{display:flex;align-items:center;gap:12px}
+.fi{flex:0 0 48px;width:48px;height:48px;border-radius:14px;background:var(--or-soft);border:2px solid var(--ink);display:grid;place-items:center;font-size:24px;transform:rotate(-6deg)}
+.feat.vis .fi{animation:fipop .5s cubic-bezier(.3,1.6,.5,1)}
+@keyframes fipop{0%{transform:rotate(-30deg) scale(.4)}100%{transform:rotate(-6deg) scale(1)}}
+.feat h3{font:900 18px/1.2 var(--display)}
+.feat p{font-size:15px;line-height:1.55;color:#3E3832;margin-top:10px}
+.resb{margin-top:12px!important;background:var(--or-soft);border:2px dashed var(--or);border-radius:12px;padding:9px 12px;font-style:italic;color:var(--ink)!important}
+.resb b{font-style:normal}
+
+/* приклади роликів (демо-стилі) */
+.reels{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:24px calc(-1*var(--pad)) 0;padding:6px var(--pad) 18px}
+.reels::-webkit-scrollbar{display:none}
+.reel{flex:0 0 58%;scroll-snap-align:center;aspect-ratio:9/16;border-radius:24px;border:6px solid #2C2723;position:relative;overflow:hidden;content-visibility:auto;contain-intrinsic-size:250px 445px}
+.reel.hz{flex:0 0 88%;aspect-ratio:16/10;align-self:center}
+.reel .tagl{position:absolute;left:10px;top:10px;z-index:3;font:800 9.5px/1 var(--display);letter-spacing:.06em;text-transform:uppercase;background:#fff;color:var(--ink);padding:5px 7px;border-radius:7px}
+.reel .fig{position:absolute;left:50%;bottom:-2%;width:82%;height:auto;transform:translateX(-50%)}
+.screen .reel{aspect-ratio:auto;height:100%}
+.screen .rcap{top:64%}
+.reel.hz .fig{width:40%;left:30%}
+.rcap{position:absolute;left:8%;right:8%;top:58%;text-align:center;z-index:2}
+.rcap span{display:inline-block;margin:0 .08em;animation:pop .3s cubic-bezier(.3,1.7,.5,1) both}
+.r1{background:radial-gradient(90% 60% at 50% 30%,#FFB48A,#E9774A 60%,#B9532F)}
+.r1 .rcap{font:900 italic 22px/1.05 var(--display);text-transform:uppercase;color:#fff;text-shadow:0 3px 0 var(--ink),2px 2px 0 var(--ink),-2px -2px 0 var(--ink),2px -2px 0 var(--ink),-2px 2px 0 var(--ink)}
+.r1 .rcap .k{color:var(--yel)}
+.r2{background:linear-gradient(#2A2622,#141210)}
+.r2 .rcap{font:500 17px/1.25 var(--body);color:#fff;top:66%}
+.r2 .rcap .k{color:#fff;border-bottom:2px solid var(--or)}
+.r3{background:radial-gradient(80% 60% at 50% 30%,#1D2316,#0A0B09)}
+.r3 .rcap{font:900 19px/1.15 var(--display);text-transform:uppercase;color:#fff;letter-spacing:.02em}
+.r3 .rcap .k{background:#D4FF3A;color:#0A0B09;padding:0 .15em}
+.r4{background:var(--bg);background-image:radial-gradient(rgba(21,18,15,.08) 1px,transparent 1px);background-size:14px 14px}
+.r4 .rcap span{font:900 16px/1 var(--display);text-transform:uppercase;background:#fff;border:2.5px solid var(--ink);border-radius:10px;padding:6px 8px;margin:3px;box-shadow:3px 3px 0 var(--ink)}
+.r4 .rcap span:nth-child(odd){transform:rotate(-4deg)}.r4 .rcap span:nth-child(even){transform:rotate(3deg)}
+.r4 .rcap .k{background:var(--or);color:#fff}
+.r5{background:linear-gradient(120deg,#253046,#121726)}
+.r5 .rcap{left:5%;right:auto;top:auto;bottom:10%;text-align:left;font:800 15px/1.2 var(--display);color:#fff}
+.r5 .rcap span{background:rgba(0,0,0,.55);padding:3px 6px;margin:0}
+.r5 .rcap .k{background:var(--or)}
+.r5 .lower{position:absolute;right:5%;top:12%;width:42%;height:46%;border-radius:10px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.35);display:grid;place-items:center;font:800 10px/1 var(--display);color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.06em}
+.fmts{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.fmts span{border:2px solid #fff;border-radius:999px;padding:7px 12px;font:800 12px/1 var(--display)}
+.fmts span:first-child{background:var(--or);border-color:var(--or)}
+.swipe{font:700 12px/1 var(--body);color:rgba(255,255,255,.6);margin-top:-4px}
+
+/* вартість */
+.cost{margin-top:0}
+.cost .lbl{font:700 15px/1.4 var(--body)}
+.cost .num{margin-top:14px;font:900 clamp(46px,14vw,64px)/1 var(--display);letter-spacing:-.04em;color:var(--or)}
+.cost .num sup{font-size:.45em;color:var(--ink);vertical-align:super}
+.vs{display:flex;gap:10px;margin-top:18px;text-align:left}
+.vs p{flex:1;font-size:14.5px;line-height:1.5}
+.foot-note{margin-top:14px;font:italic 400 12.5px/1.5 var(--body);color:var(--mute);text-align:left}
+
+/* платформи */
+.logos{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.logos span{display:inline-flex;align-items:center;gap:7px;background:var(--ink);color:#fff;border-radius:12px;padding:10px 13px;font:800 14px/1 var(--display);transform:rotate(var(--r,0deg));box-shadow:3px 3px 0 rgba(255,255,255,.55)}
+.logos span:nth-child(1){--r:-2deg}.logos span:nth-child(2){--r:1.5deg}.logos span:nth-child(4){--r:-1deg}.logos span:nth-child(5){--r:2deg}
+.logos svg{width:16px;height:16px}
+.route{display:grid;gap:10px;margin-top:18px}
+.route div{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;background:var(--paper);color:var(--ink);border:2.5px solid var(--ink);border-radius:16px;padding:14px;box-shadow:4px 4px 0 var(--ink)}
+.route b{font:900 14.5px/1.25 var(--display)}
+.route i{font-style:normal;font:900 20px/1 var(--display);color:var(--or)}
+.route span{font-size:14px;line-height:1.4}
+.addon{display:grid;grid-template-columns:40px 1fr;gap:12px;margin-top:14px;background:rgba(255,252,246,.9);border:2px solid var(--ink);border-radius:14px;padding:13px 14px;font-size:14.5px;line-height:1.5}
+.addon .e{font-size:24px;line-height:1}
+
+/* для кого */
+.who{display:grid;gap:12px;margin-top:22px}
+.wc{position:relative;background:var(--paper);border:2.5px solid var(--ink);border-radius:16px;padding:16px 16px 15px;transform:rotate(var(--r))}
+.wc:nth-child(4n+1){--r:-.6deg}.wc:nth-child(4n+2){--r:.5deg}.wc:nth-child(4n+3){--r:-.3deg}.wc:nth-child(4n){--r:.7deg}
+.wc .hash{display:inline-block;font:900 11px/1 var(--display);background:var(--or);color:#fff;border-radius:7px;padding:5px 8px;transform:rotate(-3deg);margin-bottom:10px}
+.wc:nth-child(even) .hash{background:var(--ink)}
+.wc h3{font:900 17px/1.22 var(--display)}
+.wc p{font-size:14.5px;line-height:1.55;color:#3E3832;margin-top:7px}
+
+/* агітація */
+.ag{margin-top:24px;display:grid;gap:0}
+.ag p{font:600 17.5px/1.45 var(--body);padding:16px 0;border-bottom:1.5px dashed rgba(255,255,255,.2);opacity:.25;transition:opacity .6s}
+.ag p.vis{opacity:1}
+.ag p:first-child{border-top:1.5px dashed rgba(255,255,255,.2)}
+.drafts{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-top:22px}
+.drafts i{aspect-ratio:9/16;border-radius:7px;background:linear-gradient(160deg,#3A332D,#221E1A);border:1.5px solid rgba(255,255,255,.12);position:relative}
+.drafts i::after{content:attr(data-d);position:absolute;right:4px;bottom:4px;font:700 8px/1 var(--body);color:rgba(255,255,255,.6);font-style:normal}
+.drafts i::before{content:'';position:absolute;left:50%;top:40%;margin:-6px 0 0 -4px;border:6px solid transparent;border-left:9px solid rgba(255,255,255,.35)}
+.thought{margin-top:26px}
+.thought .bub{display:inline-block;margin-top:12px;background:#fff;color:var(--ink);border-radius:20px 20px 20px 4px;padding:14px 18px;font:900 italic 20px/1.2 var(--display);transform:rotate(-2deg);box-shadow:5px 5px 0 var(--or)}
+.dark .p{color:rgba(255,255,255,.88)}
+.dark .p b{color:#fff}
+.acc-or{color:var(--or)}
+
+/* програма */
+.meta-l{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.meta-l span{background:var(--paper);border:2px solid var(--ink);border-radius:999px;padding:6px 11px;font:800 11.5px/1.2 var(--display)}
+.les{margin-top:24px;background:var(--paper);border:2.5px solid var(--ink);border-radius:20px;box-shadow:6px 6px 0 var(--ink);overflow:hidden}
+.prev{position:relative;aspect-ratio:16/8.4;background:radial-gradient(90% 90% at 80% 10%,#FF8A4D,#FF5A1A 55%,#D9430E);border-bottom:2.5px solid var(--ink);overflow:hidden}
+.prev .big{position:absolute;right:-6px;bottom:-26px;font:900 italic 150px/1 var(--display);color:transparent;-webkit-text-stroke:2.5px rgba(255,255,255,.55);letter-spacing:-.06em}
+.prev .win{position:absolute;left:16px;top:16px;width:70%;background:var(--ink);border-radius:12px;box-shadow:5px 5px 0 rgba(21,18,15,.35);overflow:hidden;transform:rotate(-2deg)}
+.prev .win .bar{display:flex;gap:5px;padding:8px 10px;background:#2A2622}
+.prev .win .bar i{width:8px;height:8px;border-radius:50%;background:#555}
+.prev .win .bar i:first-child{background:var(--or)}
+.prev .win .cmd{padding:10px 12px 12px;font:600 12.5px/1.45 ui-monospace,'SF Mono',Menlo,monospace;color:#fff;min-height:58px}
+.prev .win .cmd b{color:var(--or)}
+.prev .win .cmd .cur{display:inline-block;width:7px;height:13px;background:var(--or);vertical-align:-2px;animation:blink .9s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.prev .stk{position:absolute;left:18px;bottom:16px;background:#fff;color:var(--ink);border:2.5px solid var(--ink);border-radius:10px;padding:5px 8px;font:900 11px/1 var(--display);transform:rotate(6deg)}
+.les-b{padding:18px 16px 18px}
+.les .ln{display:inline-block;font:900 12px/1 var(--display);background:var(--ink);color:#fff;border-radius:7px;padding:5px 8px;transform:rotate(-2deg)}
+.les h3{font:900 21px/1.15 var(--display);margin-top:10px}
+.les .ld{font-size:15px;line-height:1.55;color:#3E3832;margin-top:8px}
+details.acc{margin-top:14px;border-top:2px dashed var(--line);padding-top:12px}
+details.acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font:900 14px/1 var(--display);text-transform:uppercase;letter-spacing:.02em}
+details.acc summary::-webkit-details-marker{display:none}
+details.acc summary i{width:28px;height:28px;border-radius:50%;background:var(--or);color:#fff;border:2px solid var(--ink);display:grid;place-items:center;font:900 18px/1 var(--display);font-style:normal;transition:transform .3s}
+details.acc[open] summary i{transform:rotate(45deg)}
+.bul{list-style:none;margin-top:12px;display:grid;gap:7px}
+.bul li{position:relative;padding-left:20px;font-size:14.5px;line-height:1.5;color:#3E3832}
+.bul li::before{content:'';position:absolute;left:2px;top:8px;width:9px;height:9px;border-radius:3px;background:var(--or);transform:rotate(45deg)}
+.tools{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:14px}
+.tools b{font:900 11px/1 var(--display);text-transform:uppercase;letter-spacing:.04em;margin-right:4px}
+.tools span{background:var(--ink);color:#fff;border-radius:7px;padding:5px 8px;font:700 12px/1 var(--body)}
+.resbox{margin-top:14px;background:var(--or-soft);border:2px solid var(--ink);border-radius:14px;padding:12px 14px;font-size:14.5px;line-height:1.55}
+.resbox b{display:block;font:900 12px/1 var(--display);text-transform:uppercase;letter-spacing:.04em;color:var(--or);margin-bottom:6px}
+.imp{margin-top:28px;background:var(--ink);color:#fff;border-radius:18px;padding:18px 18px;position:relative}
+.imp .t{display:inline-block;background:var(--or);color:#fff;font:900 12px/1 var(--display);text-transform:uppercase;border-radius:7px;padding:6px 9px;transform:rotate(-3deg);margin-bottom:10px}
+.imp p{font-size:15px;line-height:1.55}
+.imp b{color:var(--or)}
+
+/* як проходить */
+.how{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.how div{background:var(--paper);border:2.5px solid var(--ink);border-radius:16px;padding:14px 12px;box-shadow:4px 4px 0 var(--ink)}
+.how .e{font-size:26px;line-height:1}
+.how b{display:block;font:900 14px/1.2 var(--display);margin:10px 0 6px}
+.how p{font-size:13.5px;line-height:1.45;color:#3E3832}
+.youll{margin-top:30px}
+.youll h3{font:900 19px/1.2 var(--display);text-transform:uppercase}
+.ylist{list-style:none;margin-top:14px;display:grid;gap:10px}
+.ylist li{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start;font:500 15.5px/1.45 var(--body)}
+.ylist .chk{margin-top:-1px}
+
+/* тизер повної системи */
+.next{border:2.5px dashed var(--or);border-radius:22px;padding:26px 16px 20px;position:relative;margin-top:6px}
+.next .lvl{position:absolute;top:-17px;left:16px;background:var(--or);color:#fff;border:2.5px solid #fff;border-radius:10px;padding:6px 10px;font:900 12px/1 var(--display);text-transform:uppercase;transform:rotate(-3deg)}
+.nl{list-style:none;margin-top:20px;display:grid;gap:10px}
+.nl li{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px;font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.86)}
+.nl li .e{font-size:22px;line-height:1.1}
+.nl b{color:#fff}
+
+/* гарантія */
+.gwrap{text-align:center;margin-top:20px}
+.seal{position:relative;width:170px;height:170px;margin:0 auto}
+.seal svg{width:100%;height:100%;animation:spin 30s linear infinite}
+.seal b{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;transform:rotate(-8deg)}
+.seal b i{font:900 italic 56px/.9 var(--display);font-style:italic}
+.seal b u{text-decoration:none;font:900 18px/1 var(--display);text-transform:uppercase}
+.seal b s{text-decoration:none;font:800 11px/1 var(--display);text-transform:uppercase;letter-spacing:.12em;margin-top:5px;background:var(--ink);padding:3px 6px;border-radius:5px}
+.gtx{text-align:left;margin-top:20px}
+.gtx p{font-size:16px;line-height:1.6;margin-top:12px}
+.gtx .last{font-weight:700}
+.gsep{border-top:2.5px dashed var(--line);margin:26px 0 20px}
+.glabel{display:inline-block;font:900 12px/1 var(--display);text-transform:uppercase;letter-spacing:.04em;background:var(--ink);color:#fff;border-radius:7px;padding:6px 9px}
+.rate{display:flex;align-items:center;gap:12px;margin-top:14px}
+.rate b{font:900 52px/1 var(--display);letter-spacing:-.04em}
+.rate em{font:700 italic 16px/1 var(--body);color:var(--mute)}
+.stars{display:flex;gap:2px;margin-left:auto}
+.stars svg{width:22px;height:22px}
+.punch{display:inline-block;margin-top:10px;font:900 italic 19px/1.25 var(--display);background:var(--or);color:#fff;border-radius:12px;padding:10px 14px;transform:rotate(-1.5deg)}
+
+/* автор */
+.auth-v{display:flex;justify-content:center;margin-top:22px}
+.auth-v .phone{width:min(62%,250px)}
+.auth-cap{text-align:center;margin-top:14px;font:italic 500 14px/1.4 var(--body);color:rgba(255,255,255,.7)}
+.alist{list-style:none;margin-top:26px;display:grid;gap:12px}
+.alist li{display:grid;grid-template-columns:28px 1fr;gap:12px;font-size:15.5px;line-height:1.5;color:rgba(255,255,255,.88)}
+.alist b{color:var(--or)}
+
+/* повний список */
+.incl{list-style:none;margin-top:22px;display:grid;gap:8px}
+.incl li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;background:var(--paper);border:2px solid var(--ink);border-radius:12px;padding:11px 13px;font:500 15px/1.4 var(--body)}
+.incl li::before{content:'';width:20px;height:20px;border-radius:50%;background:var(--or);border:2px solid var(--ink);margin-top:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M4 8.4l2.6 2.5L12 5.2' stroke='white' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");background-size:12px;background-position:center;background-repeat:no-repeat}
+.incl li.b{background:var(--or-soft)}
+.incl li.b b{display:inline-block;background:var(--ink);color:#fff;border-radius:6px;padding:2px 6px;font:900 11px/1.3 var(--display);text-transform:uppercase;margin-right:6px}
+.olbl{font:900 12px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;background:var(--ink);color:#fff;display:inline-block;padding:6px 10px;border-radius:7px;transform:rotate(-2deg)}
+
+/* відгуки */
+.quote{display:inline-block;margin-top:14px;background:#fff;color:var(--ink);font:900 italic 22px/1.2 var(--display);border-radius:16px;padding:14px 18px;transform:rotate(-2deg);box-shadow:5px 5px 0 var(--or)}
+.quote b{color:var(--or)}
+.revs{display:flex;align-items:flex-start;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:28px calc(-1*var(--pad)) 0;padding:4px var(--pad) 14px}
+.revs::-webkit-scrollbar{display:none}
+.rev{flex:0 0 82%;scroll-snap-align:center;background:#fff;border-radius:14px;overflow:hidden;border:2px solid rgba(255,255,255,.2);content-visibility:auto;contain-intrinsic-size:320px 300px}
+.rev img{width:100%;height:auto}
+.dots{display:flex;justify-content:center;gap:5px;margin-top:6px;flex-wrap:wrap}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .2s}
+.dots i.on{background:var(--or);width:18px;border-radius:4px}
+
+/* FAQ */
+.faq{margin-top:22px;display:grid;gap:10px}
+.faq details{background:var(--paper);border:2.5px solid var(--ink);border-radius:16px;padding:0 14px}
+.faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr 28px;gap:12px;align-items:center;padding:14px 0;font:800 15px/1.35 var(--display)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{width:28px;height:28px;border-radius:50%;background:var(--or);color:#fff;border:2px solid var(--ink);display:grid;place-items:center;font:900 18px/1 var(--display);font-style:normal;transition:transform .3s}
+.faq details[open] summary i{transform:rotate(45deg)}
+.faq details p{font-size:15px;line-height:1.6;color:#3E3832;padding:0 0 16px}
+.support{margin-top:30px;text-align:center}
+.btn.tg{background:var(--paper);color:var(--ink);min-height:56px;text-transform:none;font-size:15px;margin-top:12px}
+
+/* футер */
+.foot{background:var(--ink);color:rgba(255,255,255,.62);padding:34px var(--pad) 120px;font-size:12.5px;line-height:1.6}
+.foot b{display:block;color:#fff;font-weight:700;margin-top:12px}
+.foot b:first-child{margin-top:0}
+.foot a{text-decoration:underline;text-underline-offset:3px;color:#fff}
+.foot .disc{margin-top:16px}
+.foot .disc b{display:inline;margin:0}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.vis{opacity:1;transform:none}
+
+/* липка панель */
+.sticky{position:fixed;left:0;right:0;bottom:0;max-width:var(--col);margin:0 auto;z-index:50;display:flex;align-items:center;gap:10px;
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--paper);border-top:2.5px solid var(--ink);transform:translateY(110%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.sticky.on{transform:none}
+.sticky .sp{line-height:1.05}
+.sticky .sp b{font:900 24px/1 var(--display)}
+.sticky .sp small{font:800 12px/1 var(--display)}
+.sticky .sp s{display:block;font-size:11.5px;color:var(--mute);text-decoration-color:var(--red)}
+.sticky .sb{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--or);color:#fff;border:2px solid var(--ink);border-radius:12px;min-height:48px;
+  font:900 12.5px/1.1 var(--display);text-transform:uppercase;padding:0 10px;box-shadow:3px 3px 0 var(--ink)}
+.sticky .sb em{font-style:normal;background:var(--paper);color:var(--or);border-radius:6px;padding:3px 5px;font-size:11px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rv,.bcard,.facts li{opacity:1;transform:none}
+  .ag p{opacity:1}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="sc" viewBox="0 0 24 24"><g fill="none" stroke="#FF5A1A" stroke-width="2.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 7.5 20 18M8.5 16.5 20 6"/></g></symbol>
+  <symbol id="ck" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="sh" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></g></symbol>
+  <symbol id="st" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.7-5.3 4.8 1.5 7L12 17.5 5.8 21.1l1.5-7L2 9.3l7.1-.7z" fill="#FF5A1A" stroke="#15120F" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="fig" viewBox="0 0 200 240">
+    <path d="M14 240c6-58 38-88 86-88s80 30 86 88z" fill="#15120F"/><path d="M76 160l24 30 24-30" fill="#FF5A1A"/>
+    <rect x="84" y="118" width="32" height="40" rx="12" fill="#E9A07A"/><ellipse cx="100" cy="82" rx="40" ry="48" fill="#F2B591"/>
+    <path d="M58 76c-4-38 18-56 44-56 28 0 46 18 40 54-6-16-22-26-42-26-18 0-34 10-42 28z" fill="#3A2A20"/>
+    <circle cx="85" cy="86" r="4" fill="#15120F"/><circle cx="115" cy="86" r="4" fill="#15120F"/><path d="M88 106q12 8 24 0" stroke="#15120F" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<div class="wrap">
+
+  <div class="tape" aria-label="NEW · Практикум з домашніми завданнями">
+    <div class="t b" aria-hidden="true"><div class="tr"><span>✂ Reels <i>●</i> TikTok <i>●</i> Shorts <i>●</i> YouTube <i>●</i> Reels <i>●</i> TikTok <i>●</i> Shorts <i>●</i> YouTube <i>●</i>&nbsp;</span><span>✂ Reels <i>●</i> TikTok <i>●</i> Shorts <i>●</i> YouTube <i>●</i> Reels <i>●</i> TikTok <i>●</i> Shorts <i>●</i> YouTube <i>●</i>&nbsp;</span></div></div>
+    <div class="t" aria-hidden="true"><div class="tr"><span>NEW <i>✂</i> Практикум з домашніми завданнями <i>✂</i> NEW <i>✂</i> Практикум з домашніми завданнями <i>✂</i>&nbsp;</span><span>NEW <i>✂</i> Практикум з домашніми завданнями <i>✂</i> NEW <i>✂</i> Практикум з домашніми завданнями <i>✂</i>&nbsp;</span></div></div>
+  </div>
+
+  <!-- ═══ 1. HERO ═══ -->
+  <section class="sec" id="hero" style="padding-top:14px">
+    <div class="top">
+      <span class="brand">Ai<span>_</span>Sashka</span>
+      <span class="live"><i></i>новий практикум</span>
+    </div>
+
+    <p class="sticker"><b>NEW</b>Практикум «АІ монтажер»</p>
+    <p class="lead">Готова система професійного монтажу відео через нейромережі</p>
+
+    <h1 class="h1 kar" id="h1">Збери свого <span class="k">АІ монтажера</span> усього за <span class="circ" id="circ">один вечір<svg viewBox="0 0 200 70" preserveAspectRatio="none" aria-hidden="true"><path d="M150 8C110 -2 30 2 12 22 -4 40 30 64 100 64 168 64 200 46 192 26 186 12 160 4 120 5"/></svg></span></h1>
+    <p class="sub">і більше не потрібно сидіти <span class="scrib" id="scrib">годинами<svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path d="M2 18 12 10 20 22 30 8 40 22 50 9 60 21 70 8 80 21 90 9 98 16"/></svg></span> над одним відео</p>
+
+    <!-- ⟨НУЖНО: hero-видео до/после⟩ — поки відео немає, телефон показує «до → після» кодом -->
+    <div class="stage" role="img" aria-label="Демонстрація: монтажер вирізає паузи, додає субтитри, емодзі й розставляє текст у сейф-зоні">
+      <span class="chip c1">✂ <span>паузи <b>−16 с</b></span></span>
+      <span class="chip c2">💬 <span>субтитри <b>✓</b></span></span>
+      <span class="chip c3">♪ <span>музика <b>під голос</b></span></span>
+      <div class="phone">
+        <div class="screen">
+          <div class="notch"></div>
+          <div class="cam" id="cam">
+            <div class="room"></div>
+            <svg class="person" viewBox="0 0 200 240" aria-hidden="true">
+              <path d="M14 240c6-58 38-88 86-88s80 30 86 88z" fill="#15120F"/>
+              <path d="M76 160l24 30 24-30" fill="#FF5A1A"/>
+              <rect x="84" y="118" width="32" height="40" rx="12" fill="#E9A07A"/>
+              <ellipse cx="100" cy="82" rx="40" ry="48" fill="#F2B591"/>
+              <path d="M58 76c-4-38 18-56 44-56 28 0 46 18 40 54-6-16-22-26-42-26-18 0-34 10-42 28z" fill="#3A2A20"/>
+              <circle cx="85" cy="86" r="4" fill="#15120F"/><circle cx="115" cy="86" r="4" fill="#15120F"/>
+              <path id="mouth" d="M88 106q12 8 24 0" stroke="#15120F" stroke-width="4" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="safe" id="safe"><span>SAFE ZONE</span></div>
+          <div class="emo e1" id="e1">✂️</div>
+          <div class="emo e2" id="e2">🔥</div>
+          <div class="caps" id="caps"></div>
+          <div class="rui" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.2L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M22 3L11 13M22 3l-7 18-4-8-8-4z"/></svg>
+          </div>
+          <div class="ruser">@ai_sashka<i></i><i></i></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl" id="tl" aria-hidden="true">
+      <div class="tl-h"><span>✂ Таймлайн · reel_01</span><span id="tlt">00:58</span></div>
+      <div class="tracks" id="tracks">
+        <div class="phd" id="phd"></div>
+        <div class="sciss" id="sciss"><svg viewBox="0 0 24 24" fill="none" stroke="#15120F" stroke-width="2.2" stroke-linecap="round"><circle cx="6" cy="6" r="3" fill="#FF5A1A"/><circle cx="6" cy="18" r="3" fill="#FF5A1A"/><path d="M8.5 7.5 20 18M8.5 16.5 20 6"/></svg></div>
+      </div>
+      <div class="tl-f"><span>V1 відео · T1 субтитри · A1 голос</span><span id="tlf">вирізано: <b>0 с</b></span></div>
+    </div>
+
+    <a class="btn" href="#pay">Зібрати монтажера</a>
+
+    <ul class="facts" id="facts">
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>5 практичних уроків</span></li>
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Працює на Claude Code або ChatGPT Codex</span></li>
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Змонтуєш свій перший рілс вже сьогодні</span></li>
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Reels, TikTok, Shorts і горизонтальні відео</span></li>
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Вносиш правки голосом</span></li>
+    </ul>
+
+    <div class="ticket notch2 rv" id="ticket">
+      <div class="burst"><svg viewBox="0 0 100 100"><polygon fill="#FF5A1A" stroke="#15120F" stroke-width="2.5" stroke-linejoin="round" points="50,2 57,17 72,7 73,24 90,20 84,36 99,42 86,52 97,65 80,68 84,85 67,80 62,97 50,85 38,97 33,80 16,85 20,68 3,65 14,52 1,42 16,36 10,20 27,24 28,7 43,17"/></svg><b>−82%</b></div>
+      <div class="price"><b data-count>390</b><span class="cur">грн</span></div>
+      <span class="old">2 199 грн<svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path d="M2 20C30 14 60 10 98 8M4 26C34 20 66 16 96 14"/></svg></span>
+      <div class="perf"></div>
+      <div class="bon">
+        <h3>+ Великий комплект бонусів<em>при купівлі практикуму до кінця таймера</em></h3>
+        <div class="fan">
+          <span><svg viewBox="0 0 40 40" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linecap="round"><rect x="14" y="4" width="12" height="20" rx="6" fill="#FF5A1A"/><path d="M8 19a12 12 0 0 0 24 0M20 31v5M14 36h12"/></svg>Озвучка через API</span>
+          <span><svg viewBox="0 0 40 40" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linejoin="round"><path d="M20 5l15 7.5-15 7.5-15-7.5z" fill="#FF5A1A"/><path d="M5 20l15 7.5L35 20M5 27.5 20 35l15-7.5"/></svg>Пак анімацій і фонів</span>
+          <span><svg viewBox="0 0 40 40" fill="none" stroke="#15120F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h28v20H18l-8 7v-7H6z" fill="#fff"/><path d="M12 14h16M12 20h10" stroke="#FF5A1A"/></svg>Шпаргалка голосових команд</span>
+        </div>
+      </div>
+      <a class="btn" href="#pay">Зібрати монтажера<span class="bad">−82%</span></a>
+      <div class="guar">
+        <svg style="color:var(--or)"><use href="#sh"/></svg>
+        <div><b><span>14 днів</span> гарантії повернення коштів</b>Якщо практикум тобі не підійде, я поверну гроші без зайвих питань.</div>
+      </div>
+      <p class="tlab">До кінця спеціальної пропозиції:</p>
+      <div class="timer"><i data-t="h">00</i><u>:</u><i data-t="m">10</i><u>:</u><i data-t="s">00</i></div>
+    </div>
+  </section>
+
+  <!-- ═══ 2. БОНУСИ ═══ -->
+  <section class="sec dark" id="bonus">
+    <h2 class="h2 kar">Великий комплект <span class="k">бонусів:</span></h2>
+
+    <article class="bcard">
+      <span class="bnum">1</span><span class="blab">бонус 1</span>
+      <h3>Урок: озвучка через API-ключ</h3>
+      <p>Твій монтажер зможе сам озвучувати ролики: скрінкасти, пояснення, відео без твого голосу в кадрі. Покажу, що таке API-ключ, де його взяти й як підключити за кілька хвилин. Розберемо, як отримати живу озвучку без роботизованого звучання: твоїм власним голосом або голосом із бібліотеки. Є <span class="mark">безкоштовний спосіб</span> через Google AI Studio.</p>
+    </article>
+    <article class="bcard">
+      <span class="bnum">2</span><span class="blab">бонус 2</span>
+      <h3>Пак анімацій і фонів</h3>
+      <p><span class="mark">10 готових анімацій і 10 фонів</span>, які твій монтажер одразу підставляє в ролики. Перші відео виглядають доробленими ще до того, як ти збереш власну бібліотеку.</p>
+    </article>
+    <article class="bcard">
+      <span class="bnum">3</span><span class="blab">бонус 3</span>
+      <h3>Шпаргалка голосових команд</h3>
+      <p>Готові формулювання для монтажера на кожну задачу: вирізати паузи, змінити стиль субтитрів, додати графіку, переробити фрагмент. Копіюєш або промовляєш і отримуєш результат <span class="mark">з першого разу</span>.</p>
+    </article>
+  </section>
+
+  <!-- ═══ 3. ПРОБЛЕМИ ═══ -->
+  <section class="sec" id="pain">
+    <h2 class="h2 kar">Одразу скажу: цей практикум вирішує <span class="k">головні проблеми</span> з монтажем</h2>
+
+    <article class="pcard">
+      <div class="ph"><span class="pn">01</span><h3>Монтаж одного відео більше не забирає цілий вечір</h3></div>
+      <div class="mini" aria-hidden="true"><i></i><i></i><i class="x">е-е-м</i><i></i><i></i></div>
+      <ul class="sl">
+        <li><svg><use href="#sc"/></svg><span>паузи, «е-е-м», невдалі дублі й повтори вирізаються автоматично за розпізнаним текстом</span></li>
+        <li><svg><use href="#sc"/></svg><span>субтитри зʼявляються саме тоді, коли слово вимовлено, з потрібним шрифтом, кольором і анімацією</span></li>
+      </ul>
+    </article>
+    <article class="pcard">
+      <div class="ph"><span class="pn">02</span><h3>Твоє розмовне відео тепер будуть дивитися до кінця</h3></div>
+      <div class="mini" aria-hidden="true"><i></i><i class="x">пауза</i><i></i><i></i><i></i></div>
+      <ul class="sl">
+        <li><svg><use href="#sc"/></svg><span>графіка, анімації й стікери на ключових словах оживляють «говорячу голову»</span></li>
+        <li><svg><use href="#sc"/></svg><span>складні теми, які неможливо зняти на камеру, монтажер візуалізує сам</span></li>
+        <li><svg><use href="#sc"/></svg><span>звукові ефекти й фонова музика звучать тихо й не перекривають голос</span></li>
+      </ul>
+    </article>
+    <article class="pcard">
+      <div class="ph"><span class="pn">03</span><h3>Без складних програм і без монтажера</h3></div>
+      <div class="mini" aria-hidden="true"><i></i><i></i><i></i><i class="x">дубль</i><i></i></div>
+      <ul class="sl">
+        <li><svg><use href="#sc"/></svg><span>жодного таймлайна, десятків кнопок і окремого курсу з монтажу</span></li>
+        <li><svg><use href="#sc"/></svg><span>правки голосом: кажеш, що змінити, і монтажер переробляє</span></li>
+        <li><svg><use href="#sc"/></svg><span>не потрібно платити монтажеру за кожен ролик</span></li>
+      </ul>
+    </article>
+    <article class="pcard">
+      <div class="ph"><span class="pn">04</span><h3>Кожен ролик у твоєму стилі</h3></div>
+      <div class="mini" aria-hidden="true"><i></i><i class="x">повтор</i><i></i><i></i><i></i></div>
+      <ul class="sl">
+        <li><svg><use href="#sc"/></svg><span>власний брендлук: шрифти, кольори й стікери з тобою</span></li>
+        <li><svg><use href="#sc"/></svg><span>наступне відео виходить у тому ж стилі, що й попереднє</span></li>
+        <li><svg><use href="#sc"/></svg><span>нічого важливого не ховається під кнопками Reels і TikTok</span></li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ═══ 4. ЩО ВМІЄ МОНТАЖЕР ═══ -->
+  <section class="sec" id="skills" style="padding-top:10px">
+    <h2 class="h2 kar">Ось що вміє твій <span class="k">АІ монтажер</span></h2>
+    <p class="p">Ти записуєш відео й кажеш голосом, що потрібно. Далі монтажер робить усе сам:</p>
+
+    <nav class="toolbar" id="toolbar" aria-label="Можливості монтажера">
+      <a href="#f1">✂️ Чистка</a><a href="#f2">💬 Субтитри</a><a href="#f3">✨ Графіка</a><a href="#f4">🎨 Стікери</a>
+      <a href="#f5">🎵 Звук</a><a href="#f6">🖼 Обкладинка</a><a href="#f7">📱 Сейф-зони</a><a href="#f8">🎙 Відео з ідеї</a>
+    </nav>
+
+    <article class="feat" id="f1"><div class="feat-h"><span class="fi">✂️</span><h3>Чистка запису</h3></div>
+      <p>Вирізає паузи, «е-е-м», повтори й невдалі дублі.</p>
+      <p class="resb"><b>Результат:</b> динамічне відео без жодного зайвого слова.</p></article>
+    <article class="feat" id="f2"><div class="feat-h"><span class="fi">💬</span><h3>Субтитри</h3></div>
+      <p>Кожне слово зʼявляється в момент, коли ти його вимовляєш. Ключові слова виділені кольором, назви сервісів написані правильно.</p>
+      <p class="resb"><b>Результат:</b> відео зрозуміле навіть без звуку.</p></article>
+    <article class="feat" id="f3"><div class="feat-h"><span class="fi">✨</span><h3>Графіка й анімації</h3></div>
+      <p>Підставляє анімовані елементи на ключових словах, обводить і підкреслює те, що ти показуєш на екрані.</p>
+      <p class="resb"><b>Результат:</b> «говоряча голова» перетворюється на динамічний ролик.</p></article>
+    <article class="feat" id="f4"><div class="feat-h"><span class="fi">🎨</span><h3>Твої стікери</h3></div>
+      <p>Додає в кадр стікери з тобою у твоєму фірмовому стилі.</p>
+      <p class="resb"><b>Результат:</b> тебе впізнають у стрічці з першої секунди.</p></article>
+    <article class="feat" id="f5"><div class="feat-h"><span class="fi">🎵</span><h3>Звук</h3></div>
+      <p>Ставить звукові ефекти й фонову музику, вирівнює гучність під стандарт соцмереж.</p>
+      <p class="resb"><b>Результат:</b> звук звучить професійно, а голос чути чітко.</p></article>
+    <article class="feat" id="f6"><div class="feat-h"><span class="fi">🖼</span><h3>Обкладинка</h3></div>
+      <p>Робить клікабельну обкладинку на перших кадрах і окремою картинкою.</p>
+      <p class="resb"><b>Результат:</b> обкладинка готова разом із роликом.</p></article>
+    <article class="feat" id="f7"><div class="feat-h"><span class="fi">📱</span><h3>Сейф-зони</h3></div>
+      <p>Розставляє текст і графіку так, щоб нічого не залазило під кнопки Reels і TikTok.</p>
+      <p class="resb"><b>Результат:</b> усе важливе видно на будь-якому телефоні.</p></article>
+    <article class="feat" id="f8"><div class="feat-h"><span class="fi">🎙</span><h3>Відео з ідеї</h3></div>
+      <p>Ти описуєш ідею голосом, монтажер створює ролик без зйомки.</p>
+      <p class="resb"><b>Результат:</b> контент є навіть у дні, коли немає часу й настрою знімати.</p></article>
+  </section>
+
+  <!-- ═══ 4b. ПРИКЛАДИ РОЛИКІВ ═══ -->
+  <section class="sec dark" id="examples">
+    <h2 class="h2 kar">Ось такі <span class="k">ролики</span> ти зможеш монтувати вже під час практикуму</h2>
+    <!-- ⟨НУЖНО: 4–6 роликов-примеров, смонтированных системой: разные стили, вертикальные + 1 горизонтальный⟩
+         Поки тут кодові демо стилів субтитрів. Справжні ролики: <video src="ex-1.mp4" poster="ex-1.jpg" muted loop playsinline preload="none"> у кожен .reel -->
+    <div class="reels" id="reels">
+      <div class="reel r1"><span class="tagl">караоке</span><svg class="fig" viewBox="0 0 200 240" aria-hidden="true"><use href="#fig"/></svg><div class="rcap" data-l="*Паузи? вирізано;субтитри *готові;одна *команда"></div></div>
+      <div class="reel r3"><span class="tagl">неон</span><svg class="fig" viewBox="0 0 200 240" aria-hidden="true" style="opacity:.55"><use href="#fig"/></svg><div class="rcap" data-l="ні *слоїв ні *кадрів;тільки *голос"></div></div>
+      <div class="reel r4"><span class="tagl">стікери</span><svg class="fig" viewBox="0 0 200 240" aria-hidden="true"><use href="#fig"/></svg><div class="rcap" data-l="мій *стиль;мої *стікери"></div></div>
+      <div class="reel r2"><span class="tagl">мінімал</span><svg class="fig" viewBox="0 0 200 240" aria-hidden="true" style="opacity:.7"><use href="#fig"/></svg><div class="rcap" data-l="спокійні *субтитри;без зайвого"></div></div>
+      <div class="reel hz r5"><span class="tagl">16:9 · YouTube</span><svg class="fig" viewBox="0 0 200 240" aria-hidden="true"><use href="#fig"/></svg><span class="lower">скрінкаст</span><div class="rcap" data-l="*Розбір екрана;з підсвіткою *важливого"></div></div>
+    </div>
+    <p class="swipe">гортай →</p>
+    <div class="fmts" style="margin-top:18px"><span>Reels</span><span>TikTok</span><span>YouTube Shorts</span><span>горизонтальні відео для YouTube</span></div>
+  </section>
+
+  <!-- ═══ 4c. ВАРТІСТЬ ═══ -->
+  <section class="sec" id="cost">
+    <div class="ticket rv cost">
+      <p class="cost lbl">Монтаж одного ролика через твого АІ монтажера коштує</p>
+      <p class="num">≈ 7–12 грн<sup>*</sup></p>
+      <div class="perf"></div>
+      <p class="p" style="text-align:left">Для порівняння: монтажер бере в середньому <b>$20 за хвилину</b> відео. А самостійно ти витрачаєш на один ролик години.</p>
+      <p class="foot-note">*орієнтовно, залежить від тривалості ролика й тарифу твоєї підписки. Довгі горизонтальні відео витрачають більше лімітів.</p>
+      <a class="btn" href="#pay">Зібрати монтажера<span class="bad">−82%</span></a>
+    </div>
+  </section>
+
+  <!-- ═══ 5. ПЛАТФОРМИ ═══ -->
+  <section class="sec orange" id="platforms">
+    <h2 class="h2 kar">На чому працює твій <span class="k">АІ монтажер</span></h2>
+    <div class="logos">
+      <span><svg viewBox="0 0 24 24" fill="#FF5A1A"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg>Claude Code</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="#FF5A1A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-5 4 5 4M16 8l5 4-5 4"/></svg>ChatGPT Codex</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="#FF5A1A" stroke-width="2.4"><circle cx="12" cy="12" r="8"/></svg>ChatGPT</span>
+      <span><svg viewBox="0 0 24 24" fill="#FF5A1A"><path d="M12 3l9 16H3z"/></svg>Google AI Studio</span>
+      <span><svg viewBox="0 0 24 24" fill="#FF5A1A"><rect x="7" y="4" width="3.5" height="16" rx="1"/><rect x="13.5" y="4" width="3.5" height="16" rx="1"/></svg>ElevenLabs</span>
+    </div>
+    <p class="p" style="margin-top:22px;font-weight:600">Монтажер працює на тій підписці, яка в тебе <b style="background:var(--ink);color:#fff;padding:0 5px;border-radius:4px">вже є</b>.</p>
+    <div class="route">
+      <div><b>Користуєшся Claude?</b><i>→</i><span>Встановлюєш монтажера на Claude Code.</span></div>
+      <div><b>Користуєшся ChatGPT?</b><i>→</i><span>Встановлюєш на ChatGPT Codex.</span></div>
+    </div>
+    <p class="p">У першому уроці я покажу обидва шляхи, тож обираєш той, що тобі зручніший.</p>
+    <p class="p">Якщо підписки ще немає, знадобиться лише одна: Claude або ChatGPT, <b>≈ $24 на місяць</b>. Окремі програми для монтажу, сервіси для субтитрів і платні пакети анімацій тобі не знадобляться.</p>
+    <div class="addon"><span class="e">🎙</span><span><b>Озвучка</b> безкоштовно через Google AI Studio. Якщо хочеш, щоб монтажер говорив твоїм клонованим голосом, підключаєш ElevenLabs за ≈ $6 на місяць.</span></div>
+    <div class="addon"><span class="e">🎨</span><span><b>Стікери</b> створюємо в ChatGPT. Якщо твій монтажер працює на Claude, для цього уроку вистачить безкоштовної версії ChatGPT.</span></div>
+    <p class="sm" style="margin-top:16px">*Для роботи потрібен компʼютер на Windows або Mac.</p>
+  </section>
+
+  <!-- ═══ 6. ДЛЯ КОГО ═══ -->
+  <section class="sec" id="who">
+    <h2 class="h2 kar">Для кого цей <span class="k">практикум?</span></h2>
+    <div class="who">
+      <div class="wc rv"><span class="hash">#блогери</span><h3>Блогери й контент-мейкери</h3><p>Знімаєш багато, а монтаж стає вузьким місцем. З АІ-монтажером ролики виходять регулярно, і кожен виглядає динамічно.</p></div>
+      <div class="wc rv"><span class="hash">#експерти</span><h3>Експерти й діджитал-спеціалісти, які мають свій блог</h3><p>Коучі, психологи, лікарі, юристи, фінансисти. У складних нішах на камеру майже нічого не покажеш, а монтажер візуалізує те, про що ти говориш.</p></div>
+      <div class="wc rv"><span class="hash">#бізнес</span><h3>Власники бізнесу</h3><p>Потрібні повноцінні відео про продукт, послуги чи команду. Тепер їх можна робити самостійно, без агенції й без окремої людини на монтаж.</p></div>
+      <div class="wc rv"><span class="hash">#smm</span><h3>SMM-фахівці й маркетологи</h3><p>Ведеш кілька проєктів і щотижня монтуєш десятки роликів. Монтажер бере цю рутину на себе, а ти встигаєш більше за той самий час.</p></div>
+      <div class="wc rv"><span class="hash">#викладачі</span><h3>Викладачі й автори курсів</h3><p>Записуєш уроки або розбори з екрана. Монтажер прибирає зайве, додає субтитри, підсвічує важливе на екрані й озвучує скрінкасти.</p></div>
+      <div class="wc rv"><span class="hash">#монтажери</span><h3>Монтажери й відеографи</h3><p>Рутинні задачі забирають більшу частину робочого дня. Монтажер закриває чистку, субтитри й графіку, а ти береш більше замовлень.</p></div>
+      <div class="wc rv"><span class="hash">#блог_з_нуля</span><h3>Ті, хто давно хоче вести блог</h3><p>Відео записуються, а до публікації так і не доходять, бо на монтаж немає сил і часу. Тепер на шляху до публікації стоїть одна голосова команда.</p></div>
+      <div class="wc rv"><span class="hash">#ai</span><h3>AI-ентузіасти</h3><p>Хочеш спробувати Claude Code або ChatGPT Codex на реальній задачі. Практикум дає готову систему, яку ти встановлюєш і одразу використовуєш у роботі.</p></div>
+    </div>
+  </section>
+
+  <!-- ═══ 7. АГІТАЦІЯ ═══ -->
+  <section class="sec dark" id="why">
+    <h2 class="h2 kar">Чому записані відео так і <span class="k">не доходять</span> до публікації?</h2>
+    <div class="ag" id="ag">
+      <p>Запис займає пʼять хвилин, а монтаж забирає кілька годин.</p>
+      <p>Вирізаєш кожне «е-е-м» вручну й підганяєш субтитри по одному слову.</p>
+      <p>Відкриваєш програму для монтажу, а там десятки кнопок, і незрозуміло, з якої почати.</p>
+      <p>Монтажер бере гроші за кожен ролик, пропадає перед дедлайном і щоразу монтує по-різному.</p>
+      <p>Готове відео виглядає як ще одна «говоряча голова», і його гортають за секунду.</p>
+    </div>
+    <div class="thought rv">
+      <p class="p">І людина відкладає з думкою:</p>
+      <blockquote class="bub">Повернусь до цього, коли буде час.</blockquote>
+    </div>
+    <div class="drafts rv" aria-hidden="true"><i data-d="0:42"></i><i data-d="1:15"></i><i data-d="0:58"></i><i data-d="2:03"></i><i data-d="0:37"></i><i data-d="1:21"></i><i data-d="0:49"></i><i data-d="3:10"></i><i data-d="0:55"></i><i data-d="1:02"></i></div>
+    <p class="p">Час так і не зʼявляється, а відео лежать на телефоні.</p>
+    <p class="p">Туторіалів з монтажу тисячі. Кожен пояснює окрему кнопку в окремій програмі, і на один ролик усе одно йде вечір.</p>
+    <p class="p"><b>Я пішов іншим шляхом.</b> Зібрав систему, яка монтує за мене, і навчив її на своїх роликах і своєму підході до блогу. Тепер я покажу, як зібрати таку ж у себе.</p>
+    <p class="p">До практикуму пропоную тобі доєднатися <span class="acc-or" style="font-weight:700">просто зараз</span>.</p>
+    <a class="btn" href="#pay">Зібрати монтажера<span class="bad">−82%</span></a>
+  </section>
+
+  <!-- ═══ 8. ПРОГРАМА ═══ -->
+  <section class="sec" id="program">
+    <h2 class="h2 kar">Уроки практикуму <span class="k">«АІ монтажер»</span></h2>
+    <div class="meta-l"><span>5 практичних уроків</span><span>короткі інструкції без води</span><span>домашнє завдання після кожного уроку</span><span>доступ назавжди</span></div>
+
+    <!-- ⟨НУЖНО: превью к урокам 1–5⟩ — поки в кожному .prev кодова заставка; картинку класти як <img src="lesson-N.jpg"> всередину .prev -->
+    <article class="les rv">
+      <div class="prev"><span class="big">01</span><div class="win"><div class="bar"><i></i><i></i><i></i></div><div class="cmd"><b>›</b> claude<br><b>›</b> встанови Remotion<span class="cur"></span></div></div><span class="stk">Windows · Mac</span></div>
+      <div class="les-b">
+        <span class="ln">Урок 01</span>
+        <h3>Встановлення АІ монтажера</h3>
+        <p class="ld">Як встановити Claude Code або ChatGPT Codex і підключити готову систему монтажу за кілька кліків.</p>
+        <details class="acc"><summary>Що в уроці <i>+</i></summary>
+          <ul class="bul">
+            <li>розбираємо, чим Claude Code і ChatGPT Codex відрізняються від звичайного чату</li>
+            <li>встановлюємо на Windows або Mac під твою підписку</li>
+            <li>підключаємо Remotion, інструмент, який монтує відео кодом</li>
+            <li>завантажуємо систему монтажу й даємо монтажеру перше завдання</li>
+          </ul>
+          <div class="tools"><b>Інструменти</b><span>Claude Code</span><span>ChatGPT Codex</span><span>Remotion</span></div>
+          <div class="resbox"><b>Результат</b>На твоєму компʼютері вже працює АІ монтажер, який виконує команди. Зникає відчуття, що Claude Code і Codex існують лише для програмістів. Установка займає один урок, а далі ти тільки користуєшся.</div>
+        </details>
+      </div>
+    </article>
+
+    <article class="les rv">
+      <div class="prev"><span class="big">02</span><div class="win"><div class="bar"><i></i><i></i><i></i></div><div class="cmd"><b>›</b> виріж паузи<br><b>›</b> додай субтитри<span class="cur"></span></div></div><span class="stk">✂ −16 с</span></div>
+      <div class="les-b">
+        <span class="ln">Урок 02</span>
+        <h3>Монтаж розмовного відео</h3>
+        <p class="ld">Як зі звичайного запису «говорячої голови» отримати динамічний рілс.</p>
+        <details class="acc"><summary>Що в уроці <i>+</i></summary>
+          <ul class="bul">
+            <li>завантажуємо твоє сире відео</li>
+            <li>одним запитом вирізаємо паузи, «е-е-м», повтори й невдалі дублі</li>
+            <li>додаємо автосубтитри: шрифт, колір, розмір і анімація тексту</li>
+            <li>вносимо правки голосом</li>
+          </ul>
+          <div class="tools"><b>Інструменти</b><span>Claude Code або ChatGPT Codex</span></div>
+          <div class="resbox"><b>Результат</b>У тебе є перший змонтований рілс із власного запису. Зникають години ручної роботи: різання, підгонка субтитрів по одному слову, пошук потрібної кнопки. Відео, яке раніше лежало б на телефоні, вже можна публікувати.</div>
+        </details>
+      </div>
+    </article>
+
+    <article class="les rv">
+      <div class="prev"><span class="big">03</span><div class="win"><div class="bar"><i></i><i></i><i></i></div><div class="cmd"><b>›</b> додай графіку<br><b>›</b> зроби обкладинку<span class="cur"></span></div></div><span class="stk">♪ −14 LUFS</span></div>
+      <div class="les-b">
+        <span class="ln">Урок 03</span>
+        <h3>Графіка, звук і обкладинка</h3>
+        <p class="ld">Як зробити так, щоб ролик виглядав роботою студії.</p>
+        <details class="acc"><summary>Що в уроці <i>+</i></summary>
+          <ul class="bul">
+            <li>додаємо графіку й анімації на ключових словах</li>
+            <li>вставляємо скрінкасти як перебивки й підкреслюємо важливе «маркером від руки»</li>
+            <li>ставимо звукові ефекти, фонову музику й вирівнюємо гучність під соцмережі</li>
+            <li>робимо обкладинку для ролика</li>
+            <li>розставляємо текст так, щоб нічого не ховалося під кнопками Reels і TikTok</li>
+          </ul>
+          <div class="tools"><b>Інструменти</b><span>Claude Code або ChatGPT Codex</span></div>
+          <div class="resbox"><b>Результат</b>Твій ролик має графіку, звук і обкладинку, як після професійного монтажу. Зникає «говоряча голова», яку гортають за секунду. Глядач бачить те, про що ти говориш, і має причину дивитися далі.</div>
+        </details>
+      </div>
+    </article>
+
+    <article class="les rv">
+      <div class="prev"><span class="big">04</span><div class="win"><div class="bar"><i></i><i></i><i></i></div><div class="cmd"><b>›</b> зроби стікерпак<br><b>›</b> мій стиль<span class="cur"></span></div></div><span class="stk">🎨 брендлук</span></div>
+      <div class="les-b">
+        <span class="ln">Урок 04</span>
+        <h3>Свій брендлук</h3>
+        <p class="ld">Як створити власний фірмовий стиль і стікери з собою, щоб тебе впізнавали в стрічці.</p>
+        <details class="acc"><summary>Що в уроці <i>+</i></summary>
+          <ul class="bul">
+            <li>створюємо картку персонажа з твого фото</li>
+            <li>перетворюємо картку в будь-який стиль</li>
+            <li>генеруємо власний стікерпак</li>
+            <li>шукаємо референси для дизайн-системи й анімацій</li>
+            <li>передаємо монтажеру твій стиль: шрифти, кольори, стікери</li>
+          </ul>
+          <div class="tools"><b>Інструменти</b><span>ChatGPT</span><span>Claude Code або ChatGPT Codex</span></div>
+          <div class="resbox"><b>Результат</b>У тебе є власний брендлук і стікерпак, а кожне наступне відео виходить у тому ж стилі. Зникає хаос, коли всі ролики виглядають по-різному. Твої відео впізнають ще до того, як прочитають імʼя акаунта.</div>
+        </details>
+      </div>
+    </article>
+
+    <article class="les rv">
+      <div class="prev"><span class="big">05</span><div class="win"><div class="bar"><i></i><i></i><i></i></div><div class="cmd"><b>›</b> 🎙 ідея голосом<br><b>›</b> зроби ролик<span class="cur"></span></div></div><span class="stk">без зйомки</span></div>
+      <div class="les-b">
+        <span class="ln">Урок 05</span>
+        <h3>Відео з ідеї голосом</h3>
+        <p class="ld">Як отримати готовий ролик без зйомки, просто продиктувавши ідею.</p>
+        <details class="acc"><summary>Що в уроці <i>+</i></summary>
+          <ul class="bul">
+            <li>перетворюємо ідею, продиктовану в мікрофон, на сценарій</li>
+            <li>монтажер підбирає візуал і збирає відео без жодного кадру зйомки</li>
+            <li>показую, на що здатна повна версія моєї системи монтажу</li>
+          </ul>
+          <div class="tools"><b>Інструменти</b><span>Claude Code або ChatGPT Codex</span></div>
+          <div class="resbox"><b>Результат</b>Тепер контент можна робити навіть у дні, коли немає часу чи настрою знімати. Ідея, яка приходить на ходу, перетворюється на ролик за одну голосову команду.</div>
+        </details>
+      </div>
+    </article>
+
+    <div class="imp rv"><span class="t">Важливо</span>
+      <p>Після кожного уроку є <b>домашнє завдання</b>. Виконаєш усі й отримаєш бонус, про який дізнаєшся в процесі проходження практикуму.</p>
+    </div>
+    <a class="btn sm" href="#pay">Приєднатися за 390 грн →</a>
+    <div class="guar">
+      <svg style="color:var(--or)"><use href="#sh"/></svg>
+      <div><b><span>14 днів</span> гарантії</b>Пройди уроки, встанови монтажера, змонтуй перший ролик. Якщо не побачиш цінності, я поверну кошти.</div>
+    </div>
+  </section>
+
+  <!-- ═══ 9. ЯК ПРОХОДИТЬ НАВЧАННЯ ═══ -->
+  <section class="sec" id="how" style="padding-top:10px">
+    <h2 class="h2 kar">Як проходить <span class="k">навчання</span></h2>
+    <div class="how">
+      <div class="rv"><span class="e">📱</span><b>Уроки в Telegram-боті</b><p>Короткі уроки приходять у бот, і ти одразу повторюєш кроки на своєму компʼютері.</p></div>
+      <div class="rv"><span class="e">📋</span><b>Інструкції без води</b><p>Що встановити, яку команду дати монтажеру, куди завантажити відео.</p></div>
+      <div class="rv"><span class="e">🤖</span><b>Готова система монтажу</b><p>Ти не вивчаєш монтаж з нуля. Встановлюєш систему, яку я вже зібрав і навчив на своїх роликах.</p></div>
+      <div class="rv"><span class="e">💬</span><b>Чат-підтримка куратора</b><p>Якщо щось не встановлюється або не виходить, ставиш питання й отримуєш розбір.</p></div>
+    </div>
+
+    <div class="youll">
+      <h3>За 5 уроків ти:</h3>
+      <ul class="ylist" id="ylist">
+        <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Встановиш АІ монтажера на Claude Code або ChatGPT Codex</span></li>
+        <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Змонтуєш перший рілс зі свого запису: без пауз, повторів і з автосубтитрами</span></li>
+        <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Додаси графіку, звук і обкладинку рівня професійного монтажу</span></li>
+        <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Створиш власний брендлук і стікерпак, і кожне відео виходитиме в одному стилі</span></li>
+        <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Отримаєш ролик з ідеї однією голосовою командою, без зйомки</span></li>
+      </ul>
+    </div>
+    <a class="btn" href="#pay">Зібрати монтажера<span class="bad">−82%</span></a>
+  </section>
+
+  <!-- ═══ 10. ТИЗЕР ПОВНОЇ СИСТЕМИ ═══ -->
+  <section class="sec dark" id="full">
+    <div class="next">
+      <span class="lvl">у 5 уроці</span>
+      <h2 class="h2 kar">А ось що вміє <span class="k">повна версія</span> моєї системи монтажу</h2>
+      <p class="p">У пʼятому уроці я покажу систему, на якій монтую власні ролики. Це ціла команда АІ-агентів: сценаристи пишуть, монтажер збирає відео, а критик розбирає перший варіант і відправляє його на доопрацювання.</p>
+      <ul class="nl">
+        <li class="rv"><span class="e">🎞</span><span><b>400 готових референсів монтажу.</b> Обираєш стиль із бібліотеки, і монтажер повторює його на твоєму відео.</span></li>
+        <li class="rv"><span class="e">🔁</span><span><b>Монтаж за будь-яким референсом.</b> Скидаєш ролик, який сподобався, і отримуєш свій у такій самій манері.</span></li>
+        <li class="rv"><span class="e">🎨</span><span><b>Відео з нуля в будь-якому стилі:</b> 2D і 3D-анімація, мальована графіка, динамічний монтаж.</span></li>
+        <li class="rv"><span class="e">🧩</span><span><b>Кілька відео в одне.</b> Монтажер склеює окремі записи в цілісний ролик.</span></li>
+        <li class="rv"><span class="e">📣</span><span><b>Рекламні креативи</b> під будь-який бізнес і нішу.</span></li>
+        <li class="rv"><span class="e">🏢</span><span><b>Візуалізація робочих процесів.</b> Монтажер сам знаходить в інтернеті логотипи й інформацію про компанію та показує процес у відео.</span></li>
+        <li class="rv"><span class="e">🔎</span><span><b>Дослідження у форматі відео.</b> Збирає факти з інтернету, перевіряє їх і візуалізує.</span></li>
+        <li class="rv"><span class="e">🎬</span><span><b>Мультики, серіали й ситкоми</b> з постійними персонажами.</span></li>
+        <li class="rv"><span class="e">🧑‍💻</span><span><b>Твій АІ-аватар у кадрі.</b> Озвучка в ElevenLabs, аватар у HeyGen, а монтажер робить з цього повноцінний ролик.</span></li>
+        <li class="rv"><span class="e">📺</span><span><b>Довгі горизонтальні відео для YouTube.</b></span></li>
+      </ul>
+      <p class="p" style="margin-top:20px;font-weight:700">Як отримати повну систему, розповім у пʼятому уроці.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 11. ГАРАНТІЯ ═══ -->
+  <section class="sec" id="guarantee">
+    <h2 class="h2 kar"><span class="k">14 днів</span> на повернення коштів</h2>
+    <div class="gwrap">
+      <div class="seal">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><polygon fill="#FF5A1A" stroke="#15120F" stroke-width="2.2" stroke-linejoin="round" points="50,1 55.4,5.8 61.7,2.4 65.8,8.4 72.8,6.6 75.3,13.4 82.5,13.3 83.3,20.5 90.3,22.2 89.4,29.3 95.8,32.6 93.2,39.4 98.6,44.1 94.5,50 98.6,55.9 93.2,60.6 95.8,67.4 89.4,70.7 90.3,77.8 83.3,79.5 82.5,86.7 75.3,86.6 72.8,93.4 65.8,91.6 61.7,97.6 55.4,94.2 50,99 44.6,94.2 38.3,97.6 34.2,91.6 27.2,93.4 24.7,86.6 17.5,86.7 16.7,79.5 9.7,77.8 10.6,70.7 4.2,67.4 6.8,60.6 1.4,55.9 5.5,50 1.4,44.1 6.8,39.4 4.2,32.6 10.6,29.3 9.7,22.2 16.7,20.5 17.5,13.3 24.7,13.4 27.2,6.6 34.2,8.4 38.3,2.4 44.6,5.8"/><circle cx="50" cy="50" r="38" fill="none" stroke="#15120F" stroke-width="1.2" stroke-dasharray="3 3"/></svg>
+        <b><i>14</i><u>днів</u><s>гарантія</s></b>
+      </div>
+    </div>
+    <div class="gtx">
+      <p>Я впевнений у якості цього практикуму, тому даю <b>14 днів повної гарантії</b>.</p>
+      <p>Якщо протягом двох тижнів ти пройдеш уроки, встановиш монтажера й змонтуєш свій перший ролик, але не побачиш цінності, я без жодних питань поверну кошти.</p>
+      <p class="last">Жодних ризиків: або в тебе працює власний АІ монтажер, або я повертаю гроші.</p>
+      <div class="gsep"></div>
+      <span class="glabel">Додаткова гарантія</span>
+      <div class="rate"><b>4,9</b><em>із 5</em><div class="stars"><svg><use href="#st"/></svg><svg><use href="#st"/></svg><svg><use href="#st"/></svg><svg><use href="#st"/></svg><svg><use href="#st"/></svg></div></div>
+      <p>Середня оцінка моїх інших мінікурсів і воркшопів.</p>
+      <p style="margin-top:16px">Знаєш, коли мене просять повернути кошти?</p>
+      <p class="punch">Коли хтось випадково купує мій мінікурс або воркшоп удруге.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 12. АВТОР ═══ -->
+  <section class="sec dark" id="author">
+    <h2 class="h2 kar">Олександр <span class="k">Цюцьмаць</span></h2>
+    <!-- ⟨НУЖНО: видео-ролик Саши, смонтированный его системой⟩ → замінити .screen вміст на <video src="author.mp4" poster="author.jpg" autoplay muted loop playsinline> -->
+    <div class="auth-v">
+      <div class="phone"><div class="screen"><div class="notch"></div>
+        <div class="reel r1" style="position:absolute;inset:0;border:0;border-radius:0"><svg class="fig" viewBox="0 0 200 240" aria-hidden="true"><use href="#fig"/></svg><div class="rcap" data-l="я *монтую;через *систему"></div></div>
+      </div></div>
+    </div>
+    <p class="auth-cap">Цей ролик змонтував мій АІ монтажер</p>
+    <ul class="alist">
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Вивчаю АІ-інструменти <b>кожен день з 2024 року</b></span></li>
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span><b>Власник агенції</b> зі створення АІ-контенту під ключ</span></li>
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span><b>7 141 учень</b> уже пройшов мої навчальні програми</span></li>
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Веду власний блог і <b>монтую свої ролики через систему</b>, яку покажу на практикумі</span></li>
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Створив десятки авторських AI-асистентів, якими користуються мої клієнти та учні</span></li>
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Я вірю в <b>системний підхід і авторські інструменти</b>. Саме так зібраний і цей монтажер</span></li>
+    </ul>
+  </section>
+
+  <!-- ═══ 13. ПОВНИЙ СПИСОК ═══ -->
+  <section class="sec" id="offer">
+    <h2 class="h2 kar">Повний список усього, <span class="k">що ти отримаєш</span></h2>
+    <ul class="incl">
+      <li><span>5 практичних уроків</span></li>
+      <li><span>Готова система монтажу, яку ти встановлюєш на Claude Code або ChatGPT Codex</span></li>
+      <li><span>Покрокові інструкції встановлення для Windows і Mac</span></li>
+      <li><span>Готові команди, якими я користуюся щодня</span></li>
+      <li class="b"><span><b>Бонус 1</b>Урок: озвучка через API-ключ</span></li>
+      <li class="b"><span><b>Бонус 2</b>Пак анімацій і фонів</span></li>
+      <li class="b"><span><b>Бонус 3</b>Шпаргалка голосових команд</span></li>
+      <li><span>Бонус за виконання всіх домашніх завдань</span></li>
+      <li><span>Доступ до практикуму назавжди</span></li>
+      <li><span>Підтримка від куратора</span></li>
+      <li><span>Гарантія повернення коштів на 14 днів</span></li>
+    </ul>
+    <div class="ticket rv" id="offerbox">
+      <div class="burst"><svg viewBox="0 0 100 100"><polygon fill="#FF5A1A" stroke="#15120F" stroke-width="2.5" stroke-linejoin="round" points="50,2 57,17 72,7 73,24 90,20 84,36 99,42 86,52 97,65 80,68 84,85 67,80 62,97 50,85 38,97 33,80 16,85 20,68 3,65 14,52 1,42 16,36 10,20 27,24 28,7 43,17"/></svg><b>−82%</b></div>
+      <span class="olbl">спеціальна ціна</span>
+      <div class="price" style="margin-top:16px"><b data-count>390</b><span class="cur">грн</span></div>
+      <span class="old">2 199 грн<svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path d="M2 20C30 14 60 10 98 8M4 26C34 20 66 16 96 14"/></svg></span>
+      <p class="tlab">тільки до кінця таймера</p>
+      <div class="timer"><i data-t="h">00</i><u>:</u><i data-t="m">10</i><u>:</u><i data-t="s">00</i></div>
+      <a class="btn" href="#pay">Зібрати монтажера<span class="bad">−82%</span></a>
+      <div class="guar one"><svg style="color:var(--or)"><use href="#sh"/></svg><div><b><span>14 днів</span> гарантії повернення коштів</b></div></div>
+    </div>
+  </section>
+
+  <!-- ═══ 14. ВІДГУКИ ═══ -->
+  <!-- ⟨НУЖНО: 3–4 кейса — имя, ниша, видео до/после, короткая цитата⟩ — кейсів поки немає, тож за спекою підблок з кейсами не виводимо -->
+  <section class="sec dark" id="reviews">
+    <h2 class="h2 kar"><span class="k">Хвалюся!</span></h2>
+    <p class="p">А ось відгуки моїх студентів з інших навчальних програм.</p>
+    <p class="p">Мої курси вже пройшли <b class="acc-or">7 141 студент</b>, і найчастіше я чую:</p>
+    <blockquote class="quote">Сашко, за 390 грн — це <b>ВАУ!</b></blockquote>
+    <div class="revs" id="revs">
+      <figure class="rev"><img src="rev/rev-1.jpg" width="900" height="471" alt="Відгук студента 1" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-2.jpg" width="900" height="321" alt="Відгук студента 2" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-3.jpg" width="900" height="246" alt="Відгук студента 3" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-4.jpg" width="900" height="289" alt="Відгук студента 4" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-5.jpg" width="900" height="261" alt="Відгук студента 5" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-6.jpg" width="900" height="546" alt="Відгук студента 6" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-7.jpg" width="900" height="240" alt="Відгук студента 7" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-8.jpg" width="511" height="900" alt="Відгук студента 8" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-9.jpg" width="531" height="900" alt="Відгук студента 9" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-10.jpg" width="653" height="900" alt="Відгук студента 10" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-11.jpg" width="900" height="505" alt="Відгук студента 11" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-12.jpg" width="900" height="685" alt="Відгук студента 12" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-13.jpg" width="770" height="900" alt="Відгук студента 13" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-14.jpg" width="900" height="747" alt="Відгук студента 14" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-15.jpg" width="880" height="900" alt="Відгук студента 15" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-16.jpg" width="900" height="707" alt="Відгук студента 16" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-17.jpg" width="900" height="516" alt="Відгук студента 17" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-18.jpg" width="817" height="900" alt="Відгук студента 18" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-19.jpg" width="877" height="900" alt="Відгук студента 19" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-20.jpg" width="900" height="358" alt="Відгук студента 20" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-21.jpg" width="900" height="802" alt="Відгук студента 21" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="dots" id="dots" aria-hidden="true"></div>
+    <a class="btn" href="#pay">Зібрати монтажера<span class="bad">−82%</span></a>
+  </section>
+
+  <!-- ═══ 15. ФІНАЛЬНИЙ CTA ═══ -->
+  <section class="sec orange" id="final">
+    <h2 class="h2 kar">Твій АІ монтажер запрацює <span class="k">вже сьогодні</span></h2>
+    <p class="p">Перший урок приходить у бот одразу після оплати. Уже ввечері монтажер працюватиме на твоєму компʼютері, а далі ти тільки прокачуєш його під свій стиль.</p>
+    <div class="ticket rv" style="box-shadow:6px 6px 0 var(--ink)">
+      <div class="price"><b>390</b><span class="cur">грн</span></div>
+      <span class="old">2 199 грн<svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path d="M2 20C30 14 60 10 98 8M4 26C34 20 66 16 96 14"/></svg></span>
+      <span class="olbl" style="display:block;width:max-content;margin:12px auto 0;background:var(--or)">−82%</span>
+    </div>
+    <a class="btn ink" href="#pay">Зібрати монтажера<span class="bad">−82%</span></a>
+    <div class="guar one"><svg style="color:var(--ink)"><use href="#sh"/></svg><div><b><span>14 днів</span> гарантії повернення коштів</b></div></div>
+  </section>
+
+  <!-- ═══ 16. FAQ ═══ -->
+  <section class="sec" id="faq">
+    <h2 class="h2 kar">Питання — <span class="k">відповіді</span></h2>
+    <div class="faq">
+      <details><summary>Досвіду з монтажем і AI немає. У мене вийде?<i>+</i></summary><p>Так. Практикум побудований покроково: що встановити, яку команду дати, куди завантажити відео. Усі команди готові, їх достатньо скопіювати або промовити. Якщо щось не виходить, допоможе куратор у чаті підтримки.</p></details>
+      <details><summary>Claude Code і Codex звучать як щось для програмістів. Це складно?<i>+</i></summary><p>Ні. Писати код не потрібно. Ти спілкуєшся з монтажером звичайною мовою, текстом або голосом, а всю технічну частину він бере на себе. Установку проходимо разом у першому уроці.</p></details>
+      <details><summary>Яка підписка потрібна?<i>+</i></summary><p>Одна: Claude або ChatGPT, ≈ $24 на місяць. Якщо підписка вже є, монтажер працюватиме на ній. Озвучку можна робити безкоштовно через Google AI Studio, а для клону свого голосу підключити ElevenLabs за ≈ $6 на місяць. Стікери створюємо в ChatGPT, і для цього вистачить безкоштовної версії.</p></details>
+      <details><summary>Можна працювати з телефона?<i>+</i></summary><p>Ні, потрібен компʼютер на Windows або Mac. Монтажер встановлюється на компʼютер і монтує відео там.</p></details>
+      <!-- ⟨НУЖНО: вопрос-ответ про минимальные требования к компьютеру (от Саши)⟩ -->
+      <details><summary>Скільки часу займе практикум?<i>+</i></summary><p>Перший ролик можна змонтувати вже в перший вечір. Доступ до уроків лишається назавжди, тож повертатися до них можна будь-коли.</p></details>
+      <details><summary>Скільки коштує монтаж одного ролика?<i>+</i></summary><p>Приблизно 7–12 грн у межах лімітів твоєї підписки. Точна сума залежить від тривалості ролика й тарифу.</p></details>
+      <details><summary>Які відео можна монтувати?<i>+</i></summary><p>Розмовні відео, записи з екрана, уроки, розбори. Формати: Reels, TikTok, YouTube Shorts і горизонтальні відео. Довгі ролики теж можна монтувати, але вони витрачають більше лімітів підписки.</p></details>
+      <details><summary>Монтажер усе робить ідеально з першого разу?<i>+</i></summary><p>Він видає готовий варіант, а ти кажеш, що змінити. Правки вносиш голосом або текстом, без таймлайна й ручної роботи. Як формулювати правки, щоб монтажер розумів з першого разу, є в шпаргалці голосових команд.</p></details>
+      <details><summary>А що з англійською?<i>+</i></summary><p>Знати англійську не потрібно. Уроки українською, і монтажеру можна давати команди українською.</p></details>
+      <details><summary>Чим практикум відрізняється від повної системи монтажу?<i>+</i></summary><p>На практикумі ти збираєш монтажера, який монтує твої відео, додає графіку, звук, обкладинку, твій стиль і робить ролики з ідеї. Повна система вміє більше: 400 референсів монтажу, анімація в будь-якому стилі, рекламні креативи, АІ-аватар у кадрі. Про неї розповім у пʼятому уроці.</p></details>
+      <details><summary>Що, якщо не сподобається?<i>+</i></summary><p>14 днів на повернення коштів. Пройди уроки, змонтуй свій перший ролик, і якщо не побачиш цінності, я поверну гроші без питань.</p></details>
+    </div>
+    <a class="btn sm" href="#pay">Приєднатися за 390 грн →</a>
+    <div class="support">
+      <p class="sm">З будь-яких питань пишіть у підтримку ↓</p>
+      <a class="btn tg" href="https://t.me/Mihail_Zemlianoy" target="_blank" rel="noopener">💬 Технічна підтримка</a>
+    </div>
+  </section>
+
+  <!-- ═══ ФУТЕР ═══ -->
+  <footer class="foot">
+    <b>СТЕПАНЕНКО БОГДАН ОЛЕКСАНДРОВИЧ ФОП</b>ЄДРПОУ 3757902952 · stepanenkob30@gmail.com
+    <b>ЗЕМЛЯНИЙ МИХАЙЛО СЕРГІЙОВИЧ ФОП</b>ЄДРПОУ 3758302175 · +380 98 596 6120
+    <b>БРЖЕСТОВСЬКА ГАННА ЮРІЇВНА ФОП</b>ЄДРПОУ 2877703349
+    <p style="margin-top:14px"><a href="politika.html">Політика конфіденційності</a> · <a href="oferta.html">Договір оферти</a></p>
+    <p class="disc"><b>ВАЖЛИВО:</b> не вводьте свою контактну інформацію, доки не прочитаєте legal disclaimer. Ми не даємо жодних гарантій, що ви досягнете якихось результатів за допомогою наших інструментів, стратегій або інформації. Всі продукти і сервіси компанії призначені для освітніх цілей. Ви несете відповідальність за свої дії і результати.</p>
+  </footer>
+</div>
+
+<div class="sticky" id="sticky">
+  <div class="sp"><b>390</b> <small>грн</small><s>2 199 грн</s></div>
+  <a class="sb" href="#pay">Зібрати монтажера <em>−82%</em></a>
+</div>
+
+<script>
+(function(){
+  var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* караоке: кожне слово окремо; .k — слова, що лишаються підсвіченими */
+  document.querySelectorAll('.kar').forEach(function(el){
+    var nodes = Array.prototype.slice.call(el.childNodes); el.textContent = '';
+    function words(txt, cls){
+      txt.split(/(\s+)/).forEach(function(p){
+        if(!p) return;
+        if(/^\s+$/.test(p)){ el.appendChild(document.createTextNode(' ')); return }
+        var s = document.createElement('span'); s.className = 'w' + (cls||''); s.textContent = p; el.appendChild(s);
+      });
+    }
+    nodes.forEach(function(n){
+      if(n.nodeType === 3) words(n.textContent);
+      else if(n.classList.contains('k')) words(n.textContent, ' k');
+      else { n.classList.add('w'); el.appendChild(n) }
+    });
+  });
+  function karaoke(el, done){
+    var ws = el.querySelectorAll('.w'), i = 0;
+    if(RM){ ws.forEach(function(w){ if(w.classList.contains('k')) w.classList.add('done') }); done && done(); return }
+    (function step(){
+      if(i>0){ var p = ws[i-1]; p.classList.remove('on'); if(p.classList.contains('k')) p.classList.add('done') }
+      if(i < ws.length){ ws[i].classList.add('on'); i++; setTimeout(step, 190) } else done && done();
+    })();
+  }
+
+  /* лічильник ціни 2199 → 390 */
+  function countDown(el){
+    if(RM) return; var t0 = performance.now();
+    (function step(t){ var k = Math.min(1,(t-t0)/1000), e = 1-Math.pow(1-k,4); el.textContent = Math.round(2199-(2199-390)*e); if(k<1) requestAnimationFrame(step) })(t0);
+  }
+
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var t = e.target;
+      if(t.classList.contains('kar')) karaoke(t);
+      else { t.classList.add('vis'); var c = t.querySelector('[data-count]'); if(c) countDown(c) }
+      io.unobserve(t);
+    });
+  }, {threshold:.2});
+  document.querySelectorAll('.kar:not(#h1),.rv,.facts,.bcard,.pcard,.feat,#ylist,.ag p').forEach(function(el){ io.observe(el) });
+  setTimeout(function(){ karaoke(document.getElementById('h1'), function(){
+    document.getElementById('circ').classList.add('drawn');
+    setTimeout(function(){ document.getElementById('scrib').classList.add('drawn') }, 500);
+  }) }, 300);
+
+  /* hero-телефон: субтитри слово за словом, джамп-кати, емодзі, сейф-зона */
+  var cam = document.getElementById('cam'), caps = document.getElementById('caps'), e1 = document.getElementById('e1'), e2 = document.getElementById('e2'),
+      safe = document.getElementById('safe'), mouth = document.getElementById('mouth');
+  var lines = [ {w:['Паузи?','Вирізано'], emo:e1}, {w:['Субтитри?','Готові']}, {w:['Монтаж','однією','командою'], emo:e2, safe:true} ];
+  var li = 0, talk = 0;
+  setInterval(function(){ talk ^= 1; mouth.setAttribute('d', talk ? 'M88 104q12 12 24 0' : 'M88 106q12 6 24 0') }, 160);
+  (function showLine(){
+    var L = lines[li % lines.length]; li++;
+    caps.innerHTML = ''; cam.classList.toggle('z');
+    [e1,e2].forEach(function(e){ e.classList.remove('on') }); safe.classList.toggle('on', !!L.safe);
+    L.w.forEach(function(w, i){
+      setTimeout(function(){
+        var prev = caps.querySelector('.act'); if(prev) prev.classList.remove('act');
+        var s = document.createElement('span'); s.className = 'cw act'; s.textContent = w; caps.appendChild(s);
+        if(i === L.w.length-1 && L.emo) L.emo.classList.add('on');
+      }, 120 + i*330);
+    });
+    setTimeout(showLine, 600 + L.w.length*330 + 900);
+  })();
+
+  /* таймлайн: плейхед, ножиці, ripple-видалення «е-е-м» */
+  var tracks = document.getElementById('tracks'), phd = document.getElementById('phd'), sciss = document.getElementById('sciss'),
+      tlt = document.getElementById('tlt'), tlf = document.getElementById('tlf');
+  var plan = [[26],[12,'е-е-м'],[20],[10,'пауза'],[30]], capsT = ['Сьогодні','','покажу','','голосом'];
+  ['v','t','a'].forEach(function(k){
+    var r = document.createElement('div'); r.className = 'trow ' + k;
+    r.innerHTML = '<span class="lb">' + {v:'V1',t:'T1',a:'A1'}[k] + '</span>';
+    plan.forEach(function(p, i){
+      var s = document.createElement('div'); s.className = 'sg' + (p[1] ? ' x' : ''); s.style.width = p[0] + '%';
+      if(p[1]) s.textContent = k==='t' ? p[1] : ''; else if(k==='t') s.textContent = capsT[i];
+      r.appendChild(s);
+    });
+    tracks.appendChild(r);
+  });
+  var xs = tracks.querySelectorAll('.sg.x');
+  function tlCycle(){
+    xs.forEach(function(x){ x.classList.remove('gone') }); sciss.classList.remove('on','snip'); tlt.textContent = '00:58'; tlf.innerHTML = 'вирізано: <b>0 с</b>';
+    var W = tracks.clientWidth, t0 = performance.now(), cutIdx = 0, cutAt = [0.27, 0.6];
+    (function mv(t){
+      var k = Math.min(1, (t - t0)/5200);
+      phd.style.left = (26 + k*(W-30)) + 'px';
+      if(cutIdx < 2 && k > cutAt[cutIdx]){
+        var c = cutIdx, row0 = tracks.querySelectorAll('.trow.v .sg.x')[c];
+        sciss.style.left = (row0.offsetLeft + row0.offsetWidth/2) + 'px'; sciss.classList.add('on','snip');
+        setTimeout(function(){
+          tracks.querySelectorAll('.trow').forEach(function(r){ r.querySelectorAll('.sg.x')[c].classList.add('gone') });
+          sciss.classList.remove('on','snip');
+          tlt.textContent = c ? '00:42' : '00:50'; tlf.innerHTML = 'вирізано: <b>' + (c ? 16 : 8) + ' с</b>';
+        }, 420);
+        cutIdx++;
+      }
+      if(k < 1) requestAnimationFrame(mv); else setTimeout(tlCycle, 1400);
+    })(t0);
+  }
+  if(!RM) tlCycle(); else xs.forEach(function(x){ x.classList.add('gone') });
+
+  /* демо-ролики: субтитри з data-l («;» — нова фраза, «*» — ключове слово); крутяться лише на екрані */
+  document.querySelectorAll('.rcap[data-l]').forEach(function(cap){
+    var phr = cap.dataset.l.split(';'), n = 0, on = false, tm = null;
+    function run(){
+      if(!on) return;
+      var ws = phr[n++ % phr.length].split(' '); cap.innerHTML = '';
+      ws.forEach(function(w, i){ setTimeout(function(){
+        var s = document.createElement('span'); if(w[0]==='*'){ s.className = 'k'; w = w.slice(1) } s.textContent = w; cap.appendChild(s);
+      }, i*280) });
+      tm = setTimeout(run, ws.length*280 + 1300);
+    }
+    new IntersectionObserver(function(es){ var v = es[0].isIntersecting; if(v && !on){ on = true; run() } else if(!v){ on = false; clearTimeout(tm) } }).observe(cap.parentNode);
+    if(RM){ cap.innerHTML = phr[0].replace(/\*(\S+)/g,'<span class="k">$1</span>') }
+  });
+
+  /* панель інструментів: підсвічуємо картку, яка зараз на екрані */
+  var tb = document.getElementById('toolbar'), tLinks = tb.querySelectorAll('a');
+  var fio = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      tLinks.forEach(function(a){
+        var hit = a.getAttribute('href') === '#' + e.target.id; a.classList.toggle('act', hit);
+        if(hit) tb.scrollTo({left: a.offsetLeft - 20, behavior: RM ? 'auto' : 'smooth'});
+      });
+    });
+  }, {rootMargin:'-35% 0px -55% 0px'});
+  document.querySelectorAll('.feat').forEach(function(f){ fio.observe(f) });
+
+  /* відгуки: крапки */
+  var revs = document.getElementById('revs'), dots = document.getElementById('dots'), rs = revs.querySelectorAll('.rev');
+  rs.forEach(function(){ dots.appendChild(document.createElement('i')) });
+  var ds = dots.querySelectorAll('i'); ds[0].classList.add('on');
+  revs.addEventListener('scroll', function(){
+    var mid = revs.scrollLeft + revs.clientWidth/2, best = 0, bd = 1e9;
+    rs.forEach(function(r, i){ var d = Math.abs(r.offsetLeft + r.offsetWidth/2 - mid); if(d < bd){ bd = d; best = i } });
+    ds.forEach(function(d, i){ d.classList.toggle('on', i === best) });
+  }, {passive:true});
+
+  /* таймери 10 хв з перекиданням цифр (усі на сторінці синхронно) */
+  var end = Date.now() + 600000, tel = document.querySelectorAll('[data-t]');
+  function pad(n){ return n<10 ? '0'+n : ''+n }
+  (function tick(){
+    var l = Math.max(0, end - Date.now()), s = Math.floor(l/1000), v = {h:pad(Math.floor(s/3600)), m:pad(Math.floor(s%3600/60)), s:pad(s%60)};
+    tel.forEach(function(n){ var nv = v[n.dataset.t]; if(n.textContent === nv) return;
+      n.classList.add('flip'); setTimeout(function(){ n.textContent = nv }, 200); setTimeout(function(){ n.classList.remove('flip') }, 430) });
+    if(l>0) setTimeout(tick, 1000);
+  })();
+
+  /* липка панель: після першого квитка з ціною, ховаємо над фінальним CTA і футером */
+  var st = document.getElementById('sticky'), tk = document.getElementById('ticket'), fin = document.getElementById('final'), off = document.getElementById('offerbox');
+  function onScroll(){
+    var past = tk.getBoundingClientRect().bottom < 0;
+    var fr = fin.getBoundingClientRect(), orr = off.getBoundingClientRect();
+    var overCta = (fr.top < innerHeight && fr.bottom > 0) || (orr.top < innerHeight && orr.bottom > 0);
+    st.classList.toggle('on', past && !overCta);
+  }
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+})();
+</script>
+</body>
+</html>
