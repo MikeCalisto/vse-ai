@@ -17,3 +17,6 @@ ai-video-zsoboyu/preview/
 
 # локальный конфиг дизайн-хука, в деплой не нужен
 .impeccable/
+
+# сирі вихідники відео для ai-studiya (у репо лише стиснуті копії)
+ai-studiya/_src/
