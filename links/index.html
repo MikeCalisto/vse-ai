@@ -394,6 +394,18 @@
   }
   .card--new:hover .card__cta { box-shadow:0 18px 38px -10px rgba(34,211,238,.7); }
 
+  /* ── WIDE-картка: відео 16:9 зверху на всю ширину, текст під ним ── */
+  .card--wide { grid-template-columns:1fr; }
+  .card--wide .card__media {
+    aspect-ratio:16/9;
+    align-self:auto;
+    border-radius:21px 21px 0 0;
+  }
+  .card--wide .card__media::after {
+    background:linear-gradient(180deg, rgba(0,0,0,0) 62%, rgba(24,24,28,.85) 100%);
+  }
+  .card--wide .card__body { padding:14px 16px 16px; }
+
   /* ========== TG CHANNEL CARD ========== */
   .tg-card {
     margin-top:8px;
@@ -534,9 +546,9 @@
   <div class="cards">
 
     <!-- 1. НОВИНКА: АІ-Монтажер -->
-    <a class="card card--new fade-in" href="/ai-montazher-ubt/" target="_blank" rel="noopener">
+    <a class="card card--new card--wide fade-in" href="/ai-montazher-ubt/" target="_blank" rel="noopener">
       <div class="card__media">
-        <video data-src="montazher-sm.mp4" poster="montazher-poster-sm.jpg" muted loop playsinline preload="none" aria-label="АІ-Монтажер"></video>
+        <video data-src="montazher-wide.mp4" poster="montazher-wide-poster.jpg" muted loop playsinline preload="none" aria-label="АІ-Монтажер"></video>
       </div>
       <div class="card__body">
         <span class="card__pill"><span class="spark">✨</span> новинка</span>
