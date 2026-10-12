@@ -658,6 +658,10 @@ details.acc[open] summary i{transform:rotate(45deg)}
 .g-top p{font:600 15px/1.4 var(--body)}
 .g-top b{font-weight:800}
 
+.m-krow{justify-content:flex-start;margin-top:-2px}
+.m-krow .start{flex-direction:row;align-items:center;gap:10px;padding:7px 12px;transform:rotate(-2deg)}
+.m-krow .start b{margin-top:0;font-size:18px}
+#hero .m-krow + .h1{margin-top:16px!important}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .rv,.bcard,.facts li{opacity:1;transform:none}
@@ -688,7 +692,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
 
   <!-- ═══ 1. HERO ═══ -->
   <section class="sec" id="hero" style="padding-top:0">
-    <div class="krow" style="justify-content:flex-end">
+    <div class="krow m-krow">
       <span class="start"><small><i></i>старт сьогодні</small><b data-today>09.10</b></span>
     </div>
 
