@@ -641,6 +641,12 @@ details.acc[open] summary i{transform:rotate(45deg)}
 .full-les .nl li{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;color:rgba(255,255,255,.86)}
 
 .nw1{white-space:nowrap}
+/* підпис над відео + заклик до прикладів */
+.hv-bar span{letter-spacing:.03em;text-transform:none;font-size:11px;color:rgba(255,255,255,.8)}
+.hv-more{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding:11px 14px;border-radius:14px;background:var(--ink);color:#fff;font:800 14px/1.25 var(--display)}
+.hv-more i{font-style:normal;flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--or);display:grid;place-items:center;font-size:15px}
+.hv-more:focus-visible{outline:3px solid var(--or);outline-offset:2px}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .rv,.bcard,.facts li{opacity:1;transform:none}
@@ -681,10 +687,11 @@ details.acc[open] summary i{transform:rotate(45deg)}
     <p class="sub">і більше не потрібно сидіти <span class="scrib" id="scrib">годинами<svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path d="M2 18 12 10 20 22 30 8 40 22 50 9 60 21 70 8 80 21 90 9 98 16"/></svg></span> над одним відео або платити монтажеру $20 за хвилину ролика</p>
 
     <div class="hvid">
-      <div class="hv-bar"><i></i><i></i><i></i><span>AI_SASHKA · АІ монтажер</span></div>
+      <div class="hv-bar"><i></i><i></i><i></i><span>Це відео повністю змонтував АІ монтажер</span></div>
       <video class="hv2" src="media/main.mp4" poster="media/main.jpg" autoplay muted loop playsinline preload="auto" aria-label="Ролик про АІ монтажера"></video>
       <button type="button" class="snd" id="snd" aria-label="Увімкнути звук" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="on" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path class="off" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>звук</span></button>
     </div>
+    <a class="hv-more" href="#examples">Такі ролики ти зможеш монтувати вже під час практикуму <i>↓</i></a>
 
     <ul class="facts" id="facts">
       <li><span class="chk"><svg><use href="#ck"/></svg></span><span>5 практичних уроків</span></li>
@@ -693,7 +700,6 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Reels, TikTok, Shorts і горизонтальні відео</span></li>
       <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Вносиш правки голосом</span></li>
     </ul>
-    <p class="vnote">*Це відео повністю змонтував АІ монтажер</p>
     <p class="sub2">Система, яку ти збереш на практикумі, монтуватиме відео на рівні професійного монтажера, а один ролик коштуватиме <b>≈ 7–12 грн</b>.</p>
 
     <div class="ticket notch2 rv" id="ticket">
@@ -712,7 +718,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
       <a class="btn" href="https://app.zenedu.io/l/kOl4kgiHMQP2fXSM" target="_blank" rel="noopener">Зібрати свого АІ монтажера<span class="bad">−73%</span></a>
       <div class="guar">
         <svg style="color:var(--or)"><use href="#sh"/></svg>
-        <div><b><span>14 днів</span> гарантії повернення коштів</b>Якщо практикум тобі не підійде, я поверну гроші без зайвих питань.</div>
+        <div><b><span>14 днів</span> гарантії:</b>або в тебе працює власний АІ монтажер, або я повертаю гроші.</div>
       </div>
       <p class="tlab">До кінця спеціальної пропозиції:</p>
       <div class="timer"><i data-t="h">00</i><u>:</u><i data-t="m">10</i><u>:</u><i data-t="s">00</i></div>
@@ -1116,7 +1122,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
     <h2 class="h2 kar"><span class="k">Хвалюся!</span></h2>
     <p class="p">А ось відгуки моїх студентів з моїх навчальних програм.</p>
     <p class="p">Мої курси вже пройшли <b class="acc-or">7 141 студент</b>, і найчастіше я чую:</p>
-    <blockquote class="quote">Сашко, за 390 грн — це <b>ВАУ!</b></blockquote>
+    <blockquote class="quote">Сашко, за такі гроші — це <b>ВАУ!</b></blockquote>
     <div class="revs" id="revs">
       <figure class="rev"><img src="rev/rev-1.jpg" width="900" height="471" alt="Відгук студента 1" loading="lazy" decoding="async"></figure>
       <figure class="rev"><img src="rev/rev-2.jpg" width="900" height="321" alt="Відгук студента 2" loading="lazy" decoding="async"></figure>

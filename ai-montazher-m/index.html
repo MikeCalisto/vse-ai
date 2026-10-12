@@ -641,6 +641,23 @@ details.acc[open] summary i{transform:rotate(45deg)}
 .full-les .nl li{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;color:rgba(255,255,255,.86)}
 
 .nw1{white-space:nowrap}
+/* підпис над відео + заклик до прикладів */
+.hv-bar span{letter-spacing:.03em;text-transform:none;font-size:11px;color:rgba(255,255,255,.8)}
+.hv-more{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding:11px 14px;border-radius:14px;background:var(--ink);color:#fff;font:800 14px/1.25 var(--display)}
+.hv-more i{font-style:normal;flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--or);display:grid;place-items:center;font-size:15px}
+.hv-more:focus-visible{outline:3px solid var(--or);outline-offset:2px}
+
+/* сторінка Міші: довгий оффер */
+#hero .sub .hl{background:var(--or);color:#fff;padding:0 6px;border-radius:6px;white-space:nowrap}
+.m-lead{margin-top:14px;color:var(--ink)}
+.m-lead b{background:none;color:var(--or);padding:0}
+#hero .facts{gap:8px;margin-top:20px}
+#hero .facts li{font-size:14.5px;padding:10px 12px}
+.g-top{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:center;margin-top:16px;padding:14px;border-radius:16px;background:var(--or-soft);border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.g-top svg{width:28px;height:28px}
+.g-top p{font:600 15px/1.4 var(--body)}
+.g-top b{font-weight:800}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .rv,.bcard,.facts li{opacity:1;transform:none}
@@ -664,37 +681,38 @@ details.acc[open] summary i{transform:rotate(45deg)}
 
 <div class="wrap">
 
-  <div class="tape" aria-label="NEW · Практикум з домашніми завданнями">
+  <div class="tape" aria-label="Курс-практикум для тих, хто знімає, але не публікує через монтаж">
     <div class="t b" aria-hidden="true"><div class="tr"><span>✂ Reels <i>●</i> TikTok <i>●</i> Shorts <i>●</i> YouTube <i>●</i> Reels <i>●</i> TikTok <i>●</i> Shorts <i>●</i> YouTube <i>●</i>&nbsp;</span><span>✂ Reels <i>●</i> TikTok <i>●</i> Shorts <i>●</i> YouTube <i>●</i> Reels <i>●</i> TikTok <i>●</i> Shorts <i>●</i> YouTube <i>●</i>&nbsp;</span></div></div>
-    <div class="t" aria-hidden="true"><div class="tr"><span>NEW <i>✂</i> Практикум з домашніми завданнями <i>✂</i> NEW <i>✂</i> Практикум з домашніми завданнями <i>✂</i>&nbsp;</span><span>NEW <i>✂</i> Практикум з домашніми завданнями <i>✂</i> NEW <i>✂</i> Практикум з домашніми завданнями <i>✂</i>&nbsp;</span></div></div>
+    <div class="t" aria-hidden="true"><div class="tr"><span>Курс-практикум для тих, хто знімає, але не публікує через монтаж <i>✂</i> Курс-практикум для тих, хто знімає, але не публікує через монтаж <i>✂</i>&nbsp;</span><span>Курс-практикум для тих, хто знімає, але не публікує через монтаж <i>✂</i> Курс-практикум для тих, хто знімає, але не публікує через монтаж <i>✂</i>&nbsp;</span></div></div>
   </div>
 
   <!-- ═══ 1. HERO ═══ -->
   <section class="sec" id="hero" style="padding-top:0">
-    <div class="krow">
-      <p class="sticker"><b>NEW</b>від Ai_Sashka</p>
+    <div class="krow" style="justify-content:flex-end">
       <span class="start"><small><i></i>старт сьогодні</small><b data-today>09.10</b></span>
     </div>
 
-    <h1 class="h1 kar" id="h1" style="margin-top:22px">Збери свого <span class="k">АІ монтажера</span> усього за <span class="nw1">один вечір</span></h1>
-    <p class="for"><span>для</span><b>Reels</b><b>рекламних креативів</b><b>горизонтальних роликів для YouTube</b></p>
-    <p class="sub">і більше не потрібно сидіти <span class="scrib" id="scrib">годинами<svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path d="M2 18 12 10 20 22 30 8 40 22 50 9 60 21 70 8 80 21 90 9 98 16"/></svg></span> над одним відео або платити монтажеру $20 за хвилину ролика</p>
+    <h1 class="h1 kar" id="h1" style="margin-top:14px">Збери свого власного <span class="k">АІ монтажера</span> за <span class="nw1">1 вечір</span></h1>
+    <p class="sub">який монтуватиме тобі ролики різного формату за <b class="hl">7–12 грн</b> замість <span class="scrib" id="scrib">$20 за 1 хв відео<svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path d="M2 18 12 10 20 22 30 8 40 22 50 9 60 21 70 8 80 21 90 9 98 16"/></svg></span>, як у реального монтажера.</p>
+    <p class="sub2 m-lead">Перетвори свої сирі відео, що лежать на телефоні, на готові рілси у твоєму власному стилі з субтитрами та графікою, за допомогою АІ монтажера від <b>@ai_sashka.ua</b>.</p>
 
     <div class="hvid">
-      <div class="hv-bar"><i></i><i></i><i></i><span>AI_SASHKA · АІ монтажер</span></div>
+      <div class="hv-bar"><i></i><i></i><i></i><span>Це відео повністю змонтував АІ монтажер</span></div>
       <video class="hv2" src="media/main.mp4" poster="media/main.jpg" autoplay muted loop playsinline preload="auto" aria-label="Ролик про АІ монтажера"></video>
       <button type="button" class="snd" id="snd" aria-label="Увімкнути звук" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="on" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path class="off" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>звук</span></button>
     </div>
+    <a class="hv-more" href="#examples">Такі ролики ти зможеш монтувати вже під час практикуму <i>↓</i></a>
 
     <ul class="facts" id="facts">
-      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>5 практичних уроків</span></li>
-      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Працює на Claude Code або ChatGPT Codex</span></li>
-      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Змонтуєш свій перший рілс вже сьогодні</span></li>
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>5 практичних уроків + ДЗ</span></li>
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Ти не вчиш монтаж з нуля, а керуєш голосом готовою системою монтажу</span></li>
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Чистка пауз, субтитри по словах, графіка, звук і обкладинка в 1 клік</span></li>
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Ніяких технічних завдань і правок по колу</span></li>
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Кожен ролик у твоєму брендлуку: шрифти, кольори, стікери з тобою</span></li>
       <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Reels, TikTok, Shorts і горизонтальні відео</span></li>
-      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Вносиш правки голосом</span></li>
+      <li><span class="chk"><svg><use href="#ck"/></svg></span><span>Готові ролики рівня професійної студії монтажу</span></li>
     </ul>
-    <p class="vnote">*Це відео повністю змонтував АІ монтажер</p>
-    <p class="sub2">Система, яку ти збереш на практикумі, монтуватиме відео на рівні професійного монтажера, а один ролик коштуватиме <b>≈ 7–12 грн</b>.</p>
+    <div class="g-top"><svg style="color:var(--or)"><use href="#sh"/></svg><p><b>14 днів гарантії:</b> або в тебе працює власний АІ монтажер, або я повертаю гроші.</p></div>
 
     <div class="ticket notch2 rv" id="ticket">
       <div class="burst"><svg viewBox="0 0 100 100"><polygon fill="#FF5A1A" stroke="#15120F" stroke-width="2.5" stroke-linejoin="round" points="50,2 57,17 72,7 73,24 90,20 84,36 99,42 86,52 97,65 80,68 84,85 67,80 62,97 50,85 38,97 33,80 16,85 20,68 3,65 14,52 1,42 16,36 10,20 27,24 28,7 43,17"/></svg><b>−73%</b></div>
@@ -710,9 +728,9 @@ details.acc[open] summary i{transform:rotate(45deg)}
         </div>
       </div>
       <a class="btn" href="https://app.zenedu.io/l/ODhPANQajpqaAGqh" target="_blank" rel="noopener">Зібрати свого АІ монтажера<span class="bad">−73%</span></a>
-      <div class="guar">
+      <div class="guar one">
         <svg style="color:var(--or)"><use href="#sh"/></svg>
-        <div><b><span>14 днів</span> гарантії повернення коштів</b>Якщо практикум тобі не підійде, я поверну гроші без зайвих питань.</div>
+        <div><b><span>14 днів</span> гарантії повернення коштів</b></div>
       </div>
       <p class="tlab">До кінця спеціальної пропозиції:</p>
       <div class="timer"><i data-t="h">00</i><u>:</u><i data-t="m">10</i><u>:</u><i data-t="s">00</i></div>
@@ -1116,7 +1134,7 @@ details.acc[open] summary i{transform:rotate(45deg)}
     <h2 class="h2 kar"><span class="k">Хвалюся!</span></h2>
     <p class="p">А ось відгуки моїх студентів з моїх навчальних програм.</p>
     <p class="p">Мої курси вже пройшли <b class="acc-or">7 141 студент</b>, і найчастіше я чую:</p>
-    <blockquote class="quote">Сашко, за 390 грн — це <b>ВАУ!</b></blockquote>
+    <blockquote class="quote">Сашко, за такі гроші — це <b>ВАУ!</b></blockquote>
     <div class="revs" id="revs">
       <figure class="rev"><img src="rev/rev-1.jpg" width="900" height="471" alt="Відгук студента 1" loading="lazy" decoding="async"></figure>
       <figure class="rev"><img src="rev/rev-2.jpg" width="900" height="321" alt="Відгук студента 2" loading="lazy" decoding="async"></figure>
