@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Стилі ілюстрацій</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Чотири стилі ілюстрацій для АІ Студії монтажу: ті самі елементи в кожному, щоб порівняти */
+:root{
+  --bg:#F3EEE4;--paper:#FFFCF6;--ink:#15120F;--or:#FF5A1A;--or2:#FF8A4D;--peach:#FFD9C2;--yel:#FFD23A;--mute:#6C645A;--line:#E6DED0;--grn:#1FA25A;
+  --display:'Montserrat',system-ui,sans-serif;--body:'Onest',system-ui,sans-serif;color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+.page{max-width:520px;margin:0 auto;padding:36px 16px 80px}
+h1{font:900 clamp(26px,7vw,34px)/1.1 var(--display);text-transform:uppercase;letter-spacing:-.02em;text-wrap:balance}
+.lead{margin-top:12px;color:var(--mute);font-size:15px}
+.var{margin-top:44px}
+.vh{display:flex;align-items:center;gap:12px}
+.vh b{flex:none;width:40px;height:40px;border-radius:12px;background:var(--ink);color:#fff;display:grid;place-items:center;font:900 18px/1 var(--display)}
+.vh h2{font:900 20px/1.15 var(--display);text-transform:uppercase}
+.vd{margin-top:8px;font-size:14.5px;color:var(--mute)}
+.row{display:flex;gap:12px;margin-top:16px}
+.cap{margin-top:14px;font:700 12px/1 var(--body);text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}
+.ill{position:relative;margin-top:8px;aspect-ratio:16/10;border-radius:20px;overflow:hidden}
+.ill svg.full{position:absolute;inset:0;width:100%;height:100%}
+.sw{position:relative;width:96px;height:96px;border-radius:20px;overflow:hidden;display:grid;place-items:center}
+
+@keyframes float{50%{transform:translateY(-8px)}}
+@keyframes floatB{50%{transform:translateY(6px)}}
+@keyframes play{from{left:12%}to{left:86%}}
+@keyframes playS{from{transform:translateX(0)}to{transform:translateX(206px)}}
+@keyframes rise{0%{transform:translateY(0) scale(.7);opacity:0}25%{opacity:1}100%{transform:translateY(-60px) scale(1);opacity:0}}
+@keyframes eq{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+@keyframes toast{0%,15%{transform:translateX(30px);opacity:0}25%,85%{transform:none;opacity:1}100%{transform:translateX(30px);opacity:0}}
+@keyframes pulse{50%{transform:scale(1.08)}}
+
+/* ───── A · СКЛО ───── */
+.A .bgA{background:radial-gradient(50% 70% at 18% 22%,#FFC7A6 0,transparent 70%),radial-gradient(60% 80% at 92% 85%,#FF5A1A 0,transparent 65%),linear-gradient(135deg,#FFE3D1,#FF9A5C)}
+.A .blob{position:absolute;border-radius:50%;filter:blur(22px);opacity:.8}
+.A .glass{position:absolute;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.65);box-shadow:0 10px 30px rgba(180,60,10,.18),inset 0 1px 0 rgba(255,255,255,.7);-webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3)}
+.A .chip{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;position:relative}
+.A .chip svg{width:30px;height:30px}
+.A .phone{left:36%;top:7%;width:28%;height:86%;border-radius:22px;padding:6px}
+.A .phone .scr{position:absolute;inset:6px;border-radius:17px;background:linear-gradient(160deg,#FFB48A,#FF5A1A);overflow:hidden}
+.A .phone .scr::after{content:'';position:absolute;left:-30%;top:-40%;width:90%;height:70%;border-radius:50%;background:rgba(255,255,255,.35);filter:blur(10px)}
+.A .pbtn{position:absolute;left:50%;top:46%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;display:grid;place-items:center;animation:pulse 2.4s ease-in-out infinite}
+.A .pbtn svg{width:18px;height:18px;margin-left:3px}
+.A .prog{position:absolute;left:12px;right:12px;bottom:14px;height:5px;border-radius:3px;background:rgba(255,255,255,.4);overflow:hidden}
+.A .prog i{display:block;width:62%;height:100%;background:#fff;border-radius:3px}
+.A .pill{display:flex;align-items:center;gap:6px;border-radius:999px;padding:8px 12px;animation:float 4s ease-in-out infinite}
+.A .pill svg{width:18px;height:18px}
+.A .pill i{display:block;height:6px;border-radius:3px;background:rgba(255,255,255,.85)}
+.A .ed{left:6%;right:6%;bottom:8%;height:46%;border-radius:18px;padding:12px}
+.A .lane{position:relative;height:16px;margin-bottom:8px;display:flex;gap:6px}
+.A .lane span{display:block;height:100%;border-radius:8px}
+.A .clip{background:linear-gradient(90deg,#FF5A1A,#FF8A4D);box-shadow:inset 0 1px 0 rgba(255,255,255,.4)}
+.A .clip2{background:rgba(255,255,255,.75)}
+.A .wave{display:flex;align-items:center;gap:3px;height:20px}
+.A .wave i{display:block;width:4px;border-radius:2px;background:#fff;animation:eq 1s ease-in-out infinite}
+.A .head{position:absolute;top:6px;bottom:6px;width:2px;background:#fff;animation:play 4s linear infinite}
+.A .head::before{content:'';position:absolute;top:-5px;left:-5px;width:12px;height:12px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(120,40,0,.35)}
+.A .fmt{border-radius:12px;display:grid;place-items:center}
+
+/* ───── B · ІНТЕРФЕЙС ПРОДУКТУ ───── */
+.B .bgB{background:#FAF7F2;background-image:linear-gradient(rgba(21,18,15,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(21,18,15,.045) 1px,transparent 1px);background-size:22px 22px;border:1px solid var(--line)}
+.B .card{position:absolute;background:#fff;border:1px solid #ECE5D9;border-radius:14px;box-shadow:0 1px 2px rgba(21,18,15,.06),0 12px 32px rgba(21,18,15,.10)}
+.B .chip{width:64px;height:64px;border-radius:18px;background:#fff;border:1px solid #ECE5D9;box-shadow:0 1px 2px rgba(21,18,15,.06),0 10px 24px rgba(21,18,15,.10);display:grid;place-items:center}
+.B .chip span{width:40px;height:40px;border-radius:12px;background:linear-gradient(140deg,#FF8A4D,#FF5A1A);display:grid;place-items:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 4px 10px rgba(255,90,26,.35)}
+.B .chip svg{width:22px;height:22px}
+.B .phone{left:30%;top:6%;width:30%;height:88%;border-radius:24px;background:#15120F;padding:5px;box-shadow:0 18px 40px rgba(21,18,15,.25)}
+.B .phone .scr{position:absolute;inset:5px;border-radius:19px;overflow:hidden;background:linear-gradient(170deg,#FFC9A8 0,#FF8A4D 55%,#E2460F 100%)}
+.B .who{position:absolute;left:50%;bottom:22%;width:58%;transform:translateX(-50%)}
+.B .subs{position:absolute;left:12%;right:24%;bottom:15%;display:flex;flex-wrap:wrap;gap:3px}
+.B .subs i{display:block;height:7px;border-radius:2px;background:#fff}
+.B .side{position:absolute;right:6px;bottom:20%;display:grid;gap:9px}
+.B .side svg{width:16px;height:16px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.3))}
+.B .bar{position:absolute;left:8px;right:8px;bottom:8px;height:3px;border-radius:2px;background:rgba(255,255,255,.4)}
+.B .bar i{display:block;width:40%;height:100%;background:#fff;border-radius:2px}
+.B .toast{right:5%;top:30%;width:34%;padding:10px;display:grid;grid-template-columns:24px 1fr;gap:8px;align-items:center;animation:toast 4.5s ease-in-out infinite}
+.B .toast .ok{width:24px;height:24px;border-radius:50%;background:var(--grn);display:grid;place-items:center}
+.B .toast i{display:block;height:6px;border-radius:3px;background:#E9E2D6;margin:3px 0}
+.B .win{left:5%;right:5%;top:8%;bottom:8%;overflow:hidden}
+.B .tb{display:flex;align-items:center;gap:5px;padding:8px 10px;border-bottom:1px solid #F0EAE0}
+.B .tb i{width:7px;height:7px;border-radius:50%;background:#E6DED0}
+.B .tb i:first-child{background:#FF5F57}.B .tb i:nth-child(2){background:#FEBC2E}.B .tb i:nth-child(3){background:#28C840}
+.B .seg{margin-left:auto;display:flex;gap:2px;background:#F5F0E8;border-radius:6px;padding:2px}
+.B .seg span{width:22px;height:10px;border-radius:4px}
+.B .seg span:first-child{background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.B .tracks{position:relative;padding:10px 10px 8px 30px}
+.B .tr{position:relative;display:flex;gap:4px;height:22px;margin-bottom:6px}
+.B .tr::before{content:'';position:absolute;left:-20px;top:7px;width:10px;height:8px;border-radius:2px;background:#E6DED0}
+.B .th{border-radius:5px;background:linear-gradient(135deg,#FFB48A,#FF5A1A);position:relative;overflow:hidden}
+.B .th::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 22px,rgba(255,255,255,.35) 22px 23px)}
+.B .tx{border-radius:5px;background:#FFE7DA;border:1px solid #FFC9AE}
+.B .au{flex:1;border-radius:5px;background:#FFF4EE;border:1px solid #FFD9C2;overflow:hidden}
+.B .au svg{width:100%;height:100%}
+.B .ph{position:absolute;top:2px;bottom:4px;left:30px;width:2px;background:var(--or);animation:playS 4s linear infinite}
+.B .ph::before{content:'';position:absolute;top:-4px;left:-5px;width:12px;height:9px;border-radius:3px;background:var(--or)}
+
+/* ───── C · ЛІНІЙНА ГРАФІКА ───── */
+.C .bgC{background:var(--paper);border:1px solid var(--line)}
+.C .chip{width:64px;height:64px;border-radius:18px;background:var(--paper);border:1px solid #DED5C5;display:grid;place-items:center;position:relative}
+.C .chip svg{width:30px;height:30px}
+.C .chip::after{content:'';position:absolute;right:10px;top:10px;width:8px;height:8px;border-radius:50%;background:var(--or)}
+.C .ln{fill:none;stroke:#15120F;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.C .lnd{fill:none;stroke:#C9BFAF;stroke-width:1.25;stroke-dasharray:3 4}
+.C .fl{animation:float 4s ease-in-out infinite}
+.C .rs{animation:rise 3s ease-out infinite;transform-box:fill-box;transform-origin:center;opacity:0}
+.C .ph{animation:playS 4s linear infinite}
+.C .eq{transform-box:fill-box;transform-origin:center;animation:eq 1s ease-in-out infinite}
+
+/* ───── D · ГРАДІЄНТ І ЗЕРНО ───── */
+.D .bgD{background:radial-gradient(55% 75% at 15% 20%,#FFD23A 0,transparent 65%),radial-gradient(60% 80% at 85% 15%,#FF9A5C 0,transparent 60%),radial-gradient(70% 90% at 70% 100%,#E2460F 0,transparent 65%),#FF5A1A}
+.D .bgD::after,.D .sw::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.D .sw{background:radial-gradient(70% 70% at 25% 20%,#FFD23A,transparent 65%),radial-gradient(80% 80% at 90% 90%,#E2460F,transparent 60%),#FF5A1A}
+.D .sw svg{position:relative;width:46px;height:46px;z-index:1}
+.D .fl{animation:float 4s ease-in-out infinite}
+.D .fl2{animation:floatB 5s ease-in-out infinite}
+.D .rs{animation:rise 3s ease-out infinite;transform-box:fill-box;transform-origin:center;opacity:0}
+.D .ph{animation:playS 4s linear infinite}
+.D .eq{transform-box:fill-box;transform-origin:bottom;animation:eq 1s ease-in-out infinite}
+
+.note{margin-top:48px;padding:16px;border-radius:16px;background:var(--paper);border:1px solid var(--line);font-size:14.5px;color:var(--mute)}
+.note b{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.C .rs,.D .rs{opacity:1}}
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Стилі ілюстрацій для АІ Студії монтажу</h1>
+  <p class="lead">Чотири варіанти на тих самих елементах: дві іконки, «Ти отримуєш готовий ролик» і «АІ-монтажер зводить ролик». Обери стиль, і я переведу в нього всі ілюстрації на посадці.</p>
+
+  <!-- ═══ A · СКЛО ═══ -->
+  <section class="var A">
+    <div class="vh"><b>A</b><h2>Скло</h2></div>
+    <p class="vd">Матові напівпрозорі панелі на теплому градієнті, мʼякі відблиски. Легко і дорого, як інтерфейси Apple.</p>
+    <p class="cap">Іконки</p>
+    <div class="row">
+      <div class="sw bgA"><span class="blob" style="width:60px;height:60px;left:-10px;top:-6px;background:#fff"></span><div class="glass chip" style="position:relative"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z" fill="#fff"/></svg></div></div>
+      <div class="sw bgA"><span class="blob" style="width:60px;height:60px;right:-10px;bottom:-10px;background:#FF5A1A"></span><div class="glass chip" style="position:relative"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/><circle cx="10.5" cy="10.5" r="2" fill="#fff"/></svg></div></div>
+    </div>
+    <p class="cap">Готовий ролик</p>
+    <div class="ill bgA" aria-hidden="true">
+      <span class="blob" style="width:120px;height:120px;left:8%;top:10%;background:#fff"></span>
+      <span class="blob" style="width:140px;height:140px;right:4%;bottom:-10%;background:#FF5A1A"></span>
+      <div class="glass phone"><div class="scr"><div class="glass pbtn"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z" fill="#fff"/></svg></div><div class="prog"><i></i></div></div></div>
+      <div class="glass pill" style="position:absolute;right:7%;top:16%"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="#fff"/></svg><i style="width:34px"></i></div>
+      <div class="glass pill" style="position:absolute;left:6%;bottom:18%;animation-delay:-2s"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="#1FA25A"/><path d="M8 12.3l2.7 2.7L16 9.5" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><i style="width:26px"></i></div>
+    </div>
+    <p class="cap">АІ-монтажер зводить ролик</p>
+    <div class="ill bgA" aria-hidden="true">
+      <span class="blob" style="width:130px;height:130px;left:-4%;top:-12%;background:#fff"></span>
+      <div class="glass fmt" style="left:14%;top:9%;width:13%;height:34%"></div>
+      <div class="glass fmt" style="left:33%;top:13%;width:17%;height:27%"></div>
+      <div class="glass fmt" style="left:56%;top:15%;width:28%;height:24%"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z" fill="#fff"/></svg></div>
+      <div class="glass ed">
+        <div class="lane"><span class="clip" style="width:28%"></span><span class="clip2" style="width:40%"></span><span class="clip" style="width:22%"></span></div>
+        <div class="lane"><span class="clip2" style="width:46%"></span><span class="clip" style="width:44%"></span></div>
+        <div class="wave"><i style="height:40%"></i><i style="height:80%;animation-delay:-.3s"></i><i style="height:55%;animation-delay:-.6s"></i><i style="height:95%;animation-delay:-.2s"></i><i style="height:60%;animation-delay:-.5s"></i><i style="height:35%;animation-delay:-.8s"></i><i style="height:75%;animation-delay:-.1s"></i><i style="height:50%;animation-delay:-.4s"></i><i style="height:90%;animation-delay:-.7s"></i><i style="height:45%"></i><i style="height:70%;animation-delay:-.35s"></i><i style="height:55%;animation-delay:-.65s"></i><i style="height:85%;animation-delay:-.15s"></i><i style="height:40%;animation-delay:-.45s"></i><i style="height:65%;animation-delay:-.75s"></i><i style="height:50%;animation-delay:-.25s"></i><i style="height:80%;animation-delay:-.55s"></i><i style="height:45%;animation-delay:-.85s"></i><i style="height:70%"></i><i style="height:35%;animation-delay:-.3s"></i></div>
+        <span class="head"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ B · ІНТЕРФЕЙС ПРОДУКТУ ═══ -->
+  <section class="var B">
+    <div class="vh"><b>B</b><h2>Інтерфейс продукту</h2></div>
+    <p class="vd">Чисті мокапи справжнього інтерфейсу: білі картки, тонкі рамки, мʼякі тіні, сітка. Як на сайтах сучасних SaaS-сервісів.</p>
+    <p class="cap">Іконки</p>
+    <div class="row">
+      <div class="chip"><span><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#fff"/></svg></span></div>
+      <div class="chip"><span><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></svg></span></div>
+    </div>
+    <p class="cap">Готовий ролик</p>
+    <div class="ill bgB" aria-hidden="true">
+      <div class="phone" style="position:absolute"><div class="scr">
+        <svg class="who" viewBox="0 0 100 100"><circle cx="50" cy="34" r="20" fill="#FFE3D1"/><path d="M14 100c4-30 18-44 36-44s32 14 36 44z" fill="#15120F"/></svg>
+        <div class="subs"><i style="width:44%"></i><i style="width:30%;background:#FFD23A"></i><i style="width:60%"></i></div>
+        <div class="side"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="#fff"/></svg><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z" fill="#fff"/></svg><svg viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-3-6z" fill="#fff"/></svg></div>
+        <div class="bar"><i></i></div>
+      </div></div>
+      <div class="card toast"><span class="ok"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M6 12.5l4 4 8-9" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><i style="width:90%"></i><i style="width:60%"></i></span></div>
+    </div>
+    <p class="cap">АІ-монтажер зводить ролик</p>
+    <div class="ill bgB" aria-hidden="true">
+      <div class="card win">
+        <div class="tb"><i></i><i></i><i></i><span class="seg"><span></span><span></span><span></span></span></div>
+        <div class="tracks">
+          <div class="tr"><span class="th" style="width:30%"></span><span class="th" style="width:22%;filter:hue-rotate(-12deg)"></span><span class="th" style="width:36%;filter:saturate(.7)"></span></div>
+          <div class="tr"><span class="tx" style="width:18%;margin-left:6%"></span><span class="tx" style="width:24%;margin-left:10%"></span><span class="tx" style="width:16%;margin-left:8%"></span></div>
+          <div class="tr" style="height:30px"><span class="au"><svg viewBox="0 0 260 30" preserveAspectRatio="none"><path d="M0 15 L4 9 L8 21 L12 6 L16 24 L20 12 L24 18 L28 4 L32 26 L36 11 L40 19 L44 8 L48 22 L52 14 L56 16 L60 5 L64 25 L68 10 L72 20 L76 7 L80 23 L84 13 L88 17 L92 6 L96 24 L100 12 L104 18 L108 9 L112 21 L116 4 L120 26 L124 13 L128 17 L132 8 L136 22 L140 11 L144 19 L148 6 L152 24 L156 14 L160 16 L164 5 L168 25 L172 10 L176 20 L180 8 L184 22 L188 12 L192 18 L196 6 L200 24 L204 13 L208 17 L212 9 L216 21 L220 5 L224 25 L228 12 L232 18 L236 8 L240 22 L244 14 L248 16 L252 9 L256 21 L260 15" fill="none" stroke="#FF5A1A" stroke-width="1.6"/></svg></span></div>
+          <span class="ph"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ C · ЛІНІЙНА ГРАФІКА ═══ -->
+  <section class="var C">
+    <div class="vh"><b>C</b><h2>Лінійна графіка</h2></div>
+    <p class="vd">Тонкі чорні лінії, багато повітря і один помаранчевий акцент на ілюстрацію. Спокійно і редакційно, як у Notion чи Stripe.</p>
+    <p class="cap">Іконки</p>
+    <div class="row">
+      <div class="chip"><svg viewBox="0 0 24 24"><rect class="ln" x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z" fill="#FF5A1A"/></svg></div>
+      <div class="chip"><svg viewBox="0 0 24 24"><circle class="ln" cx="10.5" cy="10.5" r="6"/><path class="ln" d="M15 15l5 5"/><circle cx="10.5" cy="10.5" r="2" fill="#FF5A1A"/></svg></div>
+    </div>
+    <p class="cap">Готовий ролик</p>
+    <div class="ill bgC" aria-hidden="true"><svg class="full" viewBox="0 0 320 200">
+      <path class="lnd" d="M40 170h240M60 30v140M260 30v140"/>
+      <g class="fl"><rect class="ln" x="124" y="24" width="72" height="150" rx="14"/><rect class="ln" x="150" y="32" width="20" height="4" rx="2"/>
+        <circle cx="160" cy="98" r="20" fill="#FF5A1A"/><path d="M154 88v20l16-10z" fill="#FFFCF6"/>
+        <path class="ln" d="M138 146h44M138 156h28"/></g>
+      <path class="ln rs" d="M230 120c-5-5-11-1-11 3 0 6 11 11 11 11s11-5 11-11c0-4-6-8-11-3z"/>
+      <path class="ln rs" style="animation-delay:-1s" d="M92 132c-5-5-11-1-11 3 0 6 11 11 11 11s11-5 11-11c0-4-6-8-11-3z"/>
+      <path class="ln" d="M222 56l4-10 4 10 10 4-10 4-4 10-4-10-10-4z"/>
+    </svg></div>
+    <p class="cap">АІ-монтажер зводить ролик</p>
+    <div class="ill bgC" aria-hidden="true"><svg class="full" viewBox="0 0 320 200">
+      <rect class="ln" x="72" y="26" width="30" height="48" rx="5"/><rect class="ln" x="120" y="34" width="40" height="40" rx="5"/><rect class="ln" x="178" y="40" width="64" height="34" rx="5"/>
+      <path d="M204 50v14l12-7z" fill="#FF5A1A"/>
+      <path class="lnd" d="M87 74v18M140 74v18M210 74v18"/>
+      <rect class="ln" x="40" y="96" width="240" height="80" rx="10"/>
+      <rect class="ln" x="54" y="110" width="60" height="14" rx="4"/><rect x="120" y="110" width="74" height="14" rx="4" fill="#FF5A1A"/><rect class="ln" x="200" y="110" width="66" height="14" rx="4"/>
+      <rect class="ln" x="54" y="132" width="96" height="14" rx="4"/><rect class="ln" x="156" y="132" width="110" height="14" rx="4"/>
+      <path class="ln" d="M54 162l6-5 6 8 6-10 6 9 6-6 6 7 6-9 6 8 6-5 6 6 6-8 6 9 6-6 6 7 6-9 6 8 6-5 6 6 6-8 6 9 6-6 6 7 6-9 6 8 6-5 6 6 6-8 6 9 6-6 6 7 6-9 6 8 6-5 6 6 6-8"/>
+      <g class="ph"><path d="M56 100v72" stroke="#FF5A1A" stroke-width="2"/><circle cx="56" cy="100" r="4" fill="#FF5A1A"/></g>
+    </svg></div>
+  </section>
+
+  <!-- ═══ D · ГРАДІЄНТ І ЗЕРНО ═══ -->
+  <section class="var D">
+    <div class="vh"><b>D</b><h2>Градієнт і зерно</h2></div>
+    <p class="vd">Живий помаранчево-жовтий градієнт з плівковим зерном і великі білі силуети без контурів. Яскраво і сучасно, як брендові ілюстрації музичних сервісів.</p>
+    <p class="cap">Іконки</p>
+    <div class="row">
+      <div class="sw"><svg viewBox="0 0 48 48"><rect x="4" y="10" width="40" height="28" rx="9" fill="rgba(255,255,255,.4)"/><path d="M20 17v14l12-7z" fill="#fff"/></svg></div>
+      <div class="sw"><svg viewBox="0 0 48 48"><circle cx="21" cy="21" r="14" fill="rgba(255,255,255,.4)"/><circle cx="21" cy="21" r="7" fill="#fff"/><path d="M31 31l10 10" stroke="#fff" stroke-width="6" stroke-linecap="round"/></svg></div>
+    </div>
+    <p class="cap">Готовий ролик</p>
+    <div class="ill bgD" aria-hidden="true"><svg class="full" viewBox="0 0 320 200">
+      <circle cx="80" cy="60" r="44" fill="rgba(255,255,255,.18)" class="fl2"/>
+      <g class="fl"><rect x="118" y="20" width="84" height="164" rx="22" fill="#fff"/><rect x="126" y="30" width="68" height="144" rx="15" fill="rgba(255,90,26,.18)"/>
+        <circle cx="160" cy="100" r="24" fill="#FF5A1A"/><path d="M153 89v22l18-11z" fill="#fff"/>
+        <rect x="136" y="148" width="48" height="6" rx="3" fill="rgba(255,90,26,.45)"/><rect x="136" y="148" width="28" height="6" rx="3" fill="#FF5A1A"/></g>
+      <path class="rs" d="M236 126c-7-7-15-1-15 4 0 8 15 15 15 15s15-7 15-15c0-5-8-11-15-4z" fill="#fff"/>
+      <path class="rs" style="animation-delay:-1.2s" d="M262 104c-5-5-11-1-11 3 0 6 11 11 11 11s11-5 11-11c0-4-6-8-11-3z" fill="rgba(255,255,255,.55)"/>
+      <path class="rs" style="animation-delay:-2s" d="M84 140c-6-6-13-1-13 4 0 7 13 13 13 13s13-6 13-13c0-5-7-10-13-4z" fill="rgba(255,255,255,.7)"/>
+    </svg></div>
+    <p class="cap">АІ-монтажер зводить ролик</p>
+    <div class="ill bgD" aria-hidden="true"><svg class="full" viewBox="0 0 320 200">
+      <g class="fl2"><rect x="68" y="20" width="34" height="56" rx="9" fill="#fff"/><rect x="118" y="30" width="46" height="46" rx="10" fill="rgba(255,255,255,.55)"/><rect x="180" y="36" width="72" height="40" rx="10" fill="#fff"/><path d="M209 47v18l14-9z" fill="#FF5A1A"/></g>
+      <rect x="36" y="92" width="248" height="88" rx="18" fill="rgba(255,255,255,.22)"/>
+      <rect x="50" y="106" width="64" height="16" rx="8" fill="#fff"/><rect x="120" y="106" width="86" height="16" rx="8" fill="rgba(255,255,255,.55)"/><rect x="212" y="106" width="58" height="16" rx="8" fill="#fff"/>
+      <rect x="50" y="130" width="104" height="16" rx="8" fill="rgba(255,255,255,.55)"/><rect x="160" y="130" width="110" height="16" rx="8" fill="#fff"/>
+      <g transform="translate(52 168)" fill="#fff"><rect x="0" y="-10" width="5" height="10" rx="2.5" class="eq"/><rect x="9" y="-14" width="5" height="14" rx="2.5" class="eq" style="animation-delay:-.3s"/><rect x="18" y="-8" width="5" height="8" rx="2.5" class="eq" style="animation-delay:-.6s"/><rect x="27" y="-15" width="5" height="15" rx="2.5" class="eq" style="animation-delay:-.2s"/><rect x="36" y="-9" width="5" height="9" rx="2.5" class="eq" style="animation-delay:-.5s"/><rect x="45" y="-13" width="5" height="13" rx="2.5" class="eq" style="animation-delay:-.8s"/><rect x="54" y="-7" width="5" height="7" rx="2.5" class="eq" style="animation-delay:-.1s"/><rect x="63" y="-14" width="5" height="14" rx="2.5" class="eq" style="animation-delay:-.4s"/><rect x="72" y="-10" width="5" height="10" rx="2.5" class="eq" style="animation-delay:-.7s"/><rect x="81" y="-15" width="5" height="15" rx="2.5" class="eq"/><rect x="90" y="-8" width="5" height="8" rx="2.5" class="eq" style="animation-delay:-.35s"/><rect x="99" y="-12" width="5" height="12" rx="2.5" class="eq" style="animation-delay:-.65s"/></g>
+      <g class="ph"><rect x="52" y="98" width="3" height="76" rx="1.5" fill="#15120F"/><circle cx="53.5" cy="98" r="5" fill="#15120F"/></g>
+    </svg></div>
+  </section>
+
+  <p class="note">Напиши букву стилю, який подобається. Можна змішати: наприклад, <b>B</b> для кроків команди і <b>D</b> для розборів можливостей.</p>
+</div>
+</body>
+</html>
