@@ -78,8 +78,8 @@ b,strong{font-weight:700}
 /* HERO */
 .hero{position:relative;padding:22px var(--pad) 60px;overflow:hidden}
 .hero .halftone{right:-80px;top:120px;color:var(--cob);opacity:.22}
-.stk-row{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 20px;position:relative;z-index:3}
-.stk{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border:2px solid var(--ink);border-radius:11px;font-size:.84rem;font-weight:800;line-height:1.1;box-shadow:3px 3px 0 var(--ink)}
+.stk-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 8px;margin:12px 0 20px;position:relative;z-index:3}
+.stk{display:inline-flex;align-items:center;gap:6px;padding:8px 10px;border:2px solid var(--ink);border-radius:11px;font-size:clamp(10px,calc((min(100vw,480px) - 124px) / 24),13.4px);font-weight:800;line-height:1.1;white-space:nowrap;flex:none;box-shadow:3px 3px 0 var(--ink)}
 .stk--cob{background:var(--cob);color:#fff;--r:-4deg;transform:rotate(-4deg)}
 .stk--w{background:var(--white);--r:2deg;transform:rotate(2deg)}
 .live{width:9px;height:9px;border-radius:50%;background:var(--tom);animation:pulse 1.6s ease-in-out infinite}
@@ -502,7 +502,7 @@ b,strong{font-weight:700}
 
   <div class="stk-row">
     <span class="stk stk--cob">🎬 практичний курс з ДЗ</span>
-    <span class="stk stk--w"><i class="live"></i><span>📅 старт завтра<span class="js-date"></span></span></span>
+    <span class="stk stk--w"><i class="live"></i><span>старт завтра<span class="js-date"></span></span></span>
   </div>
 
   <p class="pre">Практичний курс для тих, хто хоче почати працювати з нейромережами</p>
