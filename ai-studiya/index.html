@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>АІ Студія монтажу — Ai_Sashka</title>
-<meta name="description" content="АІ Студія монтажу: поглиблена версія АІ монтажера. Підходить і тим, хто проходив практикум, і тим, хто починає з нуля. Команда АІ-агентів пише сценарій, збирає ролик і сама виправляє помилки. Оновлення назавжди. 1 999 грн замість 4 899.">
+<meta name="description" content="АІ Студія монтажу: не курс, а готовий інструмент, поглиблена версія АІ монтажера. Ставиться однією фразою. Підходить і тим, хто проходив практикум, і тим, хто починає з нуля. Команда АІ-агентів пише сценарій, збирає ролик і сама виправляє помилки. Оновлення назавжди. 1 999 грн замість 4 899.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="АІ Студія монтажу — Ai_Sashka">
-<meta property="og:description" content="Підходить усім, навіть без практикуму. Команда АІ-агентів, 400+ референсів, відео з нуля і оновлення назавжди.">
+<meta property="og:description" content="Не курс, а готовий інструмент: ставиться однією фразою. Команда АІ-агентів, 400+ референсів, відео з нуля і оновлення назавжди.">
 <!-- ⟨НУЖНО: обложка OG 1200×630⟩ → <meta property="og:image" content="https://vse-ai.vercel.app/ai-studiya/og.jpg"> -->
 <!-- ⟨НУЖНО: ссылка оплаты⟩ → замінити всі href="#pay"; ⟨НУЖНО: ссылка оплаты частинами⟩ → href="#pay-parts" -->
 <meta name="theme-color" content="#F3EEE4">
@@ -411,6 +411,8 @@ details.acc[open] summary i{transform:rotate(45deg)}
 /* відгуки */
 .revs{display:flex;align-items:flex-start;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:24px calc(-1*var(--pad)) 0;padding:4px var(--pad) 14px}
 .revs::-webkit-scrollbar{display:none}
+.rev{flex:0 0 82%;scroll-snap-align:center;margin:0;background:#fff;border:1px solid #ECE5D9;border-radius:20px;padding:8px;box-shadow:0 1px 2px rgba(21,18,15,.05),0 10px 28px rgba(21,18,15,.08)}
+.rev img{display:block;width:100%;height:auto;border-radius:14px}
 
 /* автор */
 .auth-ph{position:relative;margin:24px auto 0;width:min(78%,320px);border-radius:22px;overflow:hidden;border:3px solid #fff;box-shadow:7px 7px 0 var(--or);transform:rotate(-2deg)}
@@ -533,6 +535,7 @@ details.acc summary i,.faq summary i{border:0;background:var(--grad);box-shadow:
 .ver.next{border:1.5px dashed #D9D0C1;background:transparent;box-shadow:none;color:var(--mute)}
 .vers .ln{height:2px;background:#E3DBCD}
 .vers .ln.d{background:repeating-linear-gradient(90deg,#FF8A4D 0 5px,transparent 5px 9px)}
+.vers{gap:4px}.vers .ver{width:44px;font-size:15px}
 .proof{transform:none;border:var(--bd);box-shadow:var(--sh-lg);border-radius:20px}
 .proof .prods span{background:#F5F0E8;color:var(--ink)}
 .receipt{transform:none;border:var(--bd);box-shadow:var(--sh-lg);border-radius:10px}
@@ -551,7 +554,64 @@ details.acc summary i,.faq summary i{border:0;background:var(--grad);box-shadow:
 .sticky .sp s{display:inline;font-size:12px;margin-left:2px}
 .sticky .pp{display:inline-block;margin-top:5px;font:700 11.5px/1 var(--body);color:#E8550F;background:#FFF1E6;border:1px solid #FFD9BF;border-radius:999px;padding:4px 8px;white-space:nowrap;text-decoration:none}
 
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}.a-rise,.a-note,.a-click,.a-drop,.a-day{opacity:1}}
+/* не курс: встановлення */
+.setup{list-style:none;margin-top:22px;display:grid;gap:14px}
+.su{position:relative;background:#fff;border:1px solid #ECE5D9;border-radius:20px;padding:12px 12px 16px;box-shadow:0 1px 2px rgba(21,18,15,.05),0 10px 28px rgba(21,18,15,.08)}
+.su>.n{position:absolute;left:14px;top:-10px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(140deg,#FF9A5C,#FF5A1A);color:#fff;font:900 14px/1 var(--display);box-shadow:0 6px 14px rgba(255,90,26,.32)}
+.su>b{display:block;margin:14px 4px 6px;font:900 17px/1.2 var(--display)}
+.su>p{margin:0 4px;font-size:14.5px;line-height:1.5;color:#5A5249}
+.su-v{background:#FAF7F2;border:1px solid #ECE5D9;border-radius:14px;padding:14px 12px}
+.dl{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #ECE5D9;border-radius:12px;padding:10px 12px;box-shadow:0 4px 12px rgba(21,18,15,.06)}
+.dl .zip svg{width:30px;height:30px;display:block}
+.dl .fn{flex:1;min-width:0}
+.dl .fn b{display:block;font:700 13px/1.2 var(--body);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dl .fn i{display:block;height:5px;margin-top:7px;border-radius:9px;background:#F1EBE1;overflow:hidden}
+.dl .fn u{display:block;height:100%;width:100%;border-radius:9px;background:linear-gradient(90deg,#FF9A5C,#FF5A1A);transform-origin:left;transform:scaleX(0)}
+.dl .ok{width:24px;height:24px;border-radius:50%;background:#2DB36F;display:grid;place-items:center;opacity:0;transform:scale(.6)}
+.dl .ok svg{width:13px;height:13px}
+.vis .dl .fn u{animation:dlbar 1.6s .3s cubic-bezier(.4,0,.2,1) forwards}
+.vis .dl .ok{animation:pop .35s 1.95s forwards}
+@keyframes dlbar{to{transform:scaleX(1)}}
+@keyframes pop{to{opacity:1;transform:none}}
+.chat{display:flex;flex-direction:column;gap:8px}
+.chat .who{align-self:center;font:700 11px/1 var(--body);color:#9A9187;letter-spacing:.02em;margin-bottom:2px}
+.chat .me{align-self:flex-end;max-width:86%;margin:0;background:linear-gradient(140deg,#FF9A5C,#FF5A1A);color:#fff;font:600 14px/1.4 var(--body);padding:9px 12px;border-radius:16px 16px 4px 16px;box-shadow:0 6px 14px rgba(255,90,26,.25)}
+.chat .bot{align-self:flex-start;max-width:90%;margin:0;background:#fff;border:1px solid #ECE5D9;color:var(--ink);font:500 14px/1.45 var(--body);padding:9px 12px;border-radius:16px 16px 16px 4px;box-shadow:0 4px 12px rgba(21,18,15,.05)}
+.su .chat .bot{display:flex;flex-direction:column;gap:5px}
+.su .chat .bot span{display:flex;align-items:center;gap:7px;font-size:13px;color:#5A5249}
+.su .chat .bot span::before{content:"";flex:none;width:14px;height:14px;border-radius:50%;background:#2DB36F url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.4l2.6 2.4L12 5.2' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/10px no-repeat}
+.su .chat .bot span.fin{font-weight:700;color:var(--ink)}
+.su .chat .bot span.fin::before{display:none}
+.su .chat .bot span{opacity:0;transform:translateY(4px)}
+.vis .chat .bot span{animation:pop .3s forwards}
+.vis .chat .bot span:nth-child(1){animation-delay:.5s}.vis .chat .bot span:nth-child(2){animation-delay:1s}.vis .chat .bot span:nth-child(3){animation-delay:1.5s}.vis .chat .bot span:nth-child(4){animation-delay:2.1s}
+.chat .res{align-self:flex-start;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #ECE5D9;border-radius:14px;padding:6px 12px 6px 6px;box-shadow:0 4px 12px rgba(21,18,15,.06)}
+.chat .res img{width:40px;height:71px;object-fit:cover;border-radius:8px;display:block}
+.chat .res span{font:500 12px/1.4 var(--body);color:#5A5249}
+.chat .res b{display:block;font:700 13px/1.3 var(--body);color:var(--ink)}
+.ask{margin-top:26px;background:#fff;border:1px solid #ECE5D9;border-radius:22px;padding:18px 14px 18px;box-shadow:0 1px 2px rgba(21,18,15,.05),0 10px 28px rgba(21,18,15,.08)}
+.ask h3{font:900 18px/1.2 var(--display);margin:0 4px 14px}
+.ask .chat{background:#FAF7F2;border:1px solid #ECE5D9;border-radius:14px;padding:14px 12px}
+.ask>p{margin:14px 4px 0;font-size:14.5px;line-height:1.5;color:#5A5249}
+.ask>p b{color:var(--ink)}
+.chat .refs{display:flex;flex-direction:column;gap:8px}
+.chat .refs .th{display:flex;gap:6px}
+.chat .refs img{width:60px;height:106px;object-fit:cover;border-radius:9px;display:block;border:1px solid #ECE5D9}
+.vsc{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+.vc{border-radius:18px;padding:14px 12px 16px}
+.vc .t{display:block;font:900 14px/1.15 var(--display);text-transform:uppercase;margin-bottom:10px}
+.vc ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.vc li{position:relative;padding-left:20px;font:500 13.5px/1.35 var(--body)}
+.vc li::before{content:"";position:absolute;left:0;top:2px;width:14px;height:14px;border-radius:50%}
+.vc.old{background:#F3EEE6;border:1px solid #E6DFD2;color:#8A8178}
+.vc.old .t{color:#8A8178}
+.vc.old li{text-decoration:line-through;text-decoration-color:rgba(214,64,44,.6)}
+.vc.old li::before{background:#E1D9CD url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5 5l6 6M11 5l-6 6' stroke='%238A8178' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") center/10px no-repeat}
+.vc.new{background:#fff;border:1px solid #FFD9BF;box-shadow:0 10px 28px rgba(255,90,26,.14)}
+.vc.new .t{color:#E8550F}
+.vc.new li::before{background:linear-gradient(140deg,#FF9A5C,#FF5A1A)}
+.vc.new li::after{content:"";position:absolute;left:4px;top:5px;width:6px;height:3.5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}.a-rise,.a-note,.a-click,.a-drop,.a-day{opacity:1}.dl .fn u{transform:none}.dl .ok,.su .chat .bot span{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -581,7 +641,7 @@ details.acc summary i,.faq summary i{border:0;background:var(--grad);box-shadow:
 <div class="wrap">
 
   <div class="tape" aria-label="АІ Студія монтажу">
-    <div class="t b" aria-hidden="true"><div class="tr"><span>АІ Студія монтажу <i>●</i> Команда АІ-агентів <i>●</i> 400+ референсів <i>●</i> Оновлення назавжди <i>●</i>&nbsp;</span><span>АІ Студія монтажу <i>●</i> Команда АІ-агентів <i>●</i> 400+ референсів <i>●</i> Оновлення назавжди <i>●</i>&nbsp;</span></div></div>
+    <div class="t b" aria-hidden="true"><div class="tr"><span>АІ Студія монтажу <i>●</i> Ставиться однією фразою <i>●</i> Команда АІ-агентів <i>●</i> 400+ референсів <i>●</i> Оновлення назавжди <i>●</i>&nbsp;</span><span>АІ Студія монтажу <i>●</i> Ставиться однією фразою <i>●</i> Команда АІ-агентів <i>●</i> 400+ референсів <i>●</i> Оновлення назавжди <i>●</i>&nbsp;</span></div></div>
   </div>
 
   <!-- ═══ 1. HERO ═══ -->
@@ -592,7 +652,7 @@ details.acc summary i,.faq summary i{border:0;background:var(--grad);box-shadow:
     </div>
 
     <h1 class="h1 kar" id="h1" style="margin-top:24px">АІ <span class="k">Студія</span> монтажу</h1>
-    <p class="sub">Це поглиблена версія АІ монтажера з командою готових АІ-агентів. Вони пишуть сценарій, збирають ролик і самі виправляють помилки. Тобі лишається подивитись готовий результат.</p>
+    <p class="sub">Це не курс, а готовий інструмент: поглиблена версія АІ монтажера з командою АІ-агентів. Ставиш однією фразою, і агенти самі пишуть сценарій, збирають ролик і виправляють помилки. Тобі лишається подивитись готовий результат.</p>
 
     <div class="hvid">
       <div class="hv-bar"><i></i><i></i><i></i><span>Це відео повністю зібрала АІ Студія монтажу</span></div>
@@ -675,7 +735,7 @@ details.acc summary i,.faq summary i{border:0;background:var(--grad);box-shadow:
     <div class="swap">
       <div class="sw rv"><p class="a"><s>Години за таймлайном</s></p><span class="ar">→</span><p class="b">Кажеш голосом, що потрібно, і отримуєш готовий ролик</p></div>
       <div class="sw rv"><p class="a"><s>$20 за хвилину монтажу</s></p><span class="ar">→</span><p class="b">Платиш лише за підписку на нейронку від $20 на місяць</p></div>
-      <div class="sw rv"><p class="a"><s>Дні очікування і правок</s></p><span class="ar">→</span><p class="b">Правки голосом одразу, і АІ Студія монтажу запамʼятовує їх</p></div>
+      <div class="sw rv"><p class="a"><s>Дні очікування і правок</s></p><span class="ar">→</span><p class="b">Правки голосом одразу, і наступні ролики вже їх враховують</p></div>
     </div>
     <div class="tiles">
       <div class="tile rv"><div class="ill" aria-hidden="true"><svg viewBox="0 0 240 180"><g class="a-in" style="animation-delay:0.0s"><rect x="20" y="28" width="74" height="36" rx="9" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><g transform="translate(28 35)"><rect width="22" height="22" rx="6.2" fill="url(#gO)" filter="url(#sh)"/><g transform="scale(0.917)"><path d="M7 4h7l4 4v12H7z" fill="#fff"/><path d="M10 12h5M10 15.5h5" stroke="#FF5A1A" stroke-width="1.6" stroke-linecap="round"/></g></g><rect x="56" y="39" width="30" height="6" rx="3.0" fill="#EEE7DC"/><rect x="56" y="49" width="20" height="6" rx="3.0" fill="#EEE7DC"/></g><g class="a-in" style="animation-delay:0.2s"><rect x="20" y="74" width="74" height="36" rx="9" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><g transform="translate(28 81)"><rect width="22" height="22" rx="6.2" fill="url(#gO)" filter="url(#sh)"/><g transform="scale(0.917)"><path d="M9 17V6l10-2v11" fill="none" stroke="#fff" stroke-width="2"/><circle cx="7" cy="17" r="2.5" fill="#fff"/><circle cx="17" cy="15" r="2.5" fill="#fff"/></g></g><rect x="56" y="85" width="30" height="6" rx="3.0" fill="#EEE7DC"/><rect x="56" y="95" width="20" height="6" rx="3.0" fill="#EEE7DC"/></g><g class="a-in" style="animation-delay:0.4s"><rect x="20" y="120" width="74" height="36" rx="9" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><g transform="translate(28 127)"><rect width="22" height="22" rx="6.2" fill="url(#gO)" filter="url(#sh)"/><g transform="scale(0.917)"><rect x="4" y="5" width="16" height="14" rx="2" fill="none" stroke="#fff" stroke-width="2"/><circle cx="9" cy="10" r="1.8" fill="#fff"/><path d="M5 18l5-5 3 3 2-2 4 4" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></g></g><rect x="56" y="131" width="30" height="6" rx="3.0" fill="#EEE7DC"/><rect x="56" y="141" width="20" height="6" rx="3.0" fill="#EEE7DC"/></g><path d="M100 46c20 0 22 44 36 44M100 92h36M100 138c20 0 22-48 36-48" fill="none" stroke="#D9D0C1" stroke-width="2" stroke-dasharray="4 4"/><rect x="138" y="40" width="86" height="100" rx="12" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><rect x="146" y="48" width="70" height="54" rx="7" fill="url(#gT)"/><circle cx="181" cy="75" r="11" fill="#fff"/><path d="M178 69v12l9-6z" fill="#FF5A1A"/><rect x="146" y="112" width="56" height="6" rx="3.0" fill="#EEE7DC"/><rect x="146" y="124" width="40" height="6" rx="3.0" fill="#FFD9C2"/></svg></div><p>Весь ролик робить одна АІ Студія монтажу: сценарій, сцени, монтаж, звук і обкладинку.</p></div>
@@ -693,7 +753,7 @@ details.acc summary i,.faq summary i{border:0;background:var(--grad);box-shadow:
   <!-- ═══ 7. ПОРІВНЯННЯ ═══ -->
   <section class="sec" id="compare">
     <h2 class="h2 kar">Базовий АІ монтажер <span class="vs">VS</span> <span class="k">АІ Студія монтажу</span></h2>
-    <p class="p">На практикумі за 390 грн учні збирають базового АІ монтажера, який монтує їхні записи. АІ Студія монтажу вміє у 4 рази більше: до можливостей базового АІ монтажера вона додає команду АІ-агентів та все, з чим ця команда працює.</p>
+    <p class="p">На практикумі за 590 грн учні збирають базового АІ монтажера, який монтує їхні записи. АІ Студія монтажу вміє у 4 рази більше: до можливостей базового АІ монтажера вона додає команду АІ-агентів та все, з чим ця команда працює.</p>
     <div class="cmp rv" role="table" aria-label="Порівняння базового АІ монтажера і АІ Студії монтажу">
       <div class="cmp__h" role="row"><div role="columnheader">Можливість</div><div role="columnheader">Базовий</div><div class="st" role="columnheader">Студія</div></div>
       <div class="cmp__r" role="row"><div role="cell">Монтаж твого запису: паузи, субтитри, графіка, звук</div><div role="cell" aria-label="є"><span class="yes"><svg><use href="#ckd"/></svg></span></div><div class="st" role="cell" aria-label="є"><span class="yes"><svg><use href="#ck"/></svg></span></div></div>
@@ -737,92 +797,68 @@ details.acc summary i,.faq summary i{border:0;background:var(--grad);box-shadow:
 
   <!-- ═══ 9. СЕРЦЕ СИСТЕМИ ═══ -->
   <section class="sec dark" id="heart">
-    <h2 class="h2 kar"><span class="k">Серце</span> АІ Студії монтажу: папка, яку я збирав 60 днів</h2>
+    <h2 class="h2 kar"><span class="k">Серце</span> АІ Студії монтажу: папка, яку я збирав 60 днів і передаю тобі</h2>
     <div class="hours rv"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="#fff" stroke="#15120F" stroke-width="3"/><g class="a-hand" style="transform-origin:22px 22px"><path d="M22 22V9" stroke="#15120F" stroke-width="3.5" stroke-linecap="round"/></g><circle cx="22" cy="22" r="3" fill="#15120F"/></svg><span><b>60 днів по 8 годин</b>щоб ти отримав усе готовим за один вечір</span></div>
-    <p class="p">Усе, що вміє АІ Студія монтажу, лежить в одній папці. Ти підключаєш її до Claude Code або ChatGPT Codex, і АІ Студія монтажу одразу вміє все, що показано на цій сторінці.</p>
-    <!-- ⟨НУЖНО: актуальний скріншот папки АІ Студії монтажу від Саші⟩ → замінити media/folder.jpg -->
-    <div class="folder rv"><div class="bar"><i></i><i></i><i></i></div><img src="media/folder.jpg" alt="Папка АІ Студії монтажу на компʼютері" width="470" height="382" loading="lazy" decoding="async"></div>
+    <p class="p">Усе, що вміє АІ Студія монтажу, лежить в одній папці. Ти віддаєш її Claude Code або ChatGPT Codex зі словом «встанови», і він одразу вміє все, що показано на цій сторінці.</p>
+    <div class="folder rv"><img src="media/folder-v5.jpg" alt="Властивості папки AI-Video-Factory-v5: 1,49 ГБ, 10 475 файлів, 1 499 папок" width="484" height="330" loading="lazy" decoding="async"></div>
     <div class="fstats rv">
-      <div><b>10 000+</b><span>файлів</span></div>
+      <div><b>10 475</b><span>файлів</span></div>
       <div><b>400+</b><span>референсів</span></div>
       <div><b>5</b><span>АІ-агентів</span></div>
     </div>
     <p class="p">Що всередині папки:</p>
     <div class="inside"><span>інструкції для кожного АІ-агента</span><span>референси монтажу</span><span>анімації</span><span>шрифти</span><span>кольори</span><span>переходи</span><span>звуки</span><span>плашки</span></div>
     <p class="p">АІ-агенти беруть усе звідти, тому ролики виходять в одному стилі й не схожі на шаблони з конструкторів.</p>
-    <h3 class="h3" style="margin-top:30px;color:#fff">Як усе встановити</h3>
-    <ol class="inst3">
-      <li class="rv"><span class="n">1</span><span>Claude Code або ChatGPT Codex<small>якщо проходив практикум, уже встановлено</small></span></li>
-      <li class="rv"><span class="n">2</span><span>Remotion<small>якщо проходив практикум, уже підключено</small></span></li>
-      <li class="now rv"><span class="n">3</span><span>Додаєш папку АІ Студії монтажу<small>усі три кроки показую в першому уроці</small></span></li>
+  </section>
+
+  <!-- ═══ 10. НЕ КУРС: ВСТАНОВЛЕННЯ ОДНІЄЮ ФРАЗОЮ ═══ -->
+  <section class="sec" id="install">
+    <h2 class="h2 kar">Це не курс. Це <span class="k">готовий інструмент</span>, який ставиться однією фразою</h2>
+    <p class="p">Тобі не треба дивитися уроки чи довгі розбори. Купуєш, встановлюєш і одразу монтуєш.</p>
+    <ol class="setup">
+      <li class="su rv">
+        <div class="su-v"><div class="dl"><span class="zip" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2.5h8l5 5v14H6z" fill="#fff" stroke="#FF5A1A" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2.5v5h5" fill="none" stroke="#FF5A1A" stroke-width="1.6" stroke-linejoin="round"/><path d="M10 4v1.6M11.4 5.6v1.6M10 7.2v1.6M11.4 8.8v1.6" stroke="#15120F" stroke-width="1.4" stroke-linecap="round"/><rect x="9.3" y="11" width="2.8" height="3.4" rx=".8" fill="#15120F"/></svg></span><span class="fn"><b>AI-Video-Factory.zip</b><i><u></u></i></span><span class="ok" aria-hidden="true"><svg><use href="#ck"/></svg></span></div></div>
+        <span class="n">1</span><b>Завантажуєш архів</b><p>Він приходить у Telegram-бот одразу після оплати.</p>
+      </li>
+      <li class="su rv">
+        <div class="su-v chat" aria-hidden="true">
+          <span class="who">Claude Code або Codex</span>
+          <p class="me">Встанови цю версію АІ Студії монтажу</p>
+          <p class="bot"><span>Ставлю Remotion</span><span>Підключаю 5 АІ-агентів</span><span>Додаю 400+ референсів</span><span class="fin">Готово. Що монтуємо?</span></p>
+        </div>
+        <span class="n">2</span><b>Віддаєш його Claude Code або ChatGPT Codex</b><p>Пишеш одне речення: «встанови». Усе потрібне він ставить і налаштовує сам.</p>
+      </li>
+      <li class="su rv">
+        <div class="su-v chat" aria-hidden="true">
+          <p class="me">Зроби рілс про мою кавʼярню в стилі цього відео</p>
+          <div class="res"><img src="media/g/ikra.jpg" alt="" width="54" height="96" loading="lazy" decoding="async"><span><b>reels_kavyarnya.mp4</b>0:32 · перевірено АІ-критиком</span></div>
+        </div>
+        <span class="n">3</span><b>Кажеш, який ролик потрібен</b><p>Голосом або текстом. Далі працює команда АІ-агентів, а ти отримуєш готовий ролик.</p>
+      </li>
     </ol>
-  </section>
 
-  <!-- ═══ 10. ФОРМАТ І РОЗБОРИ ═══ -->
-  <section class="sec" id="inside">
-    <h2 class="h2 kar">Формат: відеоуроки, інструкції і <span class="k">папка з файлами</span></h2>
-    <div class="fmt">
-      <div class="rv"><div class="fh2"><span class="e"><svg><use href="#w-play"/></svg></span><span class="mini mv"><i></i><i></i><i></i></span></div><b>Відеоуроки в записі</b><p>Стартовий урок і 10 розборів. Дивишся у своєму темпі.</p></div>
-      <div class="rv"><div class="fh2"><span class="e"><svg><use href="#w-doc"/></svg></span><span class="mini md"><i></i><i></i><i></i></span></div><b>Покрокова інструкція</b><p>Як усе встановити і підключити папку.</p></div>
-      <div class="rv"><div class="fh2"><span class="e"><svg><use href="#w-folder"/></svg></span><span class="mini mf"><i></i><i></i><i></i></span></div><b>Папка з файлами</b><p>10 000+ файлів: АІ-агенти, референси, дизайн-система.</p></div>
-      <div class="rv"><div class="fh2"><span class="e tg"><svg><use href="#w-tg"/></svg></span><span class="mini mt"><i></i><i></i></span></div><b>Доступ у Telegram-боті</b><p>Назавжди, разом з усіма оновленнями.</p></div>
+    <div class="ask rv">
+      <h3>Не знаєш, з чого почати? Просто спитай її</h3>
+      <div class="chat" aria-hidden="true">
+        <p class="me">Що ти вмієш?</p>
+        <p class="bot">Монтую твої записи, роблю відео з нуля у 2D і 3D, мультики, рекламу, каруселі й довгі відео для YouTube. Показати приклади?</p>
+        <p class="me">Покажи, які є стилі для рілсу</p>
+        <div class="bot refs"><span>Ось 3 з 400+. Який стиль беремо?</span><span class="th"><img src="media/g/gal.jpg" alt="" width="60" height="106" loading="lazy" decoding="async"><img src="media/g/np.jpg" alt="" width="60" height="106" loading="lazy" decoding="async"><img src="media/g/frame3d.jpg" alt="" width="60" height="106" loading="lazy" decoding="async"></span></div>
+      </div>
+      <p>У неї вже зашито <b>400+ референсів</b>. Вона памʼятає кожен з них і покаже будь-який, як тільки попросиш. Спитай, що вона вміє, як це працює, і попроси показати.</p>
     </div>
-    <h3 class="h3" style="margin-top:34px;font-size:20px;text-transform:uppercase">Стартовий урок і 10 розборів можливостей</h3>
-    <p class="p">У кожному розборі я ставлю задачу АІ Студії монтажу на реальному ролику, і ти бачиш, що виходить.</p>
-    <div class="les-track" id="les">
-      <article class="les"><div class="ill" aria-hidden="true"><svg viewBox="0 0 320 200"><rect x="108" y="34" width="190" height="132" rx="12" fill="#15120F" stroke="#ECE5D9" filter="url(#sh)"/><circle cx="122" cy="48" r="3" fill="#FF5F57"/><circle cx="131" cy="48" r="3" fill="#FEBC2E"/><circle cx="140" cy="48" r="3" fill="#28C840"/><path d="M124 76l9 7-9 7" fill="none" stroke="#FF5A1A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="142" y="80" width="70" height="6" rx="3.0" fill="#FFD9C2"/><rect x="218" y="78" width="8" height="10" fill="#fff" class="a-blink"/><rect x="124" y="104" width="120" height="6" rx="3.0" fill="#3A332D"/><rect x="124" y="118" width="90" height="6" rx="3.0" fill="#3A332D"/><circle cx="128" cy="137" r="5" fill="#1FA25A"/><rect x="140" y="134" width="60" height="6" rx="3.0" fill="#6E655B"/><g class="a-hop"><g transform="translate(24 74)"><rect width="48" height="48" rx="13.4" fill="url(#gO)" filter="url(#sh)"/><g transform="scale(2.000)"><path d="M4 7h6l2 2h8v9H4z" fill="#fff"/></g></g></g></svg><span class="num">00</span></div><div class="les-b"><h3>Старт: як працювати з АІ Студією монтажу</h3>
-        <details class="acc"><summary>Що в уроці <i>+</i></summary><ul class="bul"><li>встановлюємо все потрібне і додаємо папку АІ Студії монтажу</li><li>як ставити задачу команді АІ-агентів, щоб вона зрозуміла з першого разу</li><li>як навчити АІ Студію монтажу своїм правилам: тон, стиль, наголоси, те, чого робити не можна</li></ul></details>
-        <div class="resbox"><b>Результат</b>У тебе працює вся команда, і ти знаєш, як нею керувати. З першого дня АІ Студія монтажу працює за твоїми правилами.</div></div></article>
 
-      <article class="les"><div class="ill" aria-hidden="true"><svg viewBox="0 0 320 200"><rect x="18" y="56" width="284" height="92" rx="12" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><rect x="30" y="68" width="60" height="7" rx="3.5" fill="#E3DBCD"/><path d="M30.0 112.0 L33.8 126.2 L37.6 115.9 L41.4 109.8 L45.2 120.5 L49.0 120.5 L52.8 100.1 L56.6 100.0 L60.4 113.0 L64.2 113.0 L68.0 101.3 L71.8 116.1 L75.6 127.3 L79.4 119.1 L83.2 104.6 L87.0 117.2 L90.8 114.7 L94.6 101.4 L98.4 96.1 L102.2 117.9 L106.0 115.3" fill="none" stroke="#FF5A1A" stroke-width="1.6" stroke-linejoin="round"/><rect x="110" y="88" width="46" height="48" rx="6" fill="#FDE3DF" stroke="#E5341E" stroke-dasharray="4 3" class="a-cut"/><path d="M160.0 112.0 L163.9 126.2 L167.8 115.9 L171.7 109.8 L175.6 120.5 L179.4 120.5 L183.3 100.1 L187.2 100.0 L191.1 113.0 L195.0 113.0 L198.9 101.3 L202.8 116.1 L206.7 127.3 L210.6 119.1 L214.4 104.6 L218.3 117.2 L222.2 114.7 L226.1 101.4 L230.0 96.1" fill="none" stroke="#FF5A1A" stroke-width="1.6" stroke-linejoin="round"/><rect x="234" y="88" width="30" height="48" rx="6" fill="#FDE3DF" stroke="#E5341E" stroke-dasharray="4 3" class="a-cut" style="animation-delay:-.6s"/><path d="M268.0 112.0 L272.0 126.2 L276.0 115.9 L280.0 109.8 L284.0 120.5 L288.0 120.5 L292.0 100.1" fill="none" stroke="#FF5A1A" stroke-width="1.6" stroke-linejoin="round"/><g class="a-bob"><g transform="translate(116 18)"><rect width="32" height="32" rx="9.0" fill="url(#gO)" filter="url(#sh)"/><g transform="scale(1.333)"><circle cx="7" cy="8" r="2.6" fill="none" stroke="#fff" stroke-width="2"/><circle cx="7" cy="16" r="2.6" fill="none" stroke="#fff" stroke-width="2"/><path d="M9.2 9.5L19 17M9.2 14.5L19 7" stroke="#fff" stroke-width="2" stroke-linecap="round"/></g></g></g><rect x="196" y="160" width="100" height="28" rx="9" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><circle cx="210" cy="174" r="6" fill="#1FA25A"/><rect x="222" y="171" width="60" height="6" rx="3.0" fill="#EEE7DC"/></svg><span class="num">01</span></div><div class="les-b"><h3>Монтаж твого запису з АІ-критиком</h3>
-        <details class="acc"><summary>Що в розборі <i>+</i></summary><ul class="bul"><li>паузи, «е-е-м» і невдалі дублі вирізаються за розпізнаним текстом</li><li>субтитри під підборіддям, ключові слова кольором, назви сервісів латиницею</li><li>скрінкасти як перебивки, обведення і підкреслення «маркером від руки»</li><li>АІ-критик перевіряє ролик до того, як він потрапить до тебе</li></ul></details>
-        <div class="resbox"><b>Результат</b>Звичайний запис «говорячої голови» стає динамічним роликом. Криві субтитри і текст за краєм кадру ловить АІ-критик.</div></div></article>
-
-      <article class="les"><div class="ill" aria-hidden="true"><svg viewBox="0 0 320 200"><g filter="url(#sh)"><rect x="40" y="22" width="70" height="156" rx="15" fill="#15120F"/></g><rect x="44" y="26" width="62" height="148" rx="13" fill="url(#gT)"/><g><circle cx="74" cy="62" r="14" fill="#fff"/><path d="M54 104l12-12 12 12 12-12 12 12" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"/><rect x="56" y="118" width="38" height="8" rx="4" fill="#FFC24A"/></g><g filter="url(#sh)"><rect x="210" y="22" width="70" height="156" rx="15" fill="#15120F"/></g><rect x="214" y="26" width="62" height="148" rx="13" fill="url(#gT)"/><g class="a-copy"><circle cx="244" cy="62" r="14" fill="#fff"/><path d="M224 104l12-12 12 12 12-12 12 12" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"/><rect x="226" y="118" width="38" height="8" rx="4" fill="#FFC24A"/></g><rect x="132" y="82" width="56" height="36" rx="18" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><path d="M148 100h22M164 94l7 6-7 6" fill="none" stroke="#FF5A1A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="num">02</span></div><div class="les-b"><h3>Монтаж за референсом</h3>
-        <details class="acc"><summary>Що в розборі <i>+</i></summary><ul class="bul"><li>бібліотека з 400+ референсів: обираєш стиль, і АІ Студія монтажу переносить його на твоє відео</li><li>будь-який чужий рілс як зразок: скидаєш ролик, АІ Студія монтажу розбирає монтаж і повторює манеру</li><li>як поєднати чужий стиль із своїм брендлуком</li></ul></details>
-        <div class="resbox"><b>Результат</b>Ролик, який сподобався в стрічці, стає зразком для твого. Розбиратися, «як це змонтовано», більше не потрібно.</div></div></article>
-
-      <article class="les"><div class="ill" aria-hidden="true"><svg viewBox="0 0 320 200"><rect x="30" y="20" width="260" height="40" rx="12" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><g transform="translate(40 28)"><rect width="24" height="24" rx="6.7" fill="url(#gO)" filter="url(#sh)"/><g transform="scale(1.000)"><path d="M12 3.5l2.2 6.3 6.3 2.2-6.3 2.2L12 20.5l-2.2-6.3L3.5 12l6.3-2.2z" fill="#fff"/></g></g><rect x="72" y="34" width="150" height="6" rx="3.0" fill="#EEE7DC"/><rect x="256" y="29" width="24" height="22" rx="7" fill="#15120F"/><path d="M263 40h10M269 35l5 5-5 5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><g class="a-pop" style="animation-delay:-0.0s"><rect x="34" y="76" width="76" height="102" rx="10" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><rect x="40" y="82" width="64" height="70" rx="6" fill="url(#gT)"/><path d="M56 136l14-20 10 12 8-8 10 16z" fill="#fff" opacity=".85"/><rect x="40" y="160" width="44" height="6" rx="3.0" fill="#EEE7DC"/></g><g class="a-pop" style="animation-delay:-0.6s"><rect x="122" y="76" width="76" height="102" rx="10" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><rect x="128" y="82" width="64" height="70" rx="6" fill="url(#gI)"/><rect x="140" y="98" width="40" height="40" rx="4" fill="#fff" opacity=".85" transform="rotate(12 160 118)"/><rect x="128" y="160" width="44" height="6" rx="3.0" fill="#EEE7DC"/></g><g class="a-pop" style="animation-delay:-1.2s"><rect x="210" y="76" width="76" height="102" rx="10" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><rect x="216" y="82" width="64" height="70" rx="6" fill="url(#gY)"/><circle cx="248" cy="117" r="20" fill="#fff" opacity=".85"/><rect x="216" y="160" width="44" height="6" rx="3.0" fill="#EEE7DC"/></g></svg><span class="num">03</span></div><div class="les-b"><h3>Відео з нуля в будь-якому стилі</h3>
-        <details class="acc"><summary>Що в розборі <i>+</i></summary><ul class="bul"><li>одне речення або ідея голосом, і в тебе ролик без зйомки</li><li>2D-анімація, мальована графіка, справжнє 3D, моушн-дизайн</li><li>динамічні рілси під біт без озвучки</li><li>інфографіка: цифри рахуються, графіки малюються прямо в кадрі</li></ul></details>
-        <div class="resbox"><b>Результат</b>Контент виходить навіть у тиждень, коли знімати немає коли. З однієї ідеї можна зробити кілька роликів у різних стилях.</div></div></article>
-
-      <article class="les"><div class="ill" aria-hidden="true"><svg viewBox="0 0 320 200"><rect x="18" y="24" width="284" height="152" rx="12" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><rect x="30" y="36" width="70" height="7" rx="3.5" fill="#E3DBCD"/><g transform="translate(30 56)"><rect width="26" height="26" rx="7.3" fill="url(#gO)" filter="url(#sh)"/><g transform="scale(1.083)"><rect x="9" y="4" width="6" height="10" rx="3" fill="#fff"/><path d="M6.5 11a5.5 5.5 0 0 0 11 0M12 16.5V20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></g></g><rect x="64" y="56" width="180" height="26" rx="6" fill="#FFF4EE" stroke="#FFD9C2"/><path d="M68.0 69.0 L71.7 76.8 L75.5 71.1 L79.2 67.8 L83.0 73.7 L86.7 73.7 L90.4 62.4 L94.2 62.4 L97.9 69.5 L101.7 69.6 L105.4 63.1 L109.1 71.2 L112.9 77.4 L116.6 72.9 L120.3 64.9 L124.1 71.8 L127.8 70.5 L131.6 63.2 L135.3 60.2 L139.0 72.3 L142.8 70.8 L146.5 67.6 L150.3 69.8 L154.0 79.4 L157.7 70.0 L161.5 64.8 L165.2 66.3 L169.0 71.9 L172.7 61.4 L176.4 63.9 L180.2 71.3 L183.9 76.6 L187.7 66.5 L191.4 71.8 L195.1 74.7 L198.9 71.5 L202.6 59.4 L206.3 67.3 L210.1 69.2 L213.8 66.8 L217.6 62.7 L221.3 76.1 L225.0 75.3 L228.8 70.1 L232.5 66.3 L236.3 75.2 L240.0 66.8" fill="none" stroke="#FF5A1A" stroke-width="1.6" stroke-linejoin="round"/><g transform="translate(30 96)"><rect width="26" height="26" rx="7.3" fill="url(#gY)" filter="url(#sh)"/><g transform="scale(1.083)"><path d="M9 17V6l10-2v11" fill="none" stroke="#fff" stroke-width="2"/><circle cx="7" cy="17" r="2.5" fill="#fff"/><circle cx="17" cy="15" r="2.5" fill="#fff"/></g></g><rect x="64" y="96" width="180" height="26" rx="6" fill="#FFF8E6" stroke="#FFE3A3"/><path d="M68.0 109.0 L71.7 116.8 L75.5 111.1 L79.2 107.8 L83.0 113.7 L86.7 113.7 L90.4 102.4 L94.2 102.4 L97.9 109.5 L101.7 109.6 L105.4 103.1 L109.1 111.2 L112.9 117.4 L116.6 112.9 L120.3 104.9 L124.1 111.8 L127.8 110.5 L131.6 103.2 L135.3 100.2 L139.0 112.3 L142.8 110.8 L146.5 107.6 L150.3 109.8 L154.0 119.4 L157.7 110.0 L161.5 104.8 L165.2 106.3 L169.0 111.9 L172.7 101.4 L176.4 103.9 L180.2 111.3 L183.9 116.6 L187.7 106.5 L191.4 111.8 L195.1 114.7 L198.9 111.5 L202.6 99.4 L206.3 107.3 L210.1 109.2 L213.8 106.8 L217.6 102.7 L221.3 116.1 L225.0 115.3 L228.8 110.1 L232.5 106.3 L236.3 115.2 L240.0 106.8" fill="none" stroke="#E0A21F" stroke-width="1.6" stroke-linejoin="round"/><rect x="262" y="54" width="4" height="38" rx="2" fill="#EEE7DC"/><rect x="256" y="74" width="16" height="10" rx="3" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><rect x="262" y="98" width="4" height="38" rx="2" fill="#EEE7DC"/><rect x="256" y="110" width="16" height="10" rx="3" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><rect x="34.0" y="156" width="4.4" height="8" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.00s"/><rect x="42.4" y="150" width="4.4" height="14" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.17s"/><rect x="50.8" y="154" width="4.4" height="10" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.34s"/><rect x="59.2" y="144" width="4.4" height="20" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.51s"/><rect x="67.6" y="148" width="4.4" height="16" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.68s"/><rect x="76.0" y="140" width="4.4" height="24" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.85s"/><rect x="84.4" y="152" width="4.4" height="12" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.02s"/><rect x="92.80000000000001" y="146" width="4.4" height="18" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.19s"/><rect x="101.2" y="156" width="4.4" height="8" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.36s"/><rect x="109.60000000000001" y="150" width="4.4" height="14" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.53s"/><rect x="118.0" y="154" width="4.4" height="10" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.70s"/><rect x="126.4" y="144" width="4.4" height="20" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.87s"/><rect x="134.8" y="148" width="4.4" height="16" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.04s"/><rect x="143.2" y="140" width="4.4" height="24" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.21s"/><rect x="151.60000000000002" y="152" width="4.4" height="12" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.38s"/><rect x="160.0" y="146" width="4.4" height="18" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.55s"/><rect x="168.4" y="156" width="4.4" height="8" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.72s"/><rect x="176.8" y="150" width="4.4" height="14" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.89s"/><rect x="185.20000000000002" y="154" width="4.4" height="10" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.06s"/><rect x="193.6" y="144" width="4.4" height="20" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.23s"/><rect x="202.0" y="148" width="4.4" height="16" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.40s"/><rect x="210.4" y="140" width="4.4" height="24" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.57s"/><rect x="218.8" y="152" width="4.4" height="12" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.74s"/><rect x="227.20000000000002" y="146" width="4.4" height="18" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.91s"/><rect x="235.60000000000002" y="156" width="4.4" height="8" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.08s"/><rect x="244.0" y="150" width="4.4" height="14" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.25s"/><rect x="252.4" y="154" width="4.4" height="10" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.42s"/><rect x="260.8" y="144" width="4.4" height="20" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.59s"/><rect x="269.20000000000005" y="148" width="4.4" height="16" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.76s"/><rect x="277.6" y="140" width="4.4" height="24" rx="2.2" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.93s"/></svg><span class="num">04</span></div><div class="les-b"><h3>Голос, музика і звук</h3>
-        <details class="acc"><summary>Що в розборі <i>+</i></summary><ul class="bul"><li>озвучка клоном твого голосу в ElevenLabs, з інтонацією: тепло, з іронією, впевнено</li><li>словник наголосів, який поповнюється після кожної твоєї правки</li><li>АІ Студія монтажу сама перевіряє, чи озвучка сказала саме те, що в тексті</li><li>фонова музика і звукові ефекти під ролик, гучність під стандарт соцмереж</li></ul></details>
-        <div class="resbox"><b>Результат</b>Ролик говорить твоїм голосом і з нормальними українськими наголосами, хоча ти не записуєш ані слова.</div></div></article>
-
-      <article class="les"><div class="ill" aria-hidden="true"><svg viewBox="0 0 320 200"><rect x="22" y="18" width="276" height="164" rx="12" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><circle cx="34" cy="30" r="3" fill="#FF5F57"/><circle cx="43" cy="30" r="3" fill="#FEBC2E"/><circle cx="52" cy="30" r="3" fill="#28C840"/><rect x="70" y="24" width="150" height="12" rx="6" fill="#F5F0E8"/><path d="M22 42h276" stroke="#F0EAE0"/><rect x="32" y="52" width="58" height="120" rx="6" fill="#FAF7F2"/><rect x="40" y="62" width="40" height="6" rx="3.0" fill="#EEE7DC"/><rect x="40" y="78" width="30" height="6" rx="3.0" fill="#EEE7DC"/><rect x="40" y="94" width="36" height="6" rx="3.0" fill="#EEE7DC"/><rect x="40" y="110" width="26" height="6" rx="3.0" fill="#EEE7DC"/><rect x="40" y="126" width="34" height="6" rx="3.0" fill="#EEE7DC"/><rect x="102" y="52" width="184" height="60" rx="8" fill="url(#gT)"/><rect x="102" y="122" width="120" height="6" rx="3.0" fill="#EEE7DC"/><rect x="102" y="134" width="84" height="6" rx="3.0" fill="#EEE7DC"/><rect x="102" y="148" width="78" height="22" rx="7" fill="url(#gO)"/><circle cx="141" cy="159" r="10" fill="none" stroke="#FF5A1A" stroke-width="3" class="a-click"/><g class="a-cur"><path d="M222 180l-5-30 24 16-12 3 7 12-5 3-7-12z" fill="#15120F" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></g></svg><span class="num">05</span></div><div class="les-b"><h3>Скрінкасти, гайди і уроки</h3>
-        <details class="acc"><summary>Що в розборі <i>+</i></summary><ul class="bul"><li>даєш запис екрана, АІ Студія монтажу пише текст і озвучує, що там відбувається</li><li>гайди «як зробити…» з мокапами інтерфейсу і рукою-курсором</li><li>уроки 16:9 для курсу</li></ul></details>
-        <div class="resbox"><b>Результат</b>Інструкції, розбори сервісів і уроки виходять без мікрофона і без перезаписів.</div></div></article>
-
-      <article class="les"><div class="ill" aria-hidden="true"><svg viewBox="0 0 320 200"><rect x="40" y="18" width="240" height="164" rx="14" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><rect x="50" y="28" width="220" height="120" rx="9" fill="url(#gT)"/><circle cx="160" cy="72" r="22" fill="#FFE3D1"/><path d="M118 148c4-30 20-44 42-44s38 14 42 44z" fill="#15120F"/><g class="a-eye"><circle cx="152" cy="70" r="2.6" fill="#15120F"/><circle cx="168" cy="70" r="2.6" fill="#15120F"/></g><ellipse cx="160" cy="82" rx="6" ry="3.5" fill="#E5341E" class="a-talk"/><g class="a-bob"><g transform="translate(62 40)"><rect width="26" height="26" rx="7.3" fill="url(#gO)" filter="url(#sh)"/><g transform="scale(1.083)"><path d="M12 3.5l2.2 6.3 6.3 2.2-6.3 2.2L12 20.5l-2.2-6.3L3.5 12l6.3-2.2z" fill="#fff"/></g></g></g><rect x="58" y="166" width="4" height="6" rx="2.0" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.00s"/><rect x="66" y="160" width="4" height="12" rx="2.0" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.17s"/><rect x="74" y="163" width="4" height="9" rx="2.0" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.34s"/><rect x="82" y="156" width="4" height="16" rx="2.0" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.51s"/><rect x="90" y="161" width="4" height="11" rx="2.0" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.68s"/><rect x="98" y="158" width="4" height="14" rx="2.0" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.85s"/><rect x="106" y="166" width="4" height="6" rx="2.0" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.02s"/><rect x="114" y="160" width="4" height="12" rx="2.0" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.19s"/><rect x="122" y="163" width="4" height="9" rx="2.0" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.36s"/><rect x="130" y="156" width="4" height="16" rx="2.0" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.53s"/><rect x="138" y="161" width="4" height="11" rx="2.0" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.70s"/><rect x="146" y="158" width="4" height="14" rx="2.0" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.87s"/><rect x="154" y="166" width="4" height="6" rx="2.0" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.04s"/><rect x="162" y="160" width="4" height="12" rx="2.0" fill="#FF5A1A" class="a-eq" style="animation-delay:-0.21s"/><rect x="184" y="162" width="76" height="6" rx="3.0" fill="#EEE7DC"/><rect x="184" y="172" width="50" height="6" rx="3.0" fill="#FFD9C2"/></svg><span class="num">06</span></div><div class="les-b"><h3>Твій АІ-аватар у кадрі</h3>
-        <details class="acc"><summary>Що в розборі <i>+</i></summary><ul class="bul"><li>озвучка в ElevenLabs, аватар у HeyGen</li><li>АІ Студія монтажу бере аватара як «говорячу голову» і монтує навколо нього графіку, субтитри і сцени</li></ul></details>
-        <div class="resbox"><b>Результат</b>Відео з тобою в кадрі без камери, світла і зйомки. Виручає в дні, коли стати перед камерою немає ні часу, ні можливості.</div></div></article>
-
-      <article class="les"><div class="ill" aria-hidden="true"><svg viewBox="0 0 320 200"><rect x="70" y="16" width="180" height="168" rx="14" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><rect x="80" y="26" width="160" height="96" rx="9" fill="url(#gY)"/><rect x="132" y="44" width="56" height="66" rx="8" fill="#fff" filter="url(#sh)"/><rect x="142" y="56" width="36" height="8" rx="4" fill="#FF5A1A"/><rect x="146" y="72" width="28" height="28" rx="14" fill="url(#gO)"/><g transform="translate(82 128) scale(.5)"><path d="M12 4l2.4 5 5.4.6-4 3.7 1.1 5.3L12 16l-4.9 2.6 1.1-5.3-4-3.7 5.4-.6z" fill="#FF5A1A"/></g><g transform="translate(96 128) scale(.5)"><path d="M12 4l2.4 5 5.4.6-4 3.7 1.1 5.3L12 16l-4.9 2.6 1.1-5.3-4-3.7 5.4-.6z" fill="#FF5A1A"/></g><g transform="translate(110 128) scale(.5)"><path d="M12 4l2.4 5 5.4.6-4 3.7 1.1 5.3L12 16l-4.9 2.6 1.1-5.3-4-3.7 5.4-.6z" fill="#FF5A1A"/></g><g transform="translate(124 128) scale(.5)"><path d="M12 4l2.4 5 5.4.6-4 3.7 1.1 5.3L12 16l-4.9 2.6 1.1-5.3-4-3.7 5.4-.6z" fill="#FF5A1A"/></g><g transform="translate(138 128) scale(.5)"><path d="M12 4l2.4 5 5.4.6-4 3.7 1.1 5.3L12 16l-4.9 2.6 1.1-5.3-4-3.7 5.4-.6z" fill="#FF5A1A"/></g><rect x="82" y="146" width="110" height="6" rx="3.0" fill="#EEE7DC"/><rect x="82" y="158" width="156" height="18" rx="9" fill="url(#gO)"/><g class="a-bob"><g transform="translate(244 40)"><rect width="38" height="38" rx="10.6" fill="url(#gO)" filter="url(#sh)"/><g transform="scale(1.583)"><path d="M4 12V5h7l9 9-7 7z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><circle cx="8.5" cy="8.5" r="1.6" fill="#fff"/></g></g></g><g class="a-bob"><g transform="translate(36 100)"><rect width="30" height="30" rx="8.4" fill="url(#gO)" filter="url(#sh)"/><g transform="scale(1.250)"><path d="M13 3L6 13h5l-1 8 7-10h-5z" fill="#fff"/></g></g></g></svg><span class="num">07</span></div><div class="les-b"><h3>Рекламні креативи</h3>
-        <details class="acc"><summary>Що в розборі <i>+</i></summary><ul class="bul"><li>рекламні відео і банери під будь-яку нішу</li><li>UGC-ролики</li><li>мультики про продукт</li></ul></details>
-        <div class="resbox"><b>Результат</b>Креативи для реклами робиш самостійно, без продакшену і дизайнера. Якщо працюєш з клієнтами, це ще й окрема послуга у твоєму прайсі.</div></div></article>
-
-      <article class="les"><div class="ill" aria-hidden="true"><svg viewBox="0 0 320 200"><rect x="20" y="22" width="188" height="156" rx="12" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><rect x="32" y="34" width="70" height="7" rx="3.5" fill="#E3DBCD"/><path d="M32 160h164" stroke="#ECE5D9"/><rect x="40" y="110" width="26" height="50" rx="5" fill="url(#gT)" class="a-grow" style="animation-delay:0.00s"/><rect x="80" y="80" width="26" height="80" rx="5" fill="url(#gY)" class="a-grow" style="animation-delay:0.15s"/><rect x="120" y="96" width="26" height="64" rx="5" fill="url(#gT)" class="a-grow" style="animation-delay:0.30s"/><rect x="160" y="56" width="26" height="104" rx="5" fill="url(#gO)" class="a-grow" style="animation-delay:0.45s"/><path d="M53 112l40-30 40 16 40-40" fill="none" stroke="#15120F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="216" y="34" width="88" height="132" rx="12" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><g class="a-pop" style="animation-delay:-0.0s"><circle cx="232" cy="56" r="8" fill="#1FA25A"/><path d="M228 56l3 3 5-6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g><rect x="246" y="53" width="46" height="6" rx="3.0" fill="#EEE7DC"/><g class="a-pop" style="animation-delay:-0.4s"><circle cx="232" cy="84" r="8" fill="#1FA25A"/><path d="M228 84l3 3 5-6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g><rect x="246" y="81" width="36" height="6" rx="3.0" fill="#EEE7DC"/><g class="a-pop" style="animation-delay:-0.8s"><circle cx="232" cy="112" r="8" fill="#1FA25A"/><path d="M228 112l3 3 5-6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g><rect x="246" y="109" width="50" height="6" rx="3.0" fill="#EEE7DC"/><g class="a-pop" style="animation-delay:-1.2s"><circle cx="232" cy="140" r="8" fill="#1FA25A"/><path d="M228 140l3 3 5-6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g><rect x="246" y="137" width="30" height="6" rx="3.0" fill="#EEE7DC"/></svg><span class="num">08</span></div><div class="les-b"><h3>Візуалізація процесів і досліджень</h3>
-        <details class="acc"><summary>Що в розборі <i>+</i></summary><ul class="bul"><li>АІ Студія монтажу сама знаходить в інтернеті логотипи й інформацію про компанію</li><li>показує робочий процес у відео крок за кроком</li><li>збирає факти, звіряє цифри з офіційними сторінками і робить з цього ролик</li></ul></details>
-        <div class="resbox"><b>Результат</b>Тема, яку неможливо зняти на камеру, стає відео. Для експертів у фінансах, праві чи медицині це спосіб показати те, про що зазвичай лише розповідають.</div></div></article>
-
-      <article class="les"><div class="ill" aria-hidden="true"><svg viewBox="0 0 320 200"><rect x="70" y="14" width="180" height="120" rx="14" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><rect x="80" y="24" width="160" height="100" rx="9" fill="url(#gI)"/><g class="a-jump"><g transform="translate(160 82) scale(1)"><path d="M-30 30c-6-34 6-64 30-64s36 30 30 64z" fill="#FFFCF6" stroke="#15120F" stroke-width="3"/><g class="a-eye"><ellipse cx="-9" cy="-6" rx="4.5" ry="6" fill="#15120F"/><ellipse cx="9" cy="-6" rx="4.5" ry="6" fill="#15120F"/></g><path d="M-8 10q8 7 16 0" fill="none" stroke="#15120F" stroke-width="3" stroke-linecap="round"/><circle cx="-18" cy="6" r="4" fill="#FFB48A"/><circle cx="18" cy="6" r="4" fill="#FFB48A"/></g></g><rect x="70" y="144" width="56" height="42" rx="8" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><rect x="74" y="148" width="48" height="34" rx="5" fill="url(#gT)"/><g transform="translate(98 168) scale(0.42)"><path d="M-30 30c-6-34 6-64 30-64s36 30 30 64z" fill="#FFFCF6" stroke="#15120F" stroke-width="3"/><g class="a-eye"><ellipse cx="-9" cy="-6" rx="4.5" ry="6" fill="#15120F"/><ellipse cx="9" cy="-6" rx="4.5" ry="6" fill="#15120F"/></g><path d="M-8 10q8 7 16 0" fill="none" stroke="#15120F" stroke-width="3" stroke-linecap="round"/><circle cx="-18" cy="6" r="4" fill="#FFB48A"/><circle cx="18" cy="6" r="4" fill="#FFB48A"/></g><rect x="132" y="144" width="56" height="42" rx="8" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><rect x="136" y="148" width="48" height="34" rx="5" fill="url(#gT)"/><g transform="translate(160 168) scale(0.42)"><path d="M-30 30c-6-34 6-64 30-64s36 30 30 64z" fill="#FFFCF6" stroke="#15120F" stroke-width="3"/><g class="a-eye"><ellipse cx="-9" cy="-6" rx="4.5" ry="6" fill="#15120F"/><ellipse cx="9" cy="-6" rx="4.5" ry="6" fill="#15120F"/></g><path d="M-8 10q8 7 16 0" fill="none" stroke="#15120F" stroke-width="3" stroke-linecap="round"/><circle cx="-18" cy="6" r="4" fill="#FFB48A"/><circle cx="18" cy="6" r="4" fill="#FFB48A"/></g><rect x="194" y="144" width="56" height="42" rx="8" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><rect x="198" y="148" width="48" height="34" rx="5" fill="url(#gT)"/><g transform="translate(222 168) scale(0.42)"><path d="M-30 30c-6-34 6-64 30-64s36 30 30 64z" fill="#FFFCF6" stroke="#15120F" stroke-width="3"/><g class="a-eye"><ellipse cx="-9" cy="-6" rx="4.5" ry="6" fill="#15120F"/><ellipse cx="9" cy="-6" rx="4.5" ry="6" fill="#15120F"/></g><path d="M-8 10q8 7 16 0" fill="none" stroke="#15120F" stroke-width="3" stroke-linecap="round"/><circle cx="-18" cy="6" r="4" fill="#FFB48A"/><circle cx="18" cy="6" r="4" fill="#FFB48A"/></g></svg><span class="num">09</span></div><div class="les-b"><h3>Мультики і серіали з персонажами</h3>
-        <details class="acc"><summary>Що в розборі <i>+</i></summary><ul class="bul"><li>персонажі, які не змінюються від серії до серії</li><li>мультики-пояснення «як працює…»</li><li>серіальний формат для блогу</li></ul></details>
-        <div class="resbox"><b>Результат</b>У блогу зʼявляється рубрика з постійним персонажем. Аніматори і студія для цього не потрібні.</div></div></article>
-
-      <article class="les"><div class="ill" aria-hidden="true"><svg viewBox="0 0 320 200"><clipPath id="carB"><rect x="24" y="30" width="96" height="124" rx="10"/></clipPath><rect x="24" y="30" width="96" height="124" rx="10" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><g clip-path="url(#carB)"><g class="a-slide"><rect x="24" y="30" width="74" height="124" rx="0" fill="url(#gT)"/><rect x="98" y="30" width="74" height="124" fill="#15120F"/><rect x="172" y="30" width="74" height="124" rx="0" fill="url(#gY)"/><circle cx="61" cy="80" r="16" fill="#fff"/><rect x="110" y="76" width="44" height="8" rx="4.0" fill="#fff"/><path d="M184 130l18-26 14 18 14-14" fill="none" stroke="#15120F" stroke-width="4" stroke-linejoin="round"/></g></g><circle cx="60" cy="168" r="3.5" fill="#FF5A1A"/><circle cx="72" cy="168" r="3.5" fill="#D9D0C1"/><circle cx="84" cy="168" r="3.5" fill="#D9D0C1"/><rect x="136" y="44" width="164" height="112" rx="12" fill="#fff" stroke="#ECE5D9" filter="url(#sh)"/><rect x="146" y="54" width="144" height="72" rx="7" fill="url(#gT)"/><rect x="206" y="78" width="26" height="22" rx="7" fill="#fff"/><path d="M215 83v12l9-6z" fill="#FF5A1A"/><rect x="146" y="136" width="144" height="4" rx="2" fill="#EEE7DC"/><rect x="146" y="136" width="58" height="4" rx="2" fill="#FF5A1A"/><rect x="146" y="146" width="80" height="6" rx="3.0" fill="#EEE7DC"/></svg><span class="num">10</span></div><div class="les-b"><h3>Каруселі, обкладинки і довгі відео</h3>
-        <details class="acc"><summary>Що в розборі <i>+</i></summary><ul class="bul"><li>анімовані каруселі для Instagram</li><li>обкладинки на перших кадрах і окремою картинкою</li><li>кілька записів, зібрані в один ролик</li><li>довгі горизонтальні відео для YouTube на 8–15 хвилин</li></ul></details>
-        <div class="resbox"><b>Результат</b>Короткі ролики, каруселі, обкладинки і YouTube робить одна АІ Студія монтажу в одному стилі.</div></div></article>
+    <div class="vsc rv">
+      <div class="vc old"><span class="t">Курс</span><ul><li>години відеоуроків</li><li>розбори і домашні завдання</li><li>налаштовуєш усе сам</li><li>результат колись потім</li></ul></div>
+      <div class="vc new"><span class="t">АІ Студія монтажу</span><ul><li>ставиш однією фразою</li><li>кажеш, який ролик потрібен</li><li>агенти роблять усе самі</li><li>перший ролик того ж дня</li></ul></div>
     </div>
-    <div class="cnav" data-for="les"><button type="button" class="cp" aria-label="Попередній розбір">←</button><span class="cnt"></span><button type="button" class="cn" aria-label="Наступний розбір">→</button></div>
   </section>
-
   <!-- ═══ 3. ОНОВЛЕННЯ НАЗАВЖДИ ═══ -->
   <section class="sec alt" id="updates">
     <h2 class="h2 kar">Найголовніше: <span class="k">оновлення</span> назавжди</h2>
     <p class="p">Нейронки змінюються майже щомісяця. Те, що працювало пів року тому, сьогодні вже застаріло. Тому я постійно оновлюю АІ Студію монтажу: вона вже пережила чотири великі оновлення.</p>
     <div class="vers rv" aria-hidden="true">
-      <span class="ver">v1</span><span class="ln"></span><span class="ver">v2</span><span class="ln"></span><span class="ver">v3</span><span class="ln"></span><span class="ver now">v4<small>ЗАРАЗ</small></span><span class="ln d"></span><span class="ver next">v5</span>
+      <span class="ver">v1</span><span class="ln"></span><span class="ver">v2</span><span class="ln"></span><span class="ver">v3</span><span class="ln"></span><span class="ver">v4</span><span class="ln"></span><span class="ver now">v5<small>ЗАРАЗ</small></span><span class="ln d"></span><span class="ver next">v6</span>
     </div>
     <p class="p">Купуєш один раз і отримуєш <b>кожну нову версію без доплат</b>. Тобі не доведеться самому стежити за нейронками і переналаштовувати монтаж.</p>
     <div class="proof rv">
@@ -856,17 +892,15 @@ details.acc summary i,.faq summary i{border:0;background:var(--grad);box-shadow:
     <h2 class="h2 kar">Що ти отримаєш <span class="k">одразу після оплати</span></h2>
     <div class="when">
       <div class="rv"><span class="e"><svg><use href="#w-pay"/></svg></span><p><b>Оплачуєш</b><span>Вказуєш пошту на сторінці оплати. Можна частинами.</span></p><em>1</em></div>
-      <div class="rv"><span class="e tg"><svg><use href="#w-tg"/></svg></span><p><b>Усе приходить у Telegram-бот</b><span>Папка АІ Студії монтажу, стартовий урок і всі розбори. Доступ дублюється на пошту.</span></p><em>2</em></div>
-      <div class="rv"><span class="e"><svg><use href="#w-go"/></svg></span><p><b>Того ж вечора монтуєш</b><span>Встановлюєш усе за першим уроком і ставиш задачу команді АІ-агентів.</span></p><em>3</em></div>
+      <div class="rv"><span class="e tg"><svg><use href="#w-tg"/></svg></span><p><b>Усе приходить у Telegram-бот</b><span>Архів АІ Студії монтажу. Доступ дублюється на пошту.</span></p><em>2</em></div>
+      <div class="rv"><span class="e"><svg><use href="#w-go"/></svg></span><p><b>Встановлюєш однією фразою</b><span>Віддаєш архів Claude Code або Codex, пишеш «встанови» і одразу ставиш першу задачу.</span></p><em>3</em></div>
     </div>
     <ul class="incl">
-      <li class="rv"><span><b>Папку АІ Студії монтажу:</b> понад 10 000 файлів</span></li>
+      <li class="rv"><span><b>Папку АІ Студії монтажу:</b> 10 475 файлів</span></li>
       <li class="rv"><span><b>Команду АІ-агентів:</b> АІ-сценаристів, АІ-суддів, АІ-збирача, АІ-монтажера і АІ-критика</span></li>
       <li class="rv"><span><b>400+ референсів</b> монтажу і анімацій</span></li>
       <li class="rv"><span>Шрифти, кольори, переходи, звуки і плашки в одній дизайн-системі</span></li>
-      <li class="rv"><span>Урок: як встановити АІ Студію монтажу</span></li>
-      <li class="rv"><span>Урок: як ставити задачу команді й навчити АІ Студію монтажу своїм правилам</span></li>
-      <li class="rv"><span><b>10 відеорозборів</b> можливостей на реальних роликах</span></li>
+      <li class="rv"><span><b>Встановлення однією фразою:</b> без уроків і ручних налаштувань</span></li>
       <li class="hl rv"><span><b>Усі майбутні оновлення</b> без доплат</span></li>
       <li class="rv"><span>Доступ назавжди</span></li>
       <!-- ⟨подтвердить: підтримка в Telegram на АІ Студії монтажу⟩ -->
@@ -893,10 +927,20 @@ details.acc summary i,.faq summary i{border:0;background:var(--grad);box-shadow:
   </section>
 
   <!-- ═══ 14. ВІДГУКИ ═══ -->
-  <!-- ⟨НУЖНО: скріншоти відгуків учнів (папку пришле Михайло)⟩ → прибрати hidden і додати <figure class="rev"><img src="rev/rev-N.jpg" …></figure> -->
-  <section class="sec dark" id="reviews" hidden>
-    <h2 class="h2 kar">Що кажуть ті, хто вже <span class="k">зібрав систему</span></h2>
-    <div class="revs" id="revs"></div>
+  <section class="sec" id="reviews">
+    <h2 class="h2 kar">Що пишуть учні, які вже зібрали <span class="k">АІ монтажера</span></h2>
+    <p class="p">Це відгуки на базового АІ монтажера з практикуму. АІ Студія монтажу стоїть на тій самій основі і вміє у 4 рази більше.</p>
+    <div class="revs" id="revs">
+      <figure class="rev"><img src="rev/rev-4.jpg" alt="Відгук учня про АІ монтажера" width="842" height="1206" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-1.jpg" alt="Відгук учня про АІ монтажера" width="762" height="858" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-7.jpg" alt="Відгук учня про АІ монтажера" width="768" height="886" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-8.jpg" alt="Відгук учня про АІ монтажера" width="838" height="406" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-3.jpg" alt="Відгук учня про АІ монтажера" width="764" height="988" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-6.jpg" alt="Відгук учня про АІ монтажера" width="764" height="974" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-5.jpg" alt="Відгук учня про АІ монтажера" width="766" height="920" loading="lazy" decoding="async"></figure>
+      <figure class="rev"><img src="rev/rev-2.jpg" alt="Відгук учня про АІ монтажера" width="776" height="862" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="cnav" data-for="revs"><button type="button" class="cp" aria-label="Попередній відгук">←</button><span class="cnt"></span><button type="button" class="cn" aria-label="Наступний відгук">→</button></div>
   </section>
 
   <!-- ═══ 15. АВТОР ═══ -->
@@ -907,7 +951,7 @@ details.acc summary i,.faq summary i{border:0;background:var(--grad);box-shadow:
       <li class="rv"><span class="chk"><svg><use href="#ck"/></svg></span><span>Олександр Цюцьмаць. Вивчаю АІ-інструменти щодня з 2024 року</span></li>
       <li class="rv"><span class="chk"><svg><use href="#ck"/></svg></span><span>Власник агенції зі створення АІ-контенту під ключ</span></li>
       <li class="rv"><span class="chk"><svg><use href="#ck"/></svg></span><span><b>7 141 учень</b> пройшов мої навчальні програми</span></li>
-      <li class="rv"><span class="chk"><svg><use href="#ck"/></svg></span><span>Монтую свої ролики через АІ Студію монтажу і зібрав уже чотири її версії</span></li>
+      <li class="rv"><span class="chk"><svg><use href="#ck"/></svg></span><span>Монтую свої ролики через АІ Студію монтажу і зібрав уже пʼять її версій</span></li>
       <li class="rv"><span class="chk"><svg><use href="#ck"/></svg></span><span>Вірю в системний підхід: хороші інструменти і розуміння, як отримати саме той результат, який хочеш бачити</span></li>
     </ul>
   </section>
@@ -930,7 +974,7 @@ details.acc summary i,.faq summary i{border:0;background:var(--grad);box-shadow:
       <ol class="path">
         <li><b>01</b>Сторінка оплати, тут вказуєш пошту</li>
         <li><b>02</b>Оплата</li>
-        <li><b>03</b>Telegram-бот, де чекають папка й уроки</li>
+        <li><b>03</b>Telegram-бот з архівом АІ Студії монтажу</li>
         <li><b>04</b>Доступ дублюється на пошту</li>
       </ol>
       <p class="support">Якщо щось не виходить, пиши в підтримку: <span class="ph-tag">⟨контакт⟩</span></p>
@@ -953,8 +997,9 @@ details.acc summary i,.faq summary i{border:0;background:var(--grad);box-shadow:
   <section class="sec" id="faq" style="padding-top:10px">
     <h2 class="h2 kar">Питання і <span class="k">відповіді</span></h2>
     <div class="faq">
-      <details><summary>АІ Студія монтажу стане поверх мого АІ монтажера з практикуму?<i>+</i></summary><p>Так. Claude Code або Codex і Remotion в тебе вже стоять, тож лишається додати папку АІ Студії монтажу. Це перший урок.</p></details>
-      <details><summary>А якщо я не проходив практикум?<i>+</i></summary><p>АІ Студія монтажу підходить і тобі. У першому уроці я показую, як встановити Claude Code або Codex, Remotion і саму папку.</p></details>
+      <details><summary>АІ Студія монтажу стане поверх мого АІ монтажера з практикуму?<i>+</i></summary><p>Так. Claude Code або Codex у тебе вже стоїть, тож віддаєш йому архів АІ Студії монтажу і пишеш «встанови». Усе.</p></details>
+      <details><summary>А якщо я не проходив практикум?<i>+</i></summary><p>АІ Студія монтажу підходить і тобі. Потрібен лише Claude Code або ChatGPT Codex. Віддаєш йому архів, пишеш «встанови», і він сам ставить усе потрібне.</p></details>
+      <details><summary>Це курс? Треба дивитися уроки?<i>+</i></summary><p>Ні, це готовий інструмент, а не курс. Встановлюєш однією фразою і одразу монтуєш. Якщо щось незрозуміло, спитай саму АІ Студію монтажу: що вона вміє, як це працює, які є референси. Вона пояснить і покаже.</p></details>
       <details><summary>Чи працює АІ Студія монтажу на ChatGPT Codex?<i>+</i></summary><p>Так, на Claude Code і на ChatGPT Codex однаково. Працюєш на тій підписці, яка в тебе вже є.</p></details>
       <!-- ⟨цифру роликов на $20 добавим после теста Саши⟩ -->
       <details><summary>Чи вистачить підписки за $20?<i>+</i></summary><p>Для старту так. Команда АІ-агентів витрачає більше лімітів, ніж базовий АІ монтажер, тож якщо монтуєш дуже довгі відео, згодом може знадобитися тариф за $100.</p></details>
@@ -962,7 +1007,7 @@ details.acc summary i,.faq summary i{border:0;background:var(--grad);box-shadow:
       <details><summary>Ролик виходить готовим з першого разу?<i>+</i></summary><p>Перший варіант уже пройшов АІ-критика, але смак у тебе свій. Ти кажеш, що змінити, голосом або текстом, і АІ Студія монтажу запамʼятовує правку на майбутнє.</p></details>
       <details><summary>Як з українською озвучкою?<i>+</i></summary><p>Наголоси АІ Студія монтажу ставить сама, і її словник поповнюється після кожної твоєї правки. Звук напряму АІ Студія монтажу не чує, тому фінальне прослуховування за тобою.</p></details>
       <details><summary>Довгі відео теж можна?<i>+</i></summary><p>Так, довгі горизонтальні відео для YouTube на 8–15 хвилин. Вони витрачають більше лімітів підписки, тому найкраще АІ Студія монтажу працює з коротким форматом.</p></details>
-      <details><summary>Що буде з оновленнями?<i>+</i></summary><p>Усі наступні версії АІ Студії монтажу приходять до тебе без доплат. Доступ до папки й уроків назавжди.</p></details>
+      <details><summary>Що буде з оновленнями?<i>+</i></summary><p>Усі наступні версії АІ Студії монтажу приходять до тебе без доплат. Доступ до папки назавжди.</p></details>
       <!-- ⟨Ответ Саши про минимальные требования, Windows и Mac⟩ -->
       <details><summary>Потрібен потужний компʼютер?<i>+</i></summary><p><span class="ph-tag">⟨відповідь Саші про мінімальні вимоги, Windows і Mac⟩</span></p></details>
     </div>
