@@ -99,8 +99,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .cd-sep{font:900 26px/54px var(--display);color:var(--or)}
 
 /* кнопка (зʼявляється через 3 хв) */
-.cta{margin-top:20px;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.cta.on{opacity:1;transform:none;pointer-events:auto}
+/* кнопка розсуває місце під відео, опис плавно зʼїжджає вниз */
+.cta{display:grid;grid-template-rows:0fr;margin-top:0;opacity:0;transform:translateY(-8px);pointer-events:none;transition:grid-template-rows .8s var(--ease),margin-top .8s var(--ease),opacity .5s .3s,transform .6s .3s var(--ease)}
+.cta .ci{min-height:0;overflow:hidden;margin:0 -16px;padding:0 16px}
+.cta.on{grid-template-rows:1fr;margin-top:22px;opacity:1;transform:none;pointer-events:auto}
+.cta.done .ci{overflow:visible}
 .btn{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:62px;padding:16px 20px;border-radius:16px;background:var(--grad);color:#fff;box-shadow:var(--gsh);font:900 16px/1.2 var(--display);text-transform:uppercase;text-align:center;transition:transform .25s var(--ease)}
 .btn::before{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:shine 3.6s ease-in-out infinite}
 @keyframes shine{0%,55%{left:-80%}100%{left:140%}}
@@ -135,6 +138,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       </div>
     </div>
 
+    <div class="cta" id="cta" aria-hidden="true">
+      <div class="ci"><a class="btn" href="/ai-studiya/" tabindex="-1">Подивитися, що входить і ціну<em>−59%</em></a></div>
+    </div>
+
     <p class="desc">У цьому відео я показую <b>АІ Студію монтажу</b>: команду з 5 АІ-агентів, яка сама пише сценарій, збирає ролик і перевіряє кожен кадр. Ти тільки кажеш, яке відео потрібне, і <b>отримуєш готовий результат</b>.</p>
 
     <div class="cd">
@@ -146,9 +153,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       </div>
     </div>
 
-    <div class="cta" id="cta">
-      <a class="btn" href="/ai-studiya/">Подивитися, що входить і ціну<em>−59%</em></a>
-    </div>
   </main>
 
   <!-- ⟨НУЖНО: контакт підтримки (Telegram)⟩ → кнопка «Технічна підтримка» -->
@@ -267,7 +271,11 @@ thumb.addEventListener('click', function(e){
 })();
 
 // ====== Кнопка зʼявляється через 3 хвилини ======
-setTimeout(function(){ document.getElementById('cta').classList.add('on') }, 3 * 60 * 1000);
+setTimeout(function(){
+  var c = document.getElementById('cta');
+  c.classList.add('on'); c.removeAttribute('aria-hidden'); c.querySelector('a').removeAttribute('tabindex');
+  setTimeout(function(){ c.classList.add('done') }, 900); // тінь кнопки після розкриття
+}, 3 * 60 * 1000);
 </script>
 </body>
 </html>
