@@ -100,9 +100,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* кнопка (зʼявляється через 3 хв) */
 /* кнопка розсуває місце під відео, опис плавно зʼїжджає вниз */
-.cta{display:grid;grid-template-rows:0fr;margin-top:0;opacity:0;transform:translateY(-8px);pointer-events:none;transition:grid-template-rows .8s var(--ease),margin-top .8s var(--ease),opacity .5s .3s,transform .6s .3s var(--ease)}
+.cta{display:grid;grid-template-rows:0fr;opacity:0;transform:translateY(-8px);pointer-events:none;transition:grid-template-rows .8s var(--ease),opacity .5s .3s,transform .6s .3s var(--ease)}
 .cta .ci{min-height:0;overflow:hidden;margin:0 -16px;padding:0 16px}
-.cta.on{grid-template-rows:1fr;margin-top:22px;opacity:1;transform:none;pointer-events:auto}
+.cta .btn{margin-top:22px}
+.cta.on{grid-template-rows:1fr;opacity:1;transform:none;pointer-events:auto}
 .cta.done .ci{overflow:visible}
 .btn{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:62px;padding:16px 20px;border-radius:16px;background:var(--grad);color:#fff;box-shadow:var(--gsh);font:900 16px/1.2 var(--display);text-transform:uppercase;text-align:center;transition:transform .25s var(--ease)}
 .btn::before{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:shine 3.6s ease-in-out infinite}
