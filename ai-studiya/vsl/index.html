@@ -36,16 +36,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .wrap{max-width:480px;min-height:100vh;margin:0 auto;background:var(--bg);position:relative;overflow-x:clip;display:flex;flex-direction:column}
 @media(min-width:520px){.wrap{box-shadow:0 0 60px rgba(0,0,0,.08);border-left:1px solid var(--line);border-right:1px solid var(--line)}}
 
-.vsl{flex:1;padding:30px 20px 48px;background:#F3EEE4 linear-gradient(rgba(21,18,15,.035) 1px,transparent 1px) 0 0/22px 22px,linear-gradient(90deg,rgba(21,18,15,.035) 1px,transparent 1px) 0 0/22px 22px}
+.vsl{flex:1;padding:30px 20px 48px}
 @keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
 .krow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;animation:up .7s var(--ease) both}
-.sticker{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;background:var(--grad);color:#fff;border-radius:999px;padding:7px 14px 7px 7px;font:900 12.5px/1.1 var(--display);text-transform:uppercase;box-shadow:var(--gsh)}
-.sticker b{background:#fff;color:var(--or);border-radius:999px;padding:4px 8px;font-size:11px}
-.dur{display:inline-flex;align-items:center;gap:6px;background:#fff;border:var(--bd);border-radius:999px;padding:7px 12px;font:700 13px/1 var(--body);box-shadow:var(--sh)}
+.sticker{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;background:var(--grad);color:#fff;border-radius:999px;padding:7px 14px 7px 7px;font:900 12px/1.1 var(--display);text-transform:uppercase;box-shadow:var(--gsh)}
+.sticker b{background:#fff;color:var(--or);border-radius:999px;padding:4px 8px}
+.dur{display:inline-flex;align-items:center;gap:6px;background:#fff;border:var(--bd);border-radius:999px;padding:7px 12px;font:700 12px/1 var(--body);box-shadow:var(--sh)}
 .dur svg{width:15px;height:15px}
 
-.eyebrow{display:block;margin-top:22px;font:800 13px/1.2 var(--display);letter-spacing:.08em;text-transform:uppercase;color:#E8550F;animation:up .7s var(--ease) .05s both}
+.eyebrow{display:block;margin-top:22px;font:800 12px/1.2 var(--display);letter-spacing:.08em;text-transform:uppercase;color:#E8550F;animation:up .7s var(--ease) .05s both}
 .h1{margin-top:10px;font:900 clamp(26px,7.4vw,34px)/1.08 var(--display);text-transform:uppercase;letter-spacing:-.02em;animation:up .7s var(--ease) .1s both}
 .hl{background:var(--grad);color:#fff;padding:0 6px;margin:0 -2px;border-radius:8px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 
@@ -53,7 +53,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .vframe{position:relative;margin-top:26px;background:#fff;border:var(--bd);border-radius:22px;padding:8px;box-shadow:0 2px 4px rgba(21,18,15,.05),0 22px 48px rgba(21,18,15,.14);animation:up .8s var(--ease) .18s both}
 .vbar{display:flex;align-items:center;gap:6px;padding:4px 6px 10px}
 .vbar i{width:9px;height:9px;border-radius:50%;background:#E3DBCD}.vbar i:first-child{background:var(--or)}
-.vbar span{margin-left:6px;font:600 12.5px/1.2 var(--body);color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vbar span{margin-left:6px;font:600 12px/1.2 var(--body);color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .vw{position:relative;border-radius:14px;overflow:hidden;background:#000}
 .vc{position:relative;width:100%;padding-bottom:56.25%;overflow:hidden}
 /* iframe утричі вищий за кадр: назва, лого і «Дивитися на YouTube» обрізаються */
@@ -86,7 +86,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .vw.is-pseudo-fs{position:fixed;inset:0;z-index:9999;border-radius:0;display:flex;align-items:center}
 .vw.is-pseudo-fs .vc{width:100%}
 
-.desc{margin-top:22px;font-size:16.5px;line-height:1.6;color:#4A433C;animation:up .7s var(--ease) .25s both}
+.desc{margin-top:22px;font-size:16px;line-height:1.6;color:#4A433C;animation:up .7s var(--ease) .25s both}
 .desc b{color:var(--ink)}
 
 /* таймер */
@@ -95,20 +95,20 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .cd-row{display:flex;align-items:flex-start;justify-content:center;gap:8px}
 .cd-b{display:flex;flex-direction:column;align-items:center}
 .cd-b b{min-width:72px;padding:10px 0;border-radius:14px;background:var(--ink);color:#fff;font:900 34px/1 var(--display);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
-.cd-b i{font-style:normal;font:600 11px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-top:7px}
+.cd-b i{font-style:normal;font:600 12px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-top:7px}
 .cd-sep{font:900 26px/54px var(--display);color:var(--or)}
 
 /* кнопка (зʼявляється через 3 хв) */
 .cta{margin-top:20px;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .cta.on{opacity:1;transform:none;pointer-events:auto}
-.btn{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:62px;padding:16px 20px;border-radius:16px;background:var(--grad);color:#fff;box-shadow:var(--gsh);font:900 15px/1.2 var(--display);text-transform:uppercase;text-align:center;transition:transform .25s var(--ease)}
+.btn{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:62px;padding:16px 20px;border-radius:16px;background:var(--grad);color:#fff;box-shadow:var(--gsh);font:900 16px/1.2 var(--display);text-transform:uppercase;text-align:center;transition:transform .25s var(--ease)}
 .btn::before{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:shine 3.6s ease-in-out infinite}
 @keyframes shine{0%,55%{left:-80%}100%{left:140%}}
 .btn:active{transform:scale(.97)}
 .btn svg{width:20px;height:20px;flex:none}
 .btn em{font-style:normal;background:#fff;color:var(--or);border-radius:8px;padding:4px 7px;font-size:12px}
 
-.foot{background:var(--ink);color:rgba(255,255,255,.62);padding:30px 20px 40px;font-size:12.5px;line-height:1.6}
+.foot{background:var(--ink);color:rgba(255,255,255,.62);padding:30px 20px 40px;font-size:12px;line-height:1.6}
 .foot b{display:block;color:#fff;font-weight:700;margin-top:10px}
 .foot b:first-child{margin-top:0}
 .foot a{text-decoration:underline;text-underline-offset:3px;color:#fff}
