@@ -53,6 +53,8 @@
     { "source": "/ai-studiya/", "destination": "/ai-studiya/index.html", "permanent": false },
     { "source": "/ai-studiya/concepts", "destination": "/ai-studiya/concepts/index.html", "permanent": false },
     { "source": "/ai-studiya/concepts/", "destination": "/ai-studiya/concepts/index.html", "permanent": false },
+    { "source": "/ai-studiya/vsl", "destination": "/ai-studiya/vsl/index.html", "permanent": false },
+    { "source": "/ai-studiya/vsl/", "destination": "/ai-studiya/vsl/index.html", "permanent": false },
     { "source": "/ai-content-v3-m", "destination": "/ai-content-v3-m/index.html", "permanent": false },
     { "source": "/ai-content-v3-m/", "destination": "/ai-content-v3-m/index.html", "permanent": false },
     { "source": "/ai-content-v3", "destination": "/ai-content-v3/index.html", "permanent": false },
