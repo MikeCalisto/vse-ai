@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>АІ-Відеокреатор 2.0 — курс Олександра Цюцьмаця · старт 12 листопада</title>
+<meta name="description" content="12 модулів, 12 тижнів: навчишся створювати рекламу, мультики, фільми й UGC через нейромережі та знаходити клієнтів. Другий потік, оновлений за відгуками 98 учнів.">
+<meta property="og:title" content="АІ-Відеокреатор 2.0 — другий потік">
+<meta property="og:description" content="AI-відео, за які платять бізнеси. Старт 12 листопада.">
+<meta property="og:image" content="/videokreator-2/media/og.jpg">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800;900&display=swap&subset=cyrillic,latin" rel="stylesheet">
+<link rel="preload" as="image" href="/videokreator-2/media/obj/camera.webp" fetchpriority="high">
+<style>
+:root{
+  --ink:#0b1310; --ink2:#101b17; --ink3:#16241e; --line-d:rgba(255,255,255,.09);
+  --cream:#efebe2; --paper:#f8f6f1; --line-c:#ddd7ca;
+  --mint:#43d199; --mint-d:#2fb581; --emerald:#0f7a51; --gold:#e3b44a;
+  --t-dark:#0d1612; --t-mut-c:#58655e; --t-light:#eef3ef; --t-mut-d:#9fb2a7;
+  --font:'Jost',-apple-system,'SF Pro Display','Helvetica Neue',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:#d9d4c8;color:var(--t-dark);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.phone{max-width:480px;margin:0 auto;background:var(--paper);position:relative;overflow:hidden}
+@media(min-width:520px){.phone{box-shadow:0 0 60px rgba(0,0,0,.18);border-left:1px solid rgba(0,0,0,.06);border-right:1px solid rgba(0,0,0,.06)}}
+.sec{position:relative;padding:64px 20px;overflow:hidden}
+.sec.dark{background:var(--ink);color:var(--t-light)}
+.sec.dark2{background:var(--ink2);color:var(--t-light)}
+.sec.cream{background:var(--cream)}
+.sec.paper{background:var(--paper)}
+.wrap{position:relative;z-index:2}
+h1,h2,h3{font-weight:900;letter-spacing:-.025em;line-height:1.08;text-wrap:balance}
+h2{font-size:clamp(1.9rem,8.2vw,2.5rem);margin-bottom:18px}
+h3{font-size:1.15rem;letter-spacing:-.01em;line-height:1.2}
+p{text-wrap:pretty}
+.lead{font-size:1.04rem;line-height:1.6}
+.dark .lead,.dark2 .lead{color:#cfdcd4}
+.cream .lead,.paper .lead{color:#33413a}
+.mut{color:var(--t-mut-c)}
+.dark .mut,.dark2 .mut{color:var(--t-mut-d)}
+.hm{background:linear-gradient(180deg,transparent 58%,rgba(67,209,153,.55) 58%);padding:0 4px;margin:0 -4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.dark .hm,.dark2 .hm{background:linear-gradient(180deg,transparent 60%,rgba(67,209,153,.42) 60%)}
+.mint{color:var(--mint)} .emer{color:var(--emerald)}
+.spray{text-shadow:0 0 34px rgba(67,209,153,.28)}
+.label{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 26px;border-radius:14px;
+  background:var(--mint);color:#06120d;font-weight:800;font-size:.98rem;letter-spacing:.03em;text-transform:uppercase;
+  box-shadow:0 12px 32px rgba(67,209,153,.36),inset 0 1px 0 rgba(255,255,255,.35);position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s;text-align:center}
+.btn::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 4.5s ease-in-out infinite}
+@keyframes shine{0%,60%{left:-100%}85%,100%{left:140%}}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(67,209,153,.5)}
+.btn.block{display:flex;width:100%}
+.btn.ghost{background:transparent;color:var(--t-light);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.28)}
+.btn.ghost::before{display:none}
+.btn.gold{background:var(--gold);box-shadow:0 12px 32px rgba(227,180,74,.32)}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;background:#fff;color:var(--t-dark);font-weight:600;font-size:.86rem;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+a:focus-visible,button:focus-visible{outline:2.5px solid var(--mint);outline-offset:3px;border-radius:10px}
+
+/* decor */
+.deco{position:absolute;pointer-events:none;z-index:1}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+@keyframes floatR{0%,100%{transform:rotate(0)}50%{transform:rotate(10deg)}}
+@keyframes ofloat{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -12px;rotate:-1.5deg}}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
+@keyframes glow{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:.95;transform:scale(1.08)}}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px rgba(67,209,153,.8);animation:pulseDot 2s ease-in-out infinite;flex:none}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.vis{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}
+
+/* ===== HERO ===== */
+.hero{background:radial-gradient(120% 70% at 85% 18%,rgba(67,209,153,.20),rgba(15,122,81,.06) 45%,transparent 70%),var(--ink);color:var(--t-light);padding:26px 20px 40px}
+.hero .grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(180deg,#000 40%,transparent 95%);-webkit-mask-image:linear-gradient(180deg,#000 40%,transparent 95%)}
+.sticker{display:inline-flex;flex-direction:column;gap:2px;background:var(--mint);color:#06120d;padding:9px 14px 8px;border-radius:12px;transform:rotate(-3deg);box-shadow:0 10px 24px rgba(67,209,153,.3);margin:6px 0 18px}
+.sticker b{font-size:.92rem;font-weight:800;letter-spacing:.01em}
+.sticker span{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.live{display:inline-flex;align-items:center;gap:9px;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#cfe9dc;background:rgba(255,255,255,.06);border:1px solid var(--line-d);padding:7px 13px;border-radius:999px;margin-bottom:16px}
+.hero h1{font-size:clamp(2.7rem,13.5vw,4.3rem);letter-spacing:-.035em;line-height:.95}
+.hero h1 .v2{display:inline-block;color:transparent;-webkit-text-stroke:2px var(--mint);margin-left:.12em;transform:translateY(-.04em)}
+.hero .sub{font-size:1.1rem;line-height:1.5;margin-top:18px;color:#d5e2da;max-width:30ch}
+.hero .sub b{color:#fff}
+.hero-art{position:relative;margin:6px -20px 0 0;height:0;padding-top:0}
+.cam-wrap{position:relative;margin:-10px -22% 0 30%;width:84%}
+.cam-wrap .halo{position:absolute;left:34%;top:22%;width:58%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(67,209,153,.55),rgba(67,209,153,0) 65%);filter:blur(10px);animation:glow 3.6s ease-in-out infinite;z-index:0}
+.cam-wrap .obj{position:relative;z-index:1;width:100%;max-width:none;height:auto;animation:ofloat 7s ease-in-out infinite;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55))}
+.hero-proof{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:-8px;position:relative;z-index:3}
+.hp{background:rgba(16,27,23,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line-d);border-radius:16px;padding:13px 14px}
+.cnt{font-style:normal;font-size:inherit;color:inherit;display:inline;margin:0}
+.hp b{display:block;font-size:1.5rem;font-weight:900;letter-spacing:-.02em;color:var(--mint);line-height:1.05;font-variant-numeric:tabular-nums}
+.hp span{font-size:.82rem;line-height:1.35;color:#c6d4cc;display:block;margin-top:4px}
+.hp.wide{grid-column:1/-1;display:flex;align-items:center;gap:12px}
+.hp.wide b{font-size:1.15rem}
+.hero-price{margin-top:22px;background:linear-gradient(160deg,rgba(67,209,153,.16),rgba(67,209,153,.04));border:1px solid rgba(67,209,153,.35);border-radius:20px;padding:18px 18px 20px}
+.hero-price .row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.hero-price .now{font-size:2.3rem;font-weight:900;letter-spacing:-.03em;color:#fff;font-variant-numeric:tabular-nums}
+.hero-price s{color:#8fa59a;font-size:1.05rem;font-weight:600}
+.hero-price .tag{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mint)}
+.hero-price .note{font-size:.88rem;color:#c6d4cc;margin:4px 0 14px}
+.hero-ctas{display:flex;flex-direction:column;gap:10px}
+
+/* ===== film strip ticker ===== */
+.strip{background:#050907;position:relative;padding:22px 0;overflow:hidden;transform:rotate(-2deg);margin:-14px -20px;z-index:4;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.strip::before,.strip::after{content:'';position:absolute;left:0;right:0;height:9px;background:repeating-linear-gradient(90deg,transparent 0 10px,#e8efe9 10px 22px);opacity:.85}
+.strip::before{top:5px}.strip::after{bottom:5px}
+.strip-track{display:flex;gap:0;width:max-content;animation:marq 26s linear infinite}
+.strip-track span{font-weight:800;font-size:1.05rem;letter-spacing:.02em;color:#fff;white-space:nowrap;padding:0 18px;display:flex;align-items:center;gap:18px}
+.strip-track span::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 10px var(--mint)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ===== pain ===== */
+.obj-row{display:flex;align-items:center;gap:14px;margin:22px 0 0 -20px}
+.obj-art{position:relative;flex:0 0 40%}
+.obj-art .obj{display:block;width:150%;max-width:none;height:auto;margin-left:-40%;animation:ofloat 8s ease-in-out infinite;filter:drop-shadow(0 22px 26px rgba(0,0,0,.25))}
+.obj-col{flex:1;min-width:0}
+.quotes{display:flex;flex-direction:column;gap:12px;margin-top:22px}
+.q{background:#fff;border-radius:16px;padding:16px 16px 14px;box-shadow:0 6px 20px rgba(40,34,20,.07);position:relative}
+.q p{font-size:1rem;line-height:1.45;font-weight:500}
+.q cite{display:block;font-style:normal;font-size:.8rem;color:var(--t-mut-c);margin-top:8px;font-weight:600}
+.q::before{content:'“';position:absolute;right:14px;top:-6px;font-size:3.6rem;font-weight:900;color:rgba(15,122,81,.16);line-height:1}
+.route{margin-top:24px;background:var(--ink);color:var(--t-light);border-radius:20px;padding:20px 18px}
+.route .label{color:var(--mint)}
+.route-steps{display:flex;flex-wrap:wrap;gap:6px 6px;margin-top:12px;align-items:center}
+.route-steps i{font-style:normal;font-weight:700;font-size:.9rem;background:rgba(255,255,255,.07);border:1px solid var(--line-d);padding:6px 11px;border-radius:999px}
+.route-steps em{font-style:normal;color:var(--mint);font-weight:900}
+
+/* ===== results ===== */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.stat{background:var(--ink3);border:1px solid var(--line-d);border-radius:18px;padding:16px 14px}
+.stat b{display:block;font-size:2.05rem;font-weight:900;letter-spacing:-.03em;line-height:1;color:var(--mint);font-variant-numeric:tabular-nums}
+.stat span{display:block;font-size:.84rem;color:#c3d1c9;margin-top:7px;line-height:1.35}
+.stat.wide{grid-column:1/-1}
+.track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:22px -20px 0;padding:4px 20px 14px}
+.track::-webkit-scrollbar{display:none}
+.case{flex:0 0 78%;scroll-snap-align:start;background:var(--ink3);border:1px solid var(--line-d);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;content-visibility:auto;contain-intrinsic-size:300px 520px}
+.case .shot{background:#fff;aspect-ratio:4/5;overflow:hidden;display:flex;align-items:flex-start}
+.case .shot img{width:100%;height:100%;object-fit:contain;object-position:center top}
+.case .shot.contain img{object-fit:contain;background:#fff}
+.case .cap{padding:14px 15px 16px}
+.case .cap b{display:block;font-size:1.25rem;font-weight:900;letter-spacing:-.02em;color:var(--mint);line-height:1.15}
+.case .cap span{display:block;font-size:.88rem;color:#cbd8d0;margin-top:5px;line-height:1.4}
+.case .cap small{display:block;font-size:.76rem;color:#8fa59a;margin-top:8px;font-weight:600;letter-spacing:.04em}
+.swipe{display:flex;align-items:center;gap:8px;font-size:.78rem;color:#8fa59a;font-weight:600;margin-top:2px}
+.swipe svg{animation:nudge 1.8s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+.cream .swipe,.paper .swipe{color:var(--t-mut-c)}
+.story{margin-top:26px;background:linear-gradient(160deg,#13241d,#0e1915);border:1px solid rgba(67,209,153,.3);border-radius:22px;overflow:hidden}
+.story .shot{position:relative}
+.story .shot img{width:100%;height:auto}
+.story .shot::after{content:'';position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(180deg,transparent,#11201a)}
+.story .txt{padding:6px 18px 20px;position:relative;z-index:2}
+.story h3{font-size:1.4rem;color:#fff}
+.story p{color:#cfdcd4;margin-top:8px;font-size:.98rem}
+.honest{margin-top:18px;font-size:.86rem;color:#9fb2a7;border-left:3px solid var(--mint);padding-left:12px}
+
+/* ===== reviews ===== */
+.rev{flex:0 0 84%;scroll-snap-align:start;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(40,34,20,.09);content-visibility:auto;contain-intrinsic-size:320px 300px}
+.rev img{width:100%;height:auto}
+.tquotes{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.tq{background:var(--ink);color:var(--t-light);border-radius:18px;padding:18px}
+.tq p{font-size:1.02rem;line-height:1.5;font-weight:500}
+.tq cite{display:block;font-style:normal;color:var(--mint);font-size:.82rem;font-weight:700;margin-top:10px}
+.nps{display:flex;align-items:center;gap:14px;margin-top:20px;background:#fff;border-radius:18px;padding:16px;box-shadow:0 6px 20px rgba(40,34,20,.07)}
+.nps b{font-size:2.4rem;font-weight:900;letter-spacing:-.03em;color:var(--emerald);line-height:1;font-variant-numeric:tabular-nums}
+.nps span{font-size:.9rem;line-height:1.4;color:#33413a}
+
+/* ===== what's new ===== */
+.bg-obj{position:absolute;pointer-events:none;z-index:0}
+.bg-obj .obj{display:block;width:100%;max-width:none;height:auto}
+.st-clap{top:-30px;right:-24%;width:70%;animation:ofloat 9s ease-in-out infinite}
+.st-clap .obj{-webkit-mask-image:linear-gradient(225deg,#000 0 38%,rgba(0,0,0,.35) 66%,transparent 88%);mask-image:linear-gradient(225deg,#000 0 38%,rgba(0,0,0,.35) 66%,transparent 88%);filter:drop-shadow(0 22px 26px rgba(0,0,0,.22))}
+.news{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.nw{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start;background:rgba(255,255,255,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid var(--line-c);border-radius:18px;padding:15px 16px}
+.nw .ic{width:42px;height:42px;border-radius:13px;background:var(--ink);display:grid;place-items:center}
+.nw .ic svg{width:22px;height:22px;stroke:var(--mint);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.nw h3{font-size:1.04rem}
+.nw p{font-size:.92rem;color:#3f4c45;margin-top:3px;line-height:1.45}
+.fromdata{display:inline-block;margin-top:7px;font-size:.74rem;font-weight:700;letter-spacing:.06em;color:var(--emerald);background:rgba(15,122,81,.09);padding:3px 9px;border-radius:999px}
+
+/* ===== montage ===== */
+.vids{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:22px -20px 0;padding:4px 20px 12px}
+.vids::-webkit-scrollbar{display:none}
+.vid{flex:0 0 46%;scroll-snap-align:start;position:relative;aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:#000;border:1px solid var(--line-d)}
+.vid img,.vid video{width:100%;height:100%;object-fit:cover}
+.vid .play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.55))}
+.vid .play i{width:54px;height:54px;border-radius:50%;background:rgba(67,209,153,.92);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.vid .play i::after{content:'';border-left:15px solid #06120d;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tools span{font-size:.84rem;font-weight:600;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line-d);color:#d3e0d8}
+.tools span.on{background:var(--mint);color:#06120d;border-color:var(--mint);font-weight:800}
+
+/* ===== program ===== */
+.phase{margin-top:26px}
+.phase-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding-bottom:10px;border-bottom:2.5px solid var(--t-dark);margin-bottom:6px}
+.phase-h h3{font-size:1.2rem}
+.phase-h span{font-size:.8rem;font-weight:700;color:var(--t-mut-c);white-space:nowrap}
+.mod{border-bottom:1px solid var(--line-c)}
+.mod-btn{display:grid;grid-template-columns:40px 1fr 26px;gap:10px;align-items:center;width:100%;text-align:left;padding:15px 0}
+.mod-n{font-weight:900;font-size:1.3rem;color:var(--emerald);font-variant-numeric:tabular-nums}
+.mod-t{font-weight:700;font-size:1.02rem;line-height:1.3}
+.mod-t .tg{display:inline-block;vertical-align:2px;margin-left:6px;font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:6px}
+.tg.upd{background:rgba(15,122,81,.12);color:var(--emerald)}
+.tg.new{background:var(--gold);color:#3a2a03}
+.mod-x{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--t-dark);position:relative;transition:transform .3s}
+.mod-x::before,.mod-x::after{content:'';position:absolute;left:50%;top:50%;width:11px;height:1.8px;background:var(--t-dark);transform:translate(-50%,-50%)}
+.mod-x::after{transform:translate(-50%,-50%) rotate(90deg)}
+.mod.open .mod-x{transform:rotate(45deg)}
+.mod-body{display:none;padding:0 0 18px 50px}
+.mod.open .mod-body{display:block}
+.mod-body ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.mod-body li{position:relative;padding-left:18px;font-size:.94rem;line-height:1.45;color:#2f3c35}
+.mod-body li::before{content:'';position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:2px;background:var(--mint-d);transform:rotate(45deg)}
+.mod-body li b{color:var(--emerald)}
+.mod-res{margin-top:12px;font-weight:700;font-size:.94rem;background:#fff;border-radius:12px;padding:10px 12px;border-left:3px solid var(--mint-d)}
+.bonus{margin-top:26px;background:var(--ink);color:var(--t-light);border-radius:22px;padding:20px 18px;position:relative;overflow:hidden}
+.bonus h3{font-size:1.3rem}
+.bonus ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.bonus li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;line-height:1.4}
+.bonus li i{flex:none;font-style:normal;font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:var(--mint);color:#06120d;margin-top:2px}
+.bonus li i.g{background:var(--gold);color:#3a2a03}
+
+/* ===== clients / experts ===== */
+.st-mega{position:relative;margin:4px -34% 0 6%;width:110%}
+.st-mega .obj{width:100%;max-width:none;height:auto;animation:ofloat 8.5s ease-in-out infinite;filter:drop-shadow(0 28px 34px rgba(0,0,0,.5))}
+.waves{position:absolute;right:6%;top:6%;width:30%;z-index:0}
+.waves span{position:absolute;inset:0;border:2px solid rgba(67,209,153,.5);border-radius:50%;animation:wave 3s ease-out infinite}
+.waves span:nth-child(2){animation-delay:1s}.waves span:nth-child(3){animation-delay:2s}
+@keyframes wave{0%{transform:scale(.4);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+.claim{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.claim p{font-size:1.03rem;line-height:1.55;color:#d5e2da}
+.claim p b{color:#fff}
+.experts{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.ex{display:grid;grid-template-columns:64px 1fr;gap:14px;background:var(--ink3);border:1px solid var(--line-d);border-radius:18px;padding:14px}
+.ex img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--mint)}
+.ex h3{font-size:1.02rem;color:#fff}
+.ex .role{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mint);margin-top:2px}
+.ex p{font-size:.88rem;color:#c3d1c9;margin-top:6px;line-height:1.4}
+
+/* ===== support ===== */
+.sup{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.sp{background:#fff;border-radius:18px;padding:15px 14px;box-shadow:0 6px 18px rgba(40,34,20,.06)}
+.sp b{display:block;font-size:1.7rem;font-weight:900;letter-spacing:-.02em;color:var(--emerald);line-height:1}
+.sp h3{font-size:.98rem;margin-top:8px}
+.sp p{font-size:.84rem;color:#4b5852;margin-top:4px;line-height:1.4}
+.sp.wide{grid-column:1/-1}
+.budget{margin-top:22px;background:var(--ink);color:var(--t-light);border-radius:22px;padding:20px 18px}
+.budget h3{font-size:1.25rem}
+.budget p{font-size:.95rem;color:#cfdcd4;margin-top:8px}
+.budget .rows{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.budget .rows div{display:flex;justify-content:space-between;gap:12px;font-size:.92rem;padding:10px 12px;background:rgba(255,255,255,.05);border-radius:12px}
+.budget .rows b{color:var(--mint);white-space:nowrap}
+
+/* ===== ladder ===== */
+.ladder{margin-top:20px;background:var(--ink3);border:1px solid var(--line-d);border-radius:20px;padding:16px}
+.ladder .label{color:var(--mint)}
+.steps{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.step{display:grid;grid-template-columns:22px 1fr auto;gap:10px;align-items:center;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.04);font-size:.92rem;color:#a9bab0;transition:background .5s,color .5s}
+.step i{width:14px;height:14px;border-radius:50%;border:2px solid #5d7268}
+.step b{font-variant-numeric:tabular-nums;font-weight:800}
+.step.past{opacity:.55}.step.past b{text-decoration:line-through}
+.step.cur{background:rgba(67,209,153,.16);color:#fff;box-shadow:inset 0 0 0 1.5px rgba(67,209,153,.6)}
+.step.cur i{border-color:var(--mint);background:var(--mint);box-shadow:0 0 0 4px rgba(67,209,153,.2);animation:pulseDot 2s infinite}
+.step.cur b{color:var(--mint)}
+.step .now-tag{font-size:.64rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#06120d;background:var(--mint);padding:2px 6px;border-radius:5px;margin-left:6px}
+
+/* ===== tiers ===== */
+.tiers{display:flex;flex-direction:column;gap:16px;margin-top:24px}
+.tier{background:var(--ink3);border:1px solid var(--line-d);border-radius:22px;padding:22px 18px;position:relative}
+.tier.feat{border:1.5px solid var(--mint);box-shadow:0 18px 44px rgba(67,209,153,.16)}
+.tier.vip{border:1.5px solid var(--gold);background:linear-gradient(170deg,#1c1d12,#13201a 60%)}
+.tier .ribbon{position:absolute;top:-12px;left:18px;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:8px;background:var(--mint);color:#06120d}
+.tier.vip .ribbon{background:var(--gold);color:#3a2a03}
+.tier h3{font-size:1.6rem;color:#fff}
+.tier .for{font-size:.9rem;color:#b9c8bf;margin-top:4px}
+.tier .pr{display:flex;align-items:baseline;gap:12px;margin-top:16px;flex-wrap:wrap}
+.tier .pr b{font-size:2.3rem;font-weight:900;letter-spacing:-.03em;color:#fff;font-variant-numeric:tabular-nums}
+.tier .pr s{color:#7f948a;font-weight:600}
+.tier .mo{font-size:.88rem;color:#cbd8d0;margin-top:2px}
+.tier .mo b{color:var(--mint)}
+.tier.vip .mo b{color:var(--gold)}
+.tier .next{font-size:.8rem;color:#8fa59a;margin-top:6px}
+.tier ul{list-style:none;margin:16px 0 18px;display:flex;flex-direction:column;gap:8px}
+.tier li{display:flex;gap:10px;font-size:.93rem;line-height:1.4;color:#dbe6df}
+.tier li::before{content:'';flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;background:rgba(67,209,153,.18) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2343d199' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/11px no-repeat}
+.tier.vip li::before{background-color:rgba(227,180,74,.18);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e3b44a' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E")}
+.tier li.plus{font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8fa59a}
+.tier li.plus::before{display:none}
+.tier li b{color:#fff}
+.tier .btns{display:flex;flex-direction:column;gap:9px}
+.tier .seats{display:flex;align-items:center;gap:8px;font-size:.84rem;font-weight:600;color:var(--gold);margin-top:10px}
+.pay-note{margin-top:20px;font-size:.88rem;color:#b9c8bf;line-height:1.5}
+.banks{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.banks span{font-size:.82rem;font-weight:700;padding:6px 12px;border-radius:999px;background:#fff;color:var(--t-dark)}
+.mgr{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px;background:rgba(255,255,255,.05);border:1px solid var(--line-d);border-radius:16px;padding:14px}
+.mgr p{font-size:.88rem;color:#cbd8d0;line-height:1.4}
+
+/* ===== compare ===== */
+.cmp-wrap{overflow-x:auto;margin:22px -20px 0;padding:0 20px}
+.cmp{width:100%;border-collapse:collapse;font-size:.82rem}
+.cmp th,.cmp td{padding:9px 4px;border-bottom:1px solid var(--line-c);text-align:center}
+.cmp th:first-child,.cmp td:first-child{text-align:left;padding-left:0}
+.cmp thead th{font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--t-mut-c)}
+.cmp td.y{color:var(--emerald);font-weight:900}
+.cmp td.n{color:#b8b2a5}
+
+/* ===== faq ===== */
+.faq{margin-top:20px;display:flex;flex-direction:column;gap:10px}
+.fq{background:#fff;border-radius:16px;box-shadow:0 4px 14px rgba(40,34,20,.06)}
+.fq-btn{display:flex;justify-content:space-between;gap:14px;align-items:center;width:100%;text-align:left;padding:16px;font-weight:700;font-size:1rem;line-height:1.35}
+.fq-btn .mod-x{flex:none}
+.fq.open .mod-x{transform:rotate(45deg)}
+.fq-body{display:none;padding:0 16px 16px;font-size:.95rem;color:#3c4943;line-height:1.55}
+.fq.open .fq-body{display:block}
+.fq-body p+p{margin-top:8px}
+
+/* ===== author ===== */
+.author{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.author .ph{width:150px;height:150px;border-radius:50%;overflow:hidden;border:3px solid var(--mint);box-shadow:0 0 0 8px rgba(67,209,153,.12)}
+.author .ph img{width:100%;height:100%;object-fit:cover}
+.ab{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ab li{display:flex;gap:10px;font-size:.98rem;color:#d5e2da;line-height:1.45}
+.ab li::before{content:'✔';color:var(--mint);font-weight:900;flex:none}
+.quote-big{margin-top:22px;font-size:1.12rem;line-height:1.5;font-weight:500;color:#e6efe9;border-left:3px solid var(--mint);padding-left:14px}
+
+/* ===== final ===== */
+.final{text-align:left}
+.final .hero-price{margin-top:18px}
+
+/* ===== footer ===== */
+footer{background:#070c0a;color:#9fb2a7;padding:40px 20px 120px;font-size:.82rem;line-height:1.55}
+footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
+.ft-support{display:inline-flex;margin-bottom:22px}
+.ft-ent{margin-bottom:12px}
+.ft-ent strong{display:block;color:#d4dfd8;font-weight:700}
+.ft-links{display:flex;gap:16px;margin:16px 0}
+.ft-links a{text-decoration:underline;color:#cfdcd4}
+.ft-disc{font-size:.76rem;color:#7d9087}
+
+/* ===== sticky bar ===== */
+.buybar{position:fixed;left:50%;bottom:0;transform:translate(-50%,110%);width:100%;max-width:480px;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:rgba(8,14,11,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(67,209,153,.3);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.buybar.show{transform:translate(-50%,0)}
+.bb-price{display:flex;flex-direction:column;line-height:1.15}
+.bb-price s{font-size:.78rem;color:#8fa59a}
+.bb-price b{font-size:1.2rem;color:#fff;font-weight:900;font-variant-numeric:tabular-nums}
+.bb-price span{font-size:.7rem;color:var(--mint);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.buybar .btn{padding:13px 18px;font-size:.84rem}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="phone">
+
+<!-- ===================== HERO ===================== -->
+<header class="sec hero" id="top">
+  <div class="grid-bg"></div>
+  <svg class="deco" style="left:14px;top:120px;opacity:.5;animation:floatR 9s ease-in-out infinite" width="26" height="26" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#43d199"/></svg>
+  <div class="wrap">
+    <div class="sticker"><span>Авторський курс · 12 тижнів</span><b>Олександр Цюцьмаць</b></div>
+    <div><span class="live"><i class="live-dot"></i>Набір на 2-й потік · старт 12 листопада</span></div>
+    <h1>АІ-Відео&shy;креатор<span class="v2">2.0</span></h1>
+    <p class="sub">Створюй <b>рекламу, мультики, фільми й UGC</b> через нейромережі — і продавай це бізнесам <b>по $50–300 за ролик</b>.</p>
+  </div>
+  <div class="cam-wrap" aria-hidden="true">
+    <div class="halo"></div>
+    <img class="obj" src="/videokreator-2/media/obj/camera.webp" alt="" width="983" height="1000" fetchpriority="high" decoding="async">
+  </div>
+  <div class="wrap">
+    <div class="hero-proof">
+      <div class="hp"><b><em class="cnt" data-count="98">98</em></b><span>учнів першого потоку оцінили курс на 9,4/10</span></div>
+      <div class="hp"><b>1 з 5</b><span>отримав клієнтів ще під час навчання</span></div>
+      <div class="hp wide"><b>48 млн</b><span>переглядів — рекорд одного ролика учня першого потоку</span></div>
+    </div>
+    <div class="hero-price">
+      <div class="tag">Ціна передзапису · для своїх</div>
+      <div class="row"><span class="now">від 6 290 ₴</span><s>14 990 ₴</s></div>
+      <p class="note">Найнижча ціна потоку. Далі буде дорожче: у каналі вебінару — від 7 990 ₴, на вебінарі — від 9 590 ₴.</p>
+      <div class="hero-ctas">
+        <a href="#tiers" class="btn block">Обрати тариф →</a>
+        <a href="#program" class="btn ghost block">Подивитись програму</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="strip" aria-hidden="true"><div class="strip-track">
+  <span>Реклама для бізнесу</span><span>Мультфільми</span><span>AI-фільми</span><span>UGC з AI-блогером</span><span>Кліпи</span><span>Предметка для брендів</span>
+  <span>Реклама для бізнесу</span><span>Мультфільми</span><span>AI-фільми</span><span>UGC з AI-блогером</span><span>Кліпи</span><span>Предметка для брендів</span>
+</div></div>
+
+<!-- ===================== PAIN ===================== -->
+<section class="sec cream" id="pain">
+  <svg class="deco" style="right:16px;top:40px;opacity:.12;animation:floatR 12s ease-in-out infinite" width="54" height="54"><circle cx="27" cy="27" r="22" stroke="#0f7a51" stroke-width="1.5" fill="none"/><circle cx="27" cy="27" r="13" stroke="#0f7a51" stroke-width="1" fill="none" stroke-dasharray="3 3"/></svg>
+  <div class="wrap">
+    <h2 class="reveal">Інформації — море.<br><span class="hm">Системи — нуль.</span></h2>
+    <div class="obj-row reveal d1">
+      <div class="obj-art"><img class="obj" src="/videokreator-2/media/obj/film.webp" alt="" width="1000" height="879" loading="lazy" decoding="async"></div>
+      <div class="obj-col"><p class="lead">Так починали учні першого потоку: сотні туторіалів, десятки нейромереж — і жодного ролика, яким не соромно похвалитись.</p></div>
+    </div>
+    <div class="quotes">
+      <div class="q reveal"><p>«Кожна генерація була трохи лотереєю»</p><cite>Дар'я, до курсу</cite></div>
+      <div class="q reveal d1"><p>«Все, що в мене виходило, було не таким, як я вигадала»</p><cite>Євгенія, до курсу</cite></div>
+      <div class="q reveal d2"><p>«За кілька годин витратила всі місячні кредити — і кинула цю справу»</p><cite>Злата, до курсу</cite></div>
+      <div class="q reveal d3"><p>«Наче щось вже знаю, щось вмію — але результату нуль: там попливло, там поїхало. Руки опускались»</p><cite>Ірина, до курсу</cite></div>
+    </div>
+    <div class="route reveal">
+      <div class="label">У курсі — один маршрут</div>
+      <div class="route-steps"><i>Ідея</i><em>→</em><i>Персонаж</i><em>→</em><i>Кадри</i><em>→</em><i>Відео й звук</i><em>→</em><i>Монтаж</i><em>→</em><i>Клієнт</i></div>
+      <p class="mut" style="margin-top:12px;font-size:.92rem">Кожен модуль спирається на попередній. Ти завжди знаєш, що робиш і навіщо.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESULTS ===================== -->
+<section class="sec dark" id="results">
+  <svg class="deco" style="left:-10px;top:60px;opacity:.14;animation:floatY 8s ease-in-out infinite" width="60" height="80" viewBox="0 0 60 80"><path d="M35 2L15 32h18L10 78l40-40H30L50 2H35z" fill="#43d199"/></svg>
+  <div class="wrap">
+    <h2 class="reveal spray">Перший потік уже <span class="hm">заробляє й залітає</span></h2>
+    <p class="lead reveal d1">Ми зібрали анкети в 98 учнів і показуємо як є: цифри з їхніх скриншотів і відповідей.</p>
+    <div class="stats">
+      <div class="stat reveal"><b><em class="cnt" data-count="7">7</em></b><span>учнів зробили ролики на 1 млн+ переглядів</span></div>
+      <div class="stat reveal d1"><b><em class="cnt" data-count="20">20</em></b><span>учнів отримали клієнтів під час навчання</span></div>
+      <div class="stat reveal d2"><b><em class="cnt" data-count="46">46</em> тис.+</b><span>нових підписників у 11 учнів</span></div>
+      <div class="stat reveal d3"><b><em class="cnt" data-count="9.4" data-dec="1">9,4</em></b><span>середня оцінка курсу з 10</span></div>
+    </div>
+    <div class="track">
+      <article class="case"><div class="shot"><picture><source srcset="/videokreator-2/media/case/vlad.avif" type="image/avif"><img src="/videokreator-2/media/case/vlad.jpg" alt="Статистика ролика Влада: 48 млн переглядів" loading="lazy" decoding="async" width="535" height="588"></picture></div>
+        <div class="cap"><b>48 млн переглядів</b><span>і +59 709 підписок з одного ролика</span><small>Влад · учень першого потоку</small></div></article>
+      <article class="case"><div class="shot"><picture><source srcset="/videokreator-2/media/case/dasha.avif" type="image/avif"><img src="/videokreator-2/media/case/dasha.jpg" alt="Профіль Дарʼї до і після курсу" loading="lazy" decoding="async" width="536" height="727"></picture></div>
+        <div class="cap"><b>З 1 до 7 955 підписників</b><span>і 2,7 млн переглядів за 30 днів. «Моїм підписником була 1 людина — сестра»</span><small>Дарʼя · Преміум</small></div></article>
+      <article class="case"><div class="shot contain"><picture><source srcset="/videokreator-2/media/case/kateryna.avif" type="image/avif"><img src="/videokreator-2/media/case/kateryna.jpg" alt="Повідомлення Катерини про замовлення" loading="lazy" decoding="async" width="525" height="190"></picture></div>
+        <div class="cap"><b>6 000 ₴ за 2 ролики</b><span>окупила підписки, зараз робить міні-трейлер колекції для того ж клієнта</span><small>Катерина · Преміум</small></div></article>
+      <article class="case"><div class="shot"><picture><source srcset="/videokreator-2/media/case/tetiana.avif" type="image/avif"><img src="/videokreator-2/media/case/tetiana.jpg" alt="Аналітика TikTok Тетяни" loading="lazy" decoding="async" width="551" height="743"></picture></div>
+        <div class="cap"><b>798 тис. переглядів</b><span>+1,9 тис. підписників. «Для мене найважливіше — стабільне обличчя»</span><small>Тетяна · TikTok</small></div></article>
+      <article class="case"><div class="shot"><picture><source srcset="/videokreator-2/media/case/demchuk.avif" type="image/avif"><img src="/videokreator-2/media/case/demchuk.jpg" alt="Статистика Reels: 1,1 млн" loading="lazy" decoding="async" width="532" height="653"></picture></div>
+        <div class="cap"><b>«Мій перший мільйон»</b><span>1 113 897 переглядів — «навіть не очікувала»</span><small>Наталя · Instagram</small></div></article>
+      <article class="case"><div class="shot"><picture><source srcset="/videokreator-2/media/case/iryna.avif" type="image/avif"><img src="/videokreator-2/media/case/iryna.jpg" alt="Профіль Ірини з роликом на 1,2 млн" loading="lazy" decoding="async" width="527" height="756"></picture></div>
+        <div class="cap"><b>1,2 млн переглядів</b><span>«Раніше відео і до тисячі не дотягувалися»</span><small>Ірина · Instagram</small></div></article>
+      <article class="case"><div class="shot contain"><picture><source srcset="/videokreator-2/media/case/oksana.avif" type="image/avif"><img src="/videokreator-2/media/case/oksana.jpg" alt="Повідомлення Оксани про перше замовлення" loading="lazy" decoding="async" width="526" height="345"></picture></div>
+        <div class="cap"><b>Перше замовлення за ТЗ</b><span>«Нічого не довелось перегенеровувати. Було лячно — та я впоралась»</span><small>Оксана · Преміум</small></div></article>
+      <article class="case"><div class="shot contain"><picture><source srcset="/videokreator-2/media/case/rostik.avif" type="image/avif"><img src="/videokreator-2/media/case/rostik.jpg" alt="Повідомлення Ростислава про проєкти" loading="lazy" decoding="async" width="526" height="255"></picture></div>
+        <div class="cap"><b>4 проєкти й пара агенцій</b><span>робить рекламні креативи на замовлення й мультфільм для YouTube Kids</span><small>Ростислав · Преміум</small></div></article>
+    </div>
+    <div class="swipe"><svg width="22" height="12" viewBox="0 0 22 12" fill="none"><path d="M1 6h19m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Гортай кейси</div>
+
+    <div class="story reveal">
+      <div class="shot"><picture><source srcset="/videokreator-2/media/case/pay18k.avif" type="image/avif"><img src="/videokreator-2/media/case/pay18k.jpg" alt="Оплата замовлення 18 000 гривень" loading="lazy" decoding="async" width="900" height="667"></picture></div>
+      <div class="txt">
+        <h3>18 000 ₴ — рекорд першого потоку</h3>
+        <p>Учень закрив замовлення на 18 000 ₴. А потім написав нам не про гроші: курс допоміг йому налагодити життя, прийти до дисципліни — і всередині стало значно легше.</p>
+      </div>
+    </div>
+    <p class="honest reveal">Без золотих гір: це результати тих, хто дійшов до практики. Твій результат залежить від того, скільки ти генеруєш і показуєш світу.</p>
+  </div>
+</section>
+
+<!-- ===================== REVIEWS ===================== -->
+<section class="sec paper" id="reviews">
+  <div class="wrap">
+    <h2 class="reveal">Що кажуть <span class="hm">учні</span></h2>
+    <div class="nps reveal d1"><b>+95</b><span>NPS першого потоку: 92 з 98 учнів готові порекомендувати курс близьким</span></div>
+    <div class="track">
+      <div class="rev"><picture><source srcset="/videokreator-2/media/rev/svetlana.avif" type="image/avif"><img src="/videokreator-2/media/rev/svetlana.jpg" alt="Відгук Світлани" loading="lazy" decoding="async" width="527" height="461"></picture></div>
+      <div class="rev"><picture><source srcset="/videokreator-2/media/rev/ulija.avif" type="image/avif"><img src="/videokreator-2/media/rev/ulija.jpg" alt="Відгук у Threads" loading="lazy" decoding="async" width="772" height="282"></picture></div>
+      <div class="rev"><picture><source srcset="/videokreator-2/media/rev/leiko.avif" type="image/avif"><img src="/videokreator-2/media/rev/leiko.jpg" alt="Відгук Оксани Лейко" loading="lazy" decoding="async" width="511" height="202"></picture></div>
+      <div class="rev"><picture><source srcset="/videokreator-2/media/rev/ksana.avif" type="image/avif"><img src="/videokreator-2/media/rev/ksana.jpg" alt="Відгук Ксани" loading="lazy" decoding="async" width="518" height="340"></picture></div>
+      <div class="rev"><picture><source srcset="/videokreator-2/media/rev/truffle.avif" type="image/avif"><img src="/videokreator-2/media/rev/truffle.jpg" alt="Рекомендація у Threads" loading="lazy" decoding="async" width="793" height="373"></picture></div>
+      <div class="rev"><picture><source srcset="/videokreator-2/media/rev/lana.avif" type="image/avif"><img src="/videokreator-2/media/rev/lana.jpg" alt="Відгук Лани" loading="lazy" decoding="async" width="522" height="175"></picture></div>
+      <div class="rev"><picture><source srcset="/videokreator-2/media/rev/natali.avif" type="image/avif"><img src="/videokreator-2/media/rev/natali.jpg" alt="Відгук Наталі" loading="lazy" decoding="async" width="527" height="260"></picture></div>
+      <div class="rev"><picture><source srcset="/videokreator-2/media/rev/polina.avif" type="image/avif"><img src="/videokreator-2/media/rev/polina.jpg" alt="Рекомендація у Threads" loading="lazy" decoding="async" width="762" height="325"></picture></div>
+    </div>
+    <div class="swipe"><svg width="22" height="12" viewBox="0 0 22 12" fill="none"><path d="M1 6h19m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Гортай відгуки</div>
+    <div class="tquotes">
+      <div class="tq reveal"><p>«Ти не просто розповідаєш теорію, а буквально ведеш за руку: натисніть сюди, відкрийте це — і відразу показуєш результат.»</p><cite>Наталі, підприємиця, 50+</cite></div>
+      <div class="tq reveal d1"><p>«Ви не обіцяєте золоті гори, успішний успіх і тисячі доларів. Відчувається, що курс побудований на власному досвіді.»</p><cite>Ірина, Преміум</cite></div>
+      <div class="tq reveal d2"><p>«Орієнтуватись на платформі курсу легко навіть новачку в мої 59 років.»</p><cite>Оксана Лейко, Преміум</cite></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHAT'S NEW ===================== -->
+<section class="sec cream" id="new">
+  <div class="bg-obj st-clap" aria-hidden="true"><img class="obj" src="/videokreator-2/media/obj/clap.webp" alt="" width="992" height="1000" loading="lazy" decoding="async"></div>
+  <div class="wrap">
+    <h2 class="reveal" style="max-width:11ch">Що нового <span class="hm">у 2.0</span></h2>
+    <p class="lead reveal d1" style="max-width:28ch">Ми прочитали всі 98 анкет першого потоку — і переробили курс під те, що реально заважало учням.</p>
+    <div class="news">
+      <div class="nw reveal"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div><div><h3>Уроки за графіком</h3><p>Курс записаний до старту. З першого дня — карта курсу: що, коли й до якої дати здати.</p><span class="fromdata">14 учнів просили чіткий графік</span></div></div>
+      <div class="nw reveal d1"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7"/><circle cx="18" cy="16" r="3"/></svg></div><div><h3>Монтаж через Claude</h3><p>AI монтує — ти твориш. CapCut і Premiere лишаються для тих, хто хоче руками.</p><span class="fromdata">Монтаж — головна точка, де зупинялись</span></div></div>
+      <div class="nw reveal d2"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 11l18-7-7 18-2.5-7.5z"/></svg></div><div><h3>Клієнти з першого тижня</h3><p>Портфоліо й соцмережі ведеш паралельно з навчанням, а модуль про клієнтів відкривається з середини курсу.</p><span class="fromdata">Раніше це було в самому кінці</span></div></div>
+      <div class="nw reveal d3"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5M8 11h6M11 8v6"/></svg></div><div><h3>Розбори твоїх робіт</h3><p>На ефірах розбираємо роботи учнів — і вдалі, і невдалі генерації. Щоб бачити, як виправляти.</p><span class="fromdata">Найчастіше прохання в анкетах</span></div></div>
+      <div class="nw reveal d4"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v12M8 7v5a4 4 0 008 0V7M5 12a7 7 0 0014 0M12 19v3"/></svg></div><div><h3>Звук: голос, ліпсинк, музика</h3><p>Озвучка й клон голосу, ліпсинк українською, музика в Suno — усередині модуля генерації.</p><span class="fromdata">Найчастіший пробіл програми</span></div></div>
+      <div class="nw reveal d5"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 6.5c0-1.9-2.2-3.5-5-3.5S7 4.6 7 6.5 9.2 9.5 12 10s5 2 5 4-2.2 3.5-5 3.5-5-1.6-5-3.5"/></svg></div><div><h3>Чесний бюджет на нейромережі</h3><p>Заздалегідь кажемо, які підписки потрібні і коли, а під кожним уроком — безкоштовні альтернативи.</p><span class="fromdata">Щоб без сюрпризів на старті</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MONTAGE ===================== -->
+<section class="sec dark" id="montage">
+  <svg class="deco" style="right:18px;top:46px;opacity:.5;animation:floatR 10s ease-in-out infinite" width="22" height="22" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#43d199"/></svg>
+  <div class="wrap">
+    <h2 class="reveal spray">Монтажери вже <span class="hm">не потрібні</span></h2>
+    <p class="lead reveal d1">На курсі є уроки монтажу в CapCut і Adobe Premiere Pro. Але зараз Claude активно вчиться монтувати — і я вже створюю з його допомогою ось такі відео. Навчу і тебе: <b style="color:#fff">мінімум технічної роботи — максимум твоєї креативності.</b></p>
+    <div class="vids" id="vids">
+      <div class="vid" data-src="/videokreator-2/media/vid/code1.mp4"><img src="/videokreator-2/media/vid/code1.jpg" alt="Ролик, змонтований через Claude" loading="lazy" decoding="async"><button class="play" aria-label="Увімкнути ролик"><i></i></button></div>
+      <div class="vid" data-src="/videokreator-2/media/vid/ikra.mp4"><img src="/videokreator-2/media/vid/ikra.jpg" alt="Ролик, змонтований через Claude" loading="lazy" decoding="async"><button class="play" aria-label="Увімкнути ролик"><i></i></button></div>
+      <div class="vid" data-src="/videokreator-2/media/vid/edit.mp4"><img src="/videokreator-2/media/vid/edit.jpg" alt="Ролик, змонтований через Claude" loading="lazy" decoding="async"><button class="play" aria-label="Увімкнути ролик"><i></i></button></div>
+      <div class="vid" data-src="/videokreator-2/media/vid/frame3d.mp4"><img src="/videokreator-2/media/vid/frame3d.jpg" alt="Ролик, змонтований через Claude" loading="lazy" decoding="async"><button class="play" aria-label="Увімкнути ролик"><i></i></button></div>
+      <div class="vid" data-src="/videokreator-2/media/vid/cc.mp4"><img src="/videokreator-2/media/vid/cc.jpg" alt="Ролик, змонтований через Claude" loading="lazy" decoding="async"><button class="play" aria-label="Увімкнути ролик"><i></i></button></div>
+      <div class="vid" data-src="/videokreator-2/media/vid/pause.mp4"><img src="/videokreator-2/media/vid/pause.jpg" alt="Ролик, змонтований через Claude" loading="lazy" decoding="async"><button class="play" aria-label="Увімкнути ролик"><i></i></button></div>
+    </div>
+    <div class="swipe"><svg width="22" height="12" viewBox="0 0 22 12" fill="none"><path d="M1 6h19m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Ці ролики зібрала моя АІ-студія монтажу на Claude</div>
+    <div class="tools reveal"><span class="on">Claude</span><span>CapCut ПК</span><span>CapCut телефон</span><span>Adobe Premiere Pro</span></div>
+  </div>
+</section>
+
+<!-- ===================== PROGRAM ===================== -->
+<section class="sec paper" id="program">
+  <div class="wrap">
+    <h2 class="reveal">Програма: <span class="hm">12 модулів</span> у 3 фазах</h2>
+    <p class="lead reveal d1">Від першого промта до першого клієнта. Натисни на модуль, щоб розгорнути.</p>
+
+    <div class="phase">
+      <div class="phase-h"><h3>Фаза 1 · Фундамент</h3><span>тижні 1–4</span></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><span class="mod-n">01</span><span class="mod-t">Вступ. Ніша AI-відео та де в ній гроші<span class="tg upd">оновлено</span></span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Який AI-контент зараз купують і скільки за нього платять, як виставляти ціну</li><li>Мовні моделі й генератори: як зібрати свій робочий стек</li><li><b>Нове:</b> карта курсу — графік модулів, дедлайни ДЗ і дата завершення перевірок</li><li><b>Нове:</b> чесний кошторис нейромереж і безкоштовні альтернативи</li><li><b>Нове:</b> старт треку «Портфоліо й клієнти» — заводиш сторінку з першого тижня</li></ul><p class="mod-res">Розумієш, де в ніші гроші, і знаєш свій шлях та бюджет наперед.</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><span class="mod-n">02</span><span class="mod-t">Промти й AI-асистенти</span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Власний AI-асистент для промтів і задач відеокреатора</li><li>Асистенти під тексти, зображення й відео</li><li>Робота з референсами: схоже, але унікально</li><li>Технологія: будь-який референс → готовий промт</li></ul><p class="mod-res">Бачиш → описуєш → отримуєш, без сотні правок.</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><span class="mod-n">03</span><span class="mod-t">Персонажі, картки персонажів і локацій</span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Алгоритм ідеального AI-персонажа і картка персонажа</li><li>Технологія збереження зовнішності в кожному кадрі</li><li>Картки локацій і ДНК персонажа</li></ul><p class="mod-res">Персонаж зі стабільною зовнішністю від першого до останнього кадру.</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><span class="mod-n">04</span><span class="mod-t">Розкадровка та операторська робота</span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Сторіборд і розкадровка сцен з персонажем</li><li>Крупність кадру, ракурси, об'єктиви й камери, джерела світла</li><li>Мудборд, атмосфера, AI-кольорокорекція</li></ul><p class="mod-res">Заплановані кінокадри, а не «щось вийшло».</p></div></div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-h"><h3>Фаза 2 · Виробництво</h3><span>тижні 5–10</span></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><span class="mod-n">05</span><span class="mod-t">Генерація відео, оживлення сцен і звук<span class="tg upd">оновлено</span></span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Усі способи: з зображення, з тексту, за першим і останнім кадром</li><li>Керування рухом і динамікою камери</li><li><b>Нове:</b> коли генерація пішла не так — артефакти, персонаж «пливе», перегенерація фрагмента без зливу кредитів</li><li><b>Нове:</b> звук — озвучка й клон голосу, ліпсинк українською, аватари, музика в Suno</li></ul><p class="mod-res">Живі відеофрагменти зі звуком, які не соромно показати клієнту.</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><span class="mod-n">06</span><span class="mod-t">Монтаж 2.0: монтує AI, твориш ти<span class="tg upd">оновлено</span></span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Теорія монтажу: ритм, склейки, монтаж під фільм, мультик і рекламу</li><li><b>Нове:</b> AI-монтаж через Claude</li><li>Уроки CapCut (ПК і телефон) та Adobe Premiere Pro</li><li>20+ ГБ матеріалів: футажі, ефекти, переходи, SFX, LUTs</li><li>ДЗ: змонтувати свій ролик із власних фрагментів</li></ul><p class="mod-res">Мінімум технічної роботи — максимум твоєї креативності.</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><span class="mod-n">07</span><span class="mod-t">Фільммейкінг і режисура<span class="tg upd">оновлено</span></span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Від ідеї до сценарію потрібної довжини</li><li>Виробництво за системою карток з модуля 3</li><li><b>Нове:</b> базова режисура — сюжет, композиція, утримання уваги</li><li><b>Нове:</b> наскрізний проєкт «ролик від А до Я»</li></ul><p class="mod-res">Перший повноцінний AI-фільм до 1 хвилини.</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><span class="mod-n">08</span><span class="mod-t">UGC: AI-блогер і відео для товарів</span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Реалістичний AI-блогер: голос, міміка, поведінка</li><li>Відео для товарів «проблема → продукт → результат» і відео-відгук</li><li>Ноди — більше контролю в генерації</li></ul><p class="mod-res">UGC-відео, яке вже можна продати клієнту.</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><span class="mod-n">09</span><span class="mod-t">Мультфільми у стилі топових студій</span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Стилі: 2D, 3D, аніме, cartoon</li><li>Сценарій → персонажі → сцени → монтаж</li><li>Збереження стилю між кадрами, озвучка й музика</li></ul><p class="mod-res">Мультик у власному стилі — окремий формат і окремий ринок.</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><span class="mod-n">10</span><span class="mod-t">Реклама й предметка для брендів<span class="tg upd">оновлено</span></span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Формула рекламного ролика і креативу, який продає</li><li><b>Нове:</b> товар у кадрі без спотворень — упаковка, логотип, написи</li><li><b>Нове:</b> серія роликів під один бренд-шаблон</li><li>Практика: від брифу до готового ролика</li></ul><p class="mod-res">Рекламний ролик для реального бізнесу — найдорожчий формат на ринку.</p></div></div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-h"><h3>Фаза 3 · Дохід</h3><span>трек з 1-го тижня</span></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><span class="mod-n">11</span><span class="mod-t">Портфоліо AI-відеокреатора</span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Що має бути в портфоліо і скільки робіт достатньо</li><li>Упаковка робіт: завдання → рішення → результат</li><li>Сайт-портфоліо через Claude Code</li></ul><p class="mod-res">5+ робіт, упакованих так, що клієнт одразу бачить цінність.</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><span class="mod-n">12</span><span class="mod-t">Клієнти й продажі — ведуть 4 експерти<span class="tg upd">оновлено</span></span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Безкоштовна лідогенерація, LinkedIn і Upwork — Богдан Титоренко</li><li>Просування в соцмережах, холодні розсилки, партнерства — Ілля Косенко</li><li>Лідогенерація, продажі, скрипти й заперечення — Богдан Степаненко</li><li>Блог, Threads і прямі ефіри — Олександр Цюцьмаць</li><li><b>Нове:</b> уроки нарізані на короткі частини, а модуль відкривається з середини курсу</li></ul><p class="mod-res">Ціла система залучення клієнтів — і перші замовлення ще під час навчання.</p></div></div>
+    </div>
+
+    <div class="bonus reveal">
+      <h3>Бонусні модулі</h3>
+      <ul>
+        <li><i>Преміум · VIP</i><span>Монетизація Facebook — як заробляти на своїх роликах</span></li>
+        <li><i>Преміум · VIP</i><span>Бухгалтерія для AI-креатора — ФОП і податки</span></li>
+        <li><i class="g">За швидке рішення</i><span>Розбори нейромереж Kling, Grok, Flow, Seedance і HeyGen</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CLIENTS ===================== -->
+<section class="sec dark2" id="clients">
+  <div class="wrap">
+    <h2 class="reveal spray">А де брати <span class="hm">клієнтів?</span></h2>
+  </div>
+  <div class="st-mega" aria-hidden="true"><div class="waves"><span></span><span></span><span></span></div><img class="obj" src="/videokreator-2/media/obj/mega.webp" alt="" width="1000" height="855" loading="lazy" decoding="async"></div>
+  <div class="wrap">
+    <div class="claim">
+      <p class="reveal">Учні першого потоку <b>вже отримали своїх перших клієнтів</b> — і продовжують отримувати.</p>
+      <p class="reveal d1">Частину замовлень я передаю їм сам. Але головне — <b>вони навчилися знаходити клієнтів самостійно</b>.</p>
+      <p class="reveal d2">Зараз ми будуємо систему передачі клієнтів учням — і будемо показувати тобі весь процес зсередини та ділитися всіма напрацюваннями.</p>
+    </div>
+    <div class="experts">
+      <div class="ex reveal"><img src="/videokreator-2/media/bogdan.jpg" alt="Богдан Титоренко" loading="lazy" decoding="async" width="64" height="64"><div><h3>Богдан Титоренко</h3><div class="role">Лідогенерація · LinkedIn · Upwork</div><p>Де шукати перших клієнтів без бюджету, як оформити профілі й писати так, щоб не виглядати спамом.</p></div></div>
+      <div class="ex reveal d1"><img src="/videokreator-2/media/kosenko.jpg" alt="Ілля Косенко" loading="lazy" decoding="async" width="64" height="64"><div><h3>Ілля Косенко</h3><div class="role">Просування в соцмережах</div><p>CEO @kosenko.agency, 42 активні проєкти. Reels, TikTok, холодні розсилки й партнерства.</p></div></div>
+      <div class="ex reveal d2"><img src="/videokreator-2/media/stepanenko.jpg" alt="Богдан Степаненко" loading="lazy" decoding="async" width="64" height="64"><div><h3>Богдан Степаненко</h3><div class="role">Лідогенерація та продажі</div><p>Продюсер освітніх продуктів і автоворонок. Скрипти, заперечення, КП і довгі відносини з клієнтом.</p></div></div>
+      <div class="ex reveal d3"><img src="/videokreator-2/media/author.jpg" alt="Олександр Цюцьмаць" loading="lazy" decoding="async" width="64" height="64"><div><h3>Олександр Цюцьмаць</h3><div class="role">Блог · Threads · ефіри</div><p>Як залучати клієнтів через свій блог, Threads і прямі ефіри — і що таке пробний рілс.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SUPPORT ===================== -->
+<section class="sec cream" id="support">
+  <div class="wrap">
+    <h2 class="reveal">Ти не лишишся <span class="hm">сам на сам</span> з уроками</h2>
+    <div class="sup">
+      <div class="sp reveal"><b>12</b><h3>групових Zoom-ефірів</h3><p>Запис кожного ефіру — на платформі</p></div>
+      <div class="sp reveal d1"><b>ДЗ</b><h3>перевірка куратором</h3><p>Що добре, що покращити і як саме</p></div>
+      <div class="sp reveal d2"><b>💬</b><h3>чат і куратор</h3><p>І після завершення курсу</p></div>
+      <div class="sp reveal d3"><b>∞</b><h3>оновлення</h3><p>Нейромережі змінюються — уроки оновлюються безкоштовно</p></div>
+      <div class="sp wide reveal"><h3>Платформа Олександра</h3><p>Уроки, AI-асистенти, домашні завдання й записи ефірів — в одному місці.</p></div>
+    </div>
+    <div class="budget reveal">
+      <h3>Скільки коштують нейромережі — чесно</h3>
+      <p>Окремо від курсу потрібні підписки на нейромережі. Ми кажемо про це заздалегідь, а не після оплати.</p>
+      <div class="rows">
+        <div><span>На старті навчання</span><b>безкоштовні інструменти</b></div>
+        <div><span>Для практики й портфоліо</span><b>1–2 підписки</b></div>
+        <div><span>Під кожним уроком</span><b>безкоштовні альтернативи</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TIERS ===================== -->
+<section class="sec dark" id="tiers">
+  <svg class="deco" style="left:12px;top:30px;opacity:.5;animation:floatR 9s ease-in-out infinite" width="20" height="20" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#43d199"/></svg>
+  <div class="wrap">
+    <h2 class="reveal spray">Обери свій <span class="hm">формат</span></h2>
+    <p class="lead reveal d1">Зараз діє найнижча ціна потоку — передзапис для всієї бази. На кожному наступному етапі ціна зростає.</p>
+    <div class="ladder reveal">
+      <div class="label">Ціна росте на кожному етапі · Преміум</div>
+      <div class="steps"><div class="step cur"><i></i><span>Передзапис для всієї бази<span class="now-tag">зараз</span></span><b>11 290 ₴</b></div><div class="step "><i></i><span>Передзапис для каналу вебінару</span><b>13 990 ₴</b></div><div class="step "><i></i><span>Вебінар 5 листопада</span><b>16 790 ₴</b></div><div class="step "><i></i><span>Повна вартість</span><b>24 990 ₴</b></div></div>
+    </div>
+
+    <div class="tiers">
+      <div class="tier reveal">
+        <h3>Стандарт</h3><p class="for">Для тих, хто легко вчиться сам — уроки без зворотного зв'язку</p>
+        <div class="pr"><b>6 290 ₴</b><s>14 990 ₴</s></div>
+        <p class="mo">або <b>~1 048 ₴/міс</b> × 6 платежів</p>
+        <p class="next">Далі: 7 990 ₴ → 9 590 ₴ на вебінарі</p>
+        <ul><li><span>Усі 12 модулів</span></li><li><span>Паки промтів, картки персонажів і локацій</span></li><li><span>Записи групових ефірів</span></li><li><span>Чат учасників і гілка «покажи роботу»</span></li><li><span>Доступ 6 місяців</span></li><li><span>Сертифікат про проходження</span></li></ul>
+        <div class="btns"><a class="btn block" data-pay="std-full" href="#">Оплатити 6 290 ₴</a><a class="btn ghost block" data-pay="std-parts" href="#">Частинами</a></div>
+      </div>
+      <div class="tier feat reveal">
+        <span class="ribbon">Оптимальний вибір</span>
+        <h3>Преміум</h3><p class="for">Для тих, кому важливі зворотний зв'язок і супровід</p>
+        <div class="pr"><b>11 290 ₴</b><s>24 990 ₴</s></div>
+        <p class="mo">або <b>~1 882 ₴/міс</b> × 6 платежів</p>
+        <p class="next">Далі: 13 990 ₴ → 16 790 ₴ на вебінарі</p>
+        <ul><li class="plus">Усе зі Стандарту, плюс</li><li><span><b>12 групових Zoom-ефірів</b> наживо</span></li><li><span><b>Перевірка ДЗ куратором</b></span></li><li><span>Розбори робіт на ефірах</span></li><li><span>Команда AI-асистентів і персональний AI-асистент</span></li><li><span>Бонуси: Монетизація Facebook, бухгалтерія</span></li><li><span>Чат і куратор після завершення курсу</span></li><li><span>Доступ 1 рік, іменний сертифікат</span></li></ul>
+        <div class="btns"><a class="btn block" data-pay="prem-full" href="#">Оплатити 11 290 ₴</a><a class="btn ghost block" data-pay="prem-parts" href="#">Частинами</a></div>
+      </div>
+      <div class="tier vip reveal">
+        <span class="ribbon">20 місць на потік</span>
+        <h3>VIP</h3><p class="for">Для тих, кому потрібен особистий ментор</p>
+        <div class="pr"><b>19 990 ₴</b><s>39 990 ₴</s></div>
+        <p class="mo">або <b>~3 332 ₴/міс</b> × 6 платежів</p>
+        <p class="next">Далі: 24 990 ₴ → 29 990 ₴ на вебінарі</p>
+        <ul><li class="plus">Усе з Преміуму, плюс</li><li><span><b>3 особисті Zoom 1:1 з Олександром</b> за графіком: старт і ціль, середина курсу, фінальний розбір портфоліо</span></li><li><span><b>Персональний розбір кожної твоєї роботи</b></span></li><li><span>VIP-клуб учасників усіх потоків</span></li><li><span>Пріоритет на запити від бізнесу</span></li><li><span>Упаковка профілю й прайсу</span></li><li><span>Заморозка й перенос у наступний потік</span></li></ul>
+        <div class="btns"><a class="btn gold block" data-pay="vip-full" href="#">Оплатити 19 990 ₴</a><a class="btn ghost block" data-pay="vip-parts" href="#">Частинами</a></div>
+        <div class="seats"><i class="live-dot" style="background:var(--gold);box-shadow:0 0 12px rgba(227,180,74,.7)"></i>Лише 20 VIP-місць на весь потік</div>
+      </div>
+    </div>
+
+    <p class="pay-note">Оплата частинами — до 6 платежів без переплат і відсотків.</p>
+    <div class="banks"><span>monobank</span><span>А-Банк</span><span>OTP Bank</span><span>Глобус</span></div>
+    <div class="mgr reveal"><p>Немає цих банків, платиш з-за кордону або сумніваєшся з тарифом? Напиши менеджеру — підберемо зручний спосіб.</p><a class="pill" href="https://t.me/m/bFI_1MSJMDE6" target="_blank" rel="noopener">Написати</a></div>
+  </div>
+</section>
+
+<!-- ===================== COMPARE ===================== -->
+<section class="sec paper" id="compare">
+  <div class="wrap">
+    <h2 class="reveal">Чим відрізняються <span class="hm">тарифи</span></h2>
+    <div class="cmp-wrap reveal d1"><table class="cmp">
+      <thead><tr><th></th><th>Стандарт</th><th>Преміум</th><th>VIP</th></tr></thead>
+      <tbody>
+        <tr><td>12 модулів і матеріали</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Записи ефірів</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Ефіри наживо</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Перевірка ДЗ куратором</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Розбори робіт на ефірах</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Бонусні модулі</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Чат і куратор після курсу</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Zoom 1:1 з Олександром</td><td class="n">—</td><td class="n">—</td><td class="y">3</td></tr>
+        <tr><td>Розбір кожної роботи</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr>
+        <tr><td>Доступ</td><td>6 міс</td><td>1 рік</td><td>1 рік</td></tr>
+      </tbody>
+    </table></div>
+    <p class="mut reveal" style="margin-top:14px;font-size:.92rem">Новачок? Бери Преміум: куратор перевіряє твої роботи й показує, що покращити.</p>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="sec cream" id="faq">
+  <div class="wrap">
+    <h2 class="reveal">«Хочу, <span class="hm">але…</span>»</h2>
+    <div class="faq">
+      <div class="fq"><button class="fq-btn" aria-expanded="false">Я повний нуль. У мене вийде?<span class="mod-x"></span></button><div class="fq-body"><p>Курс побудований під нуль: перший модуль — для тих, хто взагалі нічого не знає про AI. Серед учнів першого потоку є люди 50 і 60 років: «Орієнтуватись на платформі легко навіть новачку в мої 59 років».</p></div></div>
+      <div class="fq"><button class="fq-btn" aria-expanded="false">Немає часу — робота, діти<span class="mod-x"></span></button><div class="fq-body"><p>Уроки короткі, без води, їх можна дивитися з телефону у своєму темпі. Курс виходить за графіком, тож ти заздалегідь знаєш, скільки часу потрібно на тиждень.</p></div></div>
+      <div class="fq"><button class="fq-btn" aria-expanded="false">Дорого. Я ще нічого не заробив на AI<span class="mod-x"></span></button><div class="fq-body"><p>Є оплата частинами — до 6 платежів без переплат. Один комерційний ролик на ринку коштує від кількох тисяч гривень: учениця першого потоку отримала 6 000 ₴ за два ролики.</p></div></div>
+      <div class="fq"><button class="fq-btn" aria-expanded="false">Вимикають світло. Як вчитися?<span class="mod-x"></span></button><div class="fq-body"><p>Уроки й записи ефірів доступні з телефону в будь-який час. Пропустив ефір через відключення — подивишся запис і задаси питання в чаті.</p></div></div>
+      <div class="fq"><button class="fq-btn" aria-expanded="false">Чи будуть у мене клієнти?<span class="mod-x"></span></button><div class="fq-body"><p>Гарантувати клієнтів не може ніхто. Але кожен п'ятий учень першого потоку отримав замовлення ще під час навчання. Модуль 12 ведуть 4 експерти з лідогенерації та продажів, а трек «Портфоліо й клієнти» йде з першого тижня.</p></div></div>
+      <div class="fq"><button class="fq-btn" aria-expanded="false">Чим це відрізняється від «Нейромереж з 0»?<span class="mod-x"></span></button><div class="fq-body"><p>«Нейромережі з 0» — це старт у нейромережах. АІ-Відеокреатор — повний шлях професії: персонажі, режисура, відео, звук, монтаж, портфоліо й клієнти, плюс ефіри, перевірка ДЗ і супровід.</p></div></div>
+      <div class="fq"><button class="fq-btn" aria-expanded="false">Скільки ще витрачу на нейромережі?<span class="mod-x"></span></button><div class="fq-body"><p>На старті вистачить безкоштовних інструментів. Для практики й портфоліо знадобляться 1–2 підписки — під кожним уроком ми показуємо, що саме потрібно і чим можна замінити безкоштовно.</p></div></div>
+      <div class="fq"><button class="fq-btn" aria-expanded="false">Я з-за кордону. Як оплатити?<span class="mod-x"></span></button><div class="fq-body"><p>Напиши менеджеру — підберемо зручний спосіб оплати й зафіксуємо за тобою ціну.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AUTHOR ===================== -->
+<section class="sec dark" id="author">
+  <div class="wrap author">
+    <h2 class="reveal spray">Хто веде <span class="hm">курс</span></h2>
+    <div class="ph reveal d1"><picture><source srcset="/videokreator-2/media/author.avif" type="image/avif"><img src="/videokreator-2/media/author.jpg" alt="Олександр Цюцьмаць" loading="lazy" decoding="async"></picture></div>
+    <h3 class="reveal" style="font-size:1.5rem;color:#fff">Олександр Цюцьмаць</h3>
+    <ul class="ab">
+      <li class="reveal">Щодня вивчаю AI-інструменти з 2024 року</li>
+      <li class="reveal d1">Власник агенції зі створення AI-контенту під ключ</li>
+      <li class="reveal d2">7 141 учень пройшов мої навчальні програми</li>
+      <li class="reveal d3">Створив десятки авторських AI-асистентів для клієнтів і учнів</li>
+    </ul>
+    <p class="quote-big reveal">«Я не обіцяю золотих гір і "3000$ вже через місяць". Я даю покрокову систему створення AI-відео, за які платять. Вивести це на стабільний дохід — твоя робота. А я буду поруч.»</p>
+    <a class="pill reveal" href="https://www.instagram.com/ai_sashka.ua/" target="_blank" rel="noopener">Instagram автора →</a>
+  </div>
+</section>
+
+<!-- ===================== FINAL ===================== -->
+<section class="sec dark2 final" id="final">
+  <div class="wrap">
+    <h2 class="reveal spray">Другий потік стартує <span class="hm">12 листопада</span></h2>
+    <p class="lead reveal d1">12 тижнів, 12 модулів і супровід — від першого промта до першого клієнта.</p>
+    <div class="hero-price reveal">
+      <div class="tag">Ціна передзапису · для своїх</div>
+      <div class="row"><span class="now">від 6 290 ₴</span><s>14 990 ₴</s></div>
+      <p class="note">Найнижча ціна потоку. Далі буде дорожче: у каналі вебінару — від 7 990 ₴, на вебінарі — від 9 590 ₴.</p>
+      <a href="#tiers" class="btn block">Обрати тариф →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h4>З будь-яких питань пишіть у підтримку ↓</h4>
+  <a href="https://t.me/ai_sashka_support" class="pill ft-support" target="_blank" rel="noopener">💬 Технічна підтримка</a>
+  <p class="ft-ent"><strong>СТЕПАНЕНКО БОГДАН ОЛЕКСАНДРОВИЧ ФОП</strong>ЄДРПОУ 3757902952<br>stepanenkob30@gmail.com</p>
+  <p class="ft-ent"><strong>ЦЮЦЬМАЦЬ ОЛЕКСАНДР СЕМЕНОВИЧ ФОП</strong>ІПН/ЄДРПОУ 3469711318<br>IBAN UA943220010000026004370109524<br>Україна, 78001, Івано-Франківська обл., Івано-Франківський р-н, село Локітка, вул. Шандарівка, буд. 150<br>+380 66 540 58 73 · slem1k2015@ukr.net</p>
+  <p class="ft-ent"><strong>ЗЕМЛЯНИЙ МИХАЙЛО СЕРГІЙОВИЧ ФОП</strong>ЄДРПОУ 3758302175<br>+380 98 596 6120</p>
+  <p class="ft-ent"><strong>БРЖЕСТОВСЬКА ГАННА ЮРІЇВНА ФОП</strong>ЄДРПОУ 2877703349</p>
+  <div class="ft-links"><a href="/videokreator-2/politika.html">Політика конфіденційності</a><a href="/videokreator-2/oferta.html">Договір оферти</a></div>
+  <p class="ft-disc"><strong>ВАЖЛИВО:</strong> ми не даємо жодних гарантій, що ви досягнете якихось результатів за допомогою наших інструментів, стратегій або інформації. Усі продукти і сервіси призначені для освітніх цілей. Ви несете відповідальність за свої дії та результати.</p>
+  <p class="ft-disc" style="margin-top:10px">© 2026 · Курс «АІ-Відеокреатор» з Олександром Цюцьмацем</p>
+</footer>
+</div>
+
+<div class="buybar" id="buybar" aria-hidden="true">
+  <div class="bb-price"><span>Ціна передзапису</span><b>від 6 290 ₴</b></div>
+  <a href="#tiers" class="btn">Обрати тариф</a>
+</div>
+
+<script>
+/* === Посилання на оплату Zenedu: вставити сюди. Порожнє — кнопка веде до менеджера. === */
+var PAY = {"std-full": "", "std-parts": "", "prem-full": "", "prem-parts": "", "vip-full": "", "vip-parts": ""};
+var MANAGER = 'https://t.me/m/bFI_1MSJMDE6';
+document.querySelectorAll('[data-pay]').forEach(function(a){
+  var u = PAY[a.getAttribute('data-pay')] || MANAGER;
+  a.href = u; a.target = '_blank'; a.rel = 'noopener';
+});
+
+/* accordions */
+document.querySelectorAll('.mod-btn,.fq-btn').forEach(function(b){
+  b.addEventListener('click',function(){
+    var box=b.parentElement, open=box.classList.toggle('open');
+    b.setAttribute('aria-expanded',open?'true':'false');
+  });
+});
+
+/* lazy videos */
+document.querySelectorAll('.vid').forEach(function(box){
+  box.querySelector('.play').addEventListener('click',function(){
+    document.querySelectorAll('.vid video').forEach(function(v){v.pause()});
+    var v=document.createElement('video');
+    v.src=box.getAttribute('data-src'); v.controls=true; v.playsInline=true; v.setAttribute('playsinline',''); v.autoplay=true;
+    box.innerHTML=''; box.appendChild(v); var p=v.play(); if(p&&p.catch)p.catch(function(){});
+  });
+});
+
+/* reveal with failsafes */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  function show(el){el.classList.add('vis')}
+  if(!('IntersectionObserver' in window)){els.forEach(show);return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el)});
+  function inView(){var h=innerHeight;els.forEach(function(el){if(!el.classList.contains('vis')&&el.getBoundingClientRect().top<h*.95)show(el)})}
+  inView(); addEventListener('load',inView); setTimeout(function(){els.forEach(show)},4000);
+})();
+
+/* count-up */
+(function(){
+  var nums=[].slice.call(document.querySelectorAll('[data-count]'));
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return; io.unobserve(e.target);
+    var el=e.target, to=parseFloat(el.getAttribute('data-count')), dec=+(el.getAttribute('data-dec')||0), t0=null;
+    function fmt(v){return dec?v.toFixed(dec).replace('.',','):Math.round(v).toString()}
+    function step(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/1400),e2=1-Math.pow(1-k,3);el.textContent=fmt(to*e2);if(k<1)requestAnimationFrame(step)}
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches)return; requestAnimationFrame(step);
+  })},{threshold:.4});
+  nums.forEach(function(n){io.observe(n)});
+})();
+
+/* sticky bar after hero, hidden over tiers */
+(function(){
+  var bar=document.getElementById('buybar'), hero=document.querySelector('.hero'), tiers=document.getElementById('tiers');
+  function upd(){var past=scrollY>hero.offsetHeight-80; var r=tiers.getBoundingClientRect(); var over=r.top<innerHeight&&r.bottom>0;
+    bar.classList.toggle('show',past&&!over); bar.setAttribute('aria-hidden',(past&&!over)?'false':'true');}
+  addEventListener('scroll',upd,{passive:true}); upd();
+})();
+</script>
+</body>
+</html>
