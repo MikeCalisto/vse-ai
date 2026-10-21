@@ -243,7 +243,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
   var params = new URLSearchParams(location.search);
   var SRC = (params.get('src') || params.get('source') || '').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,40);
-  var DETAIL = ['utm_campaign','utm_content','utm_source','utm_medium','ref'].map(function(k){ var v = params.get(k); return v ? k.replace('utm_','') + ':' + v : ''; }).filter(Boolean).join(' · ').slice(0,200);
+  // ?mini=<код> — з якої міньки прийшла людина; йде в «Джерело: деталі» картки та в сповіщення менеджеру
+  var MINI = {
+    content: 'АІ контент з нуля',
+    product: 'АІ предметна зйомка',
+    blogger: 'АІ блогер',
+    editor:  'АІ монтажер',
+    cartoons:'АІ мультики'
+  };
+  var miniKey = (params.get('mini') || '').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,40);
+  if (miniKey && !SRC) SRC = 'bot_mini';
+  var DETAIL = [miniKey ? 'мінька: ' + (MINI[miniKey] || miniKey) : '']
+    .concat(['utm_campaign','utm_content','utm_source','utm_medium','ref'].map(function(k){ var v = params.get(k); return v ? k.replace('utm_','') + ':' + v : ''; }))
+    .filter(Boolean).join(' · ').slice(0,200);
 
   var stage = document.getElementById('stage');
   var doneStep = stage.querySelector('[data-step="done"]');
