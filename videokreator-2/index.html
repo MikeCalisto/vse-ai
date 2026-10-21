@@ -508,9 +508,69 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
 .vr figcaption p{font-size:.95rem;line-height:1.45;font-weight:600}
 .vr cite{display:block;font-style:normal;font-size:.8rem;font-weight:700;color:var(--emerald);margin-top:6px}
 
+/* ===== why AI-video ===== */
+.why-stats{display:grid;grid-template-columns:1fr;gap:12px;margin-top:24px}
+.ws{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line-c);border-radius:20px;padding:18px 16px 16px;box-shadow:0 10px 26px rgba(40,34,20,.06)}
+.ws>b{display:block;font-size:2.4rem;font-weight:900;letter-spacing:-.03em;line-height:1;color:var(--emerald);font-variant-numeric:tabular-nums}
+.ws>span{display:block;font-size:.92rem;line-height:1.4;color:#2c3a33;margin-top:8px}
+.wbars{display:flex;align-items:flex-end;gap:4px;height:96px;margin-top:18px;border-bottom:1px solid var(--line-c)}
+.wbars .b{position:relative;flex:1;background:rgba(15,122,81,.22);border-radius:4px 4px 0 0;outline:none;transition:background .2s}
+.wbars .b.on{background:var(--emerald)}
+.wbars .b em{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);margin-bottom:4px;font-style:normal;font-size:.72rem;font-weight:800;color:#2c3a33;white-space:nowrap}
+.wbars .b:hover,.wbars .b:focus{background:var(--mint-d)}
+.wbars .b:hover::after,.wbars .b:focus::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 22px);left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:.72rem;font-weight:700;padding:5px 8px;border-radius:7px;white-space:nowrap;z-index:3}
+.waxis{display:flex;justify-content:space-between;font-size:.72rem;color:#8a958f;margin-top:5px}
+.whb{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.whb .r{display:grid;grid-template-columns:minmax(0,112px) 1fr auto;align-items:center;gap:10px;font-size:.8rem;color:#58655e}
+.whb .r i{display:block;height:12px;border-radius:0 4px 4px 0;background:rgba(15,122,81,.22);justify-self:start}
+.whb .r.on i{background:var(--emerald)}
+.whb .r.mute i{background:#cfc9bd}
+.whb .r em{font-style:normal;font-weight:800;color:#2c3a33;font-variant-numeric:tabular-nums}
+.wnote{font-size:.84rem;line-height:1.4;color:#4c5a53;margin-top:12px}
+.wnote b{color:var(--t-dark)}
+.wsrc{display:inline-block;margin-top:auto;padding-top:12px;font-size:.72rem;font-weight:700;letter-spacing:.04em;color:#8a958f;text-decoration:none}
+a.wsrc:hover{color:var(--emerald);text-decoration:underline}
+.ws.accent{background:var(--ink);border-color:var(--ink)}
+.ws.accent>b{color:var(--mint)}
+.ws.accent>span,.ws.accent .wnote{color:#cfdcd4}
+.ws.accent .wnote b{color:#fff}
+.ws.accent .wsrc{color:#8fa59a}
+.wrange{margin-top:20px}
+.wrange .trk{position:relative;height:12px;border-radius:999px;background:rgba(255,255,255,.1)}
+.wrange .trk i{position:absolute;top:0;bottom:0;border-radius:999px;background:var(--mint)}
+.wrange .tk{position:relative;height:18px;margin-top:6px;font-size:.74rem;font-weight:800;color:#e9f2ed}
+.wrange .tk span{position:absolute;transform:translateX(-50%)}
+.why-cards{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.wc{background:#fff;border:1px solid var(--line-c);border-radius:20px;padding:18px 16px}
+.wc .ic{width:42px;height:42px;border-radius:13px;background:var(--ink);display:grid;place-items:center;margin-bottom:12px}
+.wc .ic svg{width:22px;height:22px;stroke:var(--mint);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.wc h3{font-size:1.12rem}
+.wc p{font-size:.93rem;line-height:1.5;color:#4c5a53;margin-top:6px}
+.wc p b{color:var(--t-dark)}
+.why-q{margin-top:18px;background:#fff;border-radius:18px;border-left:4px solid var(--emerald);padding:16px 18px;box-shadow:0 12px 30px rgba(40,34,20,.08)}
+.why-q p{font-size:1rem;line-height:1.55;color:#2c3a33}
+.why-sum{margin-top:12px;background:#e3efe7;border:1px solid rgba(15,122,81,.22);border-radius:18px;padding:16px 18px;font-size:.98rem;line-height:1.55;color:#22302a}
+.why-sum b{color:var(--emerald)}
+.why-src{margin-top:14px;font-size:.74rem;line-height:1.45}
+
 
 /* ================= DESKTOP (≥960px) — full-width layout ================= */
 @media (min-width:960px){
+  #why h2,#why .lead{text-align:center;margin-left:auto;margin-right:auto}
+  #why .lead{max-width:62ch}
+  .why-stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:40px}
+  .ws{padding:24px 22px 20px}
+  .ws>b{font-size:3rem}
+  .whb .r{grid-template-columns:1fr auto;grid-template-areas:"l v" "b b";row-gap:4px}
+  .whb .r span{grid-area:l}.whb .r em{grid-area:v}.whb .r i{grid-area:b}
+  .why-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+  .wc{padding:28px 30px}
+  .wc h3{font-size:1.3rem}
+  .wc p{font-size:1rem}
+  .why-q{max-width:880px;margin:28px auto 0;text-align:center;padding:22px 30px}
+  .why-q p{font-size:1.1rem}
+  .why-sum{margin-top:18px;text-align:center;padding:20px 30px;font-size:1.06rem}
+  .why-src{text-align:center}
   #vreviews .swipe{display:none}
   .vr-t{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;row-gap:34px;overflow:visible;margin:34px 0 0;padding:0}
   .vr{flex:none}
@@ -727,6 +787,55 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
   <span>Реклама для бізнесу</span><span>Мультфільми</span><span>AI-фільми</span><span>UGC з AI-блогером</span><span>Кліпи</span><span>Предметка для брендів</span><span>Реклама для бізнесу</span><span>Мультфільми</span><span>AI-фільми</span><span>UGC з AI-блогером</span><span>Кліпи</span><span>Предметка для брендів</span>
   <span>Реклама для бізнесу</span><span>Мультфільми</span><span>AI-фільми</span><span>UGC з AI-блогером</span><span>Кліпи</span><span>Предметка для брендів</span><span>Реклама для бізнесу</span><span>Мультфільми</span><span>AI-фільми</span><span>UGC з AI-блогером</span><span>Кліпи</span><span>Предметка для брендів</span>
 </div></div>
+
+<!-- ===================== WHY AI VIDEO ===================== -->
+<section class="sec paper" id="why">
+  <div class="wrap">
+    <h2 class="reveal">Чому зараз варто йти саме <span class="hm">в AI-відео</span></h2>
+    <p class="lead reveal d1">Зараз в AI мало хто розуміє, що саме робити, щоб на цьому реально заробляти. Не генерувати картинки й відео «заради приколу», а <b>створювати те, за що люди готові платити.</b></p>
+    <div class="why-stats">
+      <div class="ws reveal">
+        <b><em class="cnt" data-count="91">91</em>%</b><span>бізнесів уже використовують відео в маркетингу — і частка росте десять років поспіль</span>
+        <div class="wbars" role="img" aria-label="Частка компаній, що використовують відео в маркетингу: 2016 — 61%, 2026 — 91%"><i class="b" style="height:61%" data-tip="2016 · 61%" tabindex="0"><em>61%</em></i><i class="b" style="height:63%" data-tip="2017 · 63%" tabindex="0"></i><i class="b" style="height:81%" data-tip="2018 · 81%" tabindex="0"></i><i class="b" style="height:87%" data-tip="2019 · 87%" tabindex="0"></i><i class="b" style="height:85%" data-tip="2020 · 85%" tabindex="0"></i><i class="b" style="height:86%" data-tip="2021 · 86%" tabindex="0"></i><i class="b" style="height:86%" data-tip="2022 · 86%" tabindex="0"></i><i class="b" style="height:91%" data-tip="2023 · 91%" tabindex="0"></i><i class="b" style="height:91%" data-tip="2024 · 91%" tabindex="0"></i><i class="b" style="height:89%" data-tip="2025 · 89%" tabindex="0"></i><i class="b on" style="height:91%" data-tip="2026 · 91%" tabindex="0"><em>91%</em></i></div>
+        <div class="waxis"><span>2016</span><span>2026</span></div>
+        <a class="wsrc" href="https://www.wyzowl.com/video-marketing-statistics/" target="_blank" rel="noopener">Wyzowl · State of Video Marketing 2026 ↗</a>
+      </div>
+      <div class="ws reveal d1">
+        <b><em class="cnt" data-count="63">63</em>%</b><span>відеомаркетологів уже створюють відео за допомогою AI</span>
+        <div class="whb" role="img" aria-label="Відеомаркетологи, які використовують AI: 2025 — 51%, 2026 — 63%">
+          <div class="r"><span>2025</span><i style="width:51%"></i><em>51%</em></div>
+          <div class="r on"><span>2026</span><i style="width:63%"></i><em>63%</em></div>
+        </div>
+        <p class="wnote"><b>+12 п.п. за рік</b> — найбільший ріст серед усіх показників звіту</p>
+        <a class="wsrc" href="https://www.wyzowl.com/video-marketing-statistics/" target="_blank" rel="noopener">Wyzowl · State of Video Marketing 2026 ↗</a>
+      </div>
+      <div class="ws reveal d2">
+        <b>−<em class="cnt" data-count="90">90</em>%</b><span>вартості виробництва відеореклами, коли її створює генеративний AI</span>
+        <div class="whb" role="img" aria-label="Вартість виробництва: класичне виробництво — 100%, з генеративним AI — близько 10%">
+          <div class="r mute"><span>Класичне виробництво</span><i style="width:100%"></i><em>100%</em></div>
+          <div class="r on"><span>З генеративним AI</span><i style="width:10%"></i><em>≈10%</em></div>
+        </div>
+        <p class="wnote"><b>У 10 разів дешевше</b> — тому бізнеси переходять на AI-відео</p>
+        <a class="wsrc" href="https://ide.mit.edu/wp-content/uploads/2025/07/RB-DRAFT__7-8-25.pdf" target="_blank" rel="noopener">MIT Initiative on the Digital Economy, 2025 ↗</a>
+      </div>
+      <div class="ws accent reveal d3">
+        <b>$50–300</b><span>коштує один комерційний AI-ролик на ринку</span>
+        <div class="wrange" role="img" aria-label="Ціна одного ролика: від 50 до 300 доларів">
+          <div class="trk"><i style="left:12.5%;width:62.5%"></i></div>
+          <div class="tk"><span style="left:12.5%">$50</span><span style="left:75%">$300</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="why-cards">
+      <div class="wc reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></div><h3>Попит більший за пропозицію</h3><p>Відео потрібне кожному бізнесу й блогеру — і не раз, а щотижня. Класична зйомка довга й дорога. <b>AI-відеокреатор робить готове відео за кілька годин, а не за тижні.</b></p></div>
+      <div class="wc reveal d1"><div class="ic"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Швидше й дешевше за зйомку</h3><p>Не треба камери, студії, акторів і команди. Там, де раніше працювали оператор, режисер, монтажер та актори, <b>тепер один спеціаліст робить рекламу, UGC і мультик з ноутбука.</b></p></div>
+      <div class="wc reveal d2"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"/></svg></div><h3>Ніша нова — клієнтів вистачає всім</h3><p>Тут ще немає тих, хто роками працює з тими самими клієнтами й має напрацьоване сарафанне радіо. <b>Хто заходить зараз, встигає зайняти своїх клієнтів і напрацювати ім'я, поки ніша вільна.</b></p></div>
+      <div class="wc reveal d3"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div><h3>Один навик — багато напрямів</h3><p>Реклама товарів, UGC для e-commerce, мультики, кліпи, контент для блогу. <b>Опановуєш систему створення AI-відео, за які платять, і застосовуєш її в будь-якій ніші:</b> товарка, послуги, блогери, готелі, будівництво.</p></div>
+    </div>
+    <div class="why-q reveal"><p>Тому я спеціально вибрав для тебе <b class="emer">найперспективніший напрям</b> — не тренди, не хайп і не відео заради мільйонів переглядів, а <b>відео, за які тобі будуть платити.</b></p></div>
+    <div class="why-sum reveal"><b>Суть проста:</b> ти не вчиш нейронки заради цікавості. Ти заходиш у молоду професію з реальним попитом — і вчишся віддавати ринку те, за що вже платять.</div>
+  </div>
+</section>
 
 <!-- ===================== PAIN ===================== -->
 <section class="sec cream" id="pain">
