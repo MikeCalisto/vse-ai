@@ -95,11 +95,11 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--mint);outline-off
 .hero-art{position:relative;margin:6px -20px 0 0;height:0;padding-top:0}
 .h-stage{position:relative;margin-top:4px;z-index:2}
 .h-stage .cam-wrap{position:absolute;left:50%;top:0;width:74%;margin:0;z-index:0;transform:translateX(-50%)}
-.works{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding-top:46%}
-.work{position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#08100d;border:1px solid rgba(255,255,255,.14);box-shadow:0 18px 36px rgba(0,0,0,.55);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
-.work:nth-child(1){transform:rotate(-4deg) translateY(10px)}
-.work:nth-child(3){transform:rotate(4deg) translateY(10px)}
-.work:hover{transform:translateY(-6px) rotate(0)}
+.works{position:relative;z-index:2;display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 -20px;padding:46% 20px 16px;scroll-padding-left:20px}
+.works::-webkit-scrollbar{display:none}
+.works-swipe{position:relative;z-index:2;color:#8fa59a}
+.work{flex:0 0 38%;scroll-snap-align:start;position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#08100d;border:1px solid rgba(255,255,255,.14);box-shadow:0 18px 36px rgba(0,0,0,.55);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.work:hover{transform:translateY(-6px)}
 .work.on{transform:none}
 .work img{width:100%;height:100%;object-fit:cover}
 .work video{width:100%;height:100%;object-fit:contain;background:#000}
@@ -538,7 +538,16 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
   .hero .h-inf{grid-area:i;align-self:start}
   .h-stage{grid-area:c;align-self:end;margin:0 0 6px}
   .h-stage .cam-wrap{left:auto;transform:none;right:-14%;top:-46%;width:84%}
-  .works{gap:16px;padding-top:46%}
+  /* ПК: камера праворуч від тексту, п'ять робіт окремим рядом під першим екраном */
+  .hero{grid-template-areas:"t c" "i c" "w w"}
+  .h-stage{display:contents}
+  .h-stage .cam-wrap{grid-area:c;position:relative;left:auto;right:auto;top:auto;transform:none;width:96%;justify-self:center;align-self:center;margin:0}
+  .works{grid-area:w;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;overflow:visible;margin:0;padding:56px 0 0}
+  .works-swipe{display:none}
+  .work{margin:0}
+  .work:nth-child(odd){transform:rotate(-2deg)}
+  .work:nth-child(even){transform:rotate(2deg) translateY(16px)}
+  .work:hover,.work.on{transform:translateY(-8px) rotate(0);z-index:6}
   .w-tag{font-size:.82rem;left:10px;right:10px;bottom:10px;padding:7px 9px}
   .work .play i{width:58px;height:58px}
   .works-cap{font-size:1rem;max-width:52ch}
@@ -688,10 +697,13 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
     <img class="obj" src="/videokreator-2/media/obj/camera.webp" alt="" width="983" height="1000" fetchpriority="high" decoding="async">
   </div>
     <div class="works">
-      <div class="work" data-src="/webinar/reklama.mp4"><img src="/videokreator-2/media/works/reklama.jpg" alt="Реклама товару — згенеровано через нейромережі" loading="eager" decoding="async"><span class="w-tag">Реклама товару</span><button class="play" aria-label="Увімкнути: Реклама товару"><i></i></button></div>
+      <div class="work" data-src="/videokreator-2/media/works/promo.mp4"><img src="/videokreator-2/media/works/promo.jpg" alt="Рекламний фільм — згенеровано через нейромережі" loading="eager" decoding="async"><span class="w-tag">Рекламний фільм</span><button class="play" aria-label="Увімкнути: Рекламний фільм"><i></i></button></div>
+      <div class="work" data-src="/videokreator-2/media/works/anim.mp4"><img src="/videokreator-2/media/works/anim.jpg" alt="Анімована реклама для бізнесу — згенеровано через нейромережі" loading="eager" decoding="async"><span class="w-tag">Анімована реклама</span><button class="play" aria-label="Увімкнути: Анімована реклама"><i></i></button></div>
       <div class="work" data-src="/webinar/clip.mp4"><img src="/videokreator-2/media/works/clip.jpg" alt="Музичний кліп — згенеровано через нейромережі" loading="eager" decoding="async"><span class="w-tag">Музичний кліп</span><button class="play" aria-label="Увімкнути: Музичний кліп"><i></i></button></div>
-      <div class="work" data-src="/webinar/multik.mp4"><img src="/videokreator-2/media/works/multik.jpg" alt="Мультфільм — згенеровано через нейромережі" loading="eager" decoding="async"><span class="w-tag">Мультфільм</span><button class="play" aria-label="Увімкнути: Мультфільм"><i></i></button></div>
+      <div class="work" data-src="/videokreator-2/media/works/film.mp4"><img src="/videokreator-2/media/works/film.jpg" alt="AI-фільм — згенеровано через нейромережі" loading="eager" decoding="async"><span class="w-tag">AI-фільм</span><button class="play" aria-label="Увімкнути: AI-фільм"><i></i></button></div>
+      <div class="work" data-src="/videokreator-2/media/works/santa.mp4"><img src="/videokreator-2/media/works/santa.jpg" alt="Персональне привітання від Санти — згенеровано через нейромережі" loading="eager" decoding="async"><span class="w-tag">Привітання від Санти</span><button class="play" aria-label="Увімкнути: Привітання від Санти"><i></i></button></div>
     </div>
+    <div class="swipe works-swipe"><svg width="22" height="12" viewBox="0 0 22 12" fill="none"><path d="M1 6h19m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Гортай роботи</div>
       </div>
   <div class="wrap h-inf">
     <div class="usp">
