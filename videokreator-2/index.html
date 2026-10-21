@@ -93,7 +93,19 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--mint);outline-off
 .hero .sub{font-size:1.1rem;line-height:1.5;margin-top:18px;color:#d5e2da;max-width:30ch}
 .hero .sub b{color:#fff}
 .hero-art{position:relative;margin:6px -20px 0 0;height:0;padding-top:0}
-.cam-wrap{position:relative;margin:-10px -22% 0 30%;width:84%}
+.h-stage{position:relative;margin-top:4px;z-index:2}
+.h-stage .cam-wrap{position:absolute;right:-30%;top:-6%;width:80%;margin:0;z-index:0}
+.works{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding-top:50%}
+.work{position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#08100d;border:1px solid rgba(255,255,255,.14);box-shadow:0 18px 36px rgba(0,0,0,.55);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.work:nth-child(1){transform:rotate(-4deg) translateY(10px)}
+.work:nth-child(3){transform:rotate(4deg) translateY(10px)}
+.work:hover{transform:translateY(-6px) rotate(0)}
+.work.on{transform:none}
+.work img{width:100%;height:100%;object-fit:cover}
+.work video{width:100%;height:100%;object-fit:contain;background:#000}
+.w-tag{position:absolute;left:7px;right:7px;bottom:7px;z-index:2;font-size:.68rem;font-weight:800;letter-spacing:.02em;line-height:1.2;color:#fff;background:rgba(8,14,11,.72);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border-radius:8px;padding:5px 7px;text-align:center}
+.works-cap{position:relative;z-index:2;margin-top:18px;font-size:.92rem;line-height:1.5;color:#c6d4cc}
+.works-cap b{color:#fff}
 .cam-wrap .halo{position:absolute;left:34%;top:22%;width:58%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(67,209,153,.55),rgba(67,209,153,0) 65%);filter:blur(10px);animation:glow 3.6s ease-in-out infinite;z-index:0}
 .cam-wrap .obj{position:relative;z-index:1;width:100%;max-width:none;height:auto;animation:ofloat 7s ease-in-out infinite;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55))}
 .usp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px;position:relative;z-index:3}
@@ -166,10 +178,12 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--mint);outline-off
 @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
 .cream .swipe,.paper .swipe{color:var(--t-mut-c)}
 .story{margin-top:26px;background:linear-gradient(160deg,#13241d,#0e1915);border:1px solid rgba(67,209,153,.3);border-radius:22px;overflow:hidden}
-.story .shot{position:relative}
+.story .shot{position:relative;display:flex;flex-direction:column;gap:10px;padding:12px 12px 0}
+.story .shot img{border-radius:14px}
 .story .shot img{width:100%;height:auto}
-.story .shot::after{content:'';position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(180deg,transparent,#11201a)}
-.story .txt{padding:6px 18px 20px;position:relative;z-index:2}
+
+.story .txt{padding:16px 18px 20px;position:relative;z-index:2}
+.story .txt p+p{margin-top:10px}
 .story h3{font-size:1.4rem;color:#fff}
 .story p{color:#cfdcd4;margin-top:8px;font-size:.98rem}
 .honest{margin-top:18px;font-size:.86rem;color:#9fb2a7;border-left:3px solid var(--mint);padding-left:12px}
@@ -204,6 +218,10 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--mint);outline-off
 .vids::-webkit-scrollbar{display:none}
 .vid{flex:0 0 46%;scroll-snap-align:start;position:relative;aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:#000;border:1px solid var(--line-d)}
 .vid img,.vid video{width:100%;height:100%;object-fit:cover}
+.work .play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.5))}
+.work .play i{width:46px;height:46px;border-radius:50%;background:rgba(67,209,153,.95);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.45);animation:pulsePlay 2.4s ease-in-out infinite}
+.work .play i::after{content:'';border-left:13px solid #06120d;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px}
+@keyframes pulsePlay{0%,100%{box-shadow:0 0 0 0 rgba(67,209,153,.55)}50%{box-shadow:0 0 0 12px rgba(67,209,153,0)}}
 .vid .play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.55))}
 .vid .play i{width:54px;height:54px;border-radius:50%;background:rgba(67,209,153,.92);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.4)}
 .vid .play i::after{content:'';border-left:15px solid #06120d;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
@@ -415,7 +433,12 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
   .hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);grid-template-areas:"t c" "i c";column-gap:32px;align-items:center;padding-top:56px;padding-bottom:84px}
   .hero .h-txt{grid-area:t;align-self:end}
   .hero .h-inf{grid-area:i;align-self:start}
-  .cam-wrap{grid-area:c;margin:0 -6% 0 0;width:108%;align-self:center}
+  .h-stage{grid-area:c;align-self:center;margin:0}
+  .h-stage .cam-wrap{right:-12%;top:-10%;width:78%}
+  .works{gap:16px;padding-top:46%}
+  .w-tag{font-size:.82rem;left:10px;right:10px;bottom:10px;padding:7px 9px}
+  .work .play i{width:58px;height:58px}
+  .works-cap{font-size:1rem;max-width:52ch}
   .hero h1{font-size:clamp(4.2rem,6.4vw,6.6rem)}
   .hero .sub{font-size:1.32rem;max-width:34ch}
   .usp{margin-top:28px;gap:12px}
@@ -447,7 +470,7 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
   .cases-t .case:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(0,0,0,.35)}
   #results .swipe,#reviews .swipe{display:none}
   .story{display:grid;grid-template-columns:1fr 1fr;align-items:center;margin-top:36px}
-  .story .shot::after{display:none}
+  .story .shot{padding:16px}
   .story .txt{padding:30px 40px}
   .story h3{font-size:2.1rem}
   .story p{font-size:1.12rem}
@@ -540,9 +563,17 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
     <h1>АІ-Відео&shy;креатор<span class="v2">2.0</span></h1>
     <p class="sub">Створюй <b>рекламу, мультики, фільми й UGC</b> через нейромережі — і продавай це бізнесам <b>по $50–300 за ролик</b>.</p>
   </div>
-  <div class="cam-wrap" aria-hidden="true">
+  <div class="h-stage">
+    <div class="cam-wrap" aria-hidden="true">
     <div class="halo"></div>
     <img class="obj" src="/videokreator-2/media/obj/camera.webp" alt="" width="983" height="1000" fetchpriority="high" decoding="async">
+  </div>
+    <div class="works">
+      <div class="work" data-src="/webinar/reklama.mp4"><img src="/videokreator-2/media/works/reklama.jpg" alt="Реклама товару — згенеровано через нейромережі" loading="eager" decoding="async"><span class="w-tag">Реклама товару</span><button class="play" aria-label="Увімкнути: Реклама товару"><i></i></button></div>
+      <div class="work" data-src="/webinar/clip.mp4"><img src="/videokreator-2/media/works/clip.jpg" alt="Музичний кліп — згенеровано через нейромережі" loading="eager" decoding="async"><span class="w-tag">Музичний кліп</span><button class="play" aria-label="Увімкнути: Музичний кліп"><i></i></button></div>
+      <div class="work" data-src="/webinar/multik.mp4"><img src="/videokreator-2/media/works/multik.jpg" alt="Мультфільм — згенеровано через нейромережі" loading="eager" decoding="async"><span class="w-tag">Мультфільм</span><button class="play" aria-label="Увімкнути: Мультфільм"><i></i></button></div>
+    </div>
+    <p class="works-cap">Реклама, кліп і мультик — <b>повністю згенеровані через нейромережі</b>. Саме такі роботи на ринку коштують <b>$50–300</b>, і саме їх ти навчишся створювати. Натисни, щоб переглянути.</p>
   </div>
   <div class="wrap h-inf">
     <div class="usp">
@@ -624,10 +655,14 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
     <div class="swipe"><svg width="22" height="12" viewBox="0 0 22 12" fill="none"><path d="M1 6h19m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Гортай кейси</div>
 
     <div class="story reveal">
-      <div class="shot"><picture><source srcset="/videokreator-2/media/case/pay18k.avif" type="image/avif"><img src="/videokreator-2/media/case/pay18k.jpg" alt="Оплата замовлення 18 000 гривень" loading="lazy" decoding="async" width="900" height="667"></picture></div>
+      <div class="shot">
+        <picture><source srcset="/videokreator-2/media/case/msg18k.avif" type="image/avif"><img src="/videokreator-2/media/case/msg18k.jpg" alt="Подяка учня за курс" loading="lazy" decoding="async" width="900" height="441"></picture>
+        <picture><source srcset="/videokreator-2/media/case/pay18k.avif" type="image/avif"><img src="/videokreator-2/media/case/pay18k.jpg" alt="Оплата замовлення 18 000 гривень" loading="lazy" decoding="async" width="900" height="667"></picture>
+      </div>
       <div class="txt">
         <h3>18 000 ₴ — рекорд першого потоку</h3>
-        <p>Учень закрив замовлення на 18 000 ₴. А потім написав нам не про гроші: курс допоміг йому налагодити життя, прийти до дисципліни — і всередині стало значно легше.</p>
+        <p>Учень домовився з агенцією про співпрацю на пів року: щодня робить для них 30–40 креативів і веде 7 дизайн-проєктів. Перша оплата — 18 000 ₴.</p>
+        <p>А ще він написав не про гроші: у нього непростий життєвий період, і саме курс допоміг «вилізти зі шкаралупи, відкрити ноут і з головою зануритися в практику».</p>
       </div>
     </div>
     <p class="honest reveal">Без золотих гір: це результати тих, хто дійшов до практики. Твій результат залежить від того, скільки ти генеруєш і показуєш світу.</p>
@@ -983,9 +1018,9 @@ document.querySelectorAll('.mod-btn,.fq-btn').forEach(function(b){
 });
 
 /* lazy videos */
-document.querySelectorAll('.vid').forEach(function(box){
+document.querySelectorAll('.vid,.work').forEach(function(box){
   box.querySelector('.play').addEventListener('click',function(){
-    document.querySelectorAll('.vid video').forEach(function(v){v.pause()});
+    document.querySelectorAll('.vid video,.work video').forEach(function(v){v.pause()}); box.classList.add('on');
     var v=document.createElement('video');
     v.src=box.getAttribute('data-src'); v.controls=true; v.playsInline=true; v.setAttribute('playsinline',''); v.autoplay=true;
     box.innerHTML=''; box.appendChild(v); var p=v.play(); if(p&&p.catch)p.catch(function(){});
