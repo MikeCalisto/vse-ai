@@ -7,7 +7,7 @@
 <meta name="description" content="Анкета передзапису на другий потік курсу АІ-Відеокреатор. 10 питань, 2 хвилини.">
 <meta name="robots" content="noindex,nofollow">
 <meta property="og:title" content="Анкета передзапису — АІ-Відеокреатор 2.0">
-<meta property="og:description" content="10 питань, 2 хвилини. Ксюша напише тобі в Telegram.">
+<meta property="og:description" content="10 питань, 2 хвилини. Менеджер напише тобі в Telegram.">
 <meta property="og:image" content="/videokreator-2/media/og.jpg">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -174,7 +174,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <div class="meta"><span><i class="live-dot"></i>Набір відкрито</span><span>12 модулів · 12 тижнів</span></div>
 
       <form class="contacts" id="cform" novalidate autocomplete="on">
-        <h2>Як з тобою звʼязатись<small>Ксюша напише в Telegram після анкети</small></h2>
+        <h2>Як з тобою звʼязатись<small>Менеджер напише в Telegram після анкети</small></h2>
         <label class="field" id="f-name"><span>Імʼя</span><input type="text" name="name" placeholder="Як тебе звати?" autocomplete="name" maxlength="120" required><em class="msg">Напиши, як до тебе звертатись</em></label>
         <label class="field" id="f-telegram"><span>Нік у Telegram</span><input type="text" name="telegram" placeholder="@нік" autocomplete="username" autocapitalize="off" spellcheck="false" maxlength="120" required><em class="msg">Потрібен нік через @ — без нього не зможемо написати</em></label>
         <label class="field" id="f-phone"><span>Номер телефону</span><input type="tel" name="phone" placeholder="+380 __ ___ __ __" autocomplete="tel" inputmode="tel" maxlength="40" required><em class="msg">Перевір номер — має бути щонайменше 10 цифр</em></label>
@@ -192,7 +192,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <svg class="deco" style="right:14px;top:8%;opacity:.12;animation:floatY 8s ease-in-out infinite" width="60" height="80" viewBox="0 0 60 80" fill="none"><path d="M35 2L15 32h18L10 78l40-40H30L50 2H35z" fill="#43d199"/></svg>
       <div class="ok"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></div>
       <h1>Анкету <span class="hm">отримали</span></h1>
-      <p><b id="done-name">Дякуємо!</b> Ксюша прочитає відповіді і напише тобі в Telegram, щоб підібрати формат і відповісти на питання.</p>
+      <p><b id="done-name">Дякуємо!</b> Менеджер прочитає відповіді і напише тобі в Telegram, щоб підібрати формат і відповісти на питання.</p>
       <div class="next">
         <h2>Що далі</h2>
         <ol>
@@ -404,7 +404,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       })
       .catch(function(){
         btn.disabled = false; btn.textContent = 'Спробувати ще раз';
-        errBox.innerHTML = 'Не вдалося відправити. Перевір інтернет і спробуй ще раз — відповіді збережені. Якщо не виходить, напиши Ксюші: <a href="https://t.me/ai_sashka_support" target="_blank" rel="noopener">@ai_sashka_support</a>.';
+        errBox.innerHTML = 'Не вдалося відправити. Перевір інтернет і спробуй ще раз — відповіді збережені. Якщо не виходить, напиши в підтримку: <a href="https://t.me/ai_sashka_support" target="_blank" rel="noopener">@ai_sashka_support</a>.';
         errBox.classList.add('on');
       });
   }
