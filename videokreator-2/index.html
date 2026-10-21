@@ -87,15 +87,15 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--mint);outline-off
 .sticker{display:inline-flex;flex-direction:column;gap:2px;background:var(--mint);color:#06120d;padding:9px 14px 8px;border-radius:12px;transform:rotate(-3deg);box-shadow:0 10px 24px rgba(67,209,153,.3);margin:6px 0 18px}
 .sticker b{font-size:.92rem;font-weight:800;letter-spacing:.01em}
 .sticker span{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
-.live{display:inline-flex;align-items:center;gap:9px;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#cfe9dc;background:rgba(255,255,255,.06);border:1px solid var(--line-d);padding:7px 13px;border-radius:999px;margin-bottom:16px}
+.live{display:inline-flex;align-items:center;gap:9px;font-size:clamp(.66rem,3.1vw,.78rem);font-weight:600;letter-spacing:.06em;white-space:nowrap;text-transform:uppercase;color:#cfe9dc;background:rgba(255,255,255,.06);border:1px solid var(--line-d);padding:7px 13px;border-radius:999px;margin-bottom:16px}
 .hero h1{font-size:clamp(2.7rem,13.5vw,4.3rem);letter-spacing:-.035em;line-height:.95}
 .hero h1 .v2{display:inline-block;color:transparent;-webkit-text-stroke:2px var(--mint);margin-left:.12em;transform:translateY(-.04em)}
 .hero .sub{font-size:1.1rem;line-height:1.5;margin-top:18px;color:#d5e2da;max-width:30ch}
 .hero .sub b{color:#fff}
 .hero-art{position:relative;margin:6px -20px 0 0;height:0;padding-top:0}
 .h-stage{position:relative;margin-top:4px;z-index:2}
-.h-stage .cam-wrap{position:absolute;right:-30%;top:-6%;width:80%;margin:0;z-index:0}
-.works{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding-top:50%}
+.h-stage .cam-wrap{position:absolute;left:50%;top:0;width:74%;margin:0;z-index:0;transform:translateX(-50%)}
+.works{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding-top:46%}
 .work{position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#08100d;border:1px solid rgba(255,255,255,.14);box-shadow:0 18px 36px rgba(0,0,0,.55);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .work:nth-child(1){transform:rotate(-4deg) translateY(10px)}
 .work:nth-child(3){transform:rotate(4deg) translateY(10px)}
@@ -496,7 +496,7 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
 .sto-who{margin-top:14px;font-size:.88rem;color:var(--t-mut-c)}
 .sto-who b{color:var(--t-dark)}
 .sto-src{margin-top:18px;font-size:.84rem}
-.sto-pf{margin:12px 0 0;border-radius:14px;overflow:hidden;background:#17212b}
+.sto-pf{margin:12px 0 0;border-radius:14px;overflow:hidden;background:#17212b;padding:6px 0}
 .sto-pf figcaption{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#9fd9bf;padding:9px 12px}
 .sto-pf img{width:100%;height:auto;max-height:440px;object-fit:contain;margin:0 auto}
 .sto-who .src{color:#8a958f;font-size:.8rem}
@@ -537,7 +537,7 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
   .hero .h-txt{grid-area:t;align-self:end}
   .hero .h-inf{grid-area:i;align-self:start}
   .h-stage{grid-area:c;align-self:end;margin:0 0 6px}
-  .h-stage .cam-wrap{right:-14%;top:-46%;width:84%}
+  .h-stage .cam-wrap{left:auto;transform:none;right:-14%;top:-46%;width:84%}
   .works{gap:16px;padding-top:46%}
   .w-tag{font-size:.82rem;left:10px;right:10px;bottom:10px;padding:7px 9px}
   .work .play i{width:58px;height:58px}
@@ -821,8 +821,8 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
     <div class="swipe"><svg width="22" height="12" viewBox="0 0 22 12" fill="none"><path d="M1 6h19m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Гортай відгуки</div>
     <div class="tquotes">
       <div class="tq reveal"><p>«Ти не просто розповідаєш теорію, а буквально ведеш за руку: натисніть сюди, відкрийте це — і відразу показуєш результат.»</p><cite>Наталі, підприємиця, 50+</cite></div>
-      <div class="tq reveal d1"><p>«Ви не обіцяєте золоті гори, успішний успіх і тисячі доларів. Відчувається, що курс побудований на власному досвіді.»</p><cite>Ірина, Преміум</cite></div>
-      <div class="tq reveal d2"><p>«Орієнтуватись на платформі курсу легко навіть новачку в мої 59 років.»</p><cite>Оксана Лейко, Преміум</cite></div>
+      <div class="tq reveal d1"><p>«Ви не обіцяєте золоті гори, успішний успіх і тисячі доларів. Відчувається, що курс побудований на власному досвіді.»</p><cite>Ірина, тариф Преміум</cite></div>
+      <div class="tq reveal d2"><p>«Орієнтуватись на платформі курсу легко навіть новачку в мої 59 років.»</p><cite>Оксана Лейко, тариф Преміум</cite></div>
     </div>
   </div>
 </section>
@@ -841,7 +841,7 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
             <div class="sto-b"><span class="lb">Було</span><p>Багато ідей і сюжетів у голові, але жодного розуміння, як їх реалізувати технічно.</p><p class="qt">«Захоплювалася можливостями AI і водночас думала: як вони це роблять?»</p></div>
             <div class="sto-a"><span class="lb">Стало</span><p>Сама проходить увесь шлях від ідеї до готового відео: сюжет, розкадровка, ракурси, промпти, генерація, монтаж.</p><p class="qt">«Тепер, коли бачу цікавий ролик, думаю не «як це можливо?», а «як би я це зробила по-своєму?».»</p></div>
           </div>
-          <p class="sto-who"><b>Оксана</b> · Преміум <span class="src">· відповідь в анкеті 17.10.2026</span></p>
+          <p class="sto-who"><b>Оксана</b> · Тариф Преміум</p>
         </div>
       </div>
       <div class="sto-it">
@@ -852,7 +852,7 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
             <div class="sto-b"><span class="lb">Було</span><p>Знала нейромережі, мала шаблони запитів — але вони не працювали.</p><p class="qt">«Наче шось вже знаю, шось вже вмію, але результату нуль, там попливло, там поїхало. Руки опускались.»</p></div>
             <div class="sto-a"><span class="lb">Стало</span><p>Створює власних асистентів і майстер-промпти, розуміє формулу кадру, крупність і ракурси, опанувала Seedance.</p><p class="qt">«Отой весь хаос який був в голові, розклався по поличках.»</p></div>
           </div>
-          <p class="sto-who"><b>Ірина</b> · Преміум <span class="src">· відповідь в анкеті 17.10.2026</span></p>
+          <p class="sto-who"><b>Ірина</b> · Тариф Преміум</p>
         </div>
       </div>
       <div class="sto-it">
@@ -863,7 +863,7 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
             <div class="sto-b"><span class="lb">Було</span><p>Вміла згенерувати картинку і заздрила тим, хто робить круті ролики.</p></div>
             <div class="sto-a"><span class="lb">Стало</span><p>Близько <b>130 роликів</b> за час курсу. Вірусне відео на <b>1,7 млн</b> переглядів привело 2 000 підписників.</p><p class="qt">«Мої персонажі тепер схожі на себе і не змінюють зовнішність від кадру до кадру.»</p></div>
           </div>
-          <p class="sto-who"><b>Злата</b> · Преміум <span class="src">· відповідь в анкеті 17.10.2026</span></p>
+          <p class="sto-who"><b>Злата</b> · Тариф Преміум</p>
         </div>
       </div>
       <div class="sto-it">
@@ -874,8 +874,8 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
             <div class="sto-b"><span class="lb">Було</span><p class="qt">«Раніше відео і до тисячі не дотягувалися.»</p><p>В Instagram — близько 10 «своїх» читачів.</p></div>
             <div class="sto-a"><span class="lb">Стало</span><p class="qt">«У мене теж з кометою залетіло, мій перший мільйон 🎉»</p><p>Ролик на <b>1,2 млн</b>, <b>5 058</b> читачів в Instagram і ще <b>2,7 тис.</b> на новій сторінці у Facebook — з нуля.</p></div>
           </div>
-          <figure class="sto-pf"><figcaption>Пруф · повідомлення в чаті курсу</figcaption><picture><source srcset="/videokreator-2/media/case/iryna.avif" type="image/avif"><img src="/videokreator-2/media/case/iryna.jpg" alt="повідомлення в чаті курсу" loading="lazy" decoding="async" width="527" height="756"></picture></figure>
-          <p class="sto-who"><b>Ірина</b> · Преміум</p>
+          <figure class="sto-pf"><picture><source srcset="/videokreator-2/media/case/iryna.avif" type="image/avif"><img src="/videokreator-2/media/case/iryna.jpg" alt="повідомлення в чаті курсу" loading="lazy" decoding="async" width="527" height="756"></picture></figure>
+          <p class="sto-who"><b>Ірина</b> · Тариф Преміум</p>
         </div>
       </div>
       <div class="sto-it">
@@ -886,7 +886,7 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
             <div class="sto-b"><span class="lb">Було</span><p>Працювала лише в Grok і писала промпти своїми словами. <b>84</b> підписники.</p></div>
             <div class="sto-a"><span class="lb">Стало</span><p>Її ролики за мотивами картин великих художників попросила для презентації іноземна асоціація художників — і відмітила авторку. <b>1 800</b> підписників.</p><p class="qt">«Я більш впевнено викладаю свої роботи і не переживаю за осуд.»</p></div>
           </div>
-          <p class="sto-who"><b>Наталія</b> · Преміум <span class="src">· відповідь в анкеті 16.10.2026</span></p>
+          <p class="sto-who"><b>Наталія</b> · Тариф Преміум</p>
         </div>
       </div>
       <div class="sto-it">
@@ -897,7 +897,7 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
             <div class="sto-b"><span class="lb">Було</span><p class="qt">«Чесно кажучи було лячно, так як це перше замовлення.»</p></div>
             <div class="sto-a"><span class="lb">Стало</span><p>Зробила ролик за ТЗ і сценарієм клієнта: візуали на погодження, генерація, монтаж у CapCut.</p><p class="qt">«Нічого не довелось перегенеровувати. Оплату отримала.»</p></div>
           </div>
-          <figure class="sto-pf"><figcaption>Пруф · повідомлення в чаті курсу</figcaption><picture><source srcset="/videokreator-2/media/case/oksana.avif" type="image/avif"><img src="/videokreator-2/media/case/oksana.jpg" alt="повідомлення в чаті курсу" loading="lazy" decoding="async" width="526" height="345"></picture></figure>
+          <figure class="sto-pf"><picture><source srcset="/videokreator-2/media/case/oksana.avif" type="image/avif"><img src="/videokreator-2/media/case/oksana.jpg" alt="повідомлення в чаті курсу" loading="lazy" decoding="async" width="526" height="345"></picture></figure>
           <p class="sto-who"><b>Оксана</b> · учениця першого потоку</p>
         </div>
       </div>
@@ -909,7 +909,7 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
             <div class="sto-b"><span class="lb">Було</span><p>Найважче давались монтаж, промпти і збереження героя від кадру до кадру.</p><p class="qt">«Вау, як це круто! Але я ніколи не зможу створювати щось подібне.»</p></div>
             <div class="sto-a"><span class="lb">Стало</span><p>Виконала всі завдання курсу, кілька відео потрапили в рекомендації YouTube Shorts, одне — <b>близько 100 тис.</b> переглядів.</p><p class="qt">«Тепер я знаю, що можу сміливо рекомендувати себе та просувати свої послуги як AI-відеокреатор.»</p></div>
           </div>
-          <p class="sto-who"><b>Жанна</b> · Преміум <span class="src">· відповідь в анкеті 18.10.2026</span></p>
+          <p class="sto-who"><b>Жанна</b> · Тариф Преміум</p>
         </div>
       </div>
       <div class="sto-it">
@@ -920,9 +920,9 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
             <div class="sto-b"><span class="lb">Було</span><p>Базове розуміння AI-відео й бажання подивитись, як працюють ті, в кого вже все виходить.</p></div>
             <div class="sto-a"><span class="lb">Стало</span><p class="qt">«Знайшов 4 проекти та пару агенцій, роблю їм рекламні крео за допомогою ШІ на заказ.»</p><p>За час навчання <b>двічі окупив курс</b>.</p></div>
           </div>
-          <figure class="sto-pf"><figcaption>Пруф · повідомлення в чаті курсу</figcaption><picture><source srcset="/videokreator-2/media/case/rostik.avif" type="image/avif"><img src="/videokreator-2/media/case/rostik.jpg" alt="повідомлення в чаті курсу" loading="lazy" decoding="async" width="526" height="255"></picture></figure>
+          <figure class="sto-pf"><picture><source srcset="/videokreator-2/media/case/rostik.avif" type="image/avif"><img src="/videokreator-2/media/case/rostik.jpg" alt="повідомлення в чаті курсу" loading="lazy" decoding="async" width="526" height="255"></picture></figure>
           <p class="sto-note">Сам каже: швидко знайти замовників допомогли старі звʼязки в маркетингу.</p>
-          <p class="sto-who"><b>Ростислав</b> · Преміум</p>
+          <p class="sto-who"><b>Ростислав</b> · Тариф Преміум</p>
         </div>
       </div>
       <div class="sto-it">
@@ -933,12 +933,12 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
             <div class="sto-b"><span class="lb">Було</span><p>Вже мала невдалий досвід іншого навчання. Вміла створити картинку й анімувати її, а як зібрати сюжетний ролик — не розуміла.</p></div>
             <div class="sto-a"><span class="lb">Стало</span><p class="qt">«Закрила замовлення на два ролика, окупила підписку… заробила за 2 коротких ролика 6000 грн.»</p><p>Той самий клієнт замовив міні-трейлер нової колекції, наступний ролик планують показати у Франції.</p></div>
           </div>
-          <figure class="sto-pf"><figcaption>Пруф · повідомлення в чаті курсу</figcaption><picture><source srcset="/videokreator-2/media/case/kateryna.avif" type="image/avif"><img src="/videokreator-2/media/case/kateryna.jpg" alt="повідомлення в чаті курсу" loading="lazy" decoding="async" width="525" height="190"></picture></figure>
-          <p class="sto-who"><b>Катерина</b> · Преміум</p>
+          <figure class="sto-pf"><picture><source srcset="/videokreator-2/media/case/kateryna.avif" type="image/avif"><img src="/videokreator-2/media/case/kateryna.jpg" alt="повідомлення в чаті курсу" loading="lazy" decoding="async" width="525" height="190"></picture></figure>
+          <p class="sto-who"><b>Катерина</b> · Тариф Преміум</p>
         </div>
       </div>
     </div>
-    <p class="sto-src mut reveal">Історії та цитати — з анкет учнів першого потоку і їхніх повідомлень у чаті курсу. Публікуємо з їхньої згоди.</p>
+    <p class="sto-src mut reveal">Історії та цитати учнів першого потоку публікуємо з їхньої згоди.</p>
   </div>
 </section>
 
