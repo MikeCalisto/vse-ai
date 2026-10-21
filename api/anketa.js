@@ -76,6 +76,9 @@ export default async function handler(req, res) {
   const externalId = str(form.submissionId, 120);
   if (externalId) payload.externalId = externalId;
   if (form.dry === true) payload.dry = true;
+  // notify:false — карточку створити/доповнити, але менеджеру в бот не писати
+  // (перша відправка з самими контактами; сповіщення йде лише з повною анкетою).
+  if (form.notify === false) payload.notify = false;
 
   let upstream;
   try {

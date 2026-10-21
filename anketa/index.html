@@ -235,6 +235,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   ];
 
   var STORE = 'anketa-vk2-draft';
+  var STATUS_Q = 'Статус анкети';
   var state = load() || { contacts:{}, answers:{}, other:{}, step:0, sid:null };
   if (!state.sid) state.sid = 'anketa:' + uuid();
 
@@ -341,7 +342,30 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     state.contacts = { name:name, telegram:tg, phone:cform.elements.phone.value.trim() };
     save();
     show(1, +1);
+    sendContacts();
   });
+
+  /* ---------- перша відправка: лише контакти, без сповіщення менеджеру ----------
+     Картка зʼявляється в CRM одразу — якщо людина кине анкету на середині,
+     менеджер все одно побачить її і зможе написати. */
+  function sendContacts(){
+    if (state.contactsSent) return;
+    var body = basePayload();
+    body.answers = [{ q: STATUS_Q, a: 'Почав(ла) заповнювати — відповідей ще немає' }];
+    body.submissionId = state.sid + ':contacts';
+    body.notify = false;
+    fetch('/api/anketa', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(body), keepalive: true })
+      .then(function(r){ if (r.ok) { state.contactsSent = true; save(); } })
+      .catch(function(){ /* не страшно: повна анкета принесе контакти ще раз */ });
+  }
+  function basePayload(){
+    return {
+      src: SRC, sourceDetail: DETAIL,
+      name: state.contacts.name, telegram: state.contacts.telegram, phone: state.contacts.phone,
+      company: cform.elements.company.value,
+      dry: params.get('dry') === '1'
+    };
+  }
   function mark(k){ document.getElementById('f-' + k).classList.add('err'); }
 
   /* ---------- navigation ---------- */
@@ -385,13 +409,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       if (qd.other && v === 'Інше' && (state.other[qd.id] || '').trim()) v = 'Інше: ' + state.other[qd.id].trim();
       return { q: qd.q, a: (v || '').trim() };
     }).filter(function(x){ return x.a; });
-    var body = {
-      src: SRC, sourceDetail: DETAIL,
-      name: state.contacts.name, telegram: state.contacts.telegram, phone: state.contacts.phone,
-      company: cform.elements.company.value,
-      answers: answers, submissionId: state.sid,
-      dry: params.get('dry') === '1'
-    };
+    answers.unshift({ q: STATUS_Q, a: 'Заповнена повністю' });
+    var body = basePayload();
+    body.answers = answers;
+    body.submissionId = state.sid + ':full';
     fetch('/api/anketa', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(body) })
       .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(d){ return { ok: r.ok && d.ok, data: d }; }); })
       .then(function(res){
@@ -399,7 +420,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         document.getElementById('done-name').textContent = 'Дякуємо, ' + (state.contacts.name || '').split(' ')[0] + '!';
         show('done', +1);
         // нова анкета з цього ж браузера — новий id, чисті відповіді
-        state = { contacts:{}, answers:{}, other:{}, step:0, sid:'anketa:' + uuid() };
+        state = { contacts:{}, answers:{}, other:{}, step:0, sid:'anketa:' + uuid(), contactsSent:false };
         try { localStorage.removeItem(STORE); } catch(_) {}
       })
       .catch(function(){
