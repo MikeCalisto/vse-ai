@@ -102,6 +102,7 @@ export default async function handler(req, res) {
     duplicate: data.duplicate === true,
     dry: payload.dry === true,
     leadId: data.leadId ?? null,
+    notified: data.notified === true,
     url: data.url ?? null,
   });
 }
