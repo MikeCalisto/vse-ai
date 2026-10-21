@@ -12,6 +12,7 @@
 |---|---|---|
 | `vse-ai.vercel.app/` | `zakrytyi-klub/` | Главный лендинг — закрытая Telegram-спільнота VSE AI. |
 | `vse-ai.vercel.app/product-ai-content/` | `product-ai-content/` | Лендинг курса «Предметна зйомка через АІ». |
+| `vse-ai.vercel.app/anketa/` | `anketa/` + `api/anketa.js` | Анкета предзаписи на «АІ-Відеокреатор 2.0». Ответы уходят в CRM платформы B&M Budget (см. раздел «Анкета → CRM»). |
 
 Корень репозитория содержит только **общие** файлы:
 - `vercel.json` — конфиг Vercel (rewrites, redirects, headers)
@@ -74,6 +75,18 @@ sips -s format jpeg -s formatOptions 82 -Z 1400 input.png --out output.jpg
 - **Rewrites:** все запросы на корневые пути (кроме `/product-ai-content/*` и `/zakrytyi-klub/*`) внутренне отдают `/zakrytyi-klub/...`. Так URL `vse-ai.vercel.app/` показывает закрытый клуб без необходимости таскать его файлы в корень.
 - **Redirects:** `/product-ai-content` и `/product-ai-content/` редиректят на `/product-ai-content/index.html` (обход кэша браузера).
 - **Headers:** `/product-ai-content/*` идёт с `Cache-Control: max-age=0, must-revalidate`.
+
+## Анкета → CRM (`anketa/` + `api/anketa.js`)
+
+- Форма на `anketa/index.html` шлёт JSON в **свою** serverless-функцию `api/anketa.js` (Vercel поднимает `api/*.js` как функции). Функция с ключом стучит в `https://bm-budget-platform.vercel.app/api/crm/intake` — карточка попадает во «Вхідний лід» доски `sashka-launch-2`, ответы ложатся первым комментарием, менеджеру уходит сообщение в бот.
+- **Ключ** — переменная окружения `BM_CRM_KEY` в Vercel проекта `vse-ai` (значение = `CRM_INTAKE_KEY` платформы). В git и в HTML его не класть. Без ключа функция отвечает `503 no-key`.
+- Полный контракт приёмника (поля, коды ответов, список источников): `/Users/mikhail_zemlyanoy/Desktop/Финансы/platforma/docs/CRM-INTAKE.md`.
+- **Источник** берётся из параметра ссылки: `/anketa/?src=club` (клуб), `?src=bot`, `?src=insta`, `?src=landing`, `?src=ads`, `?src=web_channel` и т.д. Без `src` карточка получает «Інше». `utm_*` и `ref` уходят в «Джерело: деталі».
+- `?dry=1` — тестовый режим: платформа проверяет запрос, но карточку не создаёт и менеджеру не пишет.
+- Дедуп: у каждой заполненной анкеты свой `submissionId` (в localStorage до успешной отправки) — повторная отправка той же анкеты дубль не создаёт; человек, уже существующий на доске (по нику/почте), получает комментарий «повторна».
+- Вопросы — массив `QUESTIONS` в начале `<script>` в `anketa/index.html`: там меняются формулировки и варианты.
+- В `vercel.json` в catch-all rewrite исключены `anketa` и `api` — не убирать, иначе `/api/anketa` уедет на главную.
+- Локальный прогон с реальной функцией: конфиг `anketa-dev` в `.claude/launch.json` (сервер в scratchpad сессии подтягивает ключ из `.env` платформы).
 
 ## Полезное
 

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Анкета передзапису — АІ-Відеокреатор 2.0</title>
+<meta name="description" content="Анкета передзапису на другий потік курсу АІ-Відеокреатор. 10 питань, 2 хвилини.">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:title" content="Анкета передзапису — АІ-Відеокреатор 2.0">
+<meta property="og:description" content="10 питань, 2 хвилини. Ксюша напише тобі в Telegram.">
+<meta property="og:image" content="/videokreator-2/media/og.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800;900&display=swap&subset=cyrillic,latin" rel="stylesheet">
+<link rel="preload" as="image" href="camera.webp" fetchpriority="high">
+<style>
+:root{
+  --ink:#0b1310; --ink2:#101b17; --ink3:#16241e; --line-d:rgba(255,255,255,.09);
+  --paper:#f8f6f1; --mint:#43d199; --mint-d:#2fb581; --emerald:#0f7a51; --gold:#e3b44a; --red:#ff6b6b;
+  --t-light:#eef3ef; --t-mut-d:#9fb2a7;
+  --font:'Jost',-apple-system,'SF Pro Display','Helvetica Neue',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:#d9d4c8;color:var(--t-light);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100svh}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+.phone{max-width:480px;margin:0 auto;background:var(--ink);position:relative;overflow:hidden;min-height:100svh;display:flex;flex-direction:column}
+@media(min-width:520px){.phone{box-shadow:0 0 60px rgba(0,0,0,.3);border-left:1px solid rgba(255,255,255,.05);border-right:1px solid rgba(255,255,255,.05)}}
+h1,h2{font-weight:900;letter-spacing:-.025em;line-height:1.08;text-wrap:balance}
+p{text-wrap:pretty}
+.hm{background:linear-gradient(180deg,transparent 60%,rgba(67,209,153,.42) 60%);padding:0 4px;margin:0 -4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.mint{color:var(--mint)}
+.mut{color:var(--t-mut-d)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2.5px solid var(--mint);outline-offset:3px;border-radius:10px}
+.deco{position:absolute;pointer-events:none;z-index:1}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+@keyframes floatR{0%,100%{transform:rotate(0)}50%{transform:rotate(10deg)}}
+@keyframes ofloat{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -12px;rotate:-1.5deg}}
+@keyframes glow{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:.95;transform:scale(1.08)}}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
+@keyframes shine{0%,60%{left:-100%}85%,100%{left:140%}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 26px;border-radius:14px;
+  background:var(--mint);color:#06120d;font-weight:800;font-size:.98rem;letter-spacing:.03em;text-transform:uppercase;
+  box-shadow:0 12px 32px rgba(67,209,153,.36),inset 0 1px 0 rgba(255,255,255,.35);position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s,opacity .25s;text-align:center;width:100%}
+.btn::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 4.5s ease-in-out infinite}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(67,209,153,.5)}
+.btn[disabled]{opacity:.55;pointer-events:none}
+.btn.ghost{background:transparent;color:var(--t-light);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.22);width:auto;padding:14px 18px;font-size:.84rem}
+.btn.ghost::before{display:none}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.45)}
+.link{background:none;color:var(--t-mut-d);font-weight:600;font-size:.88rem;text-decoration:underline;text-underline-offset:3px}
+.link:hover{color:#fff}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:rgba(11,19,16,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line-d);padding:12px 20px 12px;display:none}
+.top.on{display:block}
+.top .row{display:flex;justify-content:space-between;align-items:center;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t-mut-d);margin-bottom:9px}
+.top .row b{color:var(--mint)}
+.bar{height:5px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--emerald),var(--mint));box-shadow:0 0 12px rgba(67,209,153,.7);transition:width .5s cubic-bezier(.2,.8,.2,1)}
+
+/* steps */
+.stage{position:relative;flex:1;display:flex;flex-direction:column}
+.step{display:none;flex:1;flex-direction:column;padding:28px 20px 40px;position:relative;z-index:2;animation:in .45s cubic-bezier(.2,.8,.2,1)}
+.step.on{display:flex}
+.step.back{animation-name:inBack}
+@keyframes in{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+@keyframes inBack{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.step,.btn::before,.deco,.cam-wrap .obj,.cam-wrap .halo{animation:none!important}}
+
+/* hero (step 0) */
+.hero{background:radial-gradient(120% 70% at 85% 12%,rgba(67,209,153,.22),rgba(15,122,81,.06) 45%,transparent 70%),var(--ink)}
+.hero .grid-bg{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(180deg,#000 40%,transparent 95%);-webkit-mask-image:linear-gradient(180deg,#000 40%,transparent 95%)}
+.sticker{display:inline-flex;flex-direction:column;gap:2px;background:var(--mint);color:#06120d;padding:9px 14px 8px;border-radius:12px;transform:rotate(-3deg);box-shadow:0 10px 24px rgba(67,209,153,.3);margin:6px 0 20px;align-self:flex-start}
+.sticker b{font-size:.92rem;font-weight:800;letter-spacing:.01em}
+.sticker span{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.hero h1{font-size:clamp(2.4rem,11.5vw,3.5rem);letter-spacing:-.035em;line-height:.96;max-width:9ch;position:relative;z-index:2}
+.cam-wrap{position:absolute;right:-26%;top:-6%;width:70%;z-index:0;pointer-events:none}
+.cam-wrap .halo{position:absolute;left:14%;top:22%;width:64%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(67,209,153,.5),rgba(67,209,153,0) 65%);filter:blur(12px);animation:glow 3.6s ease-in-out infinite}
+.cam-wrap .obj{position:relative;width:100%;max-width:none;height:auto;animation:ofloat 7s ease-in-out infinite;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55));
+  -webkit-mask-image:linear-gradient(200deg,#000 0 46%,rgba(0,0,0,.5) 68%,transparent 90%);mask-image:linear-gradient(200deg,#000 0 46%,rgba(0,0,0,.5) 68%,transparent 90%)}
+.hero .sub{font-size:1.08rem;line-height:1.5;margin-top:18px;color:#d5e2da;max-width:30ch;position:relative;z-index:2}
+.hero .sub b{color:#fff}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;position:relative;z-index:2}
+.meta span{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#cfe9dc;background:rgba(255,255,255,.06);border:1px solid var(--line-d);padding:7px 12px;border-radius:999px}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px rgba(67,209,153,.8);animation:pulseDot 2s ease-in-out infinite;flex:none}
+.contacts{margin-top:26px;background:rgba(16,27,23,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line-d);border-radius:20px;padding:18px 16px 16px;position:relative;z-index:2}
+.contacts h2{font-size:1.1rem;margin-bottom:12px}
+.contacts h2 small{display:block;font-size:.82rem;font-weight:500;color:var(--t-mut-d);letter-spacing:0;margin-top:3px}
+
+/* fields */
+.field{display:block;margin-top:12px}
+.field span{display:block;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t-mut-d);margin-bottom:6px}
+.field input,.field textarea{width:100%;background:var(--ink3);border:1.5px solid rgba(255,255,255,.12);border-radius:14px;padding:14px 15px;font-size:1.02rem;color:#fff;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+.field textarea{min-height:150px;resize:vertical;line-height:1.5}
+.field input::placeholder,.field textarea::placeholder{color:#5f7169}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--mint);box-shadow:0 0 0 3px rgba(67,209,153,.18)}
+.field.err input,.field.err textarea{border-color:var(--red);box-shadow:0 0 0 3px rgba(255,107,107,.15)}
+.field .msg{display:none;font-size:.8rem;color:var(--red);margin-top:6px;font-weight:600}
+.field.err .msg{display:block}
+.hp{position:absolute;left:-9999px;top:-9999px;height:0;width:0;opacity:0}
+
+/* question step */
+.qn{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mint);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.qn::after{content:'';flex:1;height:1px;background:var(--line-d)}
+.q h2{font-size:clamp(1.55rem,6.6vw,1.95rem);color:#fff}
+.q .hint{font-size:.92rem;color:var(--t-mut-d);margin-top:10px;line-height:1.5}
+.q .hint b{color:var(--gold);font-weight:700}
+.opts{display:flex;flex-direction:column;gap:9px;margin-top:22px}
+.opt{display:flex;align-items:center;gap:13px;width:100%;text-align:left;background:var(--ink3);border:1.5px solid rgba(255,255,255,.1);border-radius:16px;padding:14px 15px;font-size:1rem;line-height:1.3;font-weight:500;color:#e2ebe6;transition:border-color .2s,background .2s,transform .2s;position:relative}
+.opt:hover{border-color:rgba(67,209,153,.5)}
+.opt:active{transform:scale(.985)}
+.opt .k{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #5f7169;display:grid;place-items:center;transition:border-color .2s,background .2s}
+.opt.multi .k{border-radius:7px}
+.opt .k svg{width:13px;height:13px;stroke:#06120d;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:0;transform:scale(.4);transition:opacity .2s,transform .25s cubic-bezier(.2,.8,.2,1)}
+.opt.on{border-color:var(--mint);background:rgba(67,209,153,.1);color:#fff}
+.opt.on .k{border-color:var(--mint);background:var(--mint)}
+.opt.on .k svg{opacity:1;transform:scale(1)}
+.other-in{display:none;margin-top:4px}
+.other-in.on{display:block}
+.qerr{display:none;margin-top:14px;font-size:.86rem;font-weight:600;color:var(--red)}
+.qerr.on{display:block}
+.nav{margin-top:auto;padding-top:28px;display:flex;flex-direction:column;gap:12px}
+.nav .row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.keyhint{font-size:.76rem;color:#5f7169;text-align:center;font-weight:600}
+.keyhint kbd{font-family:inherit;background:rgba(255,255,255,.08);border:1px solid var(--line-d);border-radius:6px;padding:1px 7px;color:var(--t-mut-d)}
+.senderr{display:none;margin-top:14px;background:rgba(255,107,107,.1);border:1.5px solid rgba(255,107,107,.5);border-radius:14px;padding:12px 14px;font-size:.9rem;line-height:1.45}
+.senderr.on{display:block}
+.senderr a{color:var(--mint);font-weight:700}
+
+/* done */
+.done{align-items:stretch;justify-content:center;text-align:left;background:radial-gradient(110% 60% at 50% 0%,rgba(67,209,153,.24),transparent 60%),var(--ink)}
+.done .ok{width:84px;height:84px;border-radius:26px;background:var(--mint);display:grid;place-items:center;box-shadow:0 18px 44px rgba(67,209,153,.45);transform:rotate(-6deg);margin-bottom:26px}
+.done .ok svg{width:42px;height:42px;stroke:#06120d;fill:none;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+.done h1{font-size:clamp(2.2rem,10vw,3.1rem);letter-spacing:-.035em;line-height:.98}
+.done p{margin-top:16px;font-size:1.06rem;color:#d5e2da;line-height:1.55;max-width:32ch}
+.done p b{color:#fff}
+.done .next{margin-top:26px;background:var(--ink3);border:1px solid var(--line-d);border-radius:20px;padding:18px 18px}
+.done .next h2{font-size:1.05rem;margin-bottom:10px;color:#fff}
+.done .next ol{padding-left:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+.done .next li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;color:#cbd8d0;line-height:1.4}
+.done .next li i{font-style:normal;flex:none;width:26px;height:26px;border-radius:9px;background:rgba(67,209,153,.15);color:var(--mint);font-weight:900;font-size:.82rem;display:grid;place-items:center}
+.done .btn{margin-top:22px}
+.foot{padding:0 20px 22px;font-size:.74rem;color:#5f7169;text-align:center;line-height:1.5}
+.foot a{color:#8fa59a;text-decoration:underline;text-underline-offset:2px}
+</style>
+</head>
+<body>
+<div class="phone">
+
+  <div class="top" id="top">
+    <div class="row"><span>Питання <b id="pos">1</b> з <b id="total">10</b></span><span id="pct">0%</span></div>
+    <div class="bar"><i id="bar"></i></div>
+  </div>
+
+  <div class="stage" id="stage">
+
+    <!-- ===== STEP 0: hero + contacts ===== -->
+    <section class="step hero on" data-step="0">
+      <div class="grid-bg"></div>
+      <div class="cam-wrap"><div class="halo"></div><img class="obj" src="camera.webp" alt="" width="900" height="900" fetchpriority="high" decoding="async"></div>
+      <svg class="deco" style="left:10px;bottom:34%;opacity:.12;animation:floatR 12s ease-in-out infinite" width="54" height="54" viewBox="0 0 54 54"><circle cx="27" cy="27" r="22" stroke="#43d199" stroke-width="1.5" fill="none"/><circle cx="27" cy="27" r="13" stroke="#43d199" stroke-width="1" fill="none" stroke-dasharray="3 3"/></svg>
+      <div class="sticker"><b>АІ-Відеокреатор 2.0</b><span>Другий потік · старт 12 листопада</span></div>
+      <h1>Анкета <span class="hm">перед</span>запису</h1>
+      <p class="sub"><b>10 питань, 2 хвилини.</b> Так ми зрозуміємо, з якої точки ти стартуєш, і підберемо формат, який реально дасть результат.</p>
+      <div class="meta"><span><i class="live-dot"></i>Набір відкрито</span><span>12 модулів · 12 тижнів</span></div>
+
+      <form class="contacts" id="cform" novalidate autocomplete="on">
+        <h2>Як з тобою звʼязатись<small>Ксюша напише в Telegram після анкети</small></h2>
+        <label class="field" id="f-name"><span>Імʼя</span><input type="text" name="name" placeholder="Як тебе звати?" autocomplete="name" maxlength="120" required><em class="msg">Напиши, як до тебе звертатись</em></label>
+        <label class="field" id="f-telegram"><span>Нік у Telegram</span><input type="text" name="telegram" placeholder="@нік" autocomplete="username" autocapitalize="off" spellcheck="false" maxlength="120" required><em class="msg">Потрібен нік через @ — без нього не зможемо написати</em></label>
+        <label class="field" id="f-phone"><span>Номер телефону</span><input type="tel" name="phone" placeholder="+380 __ ___ __ __" autocomplete="tel" inputmode="tel" maxlength="40" required><em class="msg">Перевір номер — має бути щонайменше 10 цифр</em></label>
+        <label class="hp" aria-hidden="true">Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+        <div class="nav" style="padding-top:18px">
+          <button type="submit" class="btn">Почати анкету →</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- question steps are rendered by JS -->
+
+    <!-- ===== DONE ===== -->
+    <section class="step done" data-step="done">
+      <svg class="deco" style="right:14px;top:8%;opacity:.12;animation:floatY 8s ease-in-out infinite" width="60" height="80" viewBox="0 0 60 80" fill="none"><path d="M35 2L15 32h18L10 78l40-40H30L50 2H35z" fill="#43d199"/></svg>
+      <div class="ok"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></div>
+      <h1>Анкету <span class="hm">отримали</span></h1>
+      <p><b id="done-name">Дякуємо!</b> Ксюша прочитає відповіді і напише тобі в Telegram, щоб підібрати формат і відповісти на питання.</p>
+      <div class="next">
+        <h2>Що далі</h2>
+        <ol>
+          <li><i>1</i><span>Перевір, щоб у Telegram можна було написати тобі в особисті.</span></li>
+          <li><i>2</i><span>Подивись програму та тарифи, поки чекаєш.</span></li>
+          <li><i>3</i><span>Старт потоку — 12 листопада. Місця в Преміум і VIP обмежені.</span></li>
+        </ol>
+      </div>
+      <a class="btn" href="/videokreator-2/" id="done-link">Програма та тарифи →</a>
+    </section>
+
+  </div>
+  <p class="foot">Відправляючи анкету, ти погоджуєшся з <a href="/videokreator-2/politika.html">політикою конфіденційності</a>.</p>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var QUESTIONS = [
+    { id:'q2', q:'Чим ти зараз займаєшся?', type:'single', other:true,
+      opts:['Найм','Фриланс','Не працюю','Підприємець / свій бізнес','Навчаюсь','Інше'] },
+    { id:'q3', q:'На якій точці шляху ти зараз в AI-креаторстві?', type:'single',
+      opts:['Ще нічого не пробував(ла)','Генерую суто для себе, як хобі','Роблю контент для свого бізнесу чи блогу','Вже беру замовлення і хочу підвищувати чек'] },
+    { id:'q4', q:'Що тебе найбільше бісить у твоїх AI-відео зараз?', type:'multi', hint:'Можна обрати кілька варіантів.',
+      opts:['Кадри виглядають «дешево»','Немає консистентності персонажа','Важко пояснити нейронці свою ідею','Персонаж «пливе» між кадрами','Не знаю, які інструменти обрати','Не розумію, як на цьому заробляти'] },
+    { id:'q5', q:'Опиши генерацію, яка тебе розчарувала', type:'text', optional:true,
+      hint:'Що хотів(ла) отримати — і що вийшло насправді? Якщо ще не пробував(ла) — можна пропустити.',
+      ph:'Наприклад: хотіла рекламний ролик крему, а вийшла розмита банка, яка міняє форму в кожному кадрі…' },
+    { id:'q6', q:'Скільки ти хочеш заробляти на AI-відео через 6 місяців?', type:'single',
+      opts:['Не планую монетизувати','До 500 $ на місяць','500–1 000 $ на місяць','1 000 $ і більше на місяць'] },
+    { id:'q7', q:'Який формат навчання тобі ближче?', type:'single',
+      opts:['Самостійний: дайте уроки, я розберусь','Груповий: з підтримкою, чатом і ефірами','Персональний: з наставником та індивідуальним планом'] },
+    { id:'q8', q:'Що зараз може зупинити тебе від навчання?', type:'multi', hint:'Можна обрати кілька варіантів.',
+      opts:['Брак часу','Брак коштів','Не впевнений(а), що в мене вийде','Вже проходив(ла) навчання з AI і залишився(лась) незадоволений(а)','Не впевнений(а), що на цьому можна заробляти','Ніщо не зупинить, якщо сподобається програма'] },
+    { id:'q9', q:'Що тобі треба побачити, щоб повірити, що це навчання дасть результат?', type:'text', optional:true,
+      ph:'Кейси учнів, розбір уроку, приклад роботи, відгуки, гарантія…' },
+    { id:'q10', q:'Скільки ти готовий(а) інвестувати в навчання, яке дасть нову професію або навичку додатково заробляти на AI-контенті?', type:'single',
+      hint:'<b>Оплату можна розбити на 6 частин</b> — тому обирай суму за все навчання, а не те, що готовий(а) віддати одним платежем.',
+      opts:['До 5 000 ₴','5 000 – 10 000 ₴','10 000 – 20 000 ₴','20 000 ₴ і більше'] }
+  ];
+
+  var STORE = 'anketa-vk2-draft';
+  var state = load() || { contacts:{}, answers:{}, other:{}, step:0, sid:null };
+  if (!state.sid) state.sid = 'anketa:' + uuid();
+
+  var params = new URLSearchParams(location.search);
+  var SRC = (params.get('src') || params.get('source') || '').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,40);
+  var DETAIL = ['utm_campaign','utm_content','utm_source','utm_medium','ref'].map(function(k){ var v = params.get(k); return v ? k.replace('utm_','') + ':' + v : ''; }).filter(Boolean).join(' · ').slice(0,200);
+
+  var stage = document.getElementById('stage');
+  var doneStep = stage.querySelector('[data-step="done"]');
+  var top = document.getElementById('top');
+  var total = QUESTIONS.length;
+  document.getElementById('total').textContent = total + 1; // контакти — перше питання
+
+  /* ---------- render question steps ---------- */
+  QUESTIONS.forEach(function(qd, i){
+    var n = i + 1;
+    var sec = document.createElement('section');
+    sec.className = 'step q';
+    sec.setAttribute('data-step', String(n));
+    var html = '<svg class="deco" style="right:12px;top:10%;opacity:.07;animation:floatY 9s ease-in-out infinite" width="60" height="80" viewBox="0 0 60 80" fill="none"><path d="M35 2L15 32h18L10 78l40-40H30L50 2H35z" fill="#43d199"/></svg>'
+      + '<div class="qn">Питання ' + (n + 1) + '</div><h2>' + esc(qd.q) + '</h2>'
+      + (qd.hint ? '<p class="hint">' + qd.hint + '</p>' : '');
+    if (qd.type === 'text') {
+      html += '<label class="field" style="margin-top:20px"><span>' + (qd.optional ? 'Відповідь (необовʼязково)' : 'Відповідь') + '</span><textarea name="' + qd.id + '" placeholder="' + esc(qd.ph || '') + '" maxlength="600"></textarea></label>';
+    } else {
+      html += '<div class="opts" role="' + (qd.type === 'multi' ? 'group' : 'radiogroup') + '">';
+      qd.opts.forEach(function(o){
+        html += '<button type="button" class="opt' + (qd.type === 'multi' ? ' multi' : '') + '" data-v="' + esc(o) + '" role="' + (qd.type === 'multi' ? 'checkbox' : 'radio') + '" aria-checked="false"><span class="k"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>' + esc(o) + '</span></button>';
+      });
+      html += '</div>';
+      if (qd.other) html += '<label class="field other-in" id="other-' + qd.id + '"><span>Уточни</span><input type="text" name="' + qd.id + '-other" placeholder="Чим саме?" maxlength="200"></label>';
+      html += '<p class="qerr">Обери хоча б один варіант</p>';
+    }
+    html += '<div class="nav"><div class="senderr"></div><div class="row"><button type="button" class="btn ghost prev">← Назад</button>'
+      + '<button type="button" class="btn next" style="flex:1">' + (n === total ? 'Відправити анкету' : 'Далі →') + '</button></div>'
+      + (qd.type === 'text' ? '<p class="keyhint"><kbd>⌘</kbd>/<kbd>Ctrl</kbd> + <kbd>Enter</kbd> — далі</p>' : '') + '</div>';
+    sec.innerHTML = html;
+    stage.insertBefore(sec, doneStep);
+
+    // restore
+    var saved = state.answers[qd.id];
+    if (qd.type === 'text') {
+      var ta = sec.querySelector('textarea');
+      if (saved) ta.value = saved;
+      ta.addEventListener('input', function(){ state.answers[qd.id] = ta.value; save(); });
+      ta.addEventListener('keydown', function(e){ if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { e.preventDefault(); go(n, +1); } });
+    } else {
+      var sel = Array.isArray(saved) ? saved : (saved ? [saved] : []);
+      sec.querySelectorAll('.opt').forEach(function(b){
+        if (sel.indexOf(b.getAttribute('data-v')) > -1) { b.classList.add('on'); b.setAttribute('aria-checked','true'); }
+        b.addEventListener('click', function(){
+          if (qd.type === 'multi') {
+            b.classList.toggle('on');
+            b.setAttribute('aria-checked', b.classList.contains('on') ? 'true' : 'false');
+            state.answers[qd.id] = Array.prototype.map.call(sec.querySelectorAll('.opt.on'), function(x){ return x.getAttribute('data-v'); });
+            save(); sec.querySelector('.qerr').classList.remove('on');
+          } else {
+            sec.querySelectorAll('.opt').forEach(function(x){ x.classList.remove('on'); x.setAttribute('aria-checked','false'); });
+            b.classList.add('on'); b.setAttribute('aria-checked','true');
+            state.answers[qd.id] = b.getAttribute('data-v');
+            save(); sec.querySelector('.qerr').classList.remove('on');
+            syncOther(qd, sec);
+            if (n < total && !(qd.other && b.getAttribute('data-v') === 'Інше')) setTimeout(function(){ go(n, +1); }, 260);
+          }
+        });
+      });
+      if (qd.other) {
+        var oi = sec.querySelector('#other-' + qd.id + ' input');
+        if (state.other[qd.id]) oi.value = state.other[qd.id];
+        oi.addEventListener('input', function(){ state.other[qd.id] = oi.value; save(); });
+        oi.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); go(n, +1); } });
+        syncOther(qd, sec);
+      }
+    }
+    sec.querySelector('.prev').addEventListener('click', function(){ go(n, -1); });
+    sec.querySelector('.next').addEventListener('click', function(){ go(n, +1); });
+  });
+
+  function syncOther(qd, sec){
+    var box = sec.querySelector('#other-' + qd.id);
+    if (!box) return;
+    var on = state.answers[qd.id] === 'Інше';
+    box.classList.toggle('on', on);
+    if (on) setTimeout(function(){ box.querySelector('input').focus(); }, 50);
+  }
+
+  /* ---------- contacts step ---------- */
+  var cform = document.getElementById('cform');
+  ['name','telegram','phone'].forEach(function(k){
+    var inp = cform.elements[k];
+    if (state.contacts[k]) inp.value = state.contacts[k];
+    inp.addEventListener('input', function(){ state.contacts[k] = inp.value; save(); document.getElementById('f-' + k).classList.remove('err'); });
+  });
+  cform.addEventListener('submit', function(e){
+    e.preventDefault();
+    var ok = true;
+    var name = cform.elements.name.value.trim();
+    var tg = cform.elements.telegram.value.trim();
+    var ph = cform.elements.phone.value.replace(/[^\d+]/g,'');
+    if (name.length < 2) { ok = false; mark('name'); }
+    if (!/^(@|https?:\/\/t\.me\/|t\.me\/)?[a-zA-Z0-9_]{4,32}$/.test(tg)) { ok = false; mark('telegram'); }
+    if (ph.replace(/\D/g,'').length < 10) { ok = false; mark('phone'); }
+    if (!ok) { var first = cform.querySelector('.field.err input'); if (first) first.focus(); return; }
+    state.contacts = { name:name, telegram:tg, phone:cform.elements.phone.value.trim() };
+    save();
+    show(1, +1);
+  });
+  function mark(k){ document.getElementById('f-' + k).classList.add('err'); }
+
+  /* ---------- navigation ---------- */
+  var current = 0;
+  function go(from, dir){
+    var qd = QUESTIONS[from - 1];
+    var sec = stage.querySelector('[data-step="' + from + '"]');
+    if (dir > 0 && qd.type !== 'text') {
+      var v = state.answers[qd.id];
+      var has = Array.isArray(v) ? v.length > 0 : !!v;
+      if (!has) { sec.querySelector('.qerr').classList.add('on'); return; }
+    }
+    if (dir > 0 && from === total) { submit(sec); return; }
+    show(from + dir, dir);
+  }
+  function show(n, dir){
+    stage.querySelectorAll('.step').forEach(function(s){ s.classList.remove('on','back'); });
+    var target = stage.querySelector('[data-step="' + n + '"]');
+    target.classList.add('on'); if (dir < 0) target.classList.add('back');
+    current = n;
+    state.step = n; save();
+    top.classList.toggle('on', typeof n === 'number' && n >= 1);
+    if (typeof n === 'number' && n >= 1) {
+      document.getElementById('pos').textContent = n + 1;
+      var pct = Math.round((n / (total + 1)) * 100);
+      document.getElementById('pct').textContent = pct + '%';
+      document.getElementById('bar').style.width = Math.max(4, pct) + '%';
+    }
+    window.scrollTo({ top:0, behavior:'instant' in window ? 'instant' : 'auto' });
+    var ta = target.querySelector('textarea'); if (ta && window.innerWidth > 700) setTimeout(function(){ ta.focus(); }, 300);
+  }
+
+  /* ---------- submit ---------- */
+  function submit(sec){
+    var btn = sec.querySelector('.next');
+    var errBox = sec.querySelector('.senderr');
+    btn.disabled = true; btn.textContent = 'Відправляємо…'; errBox.classList.remove('on');
+    var answers = QUESTIONS.map(function(qd){
+      var v = state.answers[qd.id];
+      if (Array.isArray(v)) v = v.join(', ');
+      if (qd.other && v === 'Інше' && (state.other[qd.id] || '').trim()) v = 'Інше: ' + state.other[qd.id].trim();
+      return { q: qd.q, a: (v || '').trim() };
+    }).filter(function(x){ return x.a; });
+    var body = {
+      src: SRC, sourceDetail: DETAIL,
+      name: state.contacts.name, telegram: state.contacts.telegram, phone: state.contacts.phone,
+      company: cform.elements.company.value,
+      answers: answers, submissionId: state.sid,
+      dry: params.get('dry') === '1'
+    };
+    fetch('/api/anketa', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(body) })
+      .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(d){ return { ok: r.ok && d.ok, data: d }; }); })
+      .then(function(res){
+        if (!res.ok) throw new Error('fail');
+        document.getElementById('done-name').textContent = 'Дякуємо, ' + (state.contacts.name || '').split(' ')[0] + '!';
+        show('done', +1);
+        // нова анкета з цього ж браузера — новий id, чисті відповіді
+        state = { contacts:{}, answers:{}, other:{}, step:0, sid:'anketa:' + uuid() };
+        try { localStorage.removeItem(STORE); } catch(_) {}
+      })
+      .catch(function(){
+        btn.disabled = false; btn.textContent = 'Спробувати ще раз';
+        errBox.innerHTML = 'Не вдалося відправити. Перевір інтернет і спробуй ще раз — відповіді збережені. Якщо не виходить, напиши Ксюші: <a href="https://t.me/ai_sashka_support" target="_blank" rel="noopener">@ai_sashka_support</a>.';
+        errBox.classList.add('on');
+      });
+  }
+
+  /* ---------- restore position ---------- */
+  if (typeof state.step === 'number' && state.step >= 1 && state.step <= total && state.contacts.name) show(state.step, +1);
+
+  /* ---------- utils ---------- */
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]; }); }
+  function save(){ try { localStorage.setItem(STORE, JSON.stringify(state)); } catch(_) {} }
+  function load(){ try { var s = JSON.parse(localStorage.getItem(STORE) || 'null'); return s && typeof s === 'object' ? s : null; } catch(_) { return null; } }
+  function uuid(){ if (window.crypto && crypto.randomUUID) return crypto.randomUUID(); return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c){ var r = Math.random()*16|0; return (c === 'x' ? r : (r&3|8)).toString(16); }); }
+})();
+</script>
+</body>
+</html>
