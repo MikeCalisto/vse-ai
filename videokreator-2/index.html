@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <script>
 /* якщо браузер (Telegram, Safari) показав збережену стару версію — один раз перезавантажити свіжу */
-(function(){var B='226c7312a6';try{fetch('/videokreator-2/version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():''}).then(function(v){v=(v||'').trim();var k='vk2-'+v;if(v&&v!==B&&!sessionStorage.getItem(k)){sessionStorage.setItem(k,'1');location.replace(location.pathname+'?v='+v+location.hash)}}).catch(function(){})}catch(e){}})();
+(function(){var B='435efedf24';try{fetch('/videokreator-2/version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():''}).then(function(v){v=(v||'').trim();var k='vk2-'+v;if(v&&v!==B&&!sessionStorage.getItem(k)){sessionStorage.setItem(k,'1');location.replace(location.pathname+'?v='+v+location.hash)}}).catch(function(){})}catch(e){}})();
 </script>
 <title>АІ-Відеокреатор 2.0 — курс Олександра Цюцьмаця · старт 12 листопада</title>
 <meta name="description" content="12 модулів, 12 тижнів: навчишся створювати рекламу, мультики, фільми й UGC через нейромережі та знаходити клієнтів. Другий потік, оновлений за відгуками 98 учнів.">
@@ -590,7 +590,7 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
   .vr-t{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;row-gap:34px;overflow:visible;margin:34px 0 0;padding:0}
   .vr{flex:none}
   .vr-t:not(.open) .vr.more{display:none}
-  .vr-more{display:flex;margin:34px auto 0;color:var(--t-dark);box-shadow:inset 0 0 0 1.5px rgba(13,22,18,.3)}
+  .vr-more{display:flex;margin:38px auto 0;padding:18px 34px}
   .vr .vid{flex:none}
   #stories .lead{max-width:60ch}
   .sto{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:28px;row-gap:8px;align-items:start;margin-top:34px}
@@ -953,7 +953,7 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
       <figure class="vr more"><div class="vid" data-src="/videokreator-2/media/vrev/v2.mp4"><img src="/videokreator-2/media/vrev/v2.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Дізналась дуже багато інформації, яку раніше ніде не бачила.»</p><cite>Учениця першого потоку · 40 сек</cite></figcaption></figure>
     </div>
     <div class="swipe"><svg width="22" height="12" viewBox="0 0 22 12" fill="none"><path d="M1 6h19m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Гортай відгуки</div>
-    <button class="btn ghost vr-more" type="button">Дивитись ще 10 відгуків</button>
+    <button class="btn vr-more" type="button">Дивитись ще 10 відгуків ↓</button>
   </div>
 </section>
 
