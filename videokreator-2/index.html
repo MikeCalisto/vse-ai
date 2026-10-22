@@ -267,6 +267,16 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--mint);outline-off
 .bonus li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;line-height:1.4}
 .bonus li i{flex:none;font-style:normal;font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:var(--mint);color:#06120d;margin-top:2px}
 .bonus li i.g{background:var(--gold);color:#3a2a03}
+.bonus{border:1.5px solid rgba(227,180,74,.55);background:linear-gradient(160deg,#1c1d12,var(--ink) 60%)}
+.bonus-h{display:flex;gap:14px;align-items:flex-start}
+.bonus-h p{font-size:.92rem;color:#cfdcd4;margin-top:4px;line-height:1.45}
+.gift-ic{flex:none;width:44px;height:44px;padding:10px;border-radius:13px;background:var(--gold);fill:none;stroke:#3a2a03;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.gift-bar{display:flex;gap:14px;align-items:center;margin-top:18px;background:linear-gradient(120deg,rgba(227,180,74,.2),rgba(227,180,74,.06));border:1.5px solid rgba(227,180,74,.5);border-radius:18px;padding:14px 16px}
+.gift-bar b{display:block;color:#fff;font-size:1rem;line-height:1.3}
+.gift-bar span{display:block;color:#d9d2bd;font-size:.86rem;line-height:1.45;margin-top:3px}
+.tier li.gift::before{background-color:rgba(227,180,74,.2);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e3b44a' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E")}
+.tier li.gift b{color:var(--gold)}
+.tier.feat li.gift b{color:#a5760c}
 
 /* ===== clients / experts ===== */
 .cl-row{display:flex;align-items:center;gap:6px;margin:14px 0 0 -26px}
@@ -673,7 +683,9 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
   .mod-btn{grid-template-columns:170px 1fr 26px;gap:16px}
   .mod-body{padding-left:186px}
   .bonus{padding:28px 32px}
-  .bonus ul{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .bonus ul{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+  .gift-bar{margin-top:26px;padding:18px 24px}
+  .gift-bar b{font-size:1.1rem}
   /* clients */
   .cl-row{margin:20px 0 0;gap:40px}
   .st-mega{flex:0 0 34%}
@@ -1048,11 +1060,11 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
     </div>
 
     <div class="bonus reveal">
-      <h3>Бонусні модулі</h3>
+      <div class="bonus-h"><svg class="gift-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8a1 1 0 001 1h12a1 1 0 001-1v-8M12 8v13M12 8c-1.5-3-5-4-5-1.5S10 8 12 8zm0 0c1.5-3 5-4 5-1.5S14 8 12 8z"/></svg><div><h3>Бонуси за швидке рішення</h3><p>Для всіх тарифів — Стандарт, Преміум і VIP. Отримуєш 3 бонусні модулі, якщо приєднуєшся зараз.</p></div></div>
       <ul>
-        <li><i>Преміум · VIP</i><span>Монетизація Facebook — як заробляти на своїх роликах</span></li>
-        <li><i>Преміум · VIP</i><span>Бухгалтерія для AI-креатора — ФОП і податки</span></li>
-        <li><i class="g">За швидке рішення</i><span>Розбори нейромереж Kling, Grok, Flow, Seedance і HeyGen</span></li>
+        <li><i class="g">Бонус 1</i><span>Монетизація Facebook — як заробляти на своїх роликах</span></li>
+        <li><i class="g">Бонус 2</i><span>Бухгалтерія для AI-креатора — ФОП і податки</span></li>
+        <li><i class="g">Бонус 3</i><span>Розбори нейромереж Kling, Grok, Flow, Seedance і HeyGen</span></li>
       </ul>
     </div>
   </div>
@@ -1255,19 +1267,20 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
       <p class="rush">⚡ <span>Далі я відкриваю анкету передзапису для 10 000+ учнів моїх міні-курсів — місця розберуть дуже швидко.</span></p>
     </div>
 
+    <div class="gift-bar reveal"><svg class="gift-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8a1 1 0 001 1h12a1 1 0 001-1v-8M12 8v13M12 8c-1.5-3-5-4-5-1.5S10 8 12 8zm0 0c1.5-3 5-4 5-1.5S14 8 12 8z"/></svg><div><b>Бонус за швидке рішення — для всіх тарифів</b><span>3 бонусні модулі: Монетизація Facebook · Бухгалтерія для AI-креатора · Розбори нейромереж Kling, Grok, Flow, Seedance і HeyGen</span></div></div>
     <div class="tiers">
       <div class="tier reveal">
         <h3>Стандарт</h3><p class="for">Для тих, хто легко вчиться сам — уроки без зворотного зв'язку</p>
         <div class="pr"><b>6 290 ₴</b><s>14 990 ₴</s></div>
         <p class="mo">або <b>~1 048 ₴/міс</b> × 6 платежів</p>
-        <ul><li class="acc"><span>Доступ до уроків — <b>6 місяців</b></span></li><li><span>Усі 12 модулів</span></li><li><span>Паки промтів, готові картки персонажів та локацій</span></li><li><span>АІ-Студія монтажу (окремо 2 000 ₴)</span></li><li><span>Чат учасників</span></li><li><span>Сертифікат про проходження курсу</span></li><li class="off"><span>12 тижнів прямого спілкування з Олександром</span></li><li class="off"><span>12 групових Zoom-ефірів</span></li><li class="off"><span>Перевірка домашніх завдань</span></li><li class="off"><span>Команда AI-асистентів під кожну задачу</span></li><li class="off"><span>Персональний AI-асистент для навчання</span></li><li class="off"><span>Чат і куратор після завершення курсу</span></li><li class="off"><span>Передача клієнтів з агенції Олександра</span></li><li class="off"><span>Іменний сертифікат AI-відеокреатора</span></li><li class="off"><span>Бонусні модулі: Монетизація Facebook, бухгалтерія</span></li><li class="off"><span>3 особисті Zoom-дзвінки 1:1 з Олександром</span></li><li class="off"><span>VIP-чат з Олександром та учасниками</span></li><li class="off"><span>Підлаштування програми під твій запит</span></li></ul>
+        <ul><li class="acc"><span>Доступ до уроків — <b>6 місяців</b></span></li><li><span>Усі 12 модулів</span></li><li><span>Паки промтів, готові картки персонажів та локацій</span></li><li><span>АІ-Студія монтажу (окремо 2 000 ₴)</span></li><li><span>Чат учасників</span></li><li><span>Сертифікат про проходження курсу</span></li><li class="gift"><span><b>Бонус за швидке рішення:</b> 3 модулі — Монетизація Facebook, бухгалтерія, розбори нейромереж</span></li><li class="off"><span>12 тижнів прямого спілкування з Олександром</span></li><li class="off"><span>12 групових Zoom-ефірів</span></li><li class="off"><span>Перевірка домашніх завдань</span></li><li class="off"><span>Команда AI-асистентів під кожну задачу</span></li><li class="off"><span>Персональний AI-асистент для навчання</span></li><li class="off"><span>Чат і куратор після завершення курсу</span></li><li class="off"><span>Передача клієнтів з агенції Олександра</span></li><li class="off"><span>Іменний сертифікат AI-відеокреатора</span></li><li class="off"><span>3 особисті Zoom-дзвінки 1:1 з Олександром</span></li><li class="off"><span>VIP-чат з Олександром та учасниками</span></li><li class="off"><span>Підлаштування програми під твій запит</span></li></ul>
         <div class="btns"><a class="btn block" data-pay="std-full" href="#">Оплатити 6 290 ₴</a><a class="btn ghost block" data-pay="std-parts" href="#">Частинами · 6 × 1 048 ₴</a></div>
       </div>
       <div class="tier feat reveal">
         <h3>Преміум</h3><p class="for">Для тих, кому важливі зворотний зв'язок і супровід</p>
         <div class="pr"><b>11 290 ₴</b><s>24 990 ₴</s></div>
         <p class="mo">або <b>~1 882 ₴/міс</b> × 6 платежів</p>
-        <ul><li class="acc"><span>Доступ до уроків — <b>1 рік</b></span></li><li><span>Усі 12 модулів</span></li><li><span>Паки промтів, готові картки персонажів та локацій</span></li><li><span>АІ-Студія монтажу (окремо 2 000 ₴)</span></li><li><span>Чат учасників</span></li><li><span>Сертифікат про проходження курсу</span></li><li><span><b>12 тижнів прямого спілкування з Олександром</b></span></li><li><span><b>12 групових Zoom-ефірів</b></span></li><li><span><b>Перевірка домашніх завдань</b></span></li><li><span>Команда AI-асистентів під кожну задачу</span></li><li><span>Персональний AI-асистент для навчання</span></li><li><span>Чат і куратор після завершення курсу</span></li><li><span>Передача клієнтів з агенції Олександра</span></li><li><span>Іменний сертифікат AI-відеокреатора</span></li><li><span>Бонусні модулі: Монетизація Facebook, бухгалтерія</span></li><li class="off"><span>3 особисті Zoom-дзвінки 1:1 з Олександром</span></li><li class="off"><span>VIP-чат з Олександром та учасниками</span></li><li class="off"><span>Підлаштування програми під твій запит</span></li></ul>
+        <ul><li class="acc"><span>Доступ до уроків — <b>1 рік</b></span></li><li><span>Усі 12 модулів</span></li><li><span>Паки промтів, готові картки персонажів та локацій</span></li><li><span>АІ-Студія монтажу (окремо 2 000 ₴)</span></li><li><span>Чат учасників</span></li><li><span>Сертифікат про проходження курсу</span></li><li class="gift"><span><b>Бонус за швидке рішення:</b> 3 модулі — Монетизація Facebook, бухгалтерія, розбори нейромереж</span></li><li><span><b>12 тижнів прямого спілкування з Олександром</b></span></li><li><span><b>12 групових Zoom-ефірів</b></span></li><li><span><b>Перевірка домашніх завдань</b></span></li><li><span>Команда AI-асистентів під кожну задачу</span></li><li><span>Персональний AI-асистент для навчання</span></li><li><span>Чат і куратор після завершення курсу</span></li><li><span>Передача клієнтів з агенції Олександра</span></li><li><span>Іменний сертифікат AI-відеокреатора</span></li><li class="off"><span>3 особисті Zoom-дзвінки 1:1 з Олександром</span></li><li class="off"><span>VIP-чат з Олександром та учасниками</span></li><li class="off"><span>Підлаштування програми під твій запит</span></li></ul>
         <div class="btns"><a class="btn block" data-pay="prem-full" href="#">Оплатити 11 290 ₴</a><a class="btn ghost block" data-pay="prem-parts" href="#">Частинами · 6 × 1 882 ₴</a></div>
       </div>
       <div class="tier vip reveal">
@@ -1275,7 +1288,7 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
         <h3>VIP</h3><p class="for">Для тих, кому потрібен особистий ментор</p>
         <div class="pr"><b>19 990 ₴</b><s>39 990 ₴</s></div>
         <p class="mo">або <b>~3 332 ₴/міс</b> × 6 платежів</p>
-        <ul><li class="acc"><span>Доступ до уроків — <b>1 рік</b></span></li><li><span>Усі 12 модулів</span></li><li><span>Паки промтів, готові картки персонажів та локацій</span></li><li><span>АІ-Студія монтажу (окремо 2 000 ₴)</span></li><li><span>Чат учасників</span></li><li><span>Сертифікат про проходження курсу</span></li><li><span><b>12 тижнів прямого спілкування з Олександром</b></span></li><li><span><b>12 групових Zoom-ефірів</b></span></li><li><span><b>Перевірка домашніх завдань</b></span></li><li><span>Команда AI-асистентів під кожну задачу</span></li><li><span>Персональний AI-асистент для навчання</span></li><li><span>Чат і куратор після завершення курсу</span></li><li><span>Передача клієнтів з агенції Олександра</span></li><li><span>Іменний сертифікат AI-відеокреатора</span></li><li><span>Бонусні модулі: Монетизація Facebook, бухгалтерія</span></li><li><span><b>3 особисті Zoom-дзвінки 1:1 з Олександром</b></span></li><li><span>VIP-чат з Олександром та учасниками</span></li><li><span>Підлаштування програми під твій запит</span></li></ul>
+        <ul><li class="acc"><span>Доступ до уроків — <b>1 рік</b></span></li><li><span>Усі 12 модулів</span></li><li><span>Паки промтів, готові картки персонажів та локацій</span></li><li><span>АІ-Студія монтажу (окремо 2 000 ₴)</span></li><li><span>Чат учасників</span></li><li><span>Сертифікат про проходження курсу</span></li><li class="gift"><span><b>Бонус за швидке рішення:</b> 3 модулі — Монетизація Facebook, бухгалтерія, розбори нейромереж</span></li><li><span><b>12 тижнів прямого спілкування з Олександром</b></span></li><li><span><b>12 групових Zoom-ефірів</b></span></li><li><span><b>Перевірка домашніх завдань</b></span></li><li><span>Команда AI-асистентів під кожну задачу</span></li><li><span>Персональний AI-асистент для навчання</span></li><li><span>Чат і куратор після завершення курсу</span></li><li><span>Передача клієнтів з агенції Олександра</span></li><li><span>Іменний сертифікат AI-відеокреатора</span></li><li><span><b>3 особисті Zoom-дзвінки 1:1 з Олександром</b></span></li><li><span>VIP-чат з Олександром та учасниками</span></li><li><span>Підлаштування програми під твій запит</span></li></ul>
         <div class="btns"><a class="btn gold block" data-pay="vip-full" href="#">Оплатити 19 990 ₴</a><a class="btn ghost block" data-pay="vip-parts" href="#">Частинами · 6 × 3 332 ₴</a></div>
         <div class="seats"><div class="seats-top"><span><i class="live-dot" style="background:var(--gold);box-shadow:0 0 12px rgba(227,180,74,.7)"></i>Зайнято 10 з 20 VIP-місць</span><b>залишилось 10</b></div><div class="seats-bar"><i style="width:50%"></i></div></div>
       </div>
