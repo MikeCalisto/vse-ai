@@ -506,6 +506,7 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
 .vr .vid{width:100%;border:0;box-shadow:0 14px 30px rgba(40,34,20,.16)}
 .vr figcaption{padding:12px 4px 0}
 .vr figcaption p{font-size:.95rem;line-height:1.45;font-weight:600}
+.vr-more{display:none}
 .vr cite{display:block;font-style:normal;font-size:.8rem;font-weight:700;color:var(--emerald);margin-top:6px}
 
 /* ===== why AI-video ===== */
@@ -574,6 +575,8 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
   #vreviews .swipe{display:none}
   .vr-t{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;row-gap:34px;overflow:visible;margin:34px 0 0;padding:0}
   .vr{flex:none}
+  .vr-t:not(.open) .vr.more{display:none}
+  .vr-more{display:flex;margin:34px auto 0;color:var(--t-dark);box-shadow:inset 0 0 0 1.5px rgba(13,22,18,.3)}
   .vr .vid{flex:none}
   #stories .lead{max-width:60ch}
   .sto{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:28px;row-gap:8px;align-items:start;margin-top:34px}
@@ -915,15 +918,26 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
     <p class="lead reveal d1">Своїми словами: про уроки, ефіри, оновлення курсу й перших клієнтів.</p>
     <div class="track vr-t">
       <figure class="vr"><div class="vid" data-src="/videokreator-2/media/vrev/v3.mp4"><img src="/videokreator-2/media/vrev/v3.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Це вже моя професія — я стала брати клієнтів. Немає задачі, яку я не зможу зробити.»</p><cite>Учениця першого потоку · 3 хв</cite></figcaption></figure>
+      <figure class="vr"><div class="vid" data-src="/videokreator-2/media/vrev/v9.mp4"><img src="/videokreator-2/media/vrev/v9.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Я навчився працювати з музикою, озвучкою, аватарами, робити мультики, монтаж і власний сайт. За час навчання вже було кілька замовлень.»</p><cite>Олександр · 2 хв</cite></figcaption></figure>
+      <figure class="vr"><div class="vid" data-src="/videokreator-2/media/vrev/v13.mp4"><img src="/videokreator-2/media/vrev/v13.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«За півроку я навчилася створювати мультики, кіно, писати пісні. У мене є замовлення.»</p><cite>Учениця першого потоку · 50 сек</cite></figcaption></figure>
       <figure class="vr"><div class="vid" data-src="/videokreator-2/media/vrev/v5.mp4"><img src="/videokreator-2/media/vrev/v5.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Саша завжди тримає руку на пульсі: виходить щось нове — одразу оновлює урок.»</p><cite>Влад «в халаті» · 1 хв</cite></figcaption></figure>
+      <figure class="vr"><div class="vid" data-src="/videokreator-2/media/vrev/v11.mp4"><img src="/videokreator-2/media/vrev/v11.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Можна отримати замовлення ще під час навчання й окупити своє навчання.»</p><cite>Учениця першого потоку · 1 хв</cite></figcaption></figure>
       <figure class="vr"><div class="vid" data-src="/videokreator-2/media/vrev/v7.mp4"><img src="/videokreator-2/media/vrev/v7.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Уроки короткі, ти не сидиш годинами — все швидко й зрозуміло. А ще стільки бонусів: промпти, оновлення по нейромережах, тренди.»</p><cite>Оксана · 2 хв</cite></figcaption></figure>
-      <figure class="vr"><div class="vid" data-src="/videokreator-2/media/vrev/v6.mp4"><img src="/videokreator-2/media/vrev/v6.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Це найкращий курс, який я купувала: чіткий, без води, все структуровано по блоках.»</p><cite>Учениця першого потоку · 3 хв</cite></figcaption></figure>
-      <figure class="vr"><div class="vid" data-src="/videokreator-2/media/vrev/v4.mp4"><img src="/videokreator-2/media/vrev/v4.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Там настільки цікаво подають матеріал, що замість нудних уроків ти реально кайфуєш від навчання.»</p><cite>Учениця першого потоку · 40 сек</cite></figcaption></figure>
-      <figure class="vr"><div class="vid" data-src="/videokreator-2/media/vrev/v1.mp4"><img src="/videokreator-2/media/vrev/v1.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Залишилось наповнити портфоліо — і можу шукати перших клієнтів.»</p><cite>Учениця першого потоку · 45 сек</cite></figcaption></figure>
-      <figure class="vr"><div class="vid" data-src="/videokreator-2/media/vrev/v8.mp4"><img src="/videokreator-2/media/vrev/v8.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Через 3–4 місяці ви не впізнаєте, наскільки змінилися ваші генерації.»</p><cite>Учень першого потоку · 30 сек</cite></figcaption></figure>
-      <figure class="vr"><div class="vid" data-src="/videokreator-2/media/vrev/v2.mp4"><img src="/videokreator-2/media/vrev/v2.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Дізналась дуже багато інформації, яку раніше ніде не бачила.»</p><cite>Учениця першого потоку · 40 сек</cite></figcaption></figure>
+      <figure class="vr"><div class="vid" data-src="/videokreator-2/media/vrev/v16.mp4"><img src="/videokreator-2/media/vrev/v16.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Від першого промта до першого клієнта — такого немає в жодній іншій пропозиції.»</p><cite>Учениця першого потоку · 2 хв</cite></figcaption></figure>
+      <figure class="vr"><div class="vid" data-src="/videokreator-2/media/vrev/v14.mp4"><img src="/videokreator-2/media/vrev/v14.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«На групових дзвінках Саша завжди приносив щось нове: ноу-хау, фішки, свіжі ідеї.»</p><cite>Дарʼя · 2 хв</cite></figcaption></figure>
+      <figure class="vr more"><div class="vid" data-src="/videokreator-2/media/vrev/v6.mp4"><img src="/videokreator-2/media/vrev/v6.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Це найкращий курс, який я купувала: чіткий, без води, все структуровано по блоках.»</p><cite>Учениця першого потоку · 3 хв</cite></figcaption></figure>
+      <figure class="vr more"><div class="vid" data-src="/videokreator-2/media/vrev/v15.mp4"><img src="/videokreator-2/media/vrev/v15.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Основна задача Саші — навчити нас думати, а не переписувати чужі ідеї.»</p><cite>Учениця першого потоку · 1,5 хв</cite></figcaption></figure>
+      <figure class="vr more"><div class="vid" data-src="/videokreator-2/media/vrev/v12.mp4"><img src="/videokreator-2/media/vrev/v12.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Тут ти не просто отримуєш доступ до уроків, а постійно відчуваєш підтримку й чесний зворотний зв'язок.»</p><cite>Учениця першого потоку · 2 хв</cite></figcaption></figure>
+      <figure class="vr more"><div class="vid" data-src="/videokreator-2/media/vrev/v17.mp4"><img src="/videokreator-2/media/vrev/v17.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Свої результати ти побачиш уже під час навчання.»</p><cite>Учениця першого потоку · 3 хв</cite></figcaption></figure>
+      <figure class="vr more"><div class="vid" data-src="/videokreator-2/media/vrev/v4.mp4"><img src="/videokreator-2/media/vrev/v4.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Там настільки цікаво подають матеріал, що замість нудних уроків ти реально кайфуєш від навчання.»</p><cite>Учениця першого потоку · 40 сек</cite></figcaption></figure>
+      <figure class="vr more"><div class="vid" data-src="/videokreator-2/media/vrev/v1.mp4"><img src="/videokreator-2/media/vrev/v1.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Залишилось наповнити портфоліо — і можу шукати перших клієнтів.»</p><cite>Учениця першого потоку · 45 сек</cite></figcaption></figure>
+      <figure class="vr more"><div class="vid" data-src="/videokreator-2/media/vrev/v18.mp4"><img src="/videokreator-2/media/vrev/v18.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Ти зможеш відчути себе кінорежисером і втілити свої ідеї в життя.»</p><cite>Учениця першого потоку · 1 хв</cite></figcaption></figure>
+      <figure class="vr more"><div class="vid" data-src="/videokreator-2/media/vrev/v8.mp4"><img src="/videokreator-2/media/vrev/v8.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Через 3–4 місяці ви не впізнаєте, наскільки змінилися ваші генерації.»</p><cite>Учень першого потоку · 30 сек</cite></figcaption></figure>
+      <figure class="vr more"><div class="vid" data-src="/videokreator-2/media/vrev/v10.mp4"><img src="/videokreator-2/media/vrev/v10.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Навчилась генерувати фото, відео, створювати фільми, мультфільми й музику.»</p><cite>Учениця першого потоку · 30 сек</cite></figcaption></figure>
+      <figure class="vr more"><div class="vid" data-src="/videokreator-2/media/vrev/v2.mp4"><img src="/videokreator-2/media/vrev/v2.jpg" alt="Відеовідгук про курс АІ-Відеокреатор" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись відгук"><i></i></button></div><figcaption><p>«Дізналась дуже багато інформації, яку раніше ніде не бачила.»</p><cite>Учениця першого потоку · 40 сек</cite></figcaption></figure>
     </div>
     <div class="swipe"><svg width="22" height="12" viewBox="0 0 22 12" fill="none"><path d="M1 6h19m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Гортай відгуки</div>
+    <button class="btn ghost vr-more" type="button">Дивитись ще 10 відгуків</button>
   </div>
 </section>
 
@@ -1438,6 +1452,12 @@ document.querySelectorAll('.vid,.work').forEach(function(box){
       if(!desk.matches&&b.getBoundingClientRect().top<60)b.scrollIntoView({block:'start'});
     });
   });
+})();
+
+/* video reviews: show the rest on desktop */
+(function(){
+  var b=document.querySelector('.vr-more'); if(!b) return;
+  b.addEventListener('click',function(){document.querySelector('.vr-t').classList.add('open'); b.style.display='none';});
 })();
 </script>
 </body>
