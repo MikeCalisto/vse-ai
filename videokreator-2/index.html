@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <script>
 /* якщо браузер (Telegram, Safari) показав збережену стару версію — один раз перезавантажити свіжу */
-(function(){var B='9b83515c4f';try{fetch('/videokreator-2/version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():''}).then(function(v){v=(v||'').trim();var k='vk2-'+v;if(v&&v!==B&&!sessionStorage.getItem(k)){sessionStorage.setItem(k,'1');location.replace(location.pathname+'?v='+v+location.hash)}}).catch(function(){})}catch(e){}})();
+(function(){var B='d3574639a0';try{fetch('/videokreator-2/version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():''}).then(function(v){v=(v||'').trim();var k='vk2-'+v;if(v&&v!==B&&!sessionStorage.getItem(k)){sessionStorage.setItem(k,'1');location.replace(location.pathname+'?v='+v+location.hash)}}).catch(function(){})}catch(e){}})();
 </script>
 <title>АІ-Відеокреатор 2.0 — курс Олександра Цюцьмаця · старт 12 листопада</title>
 <meta name="description" content="12 модулів, 12 тижнів: навчишся створювати рекламу, мультики, фільми й UGC через нейромережі та знаходити клієнтів. Другий потік, оновлений за відгуками 98 учнів.">
@@ -568,9 +568,220 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
 .why-sum b{color:var(--emerald)}
 .why-src{margin-top:14px;font-size:.74rem;line-height:1.45}
 
+/* ===== novelties (програма 2.0) ===== */
+.label.mint{color:var(--mint)}
+.nov-idx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.ni{display:flex;flex-direction:column;gap:6px;background:rgba(255,255,255,.05);border:1px solid var(--line-d);border-radius:16px;padding:14px;transition:background .2s,border-color .2s}
+.ni:hover{background:rgba(67,209,153,.1);border-color:rgba(67,209,153,.5)}
+.ni b{font-size:1.5rem;font-weight:900;color:transparent;-webkit-text-stroke:1.4px var(--mint);line-height:1}
+.ni span{font-size:.9rem;font-weight:700;line-height:1.3;color:#e8efe9}
+.nov-n{font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);margin-bottom:12px}
+.cream .nov-n,.paper .nov-n{color:var(--emerald)}
+.nov-n b{font-size:1.1rem}
+.nov-grid{display:grid;gap:26px}
+.nov-list{list-style:none;counter-reset:nl;display:grid;gap:10px;margin-top:18px}
+.nov-list li{counter-increment:nl;position:relative;padding:14px 14px 14px 56px;background:rgba(255,255,255,.05);border:1px solid var(--line-d);border-radius:16px}
+.nov-list li::before{content:counter(nl);position:absolute;left:14px;top:14px;width:30px;height:30px;border-radius:10px;background:var(--mint);color:#06120d;font-weight:900;display:grid;place-items:center}
+.nov-list b{display:block;color:#fff;font-size:1rem}
+.nov-list span{display:block;font-size:.9rem;color:#c3d1c9;margin-top:3px;line-height:1.45}
+.nov-badge{display:inline-block;margin-top:16px;font-size:.85rem;font-weight:700;color:var(--mint);background:rgba(67,209,153,.1);border:1px solid rgba(67,209,153,.4);border-radius:999px;padding:8px 14px}
+.chat{background:#0a110e;border:1px solid rgba(67,209,153,.3);border-radius:20px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.chat-top{display:flex;align-items:center;gap:6px;padding:11px 14px;border-bottom:1px solid var(--line-d);font-size:.74rem;color:#8fa59a}
+.chat-top i{width:9px;height:9px;border-radius:50%;background:#2a3a33}
+.chat-top span{margin-left:8px}
+.msg{margin:14px;border-radius:14px;padding:12px 14px;font-size:.9rem;line-height:1.45}
+.msg.me{background:#16241e;color:#e8efe9;margin-left:40px}
+.msg.ai{background:rgba(67,209,153,.08);border:1px solid rgba(67,209,153,.25);color:#d5e2da;margin-right:28px}
+.files{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.files span{font-size:.74rem;background:rgba(255,255,255,.07);border-radius:8px;padding:4px 8px;color:#cfdcd4}
+.st{display:flex;gap:8px;align-items:flex-start;margin-bottom:6px}
+.st i{flex:none;font-style:normal;width:18px;height:18px;border-radius:50%;background:var(--mint);color:#06120d;font-size:.7rem;font-weight:900;display:grid;place-items:center;margin-top:1px}
+.res{display:flex;gap:12px;align-items:center;margin-top:10px}
+.res .vid{flex:0 0 96px;width:96px;border:0}
+.res span{font-size:.8rem;font-weight:700;color:var(--mint)}
+.nov-pair{display:grid;gap:10px;margin-top:18px}
+.np{background:#fff;border:1px solid var(--line-c);border-radius:16px;padding:14px 16px}
+.np b{display:block;color:var(--emerald);font-size:.8rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.np span{display:block;font-size:.98rem;font-weight:600;margin-top:4px;line-height:1.4}
+.nov-vis.cam{display:grid;place-items:center}
+.rec-phone{width:min(260px,72%);aspect-ratio:9/18;border-radius:34px;background:#0b1310;padding:10px;box-shadow:0 30px 60px rgba(40,34,20,.3);transform:rotate(-3deg)}
+.rec-scr{position:relative;height:100%;border-radius:26px;overflow:hidden;background:radial-gradient(circle at 50% 40%,#1f3a2e,#0b1310 70%);display:grid;place-items:center}
+.rec-scr img{width:78%;animation:ofloat 7s ease-in-out infinite;filter:drop-shadow(0 18px 24px rgba(0,0,0,.5))}
+.rec{position:absolute;top:14px;left:14px;display:flex;align-items:center;gap:6px;font-size:.72rem;font-weight:800;color:#fff;letter-spacing:.08em}
+.rec i{width:9px;height:9px;border-radius:50%;background:#ff4d4d;animation:pulseDot 1.4s ease-in-out infinite}
+.rec-t{position:absolute;top:14px;right:14px;font-size:.72rem;color:#cfdcd4;font-variant-numeric:tabular-nums}
+.grid-l{position:absolute;inset:18% 0;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12)}
+.nov-stats{display:grid;gap:10px;margin-top:22px}
+.ns{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.05);border:1px solid var(--line-d);border-radius:16px;padding:14px 16px}
+.ns b{font-size:2.6rem;font-weight:900;color:var(--mint);line-height:1;min-width:64px}
+.ns span{font-size:.92rem;color:#cfdcd4;line-height:1.4}
+.nov-two{display:grid;gap:14px;margin-top:16px}
+.nb{background:var(--ink3);border:1px solid var(--line-d);border-radius:20px;padding:18px 16px}
+.nb h3{color:#fff;font-size:1.2rem}
+.nb>p{font-size:.9rem;color:#b9c8bf;margin-top:6px;line-height:1.45}
+.styles{list-style:none;display:grid;grid-template-columns:1fr;gap:6px;margin-top:14px}
+.styles li{display:grid;grid-template-columns:30px 1fr;align-items:baseline;column-gap:8px;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.04)}
+.styles b{font-size:.78rem;color:var(--mint);font-weight:800}
+.styles span{font-size:.88rem;color:#e8efe9;font-weight:600}
+.styles em{grid-column:2;font-style:normal;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#7f948a}
+.emos{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.emo{display:inline-flex;align-items:center;gap:6px;font-size:.84rem;font-weight:600;padding:6px 10px;border-radius:999px;border:1px solid}
+.emo i{font-style:normal;font-size:.68rem;opacity:.7}
+.emo.l1{color:#cfdcd4;border-color:rgba(255,255,255,.18)}
+.emo.l2{color:var(--mint);border-color:rgba(67,209,153,.45)}
+.emo.l3{color:var(--gold);border-color:rgba(227,180,74,.55);background:rgba(227,180,74,.08)}
+.emo-leg{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;font-size:.7rem}
+.emo-leg .emo{font-size:.7rem;padding:3px 8px}
+.prompt{margin-top:14px;background:#0a110e;border-radius:14px;padding:12px 14px}
+.prompt span{display:block;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mint);margin-bottom:6px}
+.prompt code{font-family:ui-monospace,Menlo,monospace;font-size:.78rem;line-height:1.55;color:#cfdcd4;white-space:normal}
+.ov-cmp{display:grid;gap:10px;margin-top:22px}
+.oc{display:grid;grid-template-columns:1fr auto auto;grid-template-areas:"l s b" "e e e";align-items:center;column-gap:14px;row-gap:4px;background:#fff;border:1px solid var(--line-c);border-radius:18px;padding:16px 18px;box-shadow:0 10px 26px rgba(40,34,20,.06)}
+.oc span{grid-area:l;font-weight:700}
+.oc s{grid-area:s;font-size:1.3rem;font-weight:800;color:#a3aca7}
+.oc b{grid-area:b;font-size:2.2rem;font-weight:900;color:var(--emerald);line-height:1}
+.oc em{grid-area:e;font-style:normal;font-size:.84rem;color:var(--t-mut-c)}
+.ov-h{margin-top:30px;font-size:1.25rem}
+.ov-grid{display:grid;gap:10px;margin-top:14px}
+.og{display:grid;grid-template-columns:44px 1fr;column-gap:12px;background:#fff;border:1px solid var(--line-c);border-radius:16px;padding:14px 16px}
+.og i{grid-row:span 2;font-style:normal;font-size:1.4rem;width:44px;height:44px;border-radius:13px;background:var(--ink);display:grid;place-items:center}
+.og b{font-size:1rem}
+.og span{font-size:.88rem;color:#4c5a53;line-height:1.45;margin-top:2px}
+.wf-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.wf{margin:0}
+.wf-grid:not(.open) .wf.more{display:none}
+.wf-v{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#000;border:1px solid var(--line-d)}
+.wf-v img,.wf-v video{width:100%;height:100%;object-fit:cover}
+.wf-v.on video{object-fit:contain}
+.wf-v .play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.55))}
+.wf-v .play i{width:44px;height:44px;border-radius:50%;background:rgba(67,209,153,.92);display:grid;place-items:center}
+.wf-v .play i::after{content:'';border-left:13px solid #06120d;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px}
+.wf figcaption{padding:8px 2px 0}
+.wf figcaption b{display:block;font-size:.84rem;line-height:1.3;color:#fff}
+.wf figcaption span{display:block;font-size:.7rem;color:#8fa59a;margin-top:3px}
+.wf-more{display:flex;margin:24px auto 0}
+.pt-grid{display:grid;gap:14px;margin-top:22px}
+.pt{position:relative;background:#fff;border:1px solid var(--line-c);border-radius:20px;padding:20px 18px 16px;box-shadow:0 10px 26px rgba(40,34,20,.06)}
+.pt-n{position:absolute;top:16px;right:18px;font-size:2.6rem;font-weight:900;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--emerald)}
+.pt h3{font-size:1.15rem;max-width:80%}
+.pt>p{font-size:.92rem;color:#4c5a53;margin-top:6px;line-height:1.45}
+.pt-v{margin-top:14px}
+.pt-v .wf-v{aspect-ratio:16/10;border:0}
+.pt-v .pt-ex{display:block;font-size:.74rem;color:var(--t-mut-c);margin-top:6px}
+
+/* ===== novelties: video grids ===== */
+.emv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px}
+.emv,.stv{margin:0}
+.emv-v{position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:#0a110e}
+.emv-v video{width:100%;height:100%;object-fit:cover;display:block}
+.emv figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;column-gap:4px;align-items:baseline;padding:5px 2px 0}
+.emv figcaption b{font-size:.78rem;color:#fff;line-height:1.2}
+.emv figcaption span{font-size:.58rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.emv.l1 figcaption span{color:#9fb2a7}.emv.l2 figcaption span{color:var(--mint)}.emv.l3 figcaption span{color:var(--gold)}
+.stv-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:14px}
+.stv figcaption{font-size:.76rem;color:#e8efe9;font-weight:600;padding:5px 2px 0;line-height:1.3}
+.stv figcaption b{color:var(--mint)}
+
+/* ===== novelties v2 ===== */
+.label.emer{color:var(--emerald)}
+#nov .news{margin-top:24px}
+.nov-idx-h{margin-top:34px;font-size:1.25rem}
+#nov .nov-idx{margin-top:14px}
+#nov .ni{background:#fff;border:1px solid var(--line-c);box-shadow:0 10px 26px rgba(40,34,20,.06)}
+#nov .ni:hover{border-color:var(--mint-d);background:#fff}
+#nov .ni b{-webkit-text-stroke:1.4px var(--emerald)}
+#nov .ni span{color:var(--t-dark)}
+.nov-grid.top{align-items:start;margin-bottom:26px}
+.nov-sub{color:#fff;font-size:1.15rem;margin-bottom:4px}
+.nov-list.one{grid-template-columns:1fr!important}
+#nov1 .lead+.lead{margin-top:12px}
+.gt-h{color:#fff;font-size:1.1rem;margin:30px 0 12px}
+.gt-grid{display:grid;gap:8px}
+.gt-grid.emo{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gt-grid.sty{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gt{margin:0}
+.gt-v{border-radius:12px;overflow:hidden;background:#0a110e;aspect-ratio:16/10}
+.gt-grid.emo .gt-v{aspect-ratio:1/1}
+.gt-v img,.gt-v video{width:100%;height:100%;object-fit:cover;display:block}
+.gt figcaption{padding:6px 2px 0;line-height:1.25}
+.gt figcaption b{display:block;font-size:.8rem;color:#fff}
+.gt .lv{display:block;font-size:.6rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#8fa59a;margin-top:2px}
+.gt .lv.l2{color:var(--mint)}.gt .lv.l3{color:var(--gold)}
+.gt.lock{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px;border-radius:12px;border:1.5px dashed rgba(67,209,153,.45);background:linear-gradient(160deg,rgba(67,209,153,.12),rgba(67,209,153,.03));padding:16px 10px;min-height:120px}
+.gt.lock i{font-style:normal;font-size:1.3rem}
+.gt.lock b{font-size:2rem;font-weight:900;color:var(--mint);line-height:1}
+.gt.lock span{font-size:.74rem;color:#cfdcd4;line-height:1.35}
+.gt-grid.emo .gt.lock{grid-column:1/-1;flex-direction:row;gap:12px;min-height:0}
+.gt-grid.emo .gt.lock span br{display:none}
+.wfx{display:grid;gap:18px;margin-top:24px}
+.brw{border-radius:16px;overflow:hidden;background:#0b0b0b;border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.brw-top{display:flex;align-items:center;gap:6px;padding:10px 12px;background:#141414;border-bottom:1px solid rgba(255,255,255,.08);font-size:.7rem;color:#8a8a8a}
+.brw-top i{width:9px;height:9px;border-radius:50%;background:#333}
+.brw-top span{margin-left:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brw-scr{--fh:300px;height:var(--fh);overflow:hidden;position:relative}
+.brw-scr img{width:100%;display:block;animation:brwscroll 46s ease-in-out infinite}
+@keyframes brwscroll{0%,6%{transform:translateY(0)}47%,53%{transform:translateY(calc(-100% + var(--fh)))}94%,100%{transform:translateY(0)}}
+.wfx-cap{font-size:.82rem;color:#8fa59a;margin-top:10px}
+.wfx-k{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mint);margin-bottom:10px}
+.wst{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center;background:rgba(255,255,255,.05);border:1px solid var(--line-d);border-radius:14px;padding:10px;margin-bottom:8px;position:relative}
+.wst>img{width:96px;height:64px;object-fit:cover;border-radius:9px}
+.wst b{display:block;color:#fff;font-size:.92rem}
+.wst span{display:block;font-size:.82rem;color:#b9c8bf;line-height:1.4;margin-top:2px}
+.wst:not(:last-child)::after{content:'';position:absolute;left:57px;bottom:-9px;width:2px;height:10px;background:rgba(67,209,153,.5)}
+.wst.res{border-color:rgba(67,209,153,.5);background:rgba(67,209,153,.08)}
+.wst-v .wf-v{width:96px;aspect-ratio:3/2;border:0;border-radius:9px}
+.wst-v .wf-v .play i{width:30px;height:30px}
+.wst-v .wf-v .play i::after{border-left-width:9px;border-top-width:6px;border-bottom-width:6px}
+.wst-v .pt-ex{display:none}
+.wfx-ben{display:grid;gap:10px;margin-top:22px}
+.wb{background:var(--ink3);border:1px solid var(--line-d);border-radius:16px;padding:14px 16px}
+.wb b{display:block;color:#fff;font-size:1rem}
+.wb span{display:block;font-size:.88rem;color:#b9c8bf;margin-top:4px;line-height:1.45}
+.wfx-lib{margin-top:22px}
+.wfx-lib-h{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mint);margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:.78rem;color:#cfdcd4;background:rgba(255,255,255,.05);border:1px solid var(--line-d);border-radius:999px;padding:5px 10px}
+
 
 /* ================= DESKTOP (≥960px) — full-width layout ================= */
 @media (min-width:960px){
+  /* novelties v2 */
+  #nov .news{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .gt-grid.emo,.gt-grid.sty{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+  .gt-grid.emo .gt.lock{grid-column:auto;flex-direction:column;gap:4px}
+  .gt-grid.emo .gt.lock span br{display:inline}
+  .gt-grid.emo .gt-v{aspect-ratio:4/5}
+  .wfx{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:32px;align-items:start}
+  .brw-scr{--fh:440px}
+  .wst{grid-template-columns:120px 1fr;padding:12px}
+  .wst>img,.wst-v .wf-v{width:120px;height:78px}
+  .wst:not(:last-child)::after{left:71px}
+  .wfx-ben{grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+  .nov-two.wide{grid-template-columns:1fr}
+  .nov-two.wide .styles{grid-template-columns:repeat(4,1fr)}
+  .emv-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+  .stv-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+  /* novelties */
+  .nov-idx{grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+  .ni{padding:20px 22px}
+  .ni b{font-size:2rem}
+  .ni span{font-size:1.02rem}
+  .nov-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:56px;align-items:center}
+  .nov-grid.rev .nov-txt{order:2}
+  .nov-list{grid-template-columns:1fr 1fr}
+  .nov-pair{grid-template-columns:1fr 1fr}
+  .rec-phone{width:300px}
+  .nov-stats{grid-template-columns:repeat(3,1fr);gap:16px}
+  .nov-two{grid-template-columns:1.1fr 1fr;gap:18px;align-items:start}
+  .nb{padding:26px 26px}
+  .styles{grid-template-columns:1fr 1fr}
+  .ov-cmp{grid-template-columns:repeat(3,1fr);gap:16px}
+  .oc{grid-template-columns:1fr auto;grid-template-areas:"l l" "s b" "e e";padding:22px}
+  .oc b{font-size:3rem}
+  .ov-grid{grid-template-columns:repeat(3,1fr);gap:16px}
+  .wf-grid{grid-template-columns:repeat(4,1fr);gap:18px}
+  .wf-grid:not(.open) .wf:nth-child(n+9){display:none}
+  .pt-grid{grid-template-columns:repeat(3,1fr);gap:18px}
   #why h2,#why .lead{text-align:center;margin-left:auto;margin-right:auto}
   #why .lead{max-width:62ch}
   .why-stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:40px}
@@ -928,7 +1139,7 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
 </section>
 
 <!-- ===================== VIDEO REVIEWS ===================== -->
-<section class="sec paper" id="vreviews">
+<section class="sec cream" id="vreviews">
   <div class="wrap">
     <h2 class="reveal">Учні першого потоку — <span class="hm">на відео</span></h2>
     <p class="lead reveal d1">Своїми словами: про уроки, ефіри, оновлення курсу й перших клієнтів.</p>
@@ -957,29 +1168,113 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
   </div>
 </section>
 
-<!-- ===================== WHAT'S NEW ===================== -->
-<section class="sec cream" id="new">
+<!-- ===================== PROGRAM ===================== -->
+<section class="sec paper" id="program">
+  <div class="wrap prog-w">
+    <h2 class="reveal">Програма: <span class="hm">12 модулів</span> у 3 етапах</h2>
+    <p class="lead reveal d1">Від першого промта до першого клієнта. Натисни на модуль, щоб розгорнути.</p>
+
+    <div class="phase ph1">
+      <div class="phase-h"><h3>Етап 1 · Фундамент</h3><span>тижні 1–4</span></div>
+      <div class="mods">
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m01.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Вступ. AI-відео індустрія та можливості заробітку</span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Який AI-контент зараз купують і скільки за це платять. Як правильно виставляти свою ціну за роботу</li><li>Що таке мовні моделі й генератори, чим вони відрізняються</li><li>Огляд ключових інструментів і нейронок — як зібрати свій робочий стек (воркфлоу)</li><li>Список нейронок + безкоштовні сервіси для старту на курсі</li></ul><p class="mod-res">Розумієш, як влаштована ніша й де в ній гроші. Бачиш свій шлях, а не блукаєш у сотні інструментів, нейронок і підписок і не витрачаєш зайві кошти на помилкові генерації.</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m02.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Як працювати з промтами: система роботи з AI</span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Покрокова інструкція: створення й налаштування власного AI-асистента під написання промтів і задачі AI-відеокреатора</li><li>Що це за асистенти і як вони працюють — детальний розбір</li><li>Отримуєш AI-асистентів під різні задачі: тексти й промти, генерацію зображень і генерацію відео</li><li>Як правильно працювати з референсами, щоб не красти чужі ідеї, а створювати подібний, але унікальний контент</li><li><b>Технологія:</b> як перетворити будь-який референс у готовий промт</li></ul><p class="mod-res">Пишеш ефективні промти під будь-яке відео: UGC, рекламу, фільми, мультики. Бачиш → описуєш → отримуєш — без сотні правок.</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m03.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Створення персонажів, карток персонажів і локацій</span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Покроковий алгоритм створення ідеального AI-персонажа</li><li>Картка персонажа — система збереження образу + різні способи її створення</li><li><b>Технологія:</b> як зберігати зовнішність у кожному кадрі</li><li>Картки локацій і якісна робота з ними</li><li>Як створювати ДНК персонажа (біографію) — для контексту</li><li>Технологія стабільного обличчя через Nano Banana: персонаж не змінюється між кадрами, навіть коли оживляєш його з фото</li></ul><p class="mod-res">Унікальний персонаж зі стабільною зовнішністю й готовими локаціями — від першого до останнього кадру.</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m04.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Розкадровка та генерація сцен</span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Як скласти історію відео й розкласти її по кадрах (сторіборд)</li><li>Розкадровка сцен з персонажем</li><li>Генерація відео зі сторібордів — з допомогою AI-асистента всередині навчання</li><li><b>Теорія:</b> кінематографічні кадри, плани й ракурси — що використовують у кіноіндустрії</li><li><b>Теорія:</b> мудборд (настрій кадру), атмосфера, зміна освітлення й AI-кольорокорекція — щоб усі кадри виглядали як єдиний фільм</li><li>Генерація кадрів строго за сценарієм через Nano Banana + кінематографічні плани, ракурси й світло</li></ul><p class="mod-res">Готовий набір кінокадрів для першого відео. Не «щось вийшло», а заплановано й зроблено.</p></div></div>
+    </div>
+    </div>
+
+    <div class="phase ph2">
+      <div class="phase-h"><h3>Етап 2 · Виробництво</h3><span>тижні 5–10</span></div>
+      <div class="mods">
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m05.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Генерація відеофрагментів, оживлення сцен і звук<span class="tg upd">оновлено</span></span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Як працює відеогенерація — простими словами, без складних термінів</li><li>Усі способи генерувати відео: з зображення (image-to-video), з тексту (text-to-video), за першим і останнім кадром</li><li>Керування рухом і динамікою кадру</li><li>Звук і музика: нейромережі, які генерують озвучку й музику, зокрема українською мовою</li><li>Чиста україномовна озвучка з природним ліпсинком (Veo 3.1, ElevenLabs) і музика під ролик (Suno)</li><li><b>Нове:</b> клон голосу й AI-аватари</li><li><b>Нове:</b> коли генерація пішла не так — артефакти, персонаж «пливе», перегенерація фрагмента без зливу кредитів</li></ul><p class="mod-res">Перші живі відеофрагменти зі звуком, які вже не соромно показати клієнту або викласти в соцмережі.</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m06.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Монтаж AI-відео<span class="tg upd">оновлено</span></span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Блок записує професійний монтажер, який співпрацює з великими агенціями з монтажу та TikTok/Reels-просування</li><li><b>Нове:</b> AI-монтаж через Claude або Codex — мультиагент сам збирає ролик із твоїх фрагментів, а ти керуєш задумом. 4 уроки під топ-4 сценарії: монтаж сирого відео, монтаж мультика, контент для бізнесу, «закинь купу файлів — і скажи: змонтуй»</li><li>Що таке монтаж і чому одні відео дивляться до кінця, а інші пролистують</li><li>База монтажу — все, що потрібно знати новачку</li><li>Монтаж у CapCut на ПК і на телефоні, Adobe Premiere Pro без зайвої води</li><li>Монтаж у стилі мінімалізм — як утримувати увагу без перевантаження</li><li>Як покращувати контент, створений нейромережами (практика)</li><li>Формула вірусних Reels і TikTok</li><li>20+ ГБ готових матеріалів: футажі, ефекти, переходи, SFX, оверлеї, LUTs — для телефона (CapCut, VN, Alight Motion) і ПК (Premiere, DaVinci, After Effects)</li></ul><p class="mod-res">Збираєш фрагменти в цілісний ролик, готовий до публікації: доручаєш монтаж AI або монтуєш руками на рівні професіонала.</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m07.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Фільммейкінг: повноцінний AI короткометражний фільм<span class="tg upd">оновлено</span></span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Від ідеї до сценарію: як поставити задачу AI, щоб отримати готовий сценарій під ролик потрібної довжини</li><li>Виробництво: збираєш персонажів, локації та сцени за єдиною системою карток з модуля 3</li><li><b>Нове:</b> базова режисура — сюжет, композиція, утримання уваги</li><li><b>Нове:</b> бази для зйомки — ТОП-20 стилів зйомки, 25 емоцій акторської гри з промптами, бібліотека рухів камери</li><li>Фінальний монтаж, озвучка й публікація</li></ul><p class="mod-res">Застосовуєш усе з попередніх модулів і створюєш свій перший повноцінний AI-фільм до 1 хвилини. На ринку такі відео коштують від $20 (10 сек) до $120 (1 хв).</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m08.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">UGC: AI-блогер та відео для товарів</span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Як створити реалістичного AI-блогера: голос, міміка, поведінка</li><li>Відео для товарів: проблема → продукт → результат</li><li>Відео-відгук: AI-блогер тримає товар у руках і дає на нього свій чесний відгук</li><li>Ноди — більше контролю в генерації, як у професіоналів</li><li>Предметна зйомка товарів і відеоогляди для інтернет-магазинів — формат, який товарка купує постійно</li></ul><p class="mod-res">Готове рекламне відео для товару, яке вже можна продати клієнту.</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m09.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Мультфільми у стилях топових студій — Pixar, Disney та інших</span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Стилі AI-анімації: 2D, 3D, аніме, cartoon — від простого до рівня великих студій</li><li>Покроковий процес: сценарій → персонажі → сцени → монтаж</li><li>Збереження стилю між кадрами, озвучення й музика</li></ul><p class="mod-res">Готовий мультик у власному стилі — окремий формат і окремий ринок.</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m10.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Комерційна реклама для товарів та бізнесів<span class="tg upd">оновлено</span></span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Структура комерційного AI-відео — чим реклама відрізняється від «гарного відео»</li><li>Формула ефективного рекламного ролика</li><li>Формула ефективного рекламного креативу — ідея, яка продає</li><li><b>Нове:</b> товар у кадрі без спотворень — упаковка, логотип, написи</li><li><b>Нове:</b> 3 види контенту, за які справді платять: гіпермоушен, креатив, що пробиває банерну сліпоту, і зв'язка «товар + людина + локація + ситуація»</li><li>Практика: повний цикл від брифу до готового ролика</li></ul><p class="mod-res">Рекламний ролик для реального клієнта — найдорожчий формат на ринку.</p></div></div>
+    </div>
+    </div>
+
+    <div class="phase ph3">
+      <div class="phase-h"><h3>Етап 3 · Дохід</h3><span>відкривається з 2-го тижня</span></div>
+      <div class="mods">
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m11.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Формування портфоліо AI-відеокреатора<span class="tg upd">оновлено</span></span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li>Що має бути в портфоліо й скільки робіт достатньо для старту</li><li>Упаковка робіт: завдання → рішення → результат</li><li>Створення свого сайту-портфоліо через Claude Code</li><li><b>Нове:</b> урок — як знімати себе на камеру</li></ul><p class="mod-res">Портфоліо з 5+ робіт, упаковане так, щоб клієнт одразу бачив цінність.</p></div></div>
+      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m12.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Клієнти, лідогенерація і продажі — ведуть 4 експерти<span class="tg upd">оновлено</span></span><span class="mod-x"></span></button>
+        <div class="mod-body"><ul><li><b>Богдан Титоренко</b> — безкоштовні канали лідогенерації, LinkedIn-аутріч без спаму, Upwork для AI-креатора: профіль, пошук проєктів, proposal-и</li><li><b>Ілля Косенко</b> — пошук клієнтів через Reels, TikTok і Shorts, холодні розсилки, таргет на свої послуги, партнерства, івенти</li><li><b>Богдан Степаненко</b> — філософія фрилансера, клієнти через Google Карти й B2B, продуктова лінійка, переписка й дзвінки, заперечення, КП і готові скрипти</li><li><b>Олександр Цюцьмаць</b> — клієнти через блог, Threads (формула 1 млн охоплень), прямі ефіри та пробний рілс</li><li><b>Нове:</b> модуль відкривається вже на 2-му тижні навчання</li></ul><p class="mod-res">Ціла система залучення клієнтів і продажів — безкоштовні й платні методи, портфоліо, переписка й дзвінки. Перші клієнти — ще під час навчання.</p></div></div>
+    </div>
+    </div>
+
+    <div class="bonus reveal">
+      <div class="bonus-h"><svg class="gift-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8a1 1 0 001 1h12a1 1 0 001-1v-8M12 8v13M12 8c-1.5-3-5-4-5-1.5S10 8 12 8zm0 0c1.5-3 5-4 5-1.5S14 8 12 8z"/></svg><div><h3>Бонуси за швидке рішення</h3><p>Для всіх тарифів — Стандарт, Преміум і VIP. Отримуєш 3 бонусні модулі, якщо приєднуєшся зараз.</p></div></div>
+      <ul>
+        <li><i class="g">Бонус 1</i><span>Монетизація Facebook — як заробляти на своїх роликах</span></li>
+        <li><i class="g">Бонус 2</i><span>Бухгалтерія для AI-креатора — ФОП і податки</span></li>
+        <li><i class="g">Бонус 3</i><span>Розбори нейромереж Kling, Grok, Flow, Seedance і HeyGen</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- NOV START -->
+<!-- ===================== NOVELTIES: overview (+ колишній блок «Що нового у другому потоці») ===================== -->
+<section class="sec cream" id="nov">
   <div class="bg-obj st-clap" aria-hidden="true"><img class="obj" src="/videokreator-2/media/obj/clap.webp" alt="" width="992" height="1000" loading="lazy" decoding="async"></div>
   <div class="wrap">
-    <h2 class="reveal" style="max-width:13ch">Що нового <span class="hm">у другому потоці</span></h2>
-    <p class="lead reveal d1" style="max-width:46ch">Я прочитав анкети всіх учнів першого потоку — і переробив курс під реальні потреби живих людей, які вже пройшли це навчання. Тепер курс ще більш практичний і орієнтований саме на тебе.</p>
+    <div class="label emer reveal">Програма 2.0</div>
+    <h2 class="reveal" style="max-width:16ch">Що ми додали в курс <span class="hm">для другого потоку</span></h2>
+    <p class="lead reveal d1" style="max-width:50ch">Я прочитав анкети всіх учнів першого потоку — і переробив курс під реальні потреби живих людей, які вже пройшли це навчання. Тепер курс ще більш практичний і орієнтований саме на тебе.</p>
     <div class="news">
       <div class="nw reveal"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div><div><h3>Уроки за графіком</h3><p>Курс вже записаний. Матеріали актуальні на <b class="today">сьогодні</b>. З першого дня отримаєш карту курсу з датою виходу уроків, дедлайнами по ДЗ та розкладом дзвінків.</p><span class="fromdata">Про це просили учні першого потоку</span></div></div>
-      <div class="nw reveal d1"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7"/><circle cx="18" cy="16" r="3"/></svg></div><div><h3>Монтаж через Claude</h3><p>AI монтує — ти твориш. CapCut і Premiere лишаються для тих, хто хоче навчитись монтувати руками.</p><span class="fromdata">На ручному монтажі зупинялось найбільше учнів</span></div></div>
       <div class="nw reveal d2"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 11l18-7-7 18-2.5-7.5z"/></svg></div><div><h3>Починаєш шукати клієнтів вже через 7 днів після старту навчання</h3><p>Портфоліо й соцмережі починаєш вести паралельно з навчанням, а модуль про пошук клієнтів відкривається вже на 2-му тижні навчання.</p><span class="fromdata">У першому потоці цей модуль був у самому кінці</span></div></div>
       <div class="nw reveal d3"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5M8 11h6M11 8v6"/></svg></div><div><h3>Розбори твоїх робіт</h3><p>На ефірах розбираємо роботи учнів — і вдалі, і невдалі генерації. Щоб кожен бачив, як виправляти помилки та вдосконалювати навички.</p><span class="fromdata">Це було найчастіше прохання від учнів</span></div></div>
       <div class="nw reveal d4"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v12M8 7v5a4 4 0 008 0V7M5 12a7 7 0 0014 0M12 19v3"/></svg></div><div><h3>Звук: голос, ліпсинк, музика</h3><p>Уроки з озвучки й клону голосу, ліпсингу українською, музики в Suno — вже додані на платформу та чекають на тебе.</p><span class="fromdata">Учні просили додати цю тему в програму — я зробив</span></div></div>
       <div class="nw reveal d5"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 6.5c0-1.9-2.2-3.5-5-3.5S7 4.6 7 6.5 9.2 9.5 12 10s5 2 5 4-2.2 3.5-5 3.5-5-1.6-5-3.5"/></svg></div><div><h3>Чесний бюджет на нейромережі</h3><p>Заздалегідь підготував для вас, які підписки потрібні і коли їх оплачувати, а під кожним уроком — безкоштовні альтернативи для навчання.</p><span class="fromdata">Щоб не було несподіваних витрат</span></div></div>
     </div>
+    <h3 class="nov-idx-h reveal">І 6 великих нововведень — детально нижче</h3>
+    <div class="nov-idx">
+      <a class="ni reveal" href="#nov1"><b>01</b><span>AI-монтаж через Claude і Codex</span></a>
+      <a class="ni reveal d1" href="#nov2"><b>02</b><span>Як знімати себе на камеру</span></a>
+      <a class="ni reveal d2" href="#nov3"><b>03</b><span>Стилі зйомки, емоції й рухи камери</span></a>
+      <a class="ni reveal d3" href="#nov4"><b>04</b><span>Ми дали більше, ніж обіцяли</span></a>
+      <a class="ni reveal d4" href="#nov5"><b>05</b><span>32 воркфлоу: від нуля до готового відео</span></a>
+      <a class="ni reveal d5" href="#nov6"><b>06</b><span>Реклама товарів, яку справді купують</span></a>
+    </div>
   </div>
 </section>
-
-<!-- ===================== MONTAGE ===================== -->
-<section class="sec dark" id="montage">
+<!-- ===================== NOV 01: AI montage ===================== -->
+<section class="sec dark2 nov" id="nov1">
   <svg class="deco" style="right:18px;top:46px;opacity:.5;animation:floatR 10s ease-in-out infinite" width="22" height="22" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#43d199"/></svg>
   <div class="wrap">
-    <h2 class="reveal spray">Монтажери вже <span class="hm">не потрібні</span></h2>
-    <p class="lead reveal d1">На курсі є уроки монтажу в CapCut і Adobe Premiere Pro. Але зараз Claude активно вчиться монтувати — і я вже створюю з його допомогою ось такі відео. Навчу і тебе: <b style="color:#fff">мінімум технічної роботи — максимум твоєї креативності.</b></p>
+    <div class="nov-grid top">
+      <div class="nov-txt">
+        <div class="nov-n reveal">Нововведення <b>01</b> / 06</div>
+        <h2 class="reveal spray">Монтажери вже не потрібні: <span class="hm">AI монтує — ти твориш</span></h2>
+        <p class="lead reveal d1">На курсі є уроки монтажу в CapCut і Adobe Premiere Pro. Але зараз Claude активно вчиться монтувати — і я вже створюю з його допомогою ось такі відео. Навчу і тебе: <b style="color:#fff">мінімум технічної роботи — максимум твоєї креативності.</b></p>
+        <p class="lead reveal d1">Мультиагент для монтажу працює через Claude Code і Codex: ти даєш йому файли й задачу — він сам ріже, склеює, підбирає музику й віддає готовий ролик.</p>
+        <p class="nov-badge reveal">🤖 Мультиагент v6 уже на платформі · оновлено 21 жовтня</p>
+      </div>
+      <div class="nov-txt">
+        <h3 class="nov-sub reveal">4 уроки під 4 найсильніші сценарії</h3>
+        <ol class="nov-list one">
+          <li class="reveal"><b>Монтаж сирого відео</b><span>Закидаєш відзняте — отримуєш ролик із ритмом, склейками й субтитрами.</span></li>
+          <li class="reveal d1"><b>Монтаж мультика</b><span>Агент збирає згенеровані сцени в історію й додає звук.</span></li>
+          <li class="reveal d2"><b>Контент для бізнесу</b><span>Як працює контент для бізнесу — і як агент робить серію роликів для реального клієнта.</span></li>
+          <li class="reveal d3"><b>Одна команда «змонтуй»</b><span>Сире відео, скріни, купа файлів — даєш задачу, агент сам розбирається, що з цим робити.</span></li>
+        </ol>
+      </div>
+    </div>
     <div class="studio reveal"><b>АІ-Студія монтажу окремо коштує 2 000 ₴.</b> Учні курсу отримують її безкоштовно.</div>
     <h3 class="vids-h">Ці ролики зібрала моя АІ-студія монтажу</h3>
     <div class="vids" id="vids">
@@ -1012,67 +1307,107 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
       <div class="vid" data-src="/ai-studiya/media/s/st5.mp4"><img src="/ai-studiya/media/s/st5.jpg" alt="Ролик, змонтований через Claude" loading="lazy" decoding="async"><button class="play" aria-label="Увімкнути ролик"><i></i></button></div>
       <div class="vid" data-src="/ai-studiya/media/s/st1.mp4"><img src="/ai-studiya/media/s/st1.jpg" alt="Ролик, змонтований через Claude" loading="lazy" decoding="async"><button class="play" aria-label="Увімкнути ролик"><i></i></button></div>
     </div>
+
   </div>
 </section>
-
-<!-- ===================== PROGRAM ===================== -->
-<section class="sec paper" id="program">
-  <div class="wrap prog-w">
-    <h2 class="reveal">Програма: <span class="hm">12 модулів</span> у 3 етапах</h2>
-    <p class="lead reveal d1">Від першого промта до першого клієнта. Натисни на модуль, щоб розгорнути.</p>
-
-    <div class="phase ph1">
-      <div class="phase-h"><h3>Етап 1 · Фундамент</h3><span>тижні 1–4</span></div>
-      <div class="mods">
-      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m01.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Вступ. AI-відео індустрія та можливості заробітку</span><span class="mod-x"></span></button>
-        <div class="mod-body"><ul><li>Який AI-контент зараз купують і скільки за це платять. Як правильно виставляти свою ціну за роботу</li><li>Що таке мовні моделі й генератори, чим вони відрізняються</li><li>Огляд ключових інструментів і нейронок — як зібрати свій робочий стек (воркфлоу)</li><li>Список нейронок + безкоштовні сервіси для старту на курсі</li></ul><p class="mod-res">Розумієш, як влаштована ніша й де в ній гроші. Бачиш свій шлях, а не блукаєш у сотні інструментів, нейронок і підписок і не витрачаєш зайві кошти на помилкові генерації.</p></div></div>
-      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m02.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Як працювати з промтами: система роботи з AI</span><span class="mod-x"></span></button>
-        <div class="mod-body"><ul><li>Покрокова інструкція: створення й налаштування власного AI-асистента під написання промтів і задачі AI-відеокреатора</li><li>Що це за асистенти і як вони працюють — детальний розбір</li><li>Отримуєш AI-асистентів під різні задачі: тексти й промти, генерацію зображень і генерацію відео</li><li>Як правильно працювати з референсами, щоб не красти чужі ідеї, а створювати подібний, але унікальний контент</li><li><b>Технологія:</b> як перетворити будь-який референс у готовий промт</li></ul><p class="mod-res">Пишеш ефективні промти під будь-яке відео: UGC, рекламу, фільми, мультики. Бачиш → описуєш → отримуєш — без сотні правок.</p></div></div>
-      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m03.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Створення персонажів, карток персонажів і локацій</span><span class="mod-x"></span></button>
-        <div class="mod-body"><ul><li>Покроковий алгоритм створення ідеального AI-персонажа</li><li>Картка персонажа — система збереження образу + різні способи її створення</li><li><b>Технологія:</b> як зберігати зовнішність у кожному кадрі</li><li>Картки локацій і якісна робота з ними</li><li>Як створювати ДНК персонажа (біографію) — для контексту</li><li>Технологія стабільного обличчя через Nano Banana: персонаж не змінюється між кадрами, навіть коли оживляєш його з фото</li></ul><p class="mod-res">Унікальний персонаж зі стабільною зовнішністю й готовими локаціями — від першого до останнього кадру.</p></div></div>
-      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m04.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Розкадровка та генерація сцен</span><span class="mod-x"></span></button>
-        <div class="mod-body"><ul><li>Як скласти історію відео й розкласти її по кадрах (сторіборд)</li><li>Розкадровка сцен з персонажем</li><li>Генерація відео зі сторібордів — з допомогою AI-асистента всередині навчання</li><li><b>Теорія:</b> кінематографічні кадри, плани й ракурси — що використовують у кіноіндустрії</li><li><b>Теорія:</b> мудборд (настрій кадру), атмосфера, зміна освітлення й AI-кольорокорекція — щоб усі кадри виглядали як єдиний фільм</li><li>Генерація кадрів строго за сценарієм через Nano Banana + кінематографічні плани, ракурси й світло</li></ul><p class="mod-res">Готовий набір кінокадрів для першого відео. Не «щось вийшло», а заплановано й зроблено.</p></div></div>
+<!-- ===================== NOV 02: on camera ===================== -->
+<section class="sec cream nov" id="nov2">
+  <div class="wrap nov-grid rev">
+    <div class="nov-txt">
+      <div class="nov-n reveal">Нововведення <b>02</b> / 06</div>
+      <h2 class="reveal">Як знімати <span class="hm">себе на камеру</span></h2>
+      <p class="lead reveal d1">Клієнт купує в людини, а не в анонімного акаунта. Тому в модуль «Портфоліо» ми додали урок, як знімати себе на камеру, — щоб відео з тобою продавали твої послуги.</p>
+      <div class="nov-pair">
+        <div class="np reveal"><b>Новий урок</b><span>Як знімати себе на камеру — у модулі «Формування портфоліо»</span></div>
+        <div class="np reveal d1"><b>+ бонусний модуль</b><span>«Як генерувати контент із собою» — 5 уроків і 6 матеріалів на платформі</span></div>
+      </div>
     </div>
-    </div>
-
-    <div class="phase ph2">
-      <div class="phase-h"><h3>Етап 2 · Виробництво</h3><span>тижні 5–10</span></div>
-      <div class="mods">
-      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m05.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Генерація відеофрагментів, оживлення сцен і звук<span class="tg upd">оновлено</span></span><span class="mod-x"></span></button>
-        <div class="mod-body"><ul><li>Як працює відеогенерація — простими словами, без складних термінів</li><li>Усі способи генерувати відео: з зображення (image-to-video), з тексту (text-to-video), за першим і останнім кадром</li><li>Керування рухом і динамікою кадру</li><li>Звук і музика: нейромережі, які генерують озвучку й музику, зокрема українською мовою</li><li>Чиста україномовна озвучка з природним ліпсинком (Veo 3.1, ElevenLabs) і музика під ролик (Suno)</li><li><b>Нове:</b> клон голосу й AI-аватари</li><li><b>Нове:</b> коли генерація пішла не так — артефакти, персонаж «пливе», перегенерація фрагмента без зливу кредитів</li></ul><p class="mod-res">Перші живі відеофрагменти зі звуком, які вже не соромно показати клієнту або викласти в соцмережі.</p></div></div>
-      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m06.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Монтаж AI-відео<span class="tg upd">оновлено</span></span><span class="mod-x"></span></button>
-        <div class="mod-body"><ul><li>Блок записує професійний монтажер, який співпрацює з великими агенціями з монтажу та TikTok/Reels-просування</li><li><b>Нове:</b> AI-монтаж через Claude або Codex — нейромережа сама збирає ролик із твоїх фрагментів, а ти керуєш задумом</li><li>Що таке монтаж і чому одні відео дивляться до кінця, а інші пролистують</li><li>База монтажу — все, що потрібно знати новачку</li><li>Монтаж у CapCut на ПК і на телефоні, Adobe Premiere Pro без зайвої води</li><li>Монтаж у стилі мінімалізм — як утримувати увагу без перевантаження</li><li>Як покращувати контент, створений нейромережами (практика)</li><li>Формула вірусних Reels і TikTok</li><li>20+ ГБ готових матеріалів: футажі, ефекти, переходи, SFX, оверлеї, LUTs — для телефона (CapCut, VN, Alight Motion) і ПК (Premiere, DaVinci, After Effects)</li></ul><p class="mod-res">Збираєш фрагменти в цілісний ролик, готовий до публікації: доручаєш монтаж AI або монтуєш руками на рівні професіонала.</p></div></div>
-      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m07.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Фільммейкінг: повноцінний AI короткометражний фільм<span class="tg upd">оновлено</span></span><span class="mod-x"></span></button>
-        <div class="mod-body"><ul><li>Від ідеї до сценарію: як поставити задачу AI, щоб отримати готовий сценарій під ролик потрібної довжини</li><li>Виробництво: збираєш персонажів, локації та сцени за єдиною системою карток з модуля 3</li><li><b>Нове:</b> базова режисура — сюжет, композиція, утримання уваги</li><li>Фінальний монтаж, озвучка й публікація</li></ul><p class="mod-res">Застосовуєш усе з попередніх модулів і створюєш свій перший повноцінний AI-фільм до 1 хвилини. На ринку такі відео коштують від $20 (10 сек) до $120 (1 хв).</p></div></div>
-      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m08.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">UGC: AI-блогер та відео для товарів</span><span class="mod-x"></span></button>
-        <div class="mod-body"><ul><li>Як створити реалістичного AI-блогера: голос, міміка, поведінка</li><li>Відео для товарів: проблема → продукт → результат</li><li>Відео-відгук: AI-блогер тримає товар у руках і дає на нього свій чесний відгук</li><li>Ноди — більше контролю в генерації, як у професіоналів</li><li>Предметна зйомка товарів і відеоогляди для інтернет-магазинів — формат, який товарка купує постійно</li></ul><p class="mod-res">Готове рекламне відео для товару, яке вже можна продати клієнту.</p></div></div>
-      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m09.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Мультфільми у стилях топових студій — Pixar, Disney та інших</span><span class="mod-x"></span></button>
-        <div class="mod-body"><ul><li>Стилі AI-анімації: 2D, 3D, аніме, cartoon — від простого до рівня великих студій</li><li>Покроковий процес: сценарій → персонажі → сцени → монтаж</li><li>Збереження стилю між кадрами, озвучення й музика</li></ul><p class="mod-res">Готовий мультик у власному стилі — окремий формат і окремий ринок.</p></div></div>
-      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m10.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Комерційна реклама для товарів та бізнесів<span class="tg upd">оновлено</span></span><span class="mod-x"></span></button>
-        <div class="mod-body"><ul><li>Структура комерційного AI-відео — чим реклама відрізняється від «гарного відео»</li><li>Формула ефективного рекламного ролика</li><li>Формула ефективного рекламного креативу — ідея, яка продає</li><li><b>Нове:</b> товар у кадрі без спотворень — упаковка, логотип, написи</li><li>Практика: повний цикл від брифу до готового ролика</li></ul><p class="mod-res">Рекламний ролик для реального клієнта — найдорожчий формат на ринку.</p></div></div>
-    </div>
-    </div>
-
-    <div class="phase ph3">
-      <div class="phase-h"><h3>Етап 3 · Дохід</h3><span>відкривається з 2-го тижня</span></div>
-      <div class="mods">
-      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m11.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Формування портфоліо AI-відеокреатора</span><span class="mod-x"></span></button>
-        <div class="mod-body"><ul><li>Що має бути в портфоліо й скільки робіт достатньо для старту</li><li>Упаковка робіт: завдання → рішення → результат</li><li>Створення свого сайту-портфоліо через Claude Code</li></ul><p class="mod-res">Портфоліо з 5+ робіт, упаковане так, щоб клієнт одразу бачив цінність.</p></div></div>
-      <div class="mod"><button class="mod-btn" aria-expanded="false"><img class="mod-th" src="/videokreator-2/media/mod/m12.jpg" alt="" loading="lazy" decoding="async" width="800" height="450"><span class="mod-t">Клієнти, лідогенерація і продажі — ведуть 4 експерти<span class="tg upd">оновлено</span></span><span class="mod-x"></span></button>
-        <div class="mod-body"><ul><li><b>Богдан Титоренко</b> — безкоштовні канали лідогенерації, LinkedIn-аутріч без спаму, Upwork для AI-креатора: профіль, пошук проєктів, proposal-и</li><li><b>Ілля Косенко</b> — пошук клієнтів через Reels, TikTok і Shorts, холодні розсилки, таргет на свої послуги, партнерства, івенти</li><li><b>Богдан Степаненко</b> — філософія фрилансера, клієнти через Google Карти й B2B, продуктова лінійка, переписка й дзвінки, заперечення, КП і готові скрипти</li><li><b>Олександр Цюцьмаць</b> — клієнти через блог, Threads (формула 1 млн охоплень), прямі ефіри та пробний рілс</li><li><b>Нове:</b> модуль відкривається вже на 2-му тижні навчання</li></ul><p class="mod-res">Ціла система залучення клієнтів і продажів — безкоштовні й платні методи, портфоліо, переписка й дзвінки. Перші клієнти — ще під час навчання.</p></div></div>
-    </div>
-    </div>
-
-    <div class="bonus reveal">
-      <div class="bonus-h"><svg class="gift-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8a1 1 0 001 1h12a1 1 0 001-1v-8M12 8v13M12 8c-1.5-3-5-4-5-1.5S10 8 12 8zm0 0c1.5-3 5-4 5-1.5S14 8 12 8z"/></svg><div><h3>Бонуси за швидке рішення</h3><p>Для всіх тарифів — Стандарт, Преміум і VIP. Отримуєш 3 бонусні модулі, якщо приєднуєшся зараз.</p></div></div>
-      <ul>
-        <li><i class="g">Бонус 1</i><span>Монетизація Facebook — як заробляти на своїх роликах</span></li>
-        <li><i class="g">Бонус 2</i><span>Бухгалтерія для AI-креатора — ФОП і податки</span></li>
-        <li><i class="g">Бонус 3</i><span>Розбори нейромереж Kling, Grok, Flow, Seedance і HeyGen</span></li>
-      </ul>
+    <div class="nov-vis cam reveal d1">
+      <div class="rec-phone"><div class="rec-scr"><img src="/videokreator-2/media/sup/live.webp" alt="" loading="lazy" decoding="async"><span class="rec"><i></i>REC</span><span class="rec-t">00:00:27</span><i class="grid-l"></i></div></div>
     </div>
   </div>
 </section>
+<!-- ===================== NOV 03: filmmaking bases ===================== -->
+<section class="sec dark nov" id="nov3">
+  <div class="wrap">
+    <div class="nov-n reveal">Нововведення <b>03</b> / 06</div>
+    <h2 class="reveal">Бази для зйомки, які <span class="hm">відрізняють новачка від профі</span></h2>
+    <p class="lead reveal d1">У модуль «Фільммейкінг» ми додали готові бази: стилі зйомки, емоції акторської гри й рухи камери. Кожен приклад нижче згенеровано за промптом із бази.</p>
+    <div class="nov-stats">
+      <div class="ns reveal"><b>20</b><span>стилів зйомки — від 16mm-документалки до bodycam і FPV</span></div>
+      <div class="ns reveal d1"><b>25</b><span>емоцій акторської гри — для Seedance, Kling, Veo і Sora</span></div>
+      <div class="ns reveal d2"><b>54</b><span>матеріали в бібліотеці рухів камери</span></div>
+    </div>
+    <h3 class="gt-h reveal">Емоції: що роблять очі, брови, щелепа й плечі — на одному персонажі</h3>
+    <div class="gt-grid emo"><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-01.mp4" poster="/videokreator-2/media/new/emo-01.jpg" muted loop playsinline preload="none" aria-label="Сміх"></video></div><figcaption><b>Сміх</b><span class="lv l3">вибухова</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-02.mp4" poster="/videokreator-2/media/new/emo-02.jpg" muted loop playsinline preload="none" aria-label="Шок"></video></div><figcaption><b>Шок</b><span class="lv l3">вибухова</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-03.mp4" poster="/videokreator-2/media/new/emo-03.jpg" muted loop playsinline preload="none" aria-label="Жах"></video></div><figcaption><b>Жах</b><span class="lv l3">вибухова</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-04.mp4" poster="/videokreator-2/media/new/emo-04.jpg" muted loop playsinline preload="none" aria-label="Лють"></video></div><figcaption><b>Лють</b><span class="lv l3">вибухова</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-06.mp4" poster="/videokreator-2/media/new/emo-06.jpg" muted loop playsinline preload="none" aria-label="Плач"></video></div><figcaption><b>Плач</b><span class="lv l3">вибухова</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-05.mp4" poster="/videokreator-2/media/new/emo-05.jpg" muted loop playsinline preload="none" aria-label="Відраза"></video></div><figcaption><b>Відраза</b><span class="lv l2">середня</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-08.mp4" poster="/videokreator-2/media/new/emo-08.jpg" muted loop playsinline preload="none" aria-label="Закочування очей"></video></div><figcaption><b>Закочування очей</b><span class="lv l2">середня</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-10.mp4" poster="/videokreator-2/media/new/emo-10.jpg" muted loop playsinline preload="none" aria-label="Флірт"></video></div><figcaption><b>Флірт</b><span class="lv l1">ледь помітна</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-15.mp4" poster="/videokreator-2/media/new/emo-15.jpg" muted loop playsinline preload="none" aria-label="Захват"></video></div><figcaption><b>Захват</b><span class="lv l2">середня</span></figcaption></figure><div class="gt lock"><i>🔒</i><b>+16</b><span>емоцій <br>відкриваються на курсі</span></div></div>
+    <h3 class="gt-h reveal">Стилі зйомки: реальна камера, оптика й носій</h3>
+    <div class="gt-grid sty"><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-01.mp4" poster="/videokreator-2/media/new/style-01.jpg" muted loop playsinline preload="none" aria-label="Документалка 16mm, 1983"></video></div><figcaption><b>Документалка 16mm, 1983</b><span class="lv">Archival 16mm</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-02.mp4" poster="/videokreator-2/media/new/style-02.jpg" muted loop playsinline preload="none" aria-label="Вуличне кіно 35mm Anamorphic"></video></div><figcaption><b>Вуличне кіно 35mm Anamorphic</b><span class="lv">Street cinema</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-06.mp4" poster="/videokreator-2/media/new/style-06.jpg" muted loop playsinline preload="none" aria-label="Інтимний IMAX 65mm"></video></div><figcaption><b>Інтимний IMAX 65mm</b><span class="lv">IMAX 65mm</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-07.mp4" poster="/videokreator-2/media/new/style-07.jpg" muted loop playsinline preload="none" aria-label="VFX-блокбастер"></video></div><figcaption><b>VFX-блокбастер</b><span class="lv">Large format VFX</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-08.mp4" poster="/videokreator-2/media/new/style-08.jpg" muted loop playsinline preload="none" aria-label="CGI через LED Volume"></video></div><figcaption><b>CGI через LED Volume</b><span class="lv">Virtual production</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-09.mp4" poster="/videokreator-2/media/new/style-09.jpg" muted loop playsinline preload="none" aria-label="Предметка з Cinebot і Phantom"></video></div><figcaption><b>Предметка з Cinebot і Phantom</b><span class="lv">Product 1000 fps</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-10.mp4" poster="/videokreator-2/media/new/style-10.jpg" muted loop playsinline preload="none" aria-label="Кінематографічний політ дрона"></video></div><figcaption><b>Кінематографічний політ дрона</b><span class="lv">Aerial</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-11.mp4" poster="/videokreator-2/media/new/style-11.jpg" muted loop playsinline preload="none" aria-label="Y2K камкордер Hi8 / MiniDV"></video></div><figcaption><b>Y2K камкордер Hi8 / MiniDV</b><span class="lv">Home video</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-12.mp4" poster="/videokreator-2/media/new/style-12.jpg" muted loop playsinline preload="none" aria-label="Analog horror / found footage"></video></div><figcaption><b>Analog horror / found footage</b><span class="lv">VHS horror</span></figcaption></figure><div class="gt lock"><i>🔒</i><b>+11</b><span>стилів <br>відкриваються на курсі</span></div></div>
+  </div>
+</section>
+<!-- ===================== NOV 04: overdelivered ===================== -->
+<section class="sec paper nov" id="nov4">
+  <div class="wrap">
+    <div class="nov-n reveal">Нововведення <b>04</b> / 06</div>
+    <h2 class="reveal">Ми дали більше, <span class="hm">ніж обіцяли</span></h2>
+    <p class="lead reveal d1">Порівняй, що ми обіцяли учням першого потоку на сайті, — і що вони отримали на платформі.</p>
+    <div class="ov-cmp">
+      <div class="oc reveal"><span>Модулів</span><s>12</s><b>14</b><em>+2 бонусні: «Рухи камери» і «Контент із собою»</em></div>
+      <div class="oc reveal d1"><span>Групових зідзвонів</span><s>12</s><b>15</b><em>і зідзвони тривають далі</em></div>
+      <div class="oc reveal d2"><span>Матеріалів на платформі</span><s>—</s><b>208</b><em>гайди, чеклісти, шаблони, промпти</em></div>
+    </div>
+    <h3 class="ov-h reveal">І ще те, чого взагалі не було в обіцянках</h3>
+    <div class="ov-grid">
+      <div class="og reveal"><i>🤖</i><b>Мультиагент для монтажу v6</b><span>Монтує й робить контент через Claude Code і Codex</span></div>
+      <div class="og reveal d1"><i>🎓</i><b>Атестація</b><span>Надсилаєш найкращу роботу — отримуєш статус «Атестовано» і доступ до клієнтів</span></div>
+      <div class="og reveal d2"><i>🛠</i><b>5 безкоштовних AI-інструментів</b><span>Seedance 2.5 Режисер, пошукові запити TikTok і YouTube, зображення → промпт, текст → голос, видалення фону</span></div>
+      <div class="og reveal d3"><i>🗞</i><b>AI-пульс щодня о 8:00</b><span>Головне з AI-відео за добу — з офіційних джерел</span></div>
+      <div class="og reveal d4"><i>💬</i><b>Міні-Сашка</b><span>AI-помічник на платформі: підкаже, якщо щось незрозуміло</span></div>
+      <div class="og reveal d5"><i>🎁</i><b>Бонусні завдання з розіграшами</b><span>133 учні здають бонуси — вже 751 зарахована робота</span></div>
+    </div>
+  </div>
+</section>
+<!-- ===================== NOV 05: 32 workflows ===================== -->
+<section class="sec dark2 nov" id="nov5">
+  <div class="wrap">
+    <div class="nov-n reveal">Нововведення <b>05</b> / 06</div>
+    <h2 class="reveal">32 воркфлоу: <span class="hm">від нуля до готового відео</span></h2>
+    <p class="lead reveal d1">Воркфлоу — це не просто гарний ролик, а повний розбір, як його зробили: які референси створили, які промпти написали, в якій нейромережі й у якому порядку. Відкриваєш, повторюєш крок за кроком — і отримуєш такий самий результат зі своїм героєм чи продуктом.</p>
+    <div class="wfx">
+      <div class="wfx-rec reveal">
+        <div class="brw"><div class="brw-top"><i></i><i></i><i></i><span>vseai.app · Закритий клуб · Воркфлоу</span></div>
+          <div class="brw-scr"><img src="/videokreator-2/media/new/wf-scroll.jpg" alt="Так виглядає воркфлоу всередині клубу: кроки, картинки й готові промпти" loading="lazy" decoding="async"></div></div>
+        <p class="wfx-cap">Так виглядає воркфлоу всередині: кожен крок, картинка й готовий промпт, який копіюєш</p>
+      </div>
+      <div class="wfx-steps reveal d1">
+        <div class="wfx-k">Приклад: AI-реклама з консистентним персонажем</div>
+        <div class="wst"><img src="/videokreator-2/media/new/fanta-1.jpg" alt="" loading="lazy" decoding="async"><div><b>01 · Референс героїні</b><span>Одне якісне фото — «обличчя» всієї реклами. Промпт у GPT Image додається.</span></div></div>
+        <div class="wst"><img src="/videokreator-2/media/new/fanta-2.jpg" alt="" loading="lazy" decoding="async"><div><b>02 · Character sheet</b><span>Вид спереду, збоку, ззаду, емоції й пози — щоб персонаж не «плив» між сценами.</span></div></div>
+        <div class="wst"><img src="/videokreator-2/media/new/fanta-3.jpg" alt="" loading="lazy" decoding="async"><div><b>03 · Розкадровка 3×3</b><span>Увесь ролик наперед: 9 кадрів від першого до фінального.</span></div></div>
+        <div class="wst res"><div class="wst-v"><div class="wf-v" data-src="https://t2zt5gymcnwnozru.public.blob.vercel-storage.com/club/workflows/ssstwitter.com_1780402168912-YfySXAnKGclMFx2HwW1VBLLSw3zd3U.mp4"><img src="/videokreator-2/media/new/wf07.jpg" alt="AI-реклама з консистентним персонажем" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись: AI-реклама з консистентним персонажем"><i></i></button></div><span class="pt-ex">Приклад: AI-реклама з консистентним персонажем</span></div><div><b>04 · Готове відео</b><span>Промпт для Seedance оживлює розкадровку в рекламний ролик.</span></div></div>
+      </div>
+    </div>
+    <div class="wfx-ben">
+      <div class="wb reveal"><b>Бачиш процес, а не лише результат</b><span>Від ідеї до готового відео — кожен крок розписаний.</span></div>
+      <div class="wb reveal d1"><b>Копіюєш структуру — міняєш героя й продукт</b><span>Готові промпти на кожному кроці: підставляєш своє й проявляєш творчість.</span></div>
+      <div class="wb reveal d2"><b>32 сценарії під усі формати</b><span>Реклама, кіно, мультики, UGC, кліпи — для портфоліо й реальних замовлень.</span></div>
+    </div>
+    <div class="wfx-lib reveal"><div class="wfx-lib-h">Усі 32 воркфлоу в клубі — доступ отримують усі учні курсу</div><div class="chips"><span>Mulberry Boys — 30 с одним дублем</span><span>K-pop танцювальне відео зі storyboard</span><span>Ритуал Сейбер Пої</span><span>OOTD-трансформація</span><span>FPV-дрон над Кельнським собором</span><span>Політ на мітлі по червоній лінії</span><span>AI-реклама з консистентним персонажем</span><span>Falling for Fall — реклама кавʼярні</span><span>Керування рухом камери в Seedance</span><span>Car Commercial — авто збирається з нуля</span><span>Мульти-референс відео в Omni Flash</span><span>Night Obstacle Run</span><span>Garlic Chilli — реклама соусу</span><span>The Starry Night — політ крізь картину</span><span>The Last Bond — драма про дівчину і пса</span><span>The Last Dish — комедія на кухні</span><span>Michelin Masterpiece</span><span>Titan Archer vs Sea Kaiju</span><span>Girl with a Pearl Earring</span><span>I, Robot — допит робота</span><span>Sitcom Dog — ситком 90-х</span><span>Static Shock</span><span>Concrete Revenge</span><span>Sunflower's Redemption</span><span>Roadster Roadblock</span><span>Last Line — серія з 12 шотів</span><span>Pink Bump — bullet-time</span><span>The Last Toy</span><span>Anamorphic Billboard — 3D-білборд</span><span>Painted Tunnel — кіт і миша</span><span>Challenge Show</span><span>Hydrant Escape</span></div></div>
+  </div>
+</section>
+<!-- ===================== NOV 06: product ads ===================== -->
+<section class="sec cream nov" id="nov6">
+  <div class="wrap">
+    <div class="nov-n reveal">Нововведення <b>06</b> / 06</div>
+    <h2 class="reveal">Реклама товарів, <span class="hm">яку справді купують</span></h2>
+    <p class="lead reveal d1">Сьогодні кожен може зайти в ChatGPT і зробити фотосесію товару. Але таке не купують — це вміє будь-хто. Бізнес платить за креатив. В оновленому блоці — 3 види контенту, за які люди справді готові платити:</p>
+    <div class="pt-grid">
+      <div class="pt reveal"><b class="pt-n">1</b><h3>Гіпермоушен</h3><p>Динамічні ролики, де товар оживає в русі й тримає увагу з першої секунди.</p><div class="pt-v"><div class="wf-v" data-src="https://t2zt5gymcnwnozru.public.blob.vercel-storage.com/uploads/1792155316339-fpseuiwlufb.mp4"><img src="/videokreator-2/media/new/wf10.jpg" alt="Car Commercial — авто збирається з нуля" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись: Car Commercial — авто збирається з нуля"><i></i></button></div><span class="pt-ex">Приклад: Car Commercial — авто збирається з нуля</span></div></div>
+      <div class="pt reveal d1"><b class="pt-n">2</b><h3>Креатив, що пробиває банерну сліпоту</h3><p>Рекламні ролики, які не скролять, бо вони не схожі на рекламу.</p><div class="pt-v"><div class="wf-v" data-src="https://t2zt5gymcnwnozru.public.blob.vercel-storage.com/uploads/1792412435933-gyb1vbd22d7.mp4"><img src="/videokreator-2/media/new/wf29.jpg" alt="Anamorphic Billboard — 3D-білборд" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись: Anamorphic Billboard — 3D-білборд"><i></i></button></div><span class="pt-ex">Приклад: Anamorphic Billboard — 3D-білборд</span></div></div>
+      <div class="pt reveal d2"><b class="pt-n">3</b><h3>Товар + людина + локація + ситуація</h3><p>Товар у живій сцені, де з ним щось відбувається, — а не на білому фоні.</p><div class="pt-v"><div class="wf-v" data-src="https://t2zt5gymcnwnozru.public.blob.vercel-storage.com/uploads/1792155373670-3vm63ditstg.mp4"><img src="/videokreator-2/media/new/wf13.jpg" alt="Garlic Chilli — реклама соусу" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись: Garlic Chilli — реклама соусу"><i></i></button></div><span class="pt-ex">Приклад: Garlic Chilli — реклама соусу</span></div></div>
+    </div>
+  </div>
+</section>
+<!-- NOV END -->
 
 <!-- ===================== CLIENTS ===================== -->
 <section class="sec dark2" id="clients">
@@ -1475,6 +1810,26 @@ document.querySelectorAll('.vid,.work').forEach(function(box){
 (function(){
   var b=document.querySelector('.vr-more'); if(!b) return;
   b.addEventListener('click',function(){document.querySelector('.vr-t').classList.add('open'); b.style.display='none';});
+})();
+
+/* novelties: workflow tiles play on click, «show all» */
+(function(){
+  document.querySelectorAll('.wf-v').forEach(function(box){
+    box.querySelector('.play').addEventListener('click',function(){
+      document.querySelectorAll('.wf-v video,.vid video,.work video').forEach(function(v){v.pause()});
+      var v=document.createElement('video'); v.src=box.getAttribute('data-src'); v.controls=true; v.playsInline=true; v.setAttribute('playsinline',''); v.autoplay=true;
+      box.classList.add('on'); box.innerHTML=''; box.appendChild(v); var p=v.play(); if(p&&p.catch)p.catch(function(){});
+    });
+  });
+  var b=document.querySelector('.wf-more'); if(b) b.addEventListener('click',function(){document.querySelector('.wf-grid').classList.add('open'); b.style.display='none';});
+})();
+
+/* novelties: lazy autoplay muted loops */
+(function(){
+  var vs=[].slice.call(document.querySelectorAll('video[data-lz]')); if(!vs.length) return;
+  if(!('IntersectionObserver' in window)){vs.forEach(function(v){v.src=v.getAttribute('data-lz')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target; if(e.isIntersecting){if(!v.src)v.src=v.getAttribute('data-lz'); var p=v.play(); if(p&&p.catch)p.catch(function(){});} else if(v.src){v.pause();}})},{rootMargin:'200px 0px'});
+  vs.forEach(function(v){io.observe(v)});
 })();
 </script>
 </body>
