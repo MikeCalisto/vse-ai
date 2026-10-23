@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <script>
 /* якщо браузер (Telegram, Safari) показав збережену стару версію — один раз перезавантажити свіжу */
-(function(){var B='399c5c4371';try{fetch('/videokreator-2/version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():''}).then(function(v){v=(v||'').trim();var k='vk2-'+v;if(v&&v!==B&&!sessionStorage.getItem(k)){sessionStorage.setItem(k,'1');location.replace(location.pathname+'?v='+v+location.hash)}}).catch(function(){})}catch(e){}})();
+(function(){var B='86badcaeab';try{fetch('/videokreator-2/version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():''}).then(function(v){v=(v||'').trim();var k='vk2-'+v;if(v&&v!==B&&!sessionStorage.getItem(k)){sessionStorage.setItem(k,'1');location.replace(location.pathname+'?v='+v+location.hash)}}).catch(function(){})}catch(e){}})();
 </script>
 <title>АІ-Відеокреатор 2.0 — курс Олександра Цюцьмаця · старт 12 листопада</title>
 <meta name="description" content="12 модулів, 12 тижнів: навчишся створювати рекламу, мультики, фільми й UGC через нейромережі та знаходити клієнтів. Другий потік, оновлений за відгуками 98 учнів.">
@@ -520,7 +520,7 @@ footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
 .vr .vid{width:100%;border:0;box-shadow:0 14px 30px rgba(40,34,20,.16)}
 .vr figcaption{padding:12px 4px 0}
 .vr figcaption p{font-size:.95rem;line-height:1.45;font-weight:600}
-.vr-more{display:none}
+.vr-more,.rv-more{display:none}
 .vr cite{display:block;font-style:normal;font-size:.8rem;font-weight:700;color:var(--emerald);margin-top:6px}
 
 /* ===== why AI-video ===== */
@@ -644,7 +644,7 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
 .oc em{grid-area:e;font-style:normal;font-size:.84rem;color:var(--t-mut-c)}
 .ov-h{margin-top:30px;font-size:1.25rem}
 .ov-grid{display:grid;gap:10px;margin-top:14px}
-.og{display:grid;grid-template-columns:44px 1fr;column-gap:12px;background:#fff;border:1px solid var(--line-c);border-radius:16px;padding:14px 16px}
+.og{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-content:start;align-items:start;background:#fff;border:1px solid var(--line-c);border-radius:16px;padding:14px 16px}
 .og i{grid-row:span 2;font-style:normal;font-size:1.4rem;width:44px;height:44px;border-radius:13px;background:var(--ink);display:grid;place-items:center}
 .og b{font-size:1rem}
 .og span{font-size:.88rem;color:#4c5a53;line-height:1.45;margin-top:2px}
@@ -770,10 +770,22 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
 
 
 /* ================= DESKTOP (≥960px) — full-width layout ================= */
+/* reviews on mobile: vertical list, first 4 + «show more» (the swipe track was as tall as the longest screenshot) */
+@media (max-width:959px){
+  #reviews .revs-t{flex-direction:column;align-items:stretch;gap:14px;overflow:visible;margin:24px 0 0;padding:0}
+  #reviews .revs-t .rev{flex:none;content-visibility:visible}
+  #reviews .revs-t:not(.open) .rev:nth-child(n+5){display:none}
+  #reviews .swipe{display:none}
+  .rv-more{display:flex;margin:20px auto 0;padding:16px 26px}
+}
 @media (min-width:960px){
   /* more & six */
   #more .ov-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
   #more .og.wide{grid-column:1/-1}
+  #more .og:not(.wide){display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:20px 18px}
+  #more .og:not(.wide) i{grid-row:auto}
+  #more .og:not(.wide) b{font-size:1.02rem;line-height:1.3}
+  #more .og:not(.wide) span{margin-top:0}
   #more .og.wide .og-l{grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
   .ov-so{padding:28px 34px}
   .ov-so p{font-size:1.12rem;max-width:80ch}
@@ -925,6 +937,8 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
   /* reviews */
   .revs-t{display:block;columns:3;column-gap:18px;overflow:visible;margin:30px 0 0;padding:0}
   .revs-t .rev{display:block;break-inside:avoid;margin-bottom:18px;content-visibility:visible}
+  .revs-t:not(.open) .rev.more{display:none}
+  .rv-more{display:flex;margin:22px auto 0;padding:18px 34px}
   .tquotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
   .nps{max-width:600px}
   /* what's new */
@@ -1507,16 +1521,37 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
     <h2 class="reveal">Що ще кажуть <span class="hm">учні першого потоку?</span></h2>
     <div class="nps reveal d1"><b>9,4<small>/10</small></b><span>середня оцінка курсу від учнів першого потоку</span></div>
     <div class="track revs-t">
+      <div class="rev"><picture><source srcset="/videokreator-2/media/rev/zlata.avif" type="image/avif"><img src="/videokreator-2/media/rev/zlata.jpg" alt="Відгук Злати Баландіної" loading="lazy" decoding="async" width="728" height="386"></picture></div>
+      <div class="rev"><picture><source srcset="/videokreator-2/media/rev/demchuk.avif" type="image/avif"><img src="/videokreator-2/media/rev/demchuk.jpg" alt="Відгук Наталі Демчук" loading="lazy" decoding="async" width="720" height="356"></picture></div>
+      <div class="rev"><picture><source srcset="/videokreator-2/media/rev/marika-pay.avif" type="image/avif"><img src="/videokreator-2/media/rev/marika-pay.jpg" alt="Відгук Марики: перша оплата за замовлення" loading="lazy" decoding="async" width="712" height="342"></picture></div>
+      <div class="rev"><picture><source srcset="/videokreator-2/media/rev/antko.avif" type="image/avif"><img src="/videokreator-2/media/rev/antko.jpg" alt="Відгук Світлани Антко" loading="lazy" decoding="async" width="722" height="526"></picture></div>
+      <div class="rev"><picture><source srcset="/videokreator-2/media/rev/olena-list.avif" type="image/avif"><img src="/videokreator-2/media/rev/olena-list.jpg" alt="Відгук Олени: 12 досягнень за час навчання" loading="lazy" decoding="async" width="714" height="1506"></picture></div>
       <div class="rev"><picture><source srcset="/videokreator-2/media/rev/svetlana.avif" type="image/avif"><img src="/videokreator-2/media/rev/svetlana.jpg" alt="Відгук Світлани" loading="lazy" decoding="async" width="527" height="461"></picture></div>
       <div class="rev"><picture><source srcset="/videokreator-2/media/rev/ulija.avif" type="image/avif"><img src="/videokreator-2/media/rev/ulija.jpg" alt="Відгук у Threads" loading="lazy" decoding="async" width="772" height="282"></picture></div>
       <div class="rev"><picture><source srcset="/videokreator-2/media/rev/leiko.avif" type="image/avif"><img src="/videokreator-2/media/rev/leiko.jpg" alt="Відгук Оксани Лейко" loading="lazy" decoding="async" width="511" height="202"></picture></div>
       <div class="rev"><picture><source srcset="/videokreator-2/media/rev/ksana.avif" type="image/avif"><img src="/videokreator-2/media/rev/ksana.jpg" alt="Відгук Ксани" loading="lazy" decoding="async" width="518" height="340"></picture></div>
-      <div class="rev"><picture><source srcset="/videokreator-2/media/rev/truffle.avif" type="image/avif"><img src="/videokreator-2/media/rev/truffle.jpg" alt="Рекомендація у Threads" loading="lazy" decoding="async" width="793" height="373"></picture></div>
-      <div class="rev"><picture><source srcset="/videokreator-2/media/rev/lana.avif" type="image/avif"><img src="/videokreator-2/media/rev/lana.jpg" alt="Відгук Лани" loading="lazy" decoding="async" width="522" height="175"></picture></div>
-      <div class="rev"><picture><source srcset="/videokreator-2/media/rev/natali.avif" type="image/avif"><img src="/videokreator-2/media/rev/natali.jpg" alt="Відгук Наталі" loading="lazy" decoding="async" width="527" height="260"></picture></div>
-      <div class="rev"><picture><source srcset="/videokreator-2/media/rev/polina.avif" type="image/avif"><img src="/videokreator-2/media/rev/polina.jpg" alt="Рекомендація у Threads" loading="lazy" decoding="async" width="762" height="325"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/truffle.avif" type="image/avif"><img src="/videokreator-2/media/rev/truffle.jpg" alt="Рекомендація у Threads" loading="lazy" decoding="async" width="793" height="373"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/lana.avif" type="image/avif"><img src="/videokreator-2/media/rev/lana.jpg" alt="Відгук Лани" loading="lazy" decoding="async" width="522" height="175"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/natali.avif" type="image/avif"><img src="/videokreator-2/media/rev/natali.jpg" alt="Відгук Наталі" loading="lazy" decoding="async" width="527" height="260"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/polina.avif" type="image/avif"><img src="/videokreator-2/media/rev/polina.jpg" alt="Рекомендація у Threads" loading="lazy" decoding="async" width="762" height="325"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/marakhovska.avif" type="image/avif"><img src="/videokreator-2/media/rev/marakhovska.jpg" alt="Відгук Тетяни Мараховської" loading="lazy" decoding="async" width="714" height="582"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/nelli.avif" type="image/avif"><img src="/videokreator-2/media/rev/nelli.jpg" alt="Відгук Неллі" loading="lazy" decoding="async" width="724" height="324"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/olena-koval.avif" type="image/avif"><img src="/videokreator-2/media/rev/olena-koval.jpg" alt="Відгук Олени Коваль" loading="lazy" decoding="async" width="714" height="454"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/galych.avif" type="image/avif"><img src="/videokreator-2/media/rev/galych.jpg" alt="Відгук Лілії Галич" loading="lazy" decoding="async" width="730" height="698"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/grek.avif" type="image/avif"><img src="/videokreator-2/media/rev/grek.jpg" alt="Відгук Наталії Грек" loading="lazy" decoding="async" width="716" height="1300"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/alla.avif" type="image/avif"><img src="/videokreator-2/media/rev/alla.jpg" alt="Відгук Алли Постоловської" loading="lazy" decoding="async" width="720" height="862"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/aleksa.avif" type="image/avif"><img src="/videokreator-2/media/rev/aleksa.jpg" alt="Відгук Aleksa" loading="lazy" decoding="async" width="732" height="862"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/darya.avif" type="image/avif"><img src="/videokreator-2/media/rev/darya.jpg" alt="Відгук Дар'ї" loading="lazy" decoding="async" width="720" height="516"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/natali-b.avif" type="image/avif"><img src="/videokreator-2/media/rev/natali-b.jpg" alt="Відгук Natali" loading="lazy" decoding="async" width="722" height="558"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/ivory.avif" type="image/avif"><img src="/videokreator-2/media/rev/ivory.jpg" alt="Відгук ivory" loading="lazy" decoding="async" width="708" height="526"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/tanya.avif" type="image/avif"><img src="/videokreator-2/media/rev/tanya.jpg" alt="Відгук Тані" loading="lazy" decoding="async" width="716" height="490"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/nadiya.avif" type="image/avif"><img src="/videokreator-2/media/rev/nadiya.jpg" alt="Відгук Надії" loading="lazy" decoding="async" width="730" height="354"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/marika.avif" type="image/avif"><img src="/videokreator-2/media/rev/marika.jpg" alt="Відгук Марики" loading="lazy" decoding="async" width="726" height="230"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/khodos.avif" type="image/avif"><img src="/videokreator-2/media/rev/khodos.jpg" alt="Відгук Олександра Ходоса" loading="lazy" decoding="async" width="720" height="282"></picture></div>
+      <div class="rev more"><picture><source srcset="/videokreator-2/media/rev/fielder.avif" type="image/avif"><img src="/videokreator-2/media/rev/fielder.jpg" alt="Відгук Johnny Fielder" loading="lazy" decoding="async" width="696" height="220"></picture></div>
     </div>
     <div class="swipe"><svg width="22" height="12" viewBox="0 0 22 12" fill="none"><path d="M1 6h19m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Гортай відгуки</div>
+    <button class="btn rv-more" type="button">Дивитись ще 19 відгуків ↓</button>
     <div class="tquotes">
       <div class="tq reveal"><p>«Ти не просто розповідаєш теорію, а буквально ведеш за руку: натисніть сюди, відкрийте це — і відразу показуєш результат.»</p><cite>Наталі, підприємиця, 50+</cite></div>
       <div class="tq reveal d1"><p>«Ви не обіцяєте золоті гори, успішний успіх і тисячі доларів. Відчувається, що курс побудований на власному досвіді.»</p><cite>Ірина, тариф Преміум</cite></div>
@@ -1856,6 +1891,12 @@ document.querySelectorAll('.vid,.work').forEach(function(box){
 (function(){
   var b=document.querySelector('.vr-more'); if(!b) return;
   b.addEventListener('click',function(){document.querySelector('.vr-t').classList.add('open'); b.style.display='none';});
+})();
+(function(){
+  var b=document.querySelector('.rv-more'); if(!b) return;
+  var h=[].filter.call(document.querySelectorAll('.revs-t .rev'),function(r){return getComputedStyle(r).display=='none'}).length;
+  var m=h%10,c=h%100; if(h) b.textContent='Дивитись ще '+h+' '+(m==1&&c!=11?'відгук':m>=2&&m<=4&&(c<12||c>14)?'відгуки':'відгуків')+' ↓';
+  b.addEventListener('click',function(){document.querySelector('.revs-t').classList.add('open'); b.style.display='none';});
 })();
 
 /* novelties: workflow tiles play on click, «show all» */
