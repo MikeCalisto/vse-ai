@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <script>
 /* якщо браузер (Telegram, Safari) показав збережену стару версію — один раз перезавантажити свіжу */
-(function(){var B='86badcaeab';try{fetch('/videokreator-2/version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():''}).then(function(v){v=(v||'').trim();var k='vk2-'+v;if(v&&v!==B&&!sessionStorage.getItem(k)){sessionStorage.setItem(k,'1');location.replace(location.pathname+'?v='+v+location.hash)}}).catch(function(){})}catch(e){}})();
+(function(){var B='0c37a985d3';try{fetch('/videokreator-2/version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():''}).then(function(v){v=(v||'').trim();var k='vk2-'+v;if(v&&v!==B&&!sessionStorage.getItem(k)){sessionStorage.setItem(k,'1');location.replace(location.pathname+'?v='+v+location.hash)}}).catch(function(){})}catch(e){}})();
 </script>
 <title>АІ-Відеокреатор 2.0 — курс Олександра Цюцьмаця · старт 12 листопада</title>
 <meta name="description" content="12 модулів, 12 тижнів: навчишся створювати рекламу, мультики, фільми й UGC через нейромережі та знаходити клієнтів. Другий потік, оновлений за відгуками 98 учнів.">
@@ -768,6 +768,19 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
 .wfx-more{margin-top:16px;font-size:.95rem;color:#cfdcd4}
 .wfx-more b{color:var(--mint)}
 
+/* ===== nov objects ===== */
+.nh{display:grid;gap:4px}
+.nh-vis{position:relative;display:grid;place-items:center;width:100%;max-width:280px;margin:14px auto 0}
+.nh-vis .obj,.cam-art .obj{position:relative;z-index:1;height:auto;animation:ofloat 7s ease-in-out infinite;filter:drop-shadow(0 26px 34px rgba(0,0,0,.5))}
+.nh-vis .obj{width:100%}
+.cream .nh-vis .obj,.cream .cam-art .obj{filter:drop-shadow(0 22px 26px rgba(40,34,20,.22))}
+.cream .nh-vis .m1-halo{background:radial-gradient(circle,rgba(67,209,153,.3),rgba(67,209,153,0) 65%)}
+#nov5 .nh-vis{max-width:330px}
+.cam-row{display:flex;align-items:center;gap:12px;margin:4px 0 0 -20px}
+.cam-art{position:relative;flex:0 0 36%}
+.cam-art .obj{display:block;width:118%;max-width:none;margin-left:-14%}
+.cam-row .lead{flex:1;min-width:0}
+
 
 /* ================= DESKTOP (≥960px) — full-width layout ================= */
 /* reviews on mobile: vertical list, first 4 + «show more» (the swipe track was as tall as the longest screenshot) */
@@ -779,6 +792,13 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
   .rv-more{display:flex;margin:20px auto 0;padding:16px 26px}
 }
 @media (min-width:960px){
+  /* nov objects */
+  .nh{grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);column-gap:48px;align-items:center}
+  .nh-vis{max-width:380px;margin:0 0 0 auto}
+  #nov5 .nh-vis{max-width:440px}
+  .cam-row{margin:6px 0 0 -10px;gap:22px}
+  .cam-art{flex-basis:30%}
+  .cam-art .obj{width:100%;margin-left:0}
   /* more & six */
   #more .ov-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
   #more .og.wide{grid-column:1/-1}
@@ -1375,7 +1395,10 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
     <div class="nov-txt">
       <div class="nov-n reveal">Нововведення <b>02</b> / 05</div>
       <h2 class="reveal">Як знімати <span class="hm">себе на камеру</span></h2>
-      <p class="lead reveal d1">Клієнт купує в людини, а не в анонімного акаунта. Тому в модуль «Портфоліо» я додав урок, як знімати себе на камеру, — щоб відео з тобою продавали твої послуги.</p>
+      <div class="cam-row">
+        <div class="cam-art reveal" aria-hidden="true"><img class="obj" src="/videokreator-2/media/obj/selfcam.webp" alt="" width="453" height="853" loading="lazy" decoding="async"></div>
+        <p class="lead reveal d1">Клієнт купує в людини, а не в анонімного акаунта. Тому в модуль «Портфоліо» я додав урок, як знімати себе на камеру, — щоб відео з тобою продавали твої послуги.</p>
+      </div>
       <div class="nov-pair">
         <div class="np reveal"><b>Новий урок</b><span>Як знімати себе на камеру — у модулі «Формування портфоліо»</span></div>
         <div class="np reveal d1"><b>+ бонусний модуль</b><span>«Як генерувати контент із собою» — 5 уроків і 6 матеріалів на платформі</span></div>
@@ -1389,9 +1412,14 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
 <!-- ===================== NOV 03: filmmaking bases ===================== -->
 <section class="sec dark nov" id="nov3">
   <div class="wrap">
-    <div class="nov-n reveal">Нововведення <b>03</b> / 05</div>
-    <h2 class="reveal">Велика база промтів <span class="hm">для фільммейкінгу</span></h2>
-    <p class="lead reveal d1">Саме ці деталі допоможуть тобі створювати справді реалістичний і якісний контент на рівні топових кіностудій. У модуль «Фільммейкінг» я додав готові бази: стилі зйомки, емоції акторської гри й рухи камери. Кожен приклад нижче згенеровано за промптом із бази.</p>
+    <div class="nh">
+      <div class="nh-txt">
+      <div class="nov-n reveal">Нововведення <b>03</b> / 05</div>
+      <h2 class="reveal">Велика база промтів <span class="hm">для фільммейкінгу</span></h2>
+      <p class="lead reveal d1">Саме ці деталі допоможуть тобі створювати справді реалістичний і якісний контент на рівні топових кіностудій. У модуль «Фільммейкінг» я додав готові бази: стилі зйомки, емоції акторської гри й рухи камери. Кожен приклад нижче згенеровано за промптом із бази.</p>
+      </div>
+      <div class="nh-vis reveal d1" aria-hidden="true"><div class="m1-halo"></div><img class="obj" src="/videokreator-2/media/obj/lens.webp" alt="" width="741" height="790" loading="lazy" decoding="async"></div>
+    </div>
     <div class="nov-stats">
       <div class="ns reveal"><b>20</b><span>стилів зйомки — від 16mm-документалки до bodycam і FPV</span></div>
       <div class="ns reveal d1"><b>25</b><span>емоцій акторської гри — для Seedance, Kling, Veo і Sora</span></div>
@@ -1406,9 +1434,14 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
 <!-- ===================== NOV 05: 32 workflows ===================== -->
 <section class="sec dark2 nov" id="nov5">
   <div class="wrap">
-    <div class="nov-n reveal">Нововведення <b>04</b> / 05</div>
-    <h2 class="reveal">32 воркфлоу: <span class="hm">від нуля до готового відео</span></h2>
-    <p class="lead reveal d1">Воркфлоу — це не просто гарний ролик, а повний розбір, як його зробили: які референси створили, які промпти написали, в якій нейромережі й у якому порядку. Відкриваєш, повторюєш крок за кроком — і отримуєш такий самий результат зі своїм героєм чи продуктом.</p>
+    <div class="nh">
+      <div class="nh-txt">
+      <div class="nov-n reveal">Нововведення <b>04</b> / 05</div>
+      <h2 class="reveal">32 воркфлоу: <span class="hm">від нуля до готового відео</span></h2>
+      <p class="lead reveal d1">Воркфлоу — це не просто гарний ролик, а повний розбір, як його зробили: які референси створили, які промпти написали, в якій нейромережі й у якому порядку. Відкриваєш, повторюєш крок за кроком — і отримуєш такий самий результат зі своїм героєм чи продуктом.</p>
+      </div>
+      <div class="nh-vis reveal d1" aria-hidden="true"><div class="m1-halo"></div><img class="obj" src="/videokreator-2/media/obj/workflow.webp" alt="" width="896" height="666" loading="lazy" decoding="async"></div>
+    </div>
     <div class="wfx">
       <div class="wfx-rec reveal">
         <div class="brw"><div class="brw-top"><i></i><i></i><i></i><span>vseai.app · Закритий клуб · Воркфлоу</span></div>
@@ -1436,9 +1469,14 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
 <!-- ===================== NOV 06: product ads ===================== -->
 <section class="sec cream nov" id="nov6">
   <div class="wrap">
-    <div class="nov-n reveal">Нововведення <b>05</b> / 05</div>
-    <h2 class="reveal">Реклама товарів, <span class="hm">яку справді купують</span></h2>
-    <p class="lead reveal d1">Сьогодні кожен може зайти в ChatGPT і зробити фотосесію товару. Але таке вже не купують — це вміє будь-хто. Бізнес платить за креатив. В оновленому блоці з предметної зйомки — 3 види контенту, за які люди справді готові платити:</p>
+    <div class="nh">
+      <div class="nh-txt">
+      <div class="nov-n reveal">Нововведення <b>05</b> / 05</div>
+      <h2 class="reveal">Реклама товарів, <span class="hm">яку справді купують</span></h2>
+      <p class="lead reveal d1">Сьогодні кожен може зайти в ChatGPT і зробити фотосесію товару. Але таке вже не купують — це вміє будь-хто. Бізнес платить за креатив. В оновленому блоці з предметної зйомки — 3 види контенту, за які люди справді готові платити:</p>
+      </div>
+      <div class="nh-vis reveal d1" aria-hidden="true"><div class="m1-halo"></div><img class="obj" src="/videokreator-2/media/obj/serum.webp" alt="" width="583" height="747" loading="lazy" decoding="async"></div>
+    </div>
     <div class="pt-grid">
       <div class="pt reveal"><b class="pt-n">1</b><h3>Гіпермоушен</h3><p>Динамічні ролики, де товар оживає в русі й тримає увагу з першої секунди.</p><div class="pt-v"><div class="wf-v" data-src="https://t2zt5gymcnwnozru.public.blob.vercel-storage.com/uploads/1792155316339-fpseuiwlufb.mp4"><img src="/videokreator-2/media/new/wf10.jpg" alt="Car Commercial — авто збирається з нуля" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись: Car Commercial — авто збирається з нуля"><i></i></button></div><span class="pt-ex">Приклад: Car Commercial — авто збирається з нуля</span></div></div>
       <div class="pt reveal d1"><b class="pt-n">2</b><h3>Креатив, що пробиває банерну сліпоту</h3><p>Рекламні ролики, які не скролять, бо вони не схожі на рекламу.</p><div class="pt-v"><div class="wf-v" data-src="https://t2zt5gymcnwnozru.public.blob.vercel-storage.com/uploads/1792412435933-gyb1vbd22d7.mp4"><img src="/videokreator-2/media/new/wf29.jpg" alt="Anamorphic Billboard — 3D-білборд" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись: Anamorphic Billboard — 3D-білборд"><i></i></button></div><span class="pt-ex">Приклад: Anamorphic Billboard — 3D-білборд</span></div></div>
