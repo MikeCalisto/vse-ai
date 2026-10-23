@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <script>
 /* якщо браузер (Telegram, Safari) показав збережену стару версію — один раз перезавантажити свіжу */
-(function(){var B='d3574639a0';try{fetch('/videokreator-2/version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():''}).then(function(v){v=(v||'').trim();var k='vk2-'+v;if(v&&v!==B&&!sessionStorage.getItem(k)){sessionStorage.setItem(k,'1');location.replace(location.pathname+'?v='+v+location.hash)}}).catch(function(){})}catch(e){}})();
+(function(){var B='399c5c4371';try{fetch('/videokreator-2/version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():''}).then(function(v){v=(v||'').trim();var k='vk2-'+v;if(v&&v!==B&&!sessionStorage.getItem(k)){sessionStorage.setItem(k,'1');location.replace(location.pathname+'?v='+v+location.hash)}}).catch(function(){})}catch(e){}})();
 </script>
 <title>АІ-Відеокреатор 2.0 — курс Олександра Цюцьмаця · старт 12 листопада</title>
 <meta name="description" content="12 модулів, 12 тижнів: навчишся створювати рекламу, мультики, фільми й UGC через нейромережі та знаходити клієнтів. Другий потік, оновлений за відгуками 98 учнів.">
@@ -607,6 +607,7 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
 .rec-phone{width:min(260px,72%);aspect-ratio:9/18;border-radius:34px;background:#0b1310;padding:10px;box-shadow:0 30px 60px rgba(40,34,20,.3);transform:rotate(-3deg)}
 .rec-scr{position:relative;height:100%;border-radius:26px;overflow:hidden;background:radial-gradient(circle at 50% 40%,#1f3a2e,#0b1310 70%);display:grid;place-items:center}
 .rec-scr img{width:78%;animation:ofloat 7s ease-in-out infinite;filter:drop-shadow(0 18px 24px rgba(0,0,0,.5))}
+.rec-scr .rec-v,.rec-scr .rec-gif{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:none;filter:none}
 .rec{position:absolute;top:14px;left:14px;display:flex;align-items:center;gap:6px;font-size:.72rem;font-weight:800;color:#fff;letter-spacing:.08em}
 .rec i{width:9px;height:9px;border-radius:50%;background:#ff4d4d;animation:pulseDot 1.4s ease-in-out infinite}
 .rec-t{position:absolute;top:14px;right:14px;font-size:.72rem;color:#cfdcd4;font-variant-numeric:tabular-nums}
@@ -697,11 +698,11 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
 #nov1 .lead+.lead{margin-top:12px}
 .gt-h{color:#fff;font-size:1.1rem;margin:30px 0 12px}
 .gt-grid{display:grid;gap:8px}
-.gt-grid.emo{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gt-grid.emog{grid-template-columns:repeat(3,minmax(0,1fr))}
 .gt-grid.sty{grid-template-columns:repeat(2,minmax(0,1fr))}
 .gt{margin:0}
 .gt-v{border-radius:12px;overflow:hidden;background:#0a110e;aspect-ratio:16/10}
-.gt-grid.emo .gt-v{aspect-ratio:1/1}
+.gt-grid.emog .gt-v{aspect-ratio:1/1}
 .gt-v img,.gt-v video{width:100%;height:100%;object-fit:cover;display:block}
 .gt figcaption{padding:6px 2px 0;line-height:1.25}
 .gt figcaption b{display:block;font-size:.8rem;color:#fff}
@@ -711,8 +712,8 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
 .gt.lock i{font-style:normal;font-size:1.3rem}
 .gt.lock b{font-size:2rem;font-weight:900;color:var(--mint);line-height:1}
 .gt.lock span{font-size:.74rem;color:#cfdcd4;line-height:1.35}
-.gt-grid.emo .gt.lock{grid-column:1/-1;flex-direction:row;gap:12px;min-height:0}
-.gt-grid.emo .gt.lock span br{display:none}
+.gt-grid.emog .gt.lock{grid-column:1/-1;flex-direction:row;gap:12px;min-height:0}
+.gt-grid.emog .gt.lock span br{display:none}
 .wfx{display:grid;gap:18px;margin-top:24px}
 .brw{border-radius:16px;overflow:hidden;background:#0b0b0b;border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 60px rgba(0,0,0,.5)}
 .brw-top{display:flex;align-items:center;gap:6px;padding:10px 12px;background:#141414;border-bottom:1px solid rgba(255,255,255,.08);font-size:.7rem;color:#8a8a8a}
@@ -742,15 +743,58 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chips span{font-size:.78rem;color:#cfdcd4;background:rgba(255,255,255,.05);border:1px solid var(--line-d);border-radius:999px;padding:5px 10px}
 
+/* ===== nov1 layout ===== */
+.m1-hero{display:grid;gap:10px}
+#nov1 .lead+.lead{margin-top:12px}
+#nov1 .lead b{color:#fff}
+.m1-vis{position:relative;display:grid;place-items:center;width:100%;max-width:340px;margin:10px auto 0}
+.m1-vis .obj{position:relative;z-index:1;width:100%;height:auto;aspect-ratio:900/760;animation:ofloat 7s ease-in-out infinite;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55))}
+.m1-halo{position:absolute;inset:12% 10%;border-radius:50%;background:radial-gradient(circle,rgba(67,209,153,.45),rgba(67,209,153,0) 65%);filter:blur(12px);animation:glow 3.6s ease-in-out infinite}
+.m1-badge{position:absolute;z-index:2;right:-4px;bottom:8%;background:var(--mint);color:#06120d;border-radius:16px;padding:10px 14px;transform:rotate(4deg);box-shadow:0 14px 30px rgba(67,209,153,.35)}
+.m1-badge b{display:block;font-size:1.9rem;font-weight:900;line-height:1}
+.m1-badge span{display:block;font-size:.72rem;font-weight:700;line-height:1.25;margin-top:2px}
+.m1-sub{margin-top:26px}
+.nov-list.four{grid-template-columns:1fr!important}
+#nov1 .studio{margin-top:22px}
+
+/* ===== more-block & workflow six ===== */
+.og-l{list-style:none;display:grid;gap:6px;margin-top:6px}
+.og-l li{font-size:.86rem;color:#4c5a53;line-height:1.4}
+.og-l b{color:var(--t-dark)}
+.ov-so{margin-top:26px;background:var(--ink);color:#d5e2da;border-radius:20px;padding:20px 20px;border-left:4px solid var(--mint)}
+.ov-so p{font-size:1rem;line-height:1.6}
+.ov-so b{color:#fff}
+.wf-grid.six .wf.more{display:block}
+.wfx-more{margin-top:16px;font-size:.95rem;color:#cfdcd4}
+.wfx-more b{color:var(--mint)}
+
 
 /* ================= DESKTOP (≥960px) — full-width layout ================= */
 @media (min-width:960px){
+  /* more & six */
+  #more .ov-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+  #more .og.wide{grid-column:1/-1}
+  #more .og.wide .og-l{grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+  .ov-so{padding:28px 34px}
+  .ov-so p{font-size:1.12rem;max-width:80ch}
+  .wf-grid.six{grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+  /* nov1 layout */
+  .m1-hero{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);column-gap:56px;align-items:center}
+  #nov1 h2{font-size:clamp(2.6rem,3.6vw,3.5rem)}
+  .m1-vis{max-width:420px;margin:0 0 0 auto}
+  .m1-badge{right:0;bottom:12%;padding:14px 18px}
+  .m1-badge b{font-size:2.6rem}
+  .m1-sub{margin-top:44px;font-size:1.35rem;max-width:40ch}
+  .nov-list.four{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:16px;margin-top:20px}
+  .nov-list.four li{padding:62px 18px 20px}
+  .nov-list.four li::before{top:18px;left:18px}
+  #nov1 .studio{margin-top:34px;max-width:none}
   /* novelties v2 */
   #nov .news{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .gt-grid.emo,.gt-grid.sty{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
-  .gt-grid.emo .gt.lock{grid-column:auto;flex-direction:column;gap:4px}
-  .gt-grid.emo .gt.lock span br{display:inline}
-  .gt-grid.emo .gt-v{aspect-ratio:4/5}
+  .gt-grid.emog,.gt-grid.sty{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+  .gt-grid.emog .gt.lock{grid-column:auto;flex-direction:column;gap:4px}
+  .gt-grid.emog .gt.lock span br{display:inline}
+  .gt-grid.emog .gt-v{aspect-ratio:4/5}
   .wfx{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:32px;align-items:start}
   .brw-scr{--fh:440px}
   .wst{grid-template-columns:120px 1fr;padding:12px}
@@ -1000,7 +1044,7 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
       <div class="u"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"/></svg><span><b>З нуля</b> — без досвіду, техніки й англійської</span></div>
       <div class="u"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg><span><b>Портфоліо з 5+ робіт</b> ще під час навчання</span></div>
       <div class="u"><svg viewBox="0 0 24 24"><path d="M3 11l18-7-7 18-2.5-7.5z"/></svg><span><b>Знайдеш перших клієнтів</b> прямо під час навчання</span></div>
-      <div class="u"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span><b>12 живих ефірів</b> з Олександром</span></div>
+      <div class="u"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span><b>12 живих ефірів</b> зі мною</span></div>
     </div>
     <div class="hero-price">
       <div class="tag">Ціна курсу по передзапису</div>
@@ -1095,7 +1139,7 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
   <svg class="deco" style="left:-10px;top:60px;opacity:.14;animation:floatY 8s ease-in-out infinite" width="60" height="80" viewBox="0 0 60 80"><path d="M35 2L15 32h18L10 78l40-40H30L50 2H35z" fill="#43d199"/></svg>
   <div class="wrap">
     <h2 class="reveal spray">Які результати зробили <span class="hm">учні першого потоку?</span></h2>
-    <p class="lead reveal d1">Я зібрав анкети з учнів першого потоку — і ось які результати ми маємо.</p>
+    <p class="lead reveal d1">Я зібрав анкети з учнів першого потоку — і ось яких результатів вони досягли.</p>
     <div class="record reveal"><b><em class="cnt" data-count="48">48</em> млн</b><span>переглядів — рекорд одного ролика учня першого потоку</span></div>
     <div class="stats">
       <div class="stat reveal"><b><em class="cnt" data-count="83">83</em> млн+</b><span>переглядів набрали ролики учнів</span></div>
@@ -1233,23 +1277,22 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
   <div class="bg-obj st-clap" aria-hidden="true"><img class="obj" src="/videokreator-2/media/obj/clap.webp" alt="" width="992" height="1000" loading="lazy" decoding="async"></div>
   <div class="wrap">
     <div class="label emer reveal">Програма 2.0</div>
-    <h2 class="reveal" style="max-width:16ch">Що ми додали в курс <span class="hm">для другого потоку</span></h2>
+    <h2 class="reveal" style="max-width:16ch">Що я додав у курс <span class="hm">для другого потоку</span></h2>
     <p class="lead reveal d1" style="max-width:50ch">Я прочитав анкети всіх учнів першого потоку — і переробив курс під реальні потреби живих людей, які вже пройшли це навчання. Тепер курс ще більш практичний і орієнтований саме на тебе.</p>
     <div class="news">
       <div class="nw reveal"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div><div><h3>Уроки за графіком</h3><p>Курс вже записаний. Матеріали актуальні на <b class="today">сьогодні</b>. З першого дня отримаєш карту курсу з датою виходу уроків, дедлайнами по ДЗ та розкладом дзвінків.</p><span class="fromdata">Про це просили учні першого потоку</span></div></div>
       <div class="nw reveal d2"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 11l18-7-7 18-2.5-7.5z"/></svg></div><div><h3>Починаєш шукати клієнтів вже через 7 днів після старту навчання</h3><p>Портфоліо й соцмережі починаєш вести паралельно з навчанням, а модуль про пошук клієнтів відкривається вже на 2-му тижні навчання.</p><span class="fromdata">У першому потоці цей модуль був у самому кінці</span></div></div>
-      <div class="nw reveal d3"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5M8 11h6M11 8v6"/></svg></div><div><h3>Розбори твоїх робіт</h3><p>На ефірах розбираємо роботи учнів — і вдалі, і невдалі генерації. Щоб кожен бачив, як виправляти помилки та вдосконалювати навички.</p><span class="fromdata">Це було найчастіше прохання від учнів</span></div></div>
+      <div class="nw reveal d3"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5M8 11h6M11 8v6"/></svg></div><div><h3>Розбори твоїх робіт</h3><p>На ефірах я розбираю роботи учнів — і вдалі, і невдалі генерації. Щоб кожен бачив, як виправляти помилки та вдосконалювати навички.</p><span class="fromdata">Це було найчастіше прохання від учнів</span></div></div>
       <div class="nw reveal d4"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v12M8 7v5a4 4 0 008 0V7M5 12a7 7 0 0014 0M12 19v3"/></svg></div><div><h3>Звук: голос, ліпсинк, музика</h3><p>Уроки з озвучки й клону голосу, ліпсингу українською, музики в Suno — вже додані на платформу та чекають на тебе.</p><span class="fromdata">Учні просили додати цю тему в програму — я зробив</span></div></div>
-      <div class="nw reveal d5"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 6.5c0-1.9-2.2-3.5-5-3.5S7 4.6 7 6.5 9.2 9.5 12 10s5 2 5 4-2.2 3.5-5 3.5-5-1.6-5-3.5"/></svg></div><div><h3>Чесний бюджет на нейромережі</h3><p>Заздалегідь підготував для вас, які підписки потрібні і коли їх оплачувати, а під кожним уроком — безкоштовні альтернативи для навчання.</p><span class="fromdata">Щоб не було несподіваних витрат</span></div></div>
+      <div class="nw reveal d5"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 6.5c0-1.9-2.2-3.5-5-3.5S7 4.6 7 6.5 9.2 9.5 12 10s5 2 5 4-2.2 3.5-5 3.5-5-1.6-5-3.5"/></svg></div><div><h3>Чесний бюджет на нейромережі</h3><p>Заздалегідь підготував для тебе, які підписки потрібні і коли їх оплачувати, а під кожним уроком — безкоштовні альтернативи для навчання.</p><span class="fromdata">Щоб не було несподіваних витрат</span></div></div>
     </div>
-    <h3 class="nov-idx-h reveal">І 6 великих нововведень — детально нижче</h3>
+    <h3 class="nov-idx-h reveal">І 5 великих нововведень — детально нижче</h3>
     <div class="nov-idx">
       <a class="ni reveal" href="#nov1"><b>01</b><span>AI-монтаж через Claude і Codex</span></a>
       <a class="ni reveal d1" href="#nov2"><b>02</b><span>Як знімати себе на камеру</span></a>
       <a class="ni reveal d2" href="#nov3"><b>03</b><span>Стилі зйомки, емоції й рухи камери</span></a>
-      <a class="ni reveal d3" href="#nov4"><b>04</b><span>Ми дали більше, ніж обіцяли</span></a>
-      <a class="ni reveal d4" href="#nov5"><b>05</b><span>32 воркфлоу: від нуля до готового відео</span></a>
-      <a class="ni reveal d5" href="#nov6"><b>06</b><span>Реклама товарів, яку справді купують</span></a>
+      <a class="ni reveal d3" href="#nov5"><b>04</b><span>32 воркфлоу: від нуля до готового відео</span></a>
+      <a class="ni reveal d4" href="#nov6"><b>05</b><span>Реклама товарів, яку справді купують</span></a>
     </div>
   </div>
 </section>
@@ -1257,24 +1300,26 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
 <section class="sec dark2 nov" id="nov1">
   <svg class="deco" style="right:18px;top:46px;opacity:.5;animation:floatR 10s ease-in-out infinite" width="22" height="22" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#43d199"/></svg>
   <div class="wrap">
-    <div class="nov-grid top">
-      <div class="nov-txt">
-        <div class="nov-n reveal">Нововведення <b>01</b> / 06</div>
+    <div class="m1-hero">
+      <div class="m1-txt">
+        <div class="nov-n reveal">Нововведення <b>01</b> / 05</div>
         <h2 class="reveal spray">Монтажери вже не потрібні: <span class="hm">AI монтує — ти твориш</span></h2>
-        <p class="lead reveal d1">На курсі є уроки монтажу в CapCut і Adobe Premiere Pro. Але зараз Claude активно вчиться монтувати — і я вже створюю з його допомогою ось такі відео. Навчу і тебе: <b style="color:#fff">мінімум технічної роботи — максимум твоєї креативності.</b></p>
         <p class="lead reveal d1">Мультиагент для монтажу працює через Claude Code і Codex: ти даєш йому файли й задачу — він сам ріже, склеює, підбирає музику й віддає готовий ролик.</p>
-        <p class="nov-badge reveal">🤖 Мультиагент v6 уже на платформі · оновлено 21 жовтня</p>
+        <p class="lead reveal d1">Система вже вміє монтувати в <b>400+ різних стилях</b> — у неї завантажено понад 400 референсів. Далі все залежить від твоєї фантазії: технічну частину агент бере на себе, а ти даєш йому креатив і задаєш напрям. Так виходить унікальний продукт, а не шаблон.</p>
       </div>
-      <div class="nov-txt">
-        <h3 class="nov-sub reveal">4 уроки під 4 найсильніші сценарії</h3>
-        <ol class="nov-list one">
-          <li class="reveal"><b>Монтаж сирого відео</b><span>Закидаєш відзняте — отримуєш ролик із ритмом, склейками й субтитрами.</span></li>
-          <li class="reveal d1"><b>Монтаж мультика</b><span>Агент збирає згенеровані сцени в історію й додає звук.</span></li>
-          <li class="reveal d2"><b>Контент для бізнесу</b><span>Як працює контент для бізнесу — і як агент робить серію роликів для реального клієнта.</span></li>
-          <li class="reveal d3"><b>Одна команда «змонтуй»</b><span>Сире відео, скріни, купа файлів — даєш задачу, агент сам розбирається, що з цим робити.</span></li>
-        </ol>
+      <div class="m1-vis reveal d1" aria-hidden="true">
+        <div class="m1-halo"></div>
+        <img class="obj" src="/videokreator-2/media/obj/montage.webp" alt="" width="900" height="760" loading="lazy" decoding="async">
+        <div class="m1-badge"><b>400+</b><span>стилів монтажу<br>вже в системі</span></div>
       </div>
     </div>
+    <h3 class="nov-sub m1-sub reveal">Ти отримаєш цю систему з 11 повністю автоматизованих AI-агентів та 4 уроки — під 4 найважливіші типи контенту, які вона робить разом із тобою</h3>
+    <ol class="nov-list four">
+      <li class="reveal"><b>Монтаж сирого відео</b><span>Закидаєш відзняте — отримуєш ролик із ритмом, склейками й субтитрами.</span></li>
+      <li class="reveal d1"><b>Монтаж мультика</b><span>Агент збирає згенеровані сцени в історію й додає звук.</span></li>
+      <li class="reveal d2"><b>Контент для бізнесу</b><span>Як працює контент для бізнесу — і як агент робить серію роликів для реального клієнта.</span></li>
+      <li class="reveal d3"><b>Одна команда «змонтуй»</b><span>Сире відео, скріни, купа файлів — даєш задачу, агент сам розбирається, що з цим робити.</span></li>
+    </ol>
     <div class="studio reveal"><b>АІ-Студія монтажу окремо коштує 2 000 ₴.</b> Учні курсу отримують її безкоштовно.</div>
     <h3 class="vids-h">Ці ролики зібрала моя АІ-студія монтажу</h3>
     <div class="vids" id="vids">
@@ -1295,7 +1340,7 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
       <div class="vid" data-src="/ai-studiya/media/g/talk4.mp4"><img src="/ai-studiya/media/g/talk4.jpg" alt="Ролик, змонтований через Claude" loading="lazy" decoding="async"><button class="play" aria-label="Увімкнути ролик"><i></i></button></div>
     </div>
     <div class="swipe"><svg width="22" height="12" viewBox="0 0 22 12" fill="none"><path d="M1 6h19m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Гортай ролики · натисни, щоб увімкнути</div>
-    <h3 class="vids-h">А ці — змонтували учні моєю системою</h3>
+    <h3 class="vids-h">А це перші ролики, які учні зробили з повного нуля, тільки встановивши мою АІ-систему монтажу</h3>
     <div class="vids">
       <div class="vid" data-src="/ai-studiya/media/s/st4.mp4"><img src="/ai-studiya/media/s/st4.jpg" alt="Ролик, змонтований через Claude" loading="lazy" decoding="async"><button class="play" aria-label="Увімкнути ролик"><i></i></button></div>
       <div class="vid" data-src="/ai-studiya/media/s/st8.mp4"><img src="/ai-studiya/media/s/st8.jpg" alt="Ролик, змонтований через Claude" loading="lazy" decoding="async"><button class="play" aria-label="Увімкнути ролик"><i></i></button></div>
@@ -1314,62 +1359,40 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
 <section class="sec cream nov" id="nov2">
   <div class="wrap nov-grid rev">
     <div class="nov-txt">
-      <div class="nov-n reveal">Нововведення <b>02</b> / 06</div>
+      <div class="nov-n reveal">Нововведення <b>02</b> / 05</div>
       <h2 class="reveal">Як знімати <span class="hm">себе на камеру</span></h2>
-      <p class="lead reveal d1">Клієнт купує в людини, а не в анонімного акаунта. Тому в модуль «Портфоліо» ми додали урок, як знімати себе на камеру, — щоб відео з тобою продавали твої послуги.</p>
+      <p class="lead reveal d1">Клієнт купує в людини, а не в анонімного акаунта. Тому в модуль «Портфоліо» я додав урок, як знімати себе на камеру, — щоб відео з тобою продавали твої послуги.</p>
       <div class="nov-pair">
         <div class="np reveal"><b>Новий урок</b><span>Як знімати себе на камеру — у модулі «Формування портфоліо»</span></div>
         <div class="np reveal d1"><b>+ бонусний модуль</b><span>«Як генерувати контент із собою» — 5 уроків і 6 матеріалів на платформі</span></div>
       </div>
     </div>
     <div class="nov-vis cam reveal d1">
-      <div class="rec-phone"><div class="rec-scr"><img src="/videokreator-2/media/sup/live.webp" alt="" loading="lazy" decoding="async"><span class="rec"><i></i>REC</span><span class="rec-t">00:00:27</span><i class="grid-l"></i></div></div>
+      <div class="rec-phone"><div class="rec-scr"><video class="rec-v" data-pl="/videokreator-2/media/new/cam-1.mp4,/videokreator-2/media/new/cam-2.mp4,/videokreator-2/media/new/cam-3.mp4,/videokreator-2/media/new/cam-4.mp4,/videokreator-2/media/new/cam-5.mp4" poster="/videokreator-2/media/new/cam-1.jpg" muted playsinline preload="none" aria-label="Фрагменти уроку «Як знімати себе на камеру»"></video><span class="rec"><i></i>REC</span><span class="rec-t">00:00:27</span><i class="grid-l"></i></div></div>
     </div>
   </div>
 </section>
 <!-- ===================== NOV 03: filmmaking bases ===================== -->
 <section class="sec dark nov" id="nov3">
   <div class="wrap">
-    <div class="nov-n reveal">Нововведення <b>03</b> / 06</div>
-    <h2 class="reveal">Бази для зйомки, які <span class="hm">відрізняють новачка від профі</span></h2>
-    <p class="lead reveal d1">У модуль «Фільммейкінг» ми додали готові бази: стилі зйомки, емоції акторської гри й рухи камери. Кожен приклад нижче згенеровано за промптом із бази.</p>
+    <div class="nov-n reveal">Нововведення <b>03</b> / 05</div>
+    <h2 class="reveal">Велика база промтів <span class="hm">для фільммейкінгу</span></h2>
+    <p class="lead reveal d1">Саме ці деталі допоможуть тобі створювати справді реалістичний і якісний контент на рівні топових кіностудій. У модуль «Фільммейкінг» я додав готові бази: стилі зйомки, емоції акторської гри й рухи камери. Кожен приклад нижче згенеровано за промптом із бази.</p>
     <div class="nov-stats">
       <div class="ns reveal"><b>20</b><span>стилів зйомки — від 16mm-документалки до bodycam і FPV</span></div>
       <div class="ns reveal d1"><b>25</b><span>емоцій акторської гри — для Seedance, Kling, Veo і Sora</span></div>
       <div class="ns reveal d2"><b>54</b><span>матеріали в бібліотеці рухів камери</span></div>
     </div>
     <h3 class="gt-h reveal">Емоції: що роблять очі, брови, щелепа й плечі — на одному персонажі</h3>
-    <div class="gt-grid emo"><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-01.mp4" poster="/videokreator-2/media/new/emo-01.jpg" muted loop playsinline preload="none" aria-label="Сміх"></video></div><figcaption><b>Сміх</b><span class="lv l3">вибухова</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-02.mp4" poster="/videokreator-2/media/new/emo-02.jpg" muted loop playsinline preload="none" aria-label="Шок"></video></div><figcaption><b>Шок</b><span class="lv l3">вибухова</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-03.mp4" poster="/videokreator-2/media/new/emo-03.jpg" muted loop playsinline preload="none" aria-label="Жах"></video></div><figcaption><b>Жах</b><span class="lv l3">вибухова</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-04.mp4" poster="/videokreator-2/media/new/emo-04.jpg" muted loop playsinline preload="none" aria-label="Лють"></video></div><figcaption><b>Лють</b><span class="lv l3">вибухова</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-06.mp4" poster="/videokreator-2/media/new/emo-06.jpg" muted loop playsinline preload="none" aria-label="Плач"></video></div><figcaption><b>Плач</b><span class="lv l3">вибухова</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-05.mp4" poster="/videokreator-2/media/new/emo-05.jpg" muted loop playsinline preload="none" aria-label="Відраза"></video></div><figcaption><b>Відраза</b><span class="lv l2">середня</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-08.mp4" poster="/videokreator-2/media/new/emo-08.jpg" muted loop playsinline preload="none" aria-label="Закочування очей"></video></div><figcaption><b>Закочування очей</b><span class="lv l2">середня</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-10.mp4" poster="/videokreator-2/media/new/emo-10.jpg" muted loop playsinline preload="none" aria-label="Флірт"></video></div><figcaption><b>Флірт</b><span class="lv l1">ледь помітна</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-15.mp4" poster="/videokreator-2/media/new/emo-15.jpg" muted loop playsinline preload="none" aria-label="Захват"></video></div><figcaption><b>Захват</b><span class="lv l2">середня</span></figcaption></figure><div class="gt lock"><i>🔒</i><b>+16</b><span>емоцій <br>відкриваються на курсі</span></div></div>
+    <div class="gt-grid emog"><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-01.mp4" poster="/videokreator-2/media/new/emo-01.jpg" muted loop playsinline preload="none" aria-label="Сміх"></video></div><figcaption><b>Сміх</b><span class="lv l3">вибухова</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-02.mp4" poster="/videokreator-2/media/new/emo-02.jpg" muted loop playsinline preload="none" aria-label="Шок"></video></div><figcaption><b>Шок</b><span class="lv l3">вибухова</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-03.mp4" poster="/videokreator-2/media/new/emo-03.jpg" muted loop playsinline preload="none" aria-label="Жах"></video></div><figcaption><b>Жах</b><span class="lv l3">вибухова</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-04.mp4" poster="/videokreator-2/media/new/emo-04.jpg" muted loop playsinline preload="none" aria-label="Лють"></video></div><figcaption><b>Лють</b><span class="lv l3">вибухова</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-06.mp4" poster="/videokreator-2/media/new/emo-06.jpg" muted loop playsinline preload="none" aria-label="Плач"></video></div><figcaption><b>Плач</b><span class="lv l3">вибухова</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-05.mp4" poster="/videokreator-2/media/new/emo-05.jpg" muted loop playsinline preload="none" aria-label="Відраза"></video></div><figcaption><b>Відраза</b><span class="lv l2">середня</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-08.mp4" poster="/videokreator-2/media/new/emo-08.jpg" muted loop playsinline preload="none" aria-label="Закочування очей"></video></div><figcaption><b>Закочування очей</b><span class="lv l2">середня</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-10.mp4" poster="/videokreator-2/media/new/emo-10.jpg" muted loop playsinline preload="none" aria-label="Флірт"></video></div><figcaption><b>Флірт</b><span class="lv l1">ледь помітна</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/emo-15.mp4" poster="/videokreator-2/media/new/emo-15.jpg" muted loop playsinline preload="none" aria-label="Захват"></video></div><figcaption><b>Захват</b><span class="lv l2">середня</span></figcaption></figure><div class="gt lock"><i>🔒</i><b>та ще більше 16 типів емоцій</b><span>відкриваються на курсі</span></div></div>
     <h3 class="gt-h reveal">Стилі зйомки: реальна камера, оптика й носій</h3>
-    <div class="gt-grid sty"><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-01.mp4" poster="/videokreator-2/media/new/style-01.jpg" muted loop playsinline preload="none" aria-label="Документалка 16mm, 1983"></video></div><figcaption><b>Документалка 16mm, 1983</b><span class="lv">Archival 16mm</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-02.mp4" poster="/videokreator-2/media/new/style-02.jpg" muted loop playsinline preload="none" aria-label="Вуличне кіно 35mm Anamorphic"></video></div><figcaption><b>Вуличне кіно 35mm Anamorphic</b><span class="lv">Street cinema</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-06.mp4" poster="/videokreator-2/media/new/style-06.jpg" muted loop playsinline preload="none" aria-label="Інтимний IMAX 65mm"></video></div><figcaption><b>Інтимний IMAX 65mm</b><span class="lv">IMAX 65mm</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-07.mp4" poster="/videokreator-2/media/new/style-07.jpg" muted loop playsinline preload="none" aria-label="VFX-блокбастер"></video></div><figcaption><b>VFX-блокбастер</b><span class="lv">Large format VFX</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-08.mp4" poster="/videokreator-2/media/new/style-08.jpg" muted loop playsinline preload="none" aria-label="CGI через LED Volume"></video></div><figcaption><b>CGI через LED Volume</b><span class="lv">Virtual production</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-09.mp4" poster="/videokreator-2/media/new/style-09.jpg" muted loop playsinline preload="none" aria-label="Предметка з Cinebot і Phantom"></video></div><figcaption><b>Предметка з Cinebot і Phantom</b><span class="lv">Product 1000 fps</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-10.mp4" poster="/videokreator-2/media/new/style-10.jpg" muted loop playsinline preload="none" aria-label="Кінематографічний політ дрона"></video></div><figcaption><b>Кінематографічний політ дрона</b><span class="lv">Aerial</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-11.mp4" poster="/videokreator-2/media/new/style-11.jpg" muted loop playsinline preload="none" aria-label="Y2K камкордер Hi8 / MiniDV"></video></div><figcaption><b>Y2K камкордер Hi8 / MiniDV</b><span class="lv">Home video</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-12.mp4" poster="/videokreator-2/media/new/style-12.jpg" muted loop playsinline preload="none" aria-label="Analog horror / found footage"></video></div><figcaption><b>Analog horror / found footage</b><span class="lv">VHS horror</span></figcaption></figure><div class="gt lock"><i>🔒</i><b>+11</b><span>стилів <br>відкриваються на курсі</span></div></div>
-  </div>
-</section>
-<!-- ===================== NOV 04: overdelivered ===================== -->
-<section class="sec paper nov" id="nov4">
-  <div class="wrap">
-    <div class="nov-n reveal">Нововведення <b>04</b> / 06</div>
-    <h2 class="reveal">Ми дали більше, <span class="hm">ніж обіцяли</span></h2>
-    <p class="lead reveal d1">Порівняй, що ми обіцяли учням першого потоку на сайті, — і що вони отримали на платформі.</p>
-    <div class="ov-cmp">
-      <div class="oc reveal"><span>Модулів</span><s>12</s><b>14</b><em>+2 бонусні: «Рухи камери» і «Контент із собою»</em></div>
-      <div class="oc reveal d1"><span>Групових зідзвонів</span><s>12</s><b>15</b><em>і зідзвони тривають далі</em></div>
-      <div class="oc reveal d2"><span>Матеріалів на платформі</span><s>—</s><b>208</b><em>гайди, чеклісти, шаблони, промпти</em></div>
-    </div>
-    <h3 class="ov-h reveal">І ще те, чого взагалі не було в обіцянках</h3>
-    <div class="ov-grid">
-      <div class="og reveal"><i>🤖</i><b>Мультиагент для монтажу v6</b><span>Монтує й робить контент через Claude Code і Codex</span></div>
-      <div class="og reveal d1"><i>🎓</i><b>Атестація</b><span>Надсилаєш найкращу роботу — отримуєш статус «Атестовано» і доступ до клієнтів</span></div>
-      <div class="og reveal d2"><i>🛠</i><b>5 безкоштовних AI-інструментів</b><span>Seedance 2.5 Режисер, пошукові запити TikTok і YouTube, зображення → промпт, текст → голос, видалення фону</span></div>
-      <div class="og reveal d3"><i>🗞</i><b>AI-пульс щодня о 8:00</b><span>Головне з AI-відео за добу — з офіційних джерел</span></div>
-      <div class="og reveal d4"><i>💬</i><b>Міні-Сашка</b><span>AI-помічник на платформі: підкаже, якщо щось незрозуміло</span></div>
-      <div class="og reveal d5"><i>🎁</i><b>Бонусні завдання з розіграшами</b><span>133 учні здають бонуси — вже 751 зарахована робота</span></div>
-    </div>
+    <div class="gt-grid sty"><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-01.mp4" poster="/videokreator-2/media/new/style-01.jpg" muted loop playsinline preload="none" aria-label="Документалка 16mm, 1983"></video></div><figcaption><b>Документалка 16mm, 1983</b><span class="lv">Archival 16mm</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-02.mp4" poster="/videokreator-2/media/new/style-02.jpg" muted loop playsinline preload="none" aria-label="Вуличне кіно 35mm Anamorphic"></video></div><figcaption><b>Вуличне кіно 35mm Anamorphic</b><span class="lv">Street cinema</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-06.mp4" poster="/videokreator-2/media/new/style-06.jpg" muted loop playsinline preload="none" aria-label="Інтимний IMAX 65mm"></video></div><figcaption><b>Інтимний IMAX 65mm</b><span class="lv">IMAX 65mm</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-07.mp4" poster="/videokreator-2/media/new/style-07.jpg" muted loop playsinline preload="none" aria-label="VFX-блокбастер"></video></div><figcaption><b>VFX-блокбастер</b><span class="lv">Large format VFX</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-08.mp4" poster="/videokreator-2/media/new/style-08.jpg" muted loop playsinline preload="none" aria-label="CGI через LED Volume"></video></div><figcaption><b>CGI через LED Volume</b><span class="lv">Virtual production</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-09.mp4" poster="/videokreator-2/media/new/style-09.jpg" muted loop playsinline preload="none" aria-label="Предметка з Cinebot і Phantom"></video></div><figcaption><b>Предметка з Cinebot і Phantom</b><span class="lv">Product 1000 fps</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-10.mp4" poster="/videokreator-2/media/new/style-10.jpg" muted loop playsinline preload="none" aria-label="Кінематографічний політ дрона"></video></div><figcaption><b>Кінематографічний політ дрона</b><span class="lv">Aerial</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-11.mp4" poster="/videokreator-2/media/new/style-11.jpg" muted loop playsinline preload="none" aria-label="Y2K камкордер Hi8 / MiniDV"></video></div><figcaption><b>Y2K камкордер Hi8 / MiniDV</b><span class="lv">Home video</span></figcaption></figure><figure class="gt"><div class="gt-v"><video data-lz="/videokreator-2/media/new/style-12.mp4" poster="/videokreator-2/media/new/style-12.jpg" muted loop playsinline preload="none" aria-label="Analog horror / found footage"></video></div><figcaption><b>Analog horror / found footage</b><span class="lv">VHS horror</span></figcaption></figure><div class="gt lock"><i>🔒</i><b>та ще більше 11 різних стилів</b><span>відкриваються на курсі</span></div></div>
   </div>
 </section>
 <!-- ===================== NOV 05: 32 workflows ===================== -->
 <section class="sec dark2 nov" id="nov5">
   <div class="wrap">
-    <div class="nov-n reveal">Нововведення <b>05</b> / 06</div>
+    <div class="nov-n reveal">Нововведення <b>04</b> / 05</div>
     <h2 class="reveal">32 воркфлоу: <span class="hm">від нуля до готового відео</span></h2>
     <p class="lead reveal d1">Воркфлоу — це не просто гарний ролик, а повний розбір, як його зробили: які референси створили, які промпти написали, в якій нейромережі й у якому порядку. Відкриваєш, повторюєш крок за кроком — і отримуєш такий самий результат зі своїм героєм чи продуктом.</p>
     <div class="wfx">
@@ -1391,20 +1414,43 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
       <div class="wb reveal d1"><b>Копіюєш структуру — міняєш героя й продукт</b><span>Готові промпти на кожному кроці: підставляєш своє й проявляєш творчість.</span></div>
       <div class="wb reveal d2"><b>32 сценарії під усі формати</b><span>Реклама, кіно, мультики, UGC, кліпи — для портфоліо й реальних замовлень.</span></div>
     </div>
-    <div class="wfx-lib reveal"><div class="wfx-lib-h">Усі 32 воркфлоу в клубі — доступ отримують усі учні курсу</div><div class="chips"><span>Mulberry Boys — 30 с одним дублем</span><span>K-pop танцювальне відео зі storyboard</span><span>Ритуал Сейбер Пої</span><span>OOTD-трансформація</span><span>FPV-дрон над Кельнським собором</span><span>Політ на мітлі по червоній лінії</span><span>AI-реклама з консистентним персонажем</span><span>Falling for Fall — реклама кавʼярні</span><span>Керування рухом камери в Seedance</span><span>Car Commercial — авто збирається з нуля</span><span>Мульти-референс відео в Omni Flash</span><span>Night Obstacle Run</span><span>Garlic Chilli — реклама соусу</span><span>The Starry Night — політ крізь картину</span><span>The Last Bond — драма про дівчину і пса</span><span>The Last Dish — комедія на кухні</span><span>Michelin Masterpiece</span><span>Titan Archer vs Sea Kaiju</span><span>Girl with a Pearl Earring</span><span>I, Robot — допит робота</span><span>Sitcom Dog — ситком 90-х</span><span>Static Shock</span><span>Concrete Revenge</span><span>Sunflower's Redemption</span><span>Roadster Roadblock</span><span>Last Line — серія з 12 шотів</span><span>Pink Bump — bullet-time</span><span>The Last Toy</span><span>Anamorphic Billboard — 3D-білборд</span><span>Painted Tunnel — кіт і миша</span><span>Challenge Show</span><span>Hydrant Escape</span></div></div>
+    <div class="wfx-lib reveal"><div class="wfx-lib-h">Ще кілька воркфлоу з клубу</div>
+      <div class="wf-grid six"><figure class="wf"><div class="wf-v" data-src="https://t2zt5gymcnwnozru.public.blob.vercel-storage.com/club/workflows/import/vid-2065768847328555245-x53KrU6haj0ZC1n4C1CTAHJ5wuUqfB.mp4"><img src="/videokreator-2/media/new/wf02.jpg" alt="K-pop танцювальне відео зі storyboard" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись: K-pop танцювальне відео зі storyboard"><i></i></button></div><figcaption><b>K-pop танцювальне відео зі storyboard</b><span>GPT Image 2 · Seedance</span></figcaption></figure><figure class="wf"><div class="wf-v" data-src="https://t2zt5gymcnwnozru.public.blob.vercel-storage.com/club/workflows/import/vid-2062347787380142206-OPDe7eLY5J0K5NTlz1A0hGwNWpEujH.mp4"><img src="/videokreator-2/media/new/wf05.jpg" alt="FPV-дрон над Кельнським собором" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись: FPV-дрон над Кельнським собором"><i></i></button></div><figcaption><b>FPV-дрон над Кельнським собором</b><span>GPT Image 2 · Seedance</span></figcaption></figure><figure class="wf"><div class="wf-v" data-src="https://t2zt5gymcnwnozru.public.blob.vercel-storage.com/uploads/1792155313364-m887u1okdq9.mp4"><img src="/videokreator-2/media/new/wf14.jpg" alt="The Starry Night — політ крізь картину" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись: The Starry Night — політ крізь картину"><i></i></button></div><figcaption><b>The Starry Night — політ крізь картину</b><span>Seedance 2.5 · GPT Image 2</span></figcaption></figure><figure class="wf"><div class="wf-v" data-src="https://t2zt5gymcnwnozru.public.blob.vercel-storage.com/uploads/1792155278458-hfzaq49hdnk.mp4"><img src="/videokreator-2/media/new/wf16.jpg" alt="The Last Dish — комедія на кухні" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись: The Last Dish — комедія на кухні"><i></i></button></div><figcaption><b>The Last Dish — комедія на кухні</b><span>Seedance 2.5 · GPT Image 2</span></figcaption></figure><figure class="wf"><div class="wf-v" data-src="https://t2zt5gymcnwnozru.public.blob.vercel-storage.com/uploads/1792156371175-5jjz3vs94ww.mp4"><img src="/videokreator-2/media/new/wf18.jpg" alt="Titan Archer vs Sea Kaiju" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись: Titan Archer vs Sea Kaiju"><i></i></button></div><figcaption><b>Titan Archer vs Sea Kaiju</b><span>Seedance 2.5 · GPT Image 2</span></figcaption></figure><figure class="wf"><div class="wf-v" data-src="https://t2zt5gymcnwnozru.public.blob.vercel-storage.com/uploads/1792156507449-2v94op4vmbf.mp4"><img src="/videokreator-2/media/new/wf19.jpg" alt="Girl with a Pearl Earring" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись: Girl with a Pearl Earring"><i></i></button></div><figcaption><b>Girl with a Pearl Earring</b><span>Seedance 2.5 · GPT Image 2</span></figcaption></figure></div>
+      <p class="wfx-more"><b>і ще 26 воркфлоу</b> — у клубі, доступ отримують усі учні курсу</p></div>
   </div>
 </section>
 <!-- ===================== NOV 06: product ads ===================== -->
 <section class="sec cream nov" id="nov6">
   <div class="wrap">
-    <div class="nov-n reveal">Нововведення <b>06</b> / 06</div>
+    <div class="nov-n reveal">Нововведення <b>05</b> / 05</div>
     <h2 class="reveal">Реклама товарів, <span class="hm">яку справді купують</span></h2>
-    <p class="lead reveal d1">Сьогодні кожен може зайти в ChatGPT і зробити фотосесію товару. Але таке не купують — це вміє будь-хто. Бізнес платить за креатив. В оновленому блоці — 3 види контенту, за які люди справді готові платити:</p>
+    <p class="lead reveal d1">Сьогодні кожен може зайти в ChatGPT і зробити фотосесію товару. Але таке вже не купують — це вміє будь-хто. Бізнес платить за креатив. В оновленому блоці з предметної зйомки — 3 види контенту, за які люди справді готові платити:</p>
     <div class="pt-grid">
       <div class="pt reveal"><b class="pt-n">1</b><h3>Гіпермоушен</h3><p>Динамічні ролики, де товар оживає в русі й тримає увагу з першої секунди.</p><div class="pt-v"><div class="wf-v" data-src="https://t2zt5gymcnwnozru.public.blob.vercel-storage.com/uploads/1792155316339-fpseuiwlufb.mp4"><img src="/videokreator-2/media/new/wf10.jpg" alt="Car Commercial — авто збирається з нуля" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись: Car Commercial — авто збирається з нуля"><i></i></button></div><span class="pt-ex">Приклад: Car Commercial — авто збирається з нуля</span></div></div>
       <div class="pt reveal d1"><b class="pt-n">2</b><h3>Креатив, що пробиває банерну сліпоту</h3><p>Рекламні ролики, які не скролять, бо вони не схожі на рекламу.</p><div class="pt-v"><div class="wf-v" data-src="https://t2zt5gymcnwnozru.public.blob.vercel-storage.com/uploads/1792412435933-gyb1vbd22d7.mp4"><img src="/videokreator-2/media/new/wf29.jpg" alt="Anamorphic Billboard — 3D-білборд" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись: Anamorphic Billboard — 3D-білборд"><i></i></button></div><span class="pt-ex">Приклад: Anamorphic Billboard — 3D-білборд</span></div></div>
       <div class="pt reveal d2"><b class="pt-n">3</b><h3>Товар + людина + локація + ситуація</h3><p>Товар у живій сцені, де з ним щось відбувається, — а не на білому фоні.</p><div class="pt-v"><div class="wf-v" data-src="https://t2zt5gymcnwnozru.public.blob.vercel-storage.com/uploads/1792155373670-3vm63ditstg.mp4"><img src="/videokreator-2/media/new/wf13.jpg" alt="Garlic Chilli — реклама соусу" loading="lazy" decoding="async"><button class="play" aria-label="Дивитись: Garlic Chilli — реклама соусу"><i></i></button></div><span class="pt-ex">Приклад: Garlic Chilli — реклама соусу</span></div></div>
     </div>
+  </div>
+</section>
+<!-- ===================== MORE: overdelivered (окремий блок після нововведень) ===================== -->
+<section class="sec paper nov" id="more">
+  <div class="wrap">
+    <h2 class="reveal">Я дав більше користі та матеріалу, <span class="hm">ніж обіцяв</span></h2>
+    <div class="ov-cmp">
+      <div class="oc reveal"><span>Навчальних модулів</span><s>12</s><b>14</b><em>+2 бонусні: «Рухи камери» і «Контент із собою»</em></div>
+      <div class="oc reveal d1"><span>Групових зідзвонів</span><s>12</s><b>15</b><em>тому що учням треба було більше зворотного зв'язку від мене</em></div>
+      <div class="oc reveal d2"><span>Матеріалів на платформі</span><s>30</s><b>208</b><em>гайди, чеклісти, шаблони, промпти</em></div>
+    </div>
+    <h3 class="ov-h reveal">І ще те, чого взагалі не було в обіцянках</h3>
+    <div class="ov-grid">
+      <div class="og reveal"><i>🤖</i><b>Мультиагент для монтажу v6</b><span>Монтує й робить контент через Claude Code і Codex</span></div>
+      <div class="og reveal d1"><i>🎓</i><b>Атестація</b><span>Надсилаєш найкращу роботу — отримуєш статус «Атестовано» і доступ до передачі клієнтів від мене</span></div>
+      <div class="og reveal d3"><i>🗞</i><b>AI-пульс щодня о 8:00</b><span>Щоранку — головні новини AI-відео за добу: нові моделі, знижки, свіжі фішки. І одразу пояснення, як це використати у своїй роботі. Не треба сидіти в десятках каналів — найважливіше вже зібрано за тебе.</span></div>
+      <div class="og reveal d4"><i>💬</i><b>Міні-Сашка</b><span>AI-помічник на платформі: підкаже, якщо щось незрозуміло, — в будь-який час доби, навіть коли куратор спить</span></div>
+      <div class="og reveal d5"><i>🎁</i><b>Бонусні завдання з розіграшами</b><span>133 учні здають бонуси — вже 751 зарахована робота</span></div>
+      <div class="og wide reveal"><i>🛠</i><b>5 безкоштовних AI-інструментів</b><ul class="og-l"><li><b>Seedance 2.5 Режисер</b> — завантажуєш фото-референси й описуєш ідею, отримуєш готовий промпт із таймкодами</li><li><b>Пошукові запити</b> — справжні запити з TikTok і YouTube, щоб описати відео так, як його шукають люди</li><li><b>Зображення → промпт</b> — закидаєш будь-яку картинку, отримуєш детальний промпт, щоб повторити стиль</li><li><b>Текст → голос</b> — озвучка для закадру голосами ElevenLabs, OpenAI та інших</li><li><b>Видалення фону</b> — PNG без фону за секунди, прямо в браузері</li></ul></div>
+    </div>
+    <div class="ov-so reveal"><p>Усе це я до того, що програма й тарифи, які ти зараз бачиш, — це мінімум. У процесі навчання вони тільки ростуть, бо я завжди даю більше, ніж обіцяю. Не вистачає групових зідзвонів — організую додаткові. Щось незрозуміло — запишу ще один відеоурок. <b>Моя задача — щоб ти точно дійшов до результату.</b></p></div>
   </div>
 </section>
 <!-- NOV END -->
@@ -1420,7 +1466,7 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
       <div class="claim">
       <p class="reveal">Учні першого потоку <b>вже отримали своїх перших клієнтів</b> — і продовжують отримувати.</p>
       <p class="reveal d1">Частину замовлень я передаю їм сам. Але головне — <b>вони навчилися знаходити клієнтів самостійно</b>.</p>
-      <p class="reveal d2">Зараз ми будуємо систему передачі клієнтів учням — і будемо показувати тобі весь процес зсередини та ділитися всіма напрацюваннями.</p>
+      <p class="reveal d2">Зараз я будую систему передачі клієнтів учням — і буду показувати тобі весь процес зсередини та ділитися всіма напрацюваннями.</p>
       </div>
     </div>
     <div class="experts">
@@ -1437,7 +1483,7 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
   <div class="wrap sup-w">
     <h2 class="reveal">Ти не лишишся <span class="hm">сам на сам</span> з уроками</h2>
     <div class="advs">
-      <div class="adv reveal"><div class="adv-ic"><img src="/videokreator-2/media/sup/live.webp" alt="" width="565" height="835" loading="lazy" decoding="async"></div><div class="adv-t"><span class="adv-tag">Преміум і VIP</span><h3>12 групових Zoom-ефірів з Олександром</h3><p>Щотижня ти особисто ставиш питання Олександру й розбираєш свої ситуації наживо. На ефірах — розбори робіт учнів, свіжі фішки нейромереж і відповіді, яких немає в уроках. Пропустив — запис кожного ефіру чекає на платформі.</p></div></div>
+      <div class="adv reveal"><div class="adv-ic"><img src="/videokreator-2/media/sup/live.webp" alt="" width="565" height="835" loading="lazy" decoding="async"></div><div class="adv-t"><span class="adv-tag">Преміум і VIP</span><h3>12 групових Zoom-ефірів зі мною</h3><p>Щотижня ти особисто ставиш мені питання й розбираєш свої ситуації наживо. На ефірах — розбори робіт учнів, свіжі фішки нейромереж і відповіді, яких немає в уроках. Пропустив — запис кожного ефіру чекає на платформі.</p></div></div>
       <div class="adv reveal"><div class="adv-ic"><img src="/videokreator-2/media/sup/check.webp" alt="" width="522" height="728" loading="lazy" decoding="async"></div><div class="adv-t"><span class="adv-tag">Преміум і VIP</span><h3>Перевірка кожного ДЗ куратором</h3><p>Ти не гадаєш, чи правильно зробив. Куратор розбирає кожну домашку: що вийшло добре, що варто покращити — і як саме: промтом, кадром чи монтажем. З кожним завданням ти бачиш свій ріст.</p></div></div>
       <div class="adv reveal"><div class="adv-ic"><img src="/videokreator-2/media/sup/chat.webp" alt="" width="610" height="524" loading="lazy" decoding="async"></div><div class="adv-t"><span class="adv-tag">Преміум і VIP</span><h3>Чат і куратор — навіть після курсу</h3><p>Навчання закінчується, а підтримка — ні. Питання в чаті можна ставити й після завершення курсу: куратор відповідає, а поруч — спільнота учнів, які проходять той самий шлях.</p></div></div>
       <div class="adv reveal"><div class="adv-ic"><img src="/videokreator-2/media/sup/upd.webp" alt="" width="559" height="591" loading="lazy" decoding="async"></div><div class="adv-t"><span class="adv-tag">Усі тарифи</span><h3>Оновлення уроків протягом року</h3><p>Нейромережі змінюються щомісяця. Протягом року уроки оновлюються безкоштовно — ти завжди працюєш з актуальними інструментами, а не з тим, що було торік.</p></div></div>
@@ -1590,7 +1636,7 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
         </div>
       </div>
     </div>
-    <p class="sto-src mut reveal">Історії та цитати учнів першого потоку публікуємо з їхньої згоди.</p>
+    <p class="sto-src mut reveal">Історії та цитати учнів першого потоку публікую з їхньої згоди.</p>
   </div>
 </section>
 
@@ -1612,14 +1658,14 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
         <h3>Стандарт</h3><p class="for">Для тих, хто легко вчиться сам — уроки без зворотного зв'язку</p>
         <div class="pr"><b>6 290 ₴</b><s>14 990 ₴</s></div>
         <p class="mo">або <b>~1 048 ₴/міс</b> × 6 платежів</p>
-        <ul><li class="acc"><span>Доступ до уроків — <b>6 місяців</b></span></li><li><span>Усі 12 модулів</span></li><li><span>Паки промтів, готові картки персонажів та локацій</span></li><li><span>АІ-Студія монтажу (окремо 2 000 ₴)</span></li><li><span>Чат учасників</span></li><li><span>Сертифікат про проходження курсу</span></li><li class="gift"><span><b>Бонус за швидке рішення:</b> 3 модулі — Монетизація Facebook, бухгалтерія, розбори нейромереж</span></li><li class="off"><span>12 тижнів прямого спілкування з Олександром</span></li><li class="off"><span>12 групових Zoom-ефірів</span></li><li class="off"><span>Перевірка домашніх завдань</span></li><li class="off"><span>Команда AI-асистентів під кожну задачу</span></li><li class="off"><span>Персональний AI-асистент для навчання</span></li><li class="off"><span>Чат і куратор після завершення курсу</span></li><li class="off"><span>Передача клієнтів з агенції Олександра</span></li><li class="off"><span>Іменний сертифікат AI-відеокреатора</span></li><li class="off"><span>3 особисті Zoom-дзвінки 1:1 з Олександром</span></li><li class="off"><span>VIP-чат з Олександром та учасниками</span></li><li class="off"><span>Підлаштування програми під твій запит</span></li></ul>
+        <ul><li class="acc"><span>Доступ до уроків — <b>6 місяців</b></span></li><li><span>Усі 12 модулів</span></li><li><span>Паки промтів, готові картки персонажів та локацій</span></li><li><span>АІ-Студія монтажу (окремо 2 000 ₴)</span></li><li><span>Чат учасників</span></li><li><span>Сертифікат про проходження курсу</span></li><li class="gift"><span><b>Бонус за швидке рішення:</b> 3 модулі — Монетизація Facebook, бухгалтерія, розбори нейромереж</span></li><li class="off"><span>12 тижнів прямого спілкування зі мною</span></li><li class="off"><span>12 групових Zoom-ефірів</span></li><li class="off"><span>Перевірка домашніх завдань</span></li><li class="off"><span>Команда AI-асистентів під кожну задачу</span></li><li class="off"><span>Персональний AI-асистент для навчання</span></li><li class="off"><span>Чат і куратор після завершення курсу</span></li><li class="off"><span>Передача клієнтів з моєї агенції</span></li><li class="off"><span>Іменний сертифікат AI-відеокреатора</span></li><li class="off"><span>3 особисті Zoom-дзвінки 1:1 зі мною</span></li><li class="off"><span>VIP-чат зі мною та учасниками</span></li><li class="off"><span>Підлаштування програми під твій запит</span></li></ul>
         <div class="btns"><a class="btn block" data-pay="std-full" href="#">Оплатити 6 290 ₴</a><a class="btn ghost block" data-pay="std-parts" href="#">Частинами · 6 × 1 048 ₴</a></div>
       </div>
       <div class="tier feat reveal">
         <h3>Преміум</h3><p class="for">Для тих, кому важливі зворотний зв'язок і супровід</p>
         <div class="pr"><b>11 290 ₴</b><s>24 990 ₴</s></div>
         <p class="mo">або <b>~1 882 ₴/міс</b> × 6 платежів</p>
-        <ul><li class="acc"><span>Доступ до уроків — <b>1 рік</b></span></li><li><span>Усі 12 модулів</span></li><li><span>Паки промтів, готові картки персонажів та локацій</span></li><li><span>АІ-Студія монтажу (окремо 2 000 ₴)</span></li><li><span>Чат учасників</span></li><li><span>Сертифікат про проходження курсу</span></li><li class="gift"><span><b>Бонус за швидке рішення:</b> 3 модулі — Монетизація Facebook, бухгалтерія, розбори нейромереж</span></li><li><span><b>12 тижнів прямого спілкування з Олександром</b></span></li><li><span><b>12 групових Zoom-ефірів</b></span></li><li><span><b>Перевірка домашніх завдань</b></span></li><li><span>Команда AI-асистентів під кожну задачу</span></li><li><span>Персональний AI-асистент для навчання</span></li><li><span>Чат і куратор після завершення курсу</span></li><li><span>Передача клієнтів з агенції Олександра</span></li><li><span>Іменний сертифікат AI-відеокреатора</span></li><li class="off"><span>3 особисті Zoom-дзвінки 1:1 з Олександром</span></li><li class="off"><span>VIP-чат з Олександром та учасниками</span></li><li class="off"><span>Підлаштування програми під твій запит</span></li></ul>
+        <ul><li class="acc"><span>Доступ до уроків — <b>1 рік</b></span></li><li><span>Усі 12 модулів</span></li><li><span>Паки промтів, готові картки персонажів та локацій</span></li><li><span>АІ-Студія монтажу (окремо 2 000 ₴)</span></li><li><span>Чат учасників</span></li><li><span>Сертифікат про проходження курсу</span></li><li class="gift"><span><b>Бонус за швидке рішення:</b> 3 модулі — Монетизація Facebook, бухгалтерія, розбори нейромереж</span></li><li><span><b>12 тижнів прямого спілкування зі мною</b></span></li><li><span><b>12 групових Zoom-ефірів</b></span></li><li><span><b>Перевірка домашніх завдань</b></span></li><li><span>Команда AI-асистентів під кожну задачу</span></li><li><span>Персональний AI-асистент для навчання</span></li><li><span>Чат і куратор після завершення курсу</span></li><li><span>Передача клієнтів з моєї агенції</span></li><li><span>Іменний сертифікат AI-відеокреатора</span></li><li class="off"><span>3 особисті Zoom-дзвінки 1:1 зі мною</span></li><li class="off"><span>VIP-чат зі мною та учасниками</span></li><li class="off"><span>Підлаштування програми під твій запит</span></li></ul>
         <div class="btns"><a class="btn block" data-pay="prem-full" href="#">Оплатити 11 290 ₴</a><a class="btn ghost block" data-pay="prem-parts" href="#">Частинами · 6 × 1 882 ₴</a></div>
       </div>
       <div class="tier vip reveal">
@@ -1627,7 +1673,7 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
         <h3>VIP</h3><p class="for">Для тих, кому потрібен особистий ментор</p>
         <div class="pr"><b>19 990 ₴</b><s>39 990 ₴</s></div>
         <p class="mo">або <b>~3 332 ₴/міс</b> × 6 платежів</p>
-        <ul><li class="acc"><span>Доступ до уроків — <b>1 рік</b></span></li><li><span>Усі 12 модулів</span></li><li><span>Паки промтів, готові картки персонажів та локацій</span></li><li><span>АІ-Студія монтажу (окремо 2 000 ₴)</span></li><li><span>Чат учасників</span></li><li><span>Сертифікат про проходження курсу</span></li><li class="gift"><span><b>Бонус за швидке рішення:</b> 3 модулі — Монетизація Facebook, бухгалтерія, розбори нейромереж</span></li><li><span><b>12 тижнів прямого спілкування з Олександром</b></span></li><li><span><b>12 групових Zoom-ефірів</b></span></li><li><span><b>Перевірка домашніх завдань</b></span></li><li><span>Команда AI-асистентів під кожну задачу</span></li><li><span>Персональний AI-асистент для навчання</span></li><li><span>Чат і куратор після завершення курсу</span></li><li><span>Передача клієнтів з агенції Олександра</span></li><li><span>Іменний сертифікат AI-відеокреатора</span></li><li><span><b>3 особисті Zoom-дзвінки 1:1 з Олександром</b></span></li><li><span>VIP-чат з Олександром та учасниками</span></li><li><span>Підлаштування програми під твій запит</span></li></ul>
+        <ul><li class="acc"><span>Доступ до уроків — <b>1 рік</b></span></li><li><span>Усі 12 модулів</span></li><li><span>Паки промтів, готові картки персонажів та локацій</span></li><li><span>АІ-Студія монтажу (окремо 2 000 ₴)</span></li><li><span>Чат учасників</span></li><li><span>Сертифікат про проходження курсу</span></li><li class="gift"><span><b>Бонус за швидке рішення:</b> 3 модулі — Монетизація Facebook, бухгалтерія, розбори нейромереж</span></li><li><span><b>12 тижнів прямого спілкування зі мною</b></span></li><li><span><b>12 групових Zoom-ефірів</b></span></li><li><span><b>Перевірка домашніх завдань</b></span></li><li><span>Команда AI-асистентів під кожну задачу</span></li><li><span>Персональний AI-асистент для навчання</span></li><li><span>Чат і куратор після завершення курсу</span></li><li><span>Передача клієнтів з моєї агенції</span></li><li><span>Іменний сертифікат AI-відеокреатора</span></li><li><span><b>3 особисті Zoom-дзвінки 1:1 зі мною</b></span></li><li><span>VIP-чат зі мною та учасниками</span></li><li><span>Підлаштування програми під твій запит</span></li></ul>
         <div class="btns"><a class="btn gold block" data-pay="vip-full" href="#">Оплатити 19 990 ₴</a><a class="btn ghost block" data-pay="vip-parts" href="#">Частинами · 6 × 3 332 ₴</a></div>
         <div class="seats"><div class="seats-top"><span><i class="live-dot" style="background:var(--gold);box-shadow:0 0 12px rgba(227,180,74,.7)"></i>Зайнято 10 з 20 VIP-місць</span><b>залишилось 10</b></div><div class="seats-bar"><i style="width:50%"></i></div></div>
       </div>
@@ -1658,7 +1704,7 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
     </div>
     <div class="privat reveal">
       <div class="pv-top"><img src="/videokreator-2/media/bank/privat.png" alt="" width="52" height="52" loading="lazy"><h3>Хочеш оплатити частинами через ПриватБанк?</h3></div>
-      <p>Оплата частинами через ПриватБанк у нас напряму недоступна — <b>але для тебе є рішення.</b> Напиши менеджеру: підберемо зручний спосіб оплати частинами. Так само допоможемо, якщо ти платиш з-за кордону або сумніваєшся, який тариф обрати.</p>
+      <p>Оплата частинами через ПриватБанк напряму недоступна — <b>але для тебе є рішення.</b> Напиши менеджеру: він підбере зручний спосіб оплати частинами. Так само допоможе, якщо ти платиш з-за кордону або сумніваєшся, який тариф обрати.</p>
       <a class="btn gold block" href="https://t.me/m/NdwFCsV5N2Ey" target="_blank" rel="noopener">Написати менеджеру →</a>
     </div>
   </div>
@@ -1675,8 +1721,8 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
       <div class="fq"><button class="fq-btn" aria-expanded="false">Вимикають світло. Як вчитися?<span class="mod-x"></span></button><div class="fq-body"><p>Уроки й записи ефірів доступні з телефону в будь-який час. Пропустив ефір через відключення — подивишся запис і задаси питання в чаті.</p></div></div>
       <div class="fq"><button class="fq-btn" aria-expanded="false">Чи будуть у мене клієнти?<span class="mod-x"></span></button><div class="fq-body"><p>Гарантувати клієнтів не може ніхто. Але учні першого потоку отримали 30+ замовлень ще під час навчання. Модуль 12 ведуть 4 експерти з лідогенерації та продажів, а модуль про пошук клієнтів відкривається вже на 2-му тижні навчання.</p></div></div>
       <div class="fq"><button class="fq-btn" aria-expanded="false">Чим це відрізняється від «Нейромереж з 0»?<span class="mod-x"></span></button><div class="fq-body"><p>«Нейромережі з 0» — це старт у нейромережах. АІ-Відеокреатор — повний шлях професії: персонажі, режисура, відео, звук, монтаж, портфоліо й клієнти, плюс ефіри, перевірка ДЗ і супровід.</p></div></div>
-      <div class="fq"><button class="fq-btn" aria-expanded="false">Скільки ще витрачу на нейромережі?<span class="mod-x"></span></button><div class="fq-body"><p>На старті вистачить безкоштовних інструментів. Для практики й портфоліо знадобляться 1–2 підписки — під кожним уроком ми показуємо, що саме потрібно і чим можна замінити безкоштовно.</p></div></div>
-      <div class="fq"><button class="fq-btn" aria-expanded="false">Я з-за кордону. Як оплатити?<span class="mod-x"></span></button><div class="fq-body"><p>Напиши менеджеру — підберемо зручний спосіб оплати й зафіксуємо за тобою ціну.</p></div></div>
+      <div class="fq"><button class="fq-btn" aria-expanded="false">Скільки ще витрачу на нейромережі?<span class="mod-x"></span></button><div class="fq-body"><p>На старті вистачить безкоштовних інструментів. Для практики й портфоліо знадобляться 1–2 підписки — під кожним уроком я показую, що саме потрібно і чим можна замінити безкоштовно.</p></div></div>
+      <div class="fq"><button class="fq-btn" aria-expanded="false">Я з-за кордону. Як оплатити?<span class="mod-x"></span></button><div class="fq-body"><p>Напиши менеджеру — він підбере зручний спосіб оплати й зафіксує за тобою ціну.</p></div></div>
     </div>
   </div>
 </section>
@@ -1694,7 +1740,7 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
       <li class="reveal d3">Створив десятки авторських AI-асистентів для клієнтів і учнів</li>
     </ul>
     <p class="quote-big reveal">«Я не обіцяю золотих гір і "3000$ вже через місяць". Я даю покрокову систему створення AI-відео, за які платять. Вивести це на стабільний дохід — твоя робота. А я буду поруч.»</p>
-    <a class="pill reveal" href="https://www.instagram.com/ai_sashka.ua/" target="_blank" rel="noopener">Instagram автора →</a>
+    <a class="pill reveal" href="https://www.instagram.com/ai_sashka.ua/" target="_blank" rel="noopener">Мій Instagram →</a>
   </div>
 </section>
 
@@ -1830,6 +1876,16 @@ document.querySelectorAll('.vid,.work').forEach(function(box){
   if(!('IntersectionObserver' in window)){vs.forEach(function(v){v.src=v.getAttribute('data-lz')});return;}
   var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target; if(e.isIntersecting){if(!v.src)v.src=v.getAttribute('data-lz'); var p=v.play(); if(p&&p.catch)p.catch(function(){});} else if(v.src){v.pause();}})},{rootMargin:'200px 0px'});
   vs.forEach(function(v){io.observe(v)});
+})();
+
+/* nov2: фрагменти уроку грають по черзі в «телефоні» */
+(function(){
+  var v=document.querySelector('.rec-v'); if(!v) return;
+  var list=v.getAttribute('data-pl').split(','), i=0, started=false;
+  function play(){ v.src=list[i]; var p=v.play(); if(p&&p.catch)p.catch(function(){}); }
+  v.addEventListener('ended',function(){ i=(i+1)%list.length; play(); });
+  if(!('IntersectionObserver' in window)){ play(); return; }
+  new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ if(!started){started=true; play();} else v.play(); } else if(started) v.pause(); }); },{rootMargin:'150px 0px'}).observe(v);
 })();
 </script>
 </body>
