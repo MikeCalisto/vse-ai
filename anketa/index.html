@@ -173,7 +173,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <form class="contacts" id="cform" novalidate autocomplete="on">
         <h2>Як з тобою звʼязатись<small>Менеджер напише в Telegram після анкети</small></h2>
         <label class="field" id="f-name"><span>Імʼя</span><input type="text" name="name" placeholder="Як тебе звати?" autocomplete="name" maxlength="120" required><em class="msg">Напиши, як до тебе звертатись</em></label>
-        <label class="field" id="f-telegram"><span>Нік у Telegram</span><input type="text" name="telegram" placeholder="@нік" autocomplete="username" autocapitalize="off" spellcheck="false" maxlength="120" required><em class="msg">Потрібен нік через @ — без нього не зможемо написати</em></label>
+        <label class="field" id="f-telegram"><span>Нік у Telegram</span><input type="text" name="telegram" placeholder="нік, можна без @" autocomplete="username" autocapitalize="off" spellcheck="false" maxlength="120" required><em class="msg">Нік має бути від 5 символів: латиниця, цифри або _ (можна без @)</em></label>
         <label class="field" id="f-phone"><span>Номер телефону</span><input type="tel" name="phone" placeholder="+380 __ ___ __ __" autocomplete="tel" inputmode="tel" maxlength="40" required><em class="msg">Перевір номер — має бути щонайменше 10 цифр</em></label>
         <label class="hp" aria-hidden="true">Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label>
         <div class="nav" style="padding-top:18px">
@@ -344,10 +344,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     e.preventDefault();
     var ok = true;
     var name = cform.elements.name.value.trim();
-    var tg = cform.elements.telegram.value.trim();
+    var tg = normTg(cform.elements.telegram.value);
     var ph = cform.elements.phone.value.replace(/[^\d+]/g,'');
     if (name.length < 2) { ok = false; mark('name'); }
-    if (!/^(@|https?:\/\/t\.me\/|t\.me\/)?[a-zA-Z0-9_]{4,32}$/.test(tg)) { ok = false; mark('telegram'); }
+    if (!tg) { ok = false; mark('telegram'); }
     if (ph.replace(/\D/g,'').length < 10) { ok = false; mark('phone'); }
     if (!ok) { var first = cform.querySelector('.field.err input'); if (first) first.focus(); return; }
     state.contacts = { name:name, telegram:tg, phone:cform.elements.phone.value.trim() };
@@ -378,6 +378,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     };
   }
   function mark(k){ document.getElementById('f-' + k).classList.add('err'); }
+  // Нік у Telegram у будь-якому вигляді: nick, @nick, t.me/nick, https://t.me/nick → «@nick» або '' якщо не схоже на нік
+  function normTg(raw){
+    var v = String(raw || '').trim().replace(/^@\s+/, '@'); // пробіл після @ пробачаємо, пробіл усередині — ні
+    v = v.replace(/^https?:\/\//i, '').replace(/^(www\.)?(t|telegram)\.me\//i, '').replace(/[\/?#].*$/, '').replace(/^@+/, '');
+    return /^[A-Za-z][A-Za-z0-9_]{4,31}$/.test(v) ? '@' + v : '';
+  }
 
   /* ---------- navigation ---------- */
   var current = 0;
