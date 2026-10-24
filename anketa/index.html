@@ -105,6 +105,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .field .msg{display:none;font-size:.8rem;color:var(--red);margin-top:6px;font-weight:600}
 .field.err .msg{display:block}
 .hp{position:absolute;left:-9999px;top:-9999px;height:0;width:0;opacity:0}
+.field.off input{opacity:.35;pointer-events:none}
+.chk{display:flex;align-items:flex-start;gap:10px;margin-top:10px;font-size:.9rem;line-height:1.35;color:var(--t-mut-d);cursor:pointer}
+.chk input{appearance:none;-webkit-appearance:none;flex:none;width:22px;height:22px;margin-top:1px;border-radius:7px;border:2px solid #5f7169;background:transparent;display:grid;place-items:center;cursor:pointer;transition:border-color .2s,background .2s}
+.chk input::after{content:'';width:11px;height:6px;border:2.5px solid #06120d;border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px);opacity:0}
+.chk input:checked{background:var(--mint);border-color:var(--mint)}
+.chk input:checked::after{opacity:1}
+.chk input:checked+span{color:#e2ebe6}
 
 /* question step */
 .qn{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mint);margin-bottom:12px;display:flex;align-items:center;gap:10px}
@@ -174,6 +181,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         <h2>Як з тобою звʼязатись<small>Менеджер напише в Telegram після анкети</small></h2>
         <label class="field" id="f-name"><span>Імʼя</span><input type="text" name="name" placeholder="Як тебе звати?" autocomplete="name" maxlength="120" required><em class="msg">Напиши, як до тебе звертатись</em></label>
         <label class="field" id="f-telegram"><span>Нік у Telegram</span><input type="text" name="telegram" placeholder="нік, можна без @" autocomplete="username" autocapitalize="off" spellcheck="false" maxlength="120" required><em class="msg">Нік має бути від 5 символів: латиниця, цифри або _ (можна без @)</em></label>
+        <label class="chk"><input type="checkbox" name="notg"><span>У мене немає ніка в Telegram — пишіть на номер телефону</span></label>
         <label class="field" id="f-phone"><span>Номер телефону</span><input type="tel" name="phone" placeholder="+380 __ ___ __ __" autocomplete="tel" inputmode="tel" maxlength="40" required><em class="msg">Перевір номер — має бути щонайменше 10 цифр</em></label>
         <label class="hp" aria-hidden="true">Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label>
         <div class="nav" style="padding-top:18px">
@@ -340,17 +348,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     if (state.contacts[k]) inp.value = state.contacts[k];
     inp.addEventListener('input', function(){ state.contacts[k] = inp.value; save(); document.getElementById('f-' + k).classList.remove('err'); });
   });
+  var notg = cform.elements.notg;
+  function syncNoTg(){
+    var f = document.getElementById('f-telegram');
+    f.classList.toggle('off', notg.checked);
+    f.classList.remove('err');
+    cform.elements.telegram.disabled = notg.checked;
+    state.contacts.notg = notg.checked; save();
+  }
+  if (state.contacts.notg) notg.checked = true;
+  syncNoTg();
+  notg.addEventListener('change', syncNoTg);
+
   cform.addEventListener('submit', function(e){
     e.preventDefault();
     var ok = true;
     var name = cform.elements.name.value.trim();
-    var tg = normTg(cform.elements.telegram.value);
+    var tg = notg.checked ? '' : normTg(cform.elements.telegram.value);
     var ph = cform.elements.phone.value.replace(/[^\d+]/g,'');
     if (name.length < 2) { ok = false; mark('name'); }
-    if (!tg) { ok = false; mark('telegram'); }
+    if (!tg && !notg.checked) { ok = false; mark('telegram'); }
     if (ph.replace(/\D/g,'').length < 10) { ok = false; mark('phone'); }
     if (!ok) { var first = cform.querySelector('.field.err input'); if (first) first.focus(); return; }
-    state.contacts = { name:name, telegram:tg, phone:cform.elements.phone.value.trim() };
+    state.contacts = { name:name, telegram:tg, phone:cform.elements.phone.value.trim(), notg: notg.checked };
     save();
     show(1, +1);
     sendContacts();
@@ -362,12 +382,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   function sendContacts(){
     if (state.contactsSent) return;
     var body = basePayload();
-    body.answers = [{ q: STATUS_Q, a: 'Почав(ла) заповнювати — відповідей ще немає' }];
+    body.answers = [{ q: STATUS_Q, a: 'Почав(ла) заповнювати — відповідей ще немає' }].concat(noTgNote());
     body.submissionId = state.sid + ':contacts';
     body.notify = false;
     fetch('/api/anketa', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(body), keepalive: true })
       .then(function(r){ if (r.ok) { state.contactsSent = true; save(); } })
       .catch(function(){ /* не страшно: повна анкета принесе контакти ще раз */ });
+  }
+  function noTgNote(){
+    return state.contacts.notg ? [{ q: 'Telegram', a: 'Ніка немає — звʼязок за номером телефону' }] : [];
   }
   function basePayload(){
     return {
@@ -426,7 +449,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       if (qd.other && v === 'Інше' && (state.other[qd.id] || '').trim()) v = 'Інше: ' + state.other[qd.id].trim();
       return { q: qd.q, a: (v || '').trim() };
     }).filter(function(x){ return x.a; });
-    answers.unshift({ q: STATUS_Q, a: 'Заповнена повністю' });
+    answers = [{ q: STATUS_Q, a: 'Заповнена повністю' }].concat(noTgNote(), answers);
     var body = basePayload();
     body.answers = answers;
     body.submissionId = state.sid + ':full';
