@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <script>
 /* якщо браузер (Telegram, Safari) показав збережену стару версію — один раз перезавантажити свіжу */
-(function(){var B='0c37a985d3';try{fetch('/videokreator-2/version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():''}).then(function(v){v=(v||'').trim();var k='vk2-'+v;if(v&&v!==B&&!sessionStorage.getItem(k)){sessionStorage.setItem(k,'1');location.replace(location.pathname+'?v='+v+location.hash)}}).catch(function(){})}catch(e){}})();
+(function(){var B='09e6927fec';try{fetch('/videokreator-2/version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():''}).then(function(v){v=(v||'').trim();var k='vk2-'+v;if(v&&v!==B&&!sessionStorage.getItem(k)){sessionStorage.setItem(k,'1');location.replace(location.pathname+'?v='+v+location.hash)}}).catch(function(){})}catch(e){}})();
 </script>
 <title>АІ-Відеокреатор 2.0 — курс Олександра Цюцьмаця · старт 12 листопада</title>
 <meta name="description" content="12 модулів, 12 тижнів: навчишся створювати рекламу, мультики, фільми й UGC через нейромережі та знаходити клієнтів. Другий потік, оновлений за відгуками 98 учнів.">
@@ -781,6 +781,42 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
 .cam-art .obj{display:block;width:118%;max-width:none;margin-left:-14%}
 .cam-row .lead{flex:1;min-width:0}
 
+/* ===== income calc ===== */
+.calc{display:grid;gap:14px;margin-top:24px}
+.calc-in{background:#fff;border:1px solid var(--line-c);border-radius:22px;padding:20px 18px;box-shadow:0 10px 26px rgba(40,34,20,.06)}
+.calc-k{font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--emerald);margin:0 0 10px}
+.calc-k:not(:first-child){margin-top:24px}
+.calc-goal{display:flex;align-items:baseline;gap:8px}
+.calc-goal b{font-size:2.8rem;font-weight:900;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.calc-goal span{color:var(--t-mut-c);font-weight:600}
+.calc-r{width:100%;margin:16px 0 4px;accent-color:var(--emerald);height:28px}
+.calc-pre{display:flex;flex-wrap:wrap;gap:6px}
+.calc-pre button,.calc-f button{font:inherit;cursor:pointer;border:1.5px solid var(--line-c);background:var(--paper);color:var(--t-dark);border-radius:12px;transition:border-color .15s,background .15s}
+.calc-pre button{padding:8px 12px;font-size:.88rem;font-weight:700}
+.calc-pre button.on{border-color:var(--emerald);background:rgba(67,209,153,.16)}
+.calc-f{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.calc-f button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;padding:11px 12px 11px 34px;position:relative}
+.calc-f button::before{content:'';position:absolute;left:11px;top:13px;width:16px;height:16px;border-radius:5px;border:1.5px solid #b9b2a3;background:#fff}
+.calc-f button[aria-pressed="true"]{border-color:var(--emerald);background:rgba(67,209,153,.14)}
+.calc-f button[aria-pressed="true"]::before{background:var(--emerald) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat;border-color:var(--emerald)}
+.calc-f b{font-size:.92rem;line-height:1.25}
+.calc-f span{font-size:.76rem;color:var(--t-mut-c);line-height:1.3}
+.calc-f i{font-style:normal;font-weight:800;color:var(--emerald);font-size:.84rem;margin-top:3px}
+.calc-out{background:var(--ink);color:var(--t-light);border-radius:22px;padding:22px 18px;box-shadow:0 24px 50px rgba(11,19,16,.25)}
+.calc-oh{font-size:1rem;line-height:1.45;color:var(--t-mut-d)}
+.calc-oh b{color:#fff}
+.calc-rows{display:grid;gap:8px;margin:14px 0 16px}
+.cr{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;background:rgba(255,255,255,.05);border:1px solid var(--line-d);border-radius:14px;padding:10px 14px}
+.cr b{font-size:1.9rem;font-weight:900;color:var(--mint);line-height:1;min-width:1.4ch;font-variant-numeric:tabular-nums}
+.cr span{font-size:.95rem;font-weight:700;line-height:1.3}
+.cr em{font-style:normal;font-size:.8rem;color:var(--t-mut-d);text-align:right;line-height:1.3}
+.cr-empty{font-size:.95rem;color:var(--t-mut-d);padding:14px 0}
+.calc-sum{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.calc-sum div{border-top:1px solid var(--line-d);padding-top:10px}
+.calc-sum b{display:block;font-size:1.5rem;font-weight:900;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.calc-sum span{display:block;font-size:.74rem;color:var(--t-mut-d);margin-top:4px;line-height:1.3}
+.calc-note{font-size:.74rem;line-height:1.45;color:#7f948a;margin-top:12px}
+
 
 /* ================= DESKTOP (≥960px) — full-width layout ================= */
 /* reviews on mobile: vertical list, first 4 + «show more» (the swipe track was as tall as the longest screenshot) */
@@ -792,6 +828,12 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
   .rv-more{display:flex;margin:20px auto 0;padding:16px 26px}
 }
 @media (min-width:960px){
+  /* income calc */
+  .calc{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:22px;align-items:start;margin-top:34px}
+  .calc-in{padding:28px 26px}
+  .calc-out{padding:30px 28px;position:sticky;top:24px}
+  .calc-f{grid-template-columns:repeat(3,1fr)}
+  .calc-goal b{font-size:3.4rem}
   /* nov objects */
   .nh{grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);column-gap:48px;align-items:center}
   .nh-vis{max-width:380px;margin:0 0 0 auto}
@@ -1530,6 +1572,37 @@ a.wsrc:hover{color:var(--emerald);text-decoration:underline}
   </div>
 </section>
 
+<!-- ===================== INCOME CALC ===================== -->
+<section class="sec paper" id="calc">
+  <div class="wrap">
+    <h2 class="reveal">Скільки роликів треба, <span class="hm">щоб вийти на свою ціль?</span></h2>
+    <p class="lead reveal d1">Постав, скільки хочеш заробляти на місяць, і обери формати, з якими тобі цікаво працювати. Калькулятор порахує, скільки замовлень для цього треба зробити.</p>
+    <div class="calc reveal d1">
+      <div class="calc-in">
+        <div class="calc-k">1 · Моя ціль на місяць</div>
+        <div class="calc-goal"><b id="cgV">$1 000</b><span>/ міс</span></div>
+        <input class="calc-r" id="cgR" type="range" min="300" max="5000" step="100" value="1000" aria-label="Ціль доходу на місяць, $">
+        <div class="calc-pre" role="group" aria-label="Швидкий вибір цілі">
+          <button type="button" data-g="500">$500</button><button type="button" data-g="1000">$1 000</button><button type="button" data-g="2000">$2 000</button><button type="button" data-g="3000">$3 000</button>
+        </div>
+        <div class="calc-k">2 · Формати, які мені цікаві</div>
+        <div class="calc-f" id="cgF"></div>
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <div class="calc-oh">Щоб заробляти <b id="cgO">$1 000</b> на місяць, тобі треба:</div>
+        <div class="calc-rows" id="cgRows"></div>
+        <div class="calc-sum">
+          <div><b id="cgN">0</b><span>замовлень на місяць</span></div>
+          <div><b id="cgW">0</b><span>на тиждень</span></div>
+          <div><b id="cgH">0</b><span>годин роботи на тиждень</span></div>
+        </div>
+        <a class="btn block" href="#tiers">Навчитися робити такі ролики</a>
+        <p class="calc-note">Ціни — середні по ринку за ролик середньої довжини, години — орієнтовно для того, хто вже пройшов курс. Кожне замовлення оцінюється окремо: це орієнтир, а не обіцянка доходу.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== SUPPORT ===================== -->
 <section class="sec cream" id="support">
   <div class="wrap sup-w">
@@ -1965,6 +2038,51 @@ document.querySelectorAll('.vid,.work').forEach(function(box){
   v.addEventListener('ended',function(){ i=(i+1)%list.length; play(); });
   if(!('IntersectionObserver' in window)){ play(); return; }
   new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ if(!started){started=true; play();} else v.play(); } else if(started) v.pause(); }); },{rootMargin:'150px 0px'}).observe(v);
+})();
+
+/* income calc */
+(function(){
+  var F=[
+    {id:'cartoon',n:'Мультик',d:'≈ 1 хв',p:200,h:8,f:['мультик','мультики','мультиків']},
+    {id:'ugc',n:'UGC-ролик',d:'20–30 с, для реклами в соцмережах',p:60,h:2,f:['UGC-ролик','UGC-ролики','UGC-роликів']},
+    {id:'ad',n:'Рекламний ролик',d:'≈ 30 с, для бренду чи товару',p:150,h:5,f:['рекламний ролик','рекламні ролики','рекламних роликів']},
+    {id:'film',n:'AI-фільм',d:'короткий фільм 2–3 хв',p:300,h:12,f:['AI-фільм','AI-фільми','AI-фільмів']},
+    {id:'greet',n:'Відеопривітання',d:'до 1 хв, персональне',p:50,h:1.5,f:['відеопривітання','відеопривітання','відеопривітань']},
+    {id:'photo',n:'Фотосесія товару',d:'≈ 10 кадрів',p:70,h:2,f:['фотосесія товару','фотосесії товару','фотосесій товару']}
+  ];
+  var R=document.getElementById('cgR'); if(!R) return;
+  var box=document.getElementById('cgF'), sel={cartoon:1,ugc:1};
+  function pl(n,f){var m=n%10,c=n%100;return m==1&&c!=11?f[0]:m>=2&&m<=4&&(c<12||c>14)?f[1]:f[2]}
+  function usd(v){return '$'+String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')}
+  F.forEach(function(x){
+    var b=document.createElement('button'); b.type='button'; b.setAttribute('aria-pressed',sel[x.id]?'true':'false');
+    b.innerHTML='<b>'+x.n+'</b><span>'+x.d+'</span><i>≈ '+usd(x.p)+' за ролик</i>';
+    b.addEventListener('click',function(){ if(sel[x.id]) delete sel[x.id]; else sel[x.id]=1; b.setAttribute('aria-pressed',sel[x.id]?'true':'false'); calc(); });
+    box.appendChild(b);
+  });
+  var pre=[].slice.call(document.querySelectorAll('.calc-pre button'));
+  pre.forEach(function(b){b.addEventListener('click',function(){R.value=b.getAttribute('data-g'); calc();})});
+  R.addEventListener('input',calc);
+  function calc(){
+    var g=+R.value, s=F.filter(function(x){return sel[x.id]});
+    document.getElementById('cgV').textContent=usd(g); document.getElementById('cgO').textContent=usd(g);
+    pre.forEach(function(b){b.classList.toggle('on',+b.getAttribute('data-g')==g)});
+    var rows=document.getElementById('cgRows');
+    if(!s.length){rows.innerHTML='<div class="cr-empty">Обери хоча б один формат — і побачиш розрахунок.</div>';['cgN','cgW','cgH'].forEach(function(i){document.getElementById(i).textContent='—'});return;}
+    // рівна частка цілі на кожен формат, далі добираємо туди, де найбільше не вистачає
+    var share=g/s.length, ideal=s.map(function(x){return share/x.p}), c=ideal.map(Math.floor), tot=0;
+    s.forEach(function(x,i){tot+=c[i]*x.p});
+    while(tot<g){var bi=0,bd=-1e9; s.forEach(function(x,i){var d=ideal[i]-c[i]; if(d>bd){bd=d;bi=i}}); c[bi]++; tot+=s[bi].p;}
+    var n=0,h=0,html='';
+    s.forEach(function(x,i){ if(!c[i]) return; n+=c[i]; h+=c[i]*x.h;
+      html+='<div class="cr"><b>'+c[i]+'</b><span>'+pl(c[i],x.f)+'</span><em>× '+usd(x.p)+'<br>= '+usd(c[i]*x.p)+'</em></div>'; });
+    rows.innerHTML=html;
+    var w=n/4.3;
+    document.getElementById('cgN').textContent=n;
+    document.getElementById('cgW').textContent=(w<1?'≈ 1':'≈ '+(Math.round(w*10)/10).toString().replace('.',','));
+    document.getElementById('cgH').textContent='≈ '+Math.max(1,Math.round(h/4.3));
+  }
+  calc();
 })();
 </script>
 </body>
