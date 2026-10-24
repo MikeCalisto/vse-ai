@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <script>
 /* якщо браузер (Telegram, Safari) показав збережену стару версію — один раз перезавантажити свіжу */
-(function(){var B='09e6927fec';try{fetch('/videokreator-2/version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():''}).then(function(v){v=(v||'').trim();var k='vk2-'+v;if(v&&v!==B&&!sessionStorage.getItem(k)){sessionStorage.setItem(k,'1');location.replace(location.pathname+'?v='+v+location.hash)}}).catch(function(){})}catch(e){}})();
+(function(){var B='7f15ed0fbf';try{fetch('/videokreator-2/version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():''}).then(function(v){v=(v||'').trim();var k='vk2-'+v;if(v&&v!==B&&!sessionStorage.getItem(k)){sessionStorage.setItem(k,'1');location.replace(location.pathname+'?v='+v+location.hash)}}).catch(function(){})}catch(e){}})();
 </script>
 <title>АІ-Відеокреатор 2.0 — курс Олександра Цюцьмаця · старт 12 листопада</title>
 <meta name="description" content="12 модулів, 12 тижнів: навчишся створювати рекламу, мультики, фільми й UGC через нейромережі та знаходити клієнтів. Другий потік, оновлений за відгуками 98 учнів.">
@@ -2047,8 +2047,8 @@ document.querySelectorAll('.vid,.work').forEach(function(box){
     {id:'ugc',n:'UGC-ролик',d:'20–30 с, для реклами в соцмережах',p:60,h:2,f:['UGC-ролик','UGC-ролики','UGC-роликів']},
     {id:'ad',n:'Рекламний ролик',d:'≈ 30 с, для бренду чи товару',p:150,h:5,f:['рекламний ролик','рекламні ролики','рекламних роликів']},
     {id:'film',n:'AI-фільм',d:'короткий фільм 2–3 хв',p:300,h:12,f:['AI-фільм','AI-фільми','AI-фільмів']},
-    {id:'greet',n:'Відеопривітання',d:'до 1 хв, персональне',p:50,h:1.5,f:['відеопривітання','відеопривітання','відеопривітань']},
-    {id:'photo',n:'Фотосесія товару',d:'≈ 10 кадрів',p:70,h:2,f:['фотосесія товару','фотосесії товару','фотосесій товару']}
+    {id:'greet',n:'Відеопривітання',d:'до 1 хв, персональне',p:100,h:1.5,f:['відеопривітання','відеопривітання','відеопривітань']},
+    {id:'photo',n:'Фотосесія товару',d:'≈ 10 кадрів',p:50,h:2,f:['фотосесія товару','фотосесії товару','фотосесій товару']}
   ];
   var R=document.getElementById('cgR'); if(!R) return;
   var box=document.getElementById('cgF'), sel={cartoon:1,ugc:1};
